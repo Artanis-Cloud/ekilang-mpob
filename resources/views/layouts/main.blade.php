@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Voler Admin Dashboard</title>
 
-    <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
 
     <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
 
@@ -25,10 +25,7 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
 
-
                         <li class='sidebar-title'>Main Menu</li>
-
-
 
                         <li class="sidebar-item active ">
                             <a href="index.html" class='sidebar-link'>
@@ -37,9 +34,6 @@
                             </a>
 
                         </li>
-
-
-
 
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
@@ -109,9 +103,6 @@
 
                         </li>
 
-
-
-
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="briefcase" width="20"></i>
@@ -132,12 +123,7 @@
 
                         </li>
 
-
-
-
                         <li class='sidebar-title'>Forms &amp; Tables</li>
-
-
 
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
@@ -175,9 +161,6 @@
 
                         </li>
 
-
-
-
                         <li class="sidebar-item  ">
                             <a href="form-layout.html" class='sidebar-link'>
                                 <i data-feather="layout" width="20"></i>
@@ -185,9 +168,6 @@
                             </a>
 
                         </li>
-
-
-
 
                         <li class="sidebar-item  ">
                             <a href="form-editor.html" class='sidebar-link'>
@@ -197,9 +177,6 @@
 
                         </li>
 
-
-
-
                         <li class="sidebar-item  ">
                             <a href="table.html" class='sidebar-link'>
                                 <i data-feather="grid" width="20"></i>
@@ -207,9 +184,6 @@
                             </a>
 
                         </li>
-
-
-
 
                         <li class="sidebar-item  ">
                             <a href="table-datatable.html" class='sidebar-link'>
@@ -219,12 +193,7 @@
 
                         </li>
 
-
-
-
                         <li class='sidebar-title'>Extra UI</li>
-
-
 
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
@@ -250,9 +219,6 @@
 
                         </li>
 
-
-
-
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="trending-up" width="20"></i>
@@ -273,12 +239,7 @@
 
                         </li>
 
-
-
-
                         <li class='sidebar-title'>Pages</li>
-
-
 
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
@@ -304,9 +265,6 @@
 
                         </li>
 
-
-
-
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="alert-circle" width="20"></i>
@@ -331,14 +289,12 @@
 
                         </li>
 
-
-
-
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
         </div>
+
         <div id="main">
             <nav class="navbar navbar-header navbar-expand navbar-light">
                 <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
@@ -430,7 +386,7 @@
 
     <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
     <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script>
+    {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
 
     <script src="{{ asset('theme/js/main.js') }}"></script>
 </body>
