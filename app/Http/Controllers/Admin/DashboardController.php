@@ -17,6 +17,11 @@ class DashboardController extends Controller
         return view('users.dashboard');
     }
 
+    public function index_form()
+    {
+        return view('users.form');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
