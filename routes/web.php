@@ -17,6 +17,11 @@ Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/login-page', function () {
+    return view('auth/login');
+});
+
+// Route::get('login', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 
 Route::middleware('auth')->group(
     function () {
@@ -28,3 +33,7 @@ Route::middleware('auth')->group(
     }
 );
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
