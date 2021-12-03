@@ -27,9 +27,9 @@
 
 </head>
 
-<body style="background-image: url({{ asset('theme/images/background/landing3.jpg') }}); background-repeat: no-repeat; background-size: cover;">
-    {{-- <div style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover; max-width: 100%;
-    height: auto;"> --}}
+<body >
+    <div style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover; max-width: 100%;
+    height: auto;">
 
 
 
@@ -113,7 +113,7 @@
             </nav>
 
 
-            <main class="py-4">
+            <main>
                 @yield('content')
             </main>
         </div>
