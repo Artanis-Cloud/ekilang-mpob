@@ -25,13 +25,15 @@ Route::get('/login-page', function () {
 
 Route::middleware('auth')->group(
     function () {
-        Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+        // Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 
         Route::get('admin/form', [App\Http\Controllers\Admin\DashboardController::class, 'index_form'])->name('admin.form');
 
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     }
 );
+
+Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 
 
 Auth::routes();
