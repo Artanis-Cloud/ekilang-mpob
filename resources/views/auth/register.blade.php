@@ -1,64 +1,195 @@
-@extends('layouts.app')
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-@section('content')
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <div class="main-w3layouts">
-        <h3 style="color: white; text-align:center; font-family:Verdana">Pendaftaran Akaun Pengguna</h3>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+    <title>Sistem E-Kilang</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('theme/images/favicon.png') }}">
+
+
+
+</head>
+
+<body style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover; max-width: 100%;
+height: auto;">
+
+
+
+    {{-- @extends('layouts.app')
+
+@section('content') --}}
+    <nav class="mx-3 mt-3 shadow-sm navbar navbar-expand-md" style="background: transparent">
+
+            <a class="navbar-brand" href="{{ url('/') }}">
+
+                <img src="theme/images/background/favicon.png" height='45px' alt="">
+                <img src="theme/images/background/mspo.png" height='60px' alt="">
+            </a>
+            {{-- <div class="ml-6"></div> --}}
+            <div class="col-md-3"></div>
+            {{-- <div class="col-md-1">  --}}
+                {{-- <a class="mx-1 navbar-brand" href="{{ url('/') }}">
+
+                <img src="theme/images/background/favicon.png"  height='45px' alt="">
+                <img src="theme/images/background/mspo.png"  height='60px' alt=""> --}}
+
+                <h3 style="color: white; text-align:center; font-family:Verdana">Pendaftaran Akaun Pengguna</h3>
+
+
+                {{-- </a> --}}
+            {{-- </div> --}}
+    </nav>
+
+
+    {{-- <div class="main-w3layouts"> --}}
+
+        {{-- <h3 style="color: white; text-align:center; font-family:Verdana">Pendaftaran Akaun Pengguna</h3> --}}
+
+
 
         {{-- <div class="col-12"> --}}
         <div class="main-agileinfo">
-            <div class="agileits-top" ">
-                        <form action=" #" method="post">
+            <div class="agileits-top" style="background-color:rgba(0, 0, 0, 0.459) ">
 
-                <div class="row">
-                    <div class="col-6">
-                        <h6 style="color: white"> Tahun </h6>
-                        <input class="text" type="text" name="Username" placeholder="Tahun" required="">
-                    </div>
-                    <div class="col-6">
-                        <h6 style="color: white"> Negeri </h6>
-                        <input class="text" type="text" name="Username" placeholder="Negeri" required="">
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-13">
-                        <h6 style="color: white"> Nama Kilang </h6>
-                        <input class="text" type="text" name="Username" placeholder="Nama Kilang" required="">
-                    </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-12">
-                        <h6 style="color: white"> Alamat Kilang </h6>
-                        <input class="text" type="text" name="Username" placeholder="Alamat Kilang" required="">
-                    </div>
-                </div>
-                <br>
+                <h5 style="font-family: verdana; color:white; text-align:center"> Maklumat Kilang
+                </h5>
+                <form action=" #" method="post">
+                    <br>
 
-                <div class="row">
-                    <div class="col-6">
-                        <h6 style="color: white"> Poskod </h6>
-                        <input class="text" type="text" name="Username" placeholder="Poskod" required="">
-                    </div>
-                    <div class="col-6">
-                        <h6 style="color: white"> Daerah </h6>
-                        <input class="text" type="text" name="Username" placeholder="Daerah" required="">
-                    </div>
-                </div>
 
-                {{-- <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 style="color: white"> Tahun </h6>
+                            <input class="text" type="text" name="Username" placeholder="Tahun" required="">
+                        </div>
+                        <div class="col-6">
+                            <h6 style="color: white"> Negeri </h6>
+                            <input class="text" type="text" name="Username" placeholder="Negeri" required="">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-13">
+                            <h6 style="color: white"> Nama Kilang </h6>
+                            <input class="text" type="text" name="Username" placeholder="Nama Kilang"
+                                required="">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-12">
+                            <h6 style="color: white"> Alamat Kilang </h6>
+                            <input class="text" type="text" name="Username" placeholder="Alamat Kilang"
+                                required="">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 style="color: white"> Poskod </h6>
+                            <input class="text" type="text" name="Username" placeholder="Poskod" required="">
+                        </div>
+                        <div class="col-6">
+                            <h6 style="color: white"> Daerah </h6>
+                            <input class="text" type="text" name="Username" placeholder="Daerah" required="">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 style="color: white"> No. Pendaftaran Syarikat (SSM) </h6>
+                            <input class="text" type="text" name="Username" placeholder="No. SSM" required="">
+                        </div>
+                        <div class="col-6">
+                            <h6 style="color: white"> No. Lesen </h6>
+                            <input class="text" type="text" name="Username" placeholder="No. Lesen"
+                                required="">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 style="color: white"> Laman Sesawang (Website) </h6>
+                            <input class="text" type="text" name="Username" placeholder="Laman Sesawang"
+                                required="">
+                        </div>
+
+                        <div class="col-6">
+                            <h6 style="color: white"> Emel </h6>
+                            <input class="text" type="text" name="Username" placeholder="Emel" required="">
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 style="color: white"> No. Telefon </h6>
+                            <input class="text" type="text" name="Username" placeholder="No. Telefon"
+                                required="">
+                        </div>
+                        <div class="col-6">
+                            <h6 style="color: white"> No. Faks </h6>
+                            <input class="text" type="text" name="Username" placeholder="No. Faks"
+                                required="">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 style="color: white"> Tarikh Kilang Ditubuhkan </h6>
+                            <input class="text" type="text" name="Username"
+                                placeholder="Tarikh Kilang Ditubuhkan" required="">
+                        </div>
+                        <div class="col-6">
+                            <h6 style="color: white"> Tarikh Kilang Mula Operasi </h6>
+                            <input class="text" type="text" name="Username"
+                                placeholder="Tarikh Kilang Mula Operasi" required="">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-6">
+                            <h6 style="color: white"> Status Hak Milik Syarikat </h6>
+                            <input class="text" type="text" name="Username"
+                                placeholder="Status Hak Milik Syarikat" required="">
+                        </div>
+                        <div class="col-6">
+                            <h6 style="color: white"> Status Warganegara </h6>
+                            <input class="text" type="text" name="Username" placeholder="Status Warganegara"
+                                required="">
+                        </div>
+                    </div>
+
+                    {{-- <div class="container">
     <div class="row">
         <div class="mx-auto col-md-7 col-sm-12">
             <div class="pt-4 card">
                 <div class="card-body">
                     <div class="mb-5 text-center">
                         {{-- <img src="assets/images/favicon.svg" height="48" class='mb-4'> --}}
-                {{-- <h3>Sign Up</h3>
+                    {{-- <h3>Sign Up</h3>
                         <p>Please fill the form to register.</p>
                     </div>
                     <form action="index.html"> --}}
-                {{-- <div class="row">
+                    {{-- <div class="row">
                     <div class="col-md-6 col-12">
                         <div class="form-group">
                             <label for="first-name-column">First Name</label>
@@ -97,11 +228,12 @@
                     </div>
                 </div> --}}
 
-                {{-- <a href="auth-login.html" style="text-align: center">Have an account? Login</a> --}}
-                <br>
-                <div class="clearfix">
-                    <button class="btn btn-primary float-end">Seterusnya</button>
-                </div>
+                    {{-- <a href="auth-login.html" style="text-align: center">Have an account? Login</a> --}}
+                    <br>
+                    <div class="clearfix">
+                        <button class="btn btn-primary float-end"><a style="color: white; text-decoration:none"
+                                href="{{ route('daftar.akaun2') }}">Seterusnya</button>
+                    </div>
                 </form>
                 {{-- <div class="divider">
                         <div class="divider-text">OR</div>
@@ -116,7 +248,7 @@
                                 Github</button>
                         </div>
                     </div> --}}
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
     </div>
@@ -197,5 +329,5 @@
             </div>
         </div>
     </div>
-</div> --}}
-@endsection
+{{-- </div> --}}
+    {{-- @endsection --}}

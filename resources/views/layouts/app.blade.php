@@ -27,53 +27,62 @@
 
 </head>
 
-<body >
-    <div style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover; max-width: 100%;
-    height: auto;">
+<body style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover; max-width: 100%;
+height: auto;">
+    {{-- <div style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover; max-width: 100%;
+    height: auto;"> --}}
 
 
 
 
 
-        {{-- <div class="auth-wrapper d-flex no-block justify-content-center align-items-center"> --}}
+    {{-- <div class="auth-wrapper d-flex no-block justify-content-center align-items-center"> --}}
 
 
 
 
-        <div id="app">
+    <div id="app">
 
-            <nav class="shadow-sm navbar navbar-expand-md" style="background: transparent">
+        <nav class="shadow-sm navbar navbar-expand-md" style="background: transparent">
 
-                <div class="container">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url('/') }}">
 
-                    <a class="mx-4 navbar-brand" href="{{ url('/') }}">
+                    <img src="theme/images/background/favicon.png" height='45px' alt="">
+                    <img src="theme/images/background/mspo.png" height='60px' alt="">
+                </a>
+                <div class="col-md-3"></div>
+                <div class="col-md-1">
+                    {{-- <a class="mx-1 navbar-brand" href="{{ url('/') }}">
 
+                            <img src="theme/images/background/favicon.png"  height='45px' alt="">
+                            <img src="theme/images/background/mspo.png"  height='60px' alt=""> --}}
 
-                        <img src="theme/images/background/favicon.png" width="50" height="50" alt="">
-                        <img src="theme/images/background/mspo.png" width="50" height="50" alt="">
-
-                        <span class="mx-5 mb-0 text-center navbar-brand h1" style="color: white; text-align:center; font-family:verdana"><b>
+                        <span class="mx-5 mb-0 text-center navbar-brand h1"
+                            style="color: white; text-align:center; font-family:verdana"><b>
                                 Sistem E-Kilang </b></span>
 
+                    
+                    {{-- </a> --}}
+                </div>
 
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav me-auto">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav me-auto">
 
-                        </ul>
+                    </ul>
 
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ms-auto">
-                            <!-- Authentication Links -->
-                            @guest
-                                {{-- @if (Route::has('login'))
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto">
+                        <!-- Authentication Links -->
+                        @guest
+                            {{-- @if (Route::has('login'))
                                     <li class="nav-item">
                                         <span class="mx-5 mb-0 text-center" style="color: white; text-align:center; font-family:verdana"><b>
                                             Log Masuk </b></span>
@@ -87,36 +96,36 @@
                                             href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </li>
                                 @endif --}}
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                 document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                        class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
 
-            <main>
-                @yield('content')
-            </main>
-        </div>
+        <main>
+            @yield('content')
+        </main>
+    </div>
     </div>
 
     <br>
