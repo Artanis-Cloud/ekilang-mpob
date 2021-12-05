@@ -15,12 +15,13 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/login-page', function () {
     return view('auth/login');
 });
+// Route::get('/login-page', function () {
+//     return view('auth/login');
+// });
 Route::get('/register/2', [App\Http\Controllers\DaftarController::class, 'daftar_akaun2'])->name('daftar.akaun2');
+Route::get('/login2', [App\Http\Controllers\DaftarController::class, 'login2'])->name('login2');
 
 
 
