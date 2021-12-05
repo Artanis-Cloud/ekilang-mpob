@@ -20,6 +20,10 @@ Route::get('/', function () {
 Route::get('/login-page', function () {
     return view('auth/login');
 });
+Route::get('/register/2', [App\Http\Controllers\DaftarController::class, 'daftar_akaun2'])->name('daftar.akaun2');
+
+
+
 
 // Route::get('login', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
 

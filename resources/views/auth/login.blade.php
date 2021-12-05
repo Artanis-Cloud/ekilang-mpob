@@ -32,7 +32,7 @@
         <div class="container-fluid">
             <div class="d-flex justify-content-center">
                 <div class="">
-                    <div class="card" style="background-color: rgba(0, 0, 0, 0.459) !important;">
+                    <div class="card" style="background-color: rgba(0, 0, 0, 0.650) !important;">
                         <div class="card-header">
                             <div class="">
                                 <br>
@@ -81,11 +81,11 @@
 
                         <div class="card-footer">
                             <div class="d-flex justify-content-center links" style="color: white; font-family:verdana">
-                                Tidak Mempunyai Akaun? <a href="{{ route('register') }}"><b> Daftar Akaun</b></a>
+                                Tidak Mempunyai Akaun? <a style="text-decoration: none" href="{{ route('register') }}"><b> Daftar Akaun</b></a>
                             </div>
                             <br>
                             <div class="d-flex justify-content-center" style="font-family: Verdana">
-                                <a href="#"><b>Terlupa Kata Laluan</b></a>
+                                <a style="text-decoration: none" href="#"><b>Terlupa Kata Laluan</b></a>
                             </div>
                         </div>
                         {{-- </div> --}}
