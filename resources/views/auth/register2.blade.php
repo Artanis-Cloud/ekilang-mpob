@@ -34,7 +34,8 @@ height: auto;">
 
     <nav class="mx-3 mt-3 shadow-sm navbar navbar-expand-md" style="background: transparent">
 
-        <a class="navbar-brand">
+        <a class="navbar-brand" style="margin-right: 65px" href="{{ url('/') }}">
+
             <img src="theme/images/background/favicon.png" height='45px' alt="">
             <img src="theme/images/background/mspo.png" height='60px' alt="">
         </a>

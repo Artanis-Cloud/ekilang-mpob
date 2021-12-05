@@ -37,14 +37,14 @@ height: auto;">
 @section('content') --}}
     <nav class="mx-3 mt-3 shadow-sm navbar navbar-expand-md" style="background: transparent">
 
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand" style="margin-right: 75px" href="{{ url('/') }}">
 
                 <img src="theme/images/background/favicon.png" height='45px' alt="">
                 <img src="theme/images/background/mspo.png" height='60px' alt="">
             </a>
             {{-- <div class="ml-6"></div> --}}
             <div class="col-md-3"></div>
-            {{-- <div class="col-md-1">  --}}
+             {{-- <div class="col-xs-4"></div> --}}
                 {{-- <a class="mx-1 navbar-brand" href="{{ url('/') }}">
 
                 <img src="theme/images/background/favicon.png"  height='45px' alt="">
@@ -54,7 +54,7 @@ height: auto;">
 
 
                 {{-- </a> --}}
-            {{-- </div> --}}
+
     </nav>
 
 

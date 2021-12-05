@@ -75,7 +75,7 @@
 }
 
 body {
-     background-image: url("theme/images/background/landing3.jpg");
+    background-image: url("theme/images/background/landing3.jpg");
     background-color: #ffffff;
     margin: 0;
     font-family: var(--bs-body-font-family);
@@ -127,7 +127,7 @@ h3 {
     text-transform: capitalize;
     letter-spacing: 4px;
     font-family: 'Verdana', sans-serif;
-  }
+}
 
 
 
@@ -403,15 +403,17 @@ textarea {
     line-height: inherit;
 }
 
-.buttons{
+.buttons {
     position: absolute;
-    top:50%;
+    top: 50%;
     right: 0;
     width: 120px;
     transform: translateY(-50%);
-  }
+}
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"],
+input[type="email"],
+input[type="password"] {
     font-size: 0.9em;
     color: rgb(0, 0, 0);
     font-weight: 100;
@@ -429,7 +431,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     background-repeat: no-repeat;
     color: rgb(0, 0, 0);
     font-family: 'Roboto', sans-serif;
-  }
+}
 
 
 button,
@@ -2965,12 +2967,12 @@ textarea.form-control-lg {
     width: 100%;
 }
 
-.input-group-prepend span{
+.input-group-prepend span {
     width: 50px;
     background-color: rgba(89, 194, 154, 0.801);
     color: black;
-    border:0 !important;
-    }
+    border: 0 !important;
+}
 
 .input-group>.form-control,
 .input-group>.form-select {
@@ -5218,22 +5220,58 @@ fieldset:disabled .btn {
 .navbar-dark .navbar-text a:focus {
     color: #fff;
 }
+
+.auth-wrapper {
+    min-height: 100vh;
+    position: relative;
+}
+
+.auth-wrapper .auth-box {
+    background: #fff;
+    padding: 20px;
+    max-width: 400px;
+    width: 90%;
+    margin: 10% 0;
+}
+
+.auth-wrapper .auth-box .logo {
+    text-align: center;
+}
+
+.auth-wrapper .auth-box.on-sidebar {
+    top: 0;
+    right: 0;
+    height: 100%;
+    margin: 0;
+    position: absolute;
+}
+
+.auth-wrapper .auth-sidebar {
+    position: fixed;
+    height: 100%;
+    right: 0;
+    overflow: auto;
+    margin: 0;
+    top: 0;
+}
+
+
 /*
 .main-w3layouts {
     margin-top: 1px;
   } */
 
-  .main-agileinfo {
+.main-agileinfo {
     width: 100%;
     margin: 3em auto;
     background: rgba(255, 255, 255, 0.363);
     background-size: cover;
-  }
+}
 
-  .agileits-top {
+.agileits-top {
     padding: 1em;
     background: #fff;
-  }
+}
 
 
 .card {
@@ -12320,14 +12358,14 @@ fieldset:disabled .btn {
         display: none !important;
     }
 
-    .login_btn{
+    .login_btn {
         color: black;
         background-color: rgba(89, 194, 154, 0.801);
         width: 100px;
-        }
+    }
 
-    .login_btn:hover{
+    .login_btn:hover {
         color: black;
         background-color: white;
-        }
+    }
 }
