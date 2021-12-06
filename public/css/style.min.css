@@ -16016,9 +16016,9 @@ pre code {
     padding: 0.375rem 0.75rem;
     font-size: 0.875rem;
     line-height: 1.5;
-    color: #000000b8;
+    color: white;
     background-color: #ccebf92a;
-    border: 1px solid #000000;
+    border: 1px solid white;
     /* border-radius: 10px; */
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }

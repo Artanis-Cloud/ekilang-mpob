@@ -233,8 +233,9 @@
                                     <div class="row">
                                         <div class="col-md">
                                             <div class="text-center ">
-                                                <b style="color: white">Terlupa Kata
-                                                    Laluan</b>
+                                               <a href="#">
+                                                <b style="color: #2962ff">Terlupa Kata
+                                                    Laluan</b></a>
                                             </div>
                                         </div>
                                     </div>
