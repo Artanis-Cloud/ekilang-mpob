@@ -33,7 +33,8 @@
 
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Penyata Bulanan</li>
 
-                        <li class="sidebar-item active ">
+
+                        <li class="sidebar-item ">
                             <a href="index.html" class='sidebar-link'>
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
@@ -439,6 +440,7 @@
             {{-- </a> --}}
             {{-- </div> --}}
 
+
             <nav class="navbar navbar-header navbar-expand navbar-light">
                 <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
                 <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -523,17 +525,16 @@
             {{-- CONTENT BODY --}}
             @yield('content')
 
-            {{-- <footer>
-                <div class="clearfix mb-0 footer text-muted">
-                    <div class="float-start">
+            <footer>
+                <div class="footer text-muted">
+                    {{-- <div class="float-start">
                         <p>2020 &copy; Voler</p>
-                    </div>
-                    <div class="float-end">
-                        <p>Crafted with <span class='text-danger'><i data-feather="heart"></i></span> by <a
-                                href="http://ahmadsaugi.com">Ahmad Saugi</a></p>
+                    </div> --}}
+                    <div style="text-align: center">
+                        <p style="font-size:10px">Developed by Artanis Cloud</a></p>
                     </div>
                 </div>
-            </footer> --}}
+            </footer>
         </div>
     </div>
     <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>

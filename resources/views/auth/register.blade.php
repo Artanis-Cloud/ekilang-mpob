@@ -43,14 +43,14 @@ height: auto;">
                 <img src="theme/images/background/mspo.png" height='60px' alt="">
             </a>
             {{-- <div class="ml-6"></div> --}}
-            <div class="col-md-3"></div>
+            {{-- <div class="col-md-3"></div> --}}
              {{-- <div class="col-xs-4"></div> --}}
                 {{-- <a class="mx-1 navbar-brand" href="{{ url('/') }}">
 
                 <img src="theme/images/background/favicon.png"  height='45px' alt="">
                 <img src="theme/images/background/mspo.png"  height='60px' alt=""> --}}
 
-                <h3 style="color: white; text-align:center; font-family:Verdana">Pendaftaran Akaun Pengguna</h3>
+                <h3 style="color: white;  font-family:Verdana; margin-left:21%">Pendaftaran Akaun Pengguna</h3>
 
 
                 {{-- </a> --}}
@@ -66,8 +66,8 @@ height: auto;">
 
         {{-- <div class="col-12"> --}}
         <div class="main-agileinfo">
-            <div class="agileits-top" style="background-color:rgba(0, 0, 0, 0.459) ">
-
+            <div class="agileits-top" style="background-color:rgba(0, 0, 0, 0.767) ">
+<br>
                 <h5 style="font-family: verdana; color:white; text-align:center"> Maklumat Kilang
                 </h5>
                 <form action=" #" method="post">
@@ -77,11 +77,12 @@ height: auto;">
                     <div class="row">
                         <div class="col-6">
                             <h6 style="color: white"> Tahun </h6>
-                            <input class="text" type="text" name="Username" placeholder="Tahun" required="">
+                            <input class="text" type="text" name="Username" placeholder="Tahun" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);
+                            ">
                         </div>
                         <div class="col-6">
                             <h6 style="color: white"> Negeri </h6>
-                            <input class="text" type="text" name="Username" placeholder="Negeri" required="">
+                            <input class="text" type="text" name="Username" placeholder="Negeri" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                     </div>
                     <br>
@@ -89,7 +90,7 @@ height: auto;">
                         <div class="col-13">
                             <h6 style="color: white"> Nama Kilang </h6>
                             <input class="text" type="text" name="Username" placeholder="Nama Kilang"
-                                required="">
+                                required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                     </div>
                     <br>
@@ -97,7 +98,7 @@ height: auto;">
                         <div class="col-12">
                             <h6 style="color: white"> Alamat Kilang </h6>
                             <input class="text" type="text" name="Username" placeholder="Alamat Kilang"
-                                required="">
+                                required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                     </div>
                     <br>
@@ -105,23 +106,23 @@ height: auto;">
                     <div class="row">
                         <div class="col-6">
                             <h6 style="color: white"> Poskod </h6>
-                            <input class="text" type="text" name="Username" placeholder="Poskod" required="">
+                            <input class="text" type="text" name="Username" placeholder="Poskod" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                         <div class="col-6">
                             <h6 style="color: white"> Daerah </h6>
-                            <input class="text" type="text" name="Username" placeholder="Daerah" required="">
+                            <input class="text" type="text" name="Username" placeholder="Daerah" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                     </div>
                     <br>
                     <div class="row">
                         <div class="col-6">
                             <h6 style="color: white"> No. Pendaftaran Syarikat (SSM) </h6>
-                            <input class="text" type="text" name="Username" placeholder="No. SSM" required="">
+                            <input class="text" type="text" name="Username" placeholder="No. SSM" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                         <div class="col-6">
                             <h6 style="color: white"> No. Lesen </h6>
                             <input class="text" type="text" name="Username" placeholder="No. Lesen"
-                                required="">
+                                required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                     </div>
                     <br>
@@ -129,12 +130,12 @@ height: auto;">
                         <div class="col-6">
                             <h6 style="color: white"> Laman Sesawang (Website) </h6>
                             <input class="text" type="text" name="Username" placeholder="Laman Sesawang"
-                                required="">
+                                required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
 
                         <div class="col-6">
                             <h6 style="color: white"> Emel </h6>
-                            <input class="text" type="text" name="Username" placeholder="Emel" required="">
+                            <input class="text" type="text" name="Username" placeholder="Emel" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                     </div>
                     <br>
@@ -143,12 +144,12 @@ height: auto;">
                         <div class="col-6">
                             <h6 style="color: white"> No. Telefon </h6>
                             <input class="text" type="text" name="Username" placeholder="No. Telefon"
-                                required="">
+                                required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                         <div class="col-6">
                             <h6 style="color: white"> No. Faks </h6>
                             <input class="text" type="text" name="Username" placeholder="No. Faks"
-                                required="">
+                                required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                     </div>
                     <br>
@@ -156,12 +157,12 @@ height: auto;">
                         <div class="col-6">
                             <h6 style="color: white"> Tarikh Kilang Ditubuhkan </h6>
                             <input class="text" type="text" name="Username"
-                                placeholder="Tarikh Kilang Ditubuhkan" required="">
+                                placeholder="Tarikh Kilang Ditubuhkan" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                         <div class="col-6">
                             <h6 style="color: white"> Tarikh Kilang Mula Operasi </h6>
                             <input class="text" type="text" name="Username"
-                                placeholder="Tarikh Kilang Mula Operasi" required="">
+                                placeholder="Tarikh Kilang Mula Operasi" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                     </div>
                     <br>
@@ -169,12 +170,12 @@ height: auto;">
                         <div class="col-6">
                             <h6 style="color: white"> Status Hak Milik Syarikat </h6>
                             <input class="text" type="text" name="Username"
-                                placeholder="Status Hak Milik Syarikat" required="">
+                                placeholder="Status Hak Milik Syarikat" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                         <div class="col-6">
                             <h6 style="color: white"> Status Warganegara </h6>
                             <input class="text" type="text" name="Username" placeholder="Status Warganegara"
-                                required="">
+                                required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                         </div>
                     </div>
 
@@ -234,6 +235,7 @@ height: auto;">
                         <button class="btn btn-primary float-end"><a style="color: white; text-decoration:none"
                                 href="{{ route('daftar.akaun2') }}">Seterusnya</button>
                     </div>
+                    <br>
                 </form>
                 {{-- <div class="divider">
                         <div class="divider-text">OR</div>
