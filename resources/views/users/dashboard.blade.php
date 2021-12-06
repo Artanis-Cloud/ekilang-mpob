@@ -1,6 +1,32 @@
 @extends('layouts.main')
 
 @section('content')
+    {{-- <div style="background-color: rgba(89, 194, 154, 0.801)">
+    <div class="mt-2">
+    <tr>
+        <td>
+            <span> hi</span>
+            <br>
+
+        </td>
+    </tr>
+    </div>
+</div> --}}
+    <br>
+    <div style="background-color:rgba(89, 194, 154, 0.801); border:1px solid rgb(187, 173, 173); ">
+        <br>
+        <img src="../../theme/images/icon_alert.gif" style="margin-left:5%; float:left; margin-top:10px ">
+        <div class="my-2" style="margin-left:10%; margin-right:10%">
+
+            <span style="color: red"><b> PERINGATAN :</b></span><span> Pihak tuan/puan dikehendaki melapor maklumat mingguan
+                <span style="color: red"><b>(PENYATA
+                        MINGGUAN)</b></span><span> melalui sistem ekilang sebelum pukul 12.00 malam pada hari pertama setiap
+                    minggu <span style="color: red"><b>(ISNIN). </b></span><span></span>
+        </div>
+        <br>
+    </div>
+
+
     <div class="main-content container-fluid">
         <div class="page-title">
             <h4 style="color: rgba(47, 112, 88, 0.823); font-family:verdana">Penyata Bulanan</h4>
@@ -9,8 +35,8 @@
         <br>
         <section class="section">
             <div class="mb-2 row" style="display: flex;
-                justify-content: center;
-                flex-direction: row;">
+                                    justify-content: center;
+                                    flex-direction: row;">
                 <div class="col-12 col-md-3">
                     <div class="card card-statistic">
 
@@ -20,6 +46,8 @@
                             <div class="d-flex flex-column">
                                 <div class='px-3 py-3 d-flex justify-content-between'>
                                     <h3 class='card-title'>Kilang Buah</h3>
+                                    {{-- <br>
+                                    <p style="color: white"> PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</p> --}}
                                     <div class="card-right d-flex align-items-center">
                                         {{-- <p>$50 </p> --}}
                                     </div>
@@ -144,8 +172,8 @@
     <div class="mb-4 row">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">
-                    <h3 class='p-1 pl-3 card-heading'>Sales</h3>
+                <div class="card-header border-bottom">
+                    <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -266,25 +294,55 @@
 
         <div class="col-md-4">
             <div class="card ">
-                <div class="card-header">
-                    <h4>Your Earnings</h4>
+                <div class="card-header border-bottom " style="background-color: rgba(47, 112, 88, 0.823)">
+                    <h4 style="color: white"><b>Peringatan</b></h4>
                 </div>
+                <br>
+                <br>
                 <div class="card-body">
                     <div id="radialBars"></div>
                     <div class="mb-5 text-center">
-                        <h6>From last month</h6>
-                        <h1 class='text-green'>+$2,134</h1>
+                        <h6 style="color:rgba(47, 112, 88, 0.823); text-align:left; text-align: justify; font-size:16px;
+                                text-justify: inter-word;">Adalah menjadi kesalahan dibawah syarat-syarat dan sekatan lesen
+                            yang terkandung di bawah
+                            Peraturan 21(1), Peraturan-peraturan Lembaga Minyak Sawit Malaysia(Pelesenan) 2005, jika
+                            gagal/lewat menyerahkan Penyata Bulanan tidak lewat dari 7hb. bagi bulan berikutnya dan apabila
+                            disabitkan boleh dikenakan denda.</h6>
+                        {{-- <h1 class='text-green'>+$2,134</h1> --}}
                     </div>
                 </div>
             </div>
             <div class="card widget-todo">
-                <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+                <div class="card-header border-bottom d-flex justify-content-between align-items-center"
+                    style="background-color: rgba(47, 112, 88, 0.823)">
                     <h4 class="card-title d-flex">
-                        <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>Progress
+                        <i class='bx bx-check font-medium-5 pl-25 pr-75'></i><b style="color: white">Penafian
+                        </b>
                     </h4>
 
                 </div>
-                <div class="px-0 py-1 card-body">
+                <br>
+                <br>
+                <div class="card-body">
+                    <div id="radialBars"></div>
+                    <div class="mb-5 text-center">
+                        <h6 style="color:rgba(47, 112, 88, 0.823); text-align:left; text-align: justify; font-size:16px;
+                                text-justify: inter-word;">Kerajaan Malaysia dan Lembaga Minyak Sawit Malaysia (MPOB)
+                            adalah
+                            tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang disebabkan oleh penggunaan
+                            mana-mana maklumat yang diperolehi dari laman web ini .Syarikat-syarikat yang dirujuk di dalam
+                            laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun syarikat yang disyorkan oleh
+                            Lembaga Minyak Sawit Malaysia (MPOB).</h6>
+                        {{-- <h1 class='text-green'>+$2,134</h1> --}}
+                    </div>
+                </div>
+
+
+
+
+
+
+                {{-- <div class="px-0 py-1 card-body">
                     <table class='table table-borderless'>
                         <tr>
                             <td class='col-3'>UI Design</td>
@@ -337,7 +395,7 @@
                             <td class='text-center col-3'>65%</td>
                         </tr>
                     </table>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

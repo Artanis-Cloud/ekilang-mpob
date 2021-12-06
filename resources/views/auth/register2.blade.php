@@ -62,9 +62,9 @@ height: auto;">
         {{-- <h3 style="color: white">Pendaftaran Akaun Pengguna</h3> --}}
         {{-- <div class="col-12"> --}}
         <div class="main-agileinfo">
-            <div class="agileits-top" style="background-color:rgba(0, 0, 0, 0.459) ">
+            <div class="agileits-top" style="background-color:rgba(0, 0, 0, 0.767)  ">
                 <form action=" #" method="post">
-
+<br>
                     <h5 style="font-family: verdana; color:white; text-align:center"> Maklumat Pengguna </h5>
                     <form action=" #" method="post">
                         <br>
@@ -72,7 +72,7 @@ height: auto;">
                             <div class="col-12">
                                 <h6 style="color: white"> Nama Pengguna </h6>
                                 <input class="text" type="text" name="Username" placeholder="Nama Pengguna"
-                                    required="">
+                                    required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                             </div>
                         </div>
                         <br>
@@ -80,38 +80,38 @@ height: auto;">
                             <div class="col-6">
                                 <h6 style="color: white"> No. Kad Pengenalan </h6>
                                 <input class="text" type="text" name="Username" placeholder="No. Kad Pengenalan"
-                                    required="">
+                                    required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                             </div>
 
 
                             <div class="col-6">
                                 <h6 style="color: white"> Warganegara </h6>
                                 <input class="text" type="text" name="Username" placeholder="Warganegara"
-                                    required="">
+                                    required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-6">
                                 <h6 style="color: white"> Jantina </h6>
-                                <input class="text" type="text" name="Username" placeholder="Jantina" required="">
+                                <input class="text" type="text" name="Username" placeholder="Jantina" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                             </div>
 
                             <div class="col-6">
                                 <h6 style="color: white"> Emel </h6>
-                                <input class="text" type="text" name="Username" placeholder="Emel" required="">
+                                <input class="text" type="text" name="Username" placeholder="Emel" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                             </div>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col-6">
                                 <h6 style="color: white"> Jawatan </h6>
-                                <input class="text" type="text" name="Username" placeholder="Jawatan" required="">
+                                <input class="text" type="text" name="Username" placeholder="Jawatan" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                             </div>
 
                             <div class="col-6">
                                 <h6 style="color: white"> No. Pekerja </h6>
-                                <input class="text" type="text" name="Username" placeholder="No. Pekerja" required="">
+                                <input class="text" type="text" name="Username" placeholder="No. Pekerja" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
                             </div>
                         </div>
                         <br>
@@ -143,6 +143,8 @@ height: auto;">
                                         Hantar</a></button>
                             </div>
                         </div>
+
+                        <br>
 
                         {{-- <div class="text-right form-group m-b-0">
                 <div class="col-12">
