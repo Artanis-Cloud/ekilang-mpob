@@ -21,7 +21,7 @@ Route::get('/', function () {
 //     return view('auth/login');
 // });
 Route::get('/register/2', [App\Http\Controllers\DaftarController::class, 'daftar_akaun2'])->name('daftar.akaun2');
-Route::get('/login2', [App\Http\Controllers\DaftarController::class, 'login2'])->name('login2');
+Route::get('/register2', [App\Http\Controllers\DaftarController::class, 'register2'])->name('register2');
 
 
 

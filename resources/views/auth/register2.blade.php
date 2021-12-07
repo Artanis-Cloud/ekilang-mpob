@@ -1,191 +1,195 @@
-
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistem E-Kilang</title>
+    <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
+    {{-- <link rel="stylesheet" href="assets/css/bootstrap.css"> --}}
+    <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
+    {{-- <link rel="shortcut icon" href="assets/images/favicon.svg" type="image/x-icon"> --}}
+    <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('theme/images/favicon.png') }}">
-
-
-
+    {{-- <link rel="stylesheet" href="assets/css/app.css"> --}}
 </head>
 
-<body style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover; max-width: 100%;
-height: auto;">
+<body>
+    <div id="auth" style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover; max-width: 100%;
+    height: auto;">
 
-
-    <nav class="mx-3 mt-3 shadow-sm navbar navbar-expand-md" style="background: transparent">
-
-        <a class="navbar-brand" style="margin-right: 65px" href="{{ url('/') }}">
-
-            <img src="theme/images/background/favicon.png" height='45px' alt="">
-            <img src="theme/images/background/mspo.png" height='60px' alt="">
-        </a>
-        {{-- <div class="ml-6"></div> --}}
-        <div class="col-md-3"></div>
-        {{-- <div class="col-md-1"> --}}
-        {{-- <a class="mx-1 navbar-brand" href="{{ url('/') }}">
-
-        <img src="theme/images/background/favicon.png"  height='45px' alt="">
-        <img src="theme/images/background/mspo.png"  height='60px' alt=""> --}}
-
-        <h3 style="color: white; text-align:center; font-family:Verdana">Pendaftaran Akaun Pengguna</h3>
-
-
-        {{-- </a> --}}
-        {{-- </div> --}}
-    </nav>
-
-{{-- @extends('layouts.app')
-
-@section('content') --}}
-
-    {{-- <div class="main-w3layouts wrapper"> --}}
-        {{-- <h3 style="color: white">Pendaftaran Akaun Pengguna</h3> --}}
-        {{-- <div class="col-12"> --}}
-        <div class="main-agileinfo">
-            <div class="agileits-top" style="background-color:rgba(0, 0, 0, 0.767)  ">
-                <form action=" #" method="post">
+        <div class="container">
+            <div class="row">
+                <div class="mx-auto col-md-8 col-sm-12">
+                    <div class="pt-5 card" style="background-color: rgba(255, 255, 255, 0.782)">
+                        <div class="card-body">
+                            <div class="mb-5 text-center">
+                                <img src="../../theme/images/favicon.png" height="80" class='mb-4'>
+                                <h3 style="color: rgb(53 178 150)">Pendaftaran Akaun Pengguna</h3>
+                                <p>Maklumat Pengguna</p>
+                            </div>
+                            <form action="index.html">
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="first-name-column">Nama Pengguna</label>
+                                            <input type="text" id="first-name-column" class="form-control"
+                                                name="fname-column" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="last-name-column">No. Kad Pengenalan</label>
+                                            <input type="text" id="last-name-column" class="form-control"
+                                                name="lname-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="username-column">Warganegara</label>
+                                            <input type="text" id="username-column" class="form-control"
+                                                name="username-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="country-floating">Jantina</label>
+                                            <input type="text" id="country-floating" class="form-control"
+                                                name="country-floating">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="company-column">Emel</label>
+                                            <input type="text" id="company-column" class="form-control"
+                                                name="company-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="company-column">No. Telefon</label>
+                                            <input type="text" id="company-column" class="form-control"
+                                                name="company-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">Jawatan</label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">No. Pekerja</label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    {{-- <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column"> No. Lesen</label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column"> Laman Sesawang (Website) </label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column"> Emel </label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">No. Telefon</label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">No. Faks </label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column"> Tarikh Kilang Ditubuhkan</label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column"> Tarikh Kilang Mula Operasi </label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column"> Status Hak Milik Syarikat</label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="email-id-column">Status Warganegara </label>
+                                            <input type="email" id="email-id-column" class="form-control"
+                                                name="email-id-column">
+                                        </div>
+                                    </div> --}}
+                                </diV>
 <br>
-                    <h5 style="font-family: verdana; color:white; text-align:center"> Maklumat Pengguna </h5>
-                    <form action=" #" method="post">
-                        <br>
-                        <div class="row">
-                            <div class="col-12">
-                                <h6 style="color: white"> Nama Pengguna </h6>
-                                <input class="text" type="text" name="Username" placeholder="Nama Pengguna"
-                                    required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
-                            </div>
+                                {{-- <a href="auth-login.html">Have an account? Login</a> --}}
+                                <div class="clearfix">
+
+                                    <a style="text-decoration:none" href="">
+                                        <button class="btn btn-primary float-end"
+                                            style="color: white;
+                                    background-color: rgb(55, 104, 93); border:1px solid rgb(56, 104, 86)"><b>Hantar</b></button></a>
+
+
+                                    <a style="text-decoration:none" href="{{ route('register') }}">
+                                        <button class="btn btn-primary float-end"
+                                            style="color: black; margin-right:10px;
+                                    background-color: rgba(55, 104, 93, 0.481); border:1px solid rgb(56, 104, 86)"><b>Sebelumnya</b></button></a>
+                                </div>
+                            </form>
+                            {{-- <div class="divider">
+                                <div class="divider-text">OR</div>
+                            </div> --}}
+                            {{-- <div class="row">
+                                <div class="col-sm-6">
+                                    <button class="mb-2 btn btn-block btn-primary"><i data-feather="facebook"></i>
+                                        Facebook</button>
+                                </div>
+                                <div class="col-sm-6">
+                                    <button class="mb-2 btn btn-block btn-secondary"><i data-feather="github"></i>
+                                        Github</button>
+                                </div>
+                            </div> --}}
                         </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-6">
-                                <h6 style="color: white"> No. Kad Pengenalan </h6>
-                                <input class="text" type="text" name="Username" placeholder="No. Kad Pengenalan"
-                                    required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
-                            </div>
-
-
-                            <div class="col-6">
-                                <h6 style="color: white"> Warganegara </h6>
-                                <input class="text" type="text" name="Username" placeholder="Warganegara"
-                                    required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-6">
-                                <h6 style="color: white"> Jantina </h6>
-                                <input class="text" type="text" name="Username" placeholder="Jantina" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
-                            </div>
-
-                            <div class="col-6">
-                                <h6 style="color: white"> Emel </h6>
-                                <input class="text" type="text" name="Username" placeholder="Emel" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
-                            </div>
-                        </div>
-                        <br>
-                        <div class="row">
-                            <div class="col-6">
-                                <h6 style="color: white"> Jawatan </h6>
-                                <input class="text" type="text" name="Username" placeholder="Jawatan" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
-                            </div>
-
-                            <div class="col-6">
-                                <h6 style="color: white"> No. Pekerja </h6>
-                                <input class="text" type="text" name="Username" placeholder="No. Pekerja" required="" style=" border: solid 1px rgba(255, 255, 255, 0.878);">
-                            </div>
-                        </div>
-                        <br>
-
-
-
-
-                        {{-- <h6 style="color: white"> Nama Kilang </h6>
-            <input class="text email" type="email" name="email" placeholder="Email" required="">
-            <input class="text" type="password" name="password" placeholder="Password" required="">
-            <input class="text w3lpass" type="password" name="password" placeholder="Confirm Password" required=""> --}}
-                        {{-- <div class="wthree-text">
-                    <label class="anim">
-                        <input type="checkbox" class="checkbox" required="">
-                        <span>I Agree To The Terms & Conditions</span>
-                    </label>
-                    <div class="clear"> </div>
-                </div> --}}
-                        <br>
-                        <br>
-
-                        <div class="text-right form-group ">
-                            <div class="col-md-12">
-                                <button type="button" class="btn" alt="default" style="background-color: gray"><a
-                                        style="color: white; text-decoration:none" href="{{ route('register') }}">
-                                        Sebelumnya</button>
-                                <button type="button" wire:loading.attr="disabled" class="btn btn-primary" alt="default"><a
-                                        style="color: white; text-decoration:none" href="#">
-                                        Hantar</a></button>
-                            </div>
-                        </div>
-
-                        <br>
-
-                        {{-- <div class="text-right form-group m-b-0">
-                <div class="col-12">
-
-                <button type="button"class="btn" alt="default" style="background-color: gray; color:black" class="model_img img-fluid">
-                    {{-- <a style="color: black" href="{{ route('daftar.akaun') }}"> --}}
-                        {{-- Sebelumnya</button>
-                <button type="button" class="btn btn-primary" alt="default" class="model_img img-fluid"><a style="color: white" href="{{ route('daftar.akaun3') }}">
-                    Seterusnya</button> --}}
-                        {{-- <input type="submit" value="Seterusnya"> --}}
+                    </div>
+                </div>
             </div>
+        </div>
 
-        {{-- </div> --}}
-        </form>
+    </div>
+    <script src="assets/js/feather-icons/feather.min.js"></script>
+    <script src="assets/js/app.js"></script>
 
-        {{-- <input type="submit" value="Daftar">
-            </form>
-            <p>Sudah? <a href="#"> Login Now!</a></p> --}}
-    </div>
-    </div>
-    </div>
-    <!-- copyright -->
-    {{-- <div class="colorlibcopy-agile">
-        <p>© 2018 Colorlib Signup Form. All rights reserved | Design by <a href="https://colorlib.com/" target="_blank">Colorlib</a></p>
-    </div>
-    <!-- //copyright -->
-    <ul class="colorlib-bubbles">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-    </ul> --}}
-    </div>
-    <!-- //main -->
-    </body>
+    <script src="assets/js/main.js"></script>
+</body>
 
-    </html>
-{{-- @endsection --}}
+</html>

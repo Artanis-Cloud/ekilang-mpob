@@ -27,6 +27,9 @@
                             E-Kilang </b>
                     </h2>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
+                    <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px">
+                    <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px">
+
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
@@ -451,13 +454,16 @@
 
                 <a class="navbar-brand">
 
-                    <img src="theme/images/background/favicon.png" height='45px' alt="">
-                    <img src="theme/images/background/mspo.png" height='60px' alt="">
+                    {{-- <img src="theme/images/background/favicon.png" height='45px' alt=""> --}}
+                     {{-- <img src="theme/images/background/mspo.png" height='60px' alt=""> --}}
+                    <img src="{{ asset('/mpob.png') }}" height='60px' width='70px' alt="" style="margin-left: 20%; margin-top: 15px;">
+                    <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%">
                 </a>
 
-                <span class="mx-5 mb-0 text-center navbar-brand h1"
-                    style="color: black; text-align:center; font-family:verdana; margin-right:30%; color: rgba(47, 112, 88, 0.726)"><b>
+                <span class="mx-2 mt-3 mb-0 text-center navbar-brand h1"
+                    style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b style="margin-left:30%;">
                         E-Kilang </b></span>
+
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
