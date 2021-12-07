@@ -14,9 +14,9 @@ class DaftarController extends Controller
         return view('auth/register2');
     }
 
-    public function register2(){
-        return view('auth/registerrrrrrrr');
-    }
+    // public function register2(){
+    //     return view('auth/registerrrrrrrr');
+    // }
 
 
 

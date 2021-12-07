@@ -199,8 +199,7 @@
 
                                     <br>
                                     <br>
-                                    <div class="container" style="width: 700px;
-                                            height: 150px;
+                                    <div class="container" style="
                                             border: 1px solid black;">
 
                                         <p class="card-text" style="text-align: justify;">
@@ -212,6 +211,8 @@
                                                 Nombor Virtual Akaun : 98-997-333-000-XXX *
                                                 <br>(3 digit terakhir adalah sama seperti
                                                 nombor Virtual Akaun yang digunapakai bagi bayaran Ses sebelum ini)</b>
+                                                <br>
+                                                <br>
 
                                     </div>
                                     <br>
