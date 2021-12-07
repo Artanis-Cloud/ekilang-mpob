@@ -113,7 +113,7 @@
 
 
 
-                            <br> Terima Kasih<br><br>
+                            <br> Terima Kasih<br>
                             {{-- <b>lorem ipsum</b> --}}
                             </p>
                             <span> <b>Lembaga Minyak Sawit Malaysia</b></span>
