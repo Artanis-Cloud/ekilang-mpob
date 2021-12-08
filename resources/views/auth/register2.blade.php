@@ -21,67 +21,68 @@
         <div class="container">
             <div class="row">
                 <div class="mx-auto col-md-8 col-sm-12">
-                    <div class="pt-5 card" style="background-color: rgba(255, 255, 255, 0.782)">
+                    {{-- <div class="pt-5 card" style="background-color: rgba(255, 255, 255, 0.782)"> --}}
+                    <div class="pt-5 card" style="background: linear-gradient(to bottom, rgb(224, 255, 255,0.7) 0%, rgb(0, 139, 139,0.7) 100%);">
                         <div class="card-body">
                             <div class="mb-5 text-center">
                                 <img src="../../theme/images/favicon.png" height="80" class='mb-4'>
-                                <h3 style="color: rgb(53 178 150)">Pendaftaran Akaun Pengguna</h3>
-                                <p>Maklumat Pengguna</p>
+                                <h3 style="color: rgb(39, 80, 71)">Pendaftaran Akaun Pengguna</h3>
+                                <p style="color: rgb(39, 80, 71)">Maklumat Pengguna</p>
                             </div>
                             <form action="index.html">
                                 <div class="row">
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="first-name-column">Nama Pengguna</label>
+                                            <label for="first-name-column" style="color: white">Nama Pengguna</label>
                                             <input type="text" id="first-name-column" class="form-control"
                                                 name="fname-column" >
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="last-name-column">No. Kad Pengenalan</label>
+                                            <label for="last-name-column" style="color: white">No. Kad Pengenalan</label>
                                             <input type="text" id="last-name-column" class="form-control"
                                                 name="lname-column">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="username-column">Warganegara</label>
+                                            <label for="username-column" style="color: white">Warganegara</label>
                                             <input type="text" id="username-column" class="form-control"
                                                 name="username-column">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="country-floating">Jantina</label>
+                                            <label for="country-floating" style="color: white">Jantina</label>
                                             <input type="text" id="country-floating" class="form-control"
                                                 name="country-floating">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="company-column">Emel</label>
+                                            <label for="company-column" style="color: white">Emel</label>
                                             <input type="text" id="company-column" class="form-control"
                                                 name="company-column">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="company-column">No. Telefon</label>
+                                            <label for="company-column" style="color: white">No. Telefon</label>
                                             <input type="text" id="company-column" class="form-control"
                                                 name="company-column">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">Jawatan</label>
+                                            <label for="email-id-column" style="color: white">Jawatan</label>
                                             <input type="email" id="email-id-column" class="form-control"
                                                 name="email-id-column">
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
-                                            <label for="email-id-column">No. Pekerja</label>
+                                            <label for="email-id-column" style="color: white">No. Pekerja</label>
                                             <input type="email" id="email-id-column" class="form-control"
                                                 name="email-id-column">
                                         </div>
@@ -157,13 +158,13 @@
                                     <a style="text-decoration:none" href="">
                                         <button class="btn btn-primary float-end"
                                             style="color: white;
-                                    background-color: rgb(55, 104, 93); border:1px solid rgb(56, 104, 86)"><b>Hantar</b></button></a>
+                                    background-color: rgb(55, 104, 93); border:1px solid rgb(30, 53, 45)"><b>Hantar</b></button></a>
 
 
                                     <a style="text-decoration:none" href="{{ route('register') }}">
                                         <button class="btn btn-primary float-end"
                                             style="color: black; margin-right:10px;
-                                    background-color: rgba(55, 104, 93, 0.481); border:1px solid rgb(56, 104, 86)"><b>Sebelumnya</b></button></a>
+                                    background-color: rgba(113, 165, 154, 0.974); border:1px solid rgb(30, 53, 45)"><b>Sebelumnya</b></button></a>
                                 </div>
                             </form>
                             {{-- <div class="divider">
