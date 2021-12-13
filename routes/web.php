@@ -36,8 +36,15 @@ Route::middleware('auth')->group(
     }
 );
 
+
+//dashboard
 Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'admin_dashboard'])->name('admin.dashboard');
 Route::get('users/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'users_dashboard'])->name('users.dashboard');
+
+
+//Admin - Kilang buah
+Route::get('admin/kilang-buah', [App\Http\Controllers\Admin\KilangBuahController::class, 'admin_kilangbuah'])->name('admin.kilangbuah');
+Route::get('admin/kilang-buah2', [App\Http\Controllers\Admin\KilangBuahController::class, 'admin_kilangbuah2'])->name('admin.kilangbuah2');
 
 
 Auth::routes();
