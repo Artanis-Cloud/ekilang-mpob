@@ -20,8 +20,6 @@ Route::get('/', function () {
 // Route::get('/login-page', function () {
 //     return view('auth/login');
 // });
-Route::get('/register/2', [App\Http\Controllers\DaftarController::class, 'daftar_akaun2'])->name('daftar.akaun2');
-// Route::get('/register2', [App\Http\Controllers\DaftarController::class, 'register2'])->name('register2');
 
 
 
@@ -38,7 +36,8 @@ Route::middleware('auth')->group(
     }
 );
 
-Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
+Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'admin_dashboard'])->name('admin.dashboard');
+Route::get('users/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'users_dashboard'])->name('users.dashboard');
 
 
 Auth::routes();

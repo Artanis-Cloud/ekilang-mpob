@@ -181,7 +181,7 @@
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">Biodiesel</span>
+                                <span style="color: rgb(78, 73, 57)">E-Biodiesel</span>
                             </a>
 
                             {{-- <ul class="submenu ">
@@ -279,7 +279,7 @@
                             <a href="table.html" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="grid" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Kilang Biodiesel</span>
+                                <span style="color: rgb(78, 73, 57); ">Kilang E-Biodiesel</span>
                             </a>
 
                         </li>

@@ -12,9 +12,14 @@ class DashboardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function admin_dashboard()
     {
-        return view('users.dashboard');
+        return view('admin.admin-dashboard');
+    }
+
+    public function users_dashboard()
+    {
+        return view('users.users-dashboard');
     }
 
     public function index_form()
