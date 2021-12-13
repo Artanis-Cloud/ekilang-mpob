@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.admin')
 
 @section('content')
     {{-- <div style="background-color: rgba(89, 194, 154, 0.801)">
@@ -36,28 +36,31 @@
         <br>
         <section class="section">
             <div class="mb-2 row" style="display: flex;
-                                                            justify-content: center;
-                                                            flex-direction: row;">
+                                                                justify-content: center;
+                                                                flex-direction: row;">
                 <div class="col-12 col-md-4">
                     <div class="card card-statistic">
 
                         {{-- <div class="p-0 card-body" style="background-color: rgba(89, 194, 154, 0.801)"> --}}
-                        <div class="p-0 card-body"
-                            style="background-image: url({{ asset('theme/images/background/buah-sawit.jpg') }}); background-size:cover">
-                            <div class="d-flex flex-column">
-                                <div class='px-3 py-3 d-flex justify-content-between'>
-                                    <h3 class='card-title'>Kilang Buah</h3>
-                                    {{-- <br>
+                        <a href="{{ route('admin.kilangbuah') }}">
+                            <div class="p-0 card-body"
+                                style="background-image: url({{ asset('theme/images/background/buah-sawit.jpg') }}); background-size:cover; ">
+                                <div class="d-flex flex-column">
+                                    <div class='px-3 py-3 d-flex justify-content-between'>
+
+                                        <h3 class='card-title'>Kilang Buah</h3>
+                                        {{-- <br>
                                     <p style="color: white"> PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</p> --}}
-                                    <div class="card-right d-flex align-items-center">
-                                        {{-- <p>$50 </p> --}}
+                                        <div class="card-right d-flex align-items-center">
+                                            {{-- <p>$50 </p> --}}
+                                        </div>
+                                    </div>
+                                    <div class="chart-wrapper">
+                                        <canvas id="canvas1" style="height:100px !important"></canvas>
                                     </div>
                                 </div>
-                                <div class="chart-wrapper">
-                                    <canvas id="canvas1" style="height:100px !important"></canvas>
-                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
@@ -170,26 +173,27 @@
                 </div> --}}
             </div>
     </div>
-    <div style=" margin-left:10%; margin-right:10%;
-          ">
+    <div style=" margin-left:20%; margin-right:20%;
+              ">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header border-bottom" style="background-color: rgba(47, 112, 88, 0.823)">
-                    <h4 class='p-1 pl-3 card-heading' style="color: white; text-align:center"><b>Disclaimer</b></h4>
+                <div class=" border-bottom" style="background-color: rgba(47, 112, 88, 0.823)">
+                    <h4 style="color: white; text-align:center; font-size:15px"><b>Disclaimer</b></h4>
                 </div>
-                <br>
-                <br>
+
+
                 <div class="card-body">
                     <div class="row">
                         {{-- <div class="col-md-4 col-12"> --}}
                         <div class="pl-3">
 
 
-                                <p style="text-align: justify; margin-left:3%; margin-right:3%; font-size:13px"> Kerajaan Malaysia dan Lembaga Minyak Sawit Malaysia (MPOB)
-                                    adalah tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang disebabkan oleh
-                                    penggunaan mana-mana maklumat yang diperolehi dari laman web ini. Syarikat-syarikat yang
-                                    dirujuk di dalam laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun
-                                    syarikat yang disyorkan oleh Lembaga Minyak Sawit Malaysia (MPOB). </p>
+                            <p style="text-align: justify; margin-left:3%; margin-right:3%; font-size:12px"> Kerajaan
+                                Malaysia dan Lembaga Minyak Sawit Malaysia (MPOB)
+                                adalah tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang disebabkan oleh
+                                penggunaan mana-mana maklumat yang diperolehi dari laman web ini. Syarikat-syarikat yang
+                                dirujuk di dalam laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun
+                                syarikat yang disyorkan oleh Lembaga Minyak Sawit Malaysia (MPOB). </p>
 
 
 
@@ -197,7 +201,7 @@
 
 
 
-                                    {{-- <h1 class='mt-5'>$21,102</h1>
+                            {{-- <h1 class='mt-5'>$21,102</h1>
                                 <p class='text-xs'><span class="text-green"><i data-feather="bar-chart" width="15"></i>
                                         +19%</span> than last month</p>
                                 <div class="legends">
@@ -210,23 +214,23 @@
                                             Month</span>
                                     </div>
                                 </div> --}}
-                                <br>
+
                         </div>
                         {{-- </div> --}}
                         {{-- <div class="col-md-8 col-12">
                             <canvas id="bar"></canvas>
                         </div>
                     </div> --}}
+                    </div>
                 </div>
-            </div>
-            {{-- <div class="card">
+                {{-- <div class="card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h4 class="card-title">Sebarang Pertanyaan Sila Hubungi:</h4>
                     <div class="d-flex ">
                         {{-- <i data-feather="download"></i> --}}
-            {{-- </div>
+                {{-- </div>
                 </div> --}}
-            {{-- <div class="px-0 pb-0 card-body">
+                {{-- <div class="px-0 pb-0 card-body">
                     <div class="table-responsive">
                         <table class='table mb-0' id="table1">
                             <thead>
@@ -236,7 +240,7 @@
                                     <th>No. Telefon</th>
                                     <th>Emel</th>
                                     {{-- <th>Status</th> --}}
-            {{-- </tr>
+                {{-- </tr>
                             </thead>
                             <tbody>
                                 <tr>
@@ -245,74 +249,74 @@
                                     <td>Pn. Nor Syaida</td>
                                     <td>03-7802 2917</td>
                                     <td>nor.syaida@mpob.gov.my</td> --}}
-            {{-- <td>
+                {{-- <td>
                                         <span class="badge bg-success">Active</span>
                                     </td> --}}
-            {{-- </tr>
+                {{-- </tr>
                                 <tr>
                                     <td>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</td>
                                     <td>En. Rominizam</td>
                                     <td>03-7802 2918</td>
                                     <td>rominizam@mpob.gov.my</td> --}}
-            {{-- <td>
+                {{-- <td>
                                         <span class="badge bg-success">Active</span>
                                     </td> --}}
-            {{-- </tr>
+                {{-- </tr>
                                 <tr>
                                     <td>Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</td>
                                     <td>Pn. Aziana</td>
                                     <td>03-7802 2955</td>
                                     <td>aziana.misnan@mpob.gov.my</td> --}}
-            {{-- <td>
+                {{-- <td>
                                         <span class="badge bg-danger">Inactive</span>
                                     </td> --}}
-            {{-- </tr>
+                {{-- </tr>
                                 <tr>
                                     <td>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</td>
                                     <td>Pn. Aziana</td>
                                     <td>03-7802 2955</td>
                                     <td>aziana.misnan@mpob.gov.my</td> --}}
-            {{-- <td>
+                {{-- <td>
                                         <span class="badge bg-success">Active</span>
                                     </td> --}}
-            {{-- </tr>
+                {{-- </tr>
                                 <tr>
                                     <td>Penyata Bulanan Kilang Isirong - MPOB (EL) CF4 </td>
                                     <td>Pn. Nor Baayah</td>
                                     <td>03-7802 2865</td>
                                     <td>abby@mpob.gov.my</td> --}}
-            {{-- <td>
+                {{-- <td>
                                         <span class="badge bg-success">Active</span>
                                     </td> --}}
-            {{-- </tr>
+                {{-- </tr>
                                 <tr>
                                     <td>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</td>
                                     <td>Pn. Nor Baayah</td>
                                     <td>03-7802 2865</td>
                                     <td>abby@mpob.gov.my</td> --}}
-            {{-- <td>
+                {{-- <td>
                                         <span class="badge bg-success">Active</span>
                                     </td> --}}
-            {{-- </tr>
+                {{-- </tr>
                                 <tr>
                                     <td>No Faks bagi Penyata Bulanan </td>
                                     <td>-</td>
                                     <td>03-7803 2323 / <br> 03-7803 1399</td>
                                     <td>-</td> --}}
-            {{-- <td>
+                {{-- <td>
                                         <span class="badge bg-success">Active</span>
                                     </td> --}}
-            {{-- </tr>
+                {{-- </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
             </div> --}}
-            {{-- </div> --}}
+                {{-- </div> --}}
 
 
 
-            {{-- <div class="col-md-4">
+                {{-- <div class="col-md-4">
                 <div class="card ">
                     <div class="card-header border-bottom " style="background-color: rgba(47, 112, 88, 0.823)">
                         <h4 style="color: white"><b>Peringatan</b></h4>
@@ -334,7 +338,7 @@
                                 apabila
                                 disabitkan boleh dikenakan denda.</h6>
                             {{-- <h1 class='text-green'>+$2,134</h1> --}}
-            {{-- </div>
+                {{-- </div>
                     </div>
                 </div>
                 <div class="card widget-todo">
@@ -346,7 +350,7 @@
                         </h4>
 
                     </div> --}}
-            {{-- <br>
+                {{-- <br>
                     <br>
                     <div class="card-body">
                         <div id="radialBars"></div>
@@ -363,7 +367,7 @@
                                 oleh
                                 Lembaga Minyak Sawit Malaysia (MPOB).</h6>
                             {{-- <h1 class='text-green'>+$2,134</h1> --}}
-            {{-- </div>
+                {{-- </div>
                     </div> --}}
 
 
@@ -371,7 +375,7 @@
 
 
 
-            {{-- <div class="px-0 py-1 card-body">
+                {{-- <div class="px-0 py-1 card-body">
                     <table class='table table-borderless'>
                         <tr>
                             <td class='col-3'>UI Design</td>
@@ -425,8 +429,8 @@
                         </tr>
                     </table>
                 </div> --}}
+            </div>
         </div>
-    </div>
     </div>
     </section>
     </div>

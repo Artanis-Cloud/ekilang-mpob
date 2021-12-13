@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.users')
 
 @section('content')
     {{-- <div style="background-color: rgba(89, 194, 154, 0.801)">
