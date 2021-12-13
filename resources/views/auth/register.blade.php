@@ -37,7 +37,7 @@
                         <div class="card-body">
                             <div class="mb-5 text-center">
                                 <img src="theme/images/favicon.png" height="80" class='mb-4'>
-                                <h3 style="color: rgb(39, 80, 71)">Pendaftaran Akaun Pengguna</h3>
+                                <h3 style="color: rgb(39, 80, 71)">Pendaftaran Akaun Pelesen</h3>
                                 {{-- <p>Maklumat Kilang</p> --}}
                             </div>
                             <form action="{{ route('register') }}" class="validation-wizard wizard-circle m-t-40"

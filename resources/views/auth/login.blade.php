@@ -188,7 +188,7 @@
                             </div>
                             <input id="login_id" type="text"
                                 class="form-control @error('login_id') is-invalid @enderror" name="login_id"
-                                value="{{ old('login_id') }}" required autocomplete="login_id" placeholder="No. KP">
+                                value="{{ old('login_id') }}" required autocomplete="login_id" placeholder="No. Lesen">
 
                             @error('login_id')
                                 <div class="alert alert-danger">
@@ -240,7 +240,7 @@
                                         </div>
                                     </div> --}}
                         {{-- <div class="form-group m-b-0 m-t-10"> --}}
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-md">
                                 <div class="text-center ">
                                     <span style="color: white">Tidak Mempunyai Akaun? &nbsp<a
@@ -250,7 +250,7 @@
 
 
                             </div>
-                        </div>
+                        </div> --}}
                         <br>
                         <div class="row">
                             <div class="col-md">
