@@ -43,8 +43,12 @@ Route::get('users/dashboard', [App\Http\Controllers\Admin\DashboardController::c
 
 
 //Admin - Kilang buah
-Route::get('admin/kilang-buah', [App\Http\Controllers\Admin\KilangBuahController::class, 'admin_kilangbuah'])->name('admin.kilangbuah');
-Route::get('admin/kilang-buah2', [App\Http\Controllers\Admin\KilangBuahController::class, 'admin_kilangbuah2'])->name('admin.kilangbuah2');
+Route::get('admin/kilang-buah', [App\Http\Controllers\Admin\KilangController::class, 'admin_kilangbuah'])->name('admin.kilangbuah');
+Route::get('admin/kilang-penapis', [App\Http\Controllers\Admin\KilangController::class, 'admin_kilangpenapis'])->name('admin.kilangpenapis');
+Route::get('admin/kilang-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_kilangisirung'])->name('admin.kilangisirung');
+Route::get('admin/kilang-oleokimia', [App\Http\Controllers\Admin\KilangController::class, 'admin_kilangoleokimia'])->name('admin.kilangoleokimia');
+Route::get('admin/pusat-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_pusatsimpanan'])->name('admin.pusatsimpanan');
+Route::get('admin/e-biodiesel', [App\Http\Controllers\Admin\KilangController::class, 'admin_ebiodiesel'])->name('admin.ebiodiesel');
 
 
 Auth::routes();
