@@ -447,7 +447,7 @@
                                         </strong>
                                     </span>
                                     </div> --}}
-                                <div class="icon" style="text-align: center"><i class="fa fa-print fa-xs"></i>
+                                <div class="icon" style="text-align: center"><i class="	fa fa-calendar-o fa-xs"></i>
                                 </div>
                                 <h4 class="title"><a href="">7. Penyata Bulan Terkini</a></h4>
                                 <p class="description">Senarai penyata bulanan terkini</p>
@@ -465,7 +465,7 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i></div>
+                                        class="fa fa-upload fa-xs"></i></div>
                                 <h4 class="title"><a href="">8. Porting Maklumat Sawit</a></h4>
                                 <p class="description">Pemindahan maklumat produk sawit</p>
                             </div>
@@ -482,7 +482,7 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i></div>
+                                        class="fa fa-globe fa-xs"></i></div>
                                 <h4 class="title"><a href="">9. Porting Maklumat Negara</a></h4>
                                 <p class="description">Pemindahan maklumat negara</p>
                             </div>
@@ -499,7 +499,7 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i></div>
+                                        class="	fas fa-share-square fa-xs"></i></div>
                                 <h4 class="title"><a href="">10. Porting Maklumat Pelesen </a></h4>
                                 <p class="description">Pemindahan maklumat pelesen ke BEPI</p>
                             </div>
@@ -516,7 +516,7 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i></div>
+                                        class="fas fa-eject fa-xs"></i></div>
                                 <h4 class="title"><a href="">11. Port Data ke Stat Admin</a></h4>
                                 <p class="description">Pemindahan Data ke Stat Admin</p>
                             </div>
@@ -533,7 +533,7 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i></div>
+                                        class="	fas fa-laptop-house fa-xs"></i></div>
                                 <h4 class="title"><a href="">12. Port Data ke Stat Homepage</a></h4>
                                 <p class="description">Pemindahan Data ke Stat Homepage</p>
                                 <br>
@@ -557,7 +557,7 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i></div>
+                                        class="fas fa-folder-open fa-xs"></i></div>
                                 <h4 class="title"><a href="">13. Penyata Bulan Terdahulu di e-Kilang</a>
                                 </h4>
                                 <p class="description"> Papar penyata bulanan terdahulu di e-Kilang</p>
@@ -575,7 +575,7 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i></div>
+                                        class="	fas fa-archive fa-xs"></i></div>
                                 <h4 class="title"><a href="">14. Penyata Bulan Terdahulu di PLEID</a></h4>
                                 <p class="description">Papar penyata bulanan terdahulu di PLEID</p>
                             </div>
@@ -592,7 +592,7 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i></div>
+                                        class="fas fa-file-archive fa-xs"></i></div>
                                 <h4 class="title"><a href="">15. Port Data Ke Dynamic Query</a></h4>
                                 <p class="description">Pemindahan Data Ke Dynamic Query</p>
                             </div>
@@ -609,7 +609,7 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i></div>
+                                        class="fa fa-envelope fa-xs"></i></div>
                                 <h4 class="title"><a href="">16. Emel Pertanyaan / Pindaan / Cadangan</a>
                                 </h4>
                                 <p class="description">Senarai Emel Pertanyaan / Pindaan / Cadangan</p>
@@ -627,7 +627,7 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i></div>
+                                        class="fas fa-check-double fa-xs"></i></div>
                                 <h4 class="title"><a href="">17. Validasi</a></h4>
                                 <p class="description">Validasi - Semakan FFBProses dan Kapasiti</p>
                             </div>
@@ -685,7 +685,7 @@
                                             Maecen aliquam, risus at semper.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/testimonials-1.jpg') }}"
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/email2.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Emel Semua Pelesen Aktif</h3>
                                         <h4>Penghantaran e-mail kepada semua pelesen aktif</h4>
@@ -705,7 +705,7 @@
                                             irure amet legam anim culpa.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/testimonials-2.jpg') }}"
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/dir4.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Direktori</h3>
                                         <h4>Direktori</h4>
@@ -725,7 +725,7 @@
                                             sint minim.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/testimonials-3.jpg') }}"
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Pengumuman</h3>
                                         <h4>Pengumuman</h4>
@@ -747,7 +747,7 @@
                                             quem dolore labore illum veniam.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/testimonials-4.jpg') }}"
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/sch.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Jadual Penerimaan PL</h3>
                                         <h4>Jadual Penerimaan PL Bagi Semua Sektor</h4>
@@ -766,7 +766,7 @@
                                             esse veniam culpa fore nisi cillum quid.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/testimonials-5.jpg') }}"
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/list.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Senarai Gagal Penerimaan PL</h3>
                                         <h4>Senarai Gagal Penerimaan PL </h4>
@@ -785,7 +785,7 @@
                                             esse veniam culpa fore nisi cillum quid.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/testimonials-5.jpg') }}"
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Panduan Penyelenggaraan</h3>
                                         <h4>Panduan bagi menyelenggara penyata bulanan</h4>
@@ -804,9 +804,9 @@
                                             esse veniam culpa fore nisi cillum quid.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/testimonials-5.jpg') }}"
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/uem.png') }}"
                                             class="testimonial-img" alt="">
-                                        <h3>E-mail Pelesen</h3>
+                                        <h3>Emel Pelesen</h3>
                                         <h4>Penghantaran e-mail kepada pelesen</h4>
                                     </div>
                                 </div>
@@ -823,7 +823,7 @@
                                             esse veniam culpa fore nisi cillum quid.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/testimonials-5.jpg') }}"
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Tukar Kata Laluan</h3>
                                         <h4>Tukar kata laluan bagi pengguna</h4>

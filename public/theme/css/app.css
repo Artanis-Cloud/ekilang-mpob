@@ -95,7 +95,7 @@ section .section-title:after {
     height: 2px;
     content: "";
     margin: .6rem 0 1rem;
-    background-color: #5a8dee;
+    background-color: #1c5e4f;
     display: block
 }
 
