@@ -79,7 +79,8 @@
 
 
                         <li class="sidebar-item ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="{{ route('admin.kilangbuah') }}" class='sidebar-link'>
+                            {{-- <a href="index.html" class='sidebar-link'> --}}
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57)">Kilang Buah</span>
@@ -89,7 +90,8 @@
 
                         {{-- <li class="sidebar-item has-sub"> --}}
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.kilangpenapis') }}" class='sidebar-link'>
+                            {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Kilang Penapis</span>
@@ -99,7 +101,8 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.kilangisirung') }}" class='sidebar-link'>
+                            {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); margin-left:21px ">Kilang Isirung</span>
@@ -110,7 +113,8 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.kilangoleokimia') }}" class='sidebar-link'>
+                            {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57);">Kilang Oleokimia</span>
@@ -119,7 +123,8 @@
 
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.pusatsimpanan') }}" class='sidebar-link'>
+                            {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57);">Pusat Simpanan</span>
@@ -127,7 +132,8 @@
 
                         </li>
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57)">E-Biodiesel</span>
