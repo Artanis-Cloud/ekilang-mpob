@@ -65,6 +65,7 @@
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="card card-statistic">
+                        <a href="{{ route('admin.kilangpenapis') }}">
                         <div class="p-0 card-body"
                             style="background-image: url({{ asset('theme/images/background/penapissawit.png') }}); background-size:cover">
                             <div class="d-flex flex-column">
@@ -79,10 +80,12 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="card card-statistic">
+                        <a href="{{ route('admin.kilangisirung') }}">
                         <div class="p-0 card-body"
                             style="background-image: url({{ asset('theme/images/background/isirung-sawit.jpg') }}); background-size:cover">
                             <div class="d-flex flex-column">
@@ -97,10 +100,12 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="card card-statistic">
+                        <a href="{{ route('admin.kilangoleokimia') }}">
                         <div class="p-0 card-body"
                             style="background-image: url({{ asset('theme/images/background/oleokimia.jpg') }}); background-size:cover">
                             <div class="d-flex flex-column">
@@ -115,10 +120,12 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="card card-statistic">
+                        <a href="{{ route('admin.pusatsimpanan') }}">
                         <div class="p-0 card-body"
                             style="background-image: url({{ asset('theme/images/background/pusat-simpanan.png') }}); background-size:cover">
                             <div class="d-flex flex-column">
@@ -133,10 +140,12 @@
                                 </div>
                             </div>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 col-md-4" style="align-items: center">
                     <div class="card card-statistic">
+                        {{-- <a href="{{ route('admin.biodiesel') }}"> --}}
                         <div class="p-0 card-body"
                             style="background-image: url({{ asset('theme/images/background/biodiesel.jpg') }}); background-size:cover">
                             <div class="d-flex flex-column">
@@ -151,6 +160,7 @@
                                 </div>
                             </div>
                         </div>
+                        {{-- </a> --}}
                     </div>
                 </div>
                 {{-- <div class="col-12 col-md-3">
