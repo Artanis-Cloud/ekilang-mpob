@@ -1,4 +1,4 @@
-@extends('layouts.users.buah')
+@extends('layouts.buah')
 
 @section('content')
     {{-- <div style="background-color: rgba(89, 194, 154, 0.801)">
@@ -12,8 +12,8 @@
     </tr>
     </div>
 </div> --}}
-    <br>
-    <div style="background-color:rgba(89, 194, 154, 0.801); border:1px solid rgb(187, 173, 173); ">
+
+    {{-- <div style="background-color:rgba(89, 194, 154, 0.801); border:1px solid rgb(187, 173, 173); ">
         <br>
         <img src="../../theme/images/icon_alert.gif" style="margin-left:5%; float:left; margin-top:10px ">
         <div class="my-2" style="margin-left:10%; margin-right:10%">
@@ -24,42 +24,42 @@
                     minggu <span style="color: red"><b>(ISNIN). </b></span><span></span>
         </div>
         <br>
-    </div>
+    </div> --}}
 
 
-    <div class="main-content container-fluid">
-        <div class="page-title">
+    <div class="">
+        {{-- <div class="page-title">
             <h4 style="color: rgba(47, 112, 88, 0.823); font-family:verdana">Penyata Bulanan</h4>
             {{-- <p class="text-subtitle text-muted">Senarai Borang Kemasukan Maklumat</p> --}}
-        </div>
-        <br>
+        {{-- </div> --}}
+
         <section class="section">
             <div class="mb-2 row" style="display: flex;
                                                     justify-content: center;
                                                     flex-direction: row;">
-                <div class="col-12 col-md-3">
-                    <div class="card card-statistic">
+                {{-- <div class="col-12 col-md-3"> --}}
+                    {{-- <div class="card card-statistic">
 
                         {{-- <div class="p-0 card-body" style="background-color: rgba(89, 194, 154, 0.801)"> --}}
-                        <div class="p-0 card-body"
-                            style="background-image: url({{ asset('theme/images/background/buah-sawit.jpg') }}); background-size:cover">
+                        {{-- <div class="p-0 card-body" --}}
+                            {{-- style="background-image: url({{ asset('theme/images/background/buah-sawit.jpg') }}); background-size:cover">
                             <div class="d-flex flex-column">
                                 <div class='px-3 py-3 d-flex justify-content-between'>
-                                    <h3 class='card-title'>Kilang Buah</h3>
+                                    <h3 class='card-title'>Kilang Buah</h3> --}}
                                     {{-- <br>
                                     <p style="color: white"> PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</p> --}}
-                                    <div class="card-right d-flex align-items-center">
+                                    {{-- <div class="card-right d-flex align-items-center"> --}}
                                         {{-- <p>$50 </p> --}}
-                                    </div>
-                                </div>
-                                <div class="chart-wrapper">
+                                    {{-- </div>
+                                </div> --}}
+                                {{-- <div class="chart-wrapper">
                                     <canvas id="canvas1" style="height:100px !important"></canvas>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
+                </div> --}}
+                {{-- <div class="col-12 col-md-3">
                     <div class="card card-statistic">
                         <div class="p-0 card-body"
                             style="background-image: url({{ asset('theme/images/background/penapissawit.png') }}); background-size:cover">
@@ -67,8 +67,7 @@
                                 <div class='px-3 py-3 d-flex justify-content-between'>
                                     <h3 class='card-title'>Kilang Penapis</h3>
                                     <div class="card-right d-flex align-items-center">
-                                        {{-- <p>$532,2 </p> --}}
-                                    </div>
+
                                 </div>
                                 <div class="chart-wrapper">
                                     <canvas id="canvas2" style="height:100px !important"></canvas>
@@ -76,8 +75,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
+                </div> --}}
+                {{-- <div class="col-12 col-md-3">
                     <div class="card card-statistic">
                         <div class="p-0 card-body"
                             style="background-image: url({{ asset('theme/images/background/isirung-sawit.jpg') }}); background-size:cover">
@@ -86,7 +85,7 @@
                                     <h3 class='card-title'>Kilang Isirung</h3>
                                     <div class="card-right d-flex align-items-center">
                                         {{-- <p>1,544 </p> --}}
-                                    </div>
+                                    {{-- </div>
                                 </div>
                                 <div class="chart-wrapper">
                                     <canvas id="canvas3" style="height:100px !important"></canvas>
@@ -94,8 +93,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
+                </div> --}}
+                {{-- <div class="col-12 col-md-3">
                     <div class="card card-statistic">
                         <div class="p-0 card-body"
                             style="background-image: url({{ asset('theme/images/background/oleokimia.jpg') }}); background-size:cover">
@@ -103,7 +102,7 @@
                                 <div class='px-3 py-3 d-flex justify-content-between'>
                                     <h3 class='card-title'>Kilang Oleokimia</h3>
                                     <div class="card-right d-flex align-items-center">
-                                        {{-- <p>423 </p> --}}
+
                                     </div>
                                 </div>
                                 <div class="chart-wrapper">
@@ -112,8 +111,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
+                </div> --}}
+                {{-- <div class="col-12 col-md-3">
                     <div class="card card-statistic">
                         <div class="p-0 card-body"
                             style="background-image: url({{ asset('theme/images/background/pusat-simpanan.png') }}); background-size:cover">
@@ -121,7 +120,7 @@
                                 <div class='px-3 py-3 d-flex justify-content-between'>
                                     <h3 class='card-title'>Pusat Simpanan</h3>
                                     <div class="card-right d-flex align-items-center">
-                                        {{-- <p>423 </p> --}}
+
                                     </div>
                                 </div>
                                 <div class="chart-wrapper">
@@ -130,8 +129,8 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3" style="align-items: center">
+                </div> --}}
+                {{-- <div class="col-12 col-md-3" style="align-items: center">
                     <div class="card card-statistic">
                         <div class="p-0 card-body"
                             style="background-image: url({{ asset('theme/images/background/biodiesel.jpg') }}); background-size:cover">
@@ -139,7 +138,7 @@
                                 <div class='px-3 py-3 d-flex justify-content-between'>
                                     <h3 class='card-title'>E-Biodiesel</h3>
                                     <div class="card-right d-flex align-items-center">
-                                        {{-- <p>423 </p> --}}
+
                                     </div>
                                 </div>
                                 <div class="chart-wrapper">
@@ -148,7 +147,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 {{-- <div class="col-12 col-md-3">
                     <div class="card card-statistic">
                         <div class="p-0 card-body"

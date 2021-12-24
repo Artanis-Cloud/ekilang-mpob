@@ -28,20 +28,20 @@
                     </h2>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
                     <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px">
-                    <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px">
+                    {{-- <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px"> --}}
 
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
 
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Penyata Bulanan</li>
+                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Maklumat Pelesen</li>
 
 
                         <li class="sidebar-item ">
                             <a href="index.html" class='sidebar-link'>
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">Kilang Buah</span>
+                                <span style="color: rgb(78, 73, 57)">Maklumat Asas Pelesen</span>
                             </a>
 
                         </li>
@@ -51,7 +51,7 @@
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Kilang Penapis</span>
+                                <span style="color: rgb(78, 73, 57); ">Tukar Kata Laluan</span>
                             </a>
 
                             {{-- <ul class="submenu ">
@@ -115,13 +115,13 @@
                             </ul> --}}
 
                         </li>
-
+{{--
                         <li class="sidebar-item">
                             <a href="#" class='sidebar-link'>
                             <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); margin-left:21px ">Kilang Isirung</span>
-                            </a>
+                                {{-- <span style="color: rgb(78, 73, 57); margin-left:21px ">Kilang Isirung</span>
+                            </a> --}}
 
                             {{-- <ul class="submenu ">
 
@@ -135,14 +135,14 @@
 
                             </ul> --}}
 
-                        </li>
+                        {{-- </li> --}}
 
-                        <li class="sidebar-item">
+                        {{-- <li class="sidebar-item">
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57);">Kilang Oleokimia</span>
-                            </a>
+                                {{-- <span style="color: rgb(78, 73, 57);">Kilang Oleokimia</span>
+                            </a> --}}
 
                             {{-- <ul class="submenu ">
 
@@ -155,15 +155,14 @@
                                 </li>
 
                             </ul> --}}
-
+{{--
                         </li>
                         <li class="sidebar-item">
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57);">Pusat Simpanan</span>
-                            </a>
-
+                                {{-- <span style="color: rgb(78, 73, 57);">Pusat Simpanan</span>
+                            </a> --}}
                             {{-- <ul class="submenu ">
 
                                 <li>
@@ -176,13 +175,13 @@
 
                             </ul> --}}
 
-                        </li>
+                        {{-- </li>
                         <li class="sidebar-item">
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">E-Biodiesel</span>
-                            </a>
+                                {{-- <span style="color: rgb(78, 73, 57)">E-Biodiesel</span>
+                            </a> --}}
 
                             {{-- <ul class="submenu ">
 
@@ -196,13 +195,13 @@
 
                             </ul> --}}
 
-                        </li>
+                        {{-- </li>
                         <li class="sidebar-item">
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-briefcase" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">MPOB (EL) MF 4A - QC/MF/1</span>
-                            </a>
+                                {{-- <span style="color: rgb(78, 73, 57)">MPOB (EL) MF 4A - QC/MF/1</span>
+                            </a> --}}
 
                             {{-- <ul class="submenu ">
 
@@ -218,13 +217,13 @@
 
                         </li>
 
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Penyata Mingguan</li>
+                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Kemasukan Penyata Bulanan</li>
 
                         <li class="sidebar-item">
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-text" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Kilang Buah</span>
+                                <span style="color: rgb(78, 73, 57); ">Bahagian I</span>
                             </a>
 
                             {{-- <ul class="submenu ">
@@ -261,7 +260,7 @@
                             <a href="form-layout.html" class='sidebar-link'>
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layout" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Kilang Penapis</span>
+                                <span style="color: rgb(78, 73, 57); ">Bahagian II</span>
                             </a>
 
                         </li>
@@ -270,7 +269,7 @@
                             <a href="form-editor.html" class='sidebar-link'>
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layers" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Kilang Oleokimia</span>
+                                <span style="color: rgb(78, 73, 57); ">Bahagian III</span>
                             </a>
 
                         </li>
@@ -279,7 +278,7 @@
                             <a href="table.html" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="grid" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Kilang E-Biodiesel</span>
+                                <span style="color: rgb(78, 73, 57); ">Bahagian IV</span>
                             </a>
 
                         </li>
@@ -288,7 +287,23 @@
                             <a href="table-datatable.html" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Pusat Simpanan</span>
+                                <span style="color: rgb(78, 73, 57); ">Bahagian V</span>
+                            </a>
+
+                        </li>
+                        <li class="sidebar-item ">
+                            <a href="table-datatable.html" class='sidebar-link'>
+                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
+                            </a>
+
+                        </li>
+                        <li class="sidebar-item ">
+                            <a href="table-datatable.html" class='sidebar-link'>
+                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57); ">Papar & Hantar Penyata Bulanan</span>
                             </a>
 
                         </li>
@@ -456,12 +471,12 @@
 
                     {{-- <img src="theme/images/background/favicon.png" height='45px' alt=""> --}}
                      {{-- <img src="theme/images/background/mspo.png" height='60px' alt=""> --}}
-                    <img src="{{ asset('/mpob.png') }}" height='60px' width='70px' alt="" style="margin-left: 20%; margin-top: 15px;">
-                    <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%">
+                    <img src="{{ asset('/mpob.png') }}" height='60px' width='70px' alt="" style="margin-left:25%; margin-top: 15px;">
+                    {{-- <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%"> --}}
                 </a>
 
                 <span class="mx-2 mt-3 mb-0 text-center navbar-brand h1"
-                    style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b style="margin-left:30%;">
+                    style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b style="margin-left:10%;">
                         E-Kilang </b></span>
 
 
@@ -527,6 +542,7 @@
                     </ul>
                 </div>
             </nav>
+            <br>
 
             {{-- CONTENT BODY --}}
             @yield('content')
