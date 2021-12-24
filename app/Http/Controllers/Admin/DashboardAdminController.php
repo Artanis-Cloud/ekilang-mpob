@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class DashboardAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,11 +15,6 @@ class DashboardController extends Controller
     public function admin_dashboard()
     {
         return view('admin.admin-dashboard');
-    }
-
-    public function users_dashboard()
-    {
-        return view('users.users-dashboard');
     }
 
     public function index_form()
