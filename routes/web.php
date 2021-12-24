@@ -40,6 +40,7 @@ Route::middleware('auth')->group(
 //dashboard
 Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard'])->name('admin.dashboard');
 Route::get('buah/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'buah_dashboard'])->name('buah.dashboard');
+Route::get('tryyyyy/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'tryyyyy_dashboard'])->name('tryyyyy.dashboard');
 
 
 //Admin - Kilang buah

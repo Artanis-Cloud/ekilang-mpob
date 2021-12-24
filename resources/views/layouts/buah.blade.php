@@ -21,13 +21,18 @@
 <body>
     <div id="app">
         <div id="sidebar" class='active'>
-            <div class="sidebar-wrapper active" style="background-color: rgba(87, 168, 137, 0.664)">
-                <div class="mt-2 sidebar-header">
-                    <h2 style="text-align:left; font-family:Verdana; margin-right:30%; color: rgb(78, 73, 57)"><b>
+            <div class="sidebar-wrapper active" style="background-color: rgba(249, 208, 94)">
+                <div class="mt-3 sidebar-header" style="margin-bottom: -13%">
+
+                    <img src="{{ asset('/mpob.png') }}" style="float:left; margin-right:10%; width:60px; height:55px" >
+                    {{-- <strong>E-Kilang</strong><br />
+                    <span>description</span> --}}
+
+                    <h4 style="text-align:left; font-family:Verdana; margin-left:15%; margin-top:5%; color: rgb(78, 73, 57)"><b>
                             E-Kilang </b>
-                    </h2>
+                    </h4>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
-                    <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px">
+                    {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
                     {{-- <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px"> --}}
 
                 </div>
@@ -115,6 +120,7 @@
                             </ul> --}}
 
                         </li>
+                        <br>
 {{--
                         <li class="sidebar-item">
                             <a href="#" class='sidebar-link'>
@@ -307,14 +313,15 @@
                             </a>
 
                         </li>
+                        <br>
 
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Bantuan</li>
+                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Menu-Menu Lain</li>
 
                         <li class="sidebar-item">
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="user" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Produk Sawit</span>
+                                <span style="color: rgb(78, 73, 57); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
                             </a>
 
                             {{-- <ul class="submenu ">
@@ -339,7 +346,7 @@
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Negara</span>
+                                <span style="color: rgb(78, 73, 57); ">Prestasi OER</span>
                             </a>
 
                             {{-- <ul class="submenu ">
@@ -360,7 +367,7 @@
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Panduan Web</span>
+                                <span style="color: rgb(78, 73, 57); ">Papar Penyata Bulanan Terdahulu</span>
                             </a>
 
                             {{-- <ul class="submenu ">
@@ -376,6 +383,7 @@
                             </ul> --}}
 
                         </li>
+                        <br>
 
                         {{-- <li class='sidebar-title'>Pages</li>
 

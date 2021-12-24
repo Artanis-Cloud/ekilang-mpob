@@ -18,7 +18,7 @@ class DashboardUserController extends Controller
     {
         return view('users.KilangBuah.buah-dashboard');
     }
-
+  
     public function index_form()
     {
         return view('users.form');
