@@ -84,7 +84,7 @@
 
 
                         <li class="sidebar-item ">
-                            <a href="index.html" class='sidebar-link'>
+                            <a href="{{ route ('buah.maklumatasaspelesen') }}" class='sidebar-link'>
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57)">Maklumat Asas Pelesen</span>
@@ -1141,17 +1141,17 @@
 
     </main><!-- End #main -->
 
-    <!-- ======= Footer ======= -->
+    {{-- <!-- ======= Footer ======= -->
     <footer>
-        <div class="footer text-muted">
+        <div class="footer text-muted"> --}}
             {{-- <div class="float-start">
             <p>2020 &copy; Voler</p>
         </div> --}}
-            <div style="text-align: center">
+            {{-- <div style="text-align: center">
                 <p style="font-size:10px">Developed by Artanis Cloud</a></p>
             </div>
         </div>
-    </footer>
+    </footer> --}}
 
 
 

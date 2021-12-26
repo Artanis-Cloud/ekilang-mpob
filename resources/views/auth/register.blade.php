@@ -51,10 +51,9 @@
 
                                 <section>
 
-                                    <h4 class="card-title"
-                                        style="text-align: center; color:rgb(39, 80, 71)">Maklumat
+                                    <h4 class="card-title" style="text-align: center; color:rgb(39, 80, 71)">Maklumat
                                         Kilang</h4>
-                                        <br>
+                                    <br>
                                     {{-- <form action="index.html"> --}}
                                     {{-- <div class="clearfix content" style="background-color: black"> --}}
                                     <div class="row">
@@ -192,10 +191,10 @@
 
                                 <section>
 
-                                    <h4 class="card-title"
-                                        style="text-align: center; color:rgb(39, 80, 71)">Maklumat
+                                    <h4 class="card-title" style="text-align: center; color:rgb(39, 80, 71)">
+                                        Maklumat
                                         Pengguna Kilang</h4>
-<br>
+                                    <br>
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
@@ -286,6 +285,7 @@
         </div>
 
     </div>
+</div>
     <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
     <script src="{{ asset('nice-admin/dist/js/custom.js') }}"></script>
     <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
