@@ -327,7 +327,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="table.html" class='sidebar-link'>
+                            <a href="{{ route ('buah.bahagianiv') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="grid" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian IV</span>
