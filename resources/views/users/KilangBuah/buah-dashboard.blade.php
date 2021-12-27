@@ -265,7 +265,7 @@
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Kemasukan Penyata Bulanan</li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('buah.bahagiani') }}" class='sidebar-link'>
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-text" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian I</span>

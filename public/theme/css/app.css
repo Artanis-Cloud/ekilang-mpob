@@ -366,7 +366,8 @@ footer {
 .btn.btn-secondary,
 .btn.btn-success,
 .btn.btn-warning {
-    color: #fff
+    color: #fff;
+    background-color: #275047;
 }
 
 .btn-block {
@@ -1282,12 +1283,14 @@ footer {
 .dataTable-table thead th,
 .table td,
 .table thead th {
-    vertical-align: middle
+    vertical-align: middle;
+    color:#275047;
 }
 
 .dataTable-table thead th,
 .table thead th {
-    border-bottom: 2px solid #475f7b
+    border-bottom: 2px solid #475f7b;
+    color:#275047;
 }
 
 .dataTable-container {
@@ -1649,3 +1652,6 @@ footer {
 .bg-gray-700 {
     background-color: #4a5568 !important
 }
+
+
+
