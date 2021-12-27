@@ -28,10 +28,32 @@ class KilangBuahController extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
+        $layout = 'layouts.kbuah';
 
 
 
-        return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr'));
+        return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout'));
+    }
+
+    public function buah_tukarpassword()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('buah.tukarpassword'), 'name' => "Tukar Kata Laluan"],
+        ];
+
+        $kembali = route('buah.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kbuah';
+
+
+
+        return view('users.KilangBuah.buah-tukar-password', compact('returnArr', 'layout'));
     }
 
     public function index_form()

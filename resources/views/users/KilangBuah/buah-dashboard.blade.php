@@ -94,7 +94,7 @@
 
                         {{-- <li class="sidebar-item has-sub"> --}}
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('buah.tukarpassword') }}" class='sidebar-link'>
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Tukar Kata Laluan</span>
