@@ -306,7 +306,7 @@
                                                 <div class="row" style="padding-top: 35px; float:right">
 
                                                     <div class="col-md-12">
-                                                        <button type="button" class="btn  btn-info btn-block"
+                                                        <button type="button" class="btn  btn-primary"
                                                             data-toggle="modal" data-target="#confirmation">Simpan & Seterusnya</button>
                                                     </div>
 

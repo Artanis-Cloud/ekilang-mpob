@@ -61,11 +61,11 @@
         <!-- Template Main CSS File -->
         <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
         <!-- =======================================================
-                                                                                      * Template Name: OnePage - v4.7.0
-                                                                                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                                                      * Author: BootstrapMade.com
-                                                                                      * License: https://bootstrapmade.com/license/
-                                                                                      ======================================================== -->
+                                                                                                  * Template Name: OnePage - v4.7.0
+                                                                                                  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+                                                                                                  * Author: BootstrapMade.com
+                                                                                                  * License: https://bootstrapmade.com/license/
+                                                                                                  ======================================================== -->
     </head>
 
 
@@ -131,8 +131,10 @@
 
                                     <div class="mb-5 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Bahagian III</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Belian / Penerimaan Bekalan Buah Kelapa Sawit (FFB) (52)</h5>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Bahagian V</h3>
+                                        <h5 style="color: rgb(39, 80, 71)">Edaran / Jualan Isirung Sawit (PK) Dalam Negeri
+                                            (51)
+                                        </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
@@ -158,7 +160,7 @@
                                                             <table class="table table-bordered mb-0">
                                                                 <thead style="text-align: center">
                                                                     <tr>
-                                                                        <th>Sumber Bekalan</th>
+                                                                        <th>Pembeli / Penerima</th>
                                                                         <th>Kuantiti (Tan Metrik)</th>
 
 
@@ -167,7 +169,16 @@
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td class="text-bold-500">1. Estet Sendiri</td>
+                                                                        <td class="text-bold-500">1. Kilang Isirung</td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="text" size="15"
+                                                                                onkeypress="return isNumberKey(event)">
+                                                                        </td>
+
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-bold-500">2. Kilang Peniaga</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15">
                                                                         </td>
@@ -175,47 +186,18 @@
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="text-bold-500">2. Estet Luar</td>
+                                                                        <td class="text-bold-500">3. Lain-Lain</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15">
                                                                         </td>
 
 
                                                                     </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">3. Peniaga Buah</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="15">
-                                                                        </td>
 
 
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">4. Pekebun Kecil</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="15">
-                                                                        </td>
-
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">5. Kilang Buah Lain</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="15">
-                                                                        </td>
-
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">6. Lain-Lain</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="15">
-                                                                        </td>
-
-
-                                                                    </tr>
                                                                     <tr style="background-color: #1526224a">
-                                                                        <td class="text-bold-500" style="text-align:center;"><b>Jumlah</b></td>
+                                                                        <td class="text-bold-500"
+                                                                            style="text-align:center;"><b>Jumlah</b></td>
                                                                         <td style="text-align:center;">
 
                                                                         </td>
@@ -224,21 +206,22 @@
                                                                 </tbody>
                                                             </table>
                                                         </div>
-                                                        </div>
-                                                        </div>
-
-
-
-
-
-
-
-
-
-
-
+                                                    </div>
                                                 </div>
+
+
+
+
+
+
+
+
+
+
+
+                                        </div>
                                     </div>
+
 
 
 
@@ -247,74 +230,61 @@
 
 
                                         <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
+                                            <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
                                         </div>
                                             <div class="text-right col-md-7 mb-4 ">
                                                 <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                    style="float: right" data-target="#confirmation">Simpan &
-                                                    Seterusnya</button>
+                                                    style="float: right" data-target="#confirmation">Simpan & Hantar</button>
                                             </div>
 
                                     </div>
 
-                                                {{-- Hidden Gap - Just Ignore --}}
-                                                <div class="alert alert-white" style="text-align: center;"></div>
-                                                {{-- <div style="padding: 25px;"></div> --}}
-                                        </div>
+                                        {{-- Hidden Gap - Just Ignore --}}
+                                        {{-- <div class="alert alert-white" style="text-align: center;"></div> --}}
+                                        {{-- <div style="padding: 25px;"></div> --}}
+                                    </div>
 
-                                        <!-- Modal Confirmation -->
-                                        <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header"
-                                                        style="background-color:#f3ce8f  !important">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle"><i
-                                                                class="fa fa-exclamation-triangle" aria-hidden="true"
-                                                                style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger"
-                                                            data-dismiss="modal">Kembali</button>
-                                                        <button type="submit" class="btn btn-success">Ya</button>
-                                                    </div>
+                                    <!-- Modal Confirmation -->
+                                    <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header" style="background-color:#f3ce8f  !important">
+                                                    <h5 class="modal-title" id="exampleModalLongTitle"><i
+                                                            class="fa fa-exclamation-triangle" aria-hidden="true"
+                                                            style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    Anda pasti mahu menyimpan maklumat ini?
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-danger"
+                                                        data-dismiss="modal">Kembali</button>
+                                                    <button type="submit" class="btn btn-success">Ya</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <br>
-                                        </form>
-
                                     </div>
+                                    <br>
+                                    </form>
+
                                 </div>
                             </div>
+                        </div>
+                        <br>
 
 
 
-                            {{-- </div>
+                        {{-- </div>
                                                                     </div> --}}
 
-                            {{-- </section> --}}
-                            <br>
-                            <br>
-
-
-
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+                        {{-- </section> --}}
 
 
 
@@ -326,7 +296,18 @@
 
 
 
-            <br>
+
+
+
+
+                        {{-- </div>
+
+                    </div> --}}
+
+
+
+                        <br>
+                        <br>
 
 
 
@@ -420,6 +401,17 @@
             if (event.target == modal) {
                 modal.style.display = "none";
             }
+        }
+    </script>
+
+    <script>
+        function onlyNumberKey(evt) {
+
+            // Only ASCII charactar in that range allowed
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                return false;
+            return true;
         }
     </script>
 
