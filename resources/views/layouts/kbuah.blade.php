@@ -336,21 +336,21 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="table-datatable.html" class='sidebar-link'>
+                            <a href="{{ route ('buah.bahagianv') }}" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian V</span>
                             </a>
 
                         </li>
-                        <li class="sidebar-item ">
-                            <a href="table-datatable.html" class='sidebar-link'>
-                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                        {{-- <li class="sidebar-item ">
+                            <a href="{{ route ('buah.bahagianvi') }}" class='sidebar-link'>
+                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i> --}}
                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
+                                {{-- <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
                             </a>
 
-                        </li>
+                        </li> --}}
                         <li class="sidebar-item ">
                             <a href="table-datatable.html" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>

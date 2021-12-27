@@ -262,13 +262,18 @@
 
 
 
-                                        <div class="row" style="padding-top: 10px; float:right">
+                                        <div class="row form-group" style="padding-top: 10px; ">
 
-                                            <div class="col-md-12 mb-4 ">
-                                                <button type="button" class="btn  btn-info btn-block"
-                                                    data-toggle="modal" data-target="#confirmation">Simpan &
-                                                    Seterusnya</button>
+
+                                            <div class="text-left col-md-5">
+                                                <a href="{{ route('buah.bahagianiii') }}" class="btn btn-primary"
+                                                    style="float: left">Sebelumnya</a>
                                             </div>
+                                                <div class="text-right col-md-7 mb-4 ">
+                                                    <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                        style="float: right" data-target="#confirmation">Simpan &
+                                                        Seterusnya</button>
+                                                </div>
 
                                         </div>
 
