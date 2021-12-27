@@ -98,7 +98,7 @@
                                                         </a>
                                                     </li>
                                                 @else
-                                                <li class="breadcrumb-item active" aria-current="page" style="color: #ffd151 !important;">
+                                                <li class="breadcrumb-item active" aria-current="page" style="color: #fff03e  !important;">
                                                     {{ $breadcrumb['name'] }}
                                                 </li>
                                                 @endif
@@ -147,24 +147,24 @@
                                             {{-- <form action="index.html"> --}}
                                             {{-- <div class="clearfix content" style="background-color: black"> --}}
                                             <div class="row">
-                                                <div class="col-12" style="margin-bottom:-4%">
+                                                <div class="col-12" style="margin-bottom:-5%">
                                                     <div class="form-group">
                                                         <label class="required control-label col-form-label" for="first-name-column">Alamat Premis Berlesen</label>
-                                                        <input type="text" id="first-name-column" class="form-control" required title="Sila isikan butiran ini."
+                                                        <input type="text" id="first-name-column" class="form-control" required title="Sila isikan butiran ini." placeholder="Alamat Premis 1"
                                                             name="fname-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="first-name-column"></label>
-                                                        <input type="text" id="first-name-column" class="form-control"
+                                                        <input type="text" id="first-name-column" class="form-control" placeholder="Alamat Premis 2"
                                                             name="fname-column">
                                                     </div>
                                                 </div>
-                                                <div class="col-12" style="margin-bottom:-4%">
+                                                <div class="col-12" style="margin-bottom:-5%">
                                                     <div class="form-group">
                                                         <label for="last-name-column">Alamat Surat Menyurat</label>
-                                                        <input type="text" id="last-name-column" class="form-control"
+                                                        <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
                                                             name="lname-column">
                                                     </div>
                                                 </div>
@@ -172,7 +172,7 @@
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="last-name-column"></label>
-                                                        <input type="text" id="last-name-column" class="form-control"
+                                                        <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
                                                             name="lname-column">
                                                     </div>
                                                 </div>
@@ -180,28 +180,28 @@
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label for="company-column">No. Telefon Pejabat / Kilang</label>
-                                                        <input type="text" id="company-column" class="form-control"
+                                                        <input type="text" id="company-column" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
                                                             name="company-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column">No. Faks</label>
-                                                        <input type="email" id="email-id-column" class="form-control"
+                                                        <input type="email" id="email-id-column" class="form-control" placeholder="No. Faks"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column">Alamat Emel</label>
-                                                        <input type="email" id="email-id-column" class="form-control"
+                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column"> Nama Pegawai Melapor</label>
-                                                        <input type="email" id="email-id-column" class="form-control"
+                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Melapor"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
@@ -209,21 +209,21 @@
                                                     <div class="form-group">
                                                         <label for="email-id-column"> Jawatan Pegawai Melapor
                                                         </label>
-                                                        <input type="email" id="email-id-column" class="form-control"
+                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Melapor"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column">No. Telefon Pegawai Melapor</label>
-                                                        <input type="email" id="email-id-column" class="form-control"
+                                                        <input type="email" id="email-id-column" class="form-control" placeholder="No. Telefon Pegawai Melapor"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column">Nama Pegawai Bertanggungjawab</label>
-                                                        <input type="email" id="email-id-column" class="form-control"
+                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
@@ -231,14 +231,15 @@
                                                     <div class="form-group">
                                                         <label for="email-id-column">Jawatan Pegawai
                                                             Bertanggungjawab</label>
-                                                        <input type="email" id="email-id-column" class="form-control"
+                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai
+                                                        Bertanggungjawab"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column">Alamat Emel Pengurus</label>
-                                                        <input type="email" id="email-id-column" class="form-control"
+                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel Pengurus"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>

@@ -35,6 +35,8 @@
 
     <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('theme/vendors/simple-datatables/style.css') }}">
+
     <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
 
     <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
@@ -270,7 +272,7 @@
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Kemasukan Penyata Bulanan</li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('buah.bahagiani') }}" class='sidebar-link'>
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-text" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian I</span>
@@ -632,9 +634,13 @@
     <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('theme/js/app.js') }}"></script>
 
+    <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+
     <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
     <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
     {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
+
+    <script src="{{ asset('theme/js/vendors.js') }}"></script>
 
     <script src="{{ asset('theme/js/main.js') }}"></script>
 
