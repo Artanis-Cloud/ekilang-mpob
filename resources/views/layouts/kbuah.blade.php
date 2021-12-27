@@ -318,7 +318,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="form-editor.html" class='sidebar-link'>
+                            <a href="{{ route ('buah.bahagianiii') }}" class='sidebar-link'>
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layers" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian III</span>
