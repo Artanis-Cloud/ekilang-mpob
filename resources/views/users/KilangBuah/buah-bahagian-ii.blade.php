@@ -61,11 +61,11 @@
         <!-- Template Main CSS File -->
         <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
         <!-- =======================================================
-                                                                                      * Template Name: OnePage - v4.7.0
-                                                                                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                                                      * Author: BootstrapMade.com
-                                                                                      * License: https://bootstrapmade.com/license/
-                                                                                      ======================================================== -->
+                                                                                                          * Template Name: OnePage - v4.7.0
+                                                                                                          * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+                                                                                                          * Author: BootstrapMade.com
+                                                                                                          * License: https://bootstrapmade.com/license/
+                                                                                                          ======================================================== -->
     </head>
 
 
@@ -187,8 +187,9 @@
                                                 Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='harga_purata_buah_sawit'
-                                                    id="harga_purata_buah_sawit" placeholder="RM" required title="Sila isikan butiran ini.">
-                                                    <p style="text-align: center"><i>(1% Kadar Perahan)</i></p>
+                                                    id="harga_purata_buah_sawit" placeholder="RM" required
+                                                    title="Sila isikan butiran ini.">
+                                                <p style="text-align: center"><i>(1% Kadar Perahan)</i></p>
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -250,7 +251,7 @@
                                                                             Buah berkualiti</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -261,7 +262,7 @@
                                                                             baik</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -272,7 +273,7 @@
                                                                             minyak</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -283,7 +284,7 @@
                                                                             mesin</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -294,7 +295,7 @@
                                                                             bks yang minima <i>(Less ffb handling)</i></td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -305,11 +306,18 @@
                                                                             lerai</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
 
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2" style=""><button
+                                                                                class="btn btn-primary" type="reset"
+                                                                                style="background-color: transparent; color:#275047; float:right">Padam</button>
+                                                                        </td>
+                                                                        {{-- <button class="btn btn-primary">Padam</button> --}}
                                                                     </tr>
                                                                     {{-- <tr>
                                                                         <td class="text-bold-500">G.
@@ -322,20 +330,20 @@
                                                                 </tbody>
                                                             </table>
                                                         </div>
-                                                        </div>
-                                                        </div>
+                                                    </div>
+                                                </div>
 
 
-                                                        <br>
-                                                        <br>
+                                                <br>
+                                                <br>
 
 
 
 
 
-                                                        {{-- Kadar OER menurun --}}
-                                                        <div class="card">
-                                                        <div class="card-content">
+                                                {{-- Kadar OER menurun --}}
+                                                <div class="card">
+                                                    <div class="card-content">
                                                         <div class="table-responsive">
                                                             <table class="table table-bordered mb-0">
                                                                 <thead style="text-align: center">
@@ -353,7 +361,7 @@
                                                                             Tiada / Kurang buah berkualiti</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -364,7 +372,7 @@
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -374,7 +382,7 @@
                                                                         <td class="text-bold-500">c. Jerebu</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -385,7 +393,7 @@
                                                                             yang berlebihan</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -395,7 +403,7 @@
                                                                         <td class="text-bold-500">e. Banjir</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -406,7 +414,7 @@
                                                                             berhasil</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
@@ -416,94 +424,115 @@
                                                                         <td class="text-bold-500">g. Kurang buah lerai</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="checkbox" id="checkbox1" style=" width: 25px;
-                                                                                        height: 25px;"
+                                                                                                            height: 25px;"
                                                                                 class='form-check-input'>
                                                                         </td>
 
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2" style=""><button
+                                                                                class="btn btn-primary" type="reset"
+                                                                                style="background-color: transparent; color:#275047; float:right">Padam</button>
+                                                                        </td>
+                                                                        {{-- <button class="btn btn-primary">Padam</button> --}}
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
-                                                    </div>
-
-
-
-
-
                                                 </div>
+
+
+                                                <div class="row">
+                                                    <div class="col-12" style="margin-bottom:-5%">
+                                                        <div class="form-group">
+                                                            <label class="control-label col-form-label"
+                                                                for="lain-sebab">Lain-Lain Sebab OER, Sila Nyatakan <i>(Max.
+                                                                    100 character)</i></label>
+                                                            <input type="text" id="lain-sebab" class="form-control"
+                                                                name="lain-sebab">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <br>
+
+
+
+
+
+                                        </div>
                                     </div>
 
 
 
 
-                                                <div class="row" style="padding-top: 35px; float:right">
+                                    <div class="row" style="padding-top: 35px; float:right">
 
-                                                    <div class="col-md-12 mb-5">
-                                                        <button type="button" class="btn  btn-info btn-block"
-                                                            data-toggle="modal" data-target="#confirmation">Simpan &
-                                                            Seterusnya</button>
-                                                    </div>
-
-                                                </div>
-
-                                                {{-- Hidden Gap - Just Ignore --}}
-                                                <div class="alert alert-white" style="text-align: center;"></div>
-                                                {{-- <div style="padding: 25px;"></div> --}}
+                                        <div class="col-md-12 mb-5">
+                                            <button type="button" class="btn  btn-info btn-block" data-toggle="modal"
+                                                data-target="#confirmation">Simpan &
+                                                Seterusnya</button>
                                         </div>
 
-                                        <!-- Modal Confirmation -->
-                                        <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header"
-                                                        style="background-color:#f3ce8f  !important">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle"><i
-                                                                class="fa fa-exclamation-triangle" aria-hidden="true"
-                                                                style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger"
-                                                            data-dismiss="modal">Kembali</button>
-                                                        <button type="submit" class="btn btn-success">Ya</button>
-                                                    </div>
-                                                </div>
+                                    </div>
+
+                                    {{-- Hidden Gap - Just Ignore --}}
+                                    <div class="alert alert-white" style="text-align: center;"></div>
+                                    {{-- <div style="padding: 25px;"></div> --}}
+                                </div>
+
+                                <!-- Modal Confirmation -->
+                                <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header" style="background-color:#f3ce8f  !important">
+                                                <h5 class="modal-title" id="exampleModalLongTitle"><i
+                                                        class="fa fa-exclamation-triangle" aria-hidden="true"
+                                                        style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
+                                                </h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Anda pasti mahu menyimpan maklumat ini?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger"
+                                                    data-dismiss="modal">Kembali</button>
+                                                <button type="submit" class="btn btn-success">Ya</button>
                                             </div>
                                         </div>
-                                        <br>
-                                        </form>
-
                                     </div>
                                 </div>
+                                <br>
+                                </form>
+
                             </div>
+                        </div>
+                    </div>
 
 
 
-                            {{-- </div>
+                    {{-- </div>
                                                                     </div> --}}
 
-                            {{-- </section> --}}
-                            <br>
-                            <br>
+                    {{-- </section> --}}
+                    <br>
+                    <br>
 
 
 
 
 
-                        </div>
-
-                    </div>
                 </div>
+
             </div>
+        </div>
+        </div>
 
 
 
@@ -515,7 +544,7 @@
 
 
 
-            <br>
+        <br>
 
 
 
