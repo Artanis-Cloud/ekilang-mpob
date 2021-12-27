@@ -1,4 +1,4 @@
-@extends('layouts.buah')
+@extends($layout)
 
 @section('content')
 
@@ -149,8 +149,8 @@
                                             <div class="row">
                                                 <div class="col-12" style="margin-bottom:-4%">
                                                     <div class="form-group">
-                                                        <label for="first-name-column">Alamat Premis Berlesen</label>
-                                                        <input type="text" id="first-name-column" class="form-control"
+                                                        <label class="required control-label col-form-label" for="first-name-column">Alamat Premis Berlesen</label>
+                                                        <input type="text" id="first-name-column" class="form-control" required title="Sila isikan butiran ini."
                                                             name="fname-column">
                                                     </div>
                                                 </div>
