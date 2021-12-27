@@ -302,7 +302,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="form-layout.html" class='sidebar-link'>
+                            <a href="{{ route ('buah.bahagianii') }}" class='sidebar-link'>
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layout" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian II</span>

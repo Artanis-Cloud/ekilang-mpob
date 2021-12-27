@@ -61,11 +61,11 @@
         <!-- Template Main CSS File -->
         <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
         <!-- =======================================================
-                                                          * Template Name: OnePage - v4.7.0
-                                                          * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                          * Author: BootstrapMade.com
-                                                          * License: https://bootstrapmade.com/license/
-                                                          ======================================================== -->
+                                                                                      * Template Name: OnePage - v4.7.0
+                                                                                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+                                                                                      * Author: BootstrapMade.com
+                                                                                      * License: https://bootstrapmade.com/license/
+                                                                                      ======================================================== -->
     </head>
 
 
@@ -131,19 +131,99 @@
 
                                     <div class="mb-5 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Bahagian I</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Maklumat Belian, Proses, Pengeluaran,
-                                            Jualan/Edaran, Stok Akhir <br>(Berdasarkan dalam premis kilang sahaja)</h5>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Bahagian II</h3>
+                                        <h5 style="color: rgb(39, 80, 71)">Maklumat Jam Pengilangan, Kadar Perahan Dan
+                                            Harga</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
+                                    <div class="container center mt-5">
+                                        <div class="row" style="margin-bottom:2%;">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
+                                                Jumlah Jam Pengilangan</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='jam_pengilangan'
+                                                    id="jam_pengilangan" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
+                                                Kadar
+                                                Perahan MKSM (OER) Yang Diperolehi</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='kadar_perahan_mksm'
+                                                    id="kadar_perahan_mksm" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">iii.
+                                                Kadar Perolehan Isirung (KER)</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='kadar_perolehan_isirung'
+                                                    id="kadar_perolehan_isirung" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">iv.
+                                                Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='harga_purata_buah_sawit'
+                                                    id="harga_purata_buah_sawit" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">v.
+                                                Kadar OER</label>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-select" id="basicSelect">
+                                                        <option></option>
+                                                        <option>Meningkat</option>
+                                                        <option>Menurun</option>
+                                                    </select>
+                                                </fieldset>
+                                                {{-- <input type="text" class="form-control" name='kadar_oer'
+                                                    id="kadar_oer" placeholder="Harga Purata Belian Buah Kelapa Sawit (FFB)"
+                                                    required title="Sila isikan butiran ini."> --}}
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                    </div>
 
 
 
 
 
-
-
+                                    {{-- kadar oer meningkat --}}
                                     <div class="row" id="table-bordered">
                                         <div class="col-12 mt-5">
                                             <form wire:submit.prevent='store'>
@@ -156,138 +236,187 @@
                                                             <table class="table table-bordered mb-0">
                                                                 <thead style="text-align: center">
                                                                     <tr>
-                                                                        <th>Butiran</th>
-                                                                        <th>Buah Kelapa Sawit (FFB) <br>
-                                                                            Kod 52</th>
-                                                                        <th>Minyak Sawit Mentah (CPO)
-                                                                            <br> Kod 01
-                                                                        </th>
-                                                                        <th>Isirung (PK) <br> Kod 51
-                                                                        </th>
-                                                                        <th>Minyak Keledak (Sludge Oil)
-                                                                            <br> Kod 49
-                                                                        </th>
+                                                                        <th>Sebab-Sebab OER Meningkat</th>
+                                                                        <th>Tanda (&#10004;)</th>
+
 
 
                                                                     </tr>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td class="text-bold-500">A.
-                                                                            Stok Awal Di Premis</td>
+                                                                        <td class="text-bold-500">a.
+                                                                            Buah berkualiti</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="10">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
                                                                         </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
+
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="text-bold-500">B.
-                                                                            Pembelian / Penerimaan</td>
+                                                                        <td class="text-bold-500">b. Kesan dari cuaca yang
+                                                                            baik</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="10">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
                                                                         </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
+
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="text-bold-500">C.
-                                                                            Diproses</td>
+                                                                        <td class="text-bold-500">c. Proses kitar semula
+                                                                            minyak</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="10">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
                                                                         </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
+
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="text-bold-500">D.
-                                                                            Pengeluaran</td>
+                                                                        <td class="text-bold-500">d. Kecekapan kilang /
+                                                                            mesin</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="10">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
                                                                         </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
+
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="text-bold-500">E.
-                                                                            Penjualan / Pengedaran Tempatan</td>
+                                                                        <td class="text-bold-500">e. Proses pengendalian
+                                                                            bks yang minima <i>(Less ffb handling)</i></td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="10">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
                                                                         </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10">
-                                                                        </td>
+
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="text-bold-500">F.
-                                                                            Eksport Terus Dari Premis</td>
+                                                                        <td class="text-bold-500">f. Proses lebih buah
+                                                                            lerai</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="10" disabled>
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" disabled>
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="text" size="10" disabled>
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" disabled>
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
                                                                         </td>
 
+
                                                                     </tr>
-                                                                    <tr>
+                                                                    {{-- <tr>
                                                                         <td class="text-bold-500">G.
                                                                             Stok Akhir Di Premis</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10">
                                                                         </td>
+
+                                                                    </tr> --}}
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                        </div>
+                                                        </div>
+
+
+                                                        <br>
+                                                        <br>
+
+
+
+
+
+                                                        {{-- Kadar OER menurun --}}
+                                                        <div class="card">
+                                                        <div class="card-content">
+                                                        <div class="table-responsive">
+                                                            <table class="table table-bordered mb-0">
+                                                                <thead style="text-align: center">
+                                                                    <tr>
+                                                                        <th>Sebab-Sebab OER Menurun</th>
+                                                                        <th>Tanda (&#10004;)</th>
+
+
+
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td class="text-bold-500">a.
+                                                                            Tiada / Kurang buah berkualiti</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="10">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
+                                                                        </td>
+
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-bold-500">b. Kesan cuaca kering
                                                                         </td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="10">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
                                                                         </td>
+
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-bold-500">c. Jerebu</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="10">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
+                                                                        </td>
+
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-bold-500">d. Kesan penerimaan hujan
+                                                                            yang berlebihan</td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
+                                                                        </td>
+
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-bold-500">e. Banjir</td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
+                                                                        </td>
+
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-bold-500">f. Buah dari ladang baru
+                                                                            berhasil</td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
+                                                                        </td>
+
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-bold-500">g. Kurang buah lerai</td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="checkbox" id="checkbox1" style=" width: 25px;
+                                                                                        height: 25px;"
+                                                                                class='form-check-input'>
                                                                         </td>
 
                                                                     </tr>
@@ -295,19 +424,24 @@
                                                             </table>
                                                         </div>
                                                     </div>
+                                                    </div>
+
 
 
 
 
                                                 </div>
+                                    </div>
+
 
 
 
                                                 <div class="row" style="padding-top: 35px; float:right">
 
-                                                    <div class="col-md-12">
+                                                    <div class="col-md-12 mb-5">
                                                         <button type="button" class="btn  btn-info btn-block"
-                                                            data-toggle="modal" data-target="#confirmation">Simpan & Seterusnya</button>
+                                                            data-toggle="modal" data-target="#confirmation">Simpan &
+                                                            Seterusnya</button>
                                                     </div>
 
                                                 </div>
@@ -344,6 +478,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <br>
                                         </form>
 
                                     </div>
