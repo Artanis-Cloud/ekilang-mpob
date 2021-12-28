@@ -79,6 +79,9 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
+                        <div class="container" style="margin-top: 30%; margin-left:6%; ">
+                            <h6 style="color: rgb(54, 51, 41)"><b>KILANG BUAH</b></h6>
+                        </div>
 
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Maklumat Pelesen</li>
 
