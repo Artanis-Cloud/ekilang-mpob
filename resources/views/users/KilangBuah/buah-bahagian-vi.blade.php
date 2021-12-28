@@ -206,7 +206,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kuantiti (Tan Metrik)</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='kuantiti' id="kuantiti"
+                                                <input type="text" class="form-control" name='kuantiti' id="kuantiti" onkeypress="return isNumberKey(event)"
                                                     required title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -220,7 +220,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nilai (RM)</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nilai' id="nilai" required
+                                                <input type="text" class="form-control" name='nilai' id="nilai" onkeypress="return isNumberKey(event)" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -274,7 +274,7 @@
                                         <div class="card">
 
                                             <div class="card-body">
-                                                <table class='table table-striped' id="table1">
+                                                <table class='table table-striped' id="example">
                                                     <thead >
                                                         <tr style="text-align: center">
                                                             <th>Nama Produk</th>

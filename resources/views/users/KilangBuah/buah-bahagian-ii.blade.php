@@ -143,7 +143,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
                                                 Jumlah Jam Pengilangan</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='jam_pengilangan'
+                                                <input type="text" class="form-control" name='jam_pengilangan' onkeypress="return isNumberKey(event)"
                                                     id="jam_pengilangan" required title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -158,7 +158,7 @@
                                                 Kadar
                                                 Perahan MKSM (OER) Yang Diperolehi</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='kadar_perahan_mksm'
+                                                <input type="text" class="form-control" name='kadar_perahan_mksm' onkeypress="return isNumberKey(event)"
                                                     id="kadar_perahan_mksm" required title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -172,7 +172,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">iii.
                                                 Kadar Perolehan Isirung (KER)</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='kadar_perolehan_isirung'
+                                                <input type="text" class="form-control" name='kadar_perolehan_isirung' onkeypress="return isNumberKey(event)"
                                                     id="kadar_perolehan_isirung" required title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -186,7 +186,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">iv.
                                                 Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='harga_purata_buah_sawit'
+                                                <input type="text" class="form-control" name='harga_purata_buah_sawit' onkeypress="return isNumberKey(event)"
                                                     id="harga_purata_buah_sawit" placeholder="RM" required
                                                     title="Sila isikan butiran ini.">
                                                 <p style="text-align: center"><i>(1% Kadar Perahan)</i></p>
@@ -204,7 +204,7 @@
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect">
-                                                        <option></option>
+                                                        <option>Sila Pilih Kadar OER</option>
                                                         <option>Meningkat</option>
                                                         <option>Menurun</option>
                                                     </select>
@@ -220,6 +220,11 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+
+
+
 
 
 
@@ -548,7 +553,7 @@
 
 
 
-       
+
 
 
 

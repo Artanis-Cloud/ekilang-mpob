@@ -178,7 +178,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">2. Kilang Penapis</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -186,7 +186,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">3. Kilang Oleokimia</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -194,7 +194,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">4. Peniaga</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -202,7 +202,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">5. Pusat Simpanan</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -210,7 +210,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">6. Eksport</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -218,7 +218,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">7. Transit</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -226,7 +226,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">8. Lain-Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 

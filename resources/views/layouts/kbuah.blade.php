@@ -50,6 +50,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
+    {{-- <link href="{{ asset('theme/dist/css/style.min.css') }}"" rel=" stylesheet"> --}}
     <!-- =======================================================
   * Template Name: OnePage - v4.7.0
   * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
@@ -644,6 +645,15 @@
     <script src="{{ asset('theme/js/vendors.js') }}"></script>
 
     <script src="{{ asset('theme/js/main.js') }}"></script>
+
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode
+            if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+                return false;
+            return true;
+        }
+    </script>
 
     <!-- Template Main JS File -->
 
