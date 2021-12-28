@@ -232,34 +232,67 @@
                                                         </div>
                                                         </div>
 
-                                                            <div class="card">
-                                                                <div class="card-body">
-                                                                    <h4 class="card-title">Medium model <small>Click on image</small></h4>
-                                                                    <!-- sample modal content -->
-                                                                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                                                        <div class="modal-dialog">
-                                                                            <div class="modal-content">
-                                                                                <div class="modal-header">
-                                                                                    <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
-                                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                                                </div>
-                                                                                <div class="modal-body">
-                                                                                    <h4>Overflowing text to show scroll behavior</h4>
-                                                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
-                                                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
-                                                                                </div>
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
-                                                                                </div>
-                                                                            </div>
-                                                                            <!-- /.modal-content -->
+
+
+
+       
+
+                                                        {{-- <div class="card-body">
+                                                            <p>
+                                                                Toggle a modal via JavaScript by clicking the button above.
+                                                                You can use modal to add dialogs to your site for lightboxes, user
+                                                                notifications, or completely custom content.
+                                                            </p> --}}
+                                                            <!-- Button trigger for basic modal -->
+                                                            {{-- <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal"
+                                                                data-bs-target="#default">
+                                                                Launch Modal
+                                                            </button> --}}
+                        
+                                                            {{-- <!--Basic Modal -->
+                                                            <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
+                                                                aria-labelledby="myModalLabel1" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title" id="myModalLabel1">Basic Modal</h5>
+                                                                            <button type="button" class="close rounded-pill"
+                                                                                data-bs-dismiss="modal" aria-label="Close">
+                                                                                <i data-feather="x"></i>
+                                                                            </button>
                                                                         </div>
-                                                                        <!-- /.modal-dialog -->
+                                                                        <div class="modal-body">
+                                                                            <p>
+                                                                                Bonbon caramels muffin. Chocolate bar oat cake cookie pastry
+                                                                                dragée pastry. Carrot cake
+                                                                                chocolate tootsie roll chocolate bar candy canes biscuit.
+                        
+                                                                                Gummies bonbon apple pie fruitcake icing biscuit apple pie
+                                                                                jelly-o sweet roll. Toffee sugar
+                                                                                plum sugar plum jelly-o jujubes bonbon dessert carrot cake.
+                                                                                Cookie dessert tart muffin topping
+                                                                                donut icing fruitcake. Sweet roll cotton candy dragée danish
+                                                                                Candy canes chocolate bar cookie.
+                                                                                Gingerbread apple pie oat cake. Carrot cake fruitcake bear claw.
+                                                                                Pastry gummi bears
+                                                                                marshmallow jelly-o.
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn" data-bs-dismiss="modal">
+                                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                <span class="d-none d-sm-block">Close</span>
+                                                                            </button>
+                                                                            <button type="button" class="btn btn-primary ml-1"
+                                                                                data-bs-dismiss="modal">
+                                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                <span class="d-none d-sm-block">Accept</span>
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
-                                                                    <!-- /.modal -->
-                                                                    <img src="../../assets/images/alert/model.png" alt="default" data-toggle="modal" data-target="#myModal" class="model_img img-fluid" />
                                                                 </div>
                                                             </div>
+                                                        </div> --}}
                                                         </div>
                                                 </div>
 

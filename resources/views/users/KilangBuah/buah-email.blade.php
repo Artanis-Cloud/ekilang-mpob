@@ -75,11 +75,11 @@
 
 
         <!-- =======================================================
-                                                                                                                      * Template Name: OnePage - v4.7.0
-                                                                                                                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                                                                                      * Author: BootstrapMade.com
-                                                                                                                      * License: https://bootstrapmade.com/license/
-                                                                                                                      ======================================================== -->
+                                                                                                                          * Template Name: OnePage - v4.7.0
+                                                                                                                          * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+                                                                                                                          * Author: BootstrapMade.com
+                                                                                                                          * License: https://bootstrapmade.com/license/
+                                                                                                                          ======================================================== -->
     </head>
 
 
@@ -210,13 +210,13 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row" style="margin-bottom: 5%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kandungan</label>
                                             <div class="col-md-6">
                                                 <div id="snow">
-                                                    <p></p> 
+                                                    <p></p>
                                                     {{-- <p>Some initial <strong>bold</strong> text</p> --}}
                                                     <p><br></p>
 
@@ -228,104 +228,122 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-
-                                        {{-- <section class="section">
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h4 class="card-title">Snow Editor</h4>
-                                            </div>
-                                            <div class="card-body">
-                                                <p>Snow is a clean editor theme</p>
-                                                <div id="snow">
-                                                    <p>Hello World!</p>
-                                                    <p>Some initial <strong>bold</strong> text</p>
-                                                    <p><br></p>
-                    
+                                        <div class="row" >
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                </label>
+                                            <div class="col-md-6">
+                                                <div class="form-file">
+                                                    <input type="file" class="form-file-input" id="customFile">
+                                                    <label class="form-file-label" for="customFile">
+                                                       
+                                                    </label>
                                                 </div>
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
                                             </div>
                                         </div>
-                                    </section> --}}
-
-
-
-
+                                       
+{{-- 
+                                            <div class="col-md-3">
+                                                <p>Gambar Dimuatnaik:</p>
+                                                <img src="" alt="Sila Muatnaik Gambar Sijil SSM"
+                                                    id="category-img-ssm"
+                                                    style="width:100%;height:30vh;display: none;">
+                                            </div> --}}
+                                            {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                        </div>
                                     </div>
 
 
 
 
-
-                                    <br>
-                                    <br>
+                                </div>
 
 
 
 
 
-                                    <div class="row form-group" style="padding-top: 10px; ">
+                                <br>
+                                <br>
 
 
-                                        {{-- <div class="text-left col-md-5">
+
+
+
+                                <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                    {{-- <div class="text-left col-md-5">
                                             <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
                                         </div> --}}
-                                        <div class="text-right col-md-12 mb-2 ">
-                                            <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                style="float: right" data-target="#confirmation">
-                                                Hantar</button>
-                                        </div>
-
+                                    <div class="text-right col-md-12 mb-2 ">
+                                        <button type="button" class="btn btn-primary " data-toggle="modal"
+                                            style="float: right" data-target="#confirmation">
+                                            Hantar</button>
                                     </div>
 
-                                    {{-- Hidden Gap - Just Ignore --}}
-                                    {{-- <div class="alert alert-white" style="text-align: center;"></div> --}}
-                                    {{-- <div style="padding: 25px;"></div> --}}
                                 </div>
 
-
-                                <!-- Modal Confirmation -->
-                                <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header" style="background-color:#f3ce8f  !important">
-                                                <h5 class="modal-title" id="exampleModalLongTitle"><i
-                                                        class="fa fa-exclamation-triangle" aria-hidden="true"
-                                                        style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
-                                                </h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Anda pasti mahu menyimpan maklumat ini?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger"
-                                                    data-dismiss="modal">Kembali</button>
-                                                <button type="submit" class="btn btn-success">Ya</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br>
-                                </form>
-
+                                {{-- Hidden Gap - Just Ignore --}}
+                                {{-- <div class="alert alert-white" style="text-align: center;"></div> --}}
+                                {{-- <div style="padding: 25px;"></div> --}}
                             </div>
+
+                            
+
+
+                            <!-- Modal Confirmation -->
+                            {{-- <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="background-color:#f3ce8f  !important">
+                                            <h5 class="modal-title" id="exampleModalLongTitle"><i
+                                                    class="fa fa-exclamation-triangle" aria-hidden="true"
+                                                    style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Anda pasti mahu menyimpan maklumat ini?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger"
+                                                data-dismiss="modal">Kembali</button>
+                                            <button type="submit" class="btn btn-success">Ya</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            <br>
+                            </form>
+
                         </div>
                     </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
 
 
 
-                    {{-- </div>
+                {{-- </div>
                                                                     </div> --}}
 
-                    {{-- </section> --}}
+                {{-- </section> --}}
 
 
 
@@ -341,14 +359,14 @@
 
 
 
-                    {{-- </div>
+                {{-- </div>
 
                     </div> --}}
 
 
 
-                    <br>
-                    <br>
+                <br>
+                <br>
 
 
 
@@ -458,6 +476,25 @@
             return true;
         }
     </script>
+
+<script>
+    $("#ssm").change(function() {
+        // readURL(this);
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#category-img-ssm').attr('src', e.target.result);
+                $('#category-img-ssm').css("display", "block");
+            }
+
+            reader.readAsDataURL(this.files[0]);
+        }
+
+
+    });
+
+</script>
 
     </body>
 
