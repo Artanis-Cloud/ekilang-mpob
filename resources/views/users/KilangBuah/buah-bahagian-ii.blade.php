@@ -137,6 +137,14 @@
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
+
+
+
+                                    <div class="mb-2 mt-5" style="text-align: right">
+                                        <a href="{{ asset('manual/kilangbuah/2.pdf') }}"
+                                            style="text-align:right"><i><u>Panduan
+                                            Mengisi Maklumat Bahagian II</u></i></a>
+                                    </div>
                                     <div class="container center mt-5">
                                         <div class="row" style="margin-bottom:2%;">
                                             <label for="fname"
@@ -204,7 +212,7 @@
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect">
-                                                        <option>Sila Pilih Kadar OER</option>
+                                                        <option selected hidden disabled>Sila Pilih Kadar OER</option>
                                                         <option>Meningkat</option>
                                                         <option>Menurun</option>
                                                     </select>

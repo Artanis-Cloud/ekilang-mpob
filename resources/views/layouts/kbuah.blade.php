@@ -30,7 +30,7 @@
     <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
     <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
 
-
+    <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}">
 
 
     <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
@@ -108,165 +108,11 @@
                                 <span style="color: rgb(78, 73, 57); ">Tukar Kata Laluan</span>
                             </a>
 
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-alert.html">Alert</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-badge.html">Badge</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-breadcrumb.html">Breadcrumb</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-buttons.html">Buttons</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-card.html">Card</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-carousel.html">Carousel</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-dropdowns.html">Dropdowns</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-list-group.html">List Group</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-modal.html">Modal</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-navs.html">Navs</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-pagination.html">Pagination</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-progress.html">Progress</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-spinners.html">Spinners</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-tooltips.html">Tooltips</a>
-                                </li>
-
-                            </ul> --}}
+                            
 
                         </li>
                         <br>
-                        {{-- <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                            <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                        {{-- <span style="color: rgb(78, 73, 57); margin-left:21px ">Kilang Isirung</span>
-                            </a> --}}
-
-                        {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-extra-avatar.html">Avatar</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-extra-divider.html">Divider</a>
-                                </li>
-
-                            </ul> --}}
-
-                        {{-- </li> --}}
-
-                        {{-- <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                                <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                        {{-- <span style="color: rgb(78, 73, 57);">Kilang Oleokimia</span>
-                            </a> --}}
-
-                        {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-extra-avatar.html">Avatar</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-extra-divider.html">Divider</a>
-                                </li>
-
-                            </ul> --}}
-                        {{-- </li>
-                        <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                        {{-- <span style="color: rgb(78, 73, 57);">Pusat Simpanan</span>
-                            </a> --}}
-                        {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-extra-avatar.html">Avatar</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-extra-divider.html">Divider</a>
-                                </li>
-
-                            </ul> --}}
-
-                        {{-- </li>
-                        <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                        {{-- <span style="color: rgb(78, 73, 57)">E-Biodiesel</span>
-                            </a> --}}
-
-                        {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-extra-avatar.html">Avatar</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-extra-divider.html">Divider</a>
-                                </li>
-
-                            </ul> --}}
-
-                        {{-- </li>
-                        <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                                <i class="fas fa-briefcase" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                        {{-- <span style="color: rgb(78, 73, 57)">MPOB (EL) MF 4A - QC/MF/1</span>
-                            </a> --}}
-
-                        {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-extra-avatar.html">Avatar</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-extra-divider.html">Divider</a>
-                                </li>
-
-                            </ul> --}}
+                        
 
                         </li>
 
@@ -278,34 +124,6 @@
                                 {{-- <i data-feather="file-text" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian I</span>
                             </a>
-
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="form-element-input.html">Input</a>
-                                </li>
-
-                                <li>
-                                    <a href="form-element-input-group.html">Input Group</a>
-                                </li>
-
-                                <li>
-                                    <a href="form-element-select.html">Select</a>
-                                </li>
-
-                                <li>
-                                    <a href="form-element-radio.html">Radio</a>
-                                </li>
-
-                                <li>
-                                    <a href="form-element-checkbox.html">Checkbox</a>
-                                </li>
-
-                                <li>
-                                    <a href="form-element-textarea.html">Textarea</a>
-                                </li>
-
-                            </ul> --}}
 
                         </li>
 
@@ -365,7 +183,7 @@
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Menu-Menu Lain</li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route ('buah.email') }}" class='sidebar-link'>
                                 <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="user" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
@@ -658,6 +476,10 @@
     <!-- Template Main JS File -->
 
     <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
+
+
+    <script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/form-editor.js') }}"></script>
 
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
