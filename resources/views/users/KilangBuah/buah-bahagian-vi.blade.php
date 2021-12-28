@@ -75,11 +75,11 @@
 
 
         <!-- =======================================================
-                                                                                                      * Template Name: OnePage - v4.7.0
-                                                                                                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                                                                      * Author: BootstrapMade.com
-                                                                                                      * License: https://bootstrapmade.com/license/
-                                                                                                      ======================================================== -->
+                                                                                                              * Template Name: OnePage - v4.7.0
+                                                                                                              * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+                                                                                                              * Author: BootstrapMade.com
+                                                                                                              * License: https://bootstrapmade.com/license/
+                                                                                                              ======================================================== -->
     </head>
 
 
@@ -191,8 +191,9 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Tarikh Eksport (dd-mm-yyyy)</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="datepicker" class="form-control" name='tarikh_eksport'
-                                                    id="tarikh_ekport" required title="Sila isikan butiran ini.">
+                                                <input type="text" id="datepicker" class="form-control"
+                                                    name='tarikh_eksport' id="tarikh_ekport" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -245,78 +246,140 @@
                                     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
                                     <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                        <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
-                                        </div>
-                                        <div class="text-right col-md-7 mb-4 ">
+
+                                        <div class="text-right col-md-11 mb-4 ">
                                             <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                style="float: right" data-target="#confirmation">Simpan &
-                                                Hantar</button>
+                                                style="float: right" data-target="#confirmation">
+                                                Simpan</button>
                                         </div>
 
                                     </div>
 
-                                    {{-- Hidden Gap - Just Ignore --}}
-                                    {{-- <div class="alert alert-white" style="text-align: center;"></div> --}}
-                                    {{-- <div style="padding: 25px;"></div> --}}
-                                </div>
 
-                                <!-- Modal Confirmation -->
-                                <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header" style="background-color:#f3ce8f  !important">
-                                                <h5 class="modal-title" id="exampleModalLongTitle"><i
-                                                        class="fa fa-exclamation-triangle" aria-hidden="true"
-                                                        style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
-                                                </h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Anda pasti mahu menyimpan maklumat ini?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger"
-                                                    data-dismiss="modal">Kembali</button>
-                                                <button type="submit" class="btn btn-success">Ya</button>
+                                    <br>
+                                    <br>
+                                    <hr>
+                                    <br>
+                                    <br>
+
+                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Eksport Produk Sawit</h5>
+                                    <br>
+                                    <br>
+
+
+                                    <section class="section">
+                                        <div class="card">
+
+                                            <div class="card-body">
+                                                <table class='table table-striped' id="table1">
+                                                    <thead >
+                                                        <tr style="text-align: center">
+                                                            <th>Nama Produk</th>
+                                                            <th>Nombor Borang Kastam 2</th>
+                                                            <th>Tarikh Eksport</th>
+                                                            <th>Kuantiti <br>(Tan Metrik)</th>
+                                                            <th>Nilai (RM)</th>
+                                                            <th>Destinasi Negara</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>BPL</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+
+
+
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <br>
-                                </form>
 
+                                    </section>
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+                                <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                    <div class="text-left col-md-5">
+                                        <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
+                                            style="float: left">Sebelumnya</a>
+                                    </div>
+                                    <div class="text-right col-md-7 mb-2 ">
+                                        <button type="button" class="btn btn-primary " data-toggle="modal"
+                                            style="float: right" data-target="#confirmation">
+                                            Hantar</button>
+                                    </div>
+
+                                </div>
+
+                                {{-- Hidden Gap - Just Ignore --}}
+                                {{-- <div class="alert alert-white" style="text-align: center;"></div> --}}
+                                {{-- <div style="padding: 25px;"></div> --}}
                             </div>
+
+
+                            <!-- Modal Confirmation -->
+                            <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header" style="background-color:#f3ce8f  !important">
+                                            <h5 class="modal-title" id="exampleModalLongTitle"><i
+                                                    class="fa fa-exclamation-triangle" aria-hidden="true"
+                                                    style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Anda pasti mahu menyimpan maklumat ini?
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger"
+                                                data-dismiss="modal">Kembali</button>
+                                            <button type="submit" class="btn btn-success">Ya</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            </form>
+
                         </div>
                     </div>
-                    <br>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
 
 
 
-                    {{-- </div>
+                {{-- </div>
                                                                     </div> --}}
 
-                    {{-- </section> --}}
+                {{-- </section> --}}
 
 
 
@@ -332,14 +395,14 @@
 
 
 
-                    {{-- </div>
+                {{-- </div>
 
                     </div> --}}
 
 
 
-                    <br>
-                    <br>
+                <br>
+                <br>
 
 
 
