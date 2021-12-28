@@ -61,11 +61,11 @@
         <!-- Template Main CSS File -->
         <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
         <!-- =======================================================
-                                                              * Template Name: OnePage - v4.7.0
-                                                              * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                              * Author: BootstrapMade.com
-                                                              * License: https://bootstrapmade.com/license/
-                                                              ======================================================== -->
+                                                                          * Template Name: OnePage - v4.7.0
+                                                                          * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+                                                                          * Author: BootstrapMade.com
+                                                                          * License: https://bootstrapmade.com/license/
+                                                                          ======================================================== -->
     </head>
 
 
@@ -141,233 +141,261 @@
 
 
 
-
-
-
-                                    <div class="row" id="table-bordered">
-                                        <div class="col-12 mt-5">
-                                            <form wire:submit.prevent='store'>
-                                                <div class="card">
-
-                                                    <div class="card-content">
-
-
-                                                        <div class="table-responsive">
-                                                            <table class="table table-bordered mb-0">
-                                                                <thead style="text-align: center">
-                                                                    <tr>
-                                                                        <th>Butiran</th>
-                                                                        <th>Buah Kelapa Sawit (FFB) <br>
-                                                                            Kod 52</th>
-                                                                        <th>Minyak Sawit Mentah (CPO)
-                                                                            <br> Kod 01
-                                                                        </th>
-                                                                        <th>Isirung (PK) <br> Kod 51
-                                                                        </th>
-                                                                        <th>Minyak Keledak (Sludge Oil)
-                                                                            <br> Kod 49
-                                                                        </th>
-
-
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">A.
-                                                                            Stok Awal Di Premis</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">B.
-                                                                            Pembelian / Penerimaan</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">C.
-                                                                            Diproses</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">D.
-                                                                            Pengeluaran</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">E.
-                                                                            Penjualan / Pengedaran Tempatan</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">F.
-                                                                            Eksport Terus Dari Premis</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" disabled>
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" disabled>
-                                                                        </td>
-                                                                        <td>
-                                                                            <input type="text" size="10" disabled>
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" disabled>
-                                                                        </td>
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">G.
-                                                                            Stok Akhir Di Premis</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-
-
-
-
-                                                </div>
-
-
-
-                                                <div class="row" style="padding-top: 35px; float:right">
-
-                                                    <div class="col-md-12">
-                                                        <button type="button" class="btn  btn-primary" data-toggle="modal"
-                                                            data-target="#confirmation">Simpan & Seterusnya</button>
-                                                    </div>
-
-                                                </div>
-
-                                                {{-- Hidden Gap - Just Ignore --}}
-                                                <div class="alert alert-white" style="text-align: center;"></div>
-                                                {{-- <div style="padding: 25px;"></div> --}}
+                                    <div class="col-12 mt-2">
+                                        <div class="mb-2" style="text-align: right">
+                                            <a href="{{ asset('manual/kilangbuah/1.pdf') }}"
+                                                style="text-align:right"><i><u>Panduan
+                                                Mengisi Maklumat Bahagian I</u></i></a>
                                         </div>
+                                            <div class="row" id="table-bordered">
 
-                                        <!-- Modal Confirmation -->
-                                        <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header"
-                                                        style="background-color:#f3ce8f  !important">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle"><i
-                                                                class="fa fa-exclamation-triangle" aria-hidden="true"
-                                                                style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
+                                                <form wire:submit.prevent='store'>
+                                                    <div class="card">
+
+                                                        <div class="card-content">
+
+
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered mb-0">
+                                                                    <thead style="text-align: center">
+                                                                        <tr>
+                                                                            <th>Butiran</th>
+                                                                            <th>Buah Kelapa Sawit (FFB) <br>
+                                                                                Kod 52</th>
+                                                                            <th>Minyak Sawit Mentah (CPO)
+                                                                                <br> Kod 01
+                                                                            </th>
+                                                                            <th>Isirung (PK) <br> Kod 51
+                                                                            </th>
+                                                                            <th>Minyak Keledak (Sludge Oil)
+                                                                                <br> Kod 49
+                                                                            </th>
+
+
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <tr>
+                                                                            <td class="text-bold-500">A.
+                                                                                Stok Awal Di Premis</td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-bold-500">B.
+                                                                                Pembelian / Penerimaan</td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-bold-500">C.
+                                                                                Diproses</td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-bold-500">D.
+                                                                                Pengeluaran</td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-bold-500">E.
+                                                                                Penjualan / Pengedaran Tempatan</td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-bold-500">F.
+                                                                                Eksport Terus Dari Premis</td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10" disabled>
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10" disabled>
+                                                                            </td>
+                                                                            <td>
+                                                                                <input type="text" size="10" disabled>
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10" disabled>
+                                                                            </td>
+
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td class="text-bold-500">G.
+                                                                                Stok Akhir Di Premis</td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+                                                                            <td style="text-align:center;">
+                                                                                <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            </td>
+
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+
+
+
+
                                                     </div>
-                                                    <div class="modal-body">
-                                                        Anda pasti mahu menyimpan maklumat ini?
+
+
+
+                                                    <div class="row" style="padding-top: 35px; float:right">
+
+                                                        <div class="col-md-12">
+                                                            <button type="button" class="btn  btn-primary"
+                                                                data-toggle="modal" data-target="#confirmation">Simpan &
+                                                                Seterusnya</button>
+                                                        </div>
+
                                                     </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger"
-                                                            data-dismiss="modal">Kembali</button>
-                                                        <button type="submit" class="btn btn-success">Ya</button>
+
+                                                    {{-- Hidden Gap - Just Ignore --}}
+                                                    <div class="alert alert-white" style="text-align: center;"></div>
+                                                    {{-- <div style="padding: 25px;"></div> --}}
+                                            </div>
+
+                                            <!-- Modal Confirmation -->
+                                            <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header"
+                                                            style="background-color:#f3ce8f  !important">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle"><i
+                                                                    class="fa fa-exclamation-triangle" aria-hidden="true"
+                                                                    style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
+                                                            </h5>
+                                                            <button type="button" class="close"
+                                                                data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Anda pasti mahu menyimpan maklumat ini?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger"
+                                                                data-dismiss="modal">Kembali</button>
+                                                            <button type="submit" class="btn btn-success">Ya</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        </form>
+                                            </form>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
 
 
-                            {{-- </div>
+                                {{-- </div>
                                                                     </div> --}}
 
-                            {{-- </section> --}}
-                            <br>
-                            <br>
+                                {{-- </section> --}}
+                                <br>
+                                <br>
 
 
 
 
+
+                            </div>
 
                         </div>
-
                     </div>
                 </div>
-            </div>
 
 
 
@@ -379,10 +407,10 @@
 
 
 
-            <br>
-            <br>
-            <br>
-            <br>
+                <br>
+                <br>
+                <br>
+                <br>
 
 
 

@@ -357,28 +357,13 @@
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Menu-Menu Lain</li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href{{ route ('buah.email') }}" class='sidebar-link'>
                                 <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="user" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
                             </a>
 
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="ui-chatbox.html">Chatbox</a>
-                                </li>
-
-                                <li>
-                                    <a href="ui-pricing.html">Pricing</a>
-                                </li>
-
-                                <li>
-                                    <a href="ui-todolist.html">To-do List</a>
-                                </li>
-
-                            </ul> --}}
-
+                        
                         </li>
 
                         <li class="sidebar-item">

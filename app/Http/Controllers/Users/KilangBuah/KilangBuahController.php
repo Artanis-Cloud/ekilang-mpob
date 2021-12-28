@@ -182,6 +182,27 @@ class KilangBuahController extends Controller
         return view('users.KilangBuah.buah-bahagian-vi', compact('returnArr', 'layout'));
     }
 
+    public function buah_email()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('buah.email'), 'name' => "Emel Pertanyaan / Pindaan / Cadangan  "],
+        ];
+
+        $kembali = route('buah.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kbuah';
+
+
+
+        return view('users.KilangBuah.buah-email', compact('returnArr', 'layout'));
+    }
+
     public function index_form()
     {
         return view('users.form');
