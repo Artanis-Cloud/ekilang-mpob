@@ -180,7 +180,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">2. Kilang Peniaga</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -188,7 +188,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">3. Lain-Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 

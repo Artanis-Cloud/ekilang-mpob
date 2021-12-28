@@ -61,11 +61,11 @@
         <!-- Template Main CSS File -->
         <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
         <!-- =======================================================
-                                                                                      * Template Name: OnePage - v4.7.0
-                                                                                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                                                      * Author: BootstrapMade.com
-                                                                                      * License: https://bootstrapmade.com/license/
-                                                                                      ======================================================== -->
+                                                                                                      * Template Name: OnePage - v4.7.0
+                                                                                                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+                                                                                                      * Author: BootstrapMade.com
+                                                                                                      * License: https://bootstrapmade.com/license/
+                                                                                                      ======================================================== -->
     </head>
 
 
@@ -132,7 +132,8 @@
                                     <div class="mb-5 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Bahagian III</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Belian / Penerimaan Bekalan Buah Kelapa Sawit (FFB) (52)</h5>
+                                        <h5 style="color: rgb(39, 80, 71)">Belian / Penerimaan Bekalan Buah Kelapa Sawit
+                                            (FFB) (52)</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
@@ -148,10 +149,11 @@
                                     {{-- kadar oer meningkat --}}
                                     <div class="row" id="table-bordered">
                                         <div class="col-12 mt-5">
-                                            <form wire:submit.prevent='store'>
-                                                <div class="card">
+                                            <form action="#" class="">
+                                                @csrf
+                                            <div class="card">
 
-                                                    <div class="card-content">
+                                                <div class="card-content">
 
 
                                                         <div class="table-responsive">
@@ -169,7 +171,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">1. Estet Sendiri</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -177,7 +179,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">2. Estet Luar</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -185,7 +187,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">3. Peniaga Buah</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -193,7 +195,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">4. Pekebun Kecil</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -201,7 +203,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">5. Kilang Buah Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -209,13 +211,16 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">6. Lain-Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15">
+                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
                                                                     </tr>
                                                                     <tr style="background-color: #1526224a">
-                                                                        <td class="text-bold-500" style="text-align:center;"><b>Jumlah</b></td>
+                                                                        <td class="text-bold-500"
+                                                                            style="text-align:center;">
+                                                                            <b>Jumlah</b>
+                                                                        </td>
                                                                         <td style="text-align:center;">
 
                                                                         </td>
@@ -227,94 +232,109 @@
                                                         </div>
                                                         </div>
 
+                                                            <div class="card">
+                                                                <div class="card-body">
+                                                                    <h4 class="card-title">Medium model <small>Click on image</small></h4>
+                                                                    <!-- sample modal content -->
+                                                                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                        <div class="modal-dialog">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h4 class="modal-title" id="myModalLabel">Modal Heading</h4>
+                                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <h4>Overflowing text to show scroll behavior</h4>
+                                                                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+                                                                                    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!-- /.modal-content -->
+                                                                        </div>
+                                                                        <!-- /.modal-dialog -->
+                                                                    </div>
+                                                                    <!-- /.modal -->
+                                                                    <img src="../../assets/images/alert/model.png" alt="default" data-toggle="modal" data-target="#myModal" class="model_img img-fluid" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+
+                                                <div class="row form-group" style="padding-top: 10px; ">
 
 
-
-
-
-
-
-
-
+                                                    <div class="text-left col-md-5">
+                                                        <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
+                                                            style="float: left">Sebelumnya</a>
+                                                    </div>
+                                                    <div class="text-right col-md-7 mb-4 ">
+                                                        <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                            style="float: right" data-target="#confirmation">Simpan &
+                                                            Seterusnya</button>
+                                                    </div>
 
                                                 </div>
-                                    </div>
-
-
-
-
-                                    <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                        <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
-                                        </div>
-                                            <div class="text-right col-md-7 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                    style="float: right" data-target="#confirmation">Simpan &
-                                                    Seterusnya</button>
-                                            </div>
-
-                                    </div>
 
                                                 {{-- Hidden Gap - Just Ignore --}}
                                                 <div class="alert alert-white" style="text-align: center;"></div>
                                                 {{-- <div style="padding: 25px;"></div> --}}
-                                        </div>
 
-                                        <!-- Modal Confirmation -->
-                                        <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header"
-                                                        style="background-color:#f3ce8f  !important">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle"><i
-                                                                class="fa fa-exclamation-triangle" aria-hidden="true"
-                                                                style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
-                                                        </h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger"
-                                                            data-dismiss="modal">Kembali</button>
-                                                        <button type="submit" class="btn btn-success">Ya</button>
+
+                                                <!-- Modal Confirmation -->
+                                                <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
+                                                    aria-labelledby="confirmationTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header"
+                                                                style="background-color:#f3ce8f  !important">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle"><i
+                                                                        class="fa fa-exclamation-triangle"
+                                                                        aria-hidden="true"
+                                                                        style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
+                                                                </h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Anda pasti mahu menyimpan maklumat ini?
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-danger"
+                                                                    data-dismiss="modal">Kembali</button>
+                                                                <button type="submit" class="btn btn-success">Ya</button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <br>
+                                            {{-- </div> --}}
                                         </form>
 
+
+
+
+
+
+
+
+
+
+
+
+                                        </div>
                                     </div>
+
+                                    <br>
+
                                 </div>
                             </div>
-
-
-
-                            {{-- </div>
-                                                                    </div> --}}
-
-                            {{-- </section> --}}
-                            <br>
-                            <br>
-
-
-
-
-
                         </div>
 
-                    </div>
-                </div>
-            {{-- </div> --}}
+
 
 
 
