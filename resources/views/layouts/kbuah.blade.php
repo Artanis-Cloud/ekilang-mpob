@@ -612,10 +612,11 @@
                         <p>2020 &copy; Voler</p>
                     </div> --}}
                     <div style="text-align: center">
-                        <p style="font-size:10px">Developed by Artanis Cloud</a></p>
+                        <p style="font-size:14px; color:white">Developed by Artanis Cloud</a></p>
                     </div>
                 </div>
             </footer>
+
         </div>
     </div>
     <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>

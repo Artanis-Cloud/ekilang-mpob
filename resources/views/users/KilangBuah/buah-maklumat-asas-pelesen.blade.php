@@ -231,8 +231,7 @@
                                                     <div class="form-group">
                                                         <label for="email-id-column">Jawatan Pegawai
                                                             Bertanggungjawab</label>
-                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai
-                                                        Bertanggungjawab"
+                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Bertanggungjawab"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
@@ -253,7 +252,7 @@
 
                                             <div class="row float-left">
                                                 <div class="col-md-12 offset-md-12">
-                                                    <button type="submit" class="btn btn-primary" style="float: right; background-color:#25877bd1">
+                                                    <button type="submit" class="btn btn-primary" style="float: right; ">
                                                         {{ __('Simpan') }}
                                                     </button>
                                                 </div>
@@ -289,6 +288,7 @@
 
 
                     <br>
+
 
 
 
@@ -476,7 +476,7 @@
         </div>
     </section><!-- End Testimonials Section --> --}}
 
-    </main><!-- End #main -->
+    {{-- </main><!-- End #main --> --}}
 
     <!-- ======= Footer ======= -->
 

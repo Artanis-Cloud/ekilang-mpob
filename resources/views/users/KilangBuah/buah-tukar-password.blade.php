@@ -211,7 +211,7 @@
                                 <div class="row float-left ">
                                     <div class="col-md-12 offset-md-12">
                                         <button type="submit" class="btn btn-primary"
-                                            style="float: right; background-color:#25877bd1">
+                                            style="float: right;">
                                             {{ __('Simpan') }}
                                         </button>
                                     </div>
@@ -244,6 +244,12 @@
 
             </div>
         </div>
+        </div>
+        </div>
+
+
+
+        
 
     </section><!-- End Hero -->
 
