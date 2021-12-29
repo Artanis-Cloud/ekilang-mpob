@@ -189,47 +189,22 @@
                                 <span style="color: rgb(78, 73, 57); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
                             </a>
 
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="ui-chatbox.html">Chatbox</a>
-                                </li>
-
-                                <li>
-                                    <a href="ui-pricing.html">Pricing</a>
-                                </li>
-
-                                <li>
-                                    <a href="ui-todolist.html">To-do List</a>
-                                </li>
-
-                            </ul> --}}
+                            
 
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('buah.prestasioer')}}" class='sidebar-link'>
                                 <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="trending-up" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Prestasi OER</span>
                             </a>
 
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="ui-chart-chartjs.html">ChartJS</a>
-                                </li>
-
-                                <li>
-                                    <a href="ui-chart-apexchart.html">Apexchart</a>
-                                </li>
-
-                            </ul> --}}
 
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('buah.penyatadahulu')}}" class='sidebar-link'>
                                 <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="trending-up" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Papar Penyata Bulanan Terdahulu</span>
@@ -250,55 +225,7 @@
                         </li>
                         <br>
 
-                        {{-- <li class='sidebar-title'>Pages</li>
-
-                        <li class="sidebar-item has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i data-feather="user" width="20"></i>
-                                <span>Authentication</span>
-                            </a>
-
-                            <ul class="submenu ">
-
-                                <li>
-                                    <a href="auth-login.html">Login</a>
-                                </li>
-
-                                <li>
-                                    <a href="auth-register.html">Register</a>
-                                </li>
-
-                                <li>
-                                    <a href="auth-forgot-password.html">Forgot Password</a>
-                                </li>
-
-                            </ul>
-
-                        </li> --}}
-
-                        {{-- <li class="sidebar-item has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i data-feather="alert-circle" width="20"></i>
-                                <span>Errors</span>
-                            </a>
-
-                            <ul class="submenu ">
-
-                                <li>
-                                    <a href="error-403.html">403</a>
-                                </li>
-
-                                <li>
-                                    <a href="error-404.html">404</a>
-                                </li>
-
-                                <li>
-                                    <a href="error-500.html">500</a>
-                                </li>
-
-                            </ul>
-
-                        </li> --}}
+                    
 
                     </ul>
                 </div>
@@ -308,28 +235,6 @@
 
         <div id="main">
 
-            {{-- <nav class="shadow-sm navbar navbar-expand-md" style="background: transparent">
-
-                <div class="container">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-
-                        <img src="theme/images/background/favicon.png" height='45px' alt="">
-                        <img src="theme/images/background/mspo.png" height='60px' alt="">
-                    </a>
-                    <div class="col-md-3"></div>
-                    <div class="col-md-1">
-                        {{-- <a class="mx-1 navbar-brand" href="{{ url('/') }}">
-
-                                <img src="theme/images/background/favicon.png"  height='45px' alt="">
-                                <img src="theme/images/background/mspo.png"  height='60px' alt=""> --}}
-
-            {{-- <span class="mx-5 mb-0 text-center navbar-brand h1"
-                                style="color: white; text-align:center; font-family:verdana"><b>
-                                    Sistem E-Kilang </b></span> --}}
-
-
-            {{-- </a> --}}
-            {{-- </div> --}}
 
 
             <nav class="navbar navbar-header navbar-expand navbar-light">
@@ -470,6 +375,34 @@
             if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
                 return false;
             return true;
+        }
+    </script>
+
+      <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
         }
     </script>
 
