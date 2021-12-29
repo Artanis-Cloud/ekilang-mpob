@@ -2,71 +2,6 @@
 
 @section('content')
 
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-        <title> Kilang Buah</title>
-        <meta content="" name="description">
-        <meta content="" name="keywords">
-
-        <!-- Favicons -->
-        <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-
-        <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-            rel="stylesheet">
-
-        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
-        <!-- Vendor CSS Files -->
-        <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
-
-        <link href="{{ asset('theme/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet" />
-
-
-
-
-        <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
-        <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
-        <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
-
-        <link href="{{ asset('theme/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
-        <link href="{{ asset('theme/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
-
-
-
-        <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
-            rel="stylesheet" type="text/css" />
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-        <meta charset=utf-8 />
-
-        <!-- Template Main CSS File -->
-        <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
-        <!-- =======================================================
-                                                                          * Template Name: OnePage - v4.7.0
-                                                                          * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                                          * Author: BootstrapMade.com
-                                                                          * License: https://bootstrapmade.com/license/
-                                                                          ======================================================== -->
-    </head>
 
 
     <!-- ======= Hero Section ======= -->
@@ -330,6 +265,68 @@
 
 
 
+                                                    <div class="col-md-6 col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">
+                                        Vertically Centered
+                                    </h4>
+                                </div>
+                                <div class="card-content">
+                                    <div class="card-body">
+                                        <p>
+                                            Add <code>.modal-dialog-centered</code> to <code>.modal-dialog</code> to
+                                            vertically center the modal.
+                                        </p>
+                                        <!-- button trigger for  Vertically Centered modal -->
+                                        <button type="button" class="btn btn-outline-primary block"
+                                            data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
+                                            Launch Modal
+                                        </button>
+                                        <!-- Vertically Centered modal Modal -->
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">Vertically
+                                                            Centered</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Croissant jelly-o halvah chocolate sesame snaps. Brownie
+                                                            caramels candy canes chocolate cake
+                                                            marshmallow icing lollipop I love. Gummies macaroon donut
+                                                            caramels biscuit topping danish.
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Close</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Accept</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
                                                     <div class="row" style="padding-top: 35px; float:right">
 
                                                         <div class="col-md-12">
@@ -432,81 +429,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
-    <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
-    <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('theme/js/app.js') }}"></script>
-
-    <script src="assets/js/main.js"></script>
-
-    <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
-
-    <script>
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
-
-        $(window).on('changed', (e) => {
-            // if($('#example').DataTable().clear().destroy()){
-            // $('#example').DataTable();
-            // }
-        });
-
-        // document.getElementById("form_type").onchange = function() {
-        //     myFunction()
-        // };
-
-        // function myFunction() {
-        //     console.log('asasa');
-        //     table.clear().draw();
-        // }
-    </script>
-    <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
+    
     </body>
 
     </html>
