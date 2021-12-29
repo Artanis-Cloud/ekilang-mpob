@@ -11,26 +11,20 @@
 
     <!-- Favicons -->
     <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-    <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-
-    <!-- Google Fonts -->
     <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+    <!-- Vendor
+
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
     <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
     <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
-    <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
-    <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
-    <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
-    <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}">
+
 
 
     <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
@@ -50,13 +44,7 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
-    {{-- <link href="{{ asset('theme/dist/css/style.min.css') }}"" rel=" stylesheet"> --}}
-    <!-- =======================================================
-  * Template Name: OnePage - v4.7.0
-  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
 </head>
 
 <body>
@@ -108,11 +96,11 @@
                                 <span style="color: rgb(78, 73, 57); ">Tukar Kata Laluan</span>
                             </a>
 
-                            
+
 
                         </li>
                         <br>
-                        
+
 
                         </li>
 
@@ -189,7 +177,7 @@
                                 <span style="color: rgb(78, 73, 57); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
                             </a>
 
-                            
+
 
                         </li>
 
@@ -225,7 +213,7 @@
                         </li>
                         <br>
 
-                    
+
 
                     </ul>
                 </div>
@@ -378,33 +366,7 @@
         }
     </script>
 
-      <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
 
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
 
     <!-- Template Main JS File -->
 

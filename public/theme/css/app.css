@@ -1654,5 +1654,9 @@ footer {
     background-color: #4a5568 !important
 }
 
+.required:after {
+    content:" *";
+    color: red;
+  }
 
 

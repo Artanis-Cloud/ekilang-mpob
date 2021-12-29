@@ -14,6 +14,7 @@
         <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
         <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
+        <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}">
 
         <!-- Google Fonts -->
         <link
@@ -75,11 +76,11 @@
 
 
         <!-- =======================================================
-                                                                                                                          * Template Name: OnePage - v4.7.0
-                                                                                                                          * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                                                                                          * Author: BootstrapMade.com
-                                                                                                                          * License: https://bootstrapmade.com/license/
-                                                                                                                          ======================================================== -->
+                                                                                                                              * Template Name: OnePage - v4.7.0
+                                                                                                                              * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+                                                                                                                              * Author: BootstrapMade.com
+                                                                                                                              * License: https://bootstrapmade.com/license/
+                                                                                                                              ======================================================== -->
     </head>
 
 
@@ -216,9 +217,7 @@
                                                 Kandungan</label>
                                             <div class="col-md-6">
                                                 <div id="snow">
-                                                    <p></p>
-                                                    {{-- <p>Some initial <strong>bold</strong> text</p> --}}
-                                                    <p><br></p>
+
 
                                                 </div>
                                                 {{-- @error('alamat_kilang_1')
@@ -228,15 +227,15 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" >
+                                        <div class="row">
                                             <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                </label>
+                                                class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                            </label>
                                             <div class="col-md-6">
                                                 <div class="form-file">
-                                                    <input type="file" class="form-file-input" id="customFile">
-                                                    <label class="form-file-label" for="customFile">
-                                                       
+                                                    <input type="file" class="form-file-input" id="file">
+                                                    <label class="form-file-label" for="file">
+
                                                     </label>
                                                 </div>
                                                 {{-- @error('alamat_kilang_1')
@@ -246,63 +245,62 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                       
-{{-- 
-                                            <div class="col-md-3">
+
+                                        {{-- <div class="col-md-3">
                                                 <p>Gambar Dimuatnaik:</p>
                                                 <img src="" alt="Sila Muatnaik Gambar Sijil SSM"
                                                     id="category-img-ssm"
                                                     style="width:100%;height:30vh;display: none;">
                                             </div> --}}
-                                            {{-- @error('alamat_kilang_1')
+                                        {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
-                                        </div>
                                     </div>
-
-
-
-
                                 </div>
 
 
 
 
-
-                                <br>
-                                <br>
+                            </div>
 
 
 
 
 
-                                <div class="row form-group" style="padding-top: 10px; ">
+                            <br>
+                            <br>
 
 
-                                    {{-- <div class="text-left col-md-5">
+
+
+
+                            <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                {{-- <div class="text-left col-md-5">
                                             <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
                                         </div> --}}
-                                    <div class="text-right col-md-12 mb-2 ">
-                                        <button type="button" class="btn btn-primary " data-toggle="modal"
-                                            style="float: right" data-target="#confirmation">
-                                            Hantar</button>
-                                    </div>
-
+                                <div class="text-right col-md-12 mb-2 ">
+                                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                                        data-target="#confirmation">
+                                        Hantar</button>
                                 </div>
 
-                                {{-- Hidden Gap - Just Ignore --}}
-                                {{-- <div class="alert alert-white" style="text-align: center;"></div> --}}
-                                {{-- <div style="padding: 25px;"></div> --}}
                             </div>
 
-                            
+                            {{-- Hidden Gap - Just Ignore --}}
+                            {{-- <div class="alert alert-white" style="text-align: center;"></div> --}}
+                            {{-- <div style="padding: 25px;"></div> --}}
+                        </div>
 
 
-                            <!-- Modal Confirmation -->
-                            {{-- <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
+
+
+                        <!-- Modal Confirmation -->
+                        {{-- <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
@@ -327,23 +325,23 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            <br>
-                            </form>
+                        <br>
+                        </form>
 
-                        </div>
                     </div>
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
 
 
 
-                {{-- </div>
+            {{-- </div>
                                                                     </div> --}}
 
-                {{-- </section> --}}
+            {{-- </section> --}}
 
 
 
@@ -359,14 +357,14 @@
 
 
 
-                {{-- </div>
+            {{-- </div>
 
                     </div> --}}
 
 
 
-                <br>
-                <br>
+            <br>
+            <br>
 
 
 
@@ -477,24 +475,37 @@
         }
     </script>
 
-<script>
-    $("#ssm").change(function() {
-        // readURL(this);
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
+    <script>
+        $("#ssm").change(function() {
+            // readURL(this);
+            if (this.files && this.files[0]) {
+                var reader = new FileReader();
 
-            reader.onload = function(e) {
-                $('#category-img-ssm').attr('src', e.target.result);
-                $('#category-img-ssm').css("display", "block");
+                reader.onload = function(e) {
+                    $('#category-img-ssm').attr('src', e.target.result);
+                    $('#category-img-ssm').css("display", "block");
+                }
+
+                reader.readAsDataURL(this.files[0]);
             }
 
-            reader.readAsDataURL(this.files[0]);
-        }
+
+        });
+    </script>
+
+    <script>
+        var uploadField = document.getElementById("file");
+
+        uploadField.onchange = function() {
+            if (this.files[0].size > 3145728) {
+                alert("Saiz fail melebihi 3MB!");
+                this.value = "";
+            };
+        };
+    </script>
 
 
-    });
 
-</script>
 
     </body>
 

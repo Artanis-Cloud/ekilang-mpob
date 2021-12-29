@@ -11870,3 +11870,8 @@ fieldset:disabled .btn {
         display: none !important
     }
 }
+
+.required:after {
+    content:" *";
+    color: red;
+  }
