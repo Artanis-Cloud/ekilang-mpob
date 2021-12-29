@@ -59,11 +59,11 @@
         <!-- Template Main CSS File -->
         <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
         <!-- =======================================================
-                                          * Template Name: OnePage - v4.7.0
-                                          * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                          * Author: BootstrapMade.com
-                                          * License: https://bootstrapmade.com/license/
-                                          ======================================================== -->
+                                              * Template Name: OnePage - v4.7.0
+                                              * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+                                              * Author: BootstrapMade.com
+                                              * License: https://bootstrapmade.com/license/
+                                              ======================================================== -->
     </head>
 
 
@@ -143,61 +143,61 @@
 
 
 
-                                            <br>
+                                        <br>
 
-                                            {{-- <h4 class="card-title" style="text-align: center; color:rgb(39, 80, 71)">
+                                        {{-- <h4 class="card-title" style="text-align: center; color:rgb(39, 80, 71)">
                                                 Maklumat
                                                 Kilang</h4>
                                             <br> --}}
-                                            {{-- <form action="index.html"> --}}
-                                            {{-- <div class="clearfix content" style="background-color: black"> --}}
+                                        {{-- <form action="index.html"> --}}
+                                        {{-- <div class="clearfix content" style="background-color: black"> --}}
 
 
-                                            <div class="row" style="margin-bottom:2%">
-                                                <label for="fname"
-                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">Kata
-                                                    Laluan Terdahulu <i>(8 Aksara)</i></label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='old_password'
-                                                        id="old_password" placeholder="Kata Laluan Terdahulu" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
+                                        <div class="row" style="margin-bottom:2%">
+                                            <label for="fname"
+                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">Kata
+                                                Laluan Terdahulu <i>(8 Aksara)</i></label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='old_password'
+                                                    id="old_password" placeholder="Kata Laluan Terdahulu" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
                                                             <div class="alert alert-danger">
                                                                 <strong>{{ $message }}</strong>
                                                             </div>
                                                         @enderror --}}
-                                                </div>
                                             </div>
-                                            <div class="row" style="margin-bottom:2%">
-                                                <label for="fname"
-                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">Kata
-                                                    Laluan Baru <i>(8 Aksara)</i></label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='new_password'
-                                                        id="new_password" placeholder="Kata Laluan Baru" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
+                                        </div>
+                                        <div class="row" style="margin-bottom:2%">
+                                            <label for="fname"
+                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">Kata
+                                                Laluan Baru <i>(8 Aksara)</i></label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='new_password'
+                                                    id="new_password" placeholder="Kata Laluan Baru" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
                                                             <div class="alert alert-danger">
                                                                 <strong>{{ $message }}</strong>
                                                             </div>
                                                         @enderror --}}
-                                                </div>
                                             </div>
-                                            <div class="row" style="margin-bottom:2%">
-                                                <label for="fname"
-                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">Sahkan
-                                                    Kata Laluan Baru <i>(8 Aksara)</i></label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='password_confirmation'
-                                                        id="password_confirmation" placeholder="Sahkan Kata Laluan Baru"
-                                                        required title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
+                                        </div>
+                                        <div class="row" style="margin-bottom:2%">
+                                            <label for="fname"
+                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">Sahkan
+                                                Kata Laluan Baru <i>(8 Aksara)</i></label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='password_confirmation'
+                                                    id="password_confirmation" placeholder="Sahkan Kata Laluan Baru"
+                                                    required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
                                                             <div class="alert alert-danger">
                                                                 <strong>{{ $message }}</strong>
                                                             </div>
                                                         @enderror --}}
-                                                </div>
                                             </div>
+                                        </div>
 
 
 
@@ -210,8 +210,7 @@
 
                                 <div class="row float-left ">
                                     <div class="col-md-12 offset-md-12">
-                                        <button type="submit" class="btn btn-primary"
-                                            style="float: right;">
+                                        <button type="submit" class="btn btn-primary" style="float: right;">
                                             {{ __('Simpan') }}
                                         </button>
                                     </div>
@@ -249,7 +248,7 @@
 
 
 
-        
+
 
     </section><!-- End Hero -->
 
@@ -275,55 +274,7 @@
 
     <script src="assets/js/main.js"></script>
 
-    <script>
-        var form = $(".validation-wizard").show();
-
-        $(".validation-wizard").steps({
-                headerTag: "h6",
-                bodyTag: "section",
-                transitionEffect: "fade",
-                titleTemplate: '<span class="step">#index#</span> #title#',
-                labels: {
-                    finish: "Hantar",
-                    next: "Seterusnya",
-                    previous: "Sebelumnya",
-                },
-                onStepChanging: function(event, currentIndex, newIndex) {
-                    return currentIndex > newIndex || !(3 === newIndex && Number($("#age-2").val()) < 18) && (
-                        currentIndex < newIndex && (form.find(".body:eq(" + newIndex + ") label.error")
-                            .remove(), form.find(".body:eq(" + newIndex + ") .error").removeClass("error")),
-                        form
-                        .validate().settings.ignore = ":disabled,:hidden", form.valid())
-                },
-                onFinishing: function(event, currentIndex) {
-                    return form.validate().settings.ignore = ":disabled", form.valid()
-                },
-                onFinished: function(event, currentIndex) {
-                    // swal("Form Submitted!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.");
-                    form.submit();
-                }
-            }),
-
-            $(".validation-wizard").validate({
-                ignore: "input[type=hidden]",
-                errorClass: "text-danger",
-                successClass: "text-success",
-                highlight: function(element, errorClass) {
-                    $(element).removeClass(errorClass)
-                },
-                unhighlight: function(element, errorClass) {
-                    $(element).removeClass(errorClass)
-                },
-                errorPlacement: function(error, element) {
-                    error.insertAfter(element)
-                },
-                rules: {
-                    email: {
-                        email: !0
-                    }
-                }
-            })
-    </script>
+    
 
 
 
