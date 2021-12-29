@@ -76,9 +76,9 @@
 
 
 
-                                    <div class="col-12 mt-2">
+                                    <div class="col-12 mt-5">
                                         <div class="mb-2" style="text-align: right">
-                                            <a href="{{ asset('manual/kilangbuah/1.pdf') }}"
+                                            <a href="{{ asset('manual/kilangbuah/1.pdf') }}" target="_blank"
                                                 style="text-align:right"><i><u>Panduan
                                                 Mengisi Maklumat Bahagian I</u></i></a>
                                         </div>
@@ -159,26 +159,26 @@
                                                                                 <input type="text" size="10"
                                                                                     onkeypress="return isNumberKey(event)">
                                                                             </td>
-                                                                            <td style="text-align:center;">
-                                                                                <input type="text" size="10"
-                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            <td style="text-align:center; background-color:#80808070">
+                                                                                {{-- <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)"> --}}
                                                                             </td>
-                                                                            <td style="text-align:center;">
-                                                                                <input type="text" size="10"
-                                                                                    onkeypress="return isNumberKey(event)">
-                                                                            </td>
-                                                                            <td style="text-align:center;">
-                                                                                <input type="text" size="10"
-                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            <td style="text-align:center; background-color:#80808070">
+                                                                                {{-- <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)"> --}}
+                                                                            </td> 
+                                                                            <td style="text-align:center; background-color:#80808070">
+                                                                                {{-- <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)"> --}}
                                                                             </td>
 
                                                                         </tr>
                                                                         <tr>
                                                                             <td class="text-bold-500">D.
                                                                                 Pengeluaran</td>
-                                                                            <td style="text-align:center;">
-                                                                                <input type="text" size="10"
-                                                                                    onkeypress="return isNumberKey(event)">
+                                                                            <td style="text-align:center; background-color:#80808070">
+                                                                                {{-- <input type="text" size="10"
+                                                                                    onkeypress="return isNumberKey(event)"> --}}
                                                                             </td>
                                                                             <td style="text-align:center;">
                                                                                 <input type="text" size="10"
@@ -218,17 +218,17 @@
                                                                         <tr>
                                                                             <td class="text-bold-500">F.
                                                                                 Eksport Terus Dari Premis</td>
-                                                                            <td style="text-align:center;">
-                                                                                <input type="text" size="10" disabled>
+                                                                            <td style="text-align:center; background-color:#80808070">
+                                                                                {{-- <input type="text" size="10" disabled> --}}
                                                                             </td>
-                                                                            <td style="text-align:center;">
-                                                                                <input type="text" size="10" disabled>
+                                                                            <td style="text-align:center; background-color:#80808070">
+                                                                                {{-- <input type="text" size="10" disabled> --}}
                                                                             </td>
-                                                                            <td>
-                                                                                <input type="text" size="10" disabled>
+                                                                            <td style="text-align:center; background-color:#80808070">
+                                                                                {{-- <input type="text" size="10" disabled> --}}
                                                                             </td>
-                                                                            <td style="text-align:center;">
-                                                                                <input type="text" size="10" disabled>
+                                                                            <td style="text-align:center; background-color:#80808070">
+                                                                                {{-- <input type="text" size="10" disabled> --}}
                                                                             </td>
 
                                                                         </tr>
