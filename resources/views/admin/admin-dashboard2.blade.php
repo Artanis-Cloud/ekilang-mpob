@@ -63,15 +63,28 @@
     <div id="app">
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active" style="background-color: rgba(87, 168, 137, 0.664)">
-                <div class="mt-2 sidebar-header">
-                    <h2 style="text-align:left; font-family:Verdana; margin-right:30%; color: rgb(78, 73, 57)"><b>
-                            E-Kilang </b>
-                    </h2>
+                <div class="mt-3 sidebar-header" style="margin-bottom: -13%">
+
+                    <img src="{{ asset('/mpob.png') }}"
+                        style="float:left; margin-right:10%; width:60px; height:55px">
+                    {{-- <strong>E-Kilang</strong><br />
+                    <span>description</span> --}}
+
+                    <h4
+                        style="text-align:left; font-family:Verdana; margin-left:15%; margin-top:5%; color: rgb(78, 73, 57)">
+                        <b>
+                            E-Kilang</b>
+                    </h4>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
-                    <img src="{{ asset('/mpob.png') }}" style="width:60px; height:60px">
-                    <img src="{{ asset('/mspo.png') }}" style="width:60px; height:70px">
+                    {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
+                    {{-- <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px"> --}}
 
                 </div>
+                <br>
+                
+
+
+
                 <div class="sidebar-menu">
                     <ul class="menu">
 
@@ -83,7 +96,7 @@
                             {{-- <a href="index.html" class='sidebar-link'> --}}
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">Kilang Buah</span>
+                                <span style="color: rgb(78, 73, 57)">1. Daftar Pelesen</span>
                             </a>
 
                         </li>
@@ -94,7 +107,7 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Kilang Penapis</span>
+                                <span style="color: rgb(78, 73, 57); ">2. Tukar Kata Laluan</span>
                             </a>
 
 
@@ -105,7 +118,7 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); margin-left:21px ">Kilang Isirung</span>
+                                <span style="color: rgb(78, 73, 57); margin-left:21px ">3. Daftar Penyata Bulanan Baru</span>
                             </a>
 
 
@@ -117,7 +130,7 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57);">Kilang Oleokimia</span>
+                                <span style="color: rgb(78, 73, 57);">4. E-Kilang ke PLEID</span>
                             </a>
 
 
@@ -127,7 +140,7 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57);">Pusat Simpanan</span>
+                                <span style="color: rgb(78, 73, 57);">5. Penyata Bulanan Belum Dihantar</span>
                             </a>
 
                         </li>
@@ -136,11 +149,75 @@
                              <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">E-Biodiesel</span>
+                                <span style="color: rgb(78, 73, 57)">6. Papar & Cetak Penyata Bulanan</span>
                             </a>
 
 
                         </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57)">7. Porting Maklumat</span>
+                            </a>
+
+
+                        </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57)">8. Port Data</span>
+                            </a>
+
+
+                        </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57)">9. Penyata Bulan Terdahulu</span>
+                            </a>
+
+
+                        </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57)">10. Port Data Ke Dynamic Query</span>
+                            </a>
+
+
+                        </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57)">11. Emel Pertanyaan / Pindaan / Cadangan</span>
+                            </a>
+
+
+                        </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57)">12. Validasi</span>
+                            </a>
+
+
+                        </li>
+                   
+
+                        {{-- </li> --}}
+                        
                         <br>
 
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Tetapan Akaun</li>
@@ -198,15 +275,14 @@
 
                     {{-- <img src="theme/images/background/favicon.png" height='45px' alt=""> --}}
                     {{-- <img src="theme/images/background/mspo.png" height='60px' alt=""> --}}
-                    <img src="{{ asset('/mpob.png') }}" height='40px' width='50px' alt=""
-                        style="margin-left: 10%; margin-right:2%;">
-                    <img src="{{ asset('/mspo.png') }}" height='46px' width='35px' alt=""
-                        style=" margin-right:10%; margin-left:2%;">
+                    <img src="{{ asset('/mpob.png') }}" height='60px' width='70px' alt=""
+                        style="margin-left:25%; margin-top: 15px;">
+                    {{-- <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%"> --}}
                 </a>
 
-                <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
-                    style="color: black; text-align:center; margin-left:10%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
-                        style="margin-left:30%;">
+                <span class="mx-2 mt-3 mb-0 text-center navbar-brand h1"
+                    style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
+                        style="margin-left:10%;">
                         E-Kilang </b></span>
 
 
@@ -273,6 +349,7 @@
                 </div>
 
             </nav>
+            <br>
 
 
 
@@ -442,8 +519,27 @@
                         </div>
                     </div>
 
-                    {{-- <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%">
+                    <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%">
+
+
                         <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
+                            data-aos-delay="500">
+                            <div class="icon-box">
+                                {{-- <div class="icon">
+                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
+                                        <strong class="" style="font-size:20px;">
+                                            6
+                                        </strong>
+                                    </span>
+                                    </div> --}}
+                                <div class="icon" style="text-align: center"><i
+                                        class="fa fa-upload fa-xs"></i></div>
+                                <h4 class="title"><a href="">7. Porting Maklumat</a></h4>
+                                <p class="description">Pemindahan maklumat produk sawit dan maklumat negara</p>
+                            </div>
+                        </div>
+
+                        {{-- <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
                             <div class="icon-box"> --}}
                                 {{-- <div class="icon">
@@ -453,10 +549,27 @@
                                         </strong>
                                     </span>
                                     </div> --}}
-                                {{-- <div class="icon" style="text-align: center"><i class="	fa fa-calendar-o fa-xs"></i>
-                                </div>
-                                <h4 class="title"><a href="">7. Penyata Bulan Terkini</a></h4>
-                                <p class="description">Senarai penyata bulanan terkini</p>
+                                {{-- <div class="icon" style="text-align: center"><i
+                                        class="fa fa-globe fa-xs"></i></div>
+                                <h4 class="title"><a href="">9. Porting Maklumat Negara</a></h4>
+                                <p class="description">Pemindahan maklumat negara</p>
+                            </div>
+                        </div> --}}
+
+                        {{-- <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
+                            data-aos-delay="500">
+                            <div class="icon-box"> --}}
+                                {{-- <div class="icon">
+                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
+                                        <strong class="" style="font-size:20px;">
+                                            6
+                                        </strong>
+                                    </span>
+                                    </div> --}}
+                                {{-- <div class="icon" style="text-align: center"><i
+                                        class="	fas fa-share-square fa-xs"></i></div>
+                                <h4 class="title"><a href="">10. Porting Maklumat Pelesen </a></h4>
+                                <p class="description">Pemindahan maklumat pelesen ke BEPI</p>
                             </div>
                         </div> --}}
 
@@ -471,66 +584,15 @@
                                     </span>
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
-                                        class="fa fa-upload fa-xs"></i></div>
-                                <h4 class="title"><a href="">8. Porting Maklumat Sawit</a></h4>
-                                <p class="description">Pemindahan maklumat produk sawit</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fa fa-globe fa-xs"></i></div>
-                                <h4 class="title"><a href="">9. Porting Maklumat Negara</a></h4>
-                                <p class="description">Pemindahan maklumat negara</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="	fas fa-share-square fa-xs"></i></div>
-                                <h4 class="title"><a href="">10. Porting Maklumat Pelesen </a></h4>
-                                <p class="description">Pemindahan maklumat pelesen ke BEPI</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
                                         class="fas fa-eject fa-xs"></i></div>
-                                <h4 class="title"><a href="">11. Port Data ke Stat Admin</a></h4>
-                                <p class="description">Pemindahan Data ke Stat Admin</p>
+                                <h4 class="title"><a href="">8. Port Data</a></h4>
+                                <p class="description">Pemindahan Data ke Stat Admin dan Stat Homepage</p>
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
+                        {{-- <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
-                            <div class="icon-box">
+                            <div class="icon-box"> --}}
                                 {{-- <div class="icon">
                                     <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
                                         <strong class="" style="font-size:20px;">
@@ -538,7 +600,7 @@
                                         </strong>
                                     </span>
                                     </div> --}}
-                                <div class="icon" style="text-align: center"><i
+                                {{-- <div class="icon" style="text-align: center"><i
                                         class="	fas fa-laptop-house fa-xs"></i></div>
                                 <h4 class="title"><a href="">12. Port Data ke Stat Homepage</a></h4>
                                 <p class="description">Pemindahan Data ke Stat Homepage</p>
@@ -546,12 +608,12 @@
                                 <br>
                                 <br>
                             </div>
-                        </div>
-                    </div>
+                        </div> --}}
 
-                    <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%; display: flex;
+
+                    {{-- <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%; display: flex;
                         justify-content: center;
-                        flex-direction: row;">
+                        flex-direction: row;"> --}}
                         <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
                             <div class="icon-box">
@@ -564,15 +626,15 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-folder-open fa-xs"></i></div>
-                                <h4 class="title"><a href="">13. Penyata Bulan Terdahulu di e-Kilang</a>
+                                <h4 class="title"><a href="">9. Penyata Bulan Terdahulu</a>
                                 </h4>
-                                <p class="description"> Papar penyata bulanan terdahulu di e-Kilang</p>
+                                <p class="description"> Papar penyata bulanan terdahulu di e-Kilang dan PLEID</p>
                             </div>
                         </div>
 
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
+                        {{-- <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
-                            <div class="icon-box">
+                            <div class="icon-box"> --}}
                                 {{-- <div class="icon">
                                     <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
                                         <strong class="" style="font-size:20px;">
@@ -580,12 +642,12 @@
                                         </strong>
                                     </span>
                                     </div> --}}
-                                <div class="icon" style="text-align: center"><i
+                                {{-- <div class="icon" style="text-align: center"><i
                                         class="	fas fa-archive fa-xs"></i></div>
                                 <h4 class="title"><a href="">14. Penyata Bulan Terdahulu di PLEID</a></h4>
                                 <p class="description">Papar penyata bulanan terdahulu di PLEID</p>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
@@ -599,7 +661,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-file-archive fa-xs"></i></div>
-                                <h4 class="title"><a href="">15. Port Data Ke Dynamic Query</a></h4>
+                                <h4 class="title"><a href="">10. Port Data Ke Dynamic Query</a></h4>
                                 <p class="description">Pemindahan Data Ke Dynamic Query</p>
                             </div>
                         </div>
@@ -616,7 +678,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fa fa-envelope fa-xs"></i></div>
-                                <h4 class="title"><a href="">16. Emel Pertanyaan / Pindaan / Cadangan</a>
+                                <h4 class="title"><a href="">11. Emel Pertanyaan / Pindaan / Cadangan</a>
                                 </h4>
                                 <p class="description">Senarai Emel Pertanyaan / Pindaan / Cadangan</p>
                             </div>
@@ -634,10 +696,11 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-check-double fa-xs"></i></div>
-                                <h4 class="title"><a href="">17. Validasi</a></h4>
+                                <h4 class="title"><a href="">12. Validasi</a></h4>
                                 <p class="description">Validasi - Semakan FFBProses dan Kapasiti</p>
                             </div>
                         </div>
+
 
                         {{-- <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
@@ -659,6 +722,7 @@
                         </div> --}}
 
                     </div>
+
                     <br>
                     <br>
                 </div>
@@ -681,9 +745,9 @@
                         <div class="row" style=" display: flex;
                         justify-content: center;
                         flex-direction: row; margin-left:5%; margin-right:5%;">
-                            <div class="col-md-4 col-lg-3">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
+                            {{-- <div class="col-md-4 col-lg-3"> --}}
+                                {{-- <div class="swiper-slide">
+                                    <div class="testimonial-item"> --}}
                                         {{-- <p>
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Proin iaculis purus consequat sem cure digni ssim donec porttitora entum
@@ -691,15 +755,15 @@
                                             Maecen aliquam, risus at semper.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/email2.png') }}"
+                                        {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/email2.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Emel Semua Pelesen Aktif</h3>
                                         <h4>Penghantaran e-mail kepada semua pelesen aktif</h4>
                                     </div>
-                                </div><!-- End testimonial item -->
-                            </div>
+                                </div><!-- End testimonial item --> --}}
+                            {{-- </div> --}}
 
-                            <div class="col-md-4 col-lg-3">
+                            <div class="col-md-4 col-lg-4">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         {{-- <p>
@@ -719,7 +783,7 @@
                                 </div>
                             </div><!-- End testimonial item -->
 
-                            <div class="col-md-4 col-lg-3">
+                            <div class="col-md-4 col-lg-4">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         {{-- <p>
@@ -741,7 +805,7 @@
                             </div><!-- End testimonial item -->
 
                             {{-- <div class="row"> --}}
-                            <div class="col-md-4 col-lg-3">
+                            <div class="col-md-4 col-lg-4">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         {{-- <p>
@@ -761,7 +825,7 @@
                                 </div>
                             </div><!-- End testimonial item -->
 
-                            <div class="col-md-4 col-lg-3" style="margin-top: -8%">
+                            <div class="col-md-4 col-lg-4" style="margin-top: -8%" >
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         {{-- <p>
@@ -780,7 +844,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4 col-lg-3" style="margin-top: -8%">
+                            <div class="col-md-4 col-lg-4" style="margin-top: -8%">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         {{-- <p>
@@ -799,9 +863,9 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4 col-lg-3" style="margin-top: -8%">
+                            {{-- <div class="col-md-4 col-lg-3" style="margin-top: -8%">
                                 <div class="swiper-slide">
-                                    <div class="testimonial-item">
+                                    <div class="testimonial-item"> --}}
                                         {{-- <p>
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
@@ -810,15 +874,15 @@
                                             esse veniam culpa fore nisi cillum quid.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/uem.png') }}"
+                                        {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/uem.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Emel Pelesen</h3>
                                         <h4>Penghantaran e-mail kepada pelesen</h4>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="col-md-4 col-lg-3" style="margin-top: -8%">
+                            <div class="col-md-4 col-lg-4" style="margin-top: -8%">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         {{-- <p>

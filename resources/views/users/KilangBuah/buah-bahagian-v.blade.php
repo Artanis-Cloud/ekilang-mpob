@@ -6,7 +6,7 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        <div class="container position-relative" data-aos-delay="100">
 
             {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
                 <div class="col-xl-12 col-lg-9">
@@ -16,7 +16,7 @@
                 </div>
             </div> --}}
 
-            <div class="mb-4 row">
+            <div class="mt-5 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -168,40 +168,46 @@
                                             <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
                                         </div>
-                                            <div class="text-right col-md-7 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                    style="float: right" data-target="#confirmation">Simpan & Hantar</button>
-                                            </div>
+                                        <div class="text-right col-md-7 mb-4 ">
+                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                style="float: right" data-bs-target="#exampleModalCenter">Hantar</button>
+                                        </div>
 
                                     </div>
 
-                                        {{-- Hidden Gap - Just Ignore --}}
-                                        {{-- <div class="alert alert-white" style="text-align: center;"></div> --}}
-                                        {{-- <div style="padding: 25px;"></div> --}}
-                                    </div>
-
-                                    <!-- Modal Confirmation -->
-                                    <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header" style="background-color:#f3ce8f  !important">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle"><i
-                                                            class="fa fa-exclamation-triangle" aria-hidden="true"
-                                                            style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
-                                                    </h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Anda pasti mahu menyimpan maklumat ini?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger"
-                                                        data-dismiss="modal">Kembali</button>
-                                                    <button type="submit" class="btn btn-success">Ya</button>
+                                        <!-- Vertically Centered modal Modal -->
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
+                                                        <button type="button" class="close"
+                                                            data-bs-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Anda pasti mahu menghantar penyata ini?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block"
+                                                                style="color:#275047">Tidak</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Hantar</span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

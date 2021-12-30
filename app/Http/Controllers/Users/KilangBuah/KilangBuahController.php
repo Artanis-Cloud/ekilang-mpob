@@ -266,6 +266,8 @@ class KilangBuahController extends Controller
         return view('users.KilangBuah.buah-penyata-dahulu', compact('returnArr', 'layout'));
     }
 
+  
+
 
 
     public function index_form()
