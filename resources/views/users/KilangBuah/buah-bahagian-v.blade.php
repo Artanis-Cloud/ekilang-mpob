@@ -106,7 +106,7 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">1. Kilang Isirung</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15"
+                                                                            <input type="text" size="15" class="calc"
                                                                                 onkeypress="return isNumberKey(event)">
                                                                         </td>
 
@@ -115,7 +115,8 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">2. Kilang Peniaga</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" size="15" class="calc"
+                                                                                onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -123,16 +124,30 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">3. Lain-Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" size="15" class="calc"
+                                                                                onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
                                                                     </tr>
 
 
+                                                                    <tr>
+                                                                        <td class="text-bold-500"
+                                                                            style="text-align:center;">
+                                                                            <b>Jumlah</b>
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <b><span id="total"></span></b>
+
+                                                                        </td>
+
+                                                                    </tr>
                                                                     <tr style="background-color: #1526224a">
                                                                         <td class="text-bold-500"
-                                                                            style="text-align:center;"><b>Jumlah</b></td>
+                                                                            style="text-align:center;">
+                                                                            <b>Jumlah Bahagian I</b>
+                                                                        </td>
                                                                         <td style="text-align:center;">
 
                                                                         </td>
@@ -175,57 +190,55 @@
 
                                     </div>
 
-                                        <!-- Vertically Centered modal Modal -->
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                            PENGESAHAN</h5>
-                                                        <button type="button" class="close"
-                                                            data-bs-dismiss="modal" aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                            Anda pasti mahu menghantar penyata ini?
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block"
-                                                                style="color:#275047">Tidak</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Hantar</span>
-                                                        </button>
-                                                    </div>
+                                    <!-- Vertically Centered modal Modal -->
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                            role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                        PENGESAHAN</h5>
+                                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <i data-feather="x"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                        Anda pasti mahu menghantar penyata ini?
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light-secondary"
+                                                        data-bs-dismiss="modal">
+                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary ml-1"
+                                                        data-bs-dismiss="modal">
+                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block">Hantar</span>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <br>
-                                    </form>
-
                                 </div>
+                                <br>
+                                </form>
+
                             </div>
                         </div>
-                        <br>
+                    </div>
+                    <br>
 
 
 
-                        {{-- </div>
+                    {{-- </div>
                                                                     </div> --}}
 
-                        {{-- </section> --}}
+                    {{-- </section> --}}
 
 
 
@@ -241,14 +254,14 @@
 
 
 
-                        {{-- </div>
+                    {{-- </div>
 
                     </div> --}}
 
 
 
-                        <br>
-                        <br>
+                    <br>
+                    <br>
 
 
 
@@ -269,8 +282,22 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.calc').change(function() {
+                var total = 0;
+                $('.calc').each(function() {
+                    if ($(this).val() != '') {
+                        total += parseInt($(this).val());
+                    }
+                });
+                $('#total').html(total);
+            });
+        });
+    </script>
 
-    
     </body>
 
     </html>
