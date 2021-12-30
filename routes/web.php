@@ -69,6 +69,10 @@ Route::get('buah/penyata-dahulu', [App\Http\Controllers\Users\KilangBuah\KilangB
 
 
 
+Route::get('/try', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try'])->name('try');
+
+
+
 
 
 

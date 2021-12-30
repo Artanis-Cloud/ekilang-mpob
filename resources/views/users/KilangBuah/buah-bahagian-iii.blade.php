@@ -86,9 +86,9 @@
                                         <div class="col-12 mt-5">
                                             <form action="#" class="">
                                                 @csrf
-                                            <div class="card">
+                                                <div class="card">
 
-                                                <div class="card-content">
+                                                    <div class="card-content">
 
 
                                                         <div class="table-responsive">
@@ -106,7 +106,9 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">1. Estet Sendiri</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc"
+                                                                                value="" size="15"
+                                                                                onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -114,7 +116,9 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">2. Estet Luar</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc"
+                                                                                value="" size="15"
+                                                                                onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -122,7 +126,9 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">3. Peniaga Buah</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc"
+                                                                                value="" size="15"
+                                                                                onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -130,7 +136,9 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">4. Pekebun Kecil</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc"
+                                                                                value="" size="15"
+                                                                                onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -138,7 +146,9 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">5. Kilang Buah Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc"
+                                                                                value="" size="15"
+                                                                                onkeypress="return isNumberKey(event)">
                                                                         </td>
 
 
@@ -146,15 +156,28 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">6. Lain-Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc"
+                                                                                value="" size="15"
+                                                                                onkeypress="return isNumberKey(event)">
                                                                         </td>
 
+
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td class="text-bold-500"
+                                                                            style="text-align:center;">
+                                                                            <b>Jumlah</b>
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <b><span id="total"></span></b>
+
+                                                                        </td>
 
                                                                     </tr>
                                                                     <tr style="background-color: #1526224a">
                                                                         <td class="text-bold-500"
                                                                             style="text-align:center;">
-                                                                            <b>Jumlah</b>
+                                                                            <b>Jumlah Bahagian I</b>
                                                                         </td>
                                                                         <td style="text-align:center;">
 
@@ -164,133 +187,8 @@
                                                                 </tbody>
                                                             </table>
                                                         </div>
-                                                        </div>
-                                                        </div>
-
-
-
-
-       
-
-                                                        {{-- <div class="card-body">
-                                                            <p>
-                                                                Toggle a modal via JavaScript by clicking the button above.
-                                                                You can use modal to add dialogs to your site for lightboxes, user
-                                                                notifications, or completely custom content.
-                                                            </p> --}}
-                                                            <!-- Button trigger for basic modal -->
-                                                            {{-- <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal"
-                                                                data-bs-target="#default">
-                                                                Launch Modal
-                                                            </button> --}}
-                        
-                                                            {{-- <!--Basic Modal -->
-                                                            <div class="modal fade text-left" id="default" tabindex="-1" role="dialog"
-                                                                aria-labelledby="myModalLabel1" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="myModalLabel1">Basic Modal</h5>
-                                                                            <button type="button" class="close rounded-pill"
-                                                                                data-bs-dismiss="modal" aria-label="Close">
-                                                                                <i data-feather="x"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <p>
-                                                                                Bonbon caramels muffin. Chocolate bar oat cake cookie pastry
-                                                                                dragée pastry. Carrot cake
-                                                                                chocolate tootsie roll chocolate bar candy canes biscuit.
-                        
-                                                                                Gummies bonbon apple pie fruitcake icing biscuit apple pie
-                                                                                jelly-o sweet roll. Toffee sugar
-                                                                                plum sugar plum jelly-o jujubes bonbon dessert carrot cake.
-                                                                                Cookie dessert tart muffin topping
-                                                                                donut icing fruitcake. Sweet roll cotton candy dragée danish
-                                                                                Candy canes chocolate bar cookie.
-                                                                                Gingerbread apple pie oat cake. Carrot cake fruitcake bear claw.
-                                                                                Pastry gummi bears
-                                                                                marshmallow jelly-o.
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn" data-bs-dismiss="modal">
-                                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                                <span class="d-none d-sm-block">Close</span>
-                                                                            </button>
-                                                                            <button type="button" class="btn btn-primary ml-1"
-                                                                                data-bs-dismiss="modal">
-                                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                <span class="d-none d-sm-block">Accept</span>
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div> --}}
-                                                        </div>
-                                                </div>
-
-                                                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                                    <div class="text-left col-md-5">
-                                                        <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
-                                                            style="float: left">Sebelumnya</a>
-                                                    </div>
-                                                    <div class="text-right col-md-7 mb-4 ">
-                                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
-                                                            Seterusnya</button>
-                                                    </div>
-
-                                                </div>
-
-                                                    <!-- Vertically Centered modal Modal -->
-                                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                                                        role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                            role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                        PENGESAHAN</h5>
-                                                                    <button type="button" class="close"
-                                                                        data-bs-dismiss="modal" aria-label="Close">
-                                                                        <i data-feather="x"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <p>
-                                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                                    </p>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-light-secondary"
-                                                                        data-bs-dismiss="modal">
-                                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                                        <span class="d-none d-sm-block"
-                                                                            style="color:#275047">Tidak</span>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-primary ml-1"
-                                                                        data-bs-dismiss="modal">
-                                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                                        <span class="d-none d-sm-block">Ya</span>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
                                                     </div>
                                                 </div>
-                                            {{-- </div> --}}
-                                        </form>
-
-
-
-
-
-
 
 
 
@@ -300,11 +198,77 @@
                                         </div>
                                     </div>
 
-                                    <br>
+                                    <div class="row form-group" style="padding-top: 10px; ">
 
+
+                                        <div class="text-left col-md-5">
+                                            <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
+                                                style="float: left">Sebelumnya</a>
+                                        </div>
+                                        <div class="text-right col-md-7 mb-4 ">
+                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan &
+                                                Seterusnya</button>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Vertically Centered modal Modal -->
+                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                            role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                        PENGESAHAN</h5>
+                                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <i data-feather="x"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                        Anda pasti mahu menyimpan maklumat ini?
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light-secondary"
+                                                        data-bs-dismiss="modal">
+                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                    </button>
+                                                    <button type="button" class="btn btn-primary ml-1"
+                                                        data-bs-dismiss="modal">
+                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block">Ya</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                                {{-- </div> --}}
+                                </form>
+
+
+
+
+                               
+
+
+
+
+
+
                             </div>
                         </div>
+
+                        <br>
+
+                    </div>
+                </div>
+            </div>
 
 
 
@@ -340,7 +304,25 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.calc').change(function() {
+                var total = 0;
+                $('.calc').each(function() {
+                    if ($(this).val() != '') {
+                        total += parseInt($(this).val());
+                    }
+                });
+                $('#total').html(total);
+            });
+        });
+    </script>
+
+   
+
+
     </body>
 
     </html>

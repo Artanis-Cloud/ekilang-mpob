@@ -163,7 +163,7 @@
                                                 </div>
                                                 <div class="col-12" style="margin-bottom:-5%">
                                                     <div class="form-group">
-                                                        <label for="last-name-column">Alamat Surat Menyurat</label>
+                                                        <label class="required" for="last-name-column">Alamat Surat Menyurat</label>
                                                         <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
                                                             name="lname-column">
                                                     </div>
@@ -179,35 +179,35 @@
 
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label for="company-column">No. Telefon Pejabat / Kilang</label>
+                                                        <label class="required" for="company-column">No. Telefon (Pejabat / Kilang)</label>
                                                         <input type="text" id="company-column" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
                                                             name="company-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label for="email-id-column">No. Faks</label>
+                                                        <label class="required" for="email-id-column">No. Faks</label>
                                                         <input type="email" id="email-id-column" class="form-control" placeholder="No. Faks"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="email-id-column">Alamat Emel</label>
+                                                        <label class="required" for="email-id-column">Alamat Emel</label>
                                                         <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="email-id-column"> Nama Pegawai Melapor</label>
+                                                        <label class="required" for="email-id-column"> Nama Pegawai Melapor</label>
                                                         <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Melapor"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label for="email-id-column"> Jawatan Pegawai Melapor
+                                                        <label class="required" for="email-id-column"> Jawatan Pegawai Melapor
                                                         </label>
                                                         <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Melapor"
                                                             name="email-id-column">
@@ -215,21 +215,21 @@
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label for="email-id-column">No. Telefon Pegawai Melapor</label>
+                                                        <label class="required" for="email-id-column">No. Telefon Pegawai Melapor</label>
                                                         <input type="email" id="email-id-column" class="form-control" placeholder="No. Telefon Pegawai Melapor"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="email-id-column">Nama Pegawai Bertanggungjawab</label>
+                                                        <label class="required" for="email-id-column">Nama Pegawai Bertanggungjawab</label>
                                                         <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
                                                             name="email-id-column">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label for="email-id-column">Jawatan Pegawai
+                                                        <label class="required" for="email-id-column">Jawatan Pegawai
                                                             Bertanggungjawab</label>
                                                         <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Bertanggungjawab"
                                                             name="email-id-column">
@@ -237,7 +237,7 @@
                                                 </div>
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
-                                                        <label for="email-id-column">Alamat Emel Pengurus</label>
+                                                        <label class="required" for="email-id-column">Alamat Emel Pengurus</label>
                                                         <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel Pengurus"
                                                             name="email-id-column">
                                                     </div>
