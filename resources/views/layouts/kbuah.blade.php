@@ -13,8 +13,8 @@
     <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
 
     <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
 
     <!-- Vendor
 
@@ -116,7 +116,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="{{ route ('buah.bahagianii') }}" class='sidebar-link'>
+                            <a href="{{ route('buah.bahagianii') }}" class='sidebar-link'>
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layout" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian II</span>
@@ -125,7 +125,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="{{ route ('buah.bahagianiii') }}" class='sidebar-link'>
+                            <a href="{{ route('buah.bahagianiii') }}" class='sidebar-link'>
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layers" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian III</span>
@@ -134,7 +134,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="{{ route ('buah.bahagianiv') }}" class='sidebar-link'>
+                            <a href="{{ route('buah.bahagianiv') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="grid" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian IV</span>
@@ -143,7 +143,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="{{ route ('buah.bahagianv') }}" class='sidebar-link'>
+                            <a href="{{ route('buah.bahagianv') }}" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian V</span>
@@ -153,8 +153,8 @@
                         {{-- <li class="sidebar-item ">
                             <a href="{{ route ('buah.bahagianvi') }}" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i> --}}
-                                {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                {{-- <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
+                        {{-- <i data-feather="file-plus" width="20"></i> --}}
+                        {{-- <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
                             </a>
 
                         </li> --}}
@@ -171,7 +171,7 @@
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Menu-Menu Lain</li>
 
                         <li class="sidebar-item">
-                            <a href="{{ route ('buah.email') }}" class='sidebar-link'>
+                            <a href="{{ route('buah.email') }}" class='sidebar-link'>
                                 <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="user" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
@@ -182,7 +182,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="{{ route('buah.prestasioer')}}" class='sidebar-link'>
+                            <a href="{{ route('buah.prestasioer') }}" class='sidebar-link'>
                                 <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="trending-up" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Prestasi OER</span>
@@ -192,7 +192,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="{{ route('buah.penyatadahulu')}}" class='sidebar-link'>
+                            <a href="{{ route('buah.penyatadahulu') }}" class='sidebar-link'>
                                 <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="trending-up" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Papar Penyata Bulanan Terdahulu</span>
@@ -378,6 +378,18 @@
 
 
     <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- this file was missing -->
+    <script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
+
+    <!-- this file was moved after the jQuery Datatables library was laoded -->
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
 
 </body>
 
