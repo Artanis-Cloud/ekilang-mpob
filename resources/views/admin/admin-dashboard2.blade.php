@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Menu Penyelenggaraan - Kilang Buah</title>
+    <title>Menu Penyelenggaraan</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -47,7 +47,7 @@
 
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}"" rel=" stylesheet">
     <!-- =======================================================
   * Template Name: OnePage - v4.7.0
   * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
@@ -324,8 +324,8 @@
                     <div class="row justify-content-center" style="margin-bottom: 10%">
                         <div class="col-xl-12 col-lg-9">
 
-                            <h1 style="font-size:40px;">KILANG BUAH</h1>
-                            <h2>Penyata Bulanan Kilang Buah</h2>
+                            <h1 style="font-size:40px;">MENU PENYELENGGARAAN</h1>
+                            <h2>Menu Penyelenggaraan Penyata Bulanan </h2>
                         </div>
                     </div>
                     {{-- <div class="text-center">
@@ -436,16 +436,16 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i class="fa fa-print fa-xs"></i>
                                 </div>
-                                <h4 class="title"><a href="">6. Cetakan Penyata Bulanan</a></h4>
+                                <h4 class="title"><a href="">6. Papar & Cetak Penyata Bulanan</a></h4>
                                 <p class="description">Papar penyata bulanan untuk cetakan</p>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%">
+                    {{-- <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%">
                         <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
-                            <div class="icon-box">
+                            <div class="icon-box"> --}}
                                 {{-- <div class="icon">
                                     <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
                                         <strong class="" style="font-size:20px;">
@@ -453,12 +453,12 @@
                                         </strong>
                                     </span>
                                     </div> --}}
-                                <div class="icon" style="text-align: center"><i class="	fa fa-calendar-o fa-xs"></i>
+                                {{-- <div class="icon" style="text-align: center"><i class="	fa fa-calendar-o fa-xs"></i>
                                 </div>
                                 <h4 class="title"><a href="">7. Penyata Bulan Terkini</a></h4>
                                 <p class="description">Senarai penyata bulanan terkini</p>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
@@ -840,7 +840,7 @@
 
                     </div>
 
-                    
+
                 </div>
 
         </div>
