@@ -256,7 +256,7 @@
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="d-lg-inline-block">
-                                    <i data-feather="bell"></i>
+                                    <i class="mt-3" data-feather="bell"></i>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
@@ -294,10 +294,10 @@
                         <li class="dropdown">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="avatar me-1">
+                                {{-- <div class="avatar me-1">
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
-                                </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Hai, Pelesen</div>
+                                </div> --}}
+                                <div class="d-none d-md-block d-lg-inline-block mt-3 " style="margin-right: 10%">Pelesen 0001</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Akaun Pengguna</a>
