@@ -253,21 +253,7 @@
     </div>
 
     </div>
-    <!-- ============================================================== -->
-    <!-- Login box.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <!-- ============================================================== -->
+
     </div>
     <!-- ============================================================== -->
     <!-- All Required js -->
@@ -331,12 +317,14 @@
     <title>Automatic Popup</title>
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
     <!--Stylesheets-->
     <link rel="stylesheet" href="{{ asset('theme/kilangstyles/css/popuploginstyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('theme/dist/css/style.css') }}">
 </head>
 <body>
-    <div class="popup" style="width:1000px"; >
-        <button id="close">&times;</button>
+    <div class="popup" style="width:1000px; align:center"; >
+
         <h3>Sebarang pertanyaan sila hubungi :</h3>
         <p>
             <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>  - Pn. Nor Syaida (Emel: nor.syaida@mpob.gov.my atau Tel : 03-7802 2917)<br>
@@ -348,7 +336,9 @@
             <b>No Faks bagi Penyata Bulanan</b>  : 03-7803 2323 / 03-7803 1399<br>
 	        <br><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA MINGGUAN) melalui sistem ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu (ISNIN).</b>
         </p>
-        <a href="#">Teruskan</a>
+        <div class="col-7" >
+      <button id="close" class="btn btn-primary" >TERUSKAN</button>
+      </div>
     </div>
     <!--Script-->
     <script src="{{ asset('theme/kilangstyles/js/popuplogin.js') }}"></script>

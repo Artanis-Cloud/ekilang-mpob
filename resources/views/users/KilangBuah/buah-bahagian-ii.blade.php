@@ -307,7 +307,7 @@
                                                                     for="lain-sebab">Lain-Lain Sebab OER, Sila Nyatakan
                                                                     <i>(Max.
                                                                         100 character)</i></label>
-                                                                <input type="text" id="lain-sebab" class="form-control"
+                                                                <input type="text" id="lain-sebab" class="form-control" maxlength="100"
                                                                     name="lain-sebab">
                                                             </div>
                                                         </div>
@@ -444,10 +444,12 @@
                                                                     <i>(Max.
                                                                         100 character)</i></label>
                                                                 <input type="text" id="lain-sebab" class="form-control"
-                                                                    name="lain-sebab">
+                                                                    name="lain-sebab" maxlength="100">
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <br>
+                                                    <br>
                                                     <div>
 
                                                     </div>
