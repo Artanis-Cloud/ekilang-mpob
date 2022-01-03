@@ -56,25 +56,25 @@ class KilangPenapisController extends Controller
         return view('users.KilangPenapis.penapis-tukar-password', compact('returnArr', 'layout'));
     }
 
-    public function buah_bahagiani()
+    public function penapis_bahagiani()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagiani'), 'name' => "Bahagian I"],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagiani'), 'name' => "Bahagian I"],
         ];
 
-        $kembali = route('buah.dashboard');
+        $kembali = route('penapis.dashboard');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout'));
     }
 
     public function buah_bahagianii()

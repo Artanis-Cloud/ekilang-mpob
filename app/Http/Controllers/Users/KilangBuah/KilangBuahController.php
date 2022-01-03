@@ -12,7 +12,7 @@ class KilangBuahController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-c
+
 
     public function buah_maklumatasaspelesen()
     {

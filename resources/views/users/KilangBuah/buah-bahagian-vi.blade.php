@@ -475,7 +475,43 @@
                                     <br>
 
 
+
                                     <section class="section">
+                                        <div class="card">
+                                            {{-- <div class="card-header">
+                                                Simple Datatable
+                                            </div> --}}
+                                            <div class="card-body" id="example">
+                                                <table class='table table-striped' id="table1">
+                                                    <thead>
+                                                        <tr style="text-align: center">
+                                                            <th>Nama Produk</th>
+                                                            <th>Nombor Borang Kastam 2</th>
+                                                            <th>Tarikh Eksport</th>
+                                                            <th>Kuantiti <br>(Tan Metrik)</th>
+                                                            <th>Nilai (RM)</th>
+                                                            <th>Destinasi Negara</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>BPL</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </section>
+
+
+
+
+                                    {{-- <section class="section">
                                         <div class="card">
 
                                             <div class="card-body">
@@ -503,13 +539,13 @@
 <br>
 
                                                     </tbody>
-                                                    
+
                                                 </table>
-                                                
+
                                             </div>
                                         </div>
 
-                                    </section>
+                                    </section> --}}
 
                                 </div>
 
@@ -647,9 +683,9 @@
     <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
     <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
 
-    <script>
+    {{-- <script>
         $(document).ready(function() {
-            var table = $('#example').DataTable({
+            var table = $('#table1').DataTable({
                 "language": {
                     "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
                     "zeroRecords": "Maaf, tiada rekod.",
@@ -682,7 +718,7 @@
         //     console.log('asasa');
         //     table.clear().draw();
         // }
-    </script>
+    </script> --}}
     <script>
         // Get the modal
         var modal = document.getElementById("myModal");
