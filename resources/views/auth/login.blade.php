@@ -29,7 +29,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
+    <---- Include the above in your HEAD tag ---------->
 
     <!--Bootsrap 4 CDN-->
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -80,26 +80,24 @@
                     <div id="auth">
 <br>
 <br>
-
+<br>
                         <div class="container">
 
                             {{-- <div class="border card-header"
                                 style="width:400px; background-color:rgba(89, 194, 154, 0.801);">
-                                <h3 class="text-white m-b-0" style="text-align: center"><b>LOG MASUK</b></h3>
+                                <h3 class="text-white m-b-0" style="text-align: center"><b>&nbsp;</b></h3>
                             </div> --}}
                             <div class="container"
                                 style="opacity: 0.8; background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); width:400px; height: 500px;">
                                 <div class="card-body">
                                     <div id="loginform">
                                         <div class="logo">
-
+<br>
                                             <span class="db"><img
                                                     src="{{ asset('theme/images/favicon2.png') }}"
-                                                    style="height:75px; width:95px; margin-left:25%"
+                                                    style="height:75px; width:95px; margin-left:35%"
                                                     alt="logo" /></span>
-                                            {{-- <span class="db"><img
-                                                    src="{{ asset('theme/images/background/mspo.png') }}"
-                                                    style="height:95px; margin-right:10%" alt="logo" /></span> --}}
+
                                             <br>
                                             <br>
                                             <h3 class="text-center"
@@ -112,7 +110,7 @@
                                                 Minyak Sawit Malaysia </h4>
                                             <br>
                                             <h4 class="text-center"
-                                                style="color: white; font-size:20px; font-family:verdana">Log
+                                                style="color: rgba(0, 0, 0, 0.801); font-size:20px; font-family:verdana">Log
                                                 Masuk
                                             </h4>
                                         </div>
@@ -136,12 +134,12 @@
                                                     <input type="password" class="form-control"
                                                         placeholder="Kata Laluan">
                                                 </div>
-                                                <div class="row align-items-center remember">
+                                                {{-- <div class="row align-items-center remember">
                                                     <input type="checkbox">&nbsp; Remember Me
-                                                </div>
+                                                </div> --}}
                                                 <div class="form-group">
                                                     <input type="submit" value="Log Masuk"
-                                                        class="float-right btn login_btn" style="color: black;
+                                                        class="float-right btn login_btn" style="color: rgb(94, 88, 88);
                             background-color: rgba(89, 194, 154, 0.801);
                             width: 100px;">
                                                 </div>
@@ -154,7 +152,7 @@
                         </div>
                     </div>
                     <br>
-                   
+
                 </div>
             </div>
 
@@ -199,10 +197,10 @@
             @endif
         </script>
 </body>
-{{-- 
-<footer>
 
-    <p style=" width:100%; text-align: center; background-color:rgba(35, 143, 101, 0.801);">
+<footer style="background-color:rgb(35, 143, 102); ">
+
+    <div style=" color:rgb(26, 24, 24); font-size:12px; width:100%; text-align:left; background-color:rgba(35, 143, 101, 0.801); margin-left:5%">
         <br>Sebarang pertanyaan sila hubungi :<br>
         <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b> - Pn. Nor Syaida (Emel: nor.syaida@mpob.gov.my atau Tel :
         03-7802 2917)<br>
@@ -218,11 +216,11 @@
         2865)<br>
         <b>No Faks bagi Penyata Bulanan</b> : 03-7803 2323 / 03-7803 1399<br>
         <br><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA MINGGUAN) melalui sistem
-            ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu (ISNIN).<br></b>
-            <br>
-    </p>
+            ekilang sebelum<br> pukul 12.00 malam pada hari pertama setiap minggu (ISNIN).</b><br><br>
+        </div>
 
-</footer> --}}
+
+</footer>
 
 </html>
 
@@ -238,7 +236,7 @@
 </head>
 
 <body>
-    <div class="popup" style="width:1000px; align:center" ;>
+    <div class="popup" style="width:1000px; align:center " ;>
 
         <h3>Sebarang pertanyaan sila hubungi :</h3>
         <p>
@@ -255,11 +253,11 @@
             <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b> - Pn. Nor Baayah (Emel abby@mpob.gov.my atau Tel :
             03-7802 2865)<br>
             <b>No Faks bagi Penyata Bulanan</b> : 03-7803 2323 / 03-7803 1399<br>
-            {{-- <br><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA MINGGUAN) melalui sistem
-                ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu (ISNIN).</b> --}}
+            <br><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA MINGGUAN) melalui sistem
+                ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu (ISNIN).</b>
         </p>
         <div class="col-7">
-            <button id="close" class="btn btn-primary">TERUSKAN</button>
+            <button id="close" class="btn btn-primary" style="font-size: 16px">Teruskan</button>
         </div>
     </div>
     <!--Script-->
