@@ -1,59 +1,59 @@
 <?php
 
-namespace App\Http\Controllers\Users\KilangBuah;
+namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class KilangBuahController extends Controller
+class KilangPenapisController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-c
 
-    public function buah_maklumatasaspelesen()
+
+    public function penapis_maklumatasaspelesen()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.maklumatasaspelesen'), 'name' => "Maklumat Asas Pelesen"],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.maklumatasaspelesen'), 'name' => "Maklumat Asas Pelesen"],
         ];
 
-        $kembali = route('buah.dashboard');
+        $kembali = route('penapis.dashboard');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout'));
     }
 
-    public function buah_tukarpassword()
+    public function penapis_tukarpassword()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.tukarpassword'), 'name' => "Tukar Kata Laluan"],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.tukarpassword'), 'name' => "Tukar Kata Laluan"],
         ];
 
-        $kembali = route('buah.dashboard');
+        $kembali = route('penapis.dashboard');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangBuah.buah-tukar-password', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-tukar-password', compact('returnArr', 'layout'));
     }
 
     public function buah_bahagiani()

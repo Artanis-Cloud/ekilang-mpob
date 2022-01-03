@@ -18,7 +18,12 @@ class DashboardUserController extends Controller
     {
         return view('users.KilangBuah.buah-dashboard');
     }
-  
+
+    public function penapis_dashboard()
+    {
+        return view('users.KilangPenapis.penapis-dashboard');
+    }
+
     public function index_form()
     {
         return view('users.form');
