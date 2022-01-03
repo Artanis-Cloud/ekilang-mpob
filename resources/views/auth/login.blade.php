@@ -40,9 +40,11 @@
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
     {{-- <--[endif]--> --}}
+
 </head>
 
 <body>
+<br>
     <div class="main-wrapper">
         <!-- ============================================================== -->
         <!-- Preloader - style you can find in spinners.css -->
@@ -64,86 +66,64 @@
             <div class="row" style="justify-content: left;">
                 {{-- <div class="col-md-1"></div> --}}
                 <div class="col-md-8">
-                    <div class="border card-header" style="background-color:rgba(89, 194, 154, 0.801)">
-                        <h3 class="text-white m-b-0" style="text-align: center"><b>Pengumuman</b></h3>
+                    <div class="border card-header" style="width:400px; background-color:rgba(89, 194, 154, 0.801);">
+                        <h3 class="text-white m-b-0" style="text-align: center"><b>LOG MASUK</b></h3>
                     </div>
                     <div class="container"
-                        style="opacity: 0.7;background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); height: 650px;">
+                        style="opacity: 0.7;background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); width:400px; height: 650px;">
                         <div class="card-body">
-                            {{-- <h3 class="card-title">LOREM IPSUM:</h3> --}}
-                            <p class="card-text" style="text-align: justify;"><br>
-                                Berkuatkuasa 1 Mac 2021, <b> ses minyak sawit mentah yang perlu dibayar di bawah
-                                    Perintah Lembaga Minyak Sawit Malaysia (Ses) pindaan 2021 adalah sebanyak <span
-                                        style="color:blue">RM16.00</span>
-                                    (Ringgit Malaysia : Enam Belas Sahaja) atas tiap-tiap tan metrik atau sebahagian
-                                    daripada suatu tan metrik minyak sawit mentah yang dikeluarkan.</b> Ses perlu
-                                dibayar kepada
-                                Lembaga tidak lewat dari hari terakhir setiap bulan dalam satu tahun kalendar atas
-                                minyak sawit mentah yang dikeluarkan olehnya dalam bulan yang sebelumnya. <span
-                                    style="color:blue"><b>Pembayaran ses
-                                        perlu melalui akaun bank CIMB Islamik Malaysia dengan nombor virtual akaun
-                                        seperti
-                                        berikut :</b></span><br>
+                            <div id="loginform">
+                                <div class="logo">
 
-                            <div class="container" style="width: 500px;
-                                height: 150px;
-                                border: 3px solid black;">
-
-                                <p class="card-text" style="text-align: justify;">
+                                    <span class="db"><img src="{{ asset('theme/images/favicon2.png') }}"
+                                            style="height:75px; width:95px; margin-left:25%" alt="logo" /></span>
+                                    <span class="db"><img src="{{ asset('theme/images/background/mspo.png') }}"
+                                            style="height:95px; margin-right:10%" alt="logo" /></span>
                                     <br>
-                                    <b> Nama akaun : Lembaga Minyak Sawit Malaysia
-                                        <br>
-                                        <br>
+                                    <br>
+                                    <h3 class="text-center"
+                                        style="color:rgba(89, 194, 154, 0.801); font-size:25px; font-family:verdana"><b> Sistem
+                                            E-Kilang </b></h3>
+                                    <h4 class="text-center"
+                                        style="color:rgba(89, 194, 154, 0.801); font-size:20px; font-family:verdana"> Lembaga
+                                        Minyak Sawit Malaysia </h4>
+                                    <br>
+                                    <h4 class="text-center" style="color: white; font-size:20px; font-family:verdana">Log
+                                        Masuk
+                                    </h4>
+                                </div>
 
-                                        Nombor Virtual Akaun : 98-997-333-000-XXX *
-                                        <br>(3 digit terakhir adalah sama seperti
-                                        nombor Virtual Akaun yang digunapakai bagi bayaran Ses sebelum ini)</b>
+                             <div class="card-body">
+                                    <form>
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                            </div>
+                                            <input type="text" class="form-control" placeholder="No Kad Pengenalan">
 
-                            </div>
-
-                            <br> Jika terdapat sebarang pertanyaan atau kemusykilan berkenaan bayaran ses, sila hubungi
-                            pegawai MPOB iaitu <b>Puan Nurul Asyikin (03-87694811) (nurul.asyikin@mpob.gov.my) atau Puan
-                            Nurul Fara Ain (03-87694697) (nurulfarain.rusdi@mpob.gov.my).</b>
-                            <br>
-                            <br>
-                            Untuk muat turun borang pembayaran ses <a href="#"><b>Klik sini</b></a> dan Surat Makluman Cara Pembayaran Ses <a href="#"><b>Klik
-                            sini</b></a><br>
-
-
-
-
-
-                            <br> Terima Kasih<br>
-                            {{-- <b>lorem ipsum</b> --}}
-                            </p>
-                            <span> <b>Lembaga Minyak Sawit Malaysia</b></span>
+                                        </div>
+                                        <div class="input-group form-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                                            </div>
+                                            <input type="password" class="form-control" placeholder="Kata Laluan">
+                                        </div>
+                                        <div class="row align-items-center remember">
+                                        <input type="checkbox">&nbsp; Remember Me
+                                    </div>
+                                <div class="form-group">
+                                            <input type="submit" value="Log Masuk" class="float-right btn login_btn" style="color: black;
+                            background-color: rgba(89, 194, 154, 0.801);
+                            width: 100px;">
+                                        </div>
+                                    </form>
+                                </div>
                         </div>
                     </div>
+
                 </div>
                 {{-- <div class="col-md-2"> --}}
-                <div class="auth-box on-sidebar"
-                    style="padding-top:8.5%; background-color: rgba(0, 0, 0, 0.650) !important;">
-                    <div id="loginform">
-                        <div class="logo">
 
-                            <span class="db"><img src="{{ asset('theme/images/favicon2.png') }}"
-                                    style="height:75px; width:95px; margin-right:2%" alt="logo" /></span>
-                            <span class="db"><img src="{{ asset('theme/images/background/mspo.png') }}"
-                                    style="height:95px" alt="logo" /></span>
-                            <br>
-                            <br>
-                            <h3 class="text-center"
-                                style="color:rgba(89, 194, 154, 0.801); font-size:25px; font-family:verdana"><b> Sistem
-                                    E-Kilang </b></h3>
-                            <h4 class="text-center"
-                                style="color:rgba(89, 194, 154, 0.801); font-size:20px; font-family:verdana"> Lembaga
-                                Minyak Sawit Malaysia </h4>
-                            <br>
-                            <h4 class="text-center" style="color: white; font-size:20px; font-family:verdana">Log
-                                Masuk
-                            </h4>
-                        </div>
-                        <br>
 
                         {{-- <div class="card-body">
                             <form>
@@ -180,7 +160,7 @@
                                 <form method="POST" action="{{ route('login') }}" class="form-horizontal m-t-20">
                                     {{-- <form method="POST" action="{{ route('login') }}"> --}}
 
-                        @csrf
+                        {{-- @csrf
                         <div class="mb-3 input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i
@@ -196,17 +176,17 @@
                                 </div>
                             @enderror
                             {{-- <input type="text" class="form-control form-control-lg" placeholder="ID KILANG (No.SSM)" name="email" aria-label="Username" aria-describedby="basic-addon1"> --}}
-                        </div>
+                        {{-- </div>
                         <div class="mb-3 input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2"><i class="fas fa-key"></i></span>
                             </div>
                             {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
-                            <input id="password" type="password"
+                            {{-- <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror" name="password" required
-                                autocomplete="current-password" placeholder="Kata Laluan">
+                                autocomplete="current-password" placeholder="Kata Laluan"> --}}
 
-                            @error('password')
+                            {{-- @error('password')
                                 <div class="alert alert-danger">
                                     <strong>{{ $message }}</strong>
                                 </div>
@@ -215,22 +195,22 @@
                         <div class="form-group row">
                             <div class="col-md-12">
                                 <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1"> --}}
                                     {{-- <label class="custom-control-label" for="customCheck1">Remember me</label> --}}
                                     {{-- <a href="javascript:void(0)" id="to-recover" class="float-right text-dark"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> --}}
-                                </div>
+                                {{-- </div>
                             </div>
                         </div>
                         <div class="text-center form-group">
-                            <div class="col-xs-12 p-b-20">
+                            <div class="col-xs-12 p-b-20"> --}}
                                 {{-- <input type="submit" value="Log Masuk" class="float-right btn login_btn" style="color: black;
                     background-color: rgba(89, 194, 154, 0.801);
                     width: 100px;"> --}}
-                                <button class="btn btn-block btn-lg " style="color: black;
+                                {{-- <button class="btn btn-block btn-lg " style="color: black;
                                             background-color: rgba(89, 194, 154, 0.801) type=" submit">Log
                                     Masuk</button>
                             </div>
-                        </div>
+                        </div> --}}
                         {{-- <div class="row">
                                         <div class="text-center col-xs-12 col-sm-12 col-md-12 m-t-10">
                                             <div class="social">
@@ -251,7 +231,7 @@
 
                             </div>
                         </div> --}}
-                        <br>
+                        {{-- <br>
                         <div class="row">
                             <div class="col-md">
                                 <div class="text-center ">
@@ -260,17 +240,18 @@
                                             Laluan</b></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         {{-- </div> --}}
-                        </form>
+                        {{-- </form>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
 
 
         {{-- </div> --}}
     </div>
+
     </div>
     <!-- ============================================================== -->
     <!-- Login box.scss -->
@@ -327,4 +308,48 @@
     </script>
 </body>
 
+<footer>
+
+    <p style=" width:100%; text-align: center; background-color:rgba(35, 143, 101, 0.801);" >
+        <br>Sebarang pertanyaan sila hubungi :<br>
+        <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>  - Pn. Nor Syaida (Emel: nor.syaida@mpob.gov.my atau Tel : 03-7802 2917)<br>
+        <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b> - En. Rominizam (Emel: rominizam@mpob.gov.my atau Tel : 03-7802 2918)<br>
+        <b>Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b> - Pn. Aziana (Emel: aziana.misnan@mpob.gov.my atau Tel : 03-7802 2955)<br>
+        <b>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b> - Pn. Aziana (Emel: aziana.misnan@mpob.gov.my atau Tel : 03-7802 2955)<br>
+        <b>Penyata Bulanan Kilang Isirong - MPOB (EL) CF4</b> - Pn. Nor Baayah (Emel abby@mpob.gov.my atau Tel : 03-7802 2865)<br>
+        <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b> - Pn. Nor Baayah (Emel abby@mpob.gov.my atau Tel : 03-7802 2865)<br>
+        <b>No Faks bagi Penyata Bulanan</b>  : 03-7803 2323 / 03-7803 1399<br>
+        <br><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA MINGGUAN) melalui sistem ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu (ISNIN).</b>
+    </p>
+
+</footer>
+
 </html>
+
+
+<head>
+    <title>Automatic Popup</title>
+    <!--Google Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!--Stylesheets-->
+    <link rel="stylesheet" href="{{ asset('theme/kilangstyles/css/popuploginstyle.css') }}">
+</head>
+<body>
+    <div class="popup" style="width:1000px"; >
+        <button id="close">&times;</button>
+        <h3>Sebarang pertanyaan sila hubungi :</h3>
+        <p>
+            <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b>  - Pn. Nor Syaida (Emel: nor.syaida@mpob.gov.my atau Tel : 03-7802 2917)<br>
+            <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b> - En. Rominizam (Emel: rominizam@mpob.gov.my atau Tel : 03-7802 2918)<br>
+            <b>Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b> - Pn. Aziana (Emel: aziana.misnan@mpob.gov.my atau Tel : 03-7802 2955)<br>
+            <b>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b> - Pn. Aziana (Emel: aziana.misnan@mpob.gov.my atau Tel : 03-7802 2955)<br>
+            <b>Penyata Bulanan Kilang Isirong - MPOB (EL) CF4</b> - Pn. Nor Baayah (Emel abby@mpob.gov.my atau Tel : 03-7802 2865)<br>
+            <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b> - Pn. Nor Baayah (Emel abby@mpob.gov.my atau Tel : 03-7802 2865)<br>
+            <b>No Faks bagi Penyata Bulanan</b>  : 03-7803 2323 / 03-7803 1399<br>
+	        <br><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA MINGGUAN) melalui sistem ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu (ISNIN).</b>
+        </p>
+        <a href="#">Teruskan</a>
+    </div>
+    <!--Script-->
+    <script src="{{ asset('theme/kilangstyles/js/popuplogin.js') }}"></script>
+</body>
