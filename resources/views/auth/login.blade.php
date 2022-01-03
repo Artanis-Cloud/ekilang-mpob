@@ -83,10 +83,10 @@
 <br>
                         <div class="container">
 
-                            <div class="border card-header"
+                            {{-- <div class="border card-header"
                                 style="width:400px; background-color:rgba(89, 194, 154, 0.801);">
-                                <h3 class="text-white m-b-0" style="text-align: center"><b>LOG MASUK</b></h3>
-                            </div>
+                                <h3 class="text-white m-b-0" style="text-align: center"><b>&nbsp;</b></h3>
+                            </div> --}}
                             <div class="container"
                                 style="opacity: 0.8; background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); width:400px; height: 500px;">
                                 <div class="card-body">
@@ -95,11 +95,9 @@
 
                                             <span class="db"><img
                                                     src="{{ asset('theme/images/favicon2.png') }}"
-                                                    style="height:75px; width:95px; margin-left:25%"
+                                                    style="height:75px; width:95px; margin-left:35%"
                                                     alt="logo" /></span>
-                                            <span class="db"><img
-                                                    src="{{ asset('theme/images/background/mspo.png') }}"
-                                                    style="height:95px; margin-right:10%" alt="logo" /></span>
+
                                             <br>
                                             <br>
                                             <h3 class="text-center"
@@ -154,7 +152,7 @@
                         </div>
                     </div>
                     <br>
-                   
+
                 </div>
             </div>
 
@@ -202,7 +200,7 @@
 
 <footer>
 
-    <p style=" width:100%; text-align: center; background-color:rgba(35, 143, 101, 0.801);">
+    <p style=" color:rgb(26, 24, 24); width:100%; text-align: center; background-color:rgba(35, 143, 101, 0.801);">
         <br>Sebarang pertanyaan sila hubungi :<br>
         <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b> - Pn. Nor Syaida (Emel: nor.syaida@mpob.gov.my atau Tel :
         03-7802 2917)<br>
@@ -237,7 +235,7 @@
 </head>
 
 <body>
-    <div class="popup" style="width:1000px; align:center" ;>
+    <div class="popup" style="width:1000px; align:center " ;>
 
         <h3>Sebarang pertanyaan sila hubungi :</h3>
         <p>
@@ -258,7 +256,7 @@
                 ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu (ISNIN).</b>
         </p>
         <div class="col-7">
-            <button id="close" class="btn btn-primary">TERUSKAN</button>
+            <button id="close" class="btn btn-primary" style="font-size: 18px">TERUSKAN</button>
         </div>
     </div>
     <!--Script-->
