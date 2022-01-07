@@ -81,7 +81,7 @@
 
                 </div>
                 <br>
-                
+
 
 
 
@@ -96,7 +96,7 @@
                             {{-- <a href="index.html" class='sidebar-link'> --}}
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">1. Daftar Pelesen</span>
+                                <span style="color: rgb(0, 0, 0)">1. Daftar Pelesen</span>
                             </a>
 
                         </li>
@@ -107,7 +107,7 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">2. Tukar Kata Laluan</span>
+                                <span style="color: rgb(0, 0, 0); ">2. Tukar Kata Laluan</span>
                             </a>
 
 
@@ -118,7 +118,7 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); margin-left:21px ">3. Daftar Penyata Bulanan Baru</span>
+                                <span style="color: rgb(0, 0, 0); margin-left:21px ">3. Daftar Penyata Bulanan Baru</span>
                             </a>
 
 
@@ -130,7 +130,7 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57);">4. E-Kilang ke PLEID</span>
+                                <span style="color: rgb(0, 0, 0);">4. E-Kilang ke PLEID</span>
                             </a>
 
 
@@ -140,7 +140,7 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57);">5. Penyata Bulanan Belum Dihantar</span>
+                                <span style="color: rgb(0, 0, 0);">5. Penyata Bulanan Belum Dihantar</span>
                             </a>
 
                         </li>
@@ -149,17 +149,7 @@
                              <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">6. Papar & Cetak Penyata Bulanan</span>
-                            </a>
-
-
-                        </li>
-                        <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                             <a href="#" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">7. Porting Maklumat</span>
+                                <span style="color: rgb(0, 0, 0)">6. Papar & Cetak Penyata Bulanan</span>
                             </a>
 
 
@@ -169,7 +159,7 @@
                              <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">8. Port Data</span>
+                                <span style="color: rgb(0, 0, 0)">7. Porting Maklumat</span>
                             </a>
 
 
@@ -179,7 +169,7 @@
                              <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">9. Penyata Bulan Terdahulu</span>
+                                <span style="color: rgb(0, 0, 0)">8. Port Data</span>
                             </a>
 
 
@@ -189,7 +179,7 @@
                              <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">10. Port Data Ke Dynamic Query</span>
+                                <span style="color: rgb(0, 0, 0)">9. Penyata Bulan Terdahulu</span>
                             </a>
 
 
@@ -199,7 +189,7 @@
                              <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">11. Emel Pertanyaan / Pindaan / Cadangan</span>
+                                <span style="color: rgb(0, 0, 0)">10. Port Data Ke Dynamic Query</span>
                             </a>
 
 
@@ -209,15 +199,25 @@
                              <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">12. Validasi</span>
+                                <span style="color: rgb(0, 0, 0)">11. Emel Pertanyaan / Pindaan / Cadangan</span>
                             </a>
 
 
                         </li>
-                   
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(0, 0, 0)">12. Validasi</span>
+                            </a>
+
+
+                        </li>
+
 
                         {{-- </li> --}}
-                        
+
                         <br>
 
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Tetapan Akaun</li>
@@ -226,7 +226,7 @@
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-user" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-text" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Akaun Pentadbir</span>
+                                <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
                             </a>
 
 
@@ -237,7 +237,7 @@
                             <a href="form-layout.html" class='sidebar-link'>
                                 <i class="fa fa-gear" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layout" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Tetapan</span>
+                                <span style="color: rgb(0, 0, 0); ">Tetapan</span>
                             </a>
 
                         </li>
@@ -246,7 +246,7 @@
                             <a href="form-editor.html" class='sidebar-link'>
                                 <i class="fa fa-sign-out" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layers" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Log Keluar</span>
+                                <span style="color: rgb(0, 0, 0); ">Log Keluar</span>
                             </a>
 
                         </li>
@@ -262,7 +262,8 @@
         <div id="main">
 
 
-            <nav class="navbar navbar-header navbar-expand navbar-light" style=" background:transparent">
+            <nav class="navbar navbar-header navbar-expand navbar-light"
+             style=" background:transparent; border-bottom: 2px solid rgba(0, 0, 0, 0.131); border-height:10px; height: 110px">
 
                 <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
                 <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -730,10 +731,12 @@
 
 
             <!-- ======= Testimonials Section ======= -->
-            <section id="testimonials" class="testimonials">
-                <div class="container" data-aos="fade-up">
+            <section id="testimonials" class="testimonials"
+                style= "background-color:rgb(255, 255, 255);">
+                {{-- style= "background-image: url('/theme/images/background/palm-oil4.jpg');"> --}}
+                <div class="container"  data-aos="fade-up">
 
-                    <div class="section-title">
+                    <div class="section-title" >
                         <h2>Menu Lain-Lain</h2>
                         {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
                             Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit

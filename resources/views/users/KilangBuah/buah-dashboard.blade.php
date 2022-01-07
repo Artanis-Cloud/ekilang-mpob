@@ -90,7 +90,7 @@
                             <a href="{{ route ('buah.maklumatasaspelesen') }}" class='sidebar-link'>
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">Maklumat Asas Pelesen</span>
+                                <span style="color: rgb(0, 0, 0)">Maklumat Asas Pelesen</span>
                             </a>
 
                         </li>
@@ -100,14 +100,14 @@
                             <a href="{{ route('buah.tukarpassword') }}" class='sidebar-link'>
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Tukar Kata Laluan</span>
+                                <span style="color: rgb(0, 0, 0); ">Tukar Kata Laluan</span>
                             </a>
 
-                            
+
 
                         </li>
                         <br>
-                        
+
 
                         </li>
 
@@ -117,10 +117,10 @@
                             <a href="{{ route('buah.bahagiani') }}" class='sidebar-link'>
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-text" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Bahagian I</span>
+                                <span style="color: rgb(0, 0, 0); ">Bahagian I</span>
                             </a>
 
-                         
+
 
                         </li>
 
@@ -128,7 +128,7 @@
                             <a href="{{ route ('buah.bahagianii') }}" class='sidebar-link'>
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layout" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Bahagian II</span>
+                                <span style="color: rgb(0, 0, 0); ">Bahagian II</span>
                             </a>
 
                         </li>
@@ -137,7 +137,7 @@
                             <a href="{{ route ('buah.bahagianiii') }}" class='sidebar-link'>
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layers" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Bahagian III</span>
+                                <span style="color: rgb(0, 0, 0); ">Bahagian III</span>
                             </a>
 
                         </li>
@@ -146,7 +146,7 @@
                             <a href="{{ route ('buah.bahagianiv') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="grid" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Bahagian IV</span>
+                                <span style="color: rgb(0, 0, 0); ">Bahagian IV</span>
                             </a>
 
                         </li>
@@ -155,7 +155,7 @@
                             <a href="{{ route ('buah.bahagianv') }}" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Bahagian V</span>
+                                <span style="color: rgb(0, 0, 0); ">Bahagian V</span>
                             </a>
 
                         </li>
@@ -171,7 +171,7 @@
                             <a href="table-datatable.html" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Papar & Hantar Penyata Bulanan</span>
+                                <span style="color: rgb(0, 0, 0); ">Papar & Hantar Penyata Bulanan</span>
                             </a>
 
                         </li>
@@ -183,35 +183,35 @@
                             <a href="{{ route ('buah.email') }}" class='sidebar-link'>
                                 <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="user" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
+                                <span style="color: rgb(0, 0, 0); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
                             </a>
 
-                        
+
                         </li>
 
                         <li class="sidebar-item">
                             <a href="{{ route ('buah.prestasioer')}}" class='sidebar-link'>
                                 <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Prestasi OER</span>
+                                <span style="color: rgb(0, 0, 0); ">Prestasi OER</span>
                             </a>
 
-                            
+
                         </li>
 
                         <li class="sidebar-item">
                             <a href="{{ route('buah.penyatadahulu')}}" class='sidebar-link'>
                                 <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Papar Penyata Bulanan Terdahulu</span>
+                                <span style="color: rgb(0, 0, 0); ">Papar Penyata Bulanan Terdahulu</span>
                             </a>
 
-                          
+
 
                         </li>
                         <br>
 
-                        
+
 
                     </ul>
                 </div>
@@ -351,9 +351,8 @@
                         <div class="col-md-12">
                             <div class="card" style="margin-right:10%; margin-left:10%">
                                 <div class="card-header border-bottom">
-                                    <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
+                                    <h2 class='p-1 pl-3 card-heading'>Pengumuman</h2>
                                 </div>
-                                <br>
                                 <br>
                                 <div class="card-body">
                                     <div class="row">
@@ -380,9 +379,8 @@
                                                             virtual akaun
                                                             seperti
                                                             berikut :</b></span><br>
+                                                    <br>
 
-                                                    <br>
-                                                    <br>
                                                     <div class="container" style="
                                                             border: 1px solid black;">
 
@@ -400,7 +398,7 @@
                                                             <br>
 
                                                     </div>
-                                                    <br>
+
                                                     <br> Jika terdapat sebarang pertanyaan atau kemusykilan berkenaan
                                                     bayaran ses, sila
                                                     hubungi
