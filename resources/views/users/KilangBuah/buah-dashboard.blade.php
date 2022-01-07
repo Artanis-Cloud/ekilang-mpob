@@ -168,7 +168,7 @@
 
                         </li> --}}
                         <li class="sidebar-item ">
-                            <a href="table-datatable.html" class='sidebar-link'>
+                            <a href="{{ route('buah.paparpenyata') }}" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0); ">Papar & Hantar Penyata Bulanan</span>

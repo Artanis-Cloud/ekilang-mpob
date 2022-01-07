@@ -43,7 +43,7 @@
 
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
 
 </head>
 
@@ -159,7 +159,7 @@
 
                         </li> --}}
                         <li class="sidebar-item ">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('buah.paparpenyata') }}" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Papar & Hantar Penyata Bulanan</span>
