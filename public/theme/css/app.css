@@ -37,7 +37,7 @@
 }
 
 * {
-    font-family: Verdana
+    font-family: Arial
 }
 
 #app {
@@ -46,7 +46,7 @@
 
 #main {
     margin-left: 260px;
-    background-color: #f7faff;
+    background-color: #cfdcf338;
     min-height: 100vh;
     transition: margin-left .6s ease-out
 }
@@ -899,7 +899,7 @@ footer {
 .sidebar-wrapper .menu .sidebar-link {
     display: block;
     padding: .7rem 1.5rem;
-    font-size: .85rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     transition: all .5s
