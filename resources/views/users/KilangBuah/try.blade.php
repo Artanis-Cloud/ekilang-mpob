@@ -1,437 +1,1166 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends($layout)
 
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>Menu Penyelenggaraan</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-    <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
-
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
-    <!-- Vendor CSS Files -->
-    <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
-    <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
-    <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
-    <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
-    <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
-    <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
-    <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
+@section('content')
 
 
 
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center ">
+        <div class="container position-relative" data-aos-delay="100">
 
-    <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
+            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
+                <div class="col-xl-12 col-lg-9">
 
-    <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
+                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
+            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
+                </div>
+            </div> --}}
 
-    <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
-    <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
-    <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
+            <div class="mt-5 mb-4 row">
+                <div class="col-md-12">
 
-
-
-    <!-- Template Main CSS File -->
-    <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}"" rel=" stylesheet">
-    <!-- =======================================================
-  * Template Name: OnePage - v4.7.0
-  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-
-
-
-
-
-
-
-            <!-- ======= Hero Section ======= -->
-            <section id="hero" class="d-flex align-items-center ">
-                <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-                    {{-- <div class="row justify-content-center" style="margin-bottom: 10%">
-                        <div class="col-xl-12 col-lg-9">
-
-                            <h1 style="font-size:40px;">MENU PENYELENGGARAAN</h1>
-                            <h2>Menu Penyelenggaraan Penyata Bulanan </h2>
-                        </div>
-                    </div> --}}
-                    {{-- <div class="text-center">
-                        <a href="#about" class="btn-get-started scrollto">Get Started</a>
-                    </div> --}}
-
-
-
-
-
-
-
-
-                    <div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
-                   >
-                    <div class="row" style="justify-content: left;">
-                        {{-- <div class="col-md-1"></div> --}}
-                        <div class="col-md-8">
-                            <div class="border card-header" style="width:400px; background-color:rgba(89, 194, 154, 0.801);">
-                                <h3 class="text-white m-b-0" style="text-align: center"><b>LOG MASUK</b></h3>
+                    <div class="page-breadcrumb" style="padding: 0px">
+                        <div class="pb-2 row">
+                            <div class="col-5 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn"
+                                    style="color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="container"
-                                style="opacity: 0.7;background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); width:400px; height: 650px;">
-                                <div class="card-body">
-                                    <div id="loginform">
-                                        <div class="logo">
+                            <div class="col-7 align-self-center">
+                                <div class="d-flex align-items-center justify-content-end">
+                                    <nav aria-label="breadcrumb">
+                                        <ol class="breadcrumb">
+                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                                @if (!$loop->last)
+                                                    <li class="breadcrumb-item">
+                                                        <a href="{{ $breadcrumb['link'] }}"
+                                                            style="color: white !important;"
+                                                            onMouseOver="this.style.color='lightblue'"
+                                                            onMouseOut="this.style.color='white'">
+                                                            {{ $breadcrumb['name'] }}
+                                                        </a>
+                                                    </li>
+                                                @else
+                                                    <li class="breadcrumb-item active" aria-current="page"
+                                                        style="color: #fff03e  !important;">
+                                                        {{ $breadcrumb['name'] }}
+                                                    </li>
+                                                @endif
+                                            @endforeach
 
-                                            <span class="db"><img src="{{ asset('theme/images/favicon2.png') }}"
-                                                    style="height:75px; width:95px; margin-left:25%" alt="logo" /></span>
-                                            <span class="db"><img src="{{ asset('theme/images/background/mspo.png') }}"
-                                                    style="height:95px; margin-right:10%" alt="logo" /></span>
-                                            <br>
-                                            <br>
-                                            <h3 class="text-center"
-                                                style="color:rgba(89, 194, 154, 0.801); font-size:25px; font-family:verdana"><b> Sistem
-                                                    E-Kilang </b></h3>
-                                            <h4 class="text-center"
-                                                style="color:rgba(89, 194, 154, 0.801); font-size:20px; font-family:verdana"> Lembaga
-                                                Minyak Sawit Malaysia </h4>
-                                            <br>
-                                            <h4 class="text-center" style="color: white; font-size:20px; font-family:verdana">Log
-                                                Masuk
-                                            </h4>
-                                        </div>
+                                        </ol>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card" style="margin-right:2%; margin-left:2%">
+                        {{-- <div class="card-header border-bottom">
+                            <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
+                        </div> --}}
+                        <br>
+                        <br>
+                        <div class="card-body">
+                            <div class="row">
+                                {{-- <div class="col-md-4 col-12"> --}}
+                                <div class="pl-3">
 
-                                     <div class="card-body">
-                                            <form>
-                                                <div class="input-group form-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                                    </div>
-                                                    <input type="text" class="form-control" placeholder="No Kad Pengenalan">
 
-                                                </div>
-                                                <div class="input-group form-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                                    </div>
-                                                    <input type="password" class="form-control" placeholder="Kata Laluan">
-                                                </div>
-                                                <div class="row align-items-center remember">
-                                                <input type="checkbox">&nbsp; Remember Me
+
+
+
+                                    <body>
+                                        {{-- <p align="left">
+                                                PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
+                                        {{-- <div align="right">
+                                                <table border="0" width="25%" id="table1">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>MPOB(EL) PX 4-MF </b></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div> --}}
+                                        <br>
+                                        <br>
+                                        <p align="center">
+                                            <img border="0" src="{{ asset('/papar_mpob.png') }}" width="200" height="140">
+                                        </p>
+
+
+
+
+
+
+
+                                        <title>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</title>
+
+
+
+
+
+
+
+                                        <p align="center"><b>
+                                                <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
+
+                                                </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
+
+                                                BULAN :&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
+                                            </b><br>
+
+                                        </p>
+                                        <hr>
+
+                                        <table border="0" width="100%" cellspacing="0">
+
+                                            <tbody>
+                                                <tr>
+
+                                                    <td width="25%" height="19">
+                                                        <font face="Times New Roman">Nombor Lesen</font>
+                                                    </td>
+
+                                                    <td width="88%" height="19"><b>
+                                                            <font face="Times New Roman"></font>
+                                                        </b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="25%" height="19">
+                                                        <font face="Times New Roman">Nama Premis </font>
+                                                    </td>
+
+                                                    <td width="88%" height="19"><b>
+                                                            <font face="Times New Roman"></font>
+                                                        </b></td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+
+                                        <hr>
+
+                                        <p></p>
+
+
+                                        <p align="left"><b>
+                                                <font color="#0000FF">MAKLUMAT PELESEN </font>
+                                            </b></p>
+
+                                        <table border="0" width="100%" cellpadding="0" cellspacing="0">
+
+                                            <tbody>
+                                                <tr>
+
+                                                    <td width="35%">Nombor Lesen</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Nama Premis</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Alamat Premis Berlesen</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">&nbsp;</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">&nbsp;</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Alamat Surat Menyurat</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">&nbsp;</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">&nbsp;</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">No Telefon</td>
+
+                                                    <td width="65%"><b></b>
+
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                        <b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Alamat e-mail </td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Nama Pegawai Melapor</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Jawatan Pegawai Melapor</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Nama Pegawai Bertanggungjawab</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
+
+                                                    <td width="65%"><b></b></td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <br>
+
+
+                                        <p><b>
+                                                <font size="3" color="#0000FF">BAHAGIAN I : MAKLUMAT BELIAN, PROSES,
+                                                    PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
+                                                    (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
+                                            </b> </p>
+
+                                        <table border="1" width="650" bordercolor="#000000" cellspacing="0" cellpadding="0"
+                                            bordercolorlight="#FFFFFF" bordercolordark="#000000" class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="220">
+                                                        <p align="center"><b>
+                                                                <font size="3">Butiran</font>
+                                                            </b></p>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="center"><b>
+                                                                <font size="3">Buah Kelapa Sawit (FFB) Kod 52</font>
+                                                            </b></p>
+                                                    </td>
+                                                    <td width="135">
+                                                        <p align="center"><b>
+                                                                <font size="3">Minyak Sawit Mentah(CPO) Kod 01</font>
+                                                            </b></p>
+                                                    </td>
+                                                    <td width="110">
+                                                        <p align="center"><b>
+                                                                <font size="3">Isirong (PK) Kod 51</font>
+                                                            </b></p>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="center"><b>
+                                                                <font size="3">Minyak Keladak (Sludge Oil) Kod 49</font>
+                                                            </b></p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="220">
+                                                        <font size="3">A. Stok Awal Di Premis</font>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="135">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="110">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="220">
+                                                        <font size="3">B. Pembelian/Penerimaan</font>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="135">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="110">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="220">
+                                                        <font size="3">C. Diproses</font>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="135" bgcolor="#C0C0C0" align="center">&nbsp;</td>
+                                                    <td width="110" bgcolor="#C0C0C0" align="center">&nbsp;</td>
+                                                    <td width="120" bgcolor="#C0C0C0" align="center">&nbsp;</td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="220">
+                                                        <font size="3">D. Pengeluaran</font>
+                                                    </td>
+                                                    <td width="120" bgcolor="#C0C0C0" align="center">
+                                                        <p align="left">&nbsp;</p>
+                                                    </td>
+                                                    <td width="135">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="110">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="220">
+                                                        <font size="3">E. Penjualan/Pengedaran Tempatan</font>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="135">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="110">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="220">
+                                                        <font size="3">F. Eksport&nbsp;Terus Dari Premis</font>
+                                                    </td>
+                                                    <td width="120" bgcolor="#C0C0C0" align="center">
+                                                        <p align="left">&nbsp;</p>
+                                                    </td>
+                                                    <td width="135">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="110">
+                                                        <p align="right">
+                                                            <font size="3" </font>
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="220">
+                                                        <font size="3">G. Stok Akhir Di Premis</font>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="135">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="110">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                    <td width="120">
+                                                        <p align="right">
+                                                            <font size="3"></font>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <br>
+
+                                        <p><b>
+                                                <font size="3" color="0000FF">BAHAGIAN II : MAKLUMAT JAM PENGILANGAN, KADAR
+                                                    PERAHAN DAN HARGA </font>
+                                            </b> </p>
+
+                                        <table border="0" width="460" cellspacing="0" cellpadding="0" >
+                                            <tbody>
+                                                <tr>
+                                                    <td width="380">
+                                                        <font size="3">i.&nbsp;&nbsp; Jumlah Jam Pengilangan&nbsp;</font>
+                                                    </td>
+                                                    <td width="70">
+                                                        <font size="3">: </font>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td width="380">
+                                                        <font size="3">ii.&nbsp; Kadar Perahan MKSM (OER) yang
+                                                            diperolehi&nbsp;</font>
+                                                    </td>
+                                                    <td width="70">
+                                                        <font size="3">: </font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="380">
+                                                        <font size="3">iii. Kadar Perolehan Isirong (KER)</font>
+                                                    </td>
+                                                    <td width="70">
+                                                        <font size="3">: </font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="380">
+                                                        <font size="3">iv. Harga Purata Belian Buah Kelapa Sawit
+                                                            (FFB)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RM </font>
+                                                    </td>
+                                                    <td width="70">
+                                                        <font size="3">: </font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="380">
+                                                        <font size="3">&nbsp;&nbsp;&nbsp;&nbsp; (1% Kadar Perahan)</font>
+                                                    </td>
+                                                    <td width="70">
+                                                        <font size="3"></font>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <br>
+
+
+
+                                        <table border="1" width="604" cellspacing="0" cellpadding="0" class="table table-bordered " >
+
+                                            <tbody  style="border: 1px solid black;">
+                                                <tr  style="border: 1px solid black;">
+                                                    <td align="center" width="209"  style="border: 1px solid black;"><b>
+                                                            <font size="3">Sebab-Sebab OER Meningkat</font>
+                                                        </b></td>
+                                                    <td align="center" width="92">
+                                                        <font size="3"><b>Tanda (<font face="Times New Roman">√)</font></b>
+                                                        </font>
+                                                    </td>
+                                                    <td align="center" width="201"><b>
+                                                            <font size="3">Sebab-Sebab OER Menurun</font>
+                                                        </b></td>
+                                                    <td align="center" width="93">
+                                                        <font size="3"><b>Tanda (<font face="Times New Roman">√)</font></b>
+                                                        </font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="209">
+                                                        <font size="3">a. Buah berkualiti</font>
+                                                    </td>
+                                                    <td width="92" align="center">
+                                                        <font size="3">
+
+                                                            &nbsp;</font>
+                                                    </td>
+                                                    <td width="201" align="left">
+                                                        <font size="3">
+                                                            a. Tiada/ kurang buah berkualiti</font>
+                                                    </td>
+                                                    <td width="93" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="209">
+                                                        <font size="3">b. Kesan dari cuaca yang baik</font>
+                                                    </td>
+                                                    <td width="92" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                    <td width="201" align="left">
+                                                        <font size="3">
+                                                            b. Kesan cuaca kering</font>
+                                                    </td>
+                                                    <td width="93" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="209">
+                                                        <font size="3">c. Proses kitar semula minyak</font>
+                                                    </td>
+                                                    <td width="92" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                    <td width="201" align="left">
+                                                        <font size="3">
+                                                            c. Jerebu</font>
+                                                    </td>
+                                                    <td width="93" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="209">
+                                                        <font size="3">d. Kecekapan kilang/mesin</font>
+                                                    </td>
+                                                    <td width="92" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                    <td width="201" align="left">
+                                                        <font size="3">
+                                                            d. Kesan Penerimaan hujan yang berlebihan</font>
+                                                    </td>
+                                                    <td width="93" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="209">
+                                                        <font size="3">e. Proses pengendalian bks yang minima (less ffb
+                                                            handling)</font>
+                                                    </td>
+                                                    <td width="92" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                    <td width="201" align="left">
+                                                        <font size="3">
+                                                            e. Banjir</font>
+                                                    </td>
+                                                    <td width="93" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="209" rowspan="2">
+                                                        <font size="3">f. Proses lebih buah lerai</font>
+                                                    </td>
+                                                    <td width="92" align="center" rowspan="2">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                    <td width="201" align="left">
+                                                        <font size="3">
+                                                            f. Buah Dari Ladang Baru Berhasil</font>
+                                                    </td>
+                                                    <td width="93" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="201" align="left">
+                                                        <font size="3">
+                                                            g.Kurang Buah Lerai</font>
+                                                    </td>
+                                                    <td width="93" align="center">
+                                                        <font size="3">
+                                                            &nbsp;</font>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>
+                                            <font size="3">Lain-lain jawapan, sila nyatakan (max. 100 character):</font>
+                                        </p>
+
+
+
+
+                                        <p align="left">
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/PENERIMAAN BEKALAN BUAH
+                                                    KELAPA SAWIT (FFB) (52)</b>
+                                            </font>
+                                        </p>
+
+                                        <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0"
+                                            bordercolorlight="#FFFFFF" bordercolordark="#000000" class="table table-bordered ">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" width="168">
+                                                        <font size="3"><b>Sumber Bekalan</b></font>
+                                                    </td>
+                                                    <td align="center" width="158">
+                                                        <font size="3"><b>Kuantiti (Tan Metrik)</b></font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">1. Estet Sendiri</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">2. Estet Luar</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">3. Peniaga Buah</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">4. Pekebun Kecil</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">5. Kilang Buah Lain</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">6. Lain-lain</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">&nbsp;&nbsp;&nbsp;&nbsp;<b>JUMLAH</b></font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3">
+                                                            <b></b>
+                                                        </font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+
+                                        <p align="left">
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN IV : EDARAN/JUALAN MINYAK SAWIT
+                                                    MENTAH (CPO) (01) </b></font>
+                                        </p>
+
+                                        <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0"
+                                            bordercolorlight="#FFFFFF" bordercolordark="#000000" class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" width="168">
+                                                        <font size="3"><b>Pembeli/Penerima</b></font>
+                                                    </td>
+                                                    <td align="center" width="158">
+                                                        <font size="3"><b>Kuantiti (Tan Metrik)</b></font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">1. Kilang Buah</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">2. Kilang Penapis</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">3. Kilang Oleokimia</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">4. Peniaga</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">5. Pusat Simpanan</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">6. Eksport</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">7. Transit</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">8. Lain-lain</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3"><b>&nbsp;&nbsp;&nbsp;&nbsp; JUMLAH</b></font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3">
+                                                            <b></b>
+                                                        </font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+
+                                        <p align="left">
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN V : EDARAN / JUALAN ISIRONG SAWIT
+                                                    (PK) DALAM NEGERI
+                                                    (51)</b></font>
+                                        </p>
+
+                                        <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0"
+                                            bordercolorlight="#FFFFFF" bordercolordark="#000000" class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td align="center" width="168">
+                                                        <font size="3"><b>Pembeli/Penerima</b></font>
+                                                    </td>
+                                                    <td align="center" width="158">
+                                                        <font size="3"><b>Kuantiti (Tan Metrik)</b></font>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">1. Kilang Isirong</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">2. Peniaga</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">
+                                                        <font size="3">3. Lain-lain</font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3"></font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td width="168">&nbsp;&nbsp;&nbsp;&nbsp;<font size="3"><b>JUMLAH</b>
+                                                        </font>
+                                                    </td>
+                                                    <td width="158" align="right">
+                                                        <font size="3">
+                                                            <b></b>
+                                                        </font>
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <p><b>
+                                                <font size="3" color="#0000FF">BAHAGIAN VI : EKSPORT PRODUK SAWIT</font>
+                                            </b></p>
+                                        <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="14%" align="center">
+                                                        <font size="3"><b>Produk</b></font>
+                                                    </td>
+                                                    <td width="7%" align="center">
+                                                        <font size="3"><b>Kod Produk</b></font>
+                                                    </td>
+                                                    <td width="15%" align="center">
+                                                        <font size="3"><b>Nombor Borang Kastam 2</b></font>
+                                                    </td>
+                                                    <td width="12%" align="center">
+                                                        <font size="3"><b>Tarikh Eksport</b></font>
+                                                    </td>
+                                                    <td width="10%" align="center">
+                                                        <font size="3"><b>Kuantiti<br> (Tan Metrik)</b></font>
+                                                    </td>
+                                                    <td width="11%" align="center">
+                                                        <font size="3"><b>Nilai (RM)</b></font>
+                                                    </td>
+                                                    <td width="6%" align="center">
+                                                        <font size="3"><b>Kod Negara</b></font>
+                                                    </td>
+                                                    <td width="15%" align="center">
+                                                        <font size="3"><b>Destinasi Negara</b></font>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+                                   
+                                        <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
+                                                adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
+                                        <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
+                                            <input type="email" id="email-id-column" class="form-control" size="50"
+                                                name="email-id-column">
+                                        </p>
+                                        <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                            <input type="email" id="email-id-column" class="form-control" size="50"
+                                                name="email-id-column">
+                                        </p>
+                                        <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                            <input type="email" id="email-id-column" class="form-control" size="50"
+                                                name="email-id-column">
+                                        </p>
+                                        <p>No Telefon Kilang: &nbsp;&nbsp;
+
+                                            <input type="email" id="email-id-column" class="form-control" size="50"
+                                                name="email-id-column">
+                                        </p>
+
+                                        <h1 style="page-break-before:always"></h1>
+
+                                        <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                            <div class="text-left col-md-5">
+                                                <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
+                                                    style="float: left">Sebelumnya</a>
                                             </div>
-                                        <div class="form-group">
-                                                    <input type="submit" value="Log Masuk" class="float-right btn login_btn" style="color: black;
-                                    background-color: rgba(89, 194, 154, 0.801);
-                                    width: 100px;">
-                                                </div>
-                                            </form>
+                                            <div class="text-right col-md-7 mb-4 ">
+                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                    style="float: right"
+                                                    data-bs-target="#exampleModalCenter">Hantar</button>
+                                            </div>
+
                                         </div>
+
+                                        <!-- Vertically Centered modal Modal -->
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Anda pasti mahu menghantar penyata ini?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block"
+                                                                style="color:#275047">Tidak</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Hantar</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{-- <p><a href="adsubmenu.php">Keluar Ke Menu Penyelenggaraan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <a href="proses6.php">Proses 6</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </p> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 </div>
                             </div>
-
                         </div>
 
+
+
+
+
+
+
+
+
+
+
                     </div>
                 </div>
 
 
-                 </div>
-
-                  
-
-                    </div>
-
-                    <br>
-                    <br>
-                </div>
-            </section><!-- End Hero -->
 
 
-            <!-- ======= Testimonials Section ======= -->
-            <section id="testimonials" class="testimonials">
-                <div class="container" data-aos="fade-up">
-
-                    <div class="section-title">
-                        <h2>Menu Lain-Lain</h2>
-                        {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
-                            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit
-                            alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
-                    </div>
-
-                    {{-- <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100"> --}}
-                    <div class="swiper-wrapper">
-                        <div class="row" style=" display: flex;
-                        justify-content: center;
-                        flex-direction: row; margin-left:5%; margin-right:5%;">
-                            {{-- <div class="col-md-4 col-lg-3"> --}}
-                                {{-- <div class="swiper-slide">
-                                    <div class="testimonial-item"> --}}
-                                        {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum
-                                            suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.
-                                            Maecen aliquam, risus at semper.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                        {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/email2.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Emel Semua Pelesen Aktif</h3>
-                                        <h4>Penghantaran e-mail kepada semua pelesen aktif</h4>
-                                    </div>
-                                </div><!-- End testimonial item --> --}}
-                            {{-- </div> --}}
-
-                            <div class="col-md-4 col-lg-4">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Export tempor illum tamen malis malis eram quae irure esse labore quem
-                                            cillum
-                                            quid cillum eram malis quorum velit fore eram velit sunt aliqua noster
-                                            fugiat
-                                            irure amet legam anim culpa.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/dir4.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Direktori</h3>
-                                        <h4>Direktori</h4>
-                                    </div>
-                                </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="col-md-4 col-lg-4">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla
-                                            quem
-                                            veniam duis minim tempor labore quem eram duis noster aute amet eram fore
-                                            quis
-                                            sint minim.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Pengumuman</h3>
-                                        <h4>Pengumuman</h4>
-                                    </div>
-                                </div>
-
-                            </div><!-- End testimonial item -->
-
-                            {{-- <div class="row"> --}}
-                            <div class="col-md-4 col-lg-4">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export
-                                            minim
-                                            fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit
-                                            fore
-                                            quem dolore labore illum veniam.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/sch.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Jadual Penerimaan PL</h3>
-                                        <h4>Jadual Penerimaan PL Bagi Semua Sektor</h4>
-                                    </div>
-                                </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="col-md-4 col-lg-4" style="margin-top: -8%" >
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-                                            noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
-                                            legam
-                                            esse veniam culpa fore nisi cillum quid.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/list.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Senarai Gagal Penerimaan PL</h3>
-                                        <h4>Senarai Gagal Penerimaan PL </h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-4 col-lg-4" style="margin-top: -8%">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-                                            noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
-                                            legam
-                                            esse veniam culpa fore nisi cillum quid.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Panduan Penyelenggaraan</h3>
-                                        <h4>Panduan bagi menyelenggara penyata bulanan</h4>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {{-- <div class="col-md-4 col-lg-3" style="margin-top: -8%">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item"> --}}
-                                        {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-                                            noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
-                                            legam
-                                            esse veniam culpa fore nisi cillum quid.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                        {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/uem.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Emel Pelesen</h3>
-                                        <h4>Penghantaran e-mail kepada pelesen</h4>
-                                    </div>
-                                </div>
-                            </div> --}}
-
-                            <div class="col-md-4 col-lg-4" style="margin-top: -8%">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-                                            noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
-                                            legam
-                                            esse veniam culpa fore nisi cillum quid.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Tukar Kata Laluan</h3>
-                                        <h4>Tukar kata laluan bagi pengguna</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
-                    </div>
 
 
-                </div>
 
-        </div>
-        </section><!-- End Testimonials Section -->
 
-        </main><!-- End #main -->
-
-        <!-- ======= Footer ======= -->
-        <footer>
-            <div class="footer text-muted">
-                {{-- <div class="float-start">
-            <p>2020 &copy; Voler</p>
-        </div> --}}
-                <div style="text-align: center">
-                    <p style="font-size:10px">Developed by Artanis Cloud</a></p>
-                </div>
             </div>
-        </footer>
+            <br>
+            </form>
 
-
-
-        {{-- <footer id="footer">
-
-
-    <div class="container d-md-flex py-4">
-
-      <div class="me-md-auto text-center text-md-start">
-        <div class="copyright">
-          &copy; Copyright <strong><span>OnePage</span></strong>. All Rights Reserved
         </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
         </div>
-      </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-    </div>
-  </footer><!-- End Footer --> --}}
-
-        {{-- <div id="preloader"></div> --}}
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
-
-        <!-- Vendor JS Files -->
-        {{-- <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script> --}}
-
-
-        <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
-        <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
-        <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
-        </script>
-        <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
-        <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
-        </script>
-        <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
-        <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
+        </div>
 
 
 
-        <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-        <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-        <script src="{{ asset('theme/js/app.js') }}"></script>
 
-        <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
-        <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
-        {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
+        {{-- </div>
+                                                                    </div> --}}
 
-        <script src="{{ asset('theme/js/main.js') }}"></script>
-
-        <!-- Template Main JS File -->
-
-        <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
+        {{-- </section> --}}
 
 
-        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 
-</body>
 
-</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section><!-- End Hero -->
+
+
+
+
+    <!-- ======= Footer ======= -->
+
+
+
+
+
+    {{-- <div id="preloader"></div> --}}
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.calc').change(function() {
+                var total = 0;
+                $('.calc').each(function() {
+                    if ($(this).val() != '') {
+                        total += parseInt($(this).val());
+                    }
+                });
+                $('#total').html(total);
+            });
+        });
+    </script>
+
+    </body>
+
+    </html>
+
+@endsection

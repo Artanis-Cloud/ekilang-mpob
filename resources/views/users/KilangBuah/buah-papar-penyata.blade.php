@@ -3,6 +3,25 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;CHARSET=iso-8859-1">
     <title>PENYATA BULANAN</title>
+
+
+
+
+
+
+    <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
+
+  
+    <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
+    <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
+
+
+
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
 </head>
 
 <body>
@@ -25,7 +44,7 @@
     <br>
     <br>
     <p align="center">
-        <img border="0" src="{{ asset ('/papar_mpob.png') }}" width="200" height="140">
+        <img border="0" src="{{ asset('/papar_mpob.png') }}" width="200" height="140">
     </p>
 
 
@@ -389,8 +408,8 @@
                 </td>
                 <td width="110">
                     <p align="right">
-                        <font size="3"</font>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <font size="3" </font>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     </p>
                 </td>
                 <td width="120">
@@ -469,7 +488,7 @@
                         (FFB)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RM </font>
                 </td>
                 <td width="70">
-                    <font size="3">:  </font>
+                    <font size="3">: </font>
                 </td>
             </tr>
             <tr>
@@ -903,17 +922,91 @@
     </table>
     <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
             adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-    <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp; <b></b></p>
-    <p>Nama Pegawai Melapor: &nbsp;&nbsp; <b></b></p>
-    <p>Jawatan Pegawai Melapor: &nbsp;&nbsp; <b></b></p>
+    <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
+        <input type="email" id="email-id-column" class="form-control" size="50" name="email-id-column">
+    </p>
+    <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+        <input type="email" id="email-id-column" class="form-control" size="50"
+            name="email-id-column"></p>
+    <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+        <input type="email" id="email-id-column" class="form-control" size="50"
+            name="email-id-column"></p>
+    <p>No Telefon Kilang: &nbsp;&nbsp;
+
+        <input type="email" id="email-id-column" class="form-control" size="50"
+            name="email-id-column"></p>
 
     <h1 style="page-break-before:always"></h1>
+
+    <div class="row form-group" style="padding-top: 10px; ">
+
+
+        <div class="text-left col-md-5">
+            <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
+                style="float: left">Sebelumnya</a>
+        </div>
+        <div class="text-right col-md-7 mb-4 ">
+            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                style="float: right" data-bs-target="#exampleModalCenter">Hantar</button>
+        </div>
+
+    </div>
+
+    <!-- Vertically Centered modal Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+            role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                        PENGESAHAN</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal"
+                        aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Anda pasti mahu menghantar penyata ini?
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-light-secondary"
+                        data-bs-dismiss="modal">
+                        <i class="bx bx-x d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                    </button>
+                    <button type="button" class="btn btn-primary ml-1"
+                        data-bs-dismiss="modal">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Hantar</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     {{-- <p><a href="adsubmenu.php">Keluar Ke Menu Penyelenggaraan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="proses6.php">Proses 6</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p> --}}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="{{ asset('theme/js/app.js') }}"></script>
 
 
 
