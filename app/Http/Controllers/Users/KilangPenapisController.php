@@ -77,130 +77,193 @@ class KilangPenapisController extends Controller
         return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout'));
     }
 
-    public function buah_bahagianii()
+    public function penapis_bahagianii()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianii'), 'name' => "Bahagian II"],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagianii'), 'name' => "Bahagian II"],
         ];
 
-        $kembali = route('buah.bahagiani');
+        $kembali = route('penapis.bahagiani');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-bahagian-ii', compact('returnArr', 'layout'));
     }
 
-    public function buah_bahagianii2()
+    public function penapis_bahagianii2()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianii'), 'name' => "Bahagian II"],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagianii'), 'name' => "Bahagian II"],
         ];
 
-        $kembali = route('buah.bahagiani');
+        $kembali = route('penapis.bahagiani');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangBuah.buah-bahagian-ii2', compact('returnArr', 'layout'));
+        return view('users.KilangBuah.penapis-bahagian-ii2', compact('returnArr', 'layout'));
     }
 
-    public function buah_bahagianiii()
+    public function penapis_bahagianiii()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianiii'), 'name' => "Bahagian III"],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagianiii'), 'name' => "Bahagian III"],
         ];
 
-        $kembali = route('buah.bahagianii');
+        $kembali = route('penapis.bahagianii');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout'));
     }
 
-    public function buah_bahagianiv()
+    public function penapis_bahagianiva()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianiv'), 'name' => "Bahagian IV"],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagianiva'), 'name' => "Bahagian IV(a)"],
         ];
 
-        $kembali = route('buah.bahagianiii');
+        $kembali = route('penapis.bahagianiii');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-bahagian-iva', compact('returnArr', 'layout'));
     }
 
-    public function buah_bahagianv()
+    public function penapis_bahagianivb()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianv'), 'name' => "Bahagian V"],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagianivb'), 'name' => "Bahagian IV(b)"],
         ];
 
-        $kembali = route('buah.bahagianiv');
+        $kembali = route('penapis.bahagianiva');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-bahagian-ivb', compact('returnArr', 'layout'));
     }
 
-    public function buah_bahagianvi()
+    public function penapis_bahagianva()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianvi'), 'name' => "Bahagian VI"],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagianva'), 'name' => "Bahagian V(a)"],
         ];
 
-        $kembali = route('buah.bahagianv');
+        $kembali = route('penapis.bahagianivb');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangBuah.buah-bahagian-vi', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-bahagian-va', compact('returnArr', 'layout'));
+    }
+
+    public function penapis_bahagianvb()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagianvb'), 'name' => "Bahagian V(b)"],
+        ];
+
+        $kembali = route('penapis.bahagianva');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kpenapis';
+
+
+
+        return view('users.KilangPenapis.penapis-bahagian-vb', compact('returnArr', 'layout'));
+    }
+
+    public function penapis_bahagianvi()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagianvi'), 'name' => "Bahagian VI"],
+        ];
+
+        $kembali = route('penapis.bahagianvb');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kpenapis';
+
+
+
+        return view('users.KilangPenapis.penapis-bahagian-vi', compact('returnArr', 'layout'));
+    }
+
+    public function penapis_bahagianvii()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.bahagianvii'), 'name' => "Bahagian VII"],
+        ];
+
+        $kembali = route('penapis.bahagianvi');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kpenapis';
+
+
+
+        return view('users.KilangPenapis.penapis-bahagian-vii', compact('returnArr', 'layout'));
     }
 
     public function buah_email()

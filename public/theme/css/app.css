@@ -37,7 +37,7 @@
 }
 
 * {
-    font-family: Arial
+    font-family: Segoe UI
 }
 
 #app {
@@ -958,10 +958,10 @@ footer {
 }
 
 .sidebar-wrapper .menu .submenu li a {
-    padding: .7rem 3rem;
+    padding: 1rem 2rem;
     display: block;
     color: black;
-    font-size: .75rem;
+    font-size: 1rem;
     font-weight: 500;
     letter-spacing: .5px;
     transition: all .2s

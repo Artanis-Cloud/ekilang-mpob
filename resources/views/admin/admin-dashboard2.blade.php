@@ -62,8 +62,10 @@
 
     <div id="app">
         <div id="sidebar" class='active'>
-            <div class="sidebar-wrapper active" style="background-color: rgba(87, 168, 137, 0.664)">
-                <div class="mt-3 sidebar-header" style="margin-bottom: -13%">
+            <div class="sidebar-wrapper active" style="background-color: rgb(110, 186, 157)">
+                <div class=" sidebar-header" style="margin-bottom: -20%;height:110px;background-color: rgb(236 246 247);
+                border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
+                box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%);">
 
                     <img src="{{ asset('/mpob.png') }}"
                         style="float:left; margin-right:10%; width:60px; height:55px">
@@ -88,7 +90,7 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
 
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Menu Penyelenggaraan</li>
+                        <li class='mt-2 sidebar-title' style="color: rgb(54, 51, 41)">Menu Penyelenggaraan</li>
 
 
                         <li class="sidebar-item ">

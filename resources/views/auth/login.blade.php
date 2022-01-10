@@ -102,8 +102,9 @@
 
                         <div class="logo">
 
-                            <span class="db"><img src="{{ asset('theme/images/favicon3.png') }}"class="brand-image img-circle elevation-3"
-                                    style="height:110px; width:100px; margin-right:2%" alt="logo"  ></span>
+                            <span class="db"><img src="{{ asset('theme/images/mpob2.png') }}"
+                                    class="brand-image img-circle elevation-3"
+                                    style="height:120px; width:115px; margin-right:2% "  alt="logo"  ></span>
                                 <br>
                                 <br>
                             <h3 class="text-center"

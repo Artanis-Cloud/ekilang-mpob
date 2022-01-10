@@ -82,137 +82,125 @@
                         <div class="container" style="margin-top: 30%; margin-left:6%; ">
                             <h6 style="color: rgb(54, 51, 41)"><b>KILANG BUAH</b></h6>
                         </div>
+                    </li>
+                    <br>
+                    <li class="sidebar-item  has-sub">
+                        <a href="#" class='sidebar-link'>
+                            <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                            <span><b>Maklumat Pelesen</b></span>
+                        </a>
 
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Maklumat Pelesen</li>
+                        <ul class="submenu ">
+                            <li>
+                                <a href="{{ route('buah.maklumatasaspelesen') }}" >
+                                    <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
+                                    {{-- <i data-feather="file-text" width="20"></i> --}}
+                                    <span style="color: rgb(0, 0, 0); ">Maklumat Asas Pelesen</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ route ('buah.tukarpassword') }}" >
+                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
+                                    {{-- <i data-feather="layout" width="20"></i> --}}
+                                    <span style="color: rgb(0, 0, 0); ">Tukar Kata Laluan</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
 
 
-                        <li class="sidebar-item ">
-                            <a href="{{ route ('buah.maklumatasaspelesen') }}" class='sidebar-link'>
-                                <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">Maklumat Asas Pelesen</span>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <span><b>Kemasukan Penyata Bulanan</b></span>
                             </a>
+
+                            <ul class="submenu ">
+
+                                <li>
+                                    <a href="{{ route('buah.bahagiani') }}" >
+                                        <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="file-text" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian I</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route ('buah.bahagianii') }}" >
+                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="layout" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian II</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route ('buah.bahagianiii') }}" >
+                                        <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="layers" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian III</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route ('buah.bahagianiv') }}" >
+                                        <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="grid" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian IV</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route ('buah.bahagianv') }}" >
+                                        <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian V</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('buah.paparpenyata') }}" class='sidebar-link'>
+                                        <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Papar & Hantar Penyata Bulanan</span>
+                                    </a>
+
+                                </li>
+                            </ul>
 
                         </li>
 
-                        {{-- <li class="sidebar-item has-sub"> --}}
-                        <li class="sidebar-item">
-                            <a href="{{ route('buah.tukarpassword') }}" class='sidebar-link'>
-                                <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Tukar Kata Laluan</span>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <span><b>Menu-Menu Lain</b></span>
                             </a>
 
+                            <ul class="submenu ">
+                                <li>
+                                    <a href="{{ route ('buah.email') }}">
+                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="user" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
+                                    </a>
+                                </li>
 
+                                <li>
+                                    <a href="{{ route ('buah.prestasioer')}}">
+                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Prestasi OER</span>
+                                    </a>
+                                </li>
 
+                                <li>
+                                    <a href="{{ route('buah.penyatadahulu')}}">
+                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Papar Penyata Bulanan Terdahulu</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
-                        <br>
-
-
-                        </li>
-
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Kemasukan Penyata Bulanan</li>
-
-                        <li class="sidebar-item">
-                            <a href="{{ route('buah.bahagiani') }}" class='sidebar-link'>
-                                <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="file-text" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Bahagian I</span>
-                            </a>
-
-
-
-                        </li>
-
-                        <li class="sidebar-item ">
-                            <a href="{{ route ('buah.bahagianii') }}" class='sidebar-link'>
-                                <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="layout" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Bahagian II</span>
-                            </a>
-
-                        </li>
-
-                        <li class="sidebar-item ">
-                            <a href="{{ route ('buah.bahagianiii') }}" class='sidebar-link'>
-                                <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="layers" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Bahagian III</span>
-                            </a>
-
-                        </li>
-
-                        <li class="sidebar-item ">
-                            <a href="{{ route ('buah.bahagianiv') }}" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="grid" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Bahagian IV</span>
-                            </a>
-
-                        </li>
-
-                        <li class="sidebar-item ">
-                            <a href="{{ route ('buah.bahagianv') }}" class='sidebar-link'>
-                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Bahagian V</span>
-                            </a>
-
-                        </li>
-                        {{-- <li class="sidebar-item ">
-                            <a href="{{ route ('buah.bahagianvi') }}" class='sidebar-link'>
-                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i> --}}
-                                {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                {{-- <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
-                            </a>
-
-                        </li> --}}
-                        <li class="sidebar-item ">
-                            <a href="{{ route('buah.paparpenyata') }}" class='sidebar-link'>
-                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Papar & Hantar Penyata Bulanan</span>
-                            </a>
-
-                        </li>
-                        <br>
-
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Menu-Menu Lain</li>
-
-                        <li class="sidebar-item">
-                            <a href="{{ route ('buah.email') }}" class='sidebar-link'>
-                                <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="user" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
-                            </a>
-
-
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a href="{{ route ('buah.prestasioer')}}" class='sidebar-link'>
-                                <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Prestasi OER</span>
-                            </a>
-
-
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a href="{{ route('buah.penyatadahulu')}}" class='sidebar-link'>
-                                <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Papar Penyata Bulanan Terdahulu</span>
-                            </a>
-
-
-
-                        </li>
-                        <br>
-
-
-
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
