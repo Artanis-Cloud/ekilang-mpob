@@ -24,6 +24,11 @@ class DashboardUserController extends Controller
         return view('users.KilangPenapis.penapis-dashboard');
     }
 
+    public function isirung_dashboard()
+    {
+        return view('users.KilangIsirung.isirung-dashboard');
+    }
+
     public function index_form()
     {
         return view('users.form');

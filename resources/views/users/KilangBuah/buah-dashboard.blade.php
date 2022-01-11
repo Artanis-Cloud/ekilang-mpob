@@ -68,7 +68,7 @@
                     <span>description</span> --}}
 
                     <h4
-                        style="text-align:left; font-family:Verdana; margin-left:15%; margin-top:5%; color: rgb(78, 73, 57)">
+                        style="text-align:left; font-family:Verdana; margin-left:15%; margin-top:5%; margin-bottom:-5% color: rgb(78, 73, 57)">
                         <b>
                             E-Kilang </b>
                     </h4>
@@ -79,35 +79,35 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <div class="container" style="margin-top: 30%; margin-left:6%; ">
+                        {{-- <div class="container" style="margin-top: 30%; margin-left:6%; ">
                             <h6 style="color: rgb(54, 51, 41)"><b>KILANG BUAH</b></h6>
-                        </div>
-                    </li>
-                    <br>
-                    <li class="sidebar-item  has-sub">
-                        <a href="#" class='sidebar-link'>
-                            <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                            <span><b>Maklumat Pelesen</b></span>
-                        </a>
+                        </div> --}}
+                        </li>
+                        <br>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <span><b>Maklumat Pelesen</b></span>
+                            </a>
 
-                        <ul class="submenu ">
-                            <li>
-                                <a href="{{ route('buah.maklumatasaspelesen') }}" >
-                                    <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
-                                    {{-- <i data-feather="file-text" width="20"></i> --}}
-                                    <span style="color: rgb(0, 0, 0); ">Maklumat Asas Pelesen</span>
-                                </a>
-                            </li>
+                            <ul class="submenu ">
+                                <li>
+                                    <a href="{{ route('buah.maklumatasaspelesen') }}">
+                                        <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="file-text" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Maklumat Asas Pelesen</span>
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a href="{{ route ('buah.tukarpassword') }}" >
-                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
-                                    {{-- <i data-feather="layout" width="20"></i> --}}
-                                    <span style="color: rgb(0, 0, 0); ">Tukar Kata Laluan</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                                <li>
+                                    <a href="{{ route('buah.tukarpassword') }}">
+                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="layout" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Tukar Kata Laluan</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
 
                         <li class="sidebar-item  has-sub">
@@ -119,7 +119,7 @@
                             <ul class="submenu ">
 
                                 <li>
-                                    <a href="{{ route('buah.bahagiani') }}" >
+                                    <a href="{{ route('buah.bahagiani') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian I</span>
@@ -127,7 +127,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route ('buah.bahagianii') }}" >
+                                    <a href="{{ route('buah.bahagianii') }}">
                                         <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layout" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian II</span>
@@ -135,7 +135,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route ('buah.bahagianiii') }}" >
+                                    <a href="{{ route('buah.bahagianiii') }}">
                                         <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layers" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian III</span>
@@ -143,7 +143,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route ('buah.bahagianiv') }}" >
+                                    <a href="{{ route('buah.bahagianiv') }}">
                                         <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="grid" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian IV</span>
@@ -151,7 +151,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route ('buah.bahagianv') }}" >
+                                    <a href="{{ route('buah.bahagianv') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian V</span>
@@ -177,15 +177,16 @@
 
                             <ul class="submenu ">
                                 <li>
-                                    <a href="{{ route ('buah.email') }}">
+                                    <a href="{{ route('buah.email') }}">
                                         <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="user" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">E-mail Pertanyaan / Pindaan / Cadangan</span>
+                                        <span style="color: rgb(0, 0, 0); ">E-mail Pertanyaan / Pindaan /
+                                            Cadangan</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route ('buah.prestasioer')}}">
+                                    <a href="{{ route('buah.prestasioer') }}">
                                         <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="trending-up" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Prestasi OER</span>
@@ -193,7 +194,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('buah.penyatadahulu')}}">
+                                    <a href="{{ route('buah.penyatadahulu') }}">
                                         <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="trending-up" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Papar Penyata Bulanan Terdahulu</span>
@@ -245,12 +246,12 @@
 
                     {{-- <img src="theme/images/background/favicon.png" height='45px' alt=""> --}}
                     {{-- <img src="theme/images/background/mspo.png" height='60px' alt=""> --}}
-                    <img src="{{ asset('/mpob.png') }}" height='60px' width='70px' alt=""
-                        style="margin-left:25%; margin-top: 15px;">
+                    <img src="{{ asset('/mpob.png') }}" height='50px' width='70px' alt=""
+                        style="margin-left:25%; margin-top: 3px;">
                     {{-- <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%"> --}}
                 </a>
 
-                <span class="mx-2 mt-3 mb-0 text-center navbar-brand h1"
+                <span class="mx-2 mt-2 mb-0 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
                         style="margin-left:10%;">
                         E-Kilang </b></span>
@@ -302,10 +303,10 @@
                         <li class="dropdown">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="avatar me-1">
+                                {{-- <div class="avatar me-1">
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
-                                </div>
-                                <div class="d-none d-md-block d-lg-inline-block">Hai, Syn</div>
+                                </div> --}}
+                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">Pelesen 0001</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Akaun Pengguna</a>
@@ -318,7 +319,7 @@
                     </ul>
                 </div>
             </nav>
-            <br>
+
 
 
 
@@ -330,18 +331,19 @@
                     <div class="row justify-content-center" style="margin-bottom: 3%">
                         <div class="col-xl-12 col-lg-9">
 
-                            <h1 style="font-size:40px;">KILANG BUAH</h1>
-                            <h2>Penyata Bulanan Kilang Buah</h2>
+                            <h3 style="font-size:25px; margin-top:-2%">KILANG BUAH</h3>
+                            <h4 style="font-size:18px; ">Penyata Bulanan Kilang Buah</h4>
                         </div>
                     </div>
 
                     <div class="mb-4 row">
                         <div class="col-md-12">
                             <div class="card" style="margin-right:10%; margin-left:10%">
-                                <div class="card-header border-bottom">
-                                    <h2 class='p-1 pl-3 card-heading'>Pengumuman</h2>
+                                <div class="card-header" style="margin-bottom: -1%">
+                                    <h2 class='pl-3 card-heading' style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Pengumuman
+                                    </h2>
                                 </div>
-                                <br>
+                                <hr>
                                 <div class="card-body">
                                     <div class="row">
                                         {{-- <div class="col-md-4 col-12"> --}}
@@ -411,248 +413,75 @@
 
                                                 </li>
                                                 <ul>
-                                                    <br>
-                                                    <br>
 
-
-
-
-                                                    {{-- <h1 class='mt-5'>$21,102</h1>
-                                                <p class='text-xs'><span class="text-green"><i data-feather="bar-chart" width="15"></i>
-                                                        +19%</span> than last month</p>
-                                                <div class="legends">
-                                                    <div class="flex-row legend d-flex align-items-center">
-                                                        <div class='w-3 h-3 rounded-full bg-info me-2'></div><span class='text-xs'>Last
-                                                            Month</span>
-                                                    </div>
-                                                    <div class="flex-row legend d-flex align-items-center">
-                                                        <div class='w-3 h-3 rounded-full bg-blue me-2'></div><span class='text-xs'>Current
-                                                            Month</span>
-                                                    </div>
-                                                </div> --}}
                                         </div>
-                                        {{-- </div> --}}
-                                        {{-- <div class="col-md-8 col-12">
-                                            <canvas id="bar"></canvas>
-                                        </div> --}}
+
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="card">
-                                <div class="card-header d-flex justify-content-between align-items-center">
-                                    <h4 class="card-title">Sebarang Pertanyaan Sila Hubungi:</h4>
-                                    <div class="d-flex ">
-                                        {{-- <i data-feather="download"></i> --}}
-                            {{-- </div>
+
+                            <div class="card" style="margin-right:10%; margin-left:10%">
+                                <div class="card-header " style="margin-bottom:-2%">
+                                    <h2 class='pl-3 card-heading' style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Peringatan
+                                    </h2>
                                 </div>
-                                <div class="px-0 pb-0 card-body">
-                                    <div class="table-responsive">
-                                        <table class='table mb-0' id="table1">
-                                            <thead>
-                                                <tr>
-                                                    <th>Bahagian</th>
-                                                    <th>Nama</th>
-                                                    <th>No. Telefon</th>
-                                                    <th>Emel</th> --}}
-                            {{-- <th>Status</th> --}}
-                            {{-- </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        Penyata Bulanan Kilang Buah - MPOB (EL) MF4</td>
-                                                    <td>Pn. Nor Syaida</td>
-                                                    <td>03-7802 2917</td>
-                                                    <td>nor.syaida@mpob.gov.my</td> --}}
-                            {{-- <td>
-                                                        <span class="badge bg-success">Active</span>
-                                                    </td> --}}
-                            {{-- </tr>
-                                                <tr>
-                                                    <td>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</td>
-                                                    <td>En. Rominizam</td>
-                                                    <td>03-7802 2918</td>
-                                                    <td>rominizam@mpob.gov.my</td> --}}
-                            {{-- <td>
-                                                        <span class="badge bg-success">Active</span>
-                                                    </td> --}}
-                            {{-- </tr>
-                                                <tr>
-                                                    <td>Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</td>
-                                                    <td>Pn. Aziana</td>
-                                                    <td>03-7802 2955</td>
-                                                    <td>aziana.misnan@mpob.gov.my</td> --}}
-                            {{-- <td>
-                                                        <span class="badge bg-danger">Inactive</span>
-                                                    </td> --}}
-                            {{-- </tr>
-                                                <tr>
-                                                    <td>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</td>
-                                                    <td>Pn. Aziana</td>
-                                                    <td>03-7802 2955</td>
-                                                    <td>aziana.misnan@mpob.gov.my</td> --}}
-                            {{-- <td>
-                                                        <span class="badge bg-success">Active</span>
-                                                    </td> --}}
-                            {{-- </tr>
-                                                <tr>
-                                                    <td>Penyata Bulanan Kilang Isirong - MPOB (EL) CF4 </td>
-                                                    <td>Pn. Nor Baayah</td>
-                                                    <td>03-7802 2865</td>
-                                                    <td>abby@mpob.gov.my</td> --}}
-                            {{-- <td>
-                                                        <span class="badge bg-success">Active</span>
-                                                    </td> --}}
-                            {{-- </tr>
-                                                <tr>
-                                                    <td>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</td>
-                                                    <td>Pn. Nor Baayah</td>
-                                                    <td>03-7802 2865</td>
-                                                    <td>abby@mpob.gov.my</td> --}}
-                            {{-- <td>
-                                                        <span class="badge bg-success">Active</span>
-                                                    </td> --}}
-                            {{-- </tr>
-                                                <tr>
-                                                    <td>No Faks bagi Penyata Bulanan </td>
-                                                    <td>-</td>
-                                                    <td>03-7803 2323 / <br> 03-7803 1399</td>
-                                                    <td>-</td> --}}
-                            {{-- <td>
-                                                        <span class="badge bg-success">Active</span>
-                                                    </td> --}}
-                            {{-- </tr>
-                                            </tbody>
-                                        </table>
+                                <hr>
+
+                                <div class="card-body">
+                                    <div class=" text-center">
+                                        <h6 style="color:rgba(47, 112, 88, 0.823); text-align:left; text-align: justify;
+                                                            text-justify: inter-word;">Adalah menjadi kesalahan
+                                            dibawah syarat-syarat
+                                            dan
+                                            sekatan
+                                            lesen
+                                            yang terkandung di bawah
+                                            Peraturan 21(1), Peraturan-peraturan Lembaga Minyak Sawit
+                                            Malaysia(Pelesenan) 2005, jika
+                                            gagal/lewat menyerahkan Penyata Bulanan tidak lewat dari 7hb. bagi bulan
+                                            berikutnya dan apabila
+                                            disabitkan boleh dikenakan denda.</h6>
+                                        {{-- <h1 class='text-green'>+$2,134</h1> --}}
                                     </div>
+
                                 </div>
+
                             </div>
-                        </div> --}}
 
-
-
-                            <div class="col-md-12">
-                                <div class="card " style="margin-right: 10%; margin-left:10%">
-                                    <div class="card-header border-bottom "
-                                        style="background-color: rgba(47, 112, 88, 0.823)">
-                                        <h4 style="color: white"><b>Peringatan</b></h4>
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <div class="card-body">
-                                        <div id="radialBars"></div>
-                                        <div class="mb-5 text-center">
-                                            <h6 style="color:rgba(47, 112, 88, 0.823); text-align:left; text-align: justify; font-size:16px;
-                                                                text-justify: inter-word;">Adalah menjadi kesalahan
-                                                dibawah syarat-syarat
-                                                dan
-                                                sekatan
-                                                lesen
-                                                yang terkandung di bawah
-                                                Peraturan 21(1), Peraturan-peraturan Lembaga Minyak Sawit
-                                                Malaysia(Pelesenan) 2005, jika
-                                                gagal/lewat menyerahkan Penyata Bulanan tidak lewat dari 7hb. bagi bulan
-                                                berikutnya dan apabila
-                                                disabitkan boleh dikenakan denda.</h6>
-                                            {{-- <h1 class='text-green'>+$2,134</h1> --}}
-                                        </div>
-                                    </div>
+                            <div class="card" style="margin-right:10%; margin-left:10%">
+                                <div class="card-header" style="margin-bottom:-2%">
+                                    <h2 class='pl-3 card-heading' style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Penafian
+                                    </h2>
                                 </div>
-                                <div class="card widget-todo" style="margin-right: 10%; margin-left:10%">
-                                    <div class="card-header border-bottom d-flex justify-content-between align-items-center"
-                                        style="background-color: rgba(47, 112, 88, 0.823)">
-                                        <h4 class="card-title d-flex">
-                                            <i class='bx bx-check font-medium-5 pl-25 pr-75'></i><b
-                                                style="color: white">Penafian
-                                            </b>
-                                        </h4>
-
-                                    </div>
-                                    <br>
-                                    <br>
-                                    <div class="card-body">
-                                        <div id="radialBars"></div>
-                                        <div class="mb-5 text-center">
-                                            <h6 style="color:rgba(47, 112, 88, 0.823); text-align:left; text-align: justify; font-size:16px;
-                                                                text-justify: inter-word;">Kerajaan Malaysia dan
-                                                Lembaga Minyak Sawit
-                                                Malaysia
-                                                (MPOB)
-                                                adalah
-                                                tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang
-                                                disebabkan oleh penggunaan
-                                                mana-mana maklumat yang diperolehi dari laman web ini .Syarikat-syarikat
-                                                yang dirujuk di dalam
-                                                laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun
-                                                syarikat yang disyorkan oleh
-                                                Lembaga Minyak Sawit Malaysia (MPOB).</h6>
-                                            {{-- <h1 class='text-green'>+$2,134</h1> --}}
-                                        </div>
+                                <hr>
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <h6 style="color:rgba(47, 112, 88, 0.823); text-align:left; text-align: justify;
+                                                            text-justify: inter-word;">Kerajaan Malaysia dan
+                                            Lembaga Minyak Sawit
+                                            Malaysia
+                                            (MPOB)
+                                            adalah
+                                            tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang
+                                            disebabkan oleh penggunaan
+                                            mana-mana maklumat yang diperolehi dari laman web ini .Syarikat-syarikat
+                                            yang dirujuk di dalam
+                                            laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun
+                                            syarikat yang disyorkan oleh
+                                            Lembaga Minyak Sawit Malaysia (MPOB).</h6>
+                                        {{-- <h1 class='text-green'>+$2,134</h1> --}}
                                     </div>
 
-
-
-
-
-
-
-                                    {{-- <div class="px-0 py-1 card-body">
-                                    <table class='table table-borderless'>
-                                        <tr>
-                                            <td class='col-3'>UI Design</td>
-                                            <td class='col-6'>
-                                                <div class="progress progress-info">
-                                                    <div class="progress-bar" role="progressbar" style="width: 60%" aria-valuenow="0"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td class='text-center col-3'>60%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class='col-3'>VueJS</td>
-                                            <td class='col-6'>
-                                                <div class="progress progress-success">
-                                                    <div class="progress-bar" role="progressbar" style="width: 35%" aria-valuenow="0"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td class='text-center col-3'>30%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class='col-3'>Laravel</td>
-                                            <td class='col-6'>
-                                                <div class="progress progress-danger">
-                                                    <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="0"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td class='text-center col-3'>50%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class='col-3'>ReactJS</td>
-                                            <td class='col-6'>
-                                                <div class="progress progress-primary">
-                                                    <div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="0"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td class='text-center col-3'>80%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class='col-3'>Go</td>
-                                            <td class='col-6'>
-                                                <div class="progress progress-secondary">
-                                                    <div class="progress-bar" role="progressbar" style="width: 65%" aria-valuenow="0"
-                                                        aria-valuemin="0" aria-valuemax="100"></div>
-                                                </div>
-                                            </td>
-                                            <td class='text-center col-3'>65%</td>
-                                        </tr>
-                                    </table>
-                                </div> --}}
                                 </div>
-                                <br>
-                                <br>
+
+                            </div>
+
+
+
+
+
+
+
                             </div>
                         </div>
                         <br>
@@ -661,306 +490,21 @@
                     </div>
 
 
-                {{-- <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box"> --}}
-                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                {{-- <div class="icon" style="text-align: center"><i class="fa fa-print fa-xs"></i></div>
-                                <h4 class="title"><a href="">12. Port Data ke Stat Homepage</a></h4>
-                                <p class="description">Pemindahan Data ke Stat Homepage</p>
-                                <br>
-                                <br>
-                                <br>
-                            </div>
-                        </div> --}}
-
-
-    </section><!-- End Hero -->
-
-
-    <!-- ======= Testimonials Section ======= -->
-    {{-- <section id="testimonials" class="testimonials">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Menu Lain-Lain</h2> --}}
-                {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
-                            Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit
-                            alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
-            {{-- </div> --}}
-
-            {{-- <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100"> --}}
-            {{-- <div class="swiper-wrapper">
-                <div class="row" style=" display: flex;
-                        justify-content: center;
-                        flex-direction: row; margin-left:5%; margin-right:5%;">
-                    <div class="col-md-4 col-lg-3">
-                        <div class="swiper-slide">
-                            <div class="testimonial-item"> --}}
-                                {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Proin iaculis purus consequat sem cure digni ssim donec porttitora entum
-                                            suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.
-                                            Maecen aliquam, risus at semper.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/email2.png') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Emel Semua Pelesen Aktif</h3>
-                                <h4>Penghantaran e-mail kepada semua pelesen aktif</h4>
-                            </div>
-                        </div><!-- End testimonial item -->
-                    </div> --}}
-
-                    {{-- <div class="col-md-4 col-lg-3">
-                        <div class="swiper-slide">
-                            <div class="testimonial-item"> --}}
-                                {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Export tempor illum tamen malis malis eram quae irure esse labore quem
-                                            cillum
-                                            quid cillum eram malis quorum velit fore eram velit sunt aliqua noster
-                                            fugiat
-                                            irure amet legam anim culpa.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/dir4.png') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Direktori</h3>
-                                <h4>Direktori</h4>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item --> --}}
-
-                    {{-- <div class="col-md-4 col-lg-3">
-                        <div class="swiper-slide">
-                            <div class="testimonial-item"> --}}
-                                {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla
-                                            quem
-                                            veniam duis minim tempor labore quem eram duis noster aute amet eram fore
-                                            quis
-                                            sint minim.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Pengumuman</h3>
-                                <h4>Pengumuman</h4>
-                            </div>
-                        </div>
-
-                    </div><!-- End testimonial item -->
-
-                    {{-- <div class="row"> --}}
-                    {{-- <div class="col-md-4 col-lg-3">
-                        <div class="swiper-slide">
-                            <div class="testimonial-item"> --}}
-                                {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export
-                                            minim
-                                            fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit
-                                            fore
-                                            quem dolore labore illum veniam.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/sch.png') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Jadual Penerimaan PL</h3>
-                                <h4>Jadual Penerimaan PL Bagi Semua Sektor</h4>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="col-md-4 col-lg-3" style="margin-top: -8%">
-                        <div class="swiper-slide">
-                            <div class="testimonial-item"> --}}
-                                {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-                                            noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
-                                            legam
-                                            esse veniam culpa fore nisi cillum quid.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/list.png') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Senarai Gagal Penerimaan PL</h3>
-                                <h4>Senarai Gagal Penerimaan PL </h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-3" style="margin-top: -8%">
-                        <div class="swiper-slide">
-                            <div class="testimonial-item"> --}}
-                                {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-                                            noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
-                                            legam
-                                            esse veniam culpa fore nisi cillum quid.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Panduan Penyelenggaraan</h3>
-                                <h4>Panduan bagi menyelenggara penyata bulanan</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-3" style="margin-top: -8%">
-                        <div class="swiper-slide">
-                            <div class="testimonial-item"> --}}
-                                {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-                                            noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
-                                            legam
-                                            esse veniam culpa fore nisi cillum quid.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/uem.png') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Emel Pelesen</h3>
-                                <h4>Penghantaran e-mail kepada pelesen</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-lg-3" style="margin-top: -8%">
-                        <div class="swiper-slide">
-                            <div class="testimonial-item"> --}}
-                                {{-- <p>
-                                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
-                                            noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
-                                            legam
-                                            esse veniam culpa fore nisi cillum quid.
-                                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                                        </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
-                                    class="testimonial-img" alt="">
-                                <h3>Tukar Kata Laluan</h3>
-                                <h4>Tukar kata laluan bagi pengguna</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- End testimonial item -->
-
-            </div>
-            <div class="swiper-pagination"></div>
-        </div>
-
-        </div>
-    </section><!-- End Testimonials Section --> --}}
-
-    </main><!-- End #main -->
-
-    {{-- <!-- ======= Footer ======= -->
-    <footer>
-        <div class="footer text-muted"> --}}
-            {{-- <div class="float-start">
-            <p>2020 &copy; Voler</p>
-        </div> --}}
-            {{-- <div style="text-align: center">
-                <p style="font-size:10px">Developed by Artanis Cloud</a></p>
-            </div>
-        </div>
-    </footer> --}}
 
 
 
-    {{-- <footer id="footer">
+            </section><!-- End Hero -->
 
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
 
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h3>OnePage</h3>
-            <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br><br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
-            </p>
-          </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
 
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
 
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Join Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-          </div>
+            {{-- <div id="preloader"></div> --}}
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                    class="bi bi-arrow-up-short"></i></a>
 
-        </div>
-      </div>
-    </div>
-
-    <div class="container d-md-flex py-4">
-
-      <div class="me-md-auto text-center text-md-start">
-        <div class="copyright">
-          &copy; Copyright <strong><span>OnePage</span></strong>. All Rights Reserved
-        </div>
-        <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/ -->
-          Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-      </div>
-      <div class="social-links text-center text-md-right pt-3 pt-md-0">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-        <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-        <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-        <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-      </div>
-    </div>
-  </footer><!-- End Footer --> --}}
-
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    {{-- <script src="assets/vendor/purecounter/purecounter.js"></script>
+            <!-- Vendor JS Files -->
+            {{-- <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -969,34 +513,34 @@
   <script src="assets/vendor/php-email-form/validate.js"></script> --}}
 
 
-    <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
-    </script>
-    <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
-    </script>
-    <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
+            </script>
+            <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
+            </script>
+            <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
 
 
 
-    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('theme/js/app.js') }}"></script>
+            <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+            <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+            <script src="{{ asset('theme/js/app.js') }}"></script>
 
-    <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
-    <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
-    {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
+            <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
+            <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
+            {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
 
-    <script src="{{ asset('theme/js/main.js') }}"></script>
+            <script src="{{ asset('theme/js/main.js') }}"></script>
 
-    <!-- Template Main JS File -->
+            <!-- Template Main JS File -->
 
-    <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
 
 
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+            <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 
 </body>

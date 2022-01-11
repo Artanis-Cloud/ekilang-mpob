@@ -542,7 +542,7 @@
                                         <div class="card">
 
                                             <div class="card-body">
-                                                <table class='table table-striped' id="example">
+                                                <table class='table table-striped' id="table1">
                                                     <thead>
                                                         <tr style="text-align: center">
                                                             <th>Nama Produk</th>
