@@ -114,6 +114,7 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
+                        <br>
 
                         <div class="card-body">
                             <div class="row">
@@ -122,255 +123,307 @@
 
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); font-size:27px">Maklumat Asas Pelesen</h3>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Maklumat Asas Pelesen</h3>
+                                        <h5 style="color: rgb(39, 80, 71); margin-bottom:-5%"><i> Nota : Sila kemaskini jika ada perubahan </i>
+                                        </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
-                                    <h6 style="color: rgb(39, 80, 71, 0.8);"><b><i> Nota : Sila kemaskini jika ada perubahan </i></b></h6>
-                                    <form action="" class="validation-wizard wizard-circle m-t-40" method="post"
-                                        enctype="multipart/form-data">
-                                        @csrf
-                                        {{-- <h6><b>
-                                                <h4 style="font-family:verdana; font-size:18px; color:white">Maklumat Kilang
-                                                </h4>
-                                            </b></h6> --}}
 
-
-                                        <section>
-
-
-                                            {{-- <h4 class="card-title" style="text-align: center; color:rgb(39, 80, 71)">
-                                                Maklumat
-                                                Kilang</h4>
-                                            <br> --}}
-                                            {{-- <form action="index.html"> --}}
-                                            {{-- <div class="clearfix content" style="background-color: black"> --}}
-                                                <div class="row">
-                                                    <label for="fname"
-                                                        class="text-right col-sm-3 control-label col-form-label required">Alamat
-                                                        Surat Menyurat</label>
-                                                    <div class="col-md-6">
-                                                        <input type="text" class="form-control" required title="Sila isikan butiran ini."
-                                                            name='alamat_surat_menyurat_1'
-                                                            id="alamat_surat_menyurat_1"
-                                                            placeholder="Alamat Surat Menyurat 1">
-                                                        {{-- @error('alamat_surat_menyurat_1')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror --}}
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <label for="fname"
-                                                        class="text-right col-sm-3 control-label col-form-label "></label>
-                                                    <div class="col-md-6">
-                                                        <input type="text" class="form-control" required title="Sila isikan butiran ini."
-                                                            name='alamat_surat_menyurat_2'
-                                                            id="alamat_surat_menyurat_2"
-                                                            placeholder="Alamat Surat Menyurat 2">
-                                                        {{-- @error('alamat_surat_menyurat_2')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror --}}
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <label for="fname"
-                                                        class="text-right col-sm-3 control-label col-form-label "></label>
-                                                    <div class="col-md-6">
-                                                        <input type="text" class="form-control" required title="Sila isikan butiran ini."
-                                                            name='alamat_surat_menyurat_3'
-                                                            id="alamat_surat_menyurat_3"
-                                                            placeholder="Alamat Surat Menyurat 3">
-                                                        {{-- @error('alamat_surat_menyurat_2')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror --}}
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="row">
-                                                <div class="col-12" >
-                                                    <div class="form-group">
-                                                        <label class="required control-label col-form-label" for="first-name-column">Alamat Premis Berlesen</label>
-                                                        <input type="text" id="tfirst-name-column" class="form-control" required title="Sila isikan butiran ini." placeholder="Alamat Premis 1"
-                                                            name="fname-column">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12" style="margin-top: -3%">
-                                                    <div class="form-group">
-                                                        <label for="first-name-column"></label>
-                                                        <input type="text" id="first-name-column" class="form-control" placeholder="Alamat Premis 2"
-                                                            name="fname-column">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12" style="margin-bottom:-5%">
-                                                    <div class="form-group">
-                                                        <label class="required" for="last-name-column">Alamat Surat Menyurat</label>
-                                                        <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
+                                    <div class="container center mt-5" >
+                                        <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Alamat Premis Berlesen</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
                                                             name="lname-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
                                                     </div>
-                                                </div>
-
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label for="last-name-column"></label>
-                                                        <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
+                                                @enderror --}}
+                                            </div>
+                                            <div class="col-md-6" style="margin-left: 41.6%; margin-bottom:1%">
+                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
                                                             name="lname-column">
+                                            </div>
+                                            <div class="col-md-6" style="margin-left: 41.6%">
+                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 3"
+                                                            name="lname-column">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:1%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Poskod</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Poskod"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
                                                     </div>
-                                                </div>
-
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label class="required" for="company-column">No. Telefon (Pejabat / Kilang)</label>
-                                                        <input type="text" id="company-column" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Negeri</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Negeri"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Alamat Surat Menyurat</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
+                                                            name="lname-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                            <div class="col-md-6" style="margin-left: 41.6%">
+                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
+                                                            name="lname-column">
+                                            </div>
+                                            <div class="col-md-6" style="margin-left: 41.6%">
+                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 3"
+                                                            name="lname-column">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:1%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Poskod</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Poskod"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Negeri</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Negeri"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                No. Telefon (Pejabat / Kilang)</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="company-column" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
                                                             name="company-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
                                                     </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label class="required" for="email-id-column">No. Faks</label>
-                                                        <input type="email" id="email-id-column" class="form-control" placeholder="No. Faks"
-                                                            name="email-id-column">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label class="required" for="email-id-column">Alamat Emel</label>
-                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel"
-                                                            name="email-id-column">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label class="required" for="email-id-column"> Nama Pegawai Melapor</label>
-                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Melapor"
-                                                            name="email-id-column">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label class="required" for="email-id-column"> Jawatan Pegawai Melapor
-                                                        </label>
-                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Melapor"
-                                                            name="email-id-column">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label class="required" for="email-id-column">No. Telefon Pegawai Melapor</label>
-                                                        <input type="email" id="email-id-column" class="form-control" placeholder="No. Telefon Pegawai Melapor"
-                                                            name="email-id-column">
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form-group">
-                                                        <label class="required" for="email-id-column">Nama Pegawai Bertanggungjawab</label>
-                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
-                                                            name="email-id-column">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label class="required" for="email-id-column">Jawatan Pegawai
-                                                            Bertanggungjawab</label>
-                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Bertanggungjawab"
-                                                            name="email-id-column">
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6 col-12">
-                                                    <div class="form-group">
-                                                        <label class="required" for="email-id-column">Alamat Emel Pengurus</label>
-                                                        <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel Pengurus"
-                                                            name="email-id-column">
-                                                    </div>
-                                                </div>
-
-
-
-
-
-                                            </diV>
-                                            <br>
-
-                                            {{-- <div class="row float-left">
-                                                <div class="col-md-12 offset-md-12">
-                                                    <button type="submit" class="btn btn-primary" style="float: right; ">
-                                                        {{ __('Simpan') }}
-                                                    </button>
-                                                </div>
-                                            </div> --}}
-
-
-                                            {{-- </div> --}}
-                                        </section>
-                                        <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                            {{-- <div class="text-left col-md-5">
-                                                <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
-                                                    style="float: left">Sebelumnya</a>
-                                            </div> --}}
-                                            <div class="text-right col-md-12 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                    style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
-                                            </div>
-
-                                        </div>
-
-                                            <!-- Vertically Centered modal Modal -->
-                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                    role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                PENGESAHAN</h5>
-                                                            <button type="button" class="close"
-                                                                data-bs-dismiss="modal" aria-label="Close">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <p>
-                                                                Anda pasti mahu menyimpan maklumat ini?
-                                                            </p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-light-secondary"
-                                                                data-bs-dismiss="modal">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block"
-                                                                    style="color:#275047">Tidak</span>
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary ml-1"
-                                                                data-bs-dismiss="modal">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Ya</span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                @enderror --}}
                                             </div>
                                         </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                No. Faks</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="No. Faks"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Alamat Emel</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Alamat Emel</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Melapor"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Jawatan Pegawai Melapor</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Melapor"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                No. Telefon Pegawai Melapor</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="No. Telefon Pegawai Melapor"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Nama Pegawai Bertanggungjawab</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Jawatan Pegawai
+                                                Bertanggungjawab</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Bertanggungjawab"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Alamat Emel Pengurus</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel Pengurus"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                    </form>
-                                    <br>
-                                    <br>
 
+                                    <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                        {{-- <div class="text-left col-md-5">
+                                            <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
+                                                style="float: left">Sebelumnya</a>
+                                        </div> --}}
+                                        <div class="text-right col-md-12 mb-4 ">
+                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
+                                        </div>
+
+                                    </div>
+
+                                        <!-- Vertically Centered modal Modal -->
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
+                                                        <button type="button" class="close"
+                                                            data-bs-dismiss="modal" aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Anda pasti mahu menyimpan maklumat ini?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block"
+                                                                style="color:#275047">Tidak</span>
+                                                        </button>
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Ya</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 
 
 
 
                                 </div>
 
+
                             </div>
+                            <br>
+
+
                         </div>
                     </div>
 

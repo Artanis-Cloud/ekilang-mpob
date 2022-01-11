@@ -425,7 +425,7 @@
                                 </span>
                                 </div> --}}
                                 <div class="icon"><i class="fa fa-file-text-o fa-xs"></i></div>
-                                <h4 class="title"><a href="">1. Daftar Pelesen</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.1daftarpelesen') }}">1. Daftar Pelesen</a></h4>
                                 <p class="description">Daftar maklumat pelesen, cipta id pengguna dan password bagi
                                     pelesen</p>
                             </div>

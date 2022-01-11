@@ -110,4 +110,22 @@ class KilangController extends Controller
 
         return view('admin.e-biodiesel');
     }
+
+    public function admin_1daftarpelesen()
+    {
+
+        // $breadcrumbs    = [
+        //     ['link' => route('home'), 'name' => "Laman Utama"],
+        //     ['link' => route('jenis-kayu-kumai', date('Y')), 'name' => "Kemaskini Jenis Kayu Kumai"],
+        // ];
+
+        // $kembali = route('home');
+
+        // $returnArr = [
+        //     'breadcrumbs' => $breadcrumbs,
+        //     'kembali'     => $kembali,
+        // ];
+
+        return view('admin.1daftarpelesen');
+    }
 }
