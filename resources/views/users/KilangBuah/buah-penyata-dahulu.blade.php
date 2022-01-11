@@ -2,7 +2,7 @@
 
 @section('content')
 
-   
+
 
 
     <!-- ======= Hero Section ======= -->
@@ -17,7 +17,7 @@
                 </div>
             </div> --}}
 
-            <div class="mb-4 row">
+            <div class="mb-2 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -58,22 +58,21 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
-                        <br>
+
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
-                                    <div class="mb-5 text-center">
+                                    <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Penyata Bulanan Terdahulu</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Senarai Penyata Bulanan Terdahulu</h5> 
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Terdahulu</h3>
+                                        <h5 style="color: rgb(39, 80, 71)">Senarai Penyata Bulanan Terdahulu</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
                                     {{-- <h6 style="color: rgb(39, 80, 71, 0.8);">
-                                    
+
                                     <b><i> Nota :</i></b>
                                     <ul>
                                     <li>
@@ -84,15 +83,15 @@
                                     </li>
                                     <li>
                                     <p><i> Paparan hanya dapat dilakukan bermula dari tahun 2000 sahaja.</i></p>
-                                    </li>   
+                                    </li>
                                     </ul>
 
-                                    
-                                    
+
+
                                     </h6> --}}
 
 
-                                    <div class="container center mt-5">
+                                    <div class="container center mt-2">
                                         <div class="row" style="margin-bottom:2%;">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
@@ -119,7 +118,7 @@
                                                         <option>2019</option>
                                                         <option>2020</option>
                                                         <option>2021</option>
-                                 
+
                                                     </select>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
@@ -131,7 +130,7 @@
                                         </div>
 
 
-                                  
+
 
 
 
@@ -145,7 +144,7 @@
                                     <div class="row form-group" style="padding-top: 20px; ">
 
 
-                                        
+
                                             <div class="text-right col-md-12 mb-4 ">
                                                 <button type="button" class="btn btn-primary " data-toggle="modal"
                                                     style="float: right" data-target="#confirmation">Papar Penyata</button>
@@ -153,7 +152,7 @@
 
                                     </div>
                                     {{-- Hidden Gap - Just Ignore --}}
-                                    
+
 
                                 {{-- <!-- Modal Confirmation -->
                                 <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
@@ -182,10 +181,10 @@
                                     </div>
                                 </div> --}}
                                 <br>
-                               
+
 
                             </div>
-                            
+
 
 
 
@@ -193,8 +192,8 @@
                                                                     </div> --}}
 
                     {{-- </section> --}}
-                   
-                   
+
+
 
 
 
@@ -203,16 +202,17 @@
                 </div>
 
             </div>
-       
+
                             <br>
                             <br>
                             <br>
                             <br>
-                            
-                           
-                            
-                           
-                       
+                            <br>
+
+
+
+
+
 
 
 
@@ -246,7 +246,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-   
+
 
     <script>
         $(document).ready(function() {
@@ -284,7 +284,7 @@
         //     table.clear().draw();
         // }
     </script>
-  
+
 
     </body>
 

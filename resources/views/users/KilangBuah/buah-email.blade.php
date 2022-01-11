@@ -96,7 +96,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-4 row">
+            <div class="mt-5 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -137,14 +137,13 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
-                        <br>
+
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
-                                    <div class="mb-5 text-center">
+                                    <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Emel Pertanyaan / Pindaan /
                                             Cadangan </h3>
@@ -156,7 +155,7 @@
 
 
 
-                                    <div class="container center mt-5">
+                                    <div class="container center mt-2">
                                         <div class="row" style="margin-bottom:2%;">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
@@ -220,11 +219,7 @@
 
 
                                                 </div>
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+
                                             </div>
                                         </div>
                                         <div class="row">
@@ -238,11 +233,7 @@
 
                                                     </label>
                                                 </div>
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+
                                             </div>
                                         </div>
 
@@ -268,14 +259,6 @@
 
 
 
-
-                            <br>
-                            <br>
-
-
-
-
-
                             <div class="row form-group" style="padding-top: 10px; ">
 
 
@@ -283,7 +266,7 @@
                                     <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
                                 </div> --}}
-                                <div class="text-right col-md-12 mb-4 ">
+                                <div class="text-right col-md-12 ">
                                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                         style="float: right" data-bs-target="#exampleModalCenter">Hantar</button>
                                 </div>
@@ -327,23 +310,12 @@
                                     </div>
                                 </div>
                             </div>
-                        <br>
+                       
                         </form>
 
                     </div>
                 </div>
             </div>
-            <br>
-            <br>
-            <br>
-            <br>
-
-
-
-            {{-- </div>
-                                                                    </div> --}}
-
-            {{-- </section> --}}
 
 
 
@@ -351,22 +323,6 @@
 
 
 
-
-
-
-
-
-
-
-
-            {{-- </div>
-
-                    </div> --}}
-
-
-
-            <br>
-            <br>
 
 
 

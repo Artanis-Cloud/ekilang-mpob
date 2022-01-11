@@ -2,7 +2,7 @@
 
 @section('content')
 
-   
+
 
 
     <!-- ======= Hero Section ======= -->
@@ -17,7 +17,7 @@
                 </div>
             </div> --}}
 
-            <div class="mb-4 row">
+            <div class="row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -58,41 +58,42 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
-                        <br>
+
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
-                                    <div class="mb-5 text-center">
+                                    <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Prestasi OER</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Laporan Prestasi OER Kilang Buah</h5> 
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Prestasi OER</h3>
+                                        <h5 style="color: rgb(39, 80, 71)">Laporan Prestasi OER Kilang Buah</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
                                     <h6 style="color: rgb(39, 80, 71, 0.8);">
-                                    
-                                    <b><i> Nota :</i></b>
-                                    <ul>
-                                    <li>
-                                    <p><i> Data yang dikeluarkan adalah data 36 bulan terdahulu dari tahun yang diminta.</i></p>
-                                    </li>
-                                    <li>
-                                    <p><i> Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai lebih daripada lima pelesen.</i></p>
-                                    </li>
-                                    <li>
-                                    <p><i> Paparan hanya dapat dilakukan bermula dari tahun 2000 sahaja.</i></p>
-                                    </li>   
-                                    </ul>
 
-                                    
-                                    
+                                        <b><i> Nota :</i></b>
+                                        <ul>
+                                            <li>
+                                                <p><i> Data yang dikeluarkan adalah data 36 bulan terdahulu dari tahun yang
+                                                        diminta.</i></p>
+                                            </li>
+                                            <li>
+                                                <p><i> Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai
+                                                        lebih daripada lima pelesen.</i></p>
+                                            </li>
+                                            <li>
+                                                <p><i> Paparan hanya dapat dilakukan bermula dari tahun 2000 sahaja.</i></p>
+                                            </li>
+                                        </ul>
+
+
+
                                     </h6>
 
 
-                                    <div class="container center mt-5">
+                                    <div class="container center mt-4">
                                         <div class="row" style="margin-bottom:2%;">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
@@ -123,7 +124,7 @@
                                                         <option>2019</option>
                                                         <option>2020</option>
                                                         <option>2021</option>
-                                 
+
                                                     </select>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
@@ -135,88 +136,37 @@
                                         </div>
 
 
-                                  
-
-
-
-
-                                        </div>
-                                    </div>
-
-
-
-
-                                    <div class="row form-group" style="padding-top: 5px; ">
-
-
-                                        
-                                            <div class="text-right col-md-12 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                    style="float: right" data-target="#confirmation">Papar Data 3 Tahun</button>
-                                            </div>
 
                                     </div>
-                                    {{-- Hidden Gap - Just Ignore --}}
-                                    
+                                </div>
 
-                                {{-- <!-- Modal Confirmation -->
-                                <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header" style="background-color:#f3ce8f  !important">
-                                                <h5 class="modal-title" id="exampleModalLongTitle"><i
-                                                        class="fa fa-exclamation-triangle" aria-hidden="true"
-                                                        style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
-                                                </h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Anda pasti mahu menyimpan maklumat ini?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger"
-                                                    data-dismiss="modal">Kembali</button>
-                                                <button type="submit" class="btn btn-success">Ya</button>
-                                            </div>
-                                        </div>
+
+
+
+                                <div class="row form-group"  ">
+
+
+
+                                    <div class="text-right col-md-12  ">
+                                        <button type="button" class="btn btn-primary " data-toggle="modal"
+                                            style="float: right" data-target="#confirmation">Papar Data 3 Tahun</button>
                                     </div>
-                                </div> --}}
-                                <br>
-                               
+
+                                </div>
+
+
+
 
                             </div>
-                       
 
 
 
-                    {{-- </div>
-                                                                    </div> --}}
+                        </div>
 
-                    {{-- </section> --}}
-                   
-                   
-
-
-
-
-
-                </div>
-
-            </div>
-        
-
-
-
-
-
-
-
-
-
+                    {{-- </div> --}}
+                    </div>
+                    <br>
+                    <br>
 
 
 
@@ -228,7 +178,6 @@
 
 
 
-    </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
 
@@ -241,7 +190,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-   
+
 
     <script>
         $(document).ready(function() {
@@ -279,7 +228,7 @@
         //     table.clear().draw();
         // }
     </script>
-  
+
 
     </body>
 

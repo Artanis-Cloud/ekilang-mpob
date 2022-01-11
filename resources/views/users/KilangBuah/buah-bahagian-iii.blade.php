@@ -16,7 +16,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-4 row">
+            <div class="mt-5 mb-2 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -57,16 +57,15 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
-                        <br>
+
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
-                                    <div class="mb-5 text-center">
+                                    <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Bahagian III</h3>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Bahagian III</h3>
                                         <h5 style="color: rgb(39, 80, 71)">Belian / Penerimaan Bekalan Buah Kelapa Sawit
                                             (FFB) (52)</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
@@ -83,7 +82,7 @@
 
                                     {{-- kadar oer meningkat --}}
                                     <div class="row" id="table-bordered">
-                                        <div class="col-12 mt-5">
+                                        <div class="col-12 mt-2" style="margin-bottom: -2%">
                                             <form action="#" class="">
                                                 @csrf
                                                 <div class="card">
@@ -198,14 +197,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="row form-group" style="padding-top: 10px; ">
+                                    <div class="row form-group"  ">
 
 
                                         <div class="text-left col-md-5">
                                             <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
                                         </div>
-                                        <div class="text-right col-md-7 mb-4 ">
+                                        <div class="text-right col-md-7 ">
                                             <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                                 style="float: right" data-bs-target="#exampleModalCenter">Simpan &
                                                 Seterusnya</button>
@@ -252,37 +251,13 @@
                                 </form>
 
 
-
-
-                               
-
-
-
-
-
-
                             </div>
                         </div>
 
-                        <br>
 
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <br>
 
 
 
@@ -320,7 +295,7 @@
         });
     </script>
 
-   
+
 
 
     </body>
