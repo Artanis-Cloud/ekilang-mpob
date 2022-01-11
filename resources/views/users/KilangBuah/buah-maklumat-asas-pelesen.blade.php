@@ -114,16 +114,15 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
-                        <br>
+
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
-                                    <div class="mb-5 text-center">
+                                    <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71)">Maklumat Asas Pelesen</h3>
+                                        <h3 style="color: rgb(39, 80, 71); font-size:27px">Maklumat Asas Pelesen</h3>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
@@ -138,7 +137,7 @@
 
 
                                         <section>
-                                            <br>
+
 
                                             {{-- <h4 class="card-title" style="text-align: center; color:rgb(39, 80, 71)">
                                                 Maklumat
@@ -146,15 +145,63 @@
                                             <br> --}}
                                             {{-- <form action="index.html"> --}}
                                             {{-- <div class="clearfix content" style="background-color: black"> --}}
-                                            <div class="row">
-                                                <div class="col-12" style="margin-bottom:-5%">
+                                                <div class="row">
+                                                    <label for="fname"
+                                                        class="text-right col-sm-3 control-label col-form-label required">Alamat
+                                                        Surat Menyurat</label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" required title="Sila isikan butiran ini."
+                                                            name='alamat_surat_menyurat_1'
+                                                            id="alamat_surat_menyurat_1"
+                                                            placeholder="Alamat Surat Menyurat 1">
+                                                        {{-- @error('alamat_surat_menyurat_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <label for="fname"
+                                                        class="text-right col-sm-3 control-label col-form-label "></label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" required title="Sila isikan butiran ini."
+                                                            name='alamat_surat_menyurat_2'
+                                                            id="alamat_surat_menyurat_2"
+                                                            placeholder="Alamat Surat Menyurat 2">
+                                                        {{-- @error('alamat_surat_menyurat_2')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <label for="fname"
+                                                        class="text-right col-sm-3 control-label col-form-label "></label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" required title="Sila isikan butiran ini."
+                                                            name='alamat_surat_menyurat_3'
+                                                            id="alamat_surat_menyurat_3"
+                                                            placeholder="Alamat Surat Menyurat 3">
+                                                        {{-- @error('alamat_surat_menyurat_2')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="row">
+                                                <div class="col-12" >
                                                     <div class="form-group">
                                                         <label class="required control-label col-form-label" for="first-name-column">Alamat Premis Berlesen</label>
-                                                        <input type="text" id="first-name-column" class="form-control" required title="Sila isikan butiran ini." placeholder="Alamat Premis 1"
+                                                        <input type="text" id="tfirst-name-column" class="form-control" required title="Sila isikan butiran ini." placeholder="Alamat Premis 1"
                                                             name="fname-column">
                                                     </div>
                                                 </div>
-                                                <div class="col-12">
+                                                <div class="col-12" style="margin-top: -3%">
                                                     <div class="form-group">
                                                         <label for="first-name-column"></label>
                                                         <input type="text" id="first-name-column" class="form-control" placeholder="Alamat Premis 2"

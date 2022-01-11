@@ -237,12 +237,12 @@
 
                     {{-- <img src="theme/images/background/favicon.png" height='45px' alt=""> --}}
                     {{-- <img src="theme/images/background/mspo.png" height='60px' alt=""> --}}
-                    <img src="{{ asset('/mpob.png') }}" height='60px' width='70px' alt=""
-                        style="margin-left:25%; margin-top: 15px;">
+                    <img src="{{ asset('/mpob.png') }}" height='50px' width='70px' alt=""
+                        style="margin-left:25%; margin-top: 3px;">
                     {{-- <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%"> --}}
                 </a>
 
-                <span class="mx-2 mt-3 mb-0 text-center navbar-brand h1"
+                <span class="mx-2 mt-2 mb-0 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
                         style="margin-left:10%;">
                         E-Kilang </b></span>
@@ -256,7 +256,7 @@
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="d-lg-inline-block">
-                                    <i class="mt-3" data-feather="bell"></i>
+                                    <i class="mt-2" data-feather="bell"></i>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
@@ -297,7 +297,7 @@
                                 {{-- <div class="avatar me-1">
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
                                 </div> --}}
-                                <div class="d-none d-md-block d-lg-inline-block mt-3 " style="margin-right: 10%">Pelesen 0001</div>
+                                <div class="d-none d-md-block d-lg-inline-block mt-1 " style="margin-right: 10%">Pelesen 0001</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Akaun Pengguna</a>
@@ -310,7 +310,7 @@
                     </ul>
                 </div>
             </nav>
-            <br>
+
 
             {{-- CONTENT BODY --}}
             @yield('content')

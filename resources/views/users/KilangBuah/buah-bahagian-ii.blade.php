@@ -16,7 +16,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-4 row">
+            <div class="mt-5 mb-2 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -57,16 +57,15 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
-                        <br>
+
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
-                                    <div class="mb-5 text-center">
+                                    <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Bahagian II</h3>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Bahagian II</h3>
                                         <h5 style="color: rgb(39, 80, 71)">Maklumat Jam Pengilangan, Kadar Perahan Dan
                                             Harga</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
@@ -75,14 +74,14 @@
 
 
 
-                                    <div class="mb-2 mt-5" style="text-align: right">
+                                    <div class=" mt-2" style="text-align: right">
                                         <a href="{{ asset('manual/kilangbuah/2.pdf') }}" target="_blank"
                                             style="text-align:right"><i><u>Panduan
                                                     Mengisi Maklumat Bahagian II</u></i></a>
                                     </div>
                                     <form>
                                         @csrf
-                                        <div class="container center mt-5">
+                                        <div class="container center mt-3">
                                             <div class="row" style="margin-bottom:2%;">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
@@ -199,7 +198,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox1"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -212,7 +211,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox2"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -225,7 +224,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox3"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -237,7 +236,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox4"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -251,7 +250,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox5"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -263,7 +262,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox6"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -307,16 +306,15 @@
                                                                     for="lain-sebab">Lain-Lain Sebab OER, Sila Nyatakan
                                                                     <i>(Max.
                                                                         100 character)</i></label>
-                                                                <input type="text" id="lain-sebab" class="form-control" maxlength="100"
-                                                                    name="lain-sebab">
+                                                                <input type="text" id="lain-sebab" class="form-control"
+                                                                    maxlength="100" name="lain-sebab">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
 
 
-                                                <br>
-                                                <br>
+
 
 
 
@@ -346,7 +344,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox7"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -358,7 +356,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox8"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -369,7 +367,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox9"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -382,7 +380,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox10"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -393,7 +391,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox11"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -406,7 +404,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox12"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -418,7 +416,7 @@
                                                                             <td style="text-align:center;">
                                                                                 <input type="checkbox" id="checkbox13"
                                                                                     style=" width: 25px;
-                                                                                                                                height: 25px;"
+                                                                                                                                    height: 25px;"
                                                                                     class='form-check-input'>
                                                                             </td>
 
@@ -448,13 +446,16 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <br>
-                                                    <br>
+
                                                     <div>
 
-                                                    </div>
-                                                </div>
 
+                                                    </div>
+
+
+                                                </div>
+                                                <br>
+                                                <br>
 
 
 
@@ -531,7 +532,7 @@
                                             </div>
                                         </div>
                                         {{-- </div> --}}
-                                        <br>
+                                       
                                     </form>
 
                                 </div>
@@ -547,11 +548,8 @@
 
 
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
+
+
     </section><!-- End Hero -->
 
 

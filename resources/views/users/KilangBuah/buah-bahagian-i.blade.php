@@ -6,7 +6,7 @@
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative"  data-aos-delay="100"> 
+        <div class="container position-relative"  data-aos-delay="100">
 
         {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
                 <div class="col-xl-12 col-lg-9">
@@ -16,7 +16,7 @@
                 </div>
             </div> --}}
 
-        <div class=" mt-5 mb-4 row">
+        <div class=" mt-5  row">
             <div class="col-md-12">
 
                 <div class="page-breadcrumb" style="padding: 0px">
@@ -56,16 +56,15 @@
                     {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                    <br>
-                    <br>
+
                     <div class="card-body">
                         <div class="row">
                             {{-- <div class="col-md-4 col-12"> --}}
                             <div class="pl-3">
 
-                                <div class="mb-5 text-center">
+                                <div class=" text-center">
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Bahagian I</h3>
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Bahagian I</h3>
                                     <h5 style="color: rgb(39, 80, 71)">Maklumat Belian, Proses, Pengeluaran,
                                         Jualan/Edaran, Stok Akhir <br>(Berdasarkan dalam premis kilang sahaja)</h5>
                                     {{-- <p>Maklumat Kilang</p> --}}
@@ -75,7 +74,7 @@
 
 
 
-                                <div class="col-12 mt-5">
+                                <div class="col-12 mt-3">
                                     <div class="mb-2" style="text-align: right">
                                         <a href="{{ asset('manual/kilangbuah/1.pdf') }}" target="_blank"
                                             style="text-align:right"><i><u>Panduan
@@ -336,8 +335,7 @@
                                     </div>
 
 
-                                    <br>
-                                    <br>
+
 
 
 
@@ -357,15 +355,6 @@
                     </div>
                 </div>
 
-
-
-
-
-
-                <br>
-                <br>
-                <br>
-                <br>
 
 
 
