@@ -85,6 +85,11 @@ Route::get('penapis/bahagian-vii', [App\Http\Controllers\Users\KilangPenapisCont
 
 
 
+//Pelesen - Kilang Isirung
+Route::get('isirung/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'isirung_dashboard'])->name('isirung.dashboard');
+
+
+
 Route::get('/try', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try'])->name('try');
 
 

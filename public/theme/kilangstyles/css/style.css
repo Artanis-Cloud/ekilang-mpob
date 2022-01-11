@@ -23,9 +23,9 @@ a:hover {
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* h1, h2, h3, h4, h5, h6 {
   font-family: "Raleway", sans-serif;
-}
+} */
 
 /*--------------------------------------------------------------
 # Back to top button
@@ -370,7 +370,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero h2 {
   color: #5e5e5e;
-  margin: 10px 0 0 0;
+  /* margin: 10px 0 0 0; */
   font-size: 22px;
 }
 #hero .btn-get-started {
