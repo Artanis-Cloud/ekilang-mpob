@@ -62,10 +62,10 @@
 
     <div id="app">
         <div id="sidebar" class='active'>
-            <div class="sidebar-wrapper active" style="background-color: rgb(110, 186, 157)">
-                <div class=" sidebar-header" style="margin-bottom: -20%;height:110px;background-color: rgb(236 246 247);
+            <div class="sidebar-wrapper active" style="background-color: rgb(120, 163, 147)">
+                <div class=" sidebar-header" style="margin-bottom: -20%;height:110px;
                 border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
-                box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%);">
+                box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color: rgb(179, 204, 195)">
 
                     <img src="{{ asset('/mpob.png') }}"
                         style="float:left; margin-right:10%; width:60px; height:55px">

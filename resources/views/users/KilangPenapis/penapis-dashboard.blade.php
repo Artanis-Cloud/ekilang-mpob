@@ -87,7 +87,7 @@
 
 
                         <li class="sidebar-item ">
-                            <a href="{{ route ('penapis.maklumatasaspelesen') }}" class='sidebar-link'>
+                            <a href="{{ route('penapis.maklumatasaspelesen') }}" class='sidebar-link'>
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57)">Maklumat Asas Pelesen</span>
@@ -114,18 +114,16 @@
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Kemasukan Penyata Bulanan</li>
 
                         <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('penapis.bahagiani') }}" class='sidebar-link'>
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-text" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian I</span>
                             </a>
 
-
-
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('penapis.bahagianii') }}" class='sidebar-link'>
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layout" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian II</span>
@@ -134,7 +132,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('penapis.bahagianiii') }}" class='sidebar-link'>
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layers" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Bahagian III</span>
@@ -143,27 +141,63 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('penapis.bahagianiva') }}"class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="grid" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Bahagian IV</span>
+                                <span style="color: rgb(78, 73, 57); ">Bahagian IV(a)</span>
                             </a>
 
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('penapis.bahagianivb') }}"class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i data-feather="grid" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57); ">Bahagian IV(b)</span>
+                            </a>
+
+                        </li>
+
+                        <li class="sidebar-item ">
+                            <a href="{{ route('penapis.bahagianva') }}" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Bahagian V</span>
+                                <span style="color: rgb(78, 73, 57); ">Bahagian V(a)</span>
+                            </a>
+
+                        </li>
+
+                        <li class="sidebar-item ">
+                            <a href="{{ route('penapis.bahagianvb') }}" class='sidebar-link'>
+                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57); ">Bahagian V(b)</span>
+                            </a>
+
+                        </li>
+
+                        <li class="sidebar-item ">
+                            <a href="{{ route('penapis.bahagianvi') }}" class='sidebar-link'>
+                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
+                            </a>
+
+                        </li>
+
+                        <li class="sidebar-item ">
+                            <a href="{{ route('penapis.bahagianvii') }}" class='sidebar-link'>
+                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                <span style="color: rgb(78, 73, 57); ">Bahagian VII</span>
                             </a>
 
                         </li>
                         {{-- <li class="sidebar-item ">
                             <a href="{{ route ('penapis.bahagianvi') }}" class='sidebar-link'>
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i> --}}
-                                {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                {{-- <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
+                        {{-- <i data-feather="file-plus" width="20"></i> --}}
+                        {{-- <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
                             </a>
 
                         </li> --}}
@@ -187,6 +221,7 @@
                             </a>
 
 
+
                         </li>
 
                         <li class="sidebar-item">
@@ -206,7 +241,17 @@
                                 <span style="color: rgb(78, 73, 57); ">Papar Penyata Bulanan Terdahulu</span>
                             </a>
 
+                            {{-- <ul class="submenu ">
 
+                                <li>
+                                    <a href="ui-chart-chartjs.html">ChartJS</a>
+                                </li>
+
+                                <li>
+                                    <a href="ui-chart-apexchart.html">Apexchart</a>
+                                </li>
+
+                            </ul> --}}
 
                         </li>
                         <br>

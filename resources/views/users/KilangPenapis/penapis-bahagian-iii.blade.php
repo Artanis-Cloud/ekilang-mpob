@@ -58,7 +58,7 @@
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
                         <br>
-                        <div class="card-body">
+                        <div class="card-body" style="margin-left:8%">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
