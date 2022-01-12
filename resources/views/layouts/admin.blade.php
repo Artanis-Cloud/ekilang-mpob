@@ -21,28 +21,39 @@
 <body>
     <div id="app">
         <div id="sidebar" class='active'>
-            <div class="sidebar-wrapper active" style="background-color: rgba(87, 168, 137, 0.664)">
-                <div class="mt-2 sidebar-header">
-                    <h2 style="text-align:left; font-family:Verdana; margin-right:30%; color: rgb(78, 73, 57)"><b>
-                            E-Kilang </b>
-                    </h2>
+            <div class="sidebar-wrapper active" style="background-color: rgb(120, 163, 147)">
+                <div class=" sidebar-header" style="margin-bottom: -20%;height:110px;
+                border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
+                box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color: rgb(179, 204, 195)">
+
+                    <img src="{{ asset('/mpob.png') }}"
+                        style="float:left; margin-right:10%; width:60px; height:55px">
+                    {{-- <strong>E-Kilang</strong><br />
+                    <span>description</span> --}}
+
+                    <h4
+                        style="text-align:left; font-family:Verdana; margin-left:15%; margin-top:5%; color: rgb(78, 73, 57)">
+                        <b>
+                            E-Kilang</b>
+                    </h4>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
-                    <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px">
-                    <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px">
+                    {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
+                    {{-- <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px"> --}}
 
                 </div>
+                <br>
                 <div class="sidebar-menu">
                     <ul class="menu">
 
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Menu Penyelenggaraan</li>
+                        <li class='mt-2 sidebar-title' style="color: rgb(54, 51, 41)">Menu Penyelenggaraan</li>
 
 
                         <li class="sidebar-item ">
                             <a href="{{ route('admin.kilangbuah') }}" class='sidebar-link'>
-                            {{-- <a href="index.html" > --}}
+                            {{-- <a href="index.html" class='sidebar-link'> --}}
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">Kilang Buah</span>
+                                <span style="color: rgb(0, 0, 0)">1. Daftar Pelesen</span>
                             </a>
 
                         </li>
@@ -53,90 +64,21 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Kilang Penapis</span>
+                                <span style="color: rgb(0, 0, 0); ">2. Tukar Kata Laluan</span>
                             </a>
 
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-alert.html">Alert</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-badge.html">Badge</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-breadcrumb.html">Breadcrumb</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-buttons.html">Buttons</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-card.html">Card</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-carousel.html">Carousel</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-dropdowns.html">Dropdowns</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-list-group.html">List Group</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-modal.html">Modal</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-navs.html">Navs</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-pagination.html">Pagination</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-progress.html">Progress</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-spinners.html">Spinners</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-tooltips.html">Tooltips</a>
-                                </li>
-
-                            </ul> --}}
 
                         </li>
 
                         <li class="sidebar-item">
                             <a href="{{ route('admin.kilangisirung') }}" class='sidebar-link'>
                             {{-- <a href="#" class='sidebar-link'> --}}
-                            <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
+                                <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); margin-left:21px ">Kilang Isirung</span>
+                                <span style="color: rgb(0, 0, 0); margin-left:21px ">3. Daftar Penyata Bulanan Baru</span>
                             </a>
 
-                            {{-- <ul class="submenu ">
 
-                                <li>
-                                    <a href="component-extra-avatar.html">Avatar</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-extra-divider.html">Divider</a>
-                                </li>
-
-                            </ul> --}}
 
                         </li>
 
@@ -145,20 +87,9 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57);">Kilang Oleokimia</span>
+                                <span style="color: rgb(0, 0, 0);">4. E-Kilang ke PLEID</span>
                             </a>
 
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-extra-avatar.html">Avatar</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-extra-divider.html">Divider</a>
-                                </li>
-
-                            </ul> --}}
 
                         </li>
                         <li class="sidebar-item">
@@ -166,63 +97,84 @@
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57);">Pusat Simpanan</span>
+                                <span style="color: rgb(0, 0, 0);">5. Penyata Bulanan Belum Dihantar</span>
                             </a>
-
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-extra-avatar.html">Avatar</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-extra-divider.html">Divider</a>
-                                </li>
-
-                            </ul> --}}
 
                         </li>
                         <li class="sidebar-item">
                             {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                            {{-- <a href="#" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57)">E-Biodiesel</span>
+                                <span style="color: rgb(0, 0, 0)">6. Papar & Cetak Penyata Bulanan</span>
                             </a>
 
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-extra-avatar.html">Avatar</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-extra-divider.html">Divider</a>
-                                </li>
-
-                            </ul> --}}
-
-                        {{-- </li>
-                        <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                                <i class="fas fa-briefcase" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                {{-- <span style="color: rgb(78, 73, 57)">MPOB (EL) MF 4A - QC/MF/1</span>
-                            </a> --}}
-
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="component-extra-avatar.html">Avatar</a>
-                                </li>
-
-                                <li>
-                                    <a href="component-extra-divider.html">Divider</a>
-                                </li>
-
-                            </ul> --}}
 
                         </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(0, 0, 0)">7. Porting Maklumat</span>
+                            </a>
+
+
+                        </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(0, 0, 0)">8. Port Data</span>
+                            </a>
+
+
+                        </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(0, 0, 0)">9. Penyata Bulan Terdahulu</span>
+                            </a>
+
+
+                        </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(0, 0, 0)">10. Port Data Ke Dynamic Query</span>
+                            </a>
+
+
+                        </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(0, 0, 0)">11. Emel Pertanyaan / Pindaan / Cadangan</span>
+                            </a>
+
+
+                        </li>
+                        <li class="sidebar-item">
+                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
+                             <a href="#" class='sidebar-link'>
+                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
+                                <span style="color: rgb(0, 0, 0)">12. Validasi</span>
+                            </a>
+
+
+                        </li>
+
+
+                        {{-- </li> --}}
+
                         <br>
 
                         <li class='sidebar-title' style="color: rgb(54, 51, 41)">Tetapan Akaun</li>
@@ -231,36 +183,10 @@
                             <a href="#" class='sidebar-link'>
                                 <i class="fas fa-user" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="file-text" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Akaun Pentadbir</span>
+                                <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
                             </a>
 
-                            {{-- <ul class="submenu ">
 
-                                <li>
-                                    <a href="form-element-input.html">Input</a>
-                                </li>
-
-                                <li>
-                                    <a href="form-element-input-group.html">Input Group</a>
-                                </li>
-
-                                <li>
-                                    <a href="form-element-select.html">Select</a>
-                                </li>
-
-                                <li>
-                                    <a href="form-element-radio.html">Radio</a>
-                                </li>
-
-                                <li>
-                                    <a href="form-element-checkbox.html">Checkbox</a>
-                                </li>
-
-                                <li>
-                                    <a href="form-element-textarea.html">Textarea</a>
-                                </li>
-
-                            </ul> --}}
 
                         </li>
 
@@ -268,7 +194,7 @@
                             <a href="form-layout.html" class='sidebar-link'>
                                 <i class="fa fa-gear" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layout" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Tetapan</span>
+                                <span style="color: rgb(0, 0, 0); ">Tetapan</span>
                             </a>
 
                         </li>
@@ -277,147 +203,12 @@
                             <a href="form-editor.html" class='sidebar-link'>
                                 <i class="fa fa-sign-out" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layers" width="20"></i> --}}
-                                <span style="color: rgb(78, 73, 57); ">Log Keluar</span>
+                                <span style="color: rgb(0, 0, 0); ">Log Keluar</span>
                             </a>
 
                         </li>
 
-                        {{-- <li class="sidebar-item ">
-                            <a href="table.html" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="grid" width="20"></i> --}}
-                                {{-- <span style="color: rgb(78, 73, 57); ">Kilang E-Biodiesel</span>
-                            </a>
 
-                        </li>
-
-                        <li class="sidebar-item ">
-                            <a href="table-datatable.html" class='sidebar-link'>
-                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i> --}}
-                                {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                {{-- <span style="color: rgb(78, 73, 57); ">Pusat Simpanan</span>
-                            </a>
-
-                        </li>
-
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Bantuan</li>
-
-                        <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                                <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i> --}}
-                                {{-- <i data-feather="user" width="20"></i> --}}
-                                {{-- <span style="color: rgb(78, 73, 57); ">Produk Sawit</span>
-                            </a> --}}
-
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="ui-chatbox.html">Chatbox</a>
-                                </li>
-
-                                <li>
-                                    <a href="ui-pricing.html">Pricing</a>
-                                </li>
-
-                                <li>
-                                    <a href="ui-todolist.html">To-do List</a>
-                                </li>
-
-                            </ul> --}}
-
-                        {{-- </li>
-
-                        <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                                <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                {{-- <span style="color: rgb(78, 73, 57); ">Negara</span>
-                            </a> --}}
-
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="ui-chart-chartjs.html">ChartJS</a>
-                                </li>
-
-                                <li>
-                                    <a href="ui-chart-apexchart.html">Apexchart</a>
-                                </li>
-
-                            </ul> --}}
-
-                        {{-- </li>
-
-                        <li class="sidebar-item">
-                            <a href="#" class='sidebar-link'>
-                                <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i> --}}
-                                {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                {{-- <span style="color: rgb(78, 73, 57); ">Panduan Web</span>
-                            </a> --}}
-
-                            {{-- <ul class="submenu ">
-
-                                <li>
-                                    <a href="ui-chart-chartjs.html">ChartJS</a>
-                                </li>
-
-                                <li>
-                                    <a href="ui-chart-apexchart.html">Apexchart</a>
-                                </li>
-
-                            </ul> --}}
-
-                        {{-- </li> --}}
-
-                        {{-- <li class='sidebar-title'>Pages</li>
-
-                        <li class="sidebar-item has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i data-feather="user" width="20"></i>
-                                <span>Authentication</span>
-                            </a>
-
-                            <ul class="submenu ">
-
-                                <li>
-                                    <a href="auth-login.html">Login</a>
-                                </li>
-
-                                <li>
-                                    <a href="auth-register.html">Register</a>
-                                </li>
-
-                                <li>
-                                    <a href="auth-forgot-password.html">Forgot Password</a>
-                                </li>
-
-                            </ul>
-
-                        </li> --}}
-
-                        {{-- <li class="sidebar-item has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i data-feather="alert-circle" width="20"></i>
-                                <span>Errors</span>
-                            </a>
-
-                            <ul class="submenu ">
-
-                                <li>
-                                    <a href="error-403.html">403</a>
-                                </li>
-
-                                <li>
-                                    <a href="error-404.html">404</a>
-                                </li>
-
-                                <li>
-                                    <a href="error-500.html">500</a>
-                                </li>
-
-                            </ul>
-
-                        </li> --}}
 
                     </ul>
                 </div>

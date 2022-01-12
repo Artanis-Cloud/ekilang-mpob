@@ -114,8 +114,6 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
-
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
@@ -123,7 +121,7 @@
 
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Maklumat Asas Pelesen</h3>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
                                         <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan </i>
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
@@ -133,7 +131,7 @@
                                     <div class="container center mt-5" >
                                         <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
                                             <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                                class="text-right col-sm-5 control-label required col-form-label align-items-center">
                                                 Alamat Premis Berlesen</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
@@ -144,16 +142,16 @@
                                                     </div>
                                                 @enderror --}}
                                             </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%; margin-bottom:1%">
+                                            <div class="col-md-6" style="margin-left: 41.6%; ">
                                                 <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
                                                             name="lname-column">
                                             </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%">
+                                            <div class="col-md-6" style="margin-left: 41.6%;">
                                                 <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 3"
                                                             name="lname-column">
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:1%">
+                                        <div class="row" style="margin-top:-2%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Poskod</label>
@@ -203,7 +201,7 @@
                                                             name="lname-column">
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:1%">
+                                        <div class="row" style="margin-top:-2%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Poskod</label>
@@ -276,7 +274,7 @@
                                         <div class="row" style="margin-bottom:2.5%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Emel</label>
+                                                Nama Pegawai Melapor</label>
                                             <div class="col-md-6">
                                                 <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Melapor"
                                                             name="email-id-column">

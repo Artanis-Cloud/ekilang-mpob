@@ -114,18 +114,22 @@ class KilangController extends Controller
     public function admin_1daftarpelesen()
     {
 
-        // $breadcrumbs    = [
-        //     ['link' => route('home'), 'name' => "Laman Utama"],
-        //     ['link' => route('jenis-kayu-kumai', date('Y')), 'name' => "Kemaskini Jenis Kayu Kumai"],
-        // ];
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard2'), 'name' => "Laman Utama"],
+            ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+        ];
 
-        // $kembali = route('home');
+        $kembali = route('admin.dashboard2');
 
-        // $returnArr = [
-        //     'breadcrumbs' => $breadcrumbs,
-        //     'kembali'     => $kembali,
-        // ];
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
 
-        return view('admin.1daftarpelesen');
+
+
+        return view('admin.1daftarpelesen', compact('returnArr', 'layout'));
+
     }
 }
