@@ -308,6 +308,27 @@ class KilangBuahController extends Controller
         return view('users.KilangBuah.try', compact('returnArr', 'layout'));
     }
 
+    public function try2()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('buah.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
+        ];
+
+        $kembali = route('buah.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kbuah';
+
+
+
+        return view('users.try2', compact('returnArr', 'layout'));
+    }
+
 
 
 

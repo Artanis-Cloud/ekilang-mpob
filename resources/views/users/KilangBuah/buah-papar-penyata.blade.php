@@ -7,18 +7,18 @@
 
 
 
-
+{{--
 
     <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
 
-  
+
     <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
     <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
 
-
+ --}}
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
@@ -236,7 +236,7 @@
                 (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
         </b> </p>
 
-    <table border="1" width="650" bordercolor="#000000" cellspacing="0" cellpadding="0" bordercolorlight="#FFFFFF"
+    <table border="1" width="650" bordercolor="#000000" cellspacing="0" cellpadding="5" bordercolorlight="#FFFFFF"
         bordercolordark="#000000">
         <tbody>
             <tr>
@@ -455,7 +455,7 @@
             <font size="3" color="0000FF">BAHAGIAN II : MAKLUMAT JAM PENGILANGAN, KADAR PERAHAN DAN HARGA </font>
         </b> </p>
 
-    <table border="0" width="460" cellspacing="0" cellpadding="0">
+    <table border="0" width="460" cellspacing="2" cellpadding="2">
         <tbody>
             <tr>
                 <td width="380">
@@ -650,7 +650,7 @@
         </font>
     </p>
 
-    <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0" bordercolorlight="#FFFFFF"
+    <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="5" bordercolorlight="#FFFFFF"
         bordercolordark="#000000">
         <tbody>
             <tr>
@@ -734,7 +734,7 @@
         <font size="3" color="#0000FF"><b>BAHAGIAN IV : EDARAN/JUALAN MINYAK SAWIT MENTAH (CPO) (01) </b></font>
     </p>
 
-    <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0" bordercolorlight="#FFFFFF"
+    <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="5" bordercolorlight="#FFFFFF"
         bordercolordark="#000000">
         <tbody>
             <tr>
@@ -836,7 +836,7 @@
                 (51)</b></font>
     </p>
 
-    <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0" bordercolorlight="#FFFFFF"
+    <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="5" bordercolorlight="#FFFFFF"
         bordercolordark="#000000">
         <tbody>
             <tr>
@@ -952,7 +952,7 @@
 
     </div>
 
-    <!-- Vertically Centered modal Modal -->
+    {{-- <!-- Vertically Centered modal Modal -->
     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
@@ -985,7 +985,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- <p><a href="adsubmenu.php">Keluar Ke Menu Penyelenggaraan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="proses6.php">Proses 6</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p> --}}
