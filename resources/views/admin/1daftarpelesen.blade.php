@@ -249,7 +249,7 @@
                                                     </div>
                                                 @enderror --}}
                                             </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%; margin-bottom:1%">
+                                            <div class="col-md-6" style="margin-left: 41.6%">
                                                 <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
                                                             name="lname-column">
                                             </div>

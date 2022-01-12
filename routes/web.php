@@ -53,7 +53,7 @@ Route::get('admin/pusat-simpanan', [App\Http\Controllers\Admin\KilangController:
 Route::get('admin/e-biodiesel', [App\Http\Controllers\Admin\KilangController::class, 'admin_ebiodiesel'])->name('admin.ebiodiesel');
 Route::get('admin/1daftarpelesen', [App\Http\Controllers\Admin\KilangController::class, 'admin_1daftarpelesen'])->name('admin.1daftarpelesen');
 Route::get('admin/1daftarpelesen', [App\Http\Controllers\Admin\KilangController::class, 'admin_1daftarpelesen'])->name('admin.1daftarpelesen');
-
+Route::get('admin/senarai-pelesen', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraipelesen'])->name('admin.senaraipelesen');
 
 //Pelesen - Kilang Buah
 Route::get('buah/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'buah_dashboard'])->name('buah.dashboard');

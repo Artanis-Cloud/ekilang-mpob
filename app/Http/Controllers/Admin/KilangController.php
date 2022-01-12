@@ -132,4 +132,26 @@ class KilangController extends Controller
         return view('admin.1daftarpelesen', compact('returnArr', 'layout'));
 
     }
+
+    public function admin_senaraipelesen()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard2'), 'name' => "Laman Utama"],
+            ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+        ];
+
+        $kembali = route('admin.dashboard2');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.senarai-pelesen', compact('returnArr', 'layout'));
+
+    }
 }
