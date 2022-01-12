@@ -93,6 +93,7 @@ Route::get('isirung/dashboard', [App\Http\Controllers\Users\DashboardUserControl
 
 
 Route::get('/try', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try'])->name('try');
+Route::get('/try2', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try2'])->name('try2');
 
 
 

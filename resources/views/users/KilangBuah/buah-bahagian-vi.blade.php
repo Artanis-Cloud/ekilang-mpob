@@ -36,6 +36,9 @@
 
 
 
+
+
+
         <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
 
         <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
@@ -507,6 +510,85 @@
                                             </div>
                                         </div>
                                     </section>
+
+
+            {{-- <div class="main-content container-fluid">
+
+                <section class="section">
+                    <div class="card">
+
+                        <div class="card-body">
+                            <table class='table table-striped' id="table1">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>City</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Graiden</td>
+                                        <td>vehicula.aliquet@semconsequat.co.uk</td>
+                                        <td>076 4820 8838</td>
+                                        <td>Offenburg</td>
+                                        <td>
+                                            <span class="badge bg-success">Active</span>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </section>
+            </div> --}}
+
+            <div class="text-center table-responsive">
+                <table id="example" class="display" style="width:100%">
+                    <thead style="background-color:rgb(196, 188, 186);">
+                        <tr>
+
+                            <th>Bil</th>
+                            <th>Negeri</th>
+                            <th>Daerah Hutan</th>
+                            <th>Nama Kilang</th>
+                            <th>No. SSM</th>
+                            <th>No. Lesen</th>
+                            <th>Tahun</th>
+                            <th>Status Borang</th>
+                            <th>Tindakan</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{-- @foreach ($form_a as $data) --}}
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td style="text-align:left"></td>
+                                <td></td>
+                                <td></td>
+
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    {{-- @if($data->status == "Lulus")
+                                        <a href="" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Kemaskini Borang"><i class="far fa-edit"></i></a>
+                                    @else
+                                        <button class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Borang tidak diluluskan lagi  "><i class="far fa-edit"></i></button>
+                                    @endif --}}
+                                </td>
+                        {{-- @endforeach --}}
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
 
 
 
