@@ -246,7 +246,7 @@
 
                     {{-- <img src="theme/images/background/favicon.png" height='45px' alt=""> --}}
                     {{-- <img src="theme/images/background/mspo.png" height='60px' alt=""> --}}
-                    <img src="{{ asset('/mpob.png') }}" height='50px' width='70px' alt=""
+                    <img src="{{ asset('/mpob.png') }}" height='50px' width='60px' alt=""
                         style="margin-left:25%; margin-top: 3px;">
                     {{-- <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%"> --}}
                 </a>
@@ -264,8 +264,8 @@
                         <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="d-lg-inline-block">
-                                    <i data-feather="bell" ></i>
+                                <div class="mt-2" >
+                                    <i class="fa fa-bell" style="font-size:18px;" ></i>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
