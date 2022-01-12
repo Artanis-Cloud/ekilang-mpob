@@ -60,23 +60,26 @@
     <div id="app">
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active" style="background-color: rgba(249, 208, 94)">
-                <div class="mt-3 sidebar-header" style="margin-bottom: -5%">
+                <div class=" sidebar-header" style="margin-bottom: -20%;
+                border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
+                box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color:  rgb(243, 213, 128)">
 
-                    <img src="{{ asset('/mpob.png') }}"
-                        style="float:left; margin-right:10%; width:60px; height:55px">
+                <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
+                 width:50px; height:50px">
                     {{-- <strong>E-Kilang</strong><br />
                     <span>description</span> --}}
 
-                    <h4
-                        style="text-align:left; font-family:Verdana; margin-left:15%; margin-top:5%; margin-bottom:-5% color: rgb(78, 73, 57)">
+                    <h6
+                        style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
                         <b>
-                            E-Kilang </b>
-                    </h4>
+                            E-Kilang</b>
+                    </h6>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
                     {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
                     {{-- <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px"> --}}
 
                 </div>
+                <br>
                 <div class="sidebar-menu">
                     <ul class="menu">
                         {{-- <div class="container" style="margin-top: 30%; margin-left:6%; ">

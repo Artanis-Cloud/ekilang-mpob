@@ -63,30 +63,27 @@
     <div id="app">
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active" style="background-color: rgb(120, 163, 147)">
-                <div class=" sidebar-header" style="margin-bottom: -20%;height:110px;
+                <div class=" sidebar-header" style="margin-bottom: -20%;
                 border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
                 box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color: rgb(179, 204, 195)">
 
-                    <img src="{{ asset('/mpob.png') }}"
-                        style="float:left; margin-right:10%; width:60px; height:55px">
+                <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
+                 width:50px; height:50px">
                     {{-- <strong>E-Kilang</strong><br />
                     <span>description</span> --}}
 
-                    <h4
-                        style="text-align:left; font-family:Verdana; margin-left:15%; margin-top:5%; color: rgb(78, 73, 57)">
+                    <h6
+                        style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
                         <b>
                             E-Kilang</b>
-                    </h4>
+                    </h6>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
                     {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
                     {{-- <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px"> --}}
 
                 </div>
                 <br>
-
-
-
-
+                <br>
                 <div class="sidebar-menu">
                     <ul class="menu">
 
@@ -265,7 +262,7 @@
 
 
             <nav class="navbar navbar-header navbar-expand navbar-light"
-             style=" background:transparent; border-bottom: 2px solid rgba(0, 0, 0, 0.131); border-height:10px; height: 110px">
+             style=" background:transparent; border-bottom: 2px solid rgba(0, 0, 0, 0.131); border-height:10px;">
 
                 <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
                 <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -278,12 +275,12 @@
 
                     {{-- <img src="theme/images/background/favicon.png" height='45px' alt=""> --}}
                     {{-- <img src="theme/images/background/mspo.png" height='60px' alt=""> --}}
-                    <img src="{{ asset('/mpob.png') }}" height='60px' width='70px' alt=""
-                        style="margin-left:25%; margin-top: 15px;">
+                    <img src="{{ asset('/mpob.png') }}" height='50px' width='60px' alt=""
+                        style="margin-left:25%; margin-top: 3px;">
                     {{-- <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%"> --}}
                 </a>
 
-                <span class="mx-2 mt-3 mb-0 text-center navbar-brand h1"
+                <span class="mx-2 mt-2 mb-0 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
                         style="margin-left:10%;">
                         E-Kilang </b></span>
@@ -296,8 +293,8 @@
                         <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="d-lg-inline-block">
-                                    <i data-feather="bell"></i>
+                                <div class="mt-2" >
+                                    <i class="fa fa-bell" style="font-size:18px;" ></i>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
