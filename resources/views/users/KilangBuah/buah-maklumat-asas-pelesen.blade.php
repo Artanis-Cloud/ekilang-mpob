@@ -124,7 +124,7 @@
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Maklumat Asas Pelesen</h3>
-                                        <h5 style="color: rgb(39, 80, 71); margin-bottom:-5%"><i> Nota : Sila kemaskini jika ada perubahan </i>
+                                        <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan </i>
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
@@ -133,7 +133,7 @@
                                     <div class="container center mt-5" >
                                         <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
                                             <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                class="text-right col-sm-5 control-label col-form-label align-items-center">
                                                 Alamat Premis Berlesen</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
