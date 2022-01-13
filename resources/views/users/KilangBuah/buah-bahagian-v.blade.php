@@ -65,8 +65,8 @@
 
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Bahagian V</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Edaran / Jualan Isirung Sawit (PK) Dalam Negeri
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian V</h3>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Edaran / Jualan Isirung Sawit (PK) Dalam Negeri
                                             (51)
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
