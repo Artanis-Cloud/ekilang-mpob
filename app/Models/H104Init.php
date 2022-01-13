@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class H104Init extends Model
+{
+    use HasFactory;
+
+    /**
+     *
+     * The table associated with the model
+     *
+     * @var string
+     *
+     */
+    protected $table = 'h104_init'; //penyata arkib - kilang oleokimia
+
+    protected $fillable = [
+        'e104_nobatch',
+        'e104_nl',
+        'e104_bln',
+        'e104_thn',
+        'e104_flg',
+        'e104_sdate',
+        'e104_ddate',
+        'e104_a5',
+        'e104_a6',
+        'e104_npg',
+        'e104_jpg',
+
+    ];
+}
