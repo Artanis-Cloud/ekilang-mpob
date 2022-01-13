@@ -19,7 +19,7 @@
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+   
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
@@ -43,6 +43,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
+
+
+
+    <link rel="stylesheet" href="{{ asset('theme/vendors/simple-datatables/style.css') }}">
 
 
 
@@ -397,16 +401,14 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
-    <!-- this file was missing -->
-    {{-- <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> --}}
 
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
-
-    <!-- this file was moved after the jQuery Datatables library was laoded -->
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.9/js/dataTables.bootstrap.min.js"></script>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
+
+
+<script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+
 
 
 <script>
@@ -434,7 +436,7 @@
         // if($('#example').DataTable().clear().destroy()){
         // $('#example').DataTable();
         // }
-    });
+    })
 
     // document.getElementById("form_type").onchange = function() {
     //     myFunction()
@@ -445,6 +447,9 @@
     //     table.clear().draw();
     // }
 </script>
+
+
+
 
 </body>
 

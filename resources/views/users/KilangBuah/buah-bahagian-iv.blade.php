@@ -66,8 +66,8 @@
 
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Bahagian IV</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Edaran / Jualan Minyak Sawit Mentah (CPO) (01)
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian IV</h3>
+                                        <h5 style="color: rgb(39, 80, 71) ; font-size:14px">Edaran / Jualan Minyak Sawit Mentah (CPO) (01)
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>

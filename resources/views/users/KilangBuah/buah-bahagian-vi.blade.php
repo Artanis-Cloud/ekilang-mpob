@@ -21,6 +21,7 @@
             rel="stylesheet">
 
         <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
         <!-- Vendor CSS Files -->
         <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
@@ -31,7 +32,7 @@
         <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
         <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
 
-        <link href="{{ asset('theme/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet" />
+        {{-- <link href="{{ asset('theme/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet" /> --}}
 
 
 
@@ -78,11 +79,11 @@
 
 
         <!-- =======================================================
-                                                                                                                  * Template Name: OnePage - v4.7.0
-                                                                                                                  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                                                                                  * Author: BootstrapMade.com
-                                                                                                                  * License: https://bootstrapmade.com/license/
-                                                                                                                  ======================================================== -->
+                                                                                                                      * Template Name: OnePage - v4.7.0
+                                                                                                                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
+                                                                                                                      * Author: BootstrapMade.com
+                                                                                                                      * License: https://bootstrapmade.com/license/
+                                                                                                                      ======================================================== -->
     </head>
 
 
@@ -139,8 +140,7 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
-                        <br>
+
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
@@ -148,8 +148,8 @@
 
                                     <div class="mb-5 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Bahagian VI</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian VI</h3>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Eksport Produk Sawit
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
@@ -484,7 +484,7 @@
                                             {{-- <div class="card-header">
                                                 Simple Datatable
                                             </div> --}}
-                                            <div class="card-body" id="example">
+
                                                 <table class='table table-striped' id="table1">
                                                     <thead>
                                                         <tr style="text-align: center">
@@ -505,14 +505,22 @@
                                                             <td></td>
                                                             <td></td>
                                                         </tr>
+                                                        <tr>
+                                                            <td>KKK</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
-                                            </div>
+
                                         </div>
                                     </section>
 
 
-            {{-- <div class="main-content container-fluid">
+                                    {{-- <div class="main-content container-fluid">
 
                 <section class="section">
                     <div class="card">
@@ -547,48 +555,8 @@
                 </section>
             </div> --}}
 
-            <div class="text-center table-responsive">
-                <table id="example" class="display" style="width:100%">
-                    <thead style="background-color:rgb(196, 188, 186);">
-                        <tr>
 
-                            <th>Bil</th>
-                            <th>Negeri</th>
-                            <th>Daerah Hutan</th>
-                            <th>Nama Kilang</th>
-                            <th>No. SSM</th>
-                            <th>No. Lesen</th>
-                            <th>Tahun</th>
-                            <th>Status Borang</th>
-                            <th>Tindakan</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{-- @foreach ($form_a as $data) --}}
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td style="text-align:left"></td>
-                                <td></td>
-                                <td></td>
-
-                                <td></td>
-                                <td></td>
-                                <td>
-                                    {{-- @if($data->status == "Lulus")
-                                        <a href="" class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Kemaskini Borang"><i class="far fa-edit"></i></a>
-                                    @else
-                                        <button class="btn btn-dark" data-toggle="tooltip" data-placement="bottom" title="Borang tidak diluluskan lagi  "><i class="far fa-edit"></i></button>
-                                    @endif --}}
-                                </td>
-                        {{-- @endforeach --}}
-                        </tr>
-                    </tbody>
-                </table>
-
-            </div>
 
 
 
@@ -656,43 +624,40 @@
 
                                 </div>
 
-                                    <!-- Vertically Centered modal Modal -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                        aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close"
-                                                        data-bs-dismiss="modal" aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block"
-                                                            style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
-                                                    </button>
-                                                </div>
+                                <!-- Vertically Centered modal Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                        role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                    PENGESAHAN</h5>
+                                                <button type="button" class="close" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <i data-feather="x"></i>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>
+                                                    Anda pasti mahu menyimpan maklumat ini?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-secondary"
+                                                    data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                </button>
+                                                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Ya</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             <br>
                             </form>
 
@@ -703,31 +668,6 @@
                 <br>
                 <br>
                 <br>
-
-
-
-                {{-- </div>
-                                                                    </div> --}}
-
-                {{-- </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                {{-- </div>
-
-                    </div> --}}
 
 
 
@@ -760,10 +700,10 @@
     <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('theme/js/app.js') }}"></script>
 
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('theme/js/main.js') }}"></script>
 
-    <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
+    {{-- <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script> --}}
 
     {{-- <script>
         $(document).ready(function() {
@@ -838,6 +778,12 @@
                 return false;
             return true;
         }
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#example').DataTable();
+        });
     </script>
 
     </body>

@@ -65,8 +65,8 @@
 
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Bahagian II</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Maklumat Jam Pengilangan, Kadar Perahan Dan
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian II</h3>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Jam Pengilangan, Kadar Perahan Dan
                                             Harga</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
@@ -532,7 +532,7 @@
                                             </div>
                                         </div>
                                         {{-- </div> --}}
-                                       
+
                                     </form>
 
                                 </div>
