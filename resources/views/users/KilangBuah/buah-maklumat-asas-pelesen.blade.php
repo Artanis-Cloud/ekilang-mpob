@@ -135,7 +135,7 @@
                                                 Alamat Premis Berlesen</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                            name="lname-column">
+                                                            name="lname-column" value="{{ $pelesen->e91_nl }}">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>

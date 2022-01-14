@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users\KilangBuah;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\E91Init;
 
 class KilangBuahController extends Controller
 {
@@ -30,9 +31,17 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        // $pelesen = E91Init::get();
+        $pelesen = E91Init::where('e91_nl', '003483504002')->first();
+        // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
 
 
-        return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout'));
+        //dd($pelesen);
+
+
+
+
+        return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout','pelesen'));
     }
 
     public function buah_tukarpassword()
