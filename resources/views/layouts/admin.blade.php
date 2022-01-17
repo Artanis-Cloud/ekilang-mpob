@@ -85,7 +85,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.kilangoleokimia') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.4ekilangpleid') }}" class='sidebar-link'>
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}

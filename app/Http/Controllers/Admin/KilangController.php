@@ -242,4 +242,26 @@ public function admin_8portdata()
 }
 
 
+
+    public function admin_4ekilangpleid()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Daftar Penyata Bulanan Baru"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.4EKilang-PLEID', compact('returnArr', 'layout'));
+
+    }
 }
