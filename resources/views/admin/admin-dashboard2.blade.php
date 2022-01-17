@@ -113,7 +113,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.kilangisirung') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.daftarpenyata') }}" class='sidebar-link'>
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
@@ -460,7 +460,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-file-signature fa-xs"></i></div>
-                                <h4 class="title"><a href="">3. Daftar Penyata Bulanan Baru</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.daftarpenyata') }}">3. Daftar Penyata Bulanan Baru</a></h4>
                                 <p class="description">Daftar penyata bulanan baru bagi semua pelesen (Initialization
                                     Penyata Bulanan)</p>
                             </div>
