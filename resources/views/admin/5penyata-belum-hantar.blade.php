@@ -64,8 +64,8 @@
 
                                 <div class=" text-center">
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Pelesen Berdaftar</h3>
-
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Buah - MPOB(EL) MF 4</h3>
+                                    <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum Dihantar Sehingga Tarikh</h5>
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>
@@ -86,7 +86,7 @@
                                                         <table class="table table-bordered mb-0">
                                                             <thead style="text-align: center">
                                                                 <tr>
-                                                                    <th>No</th>
+                                                                    <th>Pilih?</th>
                                                                     <th>No. Lesen<br>
                                                                         </th>
                                                                     <th>Nama Premis
@@ -95,24 +95,13 @@
                                                                     </th>
                                                                     <th>No. Telefon
                                                                     </th>
-                                                                    <th>Kod Pegawai
-                                                                    </th>
-                                                                    <th>No. Siri
-                                                                    </th>
-                                                                    <th>Status E-Kilang
-                                                                    </th>
-                                                                    <th>Status E-Stok
-                                                                    </th>
-                                                                    <th>Direktori
-                                                                    </th>
-                                                                    <th>Pretasi OER
-                                                                    </th>
+
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
                                                                     <td>
-                                                                        x
+                                                                        <input type="checkbox">&nbspYa
                                                                     </td>
                                                                     <td >
                                                                         x
@@ -121,24 +110,6 @@
                                                                         x
                                                                     </td>
                                                                     <td>
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td>
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
                                                                         x
                                                                     </td>
                                                                     <td >
@@ -174,9 +145,16 @@
                                                     </div> --}}
 
 
-                                                    <div class="text-left col-md-5">
-                                                        <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
-                                                            style="float: left"> Tambah Pelesen Baru</a>
+                                                    <div class="text-left col-md-8">
+                                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                         data-bs-target="#exampleModalCenter">Email Peringatan</button>
+
+                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                        data-bs-target="#exampleModalCenter">Email Peringatan Jan 2008</button>
+
+                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float:right"
+                                                        data-bs-target="#exampleModalCenter">Surat Bayaran</button>
+
                                                     </div>
 
                                             <div class="row" style=" float:right">

@@ -61,7 +61,7 @@
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 4</h3>
-                                        <h5 style="color: rgb(39, 80, 71); "><i>Porting Penyata Bulanan Kilang Buah</i>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Porting Penyata Bulanan Kilang ke PLEID
                                         </h5>
                                         <h6 style="color: rgb(242, 68, 68); margin-bottom:1%"><i>
                                             Perhatian: Proses ini akan memindahkan semua penyata yang telah dihantar ke sistem PLEID</i>
