@@ -125,8 +125,8 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.kilangoleokimia') }}" class='sidebar-link'>
-                                {{-- <a href="#" class='sidebar-link'> --}}
+                            <a href="{{ route('admin.4ekilangpleid') }}" class='sidebar-link'>
+                            {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0);">4. E-Kilang ke PLEID</span>
@@ -440,7 +440,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-file-export fa-xs"></i></div>
-                                <h4 class="title"><a href="">4. E-Kilang ke PLEID</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.4ekilangpleid') }}">4. E-Kilang ke PLEID</a></h4>
                                 <p class="description">Pindah data dari E-Kilang ke PLEID</p>
                             </div>
                         </div>
