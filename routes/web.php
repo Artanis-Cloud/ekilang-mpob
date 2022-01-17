@@ -55,6 +55,7 @@ Route::get('admin/4EKilang-PLEID', [App\Http\Controllers\Admin\KilangController:
 Route::get('admin/9-penyata-terdahulu', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulu'])->name('admin.9penyataterdahulu');
 Route::get('admin/10-port-data-to-dq', [App\Http\Controllers\Admin\KilangController::class, 'admin_10portdatatodq'])->name('admin.10portdatatodq');
 Route::get('admin/11-emel', [App\Http\Controllers\Admin\KilangController::class, 'admin_11emel'])->name('admin.11emel');
+Route::get('admin/12-validation', [App\Http\Controllers\Admin\KilangController::class, 'admin_12validation'])->name('admin.12validation');
 Route::get('admin/5penyata-belum-hantar', [App\Http\Controllers\Admin\KilangController::class, 'admin_5penyatabelumhantar'])->name('admin.5penyatabelumhantar');
 Route::get('admin/6penyata-papar-cetak', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetak'])->name('admin.6penyatapaparcetak');
 

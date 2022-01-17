@@ -205,7 +205,7 @@
                         </li>
                         <li class="sidebar-item">
                             {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.12validation') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0)">12. Validasi</span>
@@ -612,7 +612,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-check-double fa-xs"></i></div>
-                                <h4 class="title"><a href="">12. Validasi</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.12validation') }}">12. Validasi</a></h4>
                                 <p class="description">Validasi - Semakan FFBProses dan Kapasiti</p>
                             </div>
                         </div>
