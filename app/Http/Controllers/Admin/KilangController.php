@@ -179,11 +179,13 @@ class KilangController extends Controller
     }
 
     public function admin_daftarpenyata()
+
     {
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.daftarpenyata'), 'name' => "Daftar Penyata Bulanan Baru"],
+
         ];
 
         $kembali = route('admin.dashboard');
@@ -198,5 +200,27 @@ class KilangController extends Controller
 
         return view('admin.daftar-penyata', compact('returnArr', 'layout'));
 
+
     }
+public function admin_7portingmaklumat()
+{
+
+    $breadcrumbs    = [
+        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+        ['link' => route('admin.7portingmaklumat'), 'name' => "Porting Maklumat"],
+    ];
+
+    $kembali = route('admin.dashboard');
+
+    $returnArr = [
+        'breadcrumbs' => $breadcrumbs,
+        'kembali'     => $kembali,
+    ];
+    $layout = 'layouts.admin';
+
+    return view('admin.7portingmaklumat', compact('returnArr', 'layout'));
+
+}
+
+
 }

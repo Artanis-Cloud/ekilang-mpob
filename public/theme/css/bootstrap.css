@@ -2262,7 +2262,7 @@ progress {
     width: 100%;
     margin-top:2%;
     padding: .1rem 0.1rem;
-    font-size: .7rem;
+    /* font-size: .7rem; */
     font-weight: 400;
     line-height: 2.5;
     color: #555252;
