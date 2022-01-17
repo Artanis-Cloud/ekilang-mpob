@@ -207,7 +207,7 @@ public function admin_7portingmaklumat()
 
     $breadcrumbs    = [
         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        ['link' => route('admin.7portingmaklumat'), 'name' => "Porting Maklumat"],
+        ['link' => route('admin.7portingmaklumat'), 'name' => "Port Maklumat"],
     ];
 
     $kembali = route('admin.dashboard');
@@ -219,6 +219,25 @@ public function admin_7portingmaklumat()
     $layout = 'layouts.admin';
 
     return view('admin.7portingmaklumat', compact('returnArr', 'layout'));
+
+}
+public function admin_8portdata()
+{
+
+    $breadcrumbs    = [
+        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+        ['link' => route('admin.8portdata'), 'name' => "Port Data"],
+    ];
+
+    $kembali = route('admin.dashboard');
+
+    $returnArr = [
+        'breadcrumbs' => $breadcrumbs,
+        'kembali'     => $kembali,
+    ];
+    $layout = 'layouts.admin';
+
+    return view('admin.8portdata', compact('returnArr', 'layout'));
 
 }
 

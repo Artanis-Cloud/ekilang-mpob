@@ -114,18 +114,18 @@
 
                         </li>
                         <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                             <a href="#" class='sidebar-link'>
+                            {{-- <a href="{{ route('admin.7portingmaklumat') }}" class='sidebar-link'> --}}
+                             <a href="{{ route('admin.7portingmaklumat') }}"" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">7. Porting Maklumat</span>
+                                <span style="color: rgb(0, 0, 0)">7. Port Maklumat</span>
                             </a>
 
 
                         </li>
                         <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                             <a href="#" class='sidebar-link'>
+                            {{-- <a href="{{ route('admin.8portdata') }}" class='sidebar-link'> --}}
+                             <a href="{{ route('admin.8portdata') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0)">8. Port Data</span>

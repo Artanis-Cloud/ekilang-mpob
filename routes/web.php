@@ -50,6 +50,7 @@ Route::get('admin/senarai-pelesen', [App\Http\Controllers\Admin\KilangController
 Route::get('admin/tukar-password', [App\Http\Controllers\Admin\KilangController::class, 'admin_tukarpassword'])->name('admin.tukarpassword');
 Route::get('admin/daftar-penyata', [App\Http\Controllers\Admin\KilangController::class, 'admin_daftarpenyata'])->name('admin.daftarpenyata');
 Route::get('admin/7-porting-maklumat', [App\Http\Controllers\Admin\KilangController::class, 'admin_7portingmaklumat'])->name('admin.7portingmaklumat');
+Route::get('admin/8-port-data', [App\Http\Controllers\Admin\KilangController::class, 'admin_8portdata'])->name('admin.8portdata');
 
 //Pelesen - Kilang Buah
 Route::get('buah/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'buah_dashboard'])->name('buah.dashboard');
