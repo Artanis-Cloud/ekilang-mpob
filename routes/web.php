@@ -58,6 +58,7 @@ Route::get('admin/11-emel', [App\Http\Controllers\Admin\KilangController::class,
 Route::get('admin/5penyata-belum-hantar', [App\Http\Controllers\Admin\KilangController::class, 'admin_5penyatabelumhantar'])->name('admin.5penyatabelumhantar');
 Route::get('admin/6penyata-papar-cetak', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetak'])->name('admin.6penyatapaparcetak');
 
+Route::get('try3', [App\Http\Controllers\Admin\KilangController::class, 'try3'])->name('try3');
 
 
 //Pelesen - Kilang Buah
