@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'pelesen' => [
+            'driver' => 'session',
+            'provider' => 'pelesen',
+        ],
     ],
 
     /*
@@ -60,6 +65,12 @@ return [
     */
 
     'providers' => [
+
+        'pelesen' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\RegPelesen::class,
+        ],
+
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,

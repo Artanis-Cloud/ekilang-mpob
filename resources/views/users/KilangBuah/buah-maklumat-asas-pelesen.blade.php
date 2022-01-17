@@ -135,7 +135,7 @@
                                                 Alamat Premis Berlesen</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                            name="lname-column" value="{{ $pelesen->e91_nl }}">
+                                                            name="lname-column" value="{{ $pelesen->e_ap1 }}">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -144,11 +144,11 @@
                                             </div>
                                             <div class="col-md-6" style="margin-left: 41.6%; ">
                                                 <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
-                                                            name="lname-column">
+                                                            name="lname-column" value="{{ $pelesen->e_ap2 }}">
                                             </div>
                                             <div class="col-md-6" style="margin-left: 41.6%;">
                                                 <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 3"
-                                                            name="lname-column">
+                                                            name="lname-column" value="{{ $pelesen->e_ap3 }}">
                                             </div>
                                         </div>
                                         <div class="row" style="margin-top:-2%">
@@ -157,7 +157,7 @@
                                                 Poskod</label>
                                             <div class="col-md-6">
                                                 <input type="email" id="email-id-column" class="form-control" placeholder="Poskod"
-                                                            name="email-id-column">
+                                                            name="email-id-column" >
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>

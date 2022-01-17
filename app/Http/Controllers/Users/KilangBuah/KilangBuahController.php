@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Users\KilangBuah;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\E91Init;
+use App\Models\Pelesen;
+use App\Models\RegPelesen;
+use Illuminate\Support\Facades\Hash;
 
 class KilangBuahController extends Controller
 {
@@ -32,7 +34,7 @@ class KilangBuahController extends Controller
         $layout = 'layouts.kbuah';
 
         // $pelesen = E91Init::get();
-        $pelesen = E91Init::where('e91_nl', '003483504002')->first();
+        $pelesen = Pelesen::where('e_nl', '000101506000')->first();
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
 
 
@@ -411,5 +413,19 @@ class KilangBuahController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function hashPassword()
+    {
+        $users = RegPelesen::get();
+        // dd($users);
+        foreach ($users as $user) {
+            $password = $user->epwd;
+            $hashed_password = Hash::make($password);
+            $user->e_pwd = $hashed_password;
+            $user->save();
+        }
+
+        return redirect()->route('admin.dashboard');
     }
 }
