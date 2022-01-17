@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative"  data-aos-delay="100">
@@ -60,8 +62,8 @@
 
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 2</h3>
-                                        <h5 style="color: rgb(39, 80, 71); "><i>Tukar Kata Laluan</i>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 3</h3>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px ">Daftar Penyata Bulanan Baru
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
@@ -72,7 +74,7 @@
                                         <div class="row" style="margin-bottom:2.5%;  margin-top:-2%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Lesen</label>
+                                                User ID</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="company-column" class="form-control" placeholder=" No. Lesen"
                                                             name="company-column">
@@ -87,7 +89,7 @@
                                         <div class="row" style="margin-bottom:2.5%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kata Laluan Baru (8 Aksara)</label>
+                                                Kata Laluan</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="company-column" class="form-control" placeholder="Kata Laluan Baru (8 Aksara)"
                                                             name="company-column">
@@ -102,9 +104,9 @@
                                         <div class="row" style="margin-bottom:2.5%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kata Laluan Baru Sekali Lagi (8 Aksara)</label>
+                                                Tahun</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder=" Kata Laluan Baru Sekali Lagi (8 Aksara)"
+                                                <input type="text" id="company-column" class="form-control" placeholder="eg. 2000"
                                                             name="company-column">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -114,6 +116,50 @@
                                             </div>
                                         </div>
 
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Bulan</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="company-column" class="form-control" placeholder="eg. 01"
+                                                            name="company-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Tarikh Akhir Submit</label>
+                                            <div class="col-md-6">
+                                                <input type="date" id="company-column" class="form-control" placeholder="Bulan"
+                                                            name="company-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+
+                                        <div class="row" style="margin-bottom:2.5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                No. Lesen (Untuk Initialize satu pelesen)</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="company-column" class="form-control" placeholder="No. Lesen"
+                                                            name="company-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
                                     </div>
 
 
@@ -126,9 +172,11 @@
                                         </div> --}}
                                         <div class="text-right col-md-12 mb-4 ">
                                             <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
-                                        </div>
+                                                style="float: right" data-bs-target="#exampleModalCenter">Initialize Semua</button>
 
+                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                data-bs-target="#exampleModalCenter">Initialize Satu Pelesen</button>
+                                        </div>
                                     </div>
 
                                         <!-- Vertically Centered modal Modal -->

@@ -156,12 +156,12 @@ class KilangController extends Controller
     }
 
 
-    public function admin_tukarpassword()
+    public function admin_2tukarpassword()
     {
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.tukarpassword'), 'name' => "Tukar Kata Laluan"],
+            ['link' => route('admin.2tukarpassword'), 'name' => "Tukar Kata Laluan"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -174,17 +174,17 @@ class KilangController extends Controller
 
 
 
-        return view('admin.tukar-password', compact('returnArr', 'layout'));
+        return view('admin.2tukar-password', compact('returnArr', 'layout'));
 
     }
 
-    public function admin_daftarpenyata()
+    public function admin_3daftarpenyata()
 
     {
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.daftarpenyata'), 'name' => "Daftar Penyata Bulanan Baru"],
+            ['link' => route('admin.3daftarpenyata'), 'name' => "Daftar Penyata Bulanan Baru"],
 
         ];
 
@@ -198,7 +198,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.daftar-penyata', compact('returnArr', 'layout'));
+        return view('admin.3daftar-penyata', compact('returnArr', 'layout'));
 
 
     }
@@ -322,6 +322,51 @@ public function admin_11emel()
 
 
         return view('admin.4EKilang-PLEID', compact('returnArr', 'layout'));
+
+    }
+
+
+    public function admin_5penyatabelumhantar()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.5penyatabelumhantar'), 'name' => "Penyata Bulanan Belum Dihantar"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.5penyata-belum-hantar', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_6penyatapaparcetak()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetak'), 'name' => "Papar & Cetak Penyata Bulanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.6penyata-papar-cetak', compact('returnArr', 'layout'));
 
     }
 }

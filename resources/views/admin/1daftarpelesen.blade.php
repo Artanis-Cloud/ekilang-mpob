@@ -21,7 +21,7 @@
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:white; background-color:#25877bd1">Kembali</a>
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(255, 255, 255); background-color:#25877bd1">Kembali</a>
                             </div>
                             <div class="col-7 align-self-center">
                                 <div class="d-flex align-items-center justify-content-end">
@@ -62,7 +62,7 @@
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 1</h3>
-                                        <h5 style="color: rgb(39, 80, 71); "><i>Maklumat Asas Pelesen</i>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Asas Pelesen
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>

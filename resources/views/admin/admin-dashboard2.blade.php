@@ -101,7 +101,7 @@
 
                         {{-- <li class="sidebar-item has-sub"> --}}
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.tukarpassword') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.2tukarpassword') }}" class='sidebar-link'>
                                 {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
@@ -112,7 +112,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.daftarpenyata') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.3daftarpenyata') }}" class='sidebar-link'>
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
@@ -135,7 +135,7 @@
 
                         </li>
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.pusatsimpanan') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.5penyatabelumhantar') }}" class='sidebar-link'>
                                 {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
@@ -145,7 +145,7 @@
                         </li>
                         <li class="sidebar-item">
                             {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.6penyatapaparcetak') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0)">6. Papar & Cetak Penyata Bulanan</span>
@@ -404,7 +404,7 @@
                                 {{-- <div class="text-center"> --}}
                                 <div class="icon" style="text-align: center"><i class="fas fa-key fa-xs"></i>
                                 </div>
-                                <h4 class="title"><a href="{{ route('admin.tukarpassword') }}">2. Tukar Kata
+                                <h4 class="title"><a href="{{ route('admin.2tukarpassword') }}">2. Tukar Kata
                                         Laluan</a></h4>
                                 <p class="description">Tukar kata laluan pelesen bagi kes lupa laluan</p>
                             </div>
@@ -422,7 +422,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-file-signature fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.daftarpenyata') }}">3. Daftar Penyata Bulanan Baru</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.3daftarpenyata') }}">3. Daftar Penyata Bulanan Baru</a></h4>
                                 <p class="description">Daftar penyata bulanan baru bagi semua pelesen (Initialization
                                     Penyata Bulanan)</p>
                             </div>
@@ -458,8 +458,8 @@
                                 <div class="icon" style="text-align: center"><i class="fas fa-ban fa-xs"></i>
                                 </div>
 
-                                <h4 class="title"><a href="">5. Penyata Bulanan Belum Dihantar</a></h4>
-                                <p class="description"> Senarai penyata bulanan yang belum dihantar</p>
+                                <h4 class="title"><a href="{{ route('admin.5penyatabelumhantar') }}">5. Penyata Bulanan Belum Dihantar</a></h4>
+                                <p class="description">Senarai penyata bulanan yang belum dihantar</p>
                             </div>
                         </div>
 
@@ -475,7 +475,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i class="fa fa-print fa-xs"></i>
                                 </div>
-                                <h4 class="title"><a href="">6. Papar & Cetak Penyata Bulanan</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.6penyatapaparcetak') }}">6. Papar & Cetak Penyata Bulanan</a></h4>
                                 <p class="description">Papar penyata bulanan untuk cetakan</p>
                             </div>
                         </div>
