@@ -280,6 +280,25 @@ public function admin_10portdatatodq()
     return view('admin.10portdatatodq', compact('returnArr', 'layout'));
 
 }
+public function try3()
+{
+
+    $breadcrumbs    = [
+        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+        ['link' => route('admin.10portdatatodq'), 'name' => "Port Data Ke Dynamic Query"],
+    ];
+
+    $kembali = route('admin.dashboard');
+
+    $returnArr = [
+        'breadcrumbs' => $breadcrumbs,
+        'kembali'     => $kembali,
+    ];
+    $layout = 'layouts.admin';
+
+    return view('admin.try', compact('returnArr', 'layout'));
+
+}
 
 public function admin_11emel()
 {

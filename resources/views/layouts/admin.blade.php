@@ -2,9 +2,36 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-KILANG</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title> E-KILANG</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
+    <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+
+
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
+
+
+
 
     <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
 
@@ -12,11 +39,47 @@
 
     <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}">
     <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
+
+
+
+    <link rel="stylesheet" href="{{ asset('theme/vendors/simple-datatables/style.css') }}">
+
+
+
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}"" rel=" stylesheet">
+
+
+
+
+    {{-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-KILANG</title>
+
+    <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('theme/vendors/simple-datatables/style.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
+
+
+
+
+    <link rel="stylesheet" href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}">
+
+
+
+    <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script> --}}
 </head>
 
 <body>
@@ -349,7 +412,7 @@
             </footer> --}}
         </div>
     </div>
-    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+    {{-- <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
     <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
     <script src="{{ asset('theme/js/app.js') }}"></script>
 
@@ -357,7 +420,120 @@
     <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
     {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
 
-    <script src="{{ asset('theme/js/main.js') }}"></script>
+    {{-- <script src="{{ asset('theme/js/main.js') }}"></script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+    </script>
+
+    <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script> --}} --}}
+
+
+
+<script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
+<script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
+<script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
+</script>
+<script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
+<script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
+</script>
+<script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
+<script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
+
+
+
+<script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+<script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ asset('theme/js/app.js') }}"></script>
+
+<script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+
+<script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
+<script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
+{{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
+
+<script src="{{ asset('theme/js/vendors.js') }}"></script>
+
+<script src="{{ asset('theme/js/main.js') }}"></script>
+
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+            return false;
+        return true;
+    }
+</script>
+
+
+
+<!-- Template Main JS File -->
+
+<script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
+
+
+<script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script>
+<script src="{{ asset('theme/js/pages/form-editor.js') }}"></script>
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+</script>
+
+
+<script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+
+
+
+<script>
+$(document).ready(function() {
+    var table = $('#example').DataTable({
+        "language": {
+            "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
+            "zeroRecords": "Maaf, tiada rekod.",
+            "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
+            "infoEmpty": "Tidak ada rekod yang tersedia",
+            "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+            "search": "Carian",
+            "previous": "Sebelum",
+            "paginate": {
+                "first": "Pertama",
+                "last": "Terakhir",
+                "next": "Seterusnya",
+                "previous": "Sebelumnya"
+            },
+        },
+    });
+});
+
+$(window).on('changed', (e) => {
+    // if($('#example').DataTable().clear().destroy()){
+    // $('#example').DataTable();
+    // }
+})
+
+// document.getElementById("form_type").onchange = function() {
+//     myFunction()
+// };
+
+// function myFunction() {
+//     console.log('asasa');
+//     table.clear().draw();
+// }
+</script>
+
+
+
 </body>
 
 </html>
