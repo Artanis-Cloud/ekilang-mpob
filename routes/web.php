@@ -14,25 +14,18 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('auth/login');
-});
+// Route::get('/', function () {
+//     return view('auth/login');
+// });
+
+Route::get('/',[App\Http\Controllers\Auth\PelesenLoginController::class, 'showLoginForm'])->name('pelesen.login');
+Route::post('/',[App\Http\Controllers\Auth\PelesenLoginController::class, 'login'])->name('pelese.login');
 // Route::get('/login-page', function () {
 //     return view('auth/login');
 // });
 
+Route::middleware('auth')->group(function () {
 
-
-
-// Route::get('login', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
-
-Route::middleware('auth')->group(
-    function () {
-        // Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])->name('admin.dashboard');
-
-        Route::get('admin/form', [App\Http\Controllers\Admin\DashboardController::class, 'index_form'])->name('admin.form');
-
-        Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     }
 );
 
@@ -96,7 +89,7 @@ Route::get('/try', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::
 Route::get('/try2', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try2'])->name('try2');
 
 
-
+Route::get('hashpassword', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'hashPassword'])->name('hashPassword');
 
 
 

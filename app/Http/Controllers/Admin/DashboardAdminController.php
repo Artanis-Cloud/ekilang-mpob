@@ -14,12 +14,12 @@ class DashboardAdminController extends Controller
      */
     public function admin_dashboard()
     {
-        return view('admin.admin-dashboard');
+        return view('admin.admin-dashboard2');
     }
 
     public function admin_dashboard2()
     {
-        return view('admin.admin-dashboard2');
+        return view('admin.admin-dashboard');
     }
 
     public function index_form()
