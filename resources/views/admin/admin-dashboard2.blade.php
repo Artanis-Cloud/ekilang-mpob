@@ -175,7 +175,7 @@
                         </li>
                         <li class="sidebar-item">
                             {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.9penyataterdahulu') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0)">9. Penyata Bulan Terdahulu</span>
@@ -185,7 +185,7 @@
                         </li>
                         <li class="sidebar-item">
                             {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.10portdatatodq') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0)">10. Port Data Ke Dynamic Query</span>
@@ -195,7 +195,7 @@
                         </li>
                         <li class="sidebar-item">
                             {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                            <a href="#" class='sidebar-link'>
+                            <a href="{{ route('admin.11emel') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0)">11. Emel Pertanyaan / Pindaan / Cadangan</span>
@@ -557,7 +557,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-folder-open fa-xs"></i></div>
-                                <h4 class="title"><a href="">9. Penyata Bulan Terdahulu</a>
+                                <h4 class="title"><a href="{{ route('admin.9penyataterdahulu') }}">9. Penyata Bulan Terdahulu</a>
                                 </h4>
                                 <p class="description"> Papar penyata bulanan terdahulu di e-Kilang dan PLEID</p>
                             </div>
@@ -577,7 +577,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-file-archive fa-xs"></i></div>
-                                <h4 class="title"><a href="">10. Port Data Ke Dynamic Query</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.10portdatatodq') }}">10. Port Data Ke Dynamic Query</a></h4>
                                 <p class="description">Pemindahan Data Ke Dynamic Query</p>
                             </div>
                         </div>
@@ -594,7 +594,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fa fa-envelope fa-xs"></i></div>
-                                <h4 class="title"><a href="">11. Emel Pertanyaan / Pindaan / Cadangan</a>
+                                <h4 class="title"><a href="{{ route('admin.11emel') }}">11. Emel Pertanyaan / Pindaan / Cadangan</a>
                                 </h4>
                                 <p class="description">Senarai Emel Pertanyaan / Pindaan / Cadangan</p>
                             </div>

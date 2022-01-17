@@ -66,11 +66,8 @@
 
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 8</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Porting Penyata Bulanan Selepas 7hb dan 10hb</h5>
-                                        <h6 style="color: rgb(242, 68, 68); margin-bottom:1%"><i>
-                                            Perhatian: Proses ini akan memindahkan semua penyata daripada sistem SYBASE</i>
-                                        </h6>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 9</h3>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Papar Penyata Bulanan Terdahulu di MYSQL dan PLEID</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
@@ -82,34 +79,6 @@
                                     <br>
 
 
-                                    <div class="row" >
-                                        <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">User
-                                            ID </label>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" name='old_password' id="old_password"
-                                                placeholder="ID Pengguna" required title="Sila isikan butiran ini.">
-                                            {{-- @error('alamat_kilang_1')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror --}}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Password
-                                        </label>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" name='new_password' id="new_password"
-                                                placeholder="Kata Laluan" required title="Sila isikan butiran ini.">
-                                            {{-- @error('alamat_kilang_1')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror --}}
-                                        </div>
-                                    </div>
 
                                     {{-- </diV> --}}
 
@@ -190,14 +159,14 @@
 
                                     <div class="row" >
                                         <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Destinasi
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Sumber Data
                                         </label>
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
                                                 <select class="form-select" id="basicSelect">
-                                                    <option selected hidden disabled>Sila Pilih Destinasi</option>
-                                                    <option>Stat Admin</option>
-                                                    <option>Stat Homepage</option>
+                                                    <option selected hidden disabled>Sila Pilih Sumber Data</option>
+                                                    <option>e-Kilang</option>
+                                                    <option>PLEID</option>
 
 
 
@@ -223,7 +192,7 @@
 
                             <div class="text-right col-md-12 mb-4 ">
                                 <button type="button" class="btn btn-primary " data-toggle="modal"
-                                    style="float: right" data-target="#confirmation">Porting</button>
+                                    style="float: right" data-target="#confirmation">Papar</button>
                             </div>
 
                     </div>
