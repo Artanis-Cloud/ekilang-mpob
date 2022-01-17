@@ -67,7 +67,7 @@
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 7</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Porting Maklumat</h5>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Port Maklumat</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
@@ -79,7 +79,7 @@
                                         <br>
 
 
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row" >
                                             <label for="fname"
                                                 class="text-right col-sm-4 control-label col-form-label required align-items-center">User ID </label>
                                             <div class="col-md-6">
@@ -93,7 +93,7 @@
                                                         @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row" >
                                             <label for="fname"
                                                 class="text-right col-sm-4 control-label col-form-label required align-items-center">Password </label>
                                             <div class="col-md-6">
@@ -111,7 +111,7 @@
                                 </diV>
 
 
-                                    <div class="container center mt-2">
+                                    <div class="container center mt-1">
                                         <div class="row" style="margin-bottom:2%;">
                                             <label for="fname"
                                                 class="text-right col-sm-4 control-label col-form-label required align-items-center">
@@ -147,7 +147,7 @@
 
 
 
-                                    <div class="row form-group" style="padding-top: 20px; ">
+                                    <div class="row form-group" style="padding-top: 10px; ">
 
 
 
@@ -157,13 +157,6 @@
                                             </div>
 
                                     </div>
-                                    {{-- Hidden Gap - Just Ignore --}}
-
-
-
-                                <br>
-
-
                             </div>
 
 
@@ -172,11 +165,6 @@
 
             </div>
 
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
 
 
 

@@ -154,18 +154,18 @@
 
                         </li>
                         <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                            <a href="#" class='sidebar-link'>
+                            {{-- <a href="{{ route('admin.7portingmaklumat') }}" class='sidebar-link'> --}}
+                            <a href="{{ route('admin.7portingmaklumat') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">7. Porting Maklumat</span>
+                                <span style="color: rgb(0, 0, 0)">7. Port Maklumat</span>
                             </a>
 
 
                         </li>
                         <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                            <a href="#" class='sidebar-link'>
+                            {{-- <a href="{{ route('admin.8portdata') }}" class='sidebar-link'> --}}
+                            <a href="{{ route('admin.8portdata') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0)">8. Port Data</span>
@@ -353,7 +353,7 @@
 
 
 
-           
+
 
             <!-- ======= Hero Section ======= -->
             <section id="hero" class="d-flex align-items-center ">
@@ -497,7 +497,7 @@
                                 <div class="icon" style="text-align: center"><i
                                         class="fa fa-upload fa-xs"></i></div>
                                 <h4 class="title"><a href="{{ route('admin.7portingmaklumat') }}">7.
-                                        Porting Maklumat</a></h4>
+                                        Port Maklumat</a></h4>
                                 <p class="description">Pemindahan maklumat produk sawit dan maklumat negara</p>
                             </div>
                         </div>
@@ -516,7 +516,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-eject fa-xs"></i></div>
-                                <h4 class="title"><a href="">8. Port Data</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.8portdata') }}">8. Port Data</a></h4>
                                 <p class="description">Pemindahan Data ke Stat Admin dan Stat Homepage</p>
                             </div>
                         </div>
