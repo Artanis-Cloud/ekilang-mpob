@@ -3,84 +3,77 @@
 @section('content')
 
 
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center ">
+    <div class="container position-relative"  data-aos-delay="100">
 
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+        {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
+            <div class="col-xl-12 col-lg-9">
 
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
+                {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
+        {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
+            </div>
+        </div> --}}
 
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
+        <div class="mt-5 mb-4 row">
+            <div class="col-md-12">
 
-            <div class="mb-2 row">
-                <div class="col-md-12">
+                <div class="page-breadcrumb" style="padding: 0px">
+                    <div class="pb-2 row">
+                        <div class="col-5 align-self-center">
+                            <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:white; background-color:#25877bd1">Kembali</a>
+                        </div>
+                        <div class="col-7 align-self-center">
+                            <div class="d-flex align-items-center justify-content-end">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                        @if (!$loop->last)
+                                            <li class="breadcrumb-item">
+                                                <a href="{{ $breadcrumb['link'] }}" style="color: rgb(102, 100, 100) !important;"
+                                                    onMouseOver="this.style.color='lightblue'"
+                                                    onMouseOut="this.style.color='white'">
+                                                    {{ $breadcrumb['name'] }}
+                                                </a>
+                                            </li>
+                                        @else
+                                            <li class="breadcrumb-item active" aria-current="page"
+                                                style="color: #e8d255  !important;">
+                                                {{ $breadcrumb['name'] }}
+                                            </li>
+                                        @endif
+                                    @endforeach
 
-                    <div class="page-breadcrumb" style="padding: 0px">
-                        <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
-                            </div>
-                            <div class="col-7 align-self-center">
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: black !important;"
-                                                            onMouseOver="this.style.color='lightblue'"
-                                                            onMouseOut="this.style.color='black'">
-                                                            {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #fff03e  !important;">
-                                                        {{ $breadcrumb['name'] }}
-                                                    </li>
-                                                @endif
-                                            @endforeach
-
-                                        </ol>
-                                    </nav>
-                                </div>
+                                    </ol>
+                                </nav>
                             </div>
                         </div>
                     </div>
-                    <div class="card" style="margin-right:2%; margin-left:2%">
-                        {{-- <div class="card-header border-bottom">
-                            <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
-                        </div> --}}
+                </div>
+                <div class="card" style="margin-right:2%; margin-left:2%">
+                    {{-- <div class="card-header border-bottom">
+                        <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
+                    </div> --}}
+                    <div class="card-body">
+                        <div class="row">
+                            {{-- <div class="col-md-4 col-12"> --}}
+                            <div class="pl-3">
 
-                        <div class="card-body">
-                            <div class="row">
-                                {{-- <div class="col-md-4 col-12"> --}}
-                                <div class="pl-3">
-
-                                    <div class="text-center">
-                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 11</h3>
+                                <div class=" text-center">
+                                    {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 11</h3>
                                         <h5 style="color: rgb(39, 80, 71); font-size:14px;">Senarai Emel Pertanyaan /
                                             Pindaan / Cadangan</h5>
-                                        {{-- <h6 style="color: rgb(242, 68, 68); margin-bottom:1%"><i>
-                                            Perhatian: Proses ini akan memindahkan semua penyata daripada sistem PLEID</i>
-                                        </h6> --}}
+                                    {{-- <p>Maklumat Kilang</p> --}}
+                                </div>
+                                <hr>
 
-                                        {{-- <p>Maklumat Kilang</p> --}}
-                                    </div>
-                                    <hr>
-
-                                    {{-- <form method="POST" action="{{ route('buah.tukarpassword') }}">
-                                        {{ csrf_field() }} --}}
+                                <div class="container center" >
 
 
-                                    <br>
+
+
+                                    {{-- </diV> --}}
 
                                     <section class="section">
                                         <div class="card">
@@ -124,80 +117,69 @@
 
 
 
-
-                                    {{-- </diV> --}}
-
-
-
-
-
-
                                 </div>
-
-
-
 
 
                                 <div class="row form-group" style="padding-top: 10px; ">
 
 
-
-                                    <div class="text-right col-md-12 mb-4 ">
-                                        <button type="button" class="btn btn-primary " data-toggle="modal"
-                                            style="float: right" data-target="#confirmation">Porting</button>
+                                    {{-- <div class="text-left col-md-5">
+                                        <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
+                                            style="float: left">Sebelumnya</a>
+                                    </div> --}}
+                                    <div class="text-right col-md-12 mb-2 ">
+                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                            style="float: right" data-bs-target="#exampleModalCenter">Porting</button>
                                     </div>
 
                                 </div>
+
+
+                                </div>
                             </div>
+
+
+
+
                             </div>
-                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+                <br>
 
 
 
 
 
+</section><!-- End Hero -->
+
+
+
+<!-- ======= Footer ======= -->
 
 
 
 
 
+{{-- <div id="preloader"></div> --}}
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
 
 
 
 
+</body>
+
+</html>
 
 
 
-
-
-
-
-
-
-
-
-
-
-    </section><!-- End Hero -->
-
-
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-
-
-    </body>
-
-    </html>
 
 @endsection

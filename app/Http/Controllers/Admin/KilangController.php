@@ -320,6 +320,26 @@ public function admin_11emel()
 
 }
 
+public function admin_12validation()
+{
+
+    $breadcrumbs    = [
+        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+        ['link' => route('admin.11emel'), 'name' => "Validasi"],
+    ];
+
+    $kembali = route('admin.dashboard');
+
+    $returnArr = [
+        'breadcrumbs' => $breadcrumbs,
+        'kembali'     => $kembali,
+    ];
+    $layout = 'layouts.admin';
+
+    return view('admin.12validation', compact('returnArr', 'layout'));
+
+}
+
 
 
     public function admin_4ekilangpleid()
