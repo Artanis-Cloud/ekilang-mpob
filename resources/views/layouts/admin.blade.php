@@ -12,6 +12,7 @@
 
     <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
     <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}">
     <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -72,7 +73,7 @@
                         </li>
 
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.kilangisirung') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.daftarpenyata') }}" class='sidebar-link'>
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}

@@ -115,7 +115,7 @@ class KilangController extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard2'), 'name' => "Laman Utama"],
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
         ];
 
@@ -137,11 +137,11 @@ class KilangController extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard2'), 'name' => "Laman Utama"],
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
         ];
 
-        $kembali = route('admin.dashboard2');
+        $kembali = route('admin.dashboard');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -160,11 +160,11 @@ class KilangController extends Controller
     {
 
         $breadcrumbs    = [
-            ['link' => route('admin.dashboard2'), 'name' => "Laman Utama"],
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.tukarpassword'), 'name' => "Tukar Kata Laluan"],
         ];
 
-        $kembali = route('admin.dashboard2');
+        $kembali = route('admin.dashboard');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -175,6 +175,28 @@ class KilangController extends Controller
 
 
         return view('admin.tukar-password', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_daftarpenyata()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.daftarpenyata'), 'name' => "Daftar Penyata Bulanan Baru"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.daftar-penyata', compact('returnArr', 'layout'));
 
     }
 }

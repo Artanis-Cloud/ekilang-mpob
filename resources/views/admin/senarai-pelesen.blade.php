@@ -23,7 +23,7 @@
                     <div class="pb-2 row">
                         <div class="col-5 align-self-center">
                             <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                style="color:white; background-color:#25877bd1">Kembali</a>
+                                style="color:rgb(17, 16, 16); background-color:#25877bd1">Kembali</a>
                         </div>
                         <div class="col-7 align-self-center">
                             <div class="d-flex align-items-center justify-content-end">
@@ -34,7 +34,7 @@
                                                 <li class="breadcrumb-item">
                                                     <a href="{{ $breadcrumb['link'] }}" style="color: rgb(102, 100, 100) !important;"
                                                         onMouseOver="this.style.color='lightblue'"
-                                                        onMouseOut="this.style.color='white'">
+                                                        onMouseOut="this.style.color='black'">
                                                         {{ $breadcrumb['name'] }}
                                                     </a>
                                                 </li>
