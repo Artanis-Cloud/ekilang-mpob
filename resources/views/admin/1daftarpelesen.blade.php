@@ -92,17 +92,21 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}" style="color: white !important;" onMouseOver="this.style.color='lightblue'" onMouseOut="this.style.color='white'"> {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                <li class="breadcrumb-item active" aria-current="page" style="color: #fff03e  !important;">
+                                            @if (!$loop->last)
+                                                <li class="breadcrumb-item">
+                                                    <a href="{{ $breadcrumb['link'] }}" style="color: rgb(102, 100, 100) !important;"
+                                                        onMouseOver="this.style.color='lightblue'"
+                                                        onMouseOut="this.style.color='white'">
+                                                        {{ $breadcrumb['name'] }}
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li class="breadcrumb-item active" aria-current="page"
+                                                    style="color: #e8d255  !important;">
                                                     {{ $breadcrumb['name'] }}
                                                 </li>
-                                                @endif
-                                            @endforeach
+                                            @endif
+                                        @endforeach
 
                                         </ol>
                                     </nav>
@@ -121,8 +125,8 @@
 
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">1. Maklumat Asas Pelesen</h3>
-                                        <h5 style="color: rgb(39, 80, 71); "><i> Proses 1 </i>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 1</h3>
+                                        <h5 style="color: rgb(39, 80, 71); "><i>Maklumat Asas Pelesen</i>
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>

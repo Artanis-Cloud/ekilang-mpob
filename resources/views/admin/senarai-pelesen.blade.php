@@ -32,7 +32,7 @@
                                         @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
                                             @if (!$loop->last)
                                                 <li class="breadcrumb-item">
-                                                    <a href="{{ $breadcrumb['link'] }}" style="color: white !important;"
+                                                    <a href="{{ $breadcrumb['link'] }}" style="color: rgb(102, 100, 100) !important;"
                                                         onMouseOver="this.style.color='lightblue'"
                                                         onMouseOut="this.style.color='white'">
                                                         {{ $breadcrumb['name'] }}
@@ -40,7 +40,7 @@
                                                 </li>
                                             @else
                                                 <li class="breadcrumb-item active" aria-current="page"
-                                                    style="color: #fff03e  !important;">
+                                                    style="color: #e8d255  !important;">
                                                     {{ $breadcrumb['name'] }}
                                                 </li>
                                             @endif

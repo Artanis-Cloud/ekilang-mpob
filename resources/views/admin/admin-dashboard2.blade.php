@@ -47,7 +47,7 @@
 
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}"" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}" rel=" stylesheet">
     <!-- =======================================================
   * Template Name: OnePage - v4.7.0
   * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
@@ -91,7 +91,7 @@
 
 
                         <li class="sidebar-item ">
-                            <a href="{{ route('admin.kilangbuah') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.senaraipelesen') }}" class='sidebar-link'>
                             {{-- <a href="index.html" class='sidebar-link'> --}}
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
@@ -102,7 +102,7 @@
 
                         {{-- <li class="sidebar-item has-sub"> --}}
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.kilangpenapis') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.tukarpassword') }}" class='sidebar-link'>
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
@@ -422,7 +422,7 @@
                                 </span>
                                 </div> --}}
                                 <div class="icon"><i class="fa fa-file-text-o fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.1daftarpelesen') }}">1. Daftar Pelesen</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.senaraipelesen') }}">1. Daftar Pelesen</a></h4>
                                 <p class="description">Daftar maklumat pelesen, cipta id pengguna dan password bagi
                                     pelesen</p>
                             </div>
@@ -443,7 +443,7 @@
                                 {{-- <div class="text-center"> --}}
                                 <div class="icon" style="text-align: center"><i class="fas fa-key fa-xs"></i>
                                 </div>
-                                <h4 class="title"><a href="">2. Tukar Kata Laluan</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.tukarpassword') }}">2. Tukar Kata Laluan</a></h4>
                                 <p class="description">Tukar kata laluan pelesen bagi kes lupa laluan</p>
                             </div>
                         </div>

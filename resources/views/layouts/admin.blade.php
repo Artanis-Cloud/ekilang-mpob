@@ -50,7 +50,7 @@
 
 
                         <li class="sidebar-item ">
-                            <a href="{{ route('admin.kilangbuah') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.senaraipelesen') }}" class='sidebar-link'>
                             {{-- <a href="index.html" class='sidebar-link'> --}}
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
@@ -61,7 +61,7 @@
 
                         {{-- <li class="sidebar-item has-sub"> --}}
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.kilangpenapis') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.tukarpassword') }}" class='sidebar-link'>
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}

@@ -92,17 +92,21 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}" style="color: white !important;" onMouseOver="this.style.color='lightblue'" onMouseOut="this.style.color='white'"> {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                <li class="breadcrumb-item active" aria-current="page" style="color: #fff03e  !important;">
+                                            @if (!$loop->last)
+                                                <li class="breadcrumb-item">
+                                                    <a href="{{ $breadcrumb['link'] }}" style="color: rgb(102, 100, 100) !important;"
+                                                        onMouseOver="this.style.color='lightblue'"
+                                                        onMouseOut="this.style.color='white'">
+                                                        {{ $breadcrumb['name'] }}
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li class="breadcrumb-item active" aria-current="page"
+                                                    style="color: #e8d255  !important;">
                                                     {{ $breadcrumb['name'] }}
                                                 </li>
-                                                @endif
-                                            @endforeach
+                                            @endif
+                                        @endforeach
 
                                         </ol>
                                     </nav>
@@ -121,66 +125,21 @@
 
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
-                                        <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan </i>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%"> Proses 2</h3>
+                                        <h5 style="color: rgb(39, 80, 71); "><i>Tukar Kata Laluan </i>
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
 
                                     <div class="container center mt-5" >
-                                        <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label required col-form-label align-items-center">
-                                                Alamat Premis Berlesen</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                            name="lname-column" value="{{ $pelesen->e_ap1 }}">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%; ">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
-                                                            name="lname-column"value="{{ $pelesen->e_ap2 }}">
-                                            </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%;">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 3"
-                                                            name="lname-column" value="{{ $pelesen->e_ap3 }}">
-                                            </div>
-                                        </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row" style="margin-bottom:2.5%;  margin-top:-2%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Surat Menyurat</label>
+                                                Status E-Kilang (1-Aktif, 2-Tidak Aktif)</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                            name="lname-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
-                                                            name="lname-column">
-                                            </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 3"
-                                                            name="lname-column">
-                                            </div>
-                                        </div>
-
-                                        <div class="row" style="margin-bottom:2.5%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Telefon (Pejabat / Kilang)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
+                                                <input type="text" id="company-column" class="form-control" placeholder="Aktif/Tidak Aktif"
                                                             name="company-column">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -189,13 +148,14 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
+
                                         <div class="row" style="margin-bottom:2.5%">
                                             <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Faks</label>
+                                                class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                                Status E-Mingguan (1-Aktif, 2-Tidak Aktif)</label>
                                             <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="No. Faks"
-                                                            name="email-id-column">
+                                                <input type="text" id="company-column" class="form-control" placeholder="Aktif/Tidak Aktif"
+                                                            name="company-column">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -203,13 +163,14 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
+
                                         <div class="row" style="margin-bottom:2.5%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Emel</label>
+                                                Status Direktori (Y-Ya, N-Tidak)</label>
                                             <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel"
-                                                            name="email-id-column">
+                                                <input type="text" id="company-column" class="form-control" placeholder="Y/N"
+                                                            name="company-column">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -217,13 +178,14 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
+
                                         <div class="row" style="margin-bottom:2.5%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nama Pegawai Melapor</label>
+                                                Kod Pegawai</label>
                                             <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Melapor"
-                                                            name="email-id-column">
+                                                <input type="text" id="company-column" class="form-control" placeholder="Kod Pegawai"
+                                                            name="company-column">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -231,77 +193,10 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Jawatan Pegawai Melapor</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Melapor"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom:2.5%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Telefon Pegawai Melapor</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="No. Telefon Pegawai Melapor"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom:2.5%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nama Pegawai Bertanggungjawab</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom:2.5%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Jawatan Pegawai
-                                                Bertanggungjawab</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Bertanggungjawab"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom:2.5%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Emel Pengurus</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel Pengurus"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
+
+
+
+
                                     </div>
 
 
@@ -466,3 +361,4 @@
     </html>
 
 @endsection
+
