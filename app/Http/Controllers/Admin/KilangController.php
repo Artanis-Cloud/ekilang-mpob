@@ -241,6 +241,66 @@ public function admin_8portdata()
 
 }
 
+public function admin_9penyataterdahulu()
+{
+
+    $breadcrumbs    = [
+        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+        ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+    ];
+
+    $kembali = route('admin.dashboard');
+
+    $returnArr = [
+        'breadcrumbs' => $breadcrumbs,
+        'kembali'     => $kembali,
+    ];
+    $layout = 'layouts.admin';
+
+    return view('admin.9paparpenyataterdahulu', compact('returnArr', 'layout'));
+
+}
+
+public function admin_10portdatatodq()
+{
+
+    $breadcrumbs    = [
+        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+        ['link' => route('admin.10portdatatodq'), 'name' => "Port Data Ke Dynamic Query"],
+    ];
+
+    $kembali = route('admin.dashboard');
+
+    $returnArr = [
+        'breadcrumbs' => $breadcrumbs,
+        'kembali'     => $kembali,
+    ];
+    $layout = 'layouts.admin';
+
+    return view('admin.10portdatatodq', compact('returnArr', 'layout'));
+
+}
+
+public function admin_11emel()
+{
+
+    $breadcrumbs    = [
+        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+        ['link' => route('admin.11emel'), 'name' => "Senarai Emel"],
+    ];
+
+    $kembali = route('admin.dashboard');
+
+    $returnArr = [
+        'breadcrumbs' => $breadcrumbs,
+        'kembali'     => $kembali,
+    ];
+    $layout = 'layouts.admin';
+
+    return view('admin.11emel', compact('returnArr', 'layout'));
+
+}
+
 
 
     public function admin_4ekilangpleid()

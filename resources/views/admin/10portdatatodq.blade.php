@@ -66,11 +66,12 @@
 
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 8</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Porting Penyata Bulanan Selepas 7hb dan 10hb</h5>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 10</h3>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px;">Porting Penyata Bulanan Selepas Release</h5>
                                         <h6 style="color: rgb(242, 68, 68); margin-bottom:1%"><i>
-                                            Perhatian: Proses ini akan memindahkan semua penyata daripada sistem SYBASE</i>
+                                            Perhatian: Proses ini akan memindahkan semua penyata daripada sistem PLEID</i>
                                         </h6>
+
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
@@ -188,28 +189,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row" >
-                                        <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Destinasi
-                                        </label>
-                                        <div class="col-md-6">
-                                            <fieldset class="form-group">
-                                                <select class="form-select" id="basicSelect">
-                                                    <option selected hidden disabled>Sila Pilih Destinasi</option>
-                                                    <option>Stat Admin</option>
-                                                    <option>Stat Homepage</option>
-
-
-
-                                                </select>
-                                            </fieldset>
-                                            {{-- @error('alamat_kilang_1')
-                                                        <div class="alert alert-danger">
-                                                            <strong>{{ $message }}</strong>
-                                                        </div>
-                                                    @enderror --}}
-                                        </div>
-                                    </div>
+                                    
 
                             </div>
 
