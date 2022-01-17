@@ -17,7 +17,7 @@
                 </div>
             </div> --}}
 
-            <div class="row">
+            <div class="mb-2 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -34,9 +34,9 @@
                                                 @if (!$loop->last)
                                                     <li class="breadcrumb-item">
                                                         <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
+                                                            style="color: black !important;"
                                                             onMouseOver="this.style.color='lightblue'"
-                                                            onMouseOut="this.style.color='white'">
+                                                            onMouseOut="this.style.color='black'">
                                                             {{ $breadcrumb['name'] }}
                                                         </a>
                                                     </li>
@@ -66,64 +66,64 @@
 
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Prestasi OER</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px"">Laporan Prestasi OER Kilang Buah</h5>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 7</h3>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Porting Maklumat</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
-                                    <h6 style="color: rgb(39, 80, 71, 0.8);">
 
-                                        <b><i> Nota :</i></b>
-                                        <ul>
-                                            <li>
-                                                <p><i> Data yang dikeluarkan adalah data 36 bulan terdahulu dari tahun yang
-                                                        diminta.</i></p>
-                                            </li>
-                                            <li>
-                                                <p><i> Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai
-                                                        lebih daripada lima pelesen.</i></p>
-                                            </li>
-                                            <li>
-                                                <p><i> Paparan hanya dapat dilakukan bermula dari tahun 2000 sahaja.</i></p>
-                                            </li>
-                                        </ul>
+                                    {{-- <form method="POST" action="{{ route('buah.tukarpassword') }}">
+                                        {{ csrf_field() }} --}}
 
 
+                                        <br>
 
-                                    </h6>
+
+                                        <div class="row" style="margin-bottom:2%">
+                                            <label for="fname"
+                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">User ID </label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='old_password'
+                                                    id="old_password" placeholder="ID Pengguna" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-bottom:2%">
+                                            <label for="fname"
+                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">Password </label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='new_password'
+                                                    id="new_password" placeholder="Kata Laluan" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+                                        </div>
+
+                                </diV>
 
 
-                                    <div class="container center mt-4">
+                                    <div class="container center mt-2">
                                         <div class="row" style="margin-bottom:2%;">
                                             <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Sila Pilih Tahun Yang Diminta</label>
+                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">
+                                                Jenis Maklumat</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect">
-                                                        <option selected hidden disabled>Sila Pilih Tahun</option>
-                                                        <option>2000</option>
-                                                        <option>2001</option>
-                                                        <option>2002</option>
-                                                        <option>2003</option>
-                                                        <option>2004</option>
-                                                        <option>2005</option>
-                                                        <option>2006</option>
-                                                        <option>2007</option>
-                                                        <option>2008</option>
-                                                        <option>2009</option>
-                                                        <option>2010</option>
-                                                        <option>2011</option>
-                                                        <option>2012</option>
-                                                        <option>2013</option>
-                                                        <option>2014</option>
-                                                        <option>2015</option>
-                                                        <option>2016</option>
-                                                        <option>2017</option>
-                                                        <option>2018</option>
-                                                        <option>2019</option>
-                                                        <option>2020</option>
-                                                        <option>2021</option>
+                                                        <option selected hidden disabled>Sila Pilih Jenis Maklumat</option>
+                                                        <option></option>
+                                                        <option>Produk Sawit</option>
+                                                        <option>Negara</option>
+
 
                                                     </select>
                                                 </fieldset>
@@ -137,36 +137,60 @@
 
 
 
-                                    </div>
-                                </div>
 
 
 
 
-                                <div class="row form-group"  ">
-
-
-
-                                    <div class="text-right col-md-12  ">
-                                        <button type="button" class="btn btn-primary " data-toggle="modal"
-                                            style="float: right" data-target="#confirmation">Papar Data 3 Tahun</button>
+                                        </div>
                                     </div>
 
-                                </div>
 
 
+
+                                    <div class="row form-group" style="padding-top: 20px; ">
+
+
+
+                                            <div class="text-right col-md-12 mb-4 ">
+                                                <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                    style="float: right" data-target="#confirmation">Porting</button>
+                                            </div>
+
+                                    </div>
+                                    {{-- Hidden Gap - Just Ignore --}}
+
+
+
+                                <br>
 
 
                             </div>
 
 
 
-                        </div>
+                </div>
 
-                    {{-- </div> --}}
-                    </div>
-                    <br>
-                    <br>
+            </div>
+
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -178,6 +202,7 @@
 
 
 
+    </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
 

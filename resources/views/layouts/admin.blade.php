@@ -22,10 +22,10 @@
 <body>
     <div id="app">
         <div id="sidebar" class='active'>
-            <div class="sidebar-wrapper active" style="background-color: rgb(120, 163, 147)">
+            <div class="sidebar-wrapper active" style="background-color: rgba(249, 208, 94)">
                 <div class=" sidebar-header" style="margin-bottom: -20%;
                 border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
-                box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color: rgb(179, 204, 195)">
+                box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color: rgb(243, 213, 128)">
 
                 <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
                  width:50px; height:50px">
@@ -332,6 +332,7 @@
                 </div>
 
             </nav>
+            <br>
 
             {{-- CONTENT BODY --}}
             @yield('content')
