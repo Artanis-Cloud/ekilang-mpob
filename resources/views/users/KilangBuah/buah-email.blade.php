@@ -156,7 +156,7 @@
 
 
                                     <div class="container center mt-2">
-                                        <div class="row" style="margin-bottom:2%;">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nama Produk</label>
@@ -182,7 +182,7 @@
                                         </div>
 
 
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Daripada (Alamat Emel)</label>
@@ -196,7 +196,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Tajuk</label>
@@ -310,7 +310,7 @@
                                     </div>
                                 </div>
                             </div>
-                       
+
                         </form>
 
                     </div>

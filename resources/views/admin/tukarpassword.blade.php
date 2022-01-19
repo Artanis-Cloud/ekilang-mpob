@@ -60,29 +60,14 @@
 
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 2</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Tukar Kata Laluan
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Menukar Kata Laluan Pengguna</h3>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Sila isi maklumat berkenaan
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
 
                                     <div class="container center mt-5" >
-
-                                        <div class="row" style="margin-top:-2%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Lesen</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder=" No. Lesen"
-                                                            name="company-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
 
                                         <div class="row" >
                                             <label for="fname"

@@ -521,30 +521,7 @@
                             </div>
                         </div>
 
-                        {{-- <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box"> --}}
-                        {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                        {{-- <div class="icon" style="text-align: center"><i
-                                        class="	fas fa-laptop-house fa-xs"></i></div>
-                                <h4 class="title"><a href="">12. Port Data ke Stat Homepage</a></h4>
-                                <p class="description">Pemindahan Data ke Stat Homepage</p>
-                                <br>
-                                <br>
-                                <br>
-                            </div>
-                        </div> --}}
-
-
-                        {{-- <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%; display: flex;
-                        justify-content: center;
-                        flex-direction: row;"> --}}
+              
                         <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
                             <div class="icon-box">
@@ -643,13 +620,14 @@
                         justify-content: center;
                         flex-direction: row; margin-left:5%; margin-right:5%;">
 
-                            <div class="col-md-4 col-lg-4">
-                                <div class="swiper-slide">
+                            <div class="col-md-4 col-lg-4" >
+                                <div class="swiper-slide" >
                                     <div class="testimonial-item">
-
+                                        <a href="{{ route('admin.direktori') }}">
                                         <img src="{{ asset('theme/kilangstyles/img/testimonials/dir4.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Direktori</h3>
+                                            class="testimonial-img" alt="" >
+                                            <h3>Direktori</h3>
+                                        </a>
                                         <h4>Direktori</h4>
                                     </div>
                                 </div>
@@ -658,11 +636,12 @@
                             <div class="col-md-4 col-lg-4">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
-
+                                        <a href="{{ route('admin.pengumuman') }}">
                                         <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Pengumuman</h3>
                                         <h4>Pengumuman</h4>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -672,11 +651,12 @@
                             <div class="col-md-4 col-lg-4">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
-
+                                        <a href="{{ route('admin.jadualpenerimaanPL') }}">
                                         <img src="{{ asset('theme/kilangstyles/img/testimonials/sch.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Jadual Penerimaan PL</h3>
                                         <h4>Jadual Penerimaan PL Bagi Semua Sektor</h4>
+                                        </a>
                                     </div>
                                 </div>
                             </div><!-- End testimonial item -->
@@ -685,11 +665,12 @@
                             <div class="col-md-4 col-lg-4" style="margin-top: -8%">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
-
+                                        <a href="{{ route('admin.senaraigagalPL') }}">
                                         <img src="{{ asset('theme/kilangstyles/img/testimonials/list.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Senarai Gagal Penerimaan PL</h3>
                                         <h4>Senarai Gagal Penerimaan PL </h4>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -697,11 +678,12 @@
                             <div class="col-md-4 col-lg-4" style="margin-top: -8%">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
-
+                                        <a href="{{ route('admin.panduan') }}">
                                         <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Panduan Penyelenggaraan</h3>
                                         <h4>Panduan bagi menyelenggara penyata bulanan</h4>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -709,10 +691,12 @@
                             <div class="col-md-4 col-lg-4" style="margin-top: -8%">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
+                                        <a href="{{ route('admin.tukarpassword') }}">
                                         <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
                                             class="testimonial-img" alt="">
                                         <h3>Tukar Kata Laluan</h3>
                                         <h4>Tukar kata laluan bagi pengguna</h4>
+                                        </a>
                                     </div>
                                 </div>
                             </div>

@@ -70,7 +70,7 @@
 
                                     <div class="container center mt-5" >
 
-                                        <div class="row" style="margin-bottom:2.5%;  margin-top:-2%">
+                                        <div class="row" style="margin-top:-2%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Status E-Kilang (1-Aktif, 2-Tidak Aktif)</label>
@@ -85,7 +85,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label align-items-center">
                                                 Status E-Mingguan (1-Aktif, 2-Tidak Aktif)</label>
@@ -100,7 +100,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Status Direktori (Y-Ya, N-Tidak)</label>
@@ -115,7 +115,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kod Pegawai</label>
@@ -130,7 +130,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nombor Siri</label>
@@ -145,7 +145,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nombor Lesen</label>
@@ -222,7 +222,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 No. Telefon</label>
@@ -236,7 +236,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 No. Faks</label>
@@ -250,7 +250,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Alamat Emel</label>
@@ -264,7 +264,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Alamat Emel</label>
@@ -278,7 +278,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nama Pegawai Melapor</label>
@@ -292,7 +292,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Jawatan Pegawai Melapor</label>
@@ -307,7 +307,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nama Pegawai Bertanggungjawab</label>
@@ -321,7 +321,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Jawatan Pegawai Bertanggungjawab</label>
@@ -336,7 +336,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Alamat Emel Pengurus</label>
@@ -350,7 +350,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                Negeri</label>
@@ -364,7 +364,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                Daerah</label>
@@ -378,7 +378,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kawasan</label>
@@ -393,7 +393,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                Syarikat Induk</label>
@@ -407,7 +407,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Tahun Mula Beroperasi</label>
@@ -421,7 +421,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kumpulan (nilai: IND,GOV,PA)</label>
@@ -435,7 +435,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 POMA (nilai:POMA)</label>
@@ -449,7 +449,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Sub-POMA (nilai:NPOMA, SPPOMA)</label>
