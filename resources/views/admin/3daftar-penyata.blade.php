@@ -71,7 +71,7 @@
 
                                     <div class="container center mt-5" >
 
-                                        <div class="row" style="margin-bottom:2.5%;  margin-top:-2%">
+                                        <div class="row" >
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 User ID</label>
@@ -86,7 +86,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kata Laluan</label>
@@ -101,37 +101,82 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row" >
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Tahun</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder="eg. 2000"
-                                                            name="company-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" style="font-size:smaller" id="basicSelect">
+                                                            <option selected hidden disabled>Sila Pilih Tahun</option>
+
+                                                            <option>2003</option>
+                                                            <option>2004</option>
+                                                            <option>2005</option>
+                                                            <option>2006</option>
+                                                            <option>2007</option>
+                                                            <option>2008</option>
+                                                            <option>2009</option>
+                                                            <option>2010</option>
+                                                            <option>2011</option>
+                                                            <option>2012</option>
+                                                            <option>2013</option>
+                                                            <option>2014</option>
+                                                            <option>2015</option>
+                                                            <option>2016</option>
+                                                            <option>2017</option>
+                                                            <option>2018</option>
+                                                            <option>2019</option>
+                                                            <option>2020</option>
+                                                            <option>2021</option>
+                                                            <option>2022</option>
+
+
+
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
+                                                </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Bulan</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder="eg. 01"
-                                                            name="company-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" style="font-size:smaller" id="basicSelect">
+                                                            <option selected hidden disabled>Sila Pilih Bulan</option>
+                                                            <option>Januari</option>
+                                                            <option>Februari</option>
+                                                            <option>Mac</option>
+                                                            <option>April</option>
+                                                            <option>Mei</option>
+                                                            <option>Jun</option>
+                                                            <option>Julai</option>
+                                                            <option>Ogos</option>
+                                                            <option>September</option>
+                                                            <option>Oktober</option>
+                                                            <option>November</option>
+                                                            <option>Disember</option>
+
+
+
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
+                                                </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Tarikh Akhir Submit</label>
@@ -146,7 +191,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 No. Lesen (Untuk Initialize satu pelesen)</label>

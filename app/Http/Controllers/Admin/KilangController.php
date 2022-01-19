@@ -202,143 +202,6 @@ class KilangController extends Controller
 
 
     }
-public function admin_7portingmaklumat()
-{
-
-    $breadcrumbs    = [
-        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        ['link' => route('admin.7portingmaklumat'), 'name' => "Port Maklumat"],
-    ];
-
-    $kembali = route('admin.dashboard');
-
-    $returnArr = [
-        'breadcrumbs' => $breadcrumbs,
-        'kembali'     => $kembali,
-    ];
-    $layout = 'layouts.admin';
-
-    return view('admin.7portingmaklumat', compact('returnArr', 'layout'));
-
-}
-public function admin_8portdata()
-{
-
-    $breadcrumbs    = [
-        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        ['link' => route('admin.8portdata'), 'name' => "Port Data"],
-    ];
-
-    $kembali = route('admin.dashboard');
-
-    $returnArr = [
-        'breadcrumbs' => $breadcrumbs,
-        'kembali'     => $kembali,
-    ];
-    $layout = 'layouts.admin';
-
-    return view('admin.8portdata', compact('returnArr', 'layout'));
-
-}
-
-public function admin_9penyataterdahulu()
-{
-
-    $breadcrumbs    = [
-        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
-    ];
-
-    $kembali = route('admin.dashboard');
-
-    $returnArr = [
-        'breadcrumbs' => $breadcrumbs,
-        'kembali'     => $kembali,
-    ];
-    $layout = 'layouts.admin';
-
-    return view('admin.9paparpenyataterdahulu', compact('returnArr', 'layout'));
-
-}
-
-public function admin_10portdatatodq()
-{
-
-    $breadcrumbs    = [
-        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        ['link' => route('admin.10portdatatodq'), 'name' => "Port Data Ke Dynamic Query"],
-    ];
-
-    $kembali = route('admin.dashboard');
-
-    $returnArr = [
-        'breadcrumbs' => $breadcrumbs,
-        'kembali'     => $kembali,
-    ];
-    $layout = 'layouts.admin';
-
-    return view('admin.10portdatatodq', compact('returnArr', 'layout'));
-
-}
-public function try3()
-{
-
-    $breadcrumbs    = [
-        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        ['link' => route('admin.10portdatatodq'), 'name' => "Port Data Ke Dynamic Query"],
-    ];
-
-    $kembali = route('admin.dashboard');
-
-    $returnArr = [
-        'breadcrumbs' => $breadcrumbs,
-        'kembali'     => $kembali,
-    ];
-    $layout = 'layouts.admin';
-
-    return view('admin.try', compact('returnArr', 'layout'));
-
-}
-
-public function admin_11emel()
-{
-
-    $breadcrumbs    = [
-        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        ['link' => route('admin.11emel'), 'name' => "Senarai Emel"],
-    ];
-
-    $kembali = route('admin.dashboard');
-
-    $returnArr = [
-        'breadcrumbs' => $breadcrumbs,
-        'kembali'     => $kembali,
-    ];
-    $layout = 'layouts.admin';
-
-    return view('admin.11emel', compact('returnArr', 'layout'));
-
-}
-
-public function admin_12validation()
-{
-
-    $breadcrumbs    = [
-        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        ['link' => route('admin.11emel'), 'name' => "Validasi"],
-    ];
-
-    $kembali = route('admin.dashboard');
-
-    $returnArr = [
-        'breadcrumbs' => $breadcrumbs,
-        'kembali'     => $kembali,
-    ];
-    $layout = 'layouts.admin';
-
-    return view('admin.12validation', compact('returnArr', 'layout'));
-
-}
 
 
 
@@ -408,4 +271,148 @@ public function admin_12validation()
         return view('admin.6penyata-papar-cetak', compact('returnArr', 'layout'));
 
     }
+
+    public function admin_7portingmaklumat()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.7portingmaklumat'), 'name' => "Port Maklumat"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.7portingmaklumat', compact('returnArr', 'layout'));
+
+    }
+    public function admin_8portdata()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.8portdata'), 'name' => "Port Data"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.8portdata', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_9penyataterdahulu()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.9paparpenyataterdahulu', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_10portdatatodq()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.10portdatatodq'), 'name' => "Port Data Ke Dynamic Query"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.10portdatatodq', compact('returnArr', 'layout'));
+
+    }
+
+
+    public function admin_11emel()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.11emel'), 'name' => "Senarai Emel"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.11emel', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_12validation()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.12validation'), 'name' => "Validasi"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.12validation', compact('returnArr', 'layout'));
+
+    }
+
+    public function try3()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.10portdatatodq'), 'name' => "Port Data Ke Dynamic Query"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.try', compact('returnArr', 'layout'));
+
+    }
+
+
+
+
 }
