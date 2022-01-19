@@ -527,17 +527,8 @@
                                     </div>
 
 
-                                    <br>
-                                    <br>
-                                    <hr>
-                                    <br>
-                                    <br>
-
                                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-                                    <br>
-                                    <br>
-
-
+                                
                                     <section class="section">
                                         <div class="card">
 

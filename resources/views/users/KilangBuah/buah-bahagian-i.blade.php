@@ -82,7 +82,7 @@
                                     </div>
                                     <div class="row" id="table-bordered">
 
-                                        <form wire:submit.prevent='store'>
+                                    <form wire:submit.prevent='store'>
                                             <div class="card">
 
                                                 <div class="card-content">
@@ -332,14 +332,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                    </div>
-
-
-
-
-
-
-
+                                    
 
                                     </form>
 

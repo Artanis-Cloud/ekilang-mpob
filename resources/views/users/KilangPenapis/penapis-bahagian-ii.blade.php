@@ -526,23 +526,13 @@
 
                                     </div>
 
-
-                                    <br>
-                                    <br>
-                                    <hr>
-                                    <br>
-                                    <br>
-
                                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-                                    <br>
-                                    <br>
-
 
                                     <section class="section">
                                         <div class="card">
 
                                             <div class="card-body">
-                                                <table class='table table-striped' id="example">
+                                                <table class='table table-striped' id="table1">
                                                     <thead>
                                                         <tr style="text-align: center">
                                                             <th>Nama Produk</th>

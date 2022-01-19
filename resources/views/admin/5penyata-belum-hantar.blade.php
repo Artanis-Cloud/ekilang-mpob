@@ -73,19 +73,15 @@
 
 
 
-                                <div class="col-12 mt-3">
-                                    <div class="row" id="table-bordered">
+                                <section class="section">
+                                    <div class="card" >
+                                        {{-- <div class="card-header">
+                                            Simple Datatable
+                                        </div> --}}
 
-                                        <form wire:submit.prevent='store'>
-                                            <div class="card">
-
-                                                <div class="card-content">
-
-
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered mb-0">
-                                                            <thead style="text-align: center">
-                                                                <tr>
+                                        <table class='table table-striped' id="table1" >
+                                            <thead>
+                                                <tr>
                                                                     <th>Pilih?</th>
                                                                     <th>No. Lesen<br>
                                                                         </th>
@@ -119,12 +115,12 @@
                                                                 </tr>
 
 
+
                                                             </tbody>
                                                         </table>
-                                                    </div>
-                                                </div>
 
-                                            </div>
+                                                    </div>
+                                                </section>
 
 
 

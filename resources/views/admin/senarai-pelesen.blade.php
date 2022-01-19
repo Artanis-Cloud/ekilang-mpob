@@ -71,20 +71,14 @@
                                 <hr>
 
 
+                                                 <section class="section">
+                                                    <div class="card" >
+                                                        {{-- <div class="card-header">
+                                                            Simple Datatable
+                                                        </div> --}}
 
-
-                                <div class="col-12 mt-3">
-                                    <div class="row" id="table-bordered">
-
-                                        <form wire:submit.prevent='store'>
-                                            <div class="card">
-
-                                                <div class="card-content">
-
-
-                                                    <div class="table-responsive">
-                                                        <table class="table table-bordered mb-0">
-                                                            <thead style="text-align: center">
+                                                        <table class='table table-striped' id="table1" >
+                                                            <thead>
                                                                 <tr>
                                                                     <th>No</th>
                                                                     <th>No. Lesen<br>
@@ -150,17 +144,9 @@
 
                                                             </tbody>
                                                         </table>
+
                                                     </div>
-                                                </div>
-
-                                            </div>
-
-
-
-
-
-
-
+                                                </section>
 
 
                                             {{-- <div class="row" style="padding-top: 35px; float:right">
@@ -223,14 +209,6 @@
                                             </div>
                                     </div>
 
-
-
-
-
-
-
-
-                                    </form>
 
                                 </div>
                             </div>
