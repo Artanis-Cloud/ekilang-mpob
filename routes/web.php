@@ -57,6 +57,12 @@ Route::get('admin/9-penyata-terdahulu', [App\Http\Controllers\Admin\KilangContro
 Route::get('admin/10-port-data-to-dq', [App\Http\Controllers\Admin\KilangController::class, 'admin_10portdatatodq'])->name('admin.10portdatatodq');
 Route::get('admin/11-emel', [App\Http\Controllers\Admin\KilangController::class, 'admin_11emel'])->name('admin.11emel');
 Route::get('admin/12-validation', [App\Http\Controllers\Admin\KilangController::class, 'admin_12validation'])->name('admin.12validation');
+Route::get('admin/direktori', [App\Http\Controllers\Admin\KilangController::class, 'admin_direktori'])->name('admin.direktori');
+Route::get('admin/pengumuman', [App\Http\Controllers\Admin\KilangController::class, 'admin_pengumuman'])->name('admin.pengumuman');
+Route::get('admin/jadual-penerimanPL', [App\Http\Controllers\Admin\KilangController::class, 'admin_jadualpenerimaanPL'])->name('admin.jadualpenerimaanPL');
+Route::get('admin/senaraigagalPL', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraigagalPL'])->name('admin.senaraigagalPL');
+Route::get('admin/panduan', [App\Http\Controllers\Admin\KilangController::class, 'admin_panduan'])->name('admin.panduan');
+Route::get('admin/tukarpassword', [App\Http\Controllers\Admin\KilangController::class, 'admin_tukarpassword'])->name('admin.tukarpassword');
 
 Route::get('try3', [App\Http\Controllers\Admin\KilangController::class, 'try3'])->name('try3');
 

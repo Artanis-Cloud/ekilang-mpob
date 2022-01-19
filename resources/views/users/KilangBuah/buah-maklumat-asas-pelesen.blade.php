@@ -175,7 +175,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 No. Telefon (Pejabat / Kilang)</label>
@@ -189,7 +189,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row" >
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 No. Faks</label>
@@ -203,7 +203,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Alamat Emel</label>
@@ -217,7 +217,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nama Pegawai Melapor</label>
@@ -231,7 +231,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Jawatan Pegawai Melapor</label>
@@ -245,7 +245,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 No. Telefon Pegawai Melapor</label>
@@ -259,7 +259,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nama Pegawai Bertanggungjawab</label>
@@ -273,7 +273,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Jawatan Pegawai

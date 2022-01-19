@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pengumuman;
 use Illuminate\Http\Request;
 
 class KilangController extends Controller
@@ -389,6 +390,130 @@ class KilangController extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.12validation', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_direktori()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.direktori'), 'name' => "Direktori"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.direktori', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_pengumuman()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.pengumuman'), 'name' => "Pengumuman"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        $pengumuman=Pengumuman::get();
+
+
+
+        return view('admin.pengumuman', compact('returnArr', 'layout','pengumuman'));
+
+    }
+
+    public function admin_jadualpenerimaanPL()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.jadualpenerimaanPL'), 'name' => "Jadual Penerimaan PL"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.jadual-penerimaanPL', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_senaraigagalPL()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraigagalPL'), 'name' => "Senarai Gagal Penerimaan PL"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.senaraigagalPL', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_panduan()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.panduan'), 'name' => "Panduan Penyelenggaraan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.panduan', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_tukarpassword()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.tukarpassword'), 'name' => "Tukar Kata Laluan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.tukarpassword', compact('returnArr', 'layout'));
 
     }
 

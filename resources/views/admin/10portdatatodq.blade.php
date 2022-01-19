@@ -32,7 +32,7 @@
                                             <li class="breadcrumb-item">
                                                 <a href="{{ $breadcrumb['link'] }}" style="color: rgb(102, 100, 100) !important;"
                                                     onMouseOver="this.style.color='lightblue'"
-                                                    onMouseOut="this.style.color='white'">
+                                                    onMouseOut="this.style.color='black'">
                                                     {{ $breadcrumb['name'] }}
                                                 </a>
                                             </li>

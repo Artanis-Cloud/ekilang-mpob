@@ -82,12 +82,12 @@
                                     <form>
                                         @csrf
                                         <div class="container center mt-3">
-                                            <div class="row" style="margin-bottom:2%;">
+                                            <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
                                                     Jumlah Jam Pengilangan</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='jam_pengilangan'
+                                                    <input type="text" class="form-control" name='jam_pengilangan' style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="jam_pengilangan" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
@@ -97,13 +97,13 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row" style="margin-bottom:2%">
+                                            <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
                                                     Kadar
                                                     Perahan MKSM (OER) Yang Diperolehi</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='kadar_perahan_mksm'
+                                                    <input type="text" class="form-control" name='kadar_perahan_mksm' style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="kadar_perahan_mksm"
                                                         required title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
@@ -113,12 +113,12 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row" style="margin-bottom:2%">
+                                            <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">iii.
                                                     Kadar Perolehan Isirung (KER)</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='kadar_perolehan_isirung'
+                                                    <input type="text" class="form-control" name='kadar_perolehan_isirung' style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="kadar_perolehan_isirung"
                                                         required title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
@@ -128,15 +128,15 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row" style="margin-bottom:2%">
+                                            <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">iv.
                                                     Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='harga_purata_buah_sawit'
+                                                    <input type="text" class="form-control" name='harga_purata_buah_sawit' style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="harga_purata_buah_sawit"
                                                         placeholder="RM" required title="Sila isikan butiran ini.">
-                                                    <p style="text-align: center"><i>(1% Kadar Perahan)</i></p>
+                                                    <p style="margin-left:42%;"><i>(1% Kadar Perahan)</i></p>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -144,11 +144,11 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row" style="margin-bottom:2%">
+                                            <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">v.
                                                     Kadar OER</label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-3" style="margin-left:20%; width:22%">
                                                     <fieldset class="form-group">
                                                         <select name="kadar_oer" class="form-select" id="kadar_oer"
                                                             onchange="showTable()">

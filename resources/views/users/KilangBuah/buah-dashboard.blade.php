@@ -89,11 +89,12 @@
                         <br>
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
+
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
                                 <span><b>Maklumat Pelesen</b></span>
                             </a>
 
-                            <ul class="submenu ">
+                            <ul class="submenu " style="margin-left:-5%">
                                 <li>
                                     <a href="{{ route('buah.maklumatasaspelesen') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
@@ -119,7 +120,7 @@
                                 <span><b>Kemasukan Penyata Bulanan</b></span>
                             </a>
 
-                            <ul class="submenu ">
+                            <ul class="submenu " style="margin-left:-5%">
 
                                 <li>
                                     <a href="{{ route('buah.bahagiani') }}">
@@ -178,7 +179,7 @@
                                 <span><b>Menu-Menu Lain</b></span>
                             </a>
 
-                            <ul class="submenu ">
+                            <ul class="submenu " style="margin-left:-5%">
                                 <li>
                                     <a href="{{ route('buah.email') }}">
                                         <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>

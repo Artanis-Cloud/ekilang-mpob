@@ -95,7 +95,8 @@ section .section-title:after {
     height: 2px;
     content: "";
     margin: .6rem 0 1rem;
-    background-color: #1c5e4f;
+    width: 100%;
+    background-color: #1c5e4f65;
     display: block
 }
 
@@ -860,8 +861,8 @@ footer {
     z-index: 10;
     background-color: #fff;
     bottom: 0;
-    border-right: 1px solid #eee;
-    box-shadow: 0 0 10px #ececec;
+    border-right: 1px solid rgba(216, 157, 31, 0.631);
+    box-shadow: 0 0 10px #7b7575;
     left: -260px;
     transition: left .6s ease-out
 }

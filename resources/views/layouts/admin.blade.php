@@ -51,7 +51,7 @@
 
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}"" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}" rel=" stylesheet">
 
 
 
@@ -86,6 +86,7 @@
     <div id="app">
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active" style="background-color: rgba(249, 208, 94)">
+                <a href="{{ route('admin.dashboard') }}">
                 <div class=" sidebar-header" style="margin-bottom: -20%;
                 border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
                 box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color: rgb(243, 213, 128)">
@@ -104,7 +105,7 @@
                     {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
                     {{-- <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px"> --}}
 
-                </div>
+                </div></a>
                 <br>
                 <br>
                 <div class="sidebar-menu">
