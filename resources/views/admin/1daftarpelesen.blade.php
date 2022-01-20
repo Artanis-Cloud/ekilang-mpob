@@ -73,6 +73,29 @@
                                         <div class="row" style="margin-top:-2%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Senarai Kilang</label>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect">
+                                                            <option selected hidden disabled>Sila Pilih Kilang</option>
+                                                            <option>Kilang Buah</option>
+                                                            <option>Kilang Penapis</option>
+                                                            <option>Kilang Isirung</option>
+                                                            <option>Kilang Oleokimia</option>
+                                                            <option>Pusat Simpanan</option>
+                                                            <option>E-Biodiesel</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Status E-Kilang (1-Aktif, 2-Tidak Aktif)</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="company-column" class="form-control" placeholder="Aktif/Tidak Aktif"

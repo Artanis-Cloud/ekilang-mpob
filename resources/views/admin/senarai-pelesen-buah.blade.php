@@ -58,14 +58,28 @@
                         </div> --}}
 
                     <div class="card-body">
+
                         <div class="row">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
+                                 type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Kilang Buah
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenpenapis') }}">Kilang Penapis</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenisirung') }}">Kilang Isirung</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang Oleokimia</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesensimpanan') }}">Pusat Simpanan</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">E-Biodiesel</a>
+                                </div>
+                            </div>
                             {{-- <div class="col-md-4 col-12"> --}}
                             <div class="pl-3">
 
                                 <div class=" text-center">
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Pelesen Berdaftar</h3>
-
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar</h3>
+                                    <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>Kilang Buah</b></h4>
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>
@@ -248,9 +262,9 @@
 
     </html> --}}
 
-    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 @endsection

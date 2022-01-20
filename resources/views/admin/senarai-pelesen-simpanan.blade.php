@@ -58,31 +58,43 @@
                         </div> --}}
 
                     <div class="card-body">
+
                         <div class="row">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
+                                 type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Pusat Simpanan
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang Buah</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenpenapis') }}">Kilang Penapis</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenisirung') }}">Kilang Isirung</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang Oleokimia</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">E-Biodiesel</a>
+                                </div>
+                            </div>
                             {{-- <div class="col-md-4 col-12"> --}}
                             <div class="pl-3">
 
                                 <div class=" text-center">
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Buah - MPOB(EL) MF 4</h3>
-                                    <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum Dihantar Sehingga Tarikh</h5>
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar</h3>
+                                    <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>Pusat Simpanan</b></h4>
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>
 
 
+                                                 <section class="section">
+                                                    <div class="card" >
+                                                        {{-- <div class="card-header">
+                                                            Simple Datatable
+                                                        </div> --}}
 
-
-                                <section class="section">
-                                    <div class="card" >
-                                        {{-- <div class="card-header">
-                                            Simple Datatable
-                                        </div> --}}
-
-                                        <table class='table table-striped' id="table1" >
-                                            <thead>
-                                                <tr>
-                                                                    <th>Pilih?</th>
+                                                        <table class='table table-striped' id="table1" >
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>No</th>
                                                                     <th>No. Lesen<br>
                                                                         </th>
                                                                     <th>Nama Premis
@@ -91,13 +103,24 @@
                                                                     </th>
                                                                     <th>No. Telefon
                                                                     </th>
-
+                                                                    <th>Kod Pegawai
+                                                                    </th>
+                                                                    <th>No. Siri
+                                                                    </th>
+                                                                    <th>Status E-Kilang
+                                                                    </th>
+                                                                    <th>Status E-Stok
+                                                                    </th>
+                                                                    <th>Direktori
+                                                                    </th>
+                                                                    <th>Pretasi OER
+                                                                    </th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
                                                                 <tr>
                                                                     <td>
-                                                                        <input type="checkbox">&nbspYa
+                                                                        x
                                                                     </td>
                                                                     <td >
                                                                         x
@@ -111,9 +134,26 @@
                                                                     <td >
                                                                         x
                                                                     </td>
+                                                                    <td >
+                                                                        x
+                                                                    </td>
+                                                                    <td>
+                                                                        x
+                                                                    </td>
+                                                                    <td >
+                                                                        x
+                                                                    </td>
+                                                                    <td >
+                                                                        x
+                                                                    </td>
+                                                                    <td >
+                                                                        x
+                                                                    </td>
+                                                                    <td >
+                                                                        x
+                                                                    </td>
 
                                                                 </tr>
-
 
 
                                                             </tbody>
@@ -121,13 +161,6 @@
 
                                                     </div>
                                                 </section>
-
-
-
-
-
-
-
 
 
                                             {{-- <div class="row" style="padding-top: 35px; float:right">
@@ -141,16 +174,9 @@
                                                     </div> --}}
 
 
-                                                    <div class="text-left col-md-8">
-                                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                         data-bs-target="#exampleModalCenter">Email Peringatan</button>
-
-                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModalCenter">Email Peringatan Jan 2008</button>
-
-                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float:right"
-                                                        data-bs-target="#exampleModalCenter">Surat Bayaran</button>
-
+                                                    <div class="text-left col-md-5">
+                                                        <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
+                                                            style="float: left"> Tambah Pelesen Baru</a>
                                                     </div>
 
                                             <div class="row" style=" float:right">
@@ -198,14 +224,6 @@
                                     </div>
 
 
-
-
-
-
-
-
-                                    </form>
-
                                 </div>
                             </div>
                         </div>
@@ -244,9 +262,9 @@
 
     </html> --}}
 
-    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> --}}
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 @endsection

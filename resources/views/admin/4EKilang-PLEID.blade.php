@@ -138,7 +138,7 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <p>
-                                                            Anda pasti mahu menyimpan maklumat ini?
+                                                            Anda pasti mahu porting penyata ini?
                                                         </p>
                                                     </div>
                                                     <div class="modal-footer">

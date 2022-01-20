@@ -90,7 +90,7 @@
 
 
                         <li class="sidebar-item ">
-                            <a href="{{ route('admin.senaraipelesen') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.senaraipelesenbuah') }}" class='sidebar-link'>
                                 {{-- <a href="index.html" class='sidebar-link'> --}}
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
@@ -135,7 +135,7 @@
 
                         </li>
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.5penyatabelumhantar') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.5penyatabelumhantarbuah') }}" class='sidebar-link'>
                                 {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
@@ -145,7 +145,7 @@
                         </li>
                         <li class="sidebar-item">
                             {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                            <a href="{{ route('admin.6penyatapaparcetak') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.6penyatapaparcetakbuah') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0)">6. Papar & Cetak Penyata Bulanan</span>
@@ -382,7 +382,7 @@
                                 </span>
                                 </div> --}}
                                 <div class="icon"><i class="fa fa-file-text-o fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.senaraipelesen') }}">1. Daftar
+                                <h4 class="title"><a href="{{ route('admin.senaraipelesenbuah') }}">1. Daftar
                                         Pelesen</a></h4>
                                 <p class="description">Daftar maklumat pelesen, cipta id pengguna dan password bagi
                                     pelesen</p>
@@ -458,7 +458,7 @@
                                 <div class="icon" style="text-align: center"><i class="fas fa-ban fa-xs"></i>
                                 </div>
 
-                                <h4 class="title"><a href="{{ route('admin.5penyatabelumhantar') }}">5. Penyata Bulanan Belum Dihantar</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.5penyatabelumhantarbuah') }}">5. Penyata Bulanan Belum Dihantar</a></h4>
                                 <p class="description">Senarai penyata bulanan yang belum dihantar</p>
                             </div>
                         </div>
@@ -475,7 +475,7 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i class="fa fa-print fa-xs"></i>
                                 </div>
-                                <h4 class="title"><a href="{{ route('admin.6penyatapaparcetak') }}">6. Papar & Cetak Penyata Bulanan</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.6penyatapaparcetakbuah') }}">6. Papar & Cetak Penyata Bulanan</a></h4>
                                 <p class="description">Papar penyata bulanan untuk cetakan</p>
                             </div>
                         </div>
@@ -521,7 +521,7 @@
                             </div>
                         </div>
 
-              
+
                         <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
                             data-aos-delay="500">
                             <div class="icon-box">
