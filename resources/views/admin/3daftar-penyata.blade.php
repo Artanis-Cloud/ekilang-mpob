@@ -241,7 +241,7 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <p>
-                                                            Anda pasti mahu menyimpan maklumat ini?
+                                                            Anda pasti mahu initialize maklumat ini?
                                                         </p>
                                                     </div>
                                                     <div class="modal-footer">

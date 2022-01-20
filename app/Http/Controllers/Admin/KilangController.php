@@ -120,7 +120,7 @@ class KilangController extends Controller
             ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
         ];
 
-        $kembali = route('admin.senaraipelesen');
+        $kembali = route('admin.senaraipelesenbuah');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -134,12 +134,12 @@ class KilangController extends Controller
 
     }
 
-    public function admin_senaraipelesen()
+    public function admin_senaraipelesenbuah()
     {
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen Buah"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -152,7 +152,117 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen', compact('returnArr', 'layout'));
+        return view('admin.senarai-pelesen-buah', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_senaraipelesenpenapis()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen Penapis"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.senarai-pelesen-penapis', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_senaraipelesenisirung()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenisirung'), 'name' => "Senarai Pelesen Isirung"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.senarai-pelesen-isirung', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_senaraipelesenoleokimia()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen Oleokimia"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.senarai-pelesen-oleokimia', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_senaraipelesensimpanan()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen Pusat Simpanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.senarai-pelesen-simpanan', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_senaraipelesenbio()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen E-Biodiesel"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.senarai-pelesen-bio', compact('returnArr', 'layout'));
 
     }
 
@@ -229,12 +339,12 @@ class KilangController extends Controller
     }
 
 
-    public function admin_5penyatabelumhantar()
+    public function admin_5penyatabelumhantarbuah()
     {
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatabelumhantar'), 'name' => "Penyata Bulanan Belum Dihantar"],
+            ['link' => route('admin.5penyatabelumhantarbuah'), 'name' => "Penyata Bulanan Kilang Buah"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -247,16 +357,16 @@ class KilangController extends Controller
 
 
 
-        return view('admin.5penyata-belum-hantar', compact('returnArr', 'layout'));
+        return view('admin.5penyata-belum-hantar-buah', compact('returnArr', 'layout'));
 
     }
 
-    public function admin_6penyatapaparcetak()
+    public function admin_5penyatabelumhantarpenapis()
     {
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetak'), 'name' => "Papar & Cetak Penyata Bulanan"],
+            ['link' => route('admin.5penyatabelumhantarpenapis'), 'name' => "Penyata Bulanan Kilang Penapis"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -269,7 +379,227 @@ class KilangController extends Controller
 
 
 
-        return view('admin.6penyata-papar-cetak', compact('returnArr', 'layout'));
+        return view('admin.5penyata-belum-hantar-penapis', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_5penyatabelumhantarisirung()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.5penyatabelumhantarisirung'), 'name' => "Penyata Bulanan Kilang Isirung"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.5penyata-belum-hantar-isirung', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_5penyatabelumhantaroleo()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.5penyatabelumhantaroleo'), 'name' => "Penyata Bulanan Kilang Oleokimia"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.5penyata-belum-hantar-oleo', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_5penyatabelumhantarsimpanan()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.5penyatabelumhantarsimpanan'), 'name' => "Penyata Bulanan Pusat Simpanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.5penyata-belum-hantar-simpanan', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_5penyatabelumhantarbio()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.5penyatabelumhantarbio'), 'name' => "Penyata Bulanan Kilang E-Biodiesel"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.5penyata-belum-hantar-bio', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_6penyatapaparcetakbuah()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.6penyata-papar-cetak-buah', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_6penyatapaparcetakpenapis()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakpenapis'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Penapis"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.6penyata-papar-cetak-penapis', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_6penyatapaparcetakisirung()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakisirung'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Isirung"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.6penyata-papar-cetak-isirung', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_6penyatapaparcetakoleo()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakoleo'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Oleokimia"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.6penyata-papar-cetak-oleo', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_6penyatapaparcetaksimpanan()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetaksimpanan'), 'name' => "Papar & Cetak Penyata Bulanan Pusat Simpanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.6penyata-papar-cetak-simpanan', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_6penyatapaparcetakbio()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan E-Biodiesel"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.6penyata-papar-cetak-bio', compact('returnArr', 'layout'));
 
     }
 

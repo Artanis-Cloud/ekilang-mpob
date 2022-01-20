@@ -115,7 +115,7 @@
 
 
                         <li class="sidebar-item ">
-                            <a href="{{ route('admin.senaraipelesen') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.senaraipelesenbuah') }}" class='sidebar-link'>
                             {{-- <a href="index.html" class='sidebar-link'> --}}
                                 <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
@@ -159,7 +159,7 @@
 
                         </li>
                         <li class="sidebar-item">
-                            <a href="{{ route('admin.5penyatabelumhantar') }}" class='sidebar-link'>
+                            <a href="{{ route('admin.5penyatabelumhantarbuah') }}" class='sidebar-link'>
                             {{-- <a href="#" class='sidebar-link'> --}}
                                 <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
@@ -169,7 +169,7 @@
                         </li>
                         <li class="sidebar-item">
                             {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                             <a href="{{ route('admin.6penyatapaparcetak') }}" class='sidebar-link'>
+                             <a href="{{ route('admin.6penyatapaparcetakbuah') }}" class='sidebar-link'>
                                 <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
                                 <span style="color: rgb(0, 0, 0)">6. Papar & Cetak Penyata Bulanan</span>

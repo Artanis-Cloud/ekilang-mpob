@@ -148,7 +148,7 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <p>
-                                                            Anda pasti mahu menyimpan maklumat ini?
+                                                            Anda pasti mahu menukar kata laluan ini?
                                                         </p>
                                                     </div>
                                                     <div class="modal-footer">
