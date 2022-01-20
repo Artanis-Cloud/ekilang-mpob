@@ -57,375 +57,424 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
-                        <br>
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-
-                                    <div class="mb-5 text-center">
+                                    <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Import Produk Sawit</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">-</h5>
+                                        <h3 style="color: rgb(39, 80, 71);">Bahagian Vii</h3>
+                                        <h5 style="color: rgb(39, 80, 71)">Import Produk Sawit</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
+                                    <div class="container center mt-4">
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Nama Produk</label>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
+                                                        <option selected hidden disabled>Sila Pilih Produk</option>
+                                                            <option value="15">BPL - 15
+                                                            </option>
+                                                            <option value="13">BPO - 13
+                                                            </option>
+                                                            <option value="14">BPS - 14
+                                                            </option>
+                                                            <option value="47">CO - 47
+                                                            </option>
+                                                            <option value="03">CPL - 03
+                                                            </option>
+                                                            <option value="01">CPO - 01
+                                                            </option>
+                                                            <option value="02">CPS - 02
+                                                            </option>
+                                                            <option value="V7">DFPL - V7
+                                                            </option>
+                                                            <option value="Z9">DFRBDPL - Z9
+                                                            </option>
+                                                            <option value="CZ">DFRDBPS - CZ
+                                                            </option>
+                                                            <option value="85">DPL - 85
+                                                            </option>
+                                                            <option value="84">DPO - 84
+                                                            </option>
+                                                            <option value="DS">DPST - DS
+                                                            </option>
+                                                            <option value="JH">DR RBDPL - JH
+                                                            </option>
+                                                            <option value="F6">DRBDPO - F6
+                                                            </option>
+                                                            <option value="D7">HCBST - D7
+                                                            </option>
+                                                            <option value="H0">HDFPL - H0
+                                                            </option>
+                                                            <option value="B3">HFFAPO - B3
+                                                            </option>
+                                                            <option value="Y7">HNPL - Y7
+                                                            </option>
+                                                            <option value="87">HPFAD - 87
+                                                            </option>
+                                                            <option value="C3">HPL - C3
+                                                            </option>
+                                                            <option value="Y9">HPMF - Y9
+                                                            </option>
+                                                            <option value="55">HPO - 55
+                                                            </option>
+                                                            <option value="H7">HPPS - H7
+                                                            </option>
+                                                            <option value="B9">HPS - B9
+                                                            </option>
+                                                            <option value="W1">HRBDDFL - W1
+                                                            </option>
+                                                            <option value="A3">HRBDPL - A3
+                                                            </option>
+                                                            <option value="H2">HRBDPO - H2
+                                                            </option>
+                                                            <option value="B6">HRBDSF - B6
+                                                            </option>
+                                                            <option value="B8">HRBDST - B8
+                                                            </option>
+                                                            <option value="Z3">IMPF - Z3
+                                                            </option>
+                                                            <option value="Z2">IMVO - Z2
+                                                            </option>
+                                                            <option value="X8">INTER PL - X8
+                                                            </option>
+                                                            <option value="Z6">INTER PO - Z6
+                                                            </option>
+                                                            <option value="DK">INTERPST - DK
+                                                            </option>
+                                                            <option value="Z4">JGQ RBDPO - Z4
+                                                            </option>
+                                                            <option value="KB">MVORBDPLMB - KB
+                                                            </option>
+                                                            <option value="GV">MVO_PMF - GV
+                                                            </option>
+                                                            <option value="Y0">MVO_RBDPL - Y0
+                                                            </option>
+                                                            <option value="X9">MVO_RBDPO - X9
+                                                            </option>
+                                                            <option value="BO">MVO_RBDPS - BO
+                                                            </option>
+                                                            <option value="GA">NBDDFPL - GA
+                                                            </option>
+                                                            <option value="Y6">NBDHPL - Y6
+                                                            </option>
+                                                            <option value="W3">NBDHPO - W3
+                                                            </option>
+                                                            <option value="W5">NBDHPS - W5
+                                                            </option>
+                                                            <option value="28">NBDPL - 28
+                                                            </option>
+                                                            <option value="JW">NBDPLRS - JW
+                                                            </option>
+                                                            <option value="HM">NBDPMF - HM
+                                                            </option>
+                                                            <option value="24">NBDPO3 - 24
+                                                            </option>
+                                                            <option value="22">NBDPO6 - 22
+                                                            </option>
+                                                            <option value="26">NBDPS - 26
+                                                            </option>
+                                                            <option value="Y8">NBHPL - Y8
+                                                            </option>
+                                                            <option value="W7">NBHPL - W7
+                                                            </option>
+                                                            <option value="W6">NBHPO - W6
+                                                            </option>
+                                                            <option value="W8">NBHPS - W8
+                                                            </option>
+                                                            <option value="H6">NBIF - H6
+                                                            </option>
+                                                            <option value="K0">NBIOL - K0
+                                                            </option>
+                                                            <option value="L0">NBIS - L0
+                                                            </option>
+                                                            <option value="20">NBPL - 20
+                                                            </option>
+                                                            <option value="16">NBPO - 16
+                                                            </option>
+                                                            <option value="18">NBPS - 18
+                                                            </option>
+                                                            <option value="G9">NO - G9
+                                                            </option>
+                                                            <option value="11">NPL - 11
+                                                            </option>
+                                                            <option value="07">NPO - 07
+                                                            </option>
+                                                            <option value="09">NPS - 09
+                                                            </option>
+                                                            <option value="34">PAO - 34
+                                                            </option>
+                                                            <option value="35">PFAD - 35
+                                                            </option>
+                                                            <option value="DF">PFAME - DF
+                                                            </option>
+                                                            <option value="45">PMF - 45
+                                                            </option>
+                                                            <option value="DI">PRLFAT - DI
+                                                            </option>
+                                                            <option value="AD">RBD SL - AD
+                                                            </option>
+                                                            <option value="D0">RBDBO - D0
+                                                            </option>
+                                                            <option value="V9">RBDHPL - V9
+                                                            </option>
+                                                            <option value="B0">RBDHPMF - B0
+                                                            </option>
+                                                            <option value="W2">RBDHPMF - W2
+                                                            </option>
+                                                            <option value="V8">RBDHPO - V8
+                                                            </option>
+                                                            <option value="W0">RBDHPS - W0
+                                                            </option>
+                                                            <option value="29">RBDPL - 29
+                                                            </option>
+                                                            <option value="25">RBDPO3 - 25
+                                                            </option>
+                                                            <option value="23">RBDPO6 - 23
+                                                            </option>
+                                                            <option value="27">RBDPS - 27
+                                                            </option>
+                                                            <option value="AL">RBDPSH - AL
+                                                            </option>
+                                                            <option value="21">RBPL - 21
+                                                            </option>
+                                                            <option value="17">RBPO - 17
+                                                            </option>
+                                                            <option value="19">RBPS - 19
+                                                            </option>
+                                                            <option value="Z5">RED PSL - Z5
+                                                            </option>
+                                                            <option value="DJ">REDPO - DJ
+                                                            </option>
+                                                            <option value="T1">RHPS - T1
+                                                            </option>
+                                                            <option value="12">RPL - 12
+                                                            </option>
+                                                            <option value="08">RPO - 08
+                                                            </option>
+                                                            <option value="10">RPS - 10
+                                                            </option>
+                                                            <option value="G6">SBO - G6
+                                                            </option>
+                                                            <option value="H1">SL - H1
+                                                            </option>
+                                                            <option value="EO">TFPS - EO
+                                                            </option>
+                                                            <option value="61">US - 61
+                                                            </option>
+                                                            <option value="AK">VCO - AK
+                                                            </option>
+                                                            <option value="AN">VO - AN
+                                                            </option>
+                                                            <option value="AM">VPL - AM
+                                                            </option>
+                                                            <option value="DR">VPO - DR
+                                                            </option>
 
-
-                                    {{-- kadar oer meningkat --}}
-                                    <div class="row" id="table-bordered">
-                                        <div class="col-12 mt-5">
-                                            <form action="#" class="">
-                                                @csrf
-                                                <div class="card">
-
-                                                    <div class="card-content">
-
-
-                                                        <div class="table-responsive">
-                                                            <table class="table table-bordered mb-0">
-                                                                <thead style="text-align: center">
-                                                                    <tr>
-                                                                        <th>Sumber Bekalan</th>
-                                                                        <th>Jumlah</th>
-                                                                    </tr>
-                                                                </thead>
-
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td class="text-bold-500"> Nama Produk</td>
-                                                                        <td style="text-align:center;">
-                                                                            <fieldset class="form-group">
-                                                                                <select class="form-select" id="basicSelect">
-                                                                                    <option selected hidden disabled>Sila Pilih Produk</option>
-                                                                                        <option value="15">BPL - 15
-                                                                                        </option>
-                                                                                        <option value="13">BPO - 13
-                                                                                        </option>
-                                                                                        <option value="14">BPS - 14
-                                                                                        </option>
-                                                                                        <option value="47">CO - 47
-                                                                                        </option>
-                                                                                        <option value="03">CPL - 03
-                                                                                        </option>
-                                                                                        <option value="01">CPO - 01
-                                                                                        </option>
-                                                                                        <option value="02">CPS - 02
-                                                                                        </option>
-                                                                                        <option value="V7">DFPL - V7
-                                                                                        </option>
-                                                                                        <option value="Z9">DFRBDPL - Z9
-                                                                                        </option>
-                                                                                        <option value="CZ">DFRDBPS - CZ
-                                                                                        </option>
-                                                                                        <option value="85">DPL - 85
-                                                                                        </option>
-                                                                                        <option value="84">DPO - 84
-                                                                                        </option>
-                                                                                        <option value="DS">DPST - DS
-                                                                                        </option>
-                                                                                        <option value="JH">DR RBDPL - JH
-                                                                                        </option>
-                                                                                        <option value="F6">DRBDPO - F6
-                                                                                        </option>
-                                                                                        <option value="D7">HCBST - D7
-                                                                                        </option>
-                                                                                        <option value="H0">HDFPL - H0
-                                                                                        </option>
-                                                                                        <option value="B3">HFFAPO - B3
-                                                                                        </option>
-                                                                                        <option value="Y7">HNPL - Y7
-                                                                                        </option>
-                                                                                        <option value="87">HPFAD - 87
-                                                                                        </option>
-                                                                                        <option value="C3">HPL - C3
-                                                                                        </option>
-                                                                                        <option value="Y9">HPMF - Y9
-                                                                                        </option>
-                                                                                        <option value="55">HPO - 55
-                                                                                        </option>
-                                                                                        <option value="H7">HPPS - H7
-                                                                                        </option>
-                                                                                        <option value="B9">HPS - B9
-                                                                                        </option>
-                                                                                        <option value="W1">HRBDDFL - W1
-                                                                                        </option>
-                                                                                        <option value="A3">HRBDPL - A3
-                                                                                        </option>
-                                                                                        <option value="H2">HRBDPO - H2
-                                                                                        </option>
-                                                                                        <option value="B6">HRBDSF - B6
-                                                                                        </option>
-                                                                                        <option value="B8">HRBDST - B8
-                                                                                        </option>
-                                                                                        <option value="Z3">IMPF - Z3
-                                                                                        </option>
-                                                                                        <option value="Z2">IMVO - Z2
-                                                                                        </option>
-                                                                                        <option value="X8">INTER PL - X8
-                                                                                        </option>
-                                                                                        <option value="Z6">INTER PO - Z6
-                                                                                        </option>
-                                                                                        <option value="DK">INTERPST - DK
-                                                                                        </option>
-                                                                                        <option value="Z4">JGQ RBDPO - Z4
-                                                                                        </option>
-                                                                                        <option value="KB">MVORBDPLMB - KB
-                                                                                        </option>
-                                                                                        <option value="GV">MVO_PMF - GV
-                                                                                        </option>
-                                                                                        <option value="Y0">MVO_RBDPL - Y0
-                                                                                        </option>
-                                                                                        <option value="X9">MVO_RBDPO - X9
-                                                                                        </option>
-                                                                                        <option value="BO">MVO_RBDPS - BO
-                                                                                        </option>
-                                                                                        <option value="GA">NBDDFPL - GA
-                                                                                        </option>
-                                                                                        <option value="Y6">NBDHPL - Y6
-                                                                                        </option>
-                                                                                        <option value="W3">NBDHPO - W3
-                                                                                        </option>
-                                                                                        <option value="W5">NBDHPS - W5
-                                                                                        </option>
-                                                                                        <option value="28">NBDPL - 28
-                                                                                        </option>
-                                                                                        <option value="JW">NBDPLRS - JW
-                                                                                        </option>
-                                                                                        <option value="HM">NBDPMF - HM
-                                                                                        </option>
-                                                                                        <option value="24">NBDPO3 - 24
-                                                                                        </option>
-                                                                                        <option value="22">NBDPO6 - 22
-                                                                                        </option>
-                                                                                        <option value="26">NBDPS - 26
-                                                                                        </option>
-                                                                                        <option value="Y8">NBHPL - Y8
-                                                                                        </option>
-                                                                                        <option value="W7">NBHPL - W7
-                                                                                        </option>
-                                                                                        <option value="W6">NBHPO - W6
-                                                                                        </option>
-                                                                                        <option value="W8">NBHPS - W8
-                                                                                        </option>
-                                                                                        <option value="H6">NBIF - H6
-                                                                                        </option>
-                                                                                        <option value="K0">NBIOL - K0
-                                                                                        </option>
-                                                                                        <option value="L0">NBIS - L0
-                                                                                        </option>
-                                                                                        <option value="20">NBPL - 20
-                                                                                        </option>
-                                                                                        <option value="16">NBPO - 16
-                                                                                        </option>
-                                                                                        <option value="18">NBPS - 18
-                                                                                        </option>
-                                                                                        <option value="G9">NO - G9
-                                                                                        </option>
-                                                                                        <option value="11">NPL - 11
-                                                                                        </option>
-                                                                                        <option value="07">NPO - 07
-                                                                                        </option>
-                                                                                        <option value="09">NPS - 09
-                                                                                        </option>
-                                                                                        <option value="34">PAO - 34
-                                                                                        </option>
-                                                                                        <option value="35">PFAD - 35
-                                                                                        </option>
-                                                                                        <option value="DF">PFAME - DF
-                                                                                        </option>
-                                                                                        <option value="45">PMF - 45
-                                                                                        </option>
-                                                                                        <option value="DI">PRLFAT - DI
-                                                                                        </option>
-                                                                                        <option value="AD">RBD SL - AD
-                                                                                        </option>
-                                                                                        <option value="D0">RBDBO - D0
-                                                                                        </option>
-                                                                                        <option value="V9">RBDHPL - V9
-                                                                                        </option>
-                                                                                        <option value="B0">RBDHPMF - B0
-                                                                                        </option>
-                                                                                        <option value="W2">RBDHPMF - W2
-                                                                                        </option>
-                                                                                        <option value="V8">RBDHPO - V8
-                                                                                        </option>
-                                                                                        <option value="W0">RBDHPS - W0
-                                                                                        </option>
-                                                                                        <option value="29">RBDPL - 29
-                                                                                        </option>
-                                                                                        <option value="25">RBDPO3 - 25
-                                                                                        </option>
-                                                                                        <option value="23">RBDPO6 - 23
-                                                                                        </option>
-                                                                                        <option value="27">RBDPS - 27
-                                                                                        </option>
-                                                                                        <option value="AL">RBDPSH - AL
-                                                                                        </option>
-                                                                                        <option value="21">RBPL - 21
-                                                                                        </option>
-                                                                                        <option value="17">RBPO - 17
-                                                                                        </option>
-                                                                                        <option value="19">RBPS - 19
-                                                                                        </option>
-                                                                                        <option value="Z5">RED PSL - Z5
-                                                                                        </option>
-                                                                                        <option value="DJ">REDPO - DJ
-                                                                                        </option>
-                                                                                        <option value="T1">RHPS - T1
-                                                                                        </option>
-                                                                                        <option value="12">RPL - 12
-                                                                                        </option>
-                                                                                        <option value="08">RPO - 08
-                                                                                        </option>
-                                                                                        <option value="10">RPS - 10
-                                                                                        </option>
-                                                                                        <option value="G6">SBO - G6
-                                                                                        </option>
-                                                                                        <option value="H1">SL - H1
-                                                                                        </option>
-                                                                                        <option value="EO">TFPS - EO
-                                                                                        </option>
-                                                                                        <option value="61">US - 61
-                                                                                        </option>
-                                                                                        <option value="AK">VCO - AK
-                                                                                        </option>
-                                                                                        <option value="AN">VO - AN
-                                                                                        </option>
-                                                                                        <option value="AM">VPL - AM
-                                                                                        </option>
-                                                                                        <option value="DR">VPO - DR
-                                                                                        </option>
-
-                                                                                </select>
-                                                                            </fieldset>
-                                                                        </td>
-
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">Nombor Borang Kastam 2</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">Tarikh Eksport (dd/mm/yyyy)</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">Kuantiti(Tan Metrik)</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">Nilai</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">Destinasi Negara</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                                    </select>
+                                                </fieldset>
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
                                                     </div>
-                                                </div>
-
-
-
-
-
-
+                                                @enderror --}}
+                                            </div>
                                         </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Nombor Borang Kastam 2</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
+                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Tarikh Eksport (dd/mm/yyyy)	</label>
+                                            <div class="col-md-6">
+                                                <input type="date" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
+                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Kuantiti(Tan Metrik)	</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
+                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Nilai</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
+                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                               Destinasi Negara</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
+                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+
+
                                     </div>
+
 
                                     <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                        <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
-                                        </div>
-                                        <div class="text-right col-md-7 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan &
-                                                Seterusnya</button>
+
+                                        <div class="text-right col-md-11 mb-4 ">
+                                            <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                style="float: right" data-target="#confirmation">
+                                                Simpan</button>
                                         </div>
 
                                     </div>
+                                    <br>
+                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
+                                    <hr>
+                                    <section class="section">
+                                        <div class="card">
 
-                                    <!-- Vertically Centered modal Modal -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
-                                                    </button>
-                                                </div>
+                                            <div class="card-body">
+                                                <table class='table table-striped' id="table1">
+                                                    <thead>
+                                                        <tr style="text-align: center">
+                                                            <th>Nama Produk</th>
+                                                            <th>Nombor Borang Kastam 2</th>
+                                                            <th>Tarikh Eksport</th>
+                                                            <th>Kuantiti (Tan Metrik)</th>
+                                                            <th>Nilai</th>
+                                                            <th>Destinasi Negara</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>BPL</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+
+                                                        <br>
+
+                                                    </tbody>
+
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+                                    </section>
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+                                <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                    <div class="text-left col-md-5">
+                                        <a href="{{ route('penapis.bahagiani') }}" class="btn btn-primary"
+                                            style="float: left">Sebelumnya</a>
+                                    </div>
+                                    <div class="text-right col-md-7 mb-4 ">
+                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
+                                            Seterusnya</button>
+                                    </div>
+
+                                </div>
+
+                                <!-- Vertically Centered modal Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                        role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                    PENGESAHAN</h5>
+                                                <button type="button" class="close" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <i data-feather="x"></i>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>
+                                                    Anda pasti mahu menyimpan maklumat ini?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-secondary"
+                                                    data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                </button>
+                                                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Ya</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- </div> --}}
-                                </form>
-
-
-
-
-
-
-
-
-
-
-
                             </div>
+                            <br>
+                            </form>
+
                         </div>
 
                         <br>

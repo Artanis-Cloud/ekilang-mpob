@@ -955,7 +955,7 @@ footer {
 }
 
 .sidebar-wrapper .menu .submenu.active {
-    max-height: 500px
+    max-height: 1000px
 }
 
 .sidebar-wrapper .menu .submenu li a {

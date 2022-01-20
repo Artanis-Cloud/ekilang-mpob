@@ -89,8 +89,8 @@
                         <br>
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <i class="fas fa-user-edit" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Maklumat Pelesen</b></span>
                             </a>
 
@@ -117,6 +117,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <i class="fas fa-pen"  style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Kemasukan Penyata Bulanan</b></span>
                             </a>
 
@@ -176,6 +177,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Menu-Menu Lain</b></span>
                             </a>
 
