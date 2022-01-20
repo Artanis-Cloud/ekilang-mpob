@@ -57,28 +57,28 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
+
                         <div class="card-body" style="margin-left:8%">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
-                                    <div class="mb-5 text-center">
+                                    <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian III</h3>
-                                        <h5 style="color: rgb(39, 80, 71); margin-bottom:-2%">Belian / Penerimaan Bekalan Buah Kelapa Sawit
+                                        <h3 style="color: rgb(39, 80, 71); ">Bahagian III</h3>
+                                        <h5 style="color: rgb(39, 80, 71); ">Belian / Penerimaan Bekalan Buah Kelapa Sawit
                                             (FFB) (52)</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
 
                                     <div class="container center mt-4">
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Jumlah Hari Kilang Beroperasi Sebulan</label>
                                             <div class="col-md-2">
-                                                <input type="text" class="form-control" style="margin-left:150%; margin-top:20%" name='nombor_borang_kastam'
+                                                <input type="text" class="form-control" style="margin-left:150%;" name='nombor_borang_kastam'
                                                     id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -87,12 +87,12 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kadar Penggunaan Kapasiti(Refining) Sebulan</label>
                                             <div class="col-md-2">
-                                                <input type="text" class="form-control"  style="margin-left:150%; margin-top:20%" name='nombor_borang_kastam'
+                                                <input type="text" class="form-control"  style="margin-left:150%; " name='nombor_borang_kastam'
                                                     id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -101,12 +101,12 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kadar Penggunaan Kapasiti(Fractionation) Sebulan</label>
                                             <div class="col-md-2">
-                                                <input type="text" class="form-control"  style="margin-left:150%; margin-top:20%" name='kuantiti' id="kuantiti"
+                                                <input type="text" class="form-control"  style="margin-left:150%;" name='kuantiti' id="kuantiti"
                                                     onkeypress="return isNumberKey(event)" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')

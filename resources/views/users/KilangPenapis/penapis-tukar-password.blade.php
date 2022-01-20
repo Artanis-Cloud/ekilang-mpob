@@ -2,70 +2,6 @@
 
 @section('content')
 
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-        <title> Kilang Buah</title>
-        <meta content="" name="description">
-        <meta content="" name="keywords">
-
-        <!-- Favicons -->
-        <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-
-        <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-            rel="stylesheet">
-
-        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
-        <!-- Vendor CSS Files -->
-        <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
-
-
-
-
-        <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
-        <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
-        <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
-
-        <link href="{{ asset('theme/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
-        <link href="{{ asset('theme/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
-
-
-
-        <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
-            rel="stylesheet" type="text/css" />
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-        <meta charset=utf-8 />
-
-        <!-- Template Main CSS File -->
-        {{-- <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet"> --}}
-        <!-- =======================================================
-                                              * Template Name: OnePage - v4.7.0
-                                              * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                              * Author: BootstrapMade.com
-                                              * License: https://bootstrapmade.com/license/
-                                              ======================================================== -->
-    </head>
-
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
@@ -79,7 +15,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-3 mb-4 row">
+            <div class="mt-5 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -120,21 +56,20 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <br>
-                        <br>
+
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
-                                    <div class="mb-5 text-center">
+                                    <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71)">Tukar Kata Laluan</h3>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
 
-                                    <form method="POST" action="{{ route('buah.tukarpassword') }}">
+                                    <form method="POST" action="{{ route('penapis.tukarpassword') }}">
                                         {{ csrf_field() }}
                                         {{-- <h6><b>
                                                 <h4 style="font-family:verdana; font-size:18px; color:white">Maklumat Kilang
@@ -153,7 +88,7 @@
                                         {{-- <div class="clearfix content" style="background-color: black"> --}}
 
 
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-4 control-label col-form-label required align-items-center">Kata
                                                 Laluan Terdahulu <i>(8 Aksara)</i></label>
@@ -168,7 +103,7 @@
                                                         @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-4 control-label col-form-label required align-items-center">Kata
                                                 Laluan Baru <i>(8 Aksara)</i></label>
@@ -183,7 +118,7 @@
                                                         @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2%">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-4 control-label col-form-label required align-items-center">Sahkan
                                                 Kata Laluan Baru <i>(8 Aksara)</i></label>
@@ -205,8 +140,8 @@
 
 
                                 </diV>
-                                <br>
-                                <br>
+
+
 
                                 {{-- <div class="row float-left ">
                                     <div class="col-md-12 offset-md-12">
@@ -225,22 +160,19 @@
 
                     </div> --}}
                     <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+
                     <br>
 
 
 
-                    <div class="row form-group" style="padding-top: 10px; ">
+                    <div class="row form-group" >
 
 
                         {{-- <div class="text-left col-md-5">
                             <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
                         </div> --}}
-                        <div class="text-right col-md-12 mb-4 ">
+                        <div class="text-right col-md-12 mb-2 ">
                             <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                 style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
                         </div>
@@ -292,14 +224,11 @@
                         </div>
 
 
-<br>
 
 
 
                 </div>
                 </form>
-<br>
-<br>
 
         </div>
         {{-- </div> --}}
