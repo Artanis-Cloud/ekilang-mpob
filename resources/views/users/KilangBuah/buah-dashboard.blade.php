@@ -334,11 +334,11 @@
             <section id="hero" class="d-flex align-items-center ">
                 <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
 
-                    <div class="row justify-content-center" style="margin-bottom: 3%">
-                        <div class="col-xl-12 col-lg-9">
+                    <div class="row justify-content-center" style="margin-top: -5%">
+                        <div class="col-xl-12 col-lg-8">
 
-                            <h3 style="font-size:25px; margin-top:-2%">KILANG BUAH</h3>
-                            <h4 style="font-size:18px; ">Penyata Bulanan Kilang Buah</h4>
+                            <h1 style="font-size:20px; margin-left:10%;">KILANG BUAH</h1>
+                            <h6 style=" margin-left:10%">Penyata Bulanan Kilang Buah</h6>
                         </div>
                     </div>
 
