@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pelesen;
 use App\Models\Pengumuman;
+use App\Models\RegPelesen;
 use Illuminate\Http\Request;
 
 class KilangController extends Controller
@@ -136,6 +138,9 @@ class KilangController extends Controller
 
     public function admin_senaraipelesenbuah()
     {
+        $users = RegPelesen::with('pelesen')->where('e_kat','PL91')->where('e_status',1)->get();
+        
+
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -152,7 +157,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-buah', compact('returnArr', 'layout'));
+        return view('admin.senarai-pelesen-buah', compact('returnArr', 'layout','users','users2'));
 
     }
 

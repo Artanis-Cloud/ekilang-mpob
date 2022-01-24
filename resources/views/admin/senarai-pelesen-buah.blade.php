@@ -118,45 +118,30 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                                @foreach ($users as $data)
+
+
                                                                 <tr>
-                                                                    <td>
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td>
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td>
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
+                                                                    <td>{{ $loop->iteration }}</td>
+                                                                    <td style="text-align:left">{{ $data->e_nl }}</td>
+                                                                    <td>{{ $data->pelesen->e_np ?? '-'}}</td>
+                                                                    <td></td>
+                                                                    <td></td>
+
+                                                                    <td>{{ $data->kodpgw }}</td>
+                                                                    <td>{{ $data->nosiri }}</td>
+                                                                    <td>{{ $data->e_status }}</td>
+                                                                    <td>{{ $data->e_stock }}</td>
+                                                                    <td>{{ $data->directory }}</td>
+                                                                    <td></td>
+
 
                                                                 </tr>
 
+                                                            @endforeach
 
                                                             </tbody>
+
                                                         </table>
 
                                                     </div>
