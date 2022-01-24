@@ -34,4 +34,9 @@ class RegPelesen extends Authenticatable
     {
      return $this->e_pwd;
     }
+
+    public function pelesen()
+    {
+        return $this->hasOne(Pelesen::class, 'e_nl', 'e_nl');
+    }
 }
