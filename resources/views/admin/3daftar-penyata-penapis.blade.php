@@ -60,14 +60,15 @@
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
                                      type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Kilang Buah
+                                      Kilang Penapis
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      <a class="dropdown-item" href="{{ route('admin.3daftarpenyatapenapis') }}">Kilang Penapis</a>
-                                      <a class="dropdown-item" href="{{ route('admin.senaraipelesenisirung') }}">Kilang Isirung</a>
-                                      <a class="dropdown-item" href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang Oleokimia</a>
-                                      <a class="dropdown-item" href="{{ route('admin.senaraipelesensimpanan') }}">Pusat Simpanan</a>
-                                      <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">E-Biodiesel</a>
+                                      <a class="dropdown-item" href="{{ route('admin.3daftarpenyata') }}">Kilang Buah</a>
+
+                                      <a class="dropdown-item" href="{{ route('admin.3daftarpenyataisirung') }}">Kilang Isirung</a>
+                                      <a class="dropdown-item" href="{{ route('admin.3daftarpenyataoleokimia') }}">Kilang Oleokimia</a>
+                                      <a class="dropdown-item" href="{{ route('admin.3daftarpenyatasimpanan') }}">Pusat Simpanan</a>
+                                      <a class="dropdown-item" href="{{ route('admin.3daftarpenyatabiodiesel') }}">E-Biodiesel</a>
                                     </div>
                                 </div>
                                 {{-- <div class="col-md-4 col-12"> --}}
@@ -76,7 +77,7 @@
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 3</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px ">Daftar Penyata Bulanan Baru Kilang Buah
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px ">Daftar Penyata Bulanan Baru Kilang Penapis
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>

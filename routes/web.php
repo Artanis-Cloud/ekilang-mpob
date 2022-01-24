@@ -54,7 +54,14 @@ Route::get('admin/senarai-pelesen-simpanan', [App\Http\Controllers\Admin\KilangC
 Route::get('admin/senarai-pelesen-bio', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraipelesenbio'])->name('admin.senaraipelesenbio');
 
 Route::get('admin/2-tukar-password', [App\Http\Controllers\Admin\KilangController::class, 'admin_2tukarpassword'])->name('admin.2tukarpassword');
-Route::get('admin/3-daftar-penyata', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyata'])->name('admin.3daftarpenyata');
+
+
+Route::get('admin/3-daftar-penyata-buah', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyata'])->name('admin.3daftarpenyata');
+Route::get('admin/3-daftar-penyata-penapis', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyatapenapis'])->name('admin.3daftarpenyatapenapis');
+Route::get('admin/3-daftar-penyata-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyataisirung'])->name('admin.3daftarpenyataisirung');
+Route::get('admin/3-daftar-penyata-oleokimia', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyataoleokimia'])->name('admin.3daftarpenyataoleokimia');
+Route::get('admin/3-daftar-penyata-pusat-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyatasimpanan'])->name('admin.3daftarpenyatasimpanan');
+Route::get('admin/3-daftar-penyata-biodiesel', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyatabiodiesel'])->name('admin.3daftarpenyatabiodiesel');
 
 Route::get('admin/4-EKilang-PLEID', [App\Http\Controllers\Admin\KilangController::class, 'admin_4ekilangpleid'])->name('admin.4ekilangpleid');
 Route::get('admin/5-penyata-belum-hantar-buah', [App\Http\Controllers\Admin\KilangController::class, 'admin_5penyatabelumhantarbuah'])->name('admin.5penyatabelumhantarbuah');

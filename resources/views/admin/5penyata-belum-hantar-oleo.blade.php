@@ -79,7 +79,7 @@
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                     <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Oleokimia - MPOB(EL) CM 4</h3>
                                     <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum Dihantar Sehingga Tarikh
-                                    <p><span id="datetime"></span></p>
+                                    <p><span id="datetime" ></span></p>
                                     <script>var dt = new Date();
                                         document.getElementById("datetime").innerHTML=dt.toLocaleString();</script>
                                     </h5>
