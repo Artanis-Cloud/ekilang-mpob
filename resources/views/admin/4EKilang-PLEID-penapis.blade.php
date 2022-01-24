@@ -58,14 +58,14 @@
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
                                      type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Kilang Buah
+                                      Kilang Penapis
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      <a class="dropdown-item" href="{{ route('admin.4ekilangpleidpenapis') }}">Kilang Penapis</a>
+                                      <a class="dropdown-item" href="{{ route('admin.4ekilangpleid') }}">Kilang Buah</a>
                                       <a class="dropdown-item" href="{{ route('admin.4ekilangpleidisirung') }}">Kilang Isirung</a>
                                       <a class="dropdown-item" href="{{ route('admin.4ekilangpleidoleokimia') }}">Kilang Oleokimia</a>
                                       <a class="dropdown-item" href="{{ route('admin.4ekilangpleidsimpanan') }}">Pusat Simpanan</a>
-
+                                      
                                     </div>
                                 </div>
                                 {{-- <div class="col-md-4 col-12"> --}}
@@ -74,7 +74,7 @@
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 4</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Porting Penyata Bulanan Kilang Buah ke PLEID
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Porting Penyata Bulanan Kilang Penapis ke PLEID
                                         </h5>
                                         <h6 style="color: rgb(242, 68, 68); margin-bottom:1%"><i>
                                             Perhatian: Proses ini akan memindahkan semua penyata yang telah dihantar ke sistem PLEID</i>
