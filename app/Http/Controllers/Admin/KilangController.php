@@ -139,7 +139,7 @@ class KilangController extends Controller
     public function admin_senaraipelesenbuah()
     {
         $users = RegPelesen::with('pelesen')->where('e_kat','PL91')->where('e_status',1)->get();
-        
+
 
 
         $breadcrumbs    = [
@@ -157,12 +157,14 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-buah', compact('returnArr', 'layout','users','users2'));
+        return view('admin.senarai-pelesen-buah', compact('returnArr', 'layout','users'));
 
     }
 
     public function admin_senaraipelesenpenapis()
     {
+
+        $users = RegPelesen::with('pelesen')->where('e_kat','PL101')->where('e_status',1)->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -179,12 +181,13 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-penapis', compact('returnArr', 'layout'));
+        return view('admin.senarai-pelesen-penapis', compact('returnArr', 'layout','users'));
 
     }
 
     public function admin_senaraipelesenisirung()
     {
+        $users = RegPelesen::with('pelesen')->where('e_kat','PL102')->where('e_status',1)->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -201,12 +204,13 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-isirung', compact('returnArr', 'layout'));
+        return view('admin.senarai-pelesen-isirung', compact('returnArr', 'layout','users'));
 
     }
 
     public function admin_senaraipelesenoleokimia()
     {
+        $users = RegPelesen::with('pelesen')->where('e_kat','PL104')->where('e_status',1)->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -223,12 +227,13 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-oleokimia', compact('returnArr', 'layout'));
+        return view('admin.senarai-pelesen-oleokimia', compact('returnArr', 'layout','users'));
 
     }
 
     public function admin_senaraipelesensimpanan()
     {
+        $users = RegPelesen::with('pelesen')->where('e_kat','PL111')->where('e_status',1)->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -245,7 +250,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-simpanan', compact('returnArr', 'layout'));
+        return view('admin.senarai-pelesen-simpanan', compact('returnArr', 'layout','users'));
 
     }
 

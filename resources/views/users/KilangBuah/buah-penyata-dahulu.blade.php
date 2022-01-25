@@ -16,7 +16,7 @@
             {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
                 </div>
             </div> --}}
-
+<br>
             <div class="mb-2 row">
                 <div class="col-md-12">
 
