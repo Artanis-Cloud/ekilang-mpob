@@ -2,102 +2,9 @@
 
 @section('content')
 
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-        <title> Kilang Buah</title>
-        <meta content="" name="description">
-        <meta content="" name="keywords">
-
-        <!-- Favicons -->
-        <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-
-        <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-            rel="stylesheet">
-
-        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-
-        <!-- Vendor CSS Files -->
-        <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
-
-        {{-- <link href="{{ asset('theme/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet" /> --}}
-
-
-
-
-
-
-
-        <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
-        <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
-        <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
-
-        <link href="{{ asset('theme/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
-        <link href="{{ asset('theme/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
-
-
-
-        <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
-            rel="stylesheet" type="text/css" />
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-        <meta charset=utf-8 />
-
-        <!-- Template Main CSS File -->
-        <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
-
-        <!-- datepicker -->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-        <script>
-            $(function() {
-                $("#datepicker").datepicker();
-            });
-        </script>
-
-
-
-        <!-- =======================================================
-                                                                                                                      * Template Name: OnePage - v4.7.0
-                                                                                                                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                                                                                      * Author: BootstrapMade.com
-                                                                                                                      * License: https://bootstrapmade.com/license/
-                                                                                                                      ======================================================== -->
-    </head>
-
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
-
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
 
             <div class="mt-5 mb-4 row">
                 <div class="col-md-12">
@@ -520,93 +427,7 @@
                                     </section>
 
 
-                                    {{-- <div class="main-content container-fluid">
-
-                <section class="section">
-                    <div class="card">
-
-                        <div class="card-body">
-                            <table class='table table-striped' id="table1">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>City</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Graiden</td>
-                                        <td>vehicula.aliquet@semconsequat.co.uk</td>
-                                        <td>076 4820 8838</td>
-                                        <td>Offenburg</td>
-                                        <td>
-                                            <span class="badge bg-success">Active</span>
-                                        </td>
-                                    </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                </section>
-            </div> --}}
-
-
-
-
-
-
-
-                                    {{-- <section class="section">
-                                        <div class="card">
-
-                                            <div class="card-body">
-                                                <table class='table table-striped' id="example">
-                                                    <thead>
-                                                        <tr style="text-align: center">
-                                                            <th>Nama Produk</th>
-                                                            <th>Nombor Borang Kastam 2</th>
-                                                            <th>Tarikh Eksport</th>
-                                                            <th>Kuantiti <br>(Tan Metrik)</th>
-                                                            <th>Nilai (RM)</th>
-                                                            <th>Destinasi Negara</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>BPL</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
-
-<br>
-
-                                                    </tbody>
-
-                                                </table>
-
-                                            </div>
-                                        </div>
-
-                                    </section> --}}
-
                                 </div>
-
-
-
-
-
-
-
-
-
 
 
                                 <div class="row form-group" style="padding-top: 10px; ">
@@ -668,100 +489,13 @@
                 <br>
                 <br>
                 <br>
-
-
-
                 <br>
                 <br>
-
-
-
 
     </section><!-- End Hero -->
 
+ 
 
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-
-    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
-    <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
-    <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('theme/js/app.js') }}"></script>
-
-    <script src="{{ asset('theme/js/main.js') }}"></script>
-
-    {{-- <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script> --}}
-
-    {{-- <script>
-        $(document).ready(function() {
-            var table = $('#table1').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
-
-        $(window).on('changed', (e) => {
-            // if($('#example').DataTable().clear().destroy()){
-            // $('#example').DataTable();
-            // }
-        });
-
-        // document.getElementById("form_type").onchange = function() {
-        //     myFunction()
-        // };
-
-        // function myFunction() {
-        //     console.log('asasa');
-        //     table.clear().draw();
-        // }
-    </script> --}}
-
-
-    <script>
-        function onlyNumberKey(evt) {
-
-            // Only ASCII charactar in that range allowed
-            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-                return false;
-            return true;
-        }
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
-    </script>
-
-    </body>
-
-    </html>
+    @endsection
 
 @endsection

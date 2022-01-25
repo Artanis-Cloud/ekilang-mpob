@@ -91,7 +91,7 @@
                                                             Simple Datatable
                                                         </div> --}}
 
-                                                        <table class='table table-striped' id="table1" >
+                                                        <table class='table ' id="table1" >
                                                             <thead>
                                                                 <tr>
                                                                     <th>No</th>
@@ -125,8 +125,8 @@
                                                                     <td>{{ $loop->iteration }}</td>
                                                                     <td style="text-align:left">{{ $data->e_nl }}</td>
                                                                     <td>{{ $data->pelesen->e_np ?? '-'}}</td>
-                                                                    <td></td>
-                                                                    <td></td>
+                                                                    <td>{{ $data->pelesen->e_email ?? '-'}}</td>
+                                                                    <td>{{ $data->pelesen->e_notel ?? '-'}}</td>
 
                                                                     <td>{{ $data->kodpgw }}</td>
                                                                     <td>{{ $data->nosiri }}</td>

@@ -34,7 +34,7 @@
   }
 
   /**
-   * Easy on scroll event listener 
+   * Easy on scroll event listener
    */
   const onscroll = (el, listener) => {
     el.addEventListener('scroll', listener)
@@ -165,40 +165,40 @@
   }
 
   /**
-   * Initiate glightbox 
+   * Initiate glightbox
    */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
+//   const glightbox = GLightbox({
+//     selector: '.glightbox'
+//   });
 
   /**
    * Testimonials slider
    */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    },
-    breakpoints: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 20
-      },
+//   new Swiper('.testimonials-slider', {
+//     speed: 600,
+//     loop: true,
+//     autoplay: {
+//       delay: 5000,
+//       disableOnInteraction: false
+//     },
+//     slidesPerView: 'auto',
+//     pagination: {
+//       el: '.swiper-pagination',
+//       type: 'bullets',
+//       clickable: true
+//     },
+//     breakpoints: {
+//       320: {
+//         slidesPerView: 1,
+//         spaceBetween: 20
+//       },
 
-      1200: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      }
-    }
-  });
+//       1200: {
+//         slidesPerView: 3,
+//         spaceBetween: 20
+//       }
+//     }
+//   });
 
   /**
    * Porfolio isotope and filter
@@ -231,39 +231,39 @@
   });
 
   /**
-   * Initiate portfolio lightbox 
+   * Initiate portfolio lightbox
    */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+//   const portfolioLightbox = GLightbox({
+//     selector: '.portfolio-lightbox'
+//   });
 
-  /**
-   * Portfolio details slider
-   */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+//   /**
+//    * Portfolio details slider
+//    */
+//   new Swiper('.portfolio-details-slider', {
+//     speed: 400,
+//     loop: true,
+//     autoplay: {
+//       delay: 5000,
+//       disableOnInteraction: false
+//     },
+//     pagination: {
+//       el: '.swiper-pagination',
+//       type: 'bullets',
+//       clickable: true
+//     }
+//   });
 
   /**
    * Animation on scroll
    */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
-  });
+//   window.addEventListener('load', () => {
+//     AOS.init({
+//       duration: 1000,
+//       easing: 'ease-in-out',
+//       once: true,
+//       mirror: false
+//     })
+//   });
 
 })()
