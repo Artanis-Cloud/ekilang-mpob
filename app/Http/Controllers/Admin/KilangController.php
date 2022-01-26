@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\H91Init;
 use App\Models\Ekmessage;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
+use DB;
 
 class KilangController extends Controller
 {
@@ -133,7 +135,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.1daftarpelesen', compact('returnArr', 'layout'));
+        return view('admin.proses1.1daftarpelesen', compact('returnArr', 'layout'));
 
     }
 
@@ -158,7 +160,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-buah', compact('returnArr', 'layout','users'));
+        return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout','users'));
 
     }
 
@@ -182,7 +184,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-penapis', compact('returnArr', 'layout','users'));
+        return view('admin.proses1.senarai-pelesen-penapis', compact('returnArr', 'layout','users'));
 
     }
 
@@ -205,7 +207,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-isirung', compact('returnArr', 'layout','users'));
+        return view('admin.proses1.senarai-pelesen-isirung', compact('returnArr', 'layout','users'));
 
     }
 
@@ -228,7 +230,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-oleokimia', compact('returnArr', 'layout','users'));
+        return view('admin.proses1.senarai-pelesen-oleokimia', compact('returnArr', 'layout','users'));
 
     }
 
@@ -251,7 +253,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-simpanan', compact('returnArr', 'layout','users'));
+        return view('admin.proses1.senarai-pelesen-simpanan', compact('returnArr', 'layout','users'));
 
     }
 
@@ -273,7 +275,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.senarai-pelesen-bio', compact('returnArr', 'layout'));
+        return view('admin.proses1.senarai-pelesen-bio', compact('returnArr', 'layout'));
 
     }
 
@@ -296,7 +298,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.2tukar-password', compact('returnArr', 'layout'));
+        return view('admin.proses2.2tukar-password', compact('returnArr', 'layout'));
 
     }
 
@@ -345,7 +347,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.3daftar-penyata-penapis', compact('returnArr', 'layout'));
+        return view('admin.proses3.3daftar-penyata-penapis', compact('returnArr', 'layout'));
 
 
     }
@@ -370,7 +372,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.3daftar-penyata-isirung', compact('returnArr', 'layout'));
+        return view('admin.proses3.3daftar-penyata-isirung', compact('returnArr', 'layout'));
 
 
     }
@@ -395,7 +397,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.3daftar-penyata-oleokimia', compact('returnArr', 'layout'));
+        return view('admin.proses3.3daftar-penyata-oleokimia', compact('returnArr', 'layout'));
 
 
     }
@@ -420,7 +422,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.3daftar-penyata-simpanan', compact('returnArr', 'layout'));
+        return view('admin.proses3.3daftar-penyata-simpanan', compact('returnArr', 'layout'));
 
 
     }
@@ -445,7 +447,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.3daftar-penyata-biodiesel', compact('returnArr', 'layout'));
+        return view('admin.proses3.3daftar-penyata-biodiesel', compact('returnArr', 'layout'));
 
 
     }
@@ -470,7 +472,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.4EKilang-PLEID', compact('returnArr', 'layout'));
+        return view('admin.proses4.4EKilang-PLEID', compact('returnArr', 'layout'));
 
     }
 
@@ -493,7 +495,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.4EKilang-PLEID-penapis', compact('returnArr', 'layout'));
+        return view('admin.proses4.4EKilang-PLEID-penapis', compact('returnArr', 'layout'));
 
     }
 
@@ -516,7 +518,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.4EKilang-PLEID-isirung', compact('returnArr', 'layout'));
+        return view('admin.proses4.4EKilang-PLEID-isirung', compact('returnArr', 'layout'));
 
     }
 
@@ -539,7 +541,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.4EKilang-PLEID-oleokimia', compact('returnArr', 'layout'));
+        return view('admin.proses4.4EKilang-PLEID-oleokimia', compact('returnArr', 'layout'));
 
     }
 
@@ -562,7 +564,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.4EKilang-PLEID-simpanan', compact('returnArr', 'layout'));
+        return view('admin.proses4.4EKilang-PLEID-simpanan', compact('returnArr', 'layout'));
 
     }
 
@@ -587,7 +589,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.5penyata-belum-hantar-buah', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-buah', compact('returnArr', 'layout'));
 
     }
 
@@ -609,7 +611,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.5penyata-belum-hantar-penapis', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-penapis', compact('returnArr', 'layout'));
 
     }
 
@@ -631,7 +633,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.5penyata-belum-hantar-isirung', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-isirung', compact('returnArr', 'layout'));
 
     }
 
@@ -653,7 +655,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.5penyata-belum-hantar-oleo', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-oleo', compact('returnArr', 'layout'));
 
     }
 
@@ -675,7 +677,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.5penyata-belum-hantar-simpanan', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-simpanan', compact('returnArr', 'layout'));
 
     }
 
@@ -697,7 +699,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.5penyata-belum-hantar-bio', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-bio', compact('returnArr', 'layout'));
 
     }
 
@@ -719,7 +721,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.6penyata-papar-cetak-buah', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-buah', compact('returnArr', 'layout'));
 
     }
 
@@ -741,7 +743,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.6penyata-papar-cetak-penapis', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-penapis', compact('returnArr', 'layout'));
 
     }
 
@@ -763,7 +765,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.6penyata-papar-cetak-isirung', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-isirung', compact('returnArr', 'layout'));
 
     }
 
@@ -785,7 +787,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.6penyata-papar-cetak-oleo', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-oleo', compact('returnArr', 'layout'));
 
     }
 
@@ -807,7 +809,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.6penyata-papar-cetak-simpanan', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-simpanan', compact('returnArr', 'layout'));
 
     }
 
@@ -829,7 +831,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.6penyata-papar-cetak-bio', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-bio', compact('returnArr', 'layout'));
 
     }
 
@@ -849,7 +851,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.7portingmaklumat', compact('returnArr', 'layout'));
+        return view('admin.proses7.7portingmaklumat', compact('returnArr', 'layout'));
 
     }
     public function admin_8portdata()
@@ -868,7 +870,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.8portdata', compact('returnArr', 'layout'));
+        return view('admin.proses8.8portdata', compact('returnArr', 'layout'));
 
     }
 
@@ -888,7 +890,47 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.9paparpenyataterdahulu', compact('returnArr', 'layout'));
+        return view('admin.proses9.9penyataterdahulu', compact('returnArr', 'layout'));
+
+    }
+
+    public function admin_9penyataterdahulu_process(Request $request)
+    {
+        //dd($request->all());
+
+        $tahun = H91Init::where('tahun', $request->e91_thn);
+        $bulan = H91Init::where('tahun', $request->e91_bln);
+
+        // $users = RegPelesen::with('pelesen')->where('e_kat','PL91')->where('e_status',1)->get();
+
+        $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, date_format(e91_sdate,'%d-%m-%Y') as e91_sdate
+            FROM pelesen p, h91_init e, reg_pelesen k
+            WHERE e.e91_thn = '$request->tahun'
+            and e.e91_bln = '$request->bulan'
+            and p.e_nl = e.e91_nl
+            and e.e91_flg = '3'
+            and p.e_nl = k.e_nl
+            and k.e_kat = 'PL91'
+            order by k.kodpgw, k.nosiri");
+
+        // dd($users[1]);
+        // $tarikh = H91Init::get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.proses9.9papar', compact('returnArr', 'layout','tahun','bulan','users'));
 
     }
 
@@ -908,7 +950,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.10portdatatodq', compact('returnArr', 'layout'));
+        return view('admin.proses10.10portdatatodq', compact('returnArr', 'layout'));
 
     }
 
@@ -916,7 +958,7 @@ class KilangController extends Controller
     public function admin_11emel()
     {
 
-        $users = Ekmessage::get();
+        $listemel = Ekmessage::get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -931,7 +973,30 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.11emel', compact('returnArr', 'layout','users'));
+        return view('admin.proses11.11emel', compact('returnArr', 'layout','users'));
+
+    }
+
+    public function admin_11paparemel()
+    {
+
+        $emel = Ekmessage::get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.11emel'), 'name' => "Senarai Emel"],
+            ['link' => route('admin.11paparemel'), 'name' => "Papar Emel"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.proses11.11paparemel', compact('returnArr', 'layout','users'));
 
     }
 
@@ -951,7 +1016,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.12validation', compact('returnArr', 'layout'));
+        return view('admin.proses12.12validation', compact('returnArr', 'layout'));
 
     }
 
@@ -971,7 +1036,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.direktori', compact('returnArr', 'layout'));
+        return view('admin.menu-lain.direktori', compact('returnArr', 'layout'));
 
     }
 
@@ -995,7 +1060,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.pengumuman', compact('returnArr', 'layout','pengumuman'));
+        return view('admin.menu-lain.pengumuman', compact('returnArr', 'layout','pengumuman'));
 
     }
 
@@ -1015,7 +1080,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.jadual-penerimaanPL', compact('returnArr', 'layout'));
+        return view('admin.menu-lain.jadual-penerimaanPL', compact('returnArr', 'layout'));
 
     }
 
@@ -1035,7 +1100,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.senaraigagalPL', compact('returnArr', 'layout'));
+        return view('admin.menu-lain.senaraigagalPL', compact('returnArr', 'layout'));
 
     }
 
@@ -1055,7 +1120,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.panduan', compact('returnArr', 'layout'));
+        return view('admin.menu-lain.panduan', compact('returnArr', 'layout'));
 
     }
 
@@ -1075,7 +1140,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.tukarpassword', compact('returnArr', 'layout'));
+        return view('admin.menu-lain.tukarpassword', compact('returnArr', 'layout'));
 
     }
 

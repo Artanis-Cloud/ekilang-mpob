@@ -93,14 +93,14 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    @foreach ($users as $data)
+                                                    @foreach ($listemel as $data)
                                                     <tr>
                                                         <td>{{ $data->FromName }}</td>
                                                         <td>{{ $data->FromLicense }}</td>
                                                         <td>{{ $data->Category }}</td>
                                                         <td>{{ $data->Date }}</td>
                                                         <td>
-                                                            <button class="btn" style="margin-left:5%"><i class="fa fa-eye"  style="font-size:18px"></i></button>
+                                                            <button class="btn" style="margin-left:5%" ><a href="{{ route('admin.11paparemel') }} "><i class="fa fa-eye"  style="font-size:18px"></i></a></button>
                                                             <button class="btn"><i class="fa fa-download"  style="font-size:18px"></i></button>
                                                         </td>
 
@@ -118,64 +118,8 @@
                                 </div>
 
 
-                                <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                    {{-- <div class="text-left col-md-5">
-                                        <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
-                                            style="float: left">Sebelumnya</a>
-                                    </div> --}}
-                                    <div class="text-right col-md-12 mb-2 ">
-                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float: right" data-bs-target="#exampleModalCenter">Porting</button>
-                                    </div>
-
-                                </div>
-
-
-                                <div class="row" style=" float:right">
-
-                                    <div class="col-md-12">
-
-
-                                        <!-- Vertically Centered modal Modal -->
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                            PENGESAHAN</h5>
-                                                        <button type="button" class="close"
-                                                            data-bs-dismiss="modal" aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                            Anda pasti mahu cetak maklumat ini?
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Ya</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
 
 

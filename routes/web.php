@@ -86,9 +86,13 @@ Route::get('admin/6-penyata-papar-cetak-bio', [App\Http\Controllers\Admin\Kilang
 
 Route::get('admin/7-porting-maklumat', [App\Http\Controllers\Admin\KilangController::class, 'admin_7portingmaklumat'])->name('admin.7portingmaklumat');
 Route::get('admin/8-port-data', [App\Http\Controllers\Admin\KilangController::class, 'admin_8portdata'])->name('admin.8portdata');
+
 Route::get('admin/9-penyata-terdahulu', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulu'])->name('admin.9penyataterdahulu');
+Route::post('admin/9-penyata-terdahulu/process', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulu_process'])->name('admin.9penyataterdahulu.process');
+
 Route::get('admin/10-port-data-to-dq', [App\Http\Controllers\Admin\KilangController::class, 'admin_10portdatatodq'])->name('admin.10portdatatodq');
 Route::get('admin/11-emel', [App\Http\Controllers\Admin\KilangController::class, 'admin_11emel'])->name('admin.11emel');
+Route::get('admin/11-papar-emel', [App\Http\Controllers\Admin\KilangController::class, 'admin_11paparemel'])->name('admin.11paparemel');
 Route::get('admin/12-validation', [App\Http\Controllers\Admin\KilangController::class, 'admin_12validation'])->name('admin.12validation');
 Route::get('admin/direktori', [App\Http\Controllers\Admin\KilangController::class, 'admin_direktori'])->name('admin.direktori');
 Route::get('admin/pengumuman', [App\Http\Controllers\Admin\KilangController::class, 'admin_pengumuman'])->name('admin.pengumuman');
