@@ -93,19 +93,22 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+
+
                                                     @foreach ($users as $data)
+
                                                     <tr>
                                                         <td></td>
                                                         <td>{{ $data->e_nl }}</td>
                                                         <td>{{ $data->e_np }}</td>
                                                         <td>{{ $data->kodpgw }}</td>
                                                         <td>{{ $data->nosiri }}</td>
-                                                        <td>{{ $data->e91_sdate }}</td>
+                                                        <td>{{ $data->sdate }}</td>
 
 
                                                     </tr>
+                                                     @endforeach
 
-                                                    @endforeach
                                                 </tbody>
                                             </table>
 
