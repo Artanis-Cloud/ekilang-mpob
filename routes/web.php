@@ -88,6 +88,11 @@ Route::get('admin/7-porting-maklumat', [App\Http\Controllers\Admin\KilangControl
 Route::get('admin/8-port-data', [App\Http\Controllers\Admin\KilangController::class, 'admin_8portdata'])->name('admin.8portdata');
 
 Route::get('admin/9-penyata-terdahulu', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulu'])->name('admin.9penyataterdahulu');
+Route::get('admin/9-penyata-terdahulu-penapis', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulupenapis'])->name('admin.9penyataterdahulupenapis');
+Route::get('admin/9-penyata-terdahulu-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahuluisirung'])->name('admin.9penyataterdahuluisirung');
+Route::get('admin/9-penyata-terdahulu-oleokimia', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahuluoleokimia'])->name('admin.9penyataterdahuluoleokimia');
+Route::get('admin/9-penyata-terdahulu-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulusimpanan'])->name('admin.9penyataterdahulusimpanan');
+Route::get('admin/9-penyata-terdahulu-biodiesel', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulubiodiesel'])->name('admin.9penyataterdahulubiodiesel');
 Route::post('admin/9-penyata-terdahulu/process', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulu_process'])->name('admin.9penyataterdahulu.process');
 
 Route::get('admin/10-port-data-to-dq', [App\Http\Controllers\Admin\KilangController::class, 'admin_10portdatatodq'])->name('admin.10portdatatodq');
