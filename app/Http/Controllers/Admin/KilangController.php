@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Ekmessage;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
@@ -915,6 +916,8 @@ class KilangController extends Controller
     public function admin_11emel()
     {
 
+        $users = Ekmessage::get();
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.11emel'), 'name' => "Senarai Emel"],
@@ -928,7 +931,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.11emel', compact('returnArr', 'layout'));
+        return view('admin.11emel', compact('returnArr', 'layout','users'));
 
     }
 

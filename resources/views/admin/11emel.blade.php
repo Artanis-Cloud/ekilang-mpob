@@ -81,7 +81,7 @@
                                                 Simple Datatable
                                             </div> --}}
 
-                                            <table class='table table-striped' id="table1">
+                                            <table class='table ' id="table1">
                                                 <thead>
                                                     <tr class="text-center">
                                                         <th>Nama Pelesen</th>
@@ -93,22 +93,20 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @foreach ($users as $data)
                                                     <tr>
-                                                        <td>BPL</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <td>{{ $data->FromName }}</td>
+                                                        <td>{{ $data->FromLicense }}</td>
+                                                        <td>{{ $data->Category }}</td>
+                                                        <td>{{ $data->Date }}</td>
+                                                        <td>
+                                                            <button class="btn" style="margin-left:5%"><i class="fa fa-eye"  style="font-size:18px"></i></button>
+                                                            <button class="btn"><i class="fa fa-download"  style="font-size:18px"></i></button>
+                                                        </td>
 
                                                     </tr>
-                                                    <tr>
-                                                        <td>KKK</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
 
-                                                    </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
 
