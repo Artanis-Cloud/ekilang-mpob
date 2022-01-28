@@ -57,7 +57,7 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                       
+
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
@@ -65,7 +65,7 @@
                                     <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71);">Bahagian IV(a)</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan Minyak Isirong Sawit
+                                        <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan Minyak Isirung Sawit
                                             - Bahan Makanan</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>

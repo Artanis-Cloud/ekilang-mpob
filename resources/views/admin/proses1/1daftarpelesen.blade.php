@@ -73,7 +73,7 @@
                                         <div class="row" style="margin-top:-2%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Senarai Kilang</label>
+                                                Jenis Kilang</label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect">
@@ -97,14 +97,19 @@
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Status E-Kilang (1-Aktif, 2-Tidak Aktif)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder="Aktif/Tidak Aktif"
-                                                            name="company-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>Aktif</option>
+                                                            <option>Tidak Aktif</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
                                             </div>
                                         </div>
 
@@ -113,13 +118,18 @@
                                                 class="text-right col-sm-5 control-label col-form-label align-items-center">
                                                 Status E-Mingguan (1-Aktif, 2-Tidak Aktif)</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder="Aktif/Tidak Aktif"
-                                                            name="company-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>Aktif</option>
+                                                            <option>Tidak Aktif</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
                                             </div>
                                         </div>
 
@@ -127,14 +137,19 @@
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Status Direktori (Y-Ya, N-Tidak)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder="Y/N"
-                                                            name="company-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>Ya</option>
+                                                            <option>Tidak</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
                                             </div>
                                         </div>
 

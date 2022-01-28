@@ -248,20 +248,6 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Telefon Pegawai Melapor</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="No. Telefon Pegawai Melapor"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nama Pegawai Bertanggungjawab</label>
                                             <div class="col-md-6">
                                                 <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
