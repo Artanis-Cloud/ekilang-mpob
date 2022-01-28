@@ -96,7 +96,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Status E-Kilang (1-Aktif, 2-Tidak Aktif)</label>
+                                                Status E-Kilang </label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect">
@@ -116,7 +116,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label align-items-center">
-                                                Status E-Mingguan (1-Aktif, 2-Tidak Aktif)</label>
+                                                Status E-Mingguan </label>
                                             <div class="col-md-6">
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect">
@@ -136,7 +136,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Status Direktori (Y-Ya, N-Tidak)</label>
+                                                Status Direktori </label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect">
@@ -156,15 +156,31 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kod Pegawai</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder="Kod Pegawai"
-                                                            name="company-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                Kod Negeri </label>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>JJ</option>
+                                                            <option>KB</option>
+                                                            <option>KK</option>
+                                                            <option>MM</option>
+                                                            <option>NS</option>
+                                                            <option>PH</option>
+                                                            <option>PK</option>
+                                                            <option>PP</option>
+                                                            <option>SA</option>
+                                                            <option>SS</option>
+                                                            <option>SW</option>
+                                                            <option>TT</option>
+                                                            <option>WP</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
                                             </div>
                                         </div>
 
@@ -263,9 +279,9 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Telefon</label>
+                                                No. Telefon Kilang</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder="No. Telefon"
+                                                <input type="text" id="company-column" class="form-control" placeholder="No. Telefon Kilang"
                                                             name="company-column">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -277,9 +293,9 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Faks</label>
+                                                No. Faks Kilang</label>
                                             <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="No. Faks"
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="No. Faks Kilang"
                                                             name="email-id-column">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -291,9 +307,9 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Emel</label>
+                                                Alamat Emel Kilang</label>
                                             <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel"
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel Kilang"
                                                             name="email-id-column">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -302,20 +318,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Emel</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Melapor"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
+
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
@@ -336,6 +339,20 @@
                                                 Jawatan Pegawai Melapor</label>
                                             <div class="col-md-6">
                                                 <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Melapor"
+                                                            name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                No. Telefon Pegawai Melapor</label>
+                                            <div class="col-md-6">
+                                                <input type="email" id="email-id-column" class="form-control" placeholder="No. Telefon Pegawai Melapor"
                                                             name="email-id-column">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -392,15 +409,25 @@
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                Negeri</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Negeri"
-                                                            name="email-id-column">
+                                               <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-select" id="basicSelect">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        @foreach (App\Models\Negeri::distinct()->orderBy('kod_negeri')->get('nama_negeri') as $data)
+                                                                        <option value="{{ $data->nama_negeri }}">
+                                                                            {{ $data->nama_negeri }}
+                                                                        </option>
+                                                                    @endforeach
+
+                                                    </select>
+                                                </fieldset>
                                                 {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                        </div>
+
                                         </div>
                                         <div class="row">
                                             <label for="fname"
@@ -420,14 +447,23 @@
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kawasan</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Kawasan"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>Sabah</option>
+                                                            <option>Sarawak</option>
+                                                            <option>Selatan</option>
+                                                            <option>Tengah</option>
+                                                            <option>Timur</option>
+                                                            <option>Utara</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
                                             </div>
                                         </div>
 
@@ -462,45 +498,43 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kumpulan (nilai: IND,GOV,PA)</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel Pengurus"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                Kumpulan </label>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>Kerajaan</option>
+                                                            <option>Swasta</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
                                             </div>
                                         </div>
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                POMA (nilai:POMA)</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="POMA (nilai:POMA)"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                POMA </label>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>Ya</option>
+                                                            <option>Tidak</option>
+
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Sub-POMA (nilai:NPOMA, SPPOMA)</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Sub-POMA (nilai:NPOMA, SPPOMA)"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
+
                                     </div>
 
 

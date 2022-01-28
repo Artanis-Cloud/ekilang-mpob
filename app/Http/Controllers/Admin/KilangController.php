@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
+use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
@@ -119,6 +120,7 @@ class KilangController extends Controller
 
     public function admin_1daftarpelesen()
     {
+        $negeri = Negeri::get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -135,7 +137,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.proses1.1daftarpelesen', compact('returnArr', 'layout'));
+        return view('admin.proses1.1daftarpelesen', compact('returnArr', 'layout','negeri'));
 
     }
 
