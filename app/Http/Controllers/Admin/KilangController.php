@@ -322,7 +322,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.3daftar-penyata', compact('returnArr', 'layout'));
+        return view('admin.proses3.3daftar-penyata', compact('returnArr', 'layout'));
 
 
     }
@@ -1001,12 +1001,12 @@ class KilangController extends Controller
         $tahun = H91Init::where('tahun', $request->e91_thn);
         $bulan = H91Init::where('tahun', $request->e91_bln);
         // $ekat = RegPelesen::get('e_kat');
-        $ekat = DB::select("SELECT * FROM reg_pelesen");
+        // $ekat = DB::select("SELECT * FROM reg_pelesen");
         // dd($ekat);
         // $users = RegPelesen::with('pelesen')->where('e_kat','PL91')->where('e_status',1)->get();
-        foreach($ekat as $data){
-            if($data->e_kat == 'PL91')
-            {
+        // foreach($ekat as $data){
+        //     if($data->e_kat == 'PL91')
+        //     {
                 $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, date_format(e91_sdate,'%d-%m-%Y') as sdate
                     FROM pelesen p, h91_init e, reg_pelesen k
                     WHERE e.e91_thn = '$request->tahun'
@@ -1016,20 +1016,21 @@ class KilangController extends Controller
                     and p.e_nl = k.e_nl
                     and k.e_kat = 'PL91'
                     order by k.kodpgw, k.nosiri");
-            }
-            elseif($data->e_kat == 'PL101')
-            {
-                $users = DB::select("SELECT e.e101_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, date_format(e101_sdate,'%d-%m-%Y') as sdate
-                FROM pelesen p, h101_init e, reg_pelesen k
-                WHERE e.e101_thn = '$request->tahun'
-                and e.e101_bln = '$request->bulan'
-                and p.e_nl = e.e101_nl
-                and e.e101_flg = '3'
-                and p.e_nl = k.e_nl
-                and k.e_kat = 'PL101'
-                order by k.kodpgw, k.nosiri");
-            }
-        }
+            // }
+            // elseif($data->e_kat == 'PL101')
+            // {
+            //     $users = DB::select("SELECT e.e101_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, date_format(e101_sdate,'%d-%m-%Y') as sdate
+            //     FROM pelesen p, h101_init e, reg_pelesen k
+            //     WHERE e.e101_thn = '$request->tahun'
+            //     and e.e101_bln = '$request->bulan'
+            //     and p.e_nl = e.e101_nl
+            //     and e.e101_flg = '3'
+            //     and p.e_nl = k.e_nl
+            //     and k.e_kat = 'PL101'
+            //     order by k.kodpgw, k.nosiri");
+            // }
+
+        // }
 
         // dd($users);
 
@@ -1093,14 +1094,18 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.proses11.11emel', compact('returnArr', 'layout','users'));
+        return view('admin.proses11.11emel', compact('returnArr', 'layout','listemel'));
 
     }
 
-    public function admin_11paparemel()
+    public function admin_11paparemel(Request $request)
     {
+        $emel = DB::select("SELECT  MsgID, Date as sdate, FromName, FromLicense, FromEmail, Category, TypeOfEmail, Subject, Message
+             FROM ekmessage");
 
-        $emel = Ekmessage::get();
+            // dd($emel);
+
+        //  $emel = Ekmessage::first();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -1116,7 +1121,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.proses11.11paparemel', compact('returnArr', 'layout','users'));
+        return view('admin.proses11.11paparemel', compact('returnArr', 'layout','emel'));
 
     }
 
@@ -1260,7 +1265,7 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.tukarpassword', compact('returnArr', 'layout'));
+        return view('admin.menu-lain.tukarpassword', compact('returnArr', 'layout'));
 
     }
 
