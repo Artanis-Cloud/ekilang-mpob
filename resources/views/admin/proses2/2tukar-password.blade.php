@@ -60,9 +60,9 @@
 
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 2</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Tukar Kata Laluan
-                                        </h5>
+                                        <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Tukar Kata Laluan</h4>
+                                        {{-- <h5 style="color: rgb(39, 80, 71); font-size:14px">Tukar Kata Laluan
+                                        </h5> --}}
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
