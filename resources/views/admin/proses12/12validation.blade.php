@@ -61,8 +61,8 @@
 
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses 12</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Validasi (Semakan Data)</h5>
+                                        <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Validasi (Semakan Data)</h4>
+                                        {{-- <h5 style="color: rgb(39, 80, 71); font-size:14px">Validasi (Semakan Data)</h5> --}}
                                         <h6 style="color: rgb(242, 68, 68); margin-bottom:1%"><i>
                                             Perhatian: Proses ini menyemak data di PLEID</i>
                                         </h6>
