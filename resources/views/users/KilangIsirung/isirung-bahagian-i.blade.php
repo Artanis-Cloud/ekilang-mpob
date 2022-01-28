@@ -131,7 +131,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">B.
-                                                                        Pembelian / Penerimaan</td>
+                                                                        Stok Awal Di Pusat Simpanan</td>
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="10"
                                                                             onkeypress="return isNumberKey(event)">
@@ -152,6 +152,48 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">C.
+                                                                        Pembelian / Penerimaan</td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-bold-500">D.
+                                                                        Import</td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-bold-500">E.
                                                                         Diproses</td>
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="10"
@@ -175,7 +217,7 @@
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="text-bold-500">D.
+                                                                    <td class="text-bold-500">F.
                                                                         Pengeluaran</td>
                                                                     <td
                                                                         style="text-align:center; background-color:#808080b8">
@@ -197,50 +239,92 @@
 
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="text-bold-500">E.
-                                                                        Penjualan / Pengedaran Tempatan</td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-
-                                                                </tr>
-                                                                <tr>
-                                                                    <td class="text-bold-500">F.
-                                                                        Eksport Terus Dari Premis</td>
-                                                                    <td
-                                                                        style="text-align:center; background-color:#808080b8">
-                                                                        {{-- <input type="text" size="10" disabled> --}}
-                                                                    </td>
-                                                                    <td
-                                                                        style="text-align:center; background-color:#808080b8">
-                                                                        {{-- <input type="text" size="10" disabled> --}}
-                                                                    </td>
-                                                                    <td
-                                                                        style="text-align:center; background-color:#808080b8">
-                                                                        {{-- <input type="text" size="10" disabled> --}}
-                                                                    </td>
-                                                                    <td
-                                                                        style="text-align:center; background-color:#808080b8">
-                                                                        {{-- <input type="text" size="10" disabled> --}}
-                                                                    </td>
-
-                                                                </tr>
-                                                                <tr>
                                                                     <td class="text-bold-500">G.
-                                                                        Stok Akhir Di Premis</td>
+                                                                        Jualan / Edaran Tempatan</td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-bold-500">H.
+                                                                        Hantar ke Pusat Simpanan / Gudang</td>
+                                                                    <td
+                                                                        style="text-align:center; background-color:#808080b8">
+                                                                        {{-- <input type="text" size="10" disabled> --}}
+                                                                    </td>
+                                                                    <td
+                                                                        style="text-align:center; background-color:#808080b8">
+                                                                        {{-- <input type="text" size="10" disabled> --}}
+                                                                    </td>
+                                                                    <td
+                                                                        style="text-align:center; background-color:#808080b8">
+                                                                        {{-- <input type="text" size="10" disabled> --}}
+                                                                    </td>
+                                                                    <td
+                                                                        style="text-align:center; background-color:#808080b8">
+                                                                        {{-- <input type="text" size="10" disabled> --}}
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-bold-500">I.
+                                                                        Eksport</td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-bold-500">J.
+                                                                        Stok Akhir di Premis</td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+                                                                    <td style="text-align:center;">
+                                                                        <input type="text" size="10"
+                                                                            onkeypress="return isNumberKey(event)">
+                                                                    </td>
+
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-bold-500">K.
+                                                                        Stok Akhir di Pusat Simpanan</td>
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="10"
                                                                             onkeypress="return isNumberKey(event)">
@@ -286,11 +370,10 @@
 
 
 
-
                                             <div class="row" style=" float:right">
 
-                                                <div class="col-md-12">
 
+                                                <div class="col-md-12">
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                         data-bs-target="#exampleModalCenter">
                                                         Simpan & Seterusnya
@@ -332,7 +415,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                    
+
 
                                     </form>
 

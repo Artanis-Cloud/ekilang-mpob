@@ -66,8 +66,7 @@
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian II</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Jam Pengilangan, Kadar Perahan Dan
-                                            Harga</h5>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Kadar Perahan CPKO, Kadar Perolehan PKC, Jam Pengilangan dan Penggunaan Kapasiti</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
@@ -75,7 +74,7 @@
 
 
                                     <div class=" mt-2" style="text-align: right">
-                                        <a href="{{ asset('manual/kilangbuah/2.pdf') }}" target="_blank"
+                                        <a href="{{ asset('manual/kilangisirung/2.pdf') }}" target="_blank"
                                             style="text-align:right"><i><u>Panduan
                                                     Mengisi Maklumat Bahagian II</u></i></a>
                                     </div>
@@ -85,7 +84,7 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
-                                                    Jumlah Jam Pengilangan</label>
+                                                    Kadar Perahan Minyak Isirung Sawit Mentah (CPKO) </label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='jam_pengilangan' style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="jam_pengilangan" required
@@ -95,6 +94,9 @@
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
+                                                </div>
+                                                <div>
+                                                %
                                                 </div>
                                             </div>
                                             <div class="row">

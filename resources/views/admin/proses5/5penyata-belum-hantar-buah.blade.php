@@ -80,9 +80,12 @@
                                     <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Buah - MPOB(EL) MF 4</h3>
                                     <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum Dihantar Sehingga Tarikh
                                     <p><span id="datetime"></span></p>
-                                    <script>var dt = new Date();
-                                        document.getElementById("datetime").innerHTML=dt.toLocaleString();</script>
+                                    <script>
+                                        var dt = new Date();
+                                        document.getElementById("datetime").innerHTML = (("0"+dt.getDate()).slice(-2)) +"/"+ (("0"+(dt.getMonth()+1)).slice(-2)) +"/"+ (dt.getFullYear());
+                                        </script>
                                     </h5>
+
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>
