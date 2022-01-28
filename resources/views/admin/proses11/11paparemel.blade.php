@@ -87,64 +87,37 @@
                                                                 @foreach ($emel as $data)
                                                                     <tr>
                                                                         <th>Tarikh</th>
-                                                                        <td>{{ $data->Date }}</td>
-
-
-
-                                                                    </tr>
-
-                                                                    <tr>
-                                                                        <th>1. Kilang Isirung</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="15"
-                                                                                class="calc"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-
+                                                                        <td>{{ $data->sdate }}</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="text-bold-500">2. Kilang Peniaga</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="15"
-                                                                                class="calc"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-
+                                                                        <th>Nama Pelesen</th>
+                                                                        <td>{{ $data->FromName }}</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="text-bold-500">3. Lain-Lain</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="15"
-                                                                                class="calc"
-                                                                                onkeypress="return isNumberKey(event)">
+                                                                        <th>No. Lesen</th>
+                                                                        <td>{{ $data->FromLicense }}
                                                                         </td>
-
-
                                                                     </tr>
-
-
                                                                     <tr>
-                                                                        <td class="text-bold-500"
-                                                                            style="text-align:center;">
-                                                                            <b>Jumlah</b>
+                                                                        <th>Emel</th>
+                                                                        <td>{{ $data->FromEmail }}
                                                                         </td>
-                                                                        <td style="text-align:center;">
-                                                                            <b><span id="total"></span></b>
-
-                                                                        </td>
-
                                                                     </tr>
-                                                                    <tr style="background-color: #1526224a">
-                                                                        <td class="text-bold-500"
-                                                                            style="text-align:center;">
-                                                                            <b>Jumlah Bahagian I</b>
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-
-                                                                        </td>
-
+                                                                    <tr>
+                                                                        <th>Kategori</th>
+                                                                        <td>{{ $data->Category }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Jenis Emel</th>
+                                                                        <td>{{ $data->TypeOfEmail }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Subjek</th>
+                                                                        <td>{{ $data->Subject }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th>Mesej</th>
+                                                                        <td>{{ $data->Message }}</td>
                                                                     </tr>
                                                                 @endforeach
                                                             </table>
