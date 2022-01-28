@@ -110,174 +110,240 @@
                 <br>
                 <div class="sidebar-menu">
                     <ul class="menu">
-
-                        <li class='mt-2 sidebar-title' style="color: rgb(54, 51, 41)">Menu Penyelenggaraan</li>
-
-
-                        <li class="sidebar-item ">
-                            <a href="{{ route('admin.senaraipelesenbuah') }}" class='sidebar-link'>
-                            {{-- <a href="index.html" class='sidebar-link'> --}}
-                                <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">1. Daftar Pelesen</span>
-                            </a>
-
+                        {{-- <div class="container" style="margin-top: 30%; margin-left:6%; ">
+                            <h6 style="color: rgb(54, 51, 41)"><b>KILANG BUAH</b></h6>
+                        </div> --}}
                         </li>
-
-                        {{-- <li class="sidebar-item has-sub"> --}}
-                        <li class="sidebar-item">
-                            <a href="{{ route('admin.2tukarpassword') }}" class='sidebar-link'>
-                            {{-- <a href="#" class='sidebar-link'> --}}
-                                <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="triangle" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">2. Tukar Kata Laluan</span>
-                            </a>
-
-
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a href="{{ route('admin.3daftarpenyata') }}" class='sidebar-link'>
-                            {{-- <a href="#" class='sidebar-link'> --}}
-                                <i class="fas fa-tint" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); margin-left:21px ">3. Daftar Penyata Bulanan Baru</span>
-                            </a>
-
-
-
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a href="{{ route('admin.4ekilangpleid') }}" class='sidebar-link'>
-                            {{-- <a href="#" class='sidebar-link'> --}}
-                                <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0);">4. E-Kilang ke PLEID</span>
-                            </a>
-
-
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="{{ route('admin.5penyatabelumhantarbuah') }}" class='sidebar-link'>
-                            {{-- <a href="#" class='sidebar-link'> --}}
-                                <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0);">5. Penyata Bulanan Belum Dihantar</span>
-                            </a>
-
-                        </li>
-                        <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                             <a href="{{ route('admin.6penyatapaparcetakbuah') }}" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">6. Papar & Cetak Penyata Bulanan</span>
-                            </a>
-
-
-                        </li>
-                        <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.7portingmaklumat') }}" class='sidebar-link'> --}}
-                             <a href="{{ route('admin.7portingmaklumat') }}" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">7. Port Maklumat</span>
-                            </a>
-
-
-                        </li>
-                        <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.8portdata') }}" class='sidebar-link'> --}}
-                             <a href="{{ route('admin.8portdata') }}" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">8. Port Data</span>
-                            </a>
-
-
-                        </li>
-                        <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                             <a href="{{ route('admin.9penyataterdahulu') }}" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">9. Penyata Bulan Terdahulu</span>
-                            </a>
-
-
-                        </li>
-                        <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                             <a href="{{ route('admin.10portdatatodq') }}" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">10. Port Data Ke Dynamic Query</span>
-                            </a>
-
-
-                        </li>
-                        <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                             <a href="{{ route('admin.11emel') }}" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">11. Emel Pertanyaan / Pindaan / Cadangan</span>
-                            </a>
-
-
-                        </li>
-                        <li class="sidebar-item">
-                            {{-- <a href="{{ route('admin.ebiodiesel') }}" class='sidebar-link'> --}}
-                             <a href="{{ route('admin.12validation') }}" class='sidebar-link'>
-                                <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i style="color: rgb(54, 51, 41)" data-feather="briefcase" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0)">12. Validasi</span>
-                            </a>
-
-
-                        </li>
-
-
-                        {{-- </li> --}}
-
                         <br>
+                        <li class='mt-2 sidebar-title' style="color: rgb(54, 51, 41)">Menu Penyelenggaraan</li>
+                        <li class="sidebar-item  has-sub" >
+                            <a href="#" class='sidebar-link' id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
+                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <i class="fas fa-user-edit" style="color:rgb(54, 51, 41) "></i>
+                                <span><b>Profil Pelesen</b></span>
+                            </a>
 
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41)">Tetapan Akaun</li>
+                            <ul class="submenu " style="margin-left:-5%" aria-labelledby="dropdownMenuLink">
+                                <li>
+                                    <a href="{{ route('admin.senaraipelesenbuah') }}">
+                                        <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="file-text" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Daftar Pelesen Baru</span>
+                                    </a>
+                                </li>
 
-                        <li class="sidebar-item">
+                                <li>
+                                    <a href="{{ route('admin.2tukarpassword') }}">
+                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="layout" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Tukar Kata Laluan</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
-                                <i class="fas fa-user" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="file-text" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
+                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <i class="fas fa-pen"  style="color:rgb(54, 51, 41) "></i>
+                                <span><b>Papar Penyata</b></span>
                             </a>
 
+                            <ul class="submenu " style="margin-left:-5%">
 
+                                <li>
+                                    <a href="{{ route('admin.6penyatapaparcetakbuah') }}">
+                                        <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="file-text" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Senarai Penyata Bulanan</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.9penyataterdahulu') }}">
+                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="layout" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Penyata Terdahulu</span>
+                                    </a>
+                                </li>
+
+
+                            </ul>
 
                         </li>
 
-                        <li class="sidebar-item ">
-                            <a href="form-layout.html" class='sidebar-link'>
-                                <i class="fa fa-gear" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="layout" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Tetapan</span>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
+                                <span><b>Pindahan Data</b></span>
                             </a>
 
+                            <ul class="submenu " style="margin-left:-5%">
+                                <li>
+                                    <a href="{{ route('admin.4ekilangpleid') }}">
+                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="user" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">e-Kilang ke PLEID</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.7portingmaklumat') }}">
+                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Produk Sawit/Negara</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.8portdata') }}">
+                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Stat Admin/Homepage</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.10portdatatodq') }}">
+                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Dynamic Query</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
 
-                        <li class="sidebar-item ">
-                            <a href="form-editor.html" class='sidebar-link'>
-                                <i class="fa fa-sign-out" style="color:rgb(54, 51, 41) "> </i>
-                                {{-- <i data-feather="layers" width="20"></i> --}}
-                                <span style="color: rgb(0, 0, 0); ">Log Keluar</span>
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
+                                <span><b>Konfigurasi</b></span>
                             </a>
 
+                            <ul class="submenu " style="margin-left:-5%">
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="user" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Pengurusan Pentadbir</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.pengumuman') }}">
+                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Pengumuman</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.3daftarpenyata') }}">
+                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); "><i>Initialize</i> Penyata Baharu</span>
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
 
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
+                                <span><b>Lain-Lain</b></span>
+                            </a>
 
+                            <ul class="submenu " style="margin-left:-5%">
+                                <li>
+                                    <a href="{{ route('admin.direktori') }}">
+                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="user" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Direktori</span>
+                                    </a>
+                                </li>
 
+                                <li>
+                                    <a href="{{ route('admin.panduan') }}">
+                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Panduan Pengguna</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.11emel') }}">
+                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Emel Pindaan</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.12validation') }}">
+                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Validasi</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Kod & Nama Produk</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Kod & Nama Negara</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link'>
+                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
+                                <span><b>Tetapan Akaun</b></span>
+                            </a>
+
+                            <ul class="submenu " style="margin-left:-5%">
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="user" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('admin.tukarpassword') }}">
+                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Tukar Kata Laluan</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="#">
+                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Log Keluar</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
-                </div>
+
+            </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
         </div>

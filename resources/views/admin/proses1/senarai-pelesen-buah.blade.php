@@ -90,11 +90,16 @@
                                                         {{-- <div class="card-header">
                                                             Simple Datatable
                                                         </div> --}}
+                                                        <div class="text-left col-md-5">
+                                                            <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
+                                                                style="float: left"> Tambah Pelesen Baru</a>
+                                                        </div>
+                                                        <br>
 
                                                         <table class='table ' id="table1" >
                                                             <thead>
                                                                 <tr>
-                                                                    <th>No</th>
+                                                                    <th>Bil.</th>
                                                                     <th>No. Lesen<br>
                                                                         </th>
                                                                     <th>Nama Premis
@@ -130,9 +135,26 @@
 
                                                                     <td>{{ $data->kodpgw }}</td>
                                                                     <td>{{ $data->nosiri }}</td>
-                                                                    <td>{{ $data->e_status }}</td>
-                                                                    <td>{{ $data->e_stock }}</td>
-                                                                    <td>{{ $data->directory }}</td>
+
+                                                                    @if ($data->e_status == 1)
+                                                                        <td>Aktif</td>
+                                                                    @elseif ($data->e_status == 2)
+                                                                        <td>Tidak Aktif</td>
+                                                                    @endif
+
+                                                                    @if ($data->e_stock == 1)
+                                                                        <td>Aktif</td>
+                                                                    @elseif ($data->e_stock == 2)
+                                                                        <td>Tidak Aktif</td>
+                                                                    @endif
+
+                                                                    @if ($data->directory == 'Y')
+                                                                        <td>Ya</td>
+                                                                    @elseif ($data->e_stock == 'N')
+                                                                        <td>Tidak</td>
+                                                                    @endif
+
+
                                                                     <td></td>
 
 
@@ -159,10 +181,7 @@
                                                     </div> --}}
 
 
-                                                    <div class="text-left col-md-5">
-                                                        <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
-                                                            style="float: left"> Tambah Pelesen Baru</a>
-                                                    </div>
+
 
                                             <div class="row" style=" float:right">
 
