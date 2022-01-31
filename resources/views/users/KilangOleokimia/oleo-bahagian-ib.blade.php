@@ -3,7 +3,6 @@
 @section('content')
 
 
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
@@ -62,14 +61,16 @@
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
+
                                     <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71);">Bahagian IV(b)</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan Minyak Isirung Sawit
-                                            - Bahan Bukan Makanan</h5>
+                                        <h3 style="color: rgb(39, 80, 71); ">Bahagian Ib</h3>
+                                        <h5 style="color: rgb(39, 80, 71)">Produk Minyak Isirung Sawit
+                                        </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
+
                                     <div class="container center mt-4">
                                         <div class="row">
                                             <label for="fname"
@@ -79,42 +80,65 @@
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
                                                         <option selected hidden disabled>Sila Pilih Produk</option>
-                                                        <option value="H9">BOSFP/CBS - H9
-                                                        </option><option value="U7">BVO - U7
-                                                        </option><option value="M9">CBE - M9
-                                                        </option><option value="N0">CBEXT - N0
-                                                        </option><option value="N1">CBR - N1
-                                                        </option><option value="44">CBS - 44
-                                                        </option><option value="M2">CF - M2
-                                                        </option><option value="FM">CTENE - FM
-                                                        </option><option value="86">DF - 86
-                                                        </option><option value="DV">DFS - DV
-                                                        </option><option value="46">FB - 46
-                                                        </option><option value="DU">HFV - DU
-                                                        </option><option value="G2">HPF - G2
-                                                        </option><option value="AJ">HVF - AJ
-                                                        </option><option value="C0">HVG - C0
-                                                        </option><option value="78">HVO - 78
-                                                        </option><option value="FA">IEFAT - FA
-                                                        </option><option value="H5">IMVF - H5
-                                                        </option><option value="DL">INTFATBLD - DL
-                                                        </option><option value="42">M - 42
-                                                        </option><option value="M3">PF - M3
-                                                        </option><option value="DW">PFAT - DW
-                                                        </option><option value="79">PKF - 79
-                                                        </option><option value="G5">PRYO - G5
-                                                        </option><option value="G4">RL - G4
-                                                        </option><option value="43">SH - 43
-                                                        </option><option value="48">SOAP - 48
-                                                        </option><option value="I3">TOCO - I3
-                                                        </option><option value="FN">TRIE - FN
-                                                        </option><option value="F8">VC - F8
-                                                        </option><option value="I2">VEGPO - I2
-                                                        </option><option value="M0">VF - M0
-                                                        </option><option value="41">VG - 41
-                                                        </option><option value="AI">VSO - AI
+                                                        <option value="C8">BPKL - C8
+                                                        </option><option value="X3">BPKL - X3
+                                                        </option><option value="DT">BPKO - DT
+                                                        </option><option value="X2">BPKO - X2
+                                                        </option><option value="C9">BPKS - C9
+                                                        </option><option value="X4">BPKS - X4
+                                                        </option><option value="82">CBPKO - 82
+                                                        </option><option value="06">CPKL - 06
+                                                        </option><option value="04">CPKO - 04
+                                                        </option><option value="05">CPKS - 05
+                                                        </option><option value="Y3">DFRBDPKL - Y3
+                                                        </option><option value="Y4">DFRBDPKS - Y4
+                                                        </option><option value="D2">HNBDPKL - D2
+                                                        </option><option value="D5">HNBDPKO - D5
+                                                        </option><option value="D6">HNBDPKS - D6
+                                                        </option><option value="D3">HNBPKL - D3
+                                                        </option><option value="D1">HNBPKO - D1
+                                                        </option><option value="D4">HNBPKS - D4
+                                                        </option><option value="C6">HPKL - C6
+                                                        </option><option value="54">HPKO - 54
+                                                        </option><option value="65">HPKS - 65
+                                                        </option><option value="73">HRBDPKL - 73
+                                                        </option><option value="72">HRBDPKO - 72
+                                                        </option><option value="74">HRBDPKS - 74
+                                                        </option><option value="Z7">INTER  PKO - Z7
+                                                        </option><option value="AA">JGQRBDPKOS - AA
+                                                        </option><option value="EN">MVO_CPKO - EN
+                                                        </option><option value="Y2">MVO_RBDPKL - Y2
+                                                        </option><option value="Y1">MVO_RBDPKO - Y1
+                                                        </option><option value="A6">NBDPKL - A6
+                                                        </option><option value="68">NBDPKO - 68
+                                                        </option><option value="66">NBDPKS - 66
+                                                        </option><option value="X6">NBHPKL - X6
+                                                        </option><option value="X5">NBHPKO - X5
+                                                        </option><option value="X7">NBHPKS - X7
+                                                        </option><option value="A1">NBPKL - A1
+                                                        </option><option value="57">NBPKO - 57
+                                                        </option><option value="A8">NBPKS - A8
+                                                        </option><option value="A5">NPKL - A5
+                                                        </option><option value="58">NPKO - 58
+                                                        </option><option value="A7">NPKS - A7
+                                                        </option><option value="C1">PKAO - C1
+                                                        </option><option value="56">PKFAD - 56
+                                                        </option><option value="EV">PKMF - EV
+                                                        </option><option value="M1">PKOF - M1
+                                                        </option><option value="X0">RBDHPKL - X0
+                                                        </option><option value="W9">RBDHPKO - W9
+                                                        </option><option value="X1">RBDHPKS - X1
+                                                        </option><option value="32">RBDPKL - 32
+                                                        </option><option value="GG">RBDPKL IP - GG
+                                                        </option><option value="GE">RBDPKL MB - GE
+                                                        </option><option value="GF">RBDPKL SG - GF
+                                                        </option><option value="30">RBDPKO - 30
+                                                        </option><option value="31">RBDPKS - 31
+                                                        </option><option value="M7">RPKL - M7
+                                                        </option><option value="G3">RPKO - G3
+                                                        </option><option value="M8">RPKS - M8
+                                                        </option><option value="FZ">SPKLFA - FZ
                                                                    </option>
-
                                                     </select>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
@@ -124,10 +148,10 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" >
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Stok Awal</label>
+                                                Stok Awal Di Premis</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
                                                     id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
@@ -141,7 +165,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Belian/Penerimaan</label>
+                                                Stok Awal Di Pusat Simpanan</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
                                                     id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
@@ -155,7 +179,37 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Pengeluaran</label>
+                                                Belian / Penerimaan</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='kuantiti' id="kuantiti" style="margin-left:42%; width:40%"
+                                                    onkeypress="return isNumberKey(event)" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Import</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='nilai' id="nilai" style="margin-left:42%; width:40%"
+                                                    onkeypress="return isNumberKey(event)" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" >
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                              Jumlah Yang Diproses</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
                                                     id="destinasi_negara" required title="Sila isikan butiran ini.">
@@ -197,7 +251,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Stok Akhir</label>
+                                               Stok Akhir Di Premis</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
                                                     id="destinasi_negara" required title="Sila isikan butiran ini.">
@@ -208,22 +262,35 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                               Stok Akhir Di Pusat Simpanan</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
+                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
                                     </div>
-
+                                    <br>
 
                                     <div class="row form-group" style="padding-top: 10px; ">
 
 
-
-                                        <div class="text-right col-md-11 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                style="float: right" data-target="#confirmation">
-                                                Simpan</button>
+                                        <div class="text-right col-md-10 mb-7 ">
+                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
                                         </div>
 
                                     </div>
                                     <br>
+                                    <br>
+
                                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
                                     <hr>
                                     <section class="section">
@@ -234,13 +301,15 @@
                                                     <thead>
                                                         <tr style="text-align: center">
                                                             <th>Nama Produk</th>
-                                                            <th>Stok Awal</th>
+                                                            <th>Stok Awal Di Premis</th>
+                                                            <th>Stok Awal Di Pusat Simpanan</th>
                                                             <th>Belian / Penerimaan</th>
-                                                            <th>Pengeluaran</th>
+                                                            <th>Import</th>
+                                                            <th>Jumlah Yang Diproses</th>
                                                             <th>Jualan / Edaran Dalam Negeri</th>
                                                             <th>Eksport</th>
-                                                            <th>Stok Akhir</th>
-
+                                                            <th>Stok Akhir Di Premis</th>
+                                                            <th>Stok Akhir Di Pusat Simpanan</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -253,6 +322,9 @@
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>
+                                                            <td></td>
+                                                            <td></td>
+
                                                         </tr>
 
                                                         <br>
@@ -282,7 +354,7 @@
 
 
                                     <div class="text-left col-md-5">
-                                        <a href="{{ route('penapis.bahagiani') }}" class="btn btn-primary"
+                                        <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
                                             style="float: left">Sebelumnya</a>
                                     </div>
                                     <div class="text-right col-md-7 mb-4 ">
@@ -331,12 +403,20 @@
                             </form>
 
                         </div>
-
-                        <br>
-
                     </div>
+
                 </div>
-            </div>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+
+                {{-- </div>
+                                                                    </div> --}}
+
+                {{-- </section> --}}
 
 
 
@@ -350,7 +430,16 @@
 
 
 
-            <br>
+
+
+                {{-- </div>
+
+                    </div> --}}
+
+
+
+                <br>
+                <br>
 
 
 
@@ -372,24 +461,91 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-    </script>
-    <script type="text/javascript">
+    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
+    <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
+    <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('theme/js/app.js') }}"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
+
+    <script>
         $(document).ready(function() {
-            $('.calc').change(function() {
-                var total = 0;
-                $('.calc').each(function() {
-                    if ($(this).val() != '') {
-                        total += parseInt($(this).val());
-                    }
-                });
-                $('#total').html(total);
+            var table = $('#example').DataTable({
+                "language": {
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
+                    },
+                },
             });
         });
+
+        $(window).on('changed', (e) => {
+            // if($('#example').DataTable().clear().destroy()){
+            // $('#example').DataTable();
+            // }
+        });
+
+        // document.getElementById("form_type").onchange = function() {
+        //     myFunction()
+        // };
+
+        // function myFunction() {
+        //     console.log('asasa');
+        //     table.clear().draw();
+        // }
+    </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 
+    <script>
+        function onlyNumberKey(evt) {
 
-
+            // Only ASCII charactar in that range allowed
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                return false;
+            return true;
+        }
+    </script>
 
     </body>
 

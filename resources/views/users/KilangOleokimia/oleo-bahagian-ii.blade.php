@@ -68,7 +68,7 @@
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian II</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Kadar Perahan CPKO, Kadar Perolehan PKC, Jam Pengilangan dan Penggunaan Kapasiti</h5>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Hari Beroperasi dan Kadar Penggunaan Kapasiti</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
@@ -86,7 +86,7 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
-                                                    Kadar Perahan Minyak Isirung Sawit Mentah (CPKO) <b>%</b> </label>
+                                                    Jumlah Hari Kilang Beroperasi Sebulan </label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='jam_pengilangan' style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="jam_pengilangan" required
@@ -104,7 +104,7 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
-                                                    Kadar Perolehan Dedak Isirung (PKC)<b>%</b></label>
+                                                    Kadar Penggunaan Kapasiti Sebulan	</label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='kadar_perahan_mksm' style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="kadar_perahan_mksm"
@@ -116,37 +116,7 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">iii.
-                                                    Jumlah Jam Pengilangan Isirung (PK)</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='kadar_perolehan_isirung' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="kadar_perolehan_isirung"
-                                                        required title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">iv.
-                                                    Kadar Penggunaan Kapasiti Sebulan <b>%</b></label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='harga_purata_buah_sawit' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="harga_purata_buah_sawit"
-                                                        placeholder="" required title="Sila isikan butiran ini.">
-                                                    {{-- <p style="margin-left:42%;"><i>(1% Kadar Perahan)</i></p> --}}
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                            </div>
+                                          
 
                                         </div>
 
@@ -165,7 +135,7 @@
                                         </div>
 
                                     </div>
-                              
+
                                     <!-- Vertically Centered modal Modal -->
                                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

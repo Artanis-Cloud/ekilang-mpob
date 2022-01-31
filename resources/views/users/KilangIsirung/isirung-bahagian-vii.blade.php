@@ -57,15 +57,14 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71);">Bahagian VI</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit</h5>
+                                        <h3 style="color: rgb(39, 80, 71);">Bahagian VII</h3>
+                                        <h5 style="color: rgb(39, 80, 71)">Import Produk Sawit</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
@@ -155,7 +154,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nombor Borang Kastam 2</label>
+                                                Nombor Borang Kastam 1</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
                                                     id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
@@ -211,7 +210,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Destinasi Negara</label>
+                                                Negara Sumber</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
@@ -461,6 +460,7 @@
                                         </div>
 
 
+
                                     </div>
 
 
@@ -486,7 +486,7 @@
                                                     <thead>
                                                         <tr style="text-align: center">
                                                             <th>Nama Produk</th>
-                                                            <th>Nombor Borang Kastam 2</th>
+                                                            <th>Nombor Borang Kastam 1</th>
                                                             <th>Tarikh Eksport</th>
                                                             <th>Kuantiti (Tan Metrik)</th>
                                                             <th>Nilai</th>

@@ -212,6 +212,28 @@ class KilangIsirungController extends Controller
         return view('users.KilangIsirung.isirung-bahagian-vi', compact('returnArr', 'layout'));
     }
 
+    public function isirung_bahagianvii()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('isirung.bahagianvii'), 'name' => "Bahagian VII"],
+        ];
+
+        $kembali = route('isirung.bahagianvi');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kisirung';
+
+
+
+        return view('users.KilangIsirung.isirung-bahagian-vii', compact('returnArr', 'layout'));
+    }
+
+
     public function isirung_paparpenyata()
     {
 
