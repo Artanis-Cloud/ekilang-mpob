@@ -3,7 +3,6 @@
 @section('content')
 
 
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
@@ -65,8 +64,8 @@
 
                                     <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71);">Bahagian II</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Produk Minyak Isirung Sawit
+                                        <h3 style="color: rgb(39, 80, 71); ">Bahagian Ia</h3>
+                                        <h5 style="color: rgb(39, 80, 71)">Produk Minyak Sawit
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
@@ -81,66 +80,205 @@
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
                                                         <option selected hidden disabled>Sila Pilih Produk</option>
-
-                                                                        <option value="C8">BPKL - C8
-                                                            </option><option value="X3">BPKL - X3
-                                                            </option><option value="DT">BPKO - DT
-                                                            </option><option value="X2">BPKO - X2
-                                                            </option><option value="C9">BPKS - C9
-                                                            </option><option value="X4">BPKS - X4
-                                                            </option><option value="82">CBPKO - 82
-                                                            </option><option value="06">CPKL - 06
-                                                            </option><option value="04">CPKO - 04
-                                                            </option><option value="05">CPKS - 05
-                                                            </option><option value="Y3">DFRBDPKL - Y3
-                                                            </option><option value="Y4">DFRBDPKS - Y4
-                                                            </option><option value="D2">HNBDPKL - D2
-                                                            </option><option value="D5">HNBDPKO - D5
-                                                            </option><option value="D6">HNBDPKS - D6
-                                                            </option><option value="D3">HNBPKL - D3
-                                                            </option><option value="D1">HNBPKO - D1
-                                                            </option><option value="D4">HNBPKS - D4
-                                                            </option><option value="C6">HPKL - C6
-                                                            </option><option value="54">HPKO - 54
-                                                            </option><option value="65">HPKS - 65
-                                                            </option><option value="73">HRBDPKL - 73
-                                                            </option><option value="72">HRBDPKO - 72
-                                                            </option><option value="74">HRBDPKS - 74
-                                                            </option><option value="Z7">INTER  PKO - Z7
-                                                            </option><option value="AA">JGQRBDPKOS - AA
-                                                            </option><option value="EN">MVO_CPKO - EN
-                                                            </option><option value="Y2">MVO_RBDPKL - Y2
-                                                            </option><option value="Y1">MVO_RBDPKO - Y1
-                                                            </option><option value="A6">NBDPKL - A6
-                                                            </option><option value="68">NBDPKO - 68
-                                                            </option><option value="66">NBDPKS - 66
-                                                            </option><option value="X6">NBHPKL - X6
-                                                            </option><option value="X5">NBHPKO - X5
-                                                            </option><option value="X7">NBHPKS - X7
-                                                            </option><option value="A1">NBPKL - A1
-                                                            </option><option value="57">NBPKO - 57
-                                                            </option><option value="A8">NBPKS - A8
-                                                            </option><option value="A5">NPKL - A5
-                                                            </option><option value="58">NPKO - 58
-                                                            </option><option value="A7">NPKS - A7
-                                                            </option><option value="C1">PKAO - C1
-                                                            </option><option value="56">PKFAD - 56
-                                                            </option><option value="EV">PKMF - EV
-                                                            </option><option value="M1">PKOF - M1
-                                                            </option><option value="X0">RBDHPKL - X0
-                                                            </option><option value="W9">RBDHPKO - W9
-                                                            </option><option value="X1">RBDHPKS - X1
-                                                            </option><option value="32">RBDPKL - 32
-                                                            </option><option value="GG">RBDPKL IP - GG
-                                                            </option><option value="GE">RBDPKL MB - GE
-                                                            </option><option value="GF">RBDPKL SG - GF
-                                                            </option><option value="30">RBDPKO - 30
-                                                            </option><option value="31">RBDPKS - 31
-                                                            </option><option value="M7">RPKL - M7
-                                                            </option><option value="G3">RPKO - G3
-                                                            </option><option value="M8">RPKS - M8
-                                                            </option><option value="FZ">SPKLFA - FZ
+                                                            <option value="15">BPL - 15
                                                             </option>
+                                                            <option value="13">BPO - 13
+                                                            </option>
+                                                            <option value="14">BPS - 14
+                                                            </option>
+                                                            <option value="47">CO - 47
+                                                            </option>
+                                                            <option value="03">CPL - 03
+                                                            </option>
+                                                            <option value="01">CPO - 01
+                                                            </option>
+                                                            <option value="02">CPS - 02
+                                                            </option>
+                                                            <option value="V7">DFPL - V7
+                                                            </option>
+                                                            <option value="Z9">DFRBDPL - Z9
+                                                            </option>
+                                                            <option value="CZ">DFRDBPS - CZ
+                                                            </option>
+                                                            <option value="85">DPL - 85
+                                                            </option>
+                                                            <option value="84">DPO - 84
+                                                            </option>
+                                                            <option value="DS">DPST - DS
+                                                            </option>
+                                                            <option value="JH">DR RBDPL - JH
+                                                            </option>
+                                                            <option value="F6">DRBDPO - F6
+                                                            </option>
+                                                            <option value="D7">HCBST - D7
+                                                            </option>
+                                                            <option value="H0">HDFPL - H0
+                                                            </option>
+                                                            <option value="B3">HFFAPO - B3
+                                                            </option>
+                                                            <option value="Y7">HNPL - Y7
+                                                            </option>
+                                                            <option value="87">HPFAD - 87
+                                                            </option>
+                                                            <option value="C3">HPL - C3
+                                                            </option>
+                                                            <option value="Y9">HPMF - Y9
+                                                            </option>
+                                                            <option value="55">HPO - 55
+                                                            </option>
+                                                            <option value="H7">HPPS - H7
+                                                            </option>
+                                                            <option value="B9">HPS - B9
+                                                            </option>
+                                                            <option value="W1">HRBDDFL - W1
+                                                            </option>
+                                                            <option value="A3">HRBDPL - A3
+                                                            </option>
+                                                            <option value="H2">HRBDPO - H2
+                                                            </option>
+                                                            <option value="B6">HRBDSF - B6
+                                                            </option>
+                                                            <option value="B8">HRBDST - B8
+                                                            </option>
+                                                            <option value="Z3">IMPF - Z3
+                                                            </option>
+                                                            <option value="Z2">IMVO - Z2
+                                                            </option>
+                                                            <option value="X8">INTER PL - X8
+                                                            </option>
+                                                            <option value="Z6">INTER PO - Z6
+                                                            </option>
+                                                            <option value="DK">INTERPST - DK
+                                                            </option>
+                                                            <option value="Z4">JGQ RBDPO - Z4
+                                                            </option>
+                                                            <option value="KB">MVORBDPLMB - KB
+                                                            </option>
+                                                            <option value="GV">MVO_PMF - GV
+                                                            </option>
+                                                            <option value="Y0">MVO_RBDPL - Y0
+                                                            </option>
+                                                            <option value="X9">MVO_RBDPO - X9
+                                                            </option>
+                                                            <option value="BO">MVO_RBDPS - BO
+                                                            </option>
+                                                            <option value="GA">NBDDFPL - GA
+                                                            </option>
+                                                            <option value="Y6">NBDHPL - Y6
+                                                            </option>
+                                                            <option value="W3">NBDHPO - W3
+                                                            </option>
+                                                            <option value="W5">NBDHPS - W5
+                                                            </option>
+                                                            <option value="28">NBDPL - 28
+                                                            </option>
+                                                            <option value="JW">NBDPLRS - JW
+                                                            </option>
+                                                            <option value="HM">NBDPMF - HM
+                                                            </option>
+                                                            <option value="24">NBDPO3 - 24
+                                                            </option>
+                                                            <option value="22">NBDPO6 - 22
+                                                            </option>
+                                                            <option value="26">NBDPS - 26
+                                                            </option>
+                                                            <option value="Y8">NBHPL - Y8
+                                                            </option>
+                                                            <option value="W7">NBHPL - W7
+                                                            </option>
+                                                            <option value="W6">NBHPO - W6
+                                                            </option>
+                                                            <option value="W8">NBHPS - W8
+                                                            </option>
+                                                            <option value="H6">NBIF - H6
+                                                            </option>
+                                                            <option value="K0">NBIOL - K0
+                                                            </option>
+                                                            <option value="L0">NBIS - L0
+                                                            </option>
+                                                            <option value="20">NBPL - 20
+                                                            </option>
+                                                            <option value="16">NBPO - 16
+                                                            </option>
+                                                            <option value="18">NBPS - 18
+                                                            </option>
+                                                            <option value="G9">NO - G9
+                                                            </option>
+                                                            <option value="11">NPL - 11
+                                                            </option>
+                                                            <option value="07">NPO - 07
+                                                            </option>
+                                                            <option value="09">NPS - 09
+                                                            </option>
+                                                            <option value="34">PAO - 34
+                                                            </option>
+                                                            <option value="35">PFAD - 35
+                                                            </option>
+                                                            <option value="DF">PFAME - DF
+                                                            </option>
+                                                            <option value="45">PMF - 45
+                                                            </option>
+                                                            <option value="DI">PRLFAT - DI
+                                                            </option>
+                                                            <option value="AD">RBD SL - AD
+                                                            </option>
+                                                            <option value="D0">RBDBO - D0
+                                                            </option>
+                                                            <option value="V9">RBDHPL - V9
+                                                            </option>
+                                                            <option value="B0">RBDHPMF - B0
+                                                            </option>
+                                                            <option value="W2">RBDHPMF - W2
+                                                            </option>
+                                                            <option value="V8">RBDHPO - V8
+                                                            </option>
+                                                            <option value="W0">RBDHPS - W0
+                                                            </option>
+                                                            <option value="29">RBDPL - 29
+                                                            </option>
+                                                            <option value="25">RBDPO3 - 25
+                                                            </option>
+                                                            <option value="23">RBDPO6 - 23
+                                                            </option>
+                                                            <option value="27">RBDPS - 27
+                                                            </option>
+                                                            <option value="AL">RBDPSH - AL
+                                                            </option>
+                                                            <option value="21">RBPL - 21
+                                                            </option>
+                                                            <option value="17">RBPO - 17
+                                                            </option>
+                                                            <option value="19">RBPS - 19
+                                                            </option>
+                                                            <option value="Z5">RED PSL - Z5
+                                                            </option>
+                                                            <option value="DJ">REDPO - DJ
+                                                            </option>
+                                                            <option value="T1">RHPS - T1
+                                                            </option>
+                                                            <option value="12">RPL - 12
+                                                            </option>
+                                                            <option value="08">RPO - 08
+                                                            </option>
+                                                            <option value="10">RPS - 10
+                                                            </option>
+                                                            <option value="G6">SBO - G6
+                                                            </option>
+                                                            <option value="H1">SL - H1
+                                                            </option>
+                                                            <option value="EO">TFPS - EO
+                                                            </option>
+                                                            <option value="61">US - 61
+                                                            </option>
+                                                            <option value="AK">VCO - AK
+                                                            </option>
+                                                            <option value="AN">VO - AN
+                                                            </option>
+                                                            <option value="AM">VPL - AM
+                                                            </option>
+                                                            <option value="DR">VPO - DR
+                                                            </option>
+
                                                     </select>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
@@ -150,7 +288,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" >
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Stok Awal Di Premis</label>
@@ -208,24 +346,10 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" >
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Pengeluaran</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Digunakan Untuk Proses Selanjutnya</label>
+                                              Jumlah Yang Diproses</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
                                                     id="destinasi_negara" required title="Sila isikan butiran ini.">
@@ -293,22 +417,22 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <br>
 
                                     <div class="row form-group" style="padding-top: 10px; ">
 
 
-
-                                        <div class="text-right col-md-11 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                style="float: right" data-target="#confirmation">
-                                                Simpan</button>
+                                        <div class="text-right col-md-10 mb-7 ">
+                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
                                         </div>
 
                                     </div>
+                                    <br>
+                                    <br>
 
                                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-
+                                    <hr>
                                     <section class="section">
                                         <div class="card">
 
@@ -321,8 +445,7 @@
                                                             <th>Stok Awal Di Pusat Simpanan</th>
                                                             <th>Belian / Penerimaan</th>
                                                             <th>Import</th>
-                                                            <th>Pengeluaran</th>
-                                                            <th>Digunakan Untuk Proses Selanjutnya</th>
+                                                            <th>Jumlah Yang Diproses</th>
                                                             <th>Jualan / Edaran Dalam Negeri</th>
                                                             <th>Eksport</th>
                                                             <th>Stok Akhir Di Premis</th>
@@ -341,8 +464,7 @@
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>
-                                                            <td></td>
-                                                            <td></td>
+
                                                         </tr>
 
                                                         <br>
@@ -372,7 +494,7 @@
 
 
                                     <div class="text-left col-md-5">
-                                        <a href="{{ route('penapis.bahagiani') }}" class="btn btn-primary"
+                                        <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
                                             style="float: left">Sebelumnya</a>
                                     </div>
                                     <div class="text-right col-md-7 mb-4 ">
@@ -422,6 +544,7 @@
 
                         </div>
                     </div>
+
                 </div>
                 <br>
                 <br>

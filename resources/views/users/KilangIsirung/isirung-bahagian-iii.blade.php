@@ -62,198 +62,185 @@
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-
-                                    <div class="text-center">
+                                    <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian III</h3>
-                                        <h5 style="color: rgb(39, 80, 71) ; font-size:14px">Belian / Penerimaan Bekalan Buah Kelapa Sawit
-                                            (FFB) (52)</h5>
+                                        <h3 style="color: rgb(39, 80, 71);">Bahagian iii</h3>
+                                        <h5 style="color: rgb(39, 80, 71)">Belian/Penerimaan Bekalan Isirung Sawit - (PK) (51)
+                                            </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
-
-
-
-
-
-
-
-
-
-                                    {{-- kadar oer meningkat --}}
-                                    <div class="row" id="table-bordered">
-                                        <div class="col-12 mt-2" style="margin-bottom: -2%">
-                                            <form action="#" class="">
-                                                @csrf
-                                                <div class="card">
-
-                                                    <div class="card-content">
-
-
-                                                        <div class="table-responsive">
-                                                            <table class="table table-bordered mb-0">
-                                                                <thead style="text-align: center">
-                                                                    <tr>
-                                                                        <th>Sumber Bekalan</th>
-                                                                        <th>Kuantiti (Tan Metrik)</th>
-
-
-
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">1. Estet Sendiri</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">2. Estet Luar</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">3. Peniaga Buah</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">4. Pekebun Kecil</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">5. Kilang Buah Lain</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500">6. Lain-Lain</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
-                                                                        </td>
-
-
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="text-bold-500"
-                                                                            style="text-align:center;">
-                                                                            <b>Jumlah</b>
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-                                                                            <b><span id="total"></span></b>
-
-                                                                        </td>
-
-                                                                    </tr>
-                                                                    <tr style="background-color: #1526224a">
-                                                                        <td class="text-bold-500"
-                                                                            style="text-align:center;">
-                                                                            <b>Jumlah Bahagian I</b>
-                                                                        </td>
-                                                                        <td style="text-align:center;">
-
-                                                                        </td>
-
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
+                                    <div class="container center mt-4">
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Belian/Penerimaan</label>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                            <option value="15">Sendiri
+                                                            </option>
+                                                            <option value="13">Luar
+                                                            </option>
+                                                    </select>
+                                                </fieldset>
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
                                                     </div>
-                                                </div>
-
-
-
-
-
-
+                                                @enderror --}}
+                                            </div>
                                         </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Dari</label>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
+                                                        <option selected hidden disabled>Kilang Buah</option>
+
+                                                            <option value="15">Kilang Buah</option>
+                                                            <option value="15">Peniaga</option>
+                                                            <option value="15">CD3</option>
+                                                            <option value="15">Lain-lain</option>
+
+                                                    </select>
+                                                </fieldset>
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                               Kuantiti</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
+                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                    <div class="row form-group"  >
+
+                                    <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                        <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
-                                        </div>
-                                        <div class="text-right col-md-7 ">
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan &
-                                                Seterusnya</button>
+
+                                        <div class="text-right col-md-11 mb-4 ">
+                                            <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                style="float: right" data-target="#confirmation">
+                                                Simpan</button>
                                         </div>
 
                                     </div>
+                                    <br>
+                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
+                                    <hr>
+                                    <section class="section">
+                                        <div class="card">
 
-                                    <!-- Vertically Centered modal Modal -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
-                                                    </button>
-                                                </div>
+                                            <div class="card-body">
+                                                <table class='table table-striped' id="table1">
+                                                    <thead>
+                                                        <tr style="text-align: center">
+                                                            <th>Belian/Penerimaan</th>
+                                                            <th>Dari</th>
+                                                            <th>Kuantiti</th>
+
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>BPL</td>
+                                                            <td></td>
+                                                            <td></td>
+
+                                                        </tr>
+
+                                                        <br>
+
+                                                    </tbody>
+
+                                                </table>
+
+                                            </div>
+                                        </div>
+
+                                    </section>
+
+                                </div>
+
+
+
+
+                                <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                    <div class="text-left col-md-5">
+                                        <a href="{{ route('isirung.bahagianii') }}" class="btn btn-primary"
+                                            style="float: left">Sebelumnya</a>
+                                    </div>
+                                    <div class="text-right col-md-7 mb-4 ">
+                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
+                                            Seterusnya</button>
+                                    </div>
+
+                                </div>
+
+                                <!-- Vertically Centered modal Modal -->
+                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                        role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                    PENGESAHAN</h5>
+                                                <button type="button" class="close" data-bs-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <i data-feather="x"></i>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>
+                                                    Anda pasti mahu menyimpan maklumat ini?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-secondary"
+                                                    data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                </button>
+                                                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Ya</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {{-- </div> --}}
-                                </form>
-
-
                             </div>
+                            <br>
+                            </form>
+
                         </div>
 
+                        <br>
 
                     </div>
                 </div>

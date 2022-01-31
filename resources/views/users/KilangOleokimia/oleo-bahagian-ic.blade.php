@@ -3,7 +3,6 @@
 @section('content')
 
 
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
@@ -57,37 +56,38 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
+
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
+
                                     <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71);">Bahagian V(a)</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Belian/Penerimaan Bekalan Produk Sawit - Sendiri</h5>
+                                        <h3 style="color: rgb(39, 80, 71); ">Bahagian Ib</h3>
+                                        <h5 style="color: rgb(39, 80, 71)">Lain-Lain Minyak
+                                        </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
+
                                     <div class="container center mt-4">
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Belian/Penerimaan dari</label>
+                                                Nama Produk</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
-                                                        <option selected hidden disabled>Sila Pilih</option>
-                                                        <option value="1">KILANG BUAH
-                                                        </option><option value="2">KILANG PENAPIS
-                                                        </option><option value="3">KILANG ISIRONG
-                                                        </option><option value="4">KILANG OLEOKIMIA
-                                                        </option><option value="5">PUSAT SIMPANAN
-                                                        </option><option value="6">PENIAGA
-                                                        </option><option value="7">CD3
-                                                        </option><option value="8">IMPORT
-                                                        </option><option value="9">LAIN-LAIN
-                                                                   </option>
-
+                                                        <option selected hidden disabled>Sila Pilih Produk</option>
+                                                    
+                                                            <option value="U9">CCNO - U9
+                                                            </option><option value="V0">CNOFA - V0
+                                                            </option><option value="V1">DCNOFA - V1
+                                                            </option><option value="V2">DHCNOFA - V2
+                                                            </option><option value="FE">F-GV0 - FE
+                                                            </option><option value="U5">OTHERS - U5
+                                                                       </option>
                                                     </select>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
@@ -97,10 +97,10 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row" >
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                CPO</label>
+                                                Stok Awal Di Premis</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
                                                     id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
@@ -114,7 +114,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               PPO</label>
+                                                Stok Awal Di Pusat Simpanan</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
                                                     id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
@@ -128,7 +128,37 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               CPKO</label>
+                                                Belian / Penerimaan</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='kuantiti' id="kuantiti" style="margin-left:42%; width:40%"
+                                                    onkeypress="return isNumberKey(event)" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Import</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='nilai' id="nilai" style="margin-left:42%; width:40%"
+                                                    onkeypress="return isNumberKey(event)" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row" >
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                              Jumlah Yang Diproses</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
                                                     id="destinasi_negara" required title="Sila isikan butiran ini.">
@@ -142,7 +172,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               PPKO</label>
+                                               Jualan / Edaran Dalam Negeri</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
                                                     id="destinasi_negara" required title="Sila isikan butiran ini.">
@@ -153,23 +183,63 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-
-
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                               Eksport</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
+                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                               Stok Akhir Di Premis</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
+                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                               Stok Akhir Di Pusat Simpanan</label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
+                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
                                     </div>
-
+                                    <br>
 
                                     <div class="row form-group" style="padding-top: 10px; ">
 
 
-
-                                        <div class="text-right col-md-11 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                style="float: right" data-target="#confirmation">
-                                                Simpan</button>
+                                        <div class="text-right col-md-10 mb-7 ">
+                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
                                         </div>
 
                                     </div>
                                     <br>
+                                    <br>
+
                                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
                                     <hr>
                                     <section class="section">
@@ -179,12 +249,16 @@
                                                 <table class='table table-striped' id="table1">
                                                     <thead>
                                                         <tr style="text-align: center">
-                                                            <th>Belian/Penerimaan dari</th>
-                                                            <th>CPO</th>
-                                                            <th>PPO</th>
-                                                            <th>CPKO</th>
-                                                            <th>PPKO</th>
-
+                                                            <th>Nama Produk</th>
+                                                            <th>Stok Awal Di Premis</th>
+                                                            <th>Stok Awal Di Pusat Simpanan</th>
+                                                            <th>Belian / Penerimaan</th>
+                                                            <th>Import</th>
+                                                            <th>Jumlah Yang Diproses</th>
+                                                            <th>Jualan / Edaran Dalam Negeri</th>
+                                                            <th>Eksport</th>
+                                                            <th>Stok Akhir Di Premis</th>
+                                                            <th>Stok Akhir Di Pusat Simpanan</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -194,6 +268,12 @@
                                                             <td></td>
                                                             <td></td>
                                                             <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+
                                                         </tr>
 
                                                         <br>
@@ -223,7 +303,7 @@
 
 
                                     <div class="text-left col-md-5">
-                                        <a href="{{ route('penapis.bahagiani') }}" class="btn btn-primary"
+                                        <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
                                             style="float: left">Sebelumnya</a>
                                     </div>
                                     <div class="text-right col-md-7 mb-4 ">
@@ -272,12 +352,20 @@
                             </form>
 
                         </div>
-
-                        <br>
-
                     </div>
+
                 </div>
-            </div>
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+
+                {{-- </div>
+                                                                    </div> --}}
+
+                {{-- </section> --}}
 
 
 
@@ -291,7 +379,16 @@
 
 
 
-            <br>
+
+
+                {{-- </div>
+
+                    </div> --}}
+
+
+
+                <br>
+                <br>
 
 
 
@@ -313,24 +410,91 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-    </script>
-    <script type="text/javascript">
+    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
+    <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
+    <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+    <script src="{{ asset('theme/js/app.js') }}"></script>
+
+    <script src="assets/js/main.js"></script>
+
+    <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
+
+    <script>
         $(document).ready(function() {
-            $('.calc').change(function() {
-                var total = 0;
-                $('.calc').each(function() {
-                    if ($(this).val() != '') {
-                        total += parseInt($(this).val());
-                    }
-                });
-                $('#total').html(total);
+            var table = $('#example').DataTable({
+                "language": {
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
+                    },
+                },
             });
         });
+
+        $(window).on('changed', (e) => {
+            // if($('#example').DataTable().clear().destroy()){
+            // $('#example').DataTable();
+            // }
+        });
+
+        // document.getElementById("form_type").onchange = function() {
+        //     myFunction()
+        // };
+
+        // function myFunction() {
+        //     console.log('asasa');
+        //     table.clear().draw();
+        // }
+    </script>
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on the button, open the modal
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
     </script>
 
+    <script>
+        function onlyNumberKey(evt) {
 
-
+            // Only ASCII charactar in that range allowed
+            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                return false;
+            return true;
+        }
+    </script>
 
     </body>
 
