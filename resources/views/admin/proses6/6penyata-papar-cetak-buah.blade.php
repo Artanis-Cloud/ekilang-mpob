@@ -70,7 +70,7 @@
                 </div>
             </div> --}}
 
-            <div class=" mt-2  row">
+            <div class="mt-2 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -111,12 +111,12 @@
                     <div class="tab" style="margin-right:10%; margin-left:10%">
                         {{-- <button class="tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
                             Terkini</button> --}}
-                        <a style="color:black; height:49.57px; border-radius:unset; font-size:14.4px"
+                        <a style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; "
                             class="btn btn-work tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
                             Terkini</a>
                         {{-- <button class="tablinks" onclick="openInit(event, 'One')"> --}}
                         <a href="{{ route('admin.5penyatabelumhantarbuah') }}"
-                            style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; margin-left:-1%"
+                            style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; margin-left:-0.315rem; background-color:rgba(107, 130, 138, 0.076)"
                             class="btn btn-work tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum Hantar</a>
                         {{-- </button> --}}
 
@@ -148,6 +148,7 @@
                                                 href="{{ route('admin.6penyatapaparcetakbio') }}">E-Biodiesel</a>
                                         </div>
                                     </div>
+                                    <br>
                                     {{-- <div class="col-md-4 col-12"> --}}
                                     <div class="pl-3">
 
@@ -182,11 +183,14 @@
                                                             </th>
                                                             <th>Kod Pegawai
                                                             </th>
+                                                            <th>No. Pegawai
+                                                            </th>
+                                                            <th>Email Pegawai
+                                                            </th>
                                                             <th>No. Siri
                                                             </th>
                                                             <th>Tarikh Submit
                                                             </th>
-
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -288,14 +292,6 @@
                                         </div>
                                     </div>
 
-
-
-
-
-
-
-
-                                    </form>
 
                                 </div>
                             </div>

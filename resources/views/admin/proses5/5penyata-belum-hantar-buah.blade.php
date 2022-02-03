@@ -62,7 +62,7 @@
                 </div>
             </div> --}}
 
-            <div class=" mt-2  row">
+            <div class="mt-2 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -104,7 +104,7 @@
                             <a href="{{ route('admin.6penyatapaparcetakbuah') }}" style="color:black">Penyata Bulanan
                                 Terkini</a>
                         </button> --}}
-                        <a href="{{ route('admin.6penyatapaparcetakbuah') }}" style="color:black; height:49.57px; border-radius:unset; font-size:14.4px"
+                        <a href="{{ route('admin.6penyatapaparcetakbuah') }}" style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; background-color:rgba(107, 130, 138, 0.076)"
                         class="btn btn-work tablinks" onclick="openInit(event, 'All')">Penyata Bulanan
                         Terkini</a>
                         {{-- <button class="tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum
@@ -149,6 +149,7 @@
                                             href="{{ route('admin.5penyatabelumhantarbio') }}">E-Biodiesel</a>
                                     </div>
                                 </div>
+                                <br>
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
@@ -182,16 +183,21 @@
                                             <table class='table table-striped' id="table1">
                                                 <thead>
                                                     <tr>
-                                                        <th>Pilih?</th>
+                                                        <th>Papar?</th>
+                                                        <th>Sudah Cetak?<br>
+                                                        </th>
                                                         <th>No. Lesen<br>
                                                         </th>
                                                         <th>Nama Premis
                                                         </th>
-                                                        <th>E-mail
+                                                        <th>Kod Pegawai
                                                         </th>
-                                                        <th>No. Telefon
+                                                        <th>No. Pegawai
                                                         </th>
-
+                                                        <th>Email Pegawai
+                                                        </th>
+                                                        <th>No. Siri
+                                                        </th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -249,7 +255,7 @@
                                             data-bs-target="#exampleModalCenter">Email Peringatan Jan 2008</button>
 
                                         <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float:right" data-bs-target="#exampleModalCenter">Surat
+                                            style="float:right; margin-right:-50%" data-bs-target="#exampleModalCenter">Surat
                                             Bayaran</button>
 
                                     </div>
@@ -303,23 +309,10 @@
                         </div>
                     </div>
 
-
-
-
-
-
-                    </form>
-
-
                 </div>
             </div>
 
 
-
-
-
-
-        </div>
         </div>
 
 
