@@ -116,8 +116,9 @@
                         </li>
                         <br>
                         <li class='mt-2 sidebar-title' style="color: rgb(54, 51, 41)">Menu Penyelenggaraan</li>
-                        <li class="sidebar-item  has-sub" >
-                            <a href="#" class='sidebar-link' id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link' id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
                                 <i class="fas fa-user-edit" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Profil Pelesen</b></span>
@@ -146,7 +147,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-pen"  style="color:rgb(54, 51, 41) "></i>
+                                <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Papar Penyata</b></span>
                             </a>
 
@@ -176,7 +177,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
+                                <i class="fas fa-people-arrows" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Pindahan Data</b></span>
                             </a>
 
@@ -218,7 +219,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
+                                <i class="fas fa-cogs" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Konfigurasi</b></span>
                             </a>
 
@@ -311,7 +312,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
+                                <i class="fas fa-pen" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Tetapan Akaun</b></span>
                             </a>
 
