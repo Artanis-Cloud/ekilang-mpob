@@ -78,6 +78,15 @@
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        @foreach (App\Models\Negeri::distinct()->orderBy('kod_negeri')->get('nama_negeri') as $data)
+                                                                        <option value="{{ $data->nama_negeri }}">
+                                                                            {{ $data->nama_negeri }}
+                                                                        </option>
+                                                                    @endforeach
+
+                                                    </select>
+                                                    {{-- <select class="form-select" id="basicSelect">
                                                         <option selected hidden disabled>Sila Pilih Negeri</option>
                                                     </option><option value="02">KEDAH
                                                     </option><option value="03">KELANTAN
@@ -94,7 +103,7 @@
                                                     </option><option value="09">PULAU PINANG
                                                     </option><option value="01">JOHOR
 
-                                                    </select>
+                                                    </select> --}}
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">

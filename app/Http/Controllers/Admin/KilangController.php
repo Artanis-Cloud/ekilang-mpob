@@ -479,7 +479,7 @@ class KilangController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Daftar Penyata Bulanan Baru"],
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Penyata Dari e-Kilang ke PLEID"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -502,7 +502,7 @@ class KilangController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Daftar Penyata Bulanan Baru"],
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -525,7 +525,7 @@ class KilangController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Daftar Penyata Bulanan Baru"],
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -548,7 +548,7 @@ class KilangController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Daftar Penyata Bulanan Baru"],
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -571,7 +571,7 @@ class KilangController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.4ekilangpleid'), 'name' => "Daftar Penyata Bulanan Baru"],
+            ['link' => route('admin.4ekilangpleid'), 'name' => "Pindahan Data Dari e-Kilang ke PLEID"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -860,7 +860,7 @@ class KilangController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.7portingmaklumat'), 'name' => "Port Maklumat"],
+            ['link' => route('admin.7portingmaklumat'), 'name' => "Pindahan Maklumat Produk & Negara"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -879,7 +879,7 @@ class KilangController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.8portdata'), 'name' => "Port Data"],
+            ['link' => route('admin.8portdata'), 'name' => "Pindahan Penyata Bulanan ke Stat Admin/Homepage"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -1080,7 +1080,7 @@ class KilangController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.10portdatatodq'), 'name' => "Port Data Ke Dynamic Query"],
+            ['link' => route('admin.10portdatatodq'), 'name' => "Pindahan Penyata Bulanan Ke Dynamic Query"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -1167,6 +1167,7 @@ class KilangController extends Controller
 
     public function admin_direktori()
     {
+        $negeri = Negeri::get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],

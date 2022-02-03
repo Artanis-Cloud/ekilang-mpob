@@ -31,7 +31,7 @@
                                                 <li class="breadcrumb-item">
                                                     <a href="{{ $breadcrumb['link'] }}" style="color: rgb(102, 100, 100) !important;"
                                                         onMouseOver="this.style.color='lightblue'"
-                                                        onMouseOut="this.style.color='white'">
+                                                        onMouseOut="this.style.color='black'">
                                                         {{ $breadcrumb['name'] }}
                                                     </a>
                                                 </li>
@@ -60,7 +60,7 @@
 
                                     <div class=" text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Menukar Kata Laluan Pengguna</h3>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Tukar Kata Laluan Pengguna</h3>
                                         <h5 style="color: rgb(39, 80, 71); font-size:14px">Sila isi maklumat berkenaan
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}

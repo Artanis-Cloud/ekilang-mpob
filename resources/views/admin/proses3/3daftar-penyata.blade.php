@@ -312,14 +312,14 @@
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="{{ route('admin.3daftarpenyatapenapis') }}">Kilang
                                             Penapis</a>
-                                        <a class="dropdown-item" href="{{ route('admin.senaraipelesenisirung') }}">Kilang
+                                        <a class="dropdown-item" href="{{ route('admin.3daftarpenyataisirung') }}">Kilang
                                             Isirung</a>
                                         <a class="dropdown-item"
                                             href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang Oleokimia</a>
-                                        <a class="dropdown-item" href="{{ route('admin.senaraipelesensimpanan') }}">Pusat
+                                        <a class="dropdown-item" href="{{ route('admin.3daftarpenyatasimpanan') }}">Pusat
                                             Simpanan</a>
                                         <a class="dropdown-item"
-                                            href="{{ route('admin.senaraipelesenbio') }}">E-Biodiesel</a>
+                                            href="{{ route('admin.3daftarpenyatabiodiesel') }}">E-Biodiesel</a>
                                     </div>
                                 </div>
                                 {{-- <div class="col-md-4 col-12"> --}}
