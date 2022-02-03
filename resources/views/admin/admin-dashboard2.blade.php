@@ -877,8 +877,49 @@
 
         <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
 
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
 
         <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+        <script>
+            window.addEventListener("load", function() {
+                $.ajax({
+                    url: "{{ route('graph_dashboard.default') }}",
+                    method: "get",
+                    dataType: "JSON",
+                    success: function(data) {
+                        drawChart(data.query_now);
+                    }
+                });
+            });
+
+
+        $(document).ready(function() {
+            $('#bar').change(function() {
+                var shuttle = $(this).val();
+                if (shuttle != '') {
+                    load_data(shuttle);
+                }
+            });
+        });
+
+        function load_data(shuttle) {
+            $.ajax({
+                url: "{{ route('graph_dashboard') }}",
+                method: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}",
+                    shuttle_type: shuttle,
+                },
+                dataType: "JSON",
+                success: function(data) {
+                    console.log(data.query_now);
+                    drawChart(data.query_now);
+                }
+            });
+        }
+        </script>
 
 
 </body>

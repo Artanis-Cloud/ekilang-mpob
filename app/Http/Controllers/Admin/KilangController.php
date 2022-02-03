@@ -725,6 +725,13 @@ class KilangController extends Controller
 
     public function admin_6penyatapaparcetakbuah()
     {
+        $users = DB::select("SELECT p.e_nl, p.e_np, r.kodpgw, r.nosiri,
+        e.e91_flg, p.e_email, date_format(e.e91_sdate,'%d-%m-%Y') as sdate
+        FROM pelesen p, e91_init e, reg_pelesen r
+        WHERE p.e_nl = e.e91_nl and p.e_nl = r.e_nl and r.e_kat = 'PL91'
+        and e.e91_flg = '1'
+        order by r.kodpgw, r.nosiri, p.e_nl");
+
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -741,7 +748,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.proses6.6penyata-papar-cetak-buah', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-buah', compact('returnArr', 'layout','users'));
 
     }
 
@@ -1310,6 +1317,81 @@ class KilangController extends Controller
 
     }
 
+
+    public function graph_dashboard_default()
+    {
+        // dd($request->all());
+
+        $query_now = DB::select("SELECT date_format(e.e101_sdate,'%d-%m-%Y'), count(p.e_nl),
+        FROM pelesen p, e101_init e, reg_pelesen r
+        WHERE p.e_nl = e.e101_nl and p.e_nl = r.e_nl and r.e_kat = 'PL91'
+        and e.e101_sdate is not null
+        group by e.e101_sdate
+        order by e.e101_sdate");
+
+
+
+        // $shuttle_type = '3';
+        // $query_now = DB::select("SELECT shuttles.negeri_id, COUNT(shuttles.negeri_id) as total_kilang
+        // FROM form_a_s
+        // INNER JOIN shuttles
+        // ON form_a_s.shuttle_id = shuttles.id
+        // WHERE shuttles.shuttle_type = $shuttle_type
+        // AND YEAR(date(form_a_s.created_at)) = YEAR(now())
+        // GROUP BY shuttles.negeri_id");
+
+        // $query_past = DB::select("SELECT shuttles.negeri_id, COUNT(shuttles.negeri_id) as total_kilang
+        // FROM form_a_s
+        // INNER JOIN shuttles
+        // ON form_a_s.shuttle_id = shuttles.id
+        // WHERE shuttles.shuttle_type = $shuttle_type
+        // AND YEAR(date(form_a_s.created_at)) = YEAR(now())-1
+        // GROUP BY shuttles.negeri_id");
+
+        $returnArr = [
+            'query_now' => $query_now,
+            // 'query_past' => $query_past
+        ];
+
+        return response($returnArr, 200);
+    }
+
+
+
+    public function graph_dashboard(Request $request)
+    {
+        // dd($request->all());
+
+        $query_now = DB::select("SELECT date_format(e.e101_sdate,'%d-%m-%Y'), count(p.e_nl),
+        FROM pelesen p, e101_init e, reg_pelesen r
+        WHERE p.e_nl = e.e101_nl and p.e_nl = r.e_nl and r.e_kat = 'PL91'
+        and e.e101_sdate is not null
+        group by e.e101_sdate
+        order by e.e101_sdate");
+        // $shuttle_type = $request->shuttle_type ?? '3';
+        // $query_now = DB::select("SELECT shuttles.negeri_id, COUNT(shuttles.negeri_id) as total_kilang
+        // FROM form_a_s
+        // INNER JOIN shuttles
+        // ON form_a_s.shuttle_id = shuttles.id
+        // WHERE shuttles.shuttle_type = $shuttle_type
+        // AND YEAR(date(form_a_s.created_at)) = YEAR(now())
+        // GROUP BY shuttles.negeri_id");
+
+        // $query_past = DB::select("SELECT shuttles.negeri_id, COUNT(shuttles.negeri_id) as total_kilang
+        // FROM form_a_s
+        // INNER JOIN shuttles
+        // ON form_a_s.shuttle_id = shuttles.id
+        // WHERE shuttles.shuttle_type = $shuttle_type
+        // AND YEAR(date(form_a_s.created_at)) = YEAR(now())-1
+        // GROUP BY shuttles.negeri_id");
+
+        $returnArr = [
+            'query_now' => $query_now,
+            // 'query_past' => $query_past
+        ];
+
+        return response($returnArr, 200);
+    }
 
 
 

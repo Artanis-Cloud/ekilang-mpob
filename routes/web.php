@@ -193,7 +193,7 @@ Route::get('/try2', [App\Http\Controllers\Users\KilangBuah\KilangBuahController:
 Route::get('hashpassword', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'hashPassword'])->name('hashPassword');
 
 
-
+Route::get('/data/graph/default', [App\Http\Controllers\Admin\KilangController::class, 'graph_dashboard_default'])->name('ipjpsm.graph_dashboard.default');
 
 
 

@@ -171,7 +171,7 @@
                                                             Simple Datatable
                                                         </div> --}}
 
-                                                <table class='table table-striped' id="table1">
+                                                <table class='table' id="table1">
                                                     <thead>
                                                         <tr>
                                                             <th>Papar?</th>
@@ -183,8 +183,8 @@
                                                             </th>
                                                             <th>Kod Pegawai
                                                             </th>
-                                                            <th>No. Pegawai
-                                                            </th>
+                                                            {{-- <th>No. Pegawai
+                                                            </th> --}}
                                                             <th>Email Pegawai
                                                             </th>
                                                             <th>No. Siri
@@ -194,32 +194,27 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <input type="checkbox">&nbspYa
-                                                            </td>
-                                                            <td>
-                                                                x
-                                                            </td>
-                                                            <td>
-                                                                x
-                                                            </td>
-                                                            <td>
-                                                                x
-                                                            </td>
-                                                            <td>
-                                                                x
-                                                            </td>
-                                                            <td>
-                                                                x
-                                                            </td>
-                                                            <td>
-                                                                x
-                                                            </td>
+                                                        @foreach ($users as $data)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="checkbox">&nbspYa
+                                                                </td>
+                                                                <td>
+                                                                    x
+                                                                </td>
 
-                                                        </tr>
+                                                                <td>{{ $data->e_nl ?? '-' }}</td>
+                                                                <td>{{ $data->e_np ?? '-' }}</td>
+                                                                <td>{{ $data->kodpgw }}</td>
 
+                                                                <td>{{ $data->e_email ?? '-' }}</td>
+                                                                <td>{{ $data->nosiri }}</td>
 
+                                                                <td>{{ $data->sdate }}</td>
+
+                                                            </tr>
+
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
 
