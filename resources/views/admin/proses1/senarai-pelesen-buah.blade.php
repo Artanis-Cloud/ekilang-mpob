@@ -52,6 +52,11 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -245,9 +250,6 @@
 
 
     </section><!-- End Hero -->
-
-
-
 
 
     <!-- ======= Footer ======= -->

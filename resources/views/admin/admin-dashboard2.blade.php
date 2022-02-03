@@ -92,8 +92,9 @@
                         </li>
                         <br>
                         <li class='mt-2 sidebar-title' style="color: rgb(54, 51, 41)">Menu Penyelenggaraan</li>
-                        <li class="sidebar-item  has-sub" >
-                            <a href="#" class='sidebar-link' id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" >
+                        <li class="sidebar-item  has-sub">
+                            <a href="#" class='sidebar-link' id="dropdownMenuLink" data-bs-toggle="dropdown"
+                                aria-expanded="false">
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
                                 <i class="fas fa-user-edit" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Profil Pelesen</b></span>
@@ -122,7 +123,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-pen"  style="color:rgb(54, 51, 41) "></i>
+                                <i class="fas fa-pen" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Papar Penyata</b></span>
                             </a>
 
@@ -319,10 +320,10 @@
                         </li>
                     </ul>
 
+                </div>
+                <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
-            <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
         </div>
-    </div>
 
 
 
@@ -454,7 +455,8 @@
                                 </span>
                                 </div> --}}
                                 <div class="icon"><i class="fa fa-file-text-o fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.senaraipelesenbuah') }}">1. Daftar
+                                <h4 class="title"><a href="{{ route('admin.senaraipelesenbuah') }}">1.
+                                        Daftar
                                         Pelesen</a></h4>
                                 <p class="description">Daftar maklumat pelesen, cipta id pengguna dan password bagi
                                     pelesen</p>
@@ -476,7 +478,8 @@
                                 {{-- <div class="text-center"> --}}
                                 <div class="icon" style="text-align: center"><i class="fas fa-key fa-xs"></i>
                                 </div>
-                                <h4 class="title"><a href="{{ route('admin.2tukarpassword') }}">2. Tukar Kata
+                                <h4 class="title"><a href="{{ route('admin.2tukarpassword') }}">2. Tukar
+                                        Kata
                                         Laluan</a></h4>
                                 <p class="description">Tukar kata laluan pelesen bagi kes lupa laluan</p>
                             </div>
@@ -494,7 +497,8 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-file-signature fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.3daftarpenyata') }}">3. Daftar Penyata Bulanan Baru</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.3daftarpenyata') }}">3. Daftar
+                                        Penyata Bulanan Baru</a></h4>
                                 <p class="description">Daftar penyata bulanan baru bagi semua pelesen (Initialization
                                     Penyata Bulanan)</p>
                             </div>
@@ -512,7 +516,8 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-file-export fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.4ekilangpleid') }}">4. E-Kilang ke PLEID</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.4ekilangpleid') }}">4. E-Kilang
+                                        ke PLEID</a></h4>
                                 <p class="description">Pindah data dari E-Kilang ke PLEID</p>
                             </div>
                         </div>
@@ -527,10 +532,12 @@
                                         </strong>
                                     </span>
                                     </div> --}}
-                                <div class="icon" style="text-align: center"><i class="fas fa-ban fa-xs"></i>
+                                <div class="icon" style="text-align: center"><i
+                                        class="fas fa-ban fa-xs"></i>
                                 </div>
 
-                                <h4 class="title"><a href="{{ route('admin.5penyatabelumhantarbuah') }}">5. Penyata Bulanan Belum Dihantar</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.5penyatabelumhantarbuah') }}">5.
+                                        Penyata Bulanan Belum Dihantar</a></h4>
                                 <p class="description">Senarai penyata bulanan yang belum dihantar</p>
                             </div>
                         </div>
@@ -545,9 +552,11 @@
                                         </strong>
                                     </span>
                                     </div> --}}
-                                <div class="icon" style="text-align: center"><i class="fa fa-print fa-xs"></i>
+                                <div class="icon" style="text-align: center"><i
+                                        class="fa fa-print fa-xs"></i>
                                 </div>
-                                <h4 class="title"><a href="{{ route('admin.6penyatapaparcetakbuah') }}">6. Papar & Cetak Penyata Bulanan</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.6penyatapaparcetakbuah') }}">6.
+                                        Papar & Cetak Penyata Bulanan</a></h4>
                                 <p class="description">Papar penyata bulanan untuk cetakan</p>
                             </div>
                         </div>
@@ -588,7 +597,8 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-eject fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.8portdata') }}">8. Port Data</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.8portdata') }}">8. Port Data</a>
+                                </h4>
                                 <p class="description">Pemindahan Data ke Stat Admin dan Stat Homepage</p>
                             </div>
                         </div>
@@ -606,7 +616,8 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-folder-open fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.9penyataterdahulu') }}">9. Penyata Bulan Terdahulu</a>
+                                <h4 class="title"><a href="{{ route('admin.9penyataterdahulu') }}">9.
+                                        Penyata Bulan Terdahulu</a>
                                 </h4>
                                 <p class="description"> Papar penyata bulanan terdahulu di e-Kilang dan PLEID</p>
                             </div>
@@ -626,7 +637,8 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-file-archive fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.10portdatatodq') }}">10. Port Data Ke Dynamic Query</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.10portdatatodq') }}">10. Port
+                                        Data Ke Dynamic Query</a></h4>
                                 <p class="description">Pemindahan Data Ke Dynamic Query</p>
                             </div>
                         </div>
@@ -643,7 +655,8 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fa fa-envelope fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.11emel') }}">11. Emel Pertanyaan / Pindaan / Cadangan</a>
+                                <h4 class="title"><a href="{{ route('admin.11emel') }}">11. Emel Pertanyaan
+                                        / Pindaan / Cadangan</a>
                                 </h4>
                                 <p class="description">Senarai Emel Pertanyaan / Pindaan / Cadangan</p>
                             </div>
@@ -661,7 +674,8 @@
                                     </div> --}}
                                 <div class="icon" style="text-align: center"><i
                                         class="fas fa-check-double fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.12validation') }}">12. Validasi</a></h4>
+                                <h4 class="title"><a href="{{ route('admin.12validation') }}">12.
+                                        Validasi</a></h4>
                                 <p class="description">Validasi - Semakan FFBProses dan Kapasiti</p>
                             </div>
                         </div>
@@ -692,12 +706,12 @@
                         justify-content: center;
                         flex-direction: row; margin-left:5%; margin-right:5%;">
 
-                            <div class="col-md-4 col-lg-4" >
-                                <div class="swiper-slide" >
+                            <div class="col-md-3 col-lg-3">
+                                <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         <a href="{{ route('admin.direktori') }}">
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/dir4.png') }}"
-                                            class="testimonial-img" alt="" >
+                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/dir4.png') }}"
+                                                class="testimonial-img" alt="">
                                             <h3>Direktori</h3>
                                         </a>
                                         <h4>Direktori</h4>
@@ -705,14 +719,14 @@
                                 </div>
                             </div><!-- End testimonial item -->
 
-                            <div class="col-md-4 col-lg-4">
+                            <div class="col-md-3 col-lg-3">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         <a href="{{ route('admin.pengumuman') }}">
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Pengumuman</h3>
-                                        <h4>Pengumuman</h4>
+                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
+                                                class="testimonial-img" alt="">
+                                            <h3>Pengumuman</h3>
+                                            <h4>Pengumuman</h4>
                                         </a>
                                     </div>
                                 </div>
@@ -747,27 +761,27 @@
                                 </div>
                             </div> --}}
 
-                            <div class="col-md-4 col-lg-4" style="margin-top: -8%">
+                            <div class="col-md-3 col-lg-4">
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         <a href="{{ route('admin.panduan') }}">
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Panduan Pengguna</h3>
-                                        <h4>Panduan bagi menyelenggara penyata bulanan</h4>
+                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
+                                                class="testimonial-img" alt="">
+                                            <h3>Panduan Pengguna</h3>
+                                            <h4>Panduan bagi menyelenggara penyata bulanan</h4>
                                         </a>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-4 col-lg-4" style="margin-top: -8%">
+                            <div class="col-md-3 col-lg-4" >
                                 <div class="swiper-slide">
                                     <div class="testimonial-item">
                                         <a href="{{ route('admin.tukarpassword') }}">
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Tukar Kata Laluan</h3>
-                                        <h4>Tukar kata laluan bagi pengguna</h4>
+                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
+                                                class="testimonial-img" alt="">
+                                            <h3>Tukar Kata Laluan</h3>
+                                            <h4>Tukar kata laluan bagi pengguna</h4>
                                         </a>
                                     </div>
                                 </div>

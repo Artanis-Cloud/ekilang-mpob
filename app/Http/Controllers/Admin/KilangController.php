@@ -14,6 +14,24 @@ use DB;
 
 class KilangController extends Controller
 {
+    public function admin_login()
+    {
+
+        // $breadcrumbs    = [
+        //     ['link' => route('home'), 'name' => "Laman Utama"],
+        //     ['link' => route('jenis-kayu-kumai', date('Y')), 'name' => "Kemaskini Jenis Kayu Kumai"],
+        // ];
+
+        // $kembali = route('home');
+
+        // $returnArr = [
+        //     'breadcrumbs' => $breadcrumbs,
+        //     'kembali'     => $kembali,
+        // ];
+
+        return view('admin.admin-login');
+    }
+
     public function admin_kilangbuah()
     {
 
@@ -1045,7 +1063,7 @@ class KilangController extends Controller
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.9penyataterdahulu');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,

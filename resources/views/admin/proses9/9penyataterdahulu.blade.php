@@ -36,7 +36,7 @@
                                                         <a href="{{ $breadcrumb['link'] }}"
                                                             style="color: rgb(102, 100, 100) !important;"
                                                             onMouseOver="this.style.color='lightblue'"
-                                                            onMouseOut="this.style.color='white'">
+                                                            onMouseOut="this.style.color='black'">
                                                             {{ $breadcrumb['name'] }}
                                                         </a>
                                                     </li>
@@ -61,17 +61,23 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
-                                     type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Kilang Buah
+                                    <button class="btn btn-secondary dropdown-toggle"
+                                        style="background-color: rgb(238, 70, 70)" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Kilang Buah
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      {{-- <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang Buah</a> --}}
-                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahulupenapis') }}">Kilang Penapis</a>
-                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahuluisirung') }}">Kilang Isirung</a>
-                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahuluoleokimia') }}">Kilang Oleokimia</a>
-                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahulusimpanan') }}">Pusat Simpanan</a>
-                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahulubiodiesel') }}">E-Biodiesel</a>
+                                        {{-- <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang Buah</a> --}}
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.9penyataterdahulupenapis') }}">Kilang Penapis</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.9penyataterdahuluisirung') }}">Kilang Isirung</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.9penyataterdahuluoleokimia') }}">Kilang Oleokimia</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.9penyataterdahulusimpanan') }}">Pusat Simpanan</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.9penyataterdahulubiodiesel') }}">E-Biodiesel</a>
                                     </div>
                                 </div>
                                 {{-- <div class="col-md-4 col-12"> --}}
@@ -80,7 +86,8 @@
                                         @csrf
                                         <div class=" text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Papar Penyata Bulanan Terdahulu</h3>
+                                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Papar Penyata Bulanan
+                                                Terdahulu</h3>
                                             <h5 style="color: rgb(39, 80, 71); font-size:14px">Papar Penyata Bulanan
                                                 Terdahulu di MYSQL dan PLEID</h5>
                                             {{-- <p>Maklumat Kilang</p> --}}
@@ -195,7 +202,7 @@
                                                 {{-- <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                                     style="float: right"
                                                     data-bs-target="#exampleModalCenter">Porting</button> --}}
-                                                    <button type="submit">YA</button>
+                                                <button type="submit">YA</button>
                                             </div>
                                         </div>
                                         <div class="row" style=" float:right">
@@ -241,7 +248,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                </div>
                                 </form>
                             </div>
                         </div>
@@ -255,13 +262,6 @@
     {{-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
-
-
-
-
-    </body>
-
-    </html>
 
 
 

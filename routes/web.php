@@ -38,6 +38,8 @@ Route::get('admin/dashboard2', [App\Http\Controllers\Admin\DashboardAdminControl
 
 
 //Admin
+
+Route::get('admin/login', [App\Http\Controllers\Admin\KilangController::class, 'admin_login'])->name('admin.login');
 Route::get('admin/kilang-buah', [App\Http\Controllers\Admin\KilangController::class, 'admin_kilangbuah'])->name('admin.kilangbuah');
 Route::get('admin/kilang-penapis', [App\Http\Controllers\Admin\KilangController::class, 'admin_kilangpenapis'])->name('admin.kilangpenapis');
 Route::get('admin/kilang-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_kilangisirung'])->name('admin.kilangisirung');
