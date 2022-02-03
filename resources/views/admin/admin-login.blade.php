@@ -65,37 +65,24 @@
                 {{-- <div class="col-md-1"></div> --}}
                 <div class="col-md-9">
                     <div class="border card-header" style="background-color:rgba(89, 194, 154, 0.801)">
-                        <h3 class="text-white m-b-0" style="text-align: center"><b>Pengumuman</b></h3>
+                        <h3 class="text-white m-b-0" style="text-align: center"><b>Disclaimer</b></h3>
                     </div>
                     <div class="container"
-                        style="opacity: 0.7;background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); height: 500px;">
+                        style="opacity: 0.7;background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); ">
                         <div class="card-body">
                             {{-- <h3 class="card-title">LOREM IPSUM:</h3> --}}
                             <p class="card-text">
-                                <br>Sebarang pertanyaan sila hubungi :<br>
-                                <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b> - Pn. Nor Syaida (Emel:
-                                nor.syaida@mpob.gov.my atau Tel :
-                                03-7802 2917)<br>
-                                <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b> - En. Rominizam (Emel:
-                                rominizam@mpob.gov.my atau Tel :
-                                03-7802 2918)<br>
-                                <b>Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b> - Pn. Aziana (Emel:
-                                aziana.misnan@mpob.gov.my atau Tel :
-                                03-7802 2955)<br>
-                                <b>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b> - Pn. Aziana (Emel:
-                                aziana.misnan@mpob.gov.my atau Tel :
-                                03-7802 2955)<br>
-                                <b>Penyata Bulanan Kilang Isirong - MPOB (EL) CF4</b> - Pn. Nor Baayah (Emel
-                                abby@mpob.gov.my atau Tel : 03-7802
-                                2865)<br>
-                                <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b> - Pn. Nor Baayah (Emel
-                                abby@mpob.gov.my atau Tel : 03-7802
-                                2865)<br>
-                                <b>No Faks bagi Penyata Bulanan</b> : 03-7803 2323 / 03-7803 1399<br>
+
+                            <p>Kerajaan Malaysia dan Lembaga Minyak Sawit Malaysia (MPOB) adalah tidak bertanggungjawab
+                                bagi apa-apa kehilangan atau kerugian yang disebabkan oleh penggunaan mana-mana maklumat
+                                yang diperolehi dari laman web ini .Syarikat-syarikat yang dirujuk di dalam laman web
+                                ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun syarikat yang disyorkan oleh
+                                Lembaga Minyak Sawit Malaysia (MPOB).</p>
+                                {{-- <b>No Faks bagi Penyata Bulanan</b> : 03-7803 2323 / 03-7803 1399<br>
                                 <br><mark><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA
                                         MINGGUAN) melalui sistem
                                         ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu
-                                        (ISNIN).</b><br></mark><br>
+                                        (ISNIN).</b><br></mark><br> --}}
                         </div>
 
 
@@ -125,7 +112,7 @@
                         <br>
                         <h4 class="text-center"
                             style="color: white; font-size:20px; font-family:Trebuchet MS (sans-serif)">Log
-                            Masuk
+                            Masuk Pentadbir
                         </h4>
                     </div>
                     <br>
@@ -173,12 +160,6 @@
                         <button class="btn btn-block btn-lg "
                             style="color: black; background-color: rgba(89, 194, 154, 0.801)" type="submit">
                             Log Masuk</button>
-
-<br>
-
-                            <div class="row">
-                                <a href="{{ route('admin.login') }}" style="text-decoration:none; text-align:center; color:white">Log Masuk Akaun Pentadbir</a>
-                            </div>
                         {{-- </div> --}}
                         {{-- </div> --}}
                     </form>
