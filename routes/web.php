@@ -172,6 +172,17 @@ Route::get('oleokimia/email', [App\Http\Controllers\Users\KilangOleokimia\Kilang
 Route::get('oleokimia/prestasi-oer', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_prestasioer'])->name('oleo.prestasioer');
 Route::get('oleokimia/penyata-dahulu', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_penyatadahulu'])->name('oleo.penyatadahulu');
 
+//Pelesen - Pusat Simpanan
+Route::get('pusatsimpan/dashboard',[App\Http\Controllers\Users\DashboardUserController::class, 'pusatsimpan_dashboard'])->name('pusatsimpan.dashboard');
+Route::get('pusatsimpan/maklumat-asas-pelesen', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_maklumatasaspelesen'])->name('pusatsimpan.maklumatasaspelesen');
+Route::get('pusatsimpan/tukar-password', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_tukarpassword'])->name('pusatsimpan.tukarpassword');
+Route::get('pusatsimpan/bahagian-a', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_bahagiana'])->name('pusatsimpan.bahagiana');
+Route::get('pusatsimpan/bahagian-b', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_bahagianb'])->name('pusatsimpan.bahagianb');
+Route::get('pusatsimpan/papar-penyata', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_paparpenyata'])->name('pusatsimpan.paparpenyata');
+Route::get('pusatsimpan/email', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_email'])->name('pusatsimpan.email');
+Route::get('pusatsimpan/prestasi-oer', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_prestasioer'])->name('pusatsimpan.prestasioer');
+Route::get('pusatsimpan/penyata-dahulu', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_penyatadahulu'])->name('pusatsimpan.penyatadahulu');
+
 
 Route::get('/try', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try'])->name('try');
 Route::get('/try2', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'try2'])->name('try2');

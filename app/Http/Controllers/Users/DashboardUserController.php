@@ -34,6 +34,11 @@ class DashboardUserController extends Controller
         return view('users.KilangOleokimia.oleo-dashboard');
     }
 
+    public function pusatsimpan_dashboard()
+    {
+        return view('users.PusatSimpanan.pusatsimpan-dashboard');
+    }
+
     public function index_form()
     {
         return view('users.form');

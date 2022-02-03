@@ -90,7 +90,12 @@
                                                         {{-- <div class="card-header">
                                                             Simple Datatable
                                                         </div> --}}
-
+                                                        <div class="text-left col-md-5">
+                                                            <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
+                                                                style="float: left"> Tambah Pelesen Baru</a>
+                                                        </div>
+                                                        <br>
+                                                        
                                                         <table class='table' id="table1" >
                                                             <thead>
                                                                 <tr>
