@@ -403,7 +403,7 @@ var myBar = new Chart(ctxBar, {
       backgroundColor: [chartColors.red, chartColors.grey, chartColors.grey, chartColors.grey, chartColors.info, chartColors.blue, chartColors.grey],
       data: [
         50,
-        10,
+        50,
         30,
         40,
         35,
