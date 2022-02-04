@@ -59,92 +59,90 @@
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
 
-                        <div class="card-body">
-                            <div class="row">
-                                {{-- <div class="col-md-4 col-12"> --}}
-                                <div class="pl-3">
+                        <form action="{{ route('admin.direktori.process') }}" method="GET">
+                            @csrf
+                            {{-- <div class="card" style="margin-right:10%; margin-left:10%"> --}}
+                            <div class="card-body">
+                                <div class="row">
+                                    {{-- <div class="col-md-4 col-12"> --}}
+                                    <div class="pl-3">
 
-                                    <div class="text-center">
-                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Direktori</h3>
+                                        <div class="text-center">
+                                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Direktori</h3>
 
-                                        {{-- <p>Maklumat Kilang</p> --}}
-                                    </div>
-                                    <div class="container center mt-4">
-                                        <div class="row" style="margin-bottom:2%;">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Negeri Premis</label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
-                                                        <option selected hidden disabled>Sila Pilih</option>
-                                                        @foreach (App\Models\Negeri::distinct()->orderBy('kod_negeri')->get('nama_negeri') as $data)
-                                                                        <option value="{{ $data->nama_negeri }}">
-                                                                            {{ $data->nama_negeri }}
-                                                                        </option>
-                                                                    @endforeach
+                                            {{-- <p>Maklumat Kilang</p> --}}
+                                        </div>
+                                        <div class="container center mt-4">
+                                            <div class="row" style="margin-bottom:2%;">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Negeri Premis</label>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect" name="nama_negeri">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option value="All">ALL</option>
+                                                            @foreach (App\Models\Negeri::distinct()->orderBy('kod_negeri')->get()
+                                                                as $data)
+                                                                <option value="{{ $data->kod_negeri }}">
+                                                                    {{ $data->nama_negeri }}
+                                                                </option>
+                                                            @endforeach
 
-                                                    </select>
-                                                    {{-- <select class="form-select" id="basicSelect">
-                                                        <option selected hidden disabled>Sila Pilih Negeri</option>
-                                                    </option><option value="02">KEDAH
-                                                    </option><option value="03">KELANTAN
-                                                    </option><option value="04">MELAKA
-                                                    </option><option value="05">NEGERI SEMBILAN
-                                                    </option><option value="06">PAHANG
-                                                    </option><option value="07">PERAK
-                                                    </option><option value="08">PERLIS
-                                                    </option><option value="10">SELANGOR
-                                                    </option><option value="11">TERENGGANU
-                                                    </option><option value="12">WILAYAH PERSEKUTUAN
-                                                    </option><option value="13">SABAH
-                                                    </option><option value="14">SARAWAK
-                                                    </option><option value="09">PULAU PINANG
-                                                    </option><option value="01">JOHOR
+                                                        </select>
 
-                                                    </select> --}}
-                                                </fieldset>
-                                                {{-- @error('alamat_kilang_1')
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
+                                                </div>
                                             </div>
+
+
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="row form-group">
+
+
+
+                                        <div class="text-right col-md-12  ">
+                                            <button type="submit" class="btn btn-primary "
+                                                style="float: right">Direktori</button>
+                                            {{-- <button type="submit">YA</button> --}}
                                         </div>
 
-
-
-                                    </div>
-                                </div>
-
-
-
-
-                                <div class="row form-group">
-
-
-
-                                    <div class="text-right col-md-12  ">
-                                        <button type="button" class="btn btn-primary " data-toggle="modal"
-                                            style="float: right" data-target="#confirmation">Direktori</button>
                                     </div>
 
+
+
+
+                                    {{-- </div> --}}
+
+
+
                                 </div>
-
-
-
-
                             </div>
+                            {{-- </div> --}}
+
+                        </form>
 
 
-
-                        </div>
-
-                    {{-- </div> --}}
                     </div>
+
                     <br>
                     <br>
+
+                </div>
+            </div>
+        </div>
 
 
 

@@ -1137,6 +1137,36 @@ class KilangController extends Controller
     {
         $negeri = Negeri::get();
 
+        // $statelist = DB::select("SELECT kod_negeri, nama_negeri
+        // FROM negeri");
+
+        // if ($negeri == 'All') {
+        //     $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+        // e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+        // e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+        // r.e_status
+        // FROM pelesen e, reg_pelesen r, negeri n
+        // WHERE e.e_nl = r.e_nl
+        // and e.e_negeri = n.kod_negeri
+        // and r.e_kat = 'pl91'
+        // and (e.e_negeri is not null || e.e_negeri<>'')
+        // and r.e_status = '1'
+        // and r.directory='Y'
+        // order by e.e_np,n.nama_negeri");
+        // } else
+        //     $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+        // e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+        // e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+        // r.e_status
+        // FROM pelesen e, reg_pelesen r
+        // WHERE e.e_nl = r.e_nl
+        // and r.e_kat = 'PL91'
+        // and e.e_negeri='$negeri'
+        // and  r.e_status = '1'
+        // and r.directory='Y'
+        // order by e.e_np,e.e_negeri");
+
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.direktori'), 'name' => "Direktori"],
@@ -1151,6 +1181,60 @@ class KilangController extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.menu-lain.direktori', compact('returnArr', 'layout'));
+    }
+
+
+    public function admin_direktori_process(Request $request)
+    {
+        // dd($request->all());
+        $negeri= Negeri::where('kod_negeri', $request->nama_negeri)->first('nama_negeri');
+        // dd( $negeri);
+        // $statelist = DB::select("SELECT kod_negeri, nama_negeri
+        // FROM negeri");
+
+        if ($request->nama_negeri == 'All') {
+            $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL91'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+
+        } else
+
+            $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r
+                WHERE e.e_nl = r.e_nl
+                and r.e_kat = 'PL91'
+                and e.e_negeri= $request->nama_negeri
+                and  r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,e.e_negeri");
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.direktori'), 'name' => "Direktori"],
+            ['link' => route('admin.direktori.process'), 'name' => "Senarai Direktori"],
+        ];
+
+        $kembali = route('admin.direktori');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.menu-lain.direktori-papar', compact('returnArr', 'layout', 'negeri', 'query'));
     }
 
     public function admin_pengumuman()
