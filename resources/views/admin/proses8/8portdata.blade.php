@@ -78,34 +78,8 @@
                                     <br>
 
 
-                                    <div class="row" >
-                                        <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">User
-                                            ID </label>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" name='old_password' id="old_password"
-                                                placeholder="ID Pengguna" required title="Sila isikan butiran ini.">
-                                            {{-- @error('alamat_kilang_1')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror --}}
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label for="fname"
-                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Password
-                                        </label>
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-control" name='new_password' id="new_password"
-                                                placeholder="Kata Laluan" required title="Sila isikan butiran ini.">
-                                            {{-- @error('alamat_kilang_1')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror --}}
-                                        </div>
-                                    </div>
+                                   
+
 
                                     {{-- </diV> --}}
 

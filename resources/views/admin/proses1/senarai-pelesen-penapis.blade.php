@@ -16,7 +16,7 @@
                 </div>
             </div> --}}
 
-        <div class=" mt-5  row">
+        <div class=" mt-2  row">
             <div class="col-md-12">
 
                 <div class="page-breadcrumb" style="padding: 0px">
@@ -118,8 +118,7 @@
                                                                     </th>
                                                                     <th>Direktori
                                                                     </th>
-                                                                    <th>Pretasi OER
-                                                                    </th>
+
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -134,10 +133,24 @@
                                                                     <td>{{ $data->pelesen->e_notel ?? '-'}}</td>
                                                                     <td>{{ $data->kodpgw }}</td>
                                                                     <td>{{ $data->nosiri }}</td>
-                                                                    <td>{{ $data->e_status }}</td>
-                                                                    <td>{{ $data->e_stock }}</td>
-                                                                    <td>{{ $data->directory }}</td>
-                                                                    <td></td>
+                                                                    @if ($data->e_status == 1)
+                                                                        <td>Aktif</td>
+                                                                    @elseif ($data->e_status == 2)
+                                                                        <td>Tidak Aktif</td>
+                                                                    @endif
+
+                                                                    @if ($data->e_stock == 1)
+                                                                        <td>Aktif</td>
+                                                                    @elseif ($data->e_stock == 2)
+                                                                        <td>Tidak Aktif</td>
+                                                                    @endif
+
+                                                                    @if ($data->directory == 'Y')
+                                                                        <td>Ya</td>
+                                                                    @elseif ($data->e_stock == 'N')
+                                                                        <td>Tidak</td>
+                                                                    @endif
+
 
 
                                                                 </tr>
