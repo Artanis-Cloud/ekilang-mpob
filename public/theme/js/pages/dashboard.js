@@ -409,8 +409,8 @@ var myBar = new Chart(ctxBar, {
     data: {
         labels: ["Buah", "Penapis", "Isirung", "Oleokimia", "Pusat Simpanan", "Biodiesel"],
         datasets: [{
-            label: 'Students',
-            backgroundColor: [chartColors.red, chartColors.grey, chartColors.grey, chartColors.grey, chartColors.info, chartColors.blue, chartColors.grey],
+            label: 'Jumlah Penyata',
+            backgroundColor: [chartColors.red, chartColors.green, chartColors.orange, chartColors.yellow, chartColors.purple, chartColors.blue, chartColors.turqoise],
             data:
 
               [

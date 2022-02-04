@@ -426,20 +426,35 @@
 
             <div class="card">
                 <div class="card-header">
-                    <h3 class='card-heading p-1 pl-3'>Sales</h3>
+                    <h3 class='card-heading p-1 pl-3'>Jumlah Penyata Bulanan Yang Sudah Dihantar</h3>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-4 col-12">
                             <div class="pl-3">
-                                <h1 class='mt-5'>$21,102</h1>
-                                <p class='text-xs'><span class="text-green"><i data-feather="bar-chart" width="15"></i> +19%</span> than last month</p>
+                                {{-- <h1 class='mt-5'>$21,102</h1>
+                                <p class='text-xs'><span class="text-green"><i data-feather="bar-chart" width="15"></i> +19%</span> than last month</p> --}}
                                 <div class="legends">
+                                    <br>
+                                    <br>
+                                    <br>
                                     <div class="legend d-flex flex-row align-items-center">
-                                        <div class='w-3 h-3 rounded-full bg-info me-2'></div><span class='text-xs'>Last Month</span>
+                                        <div class='w-3 h-3 rounded-full bg-red me-2'></div><span class='text-xs'>Kilang Buah</span>
                                     </div>
                                     <div class="legend d-flex flex-row align-items-center">
-                                        <div class='w-3 h-3 rounded-full bg-blue me-2'></div><span class='text-xs'>Current Month</span>
+                                        <div class='w-3 h-3 rounded-full bg-green me-2'></div><span class='text-xs'>Kilang Penapis</span>
+                                    </div>
+                                    <div class="legend d-flex flex-row align-items-center">
+                                        <div class='w-3 h-3 rounded-full bg-orange me-2'></div><span class='text-xs'>Kilang Isirung</span>
+                                    </div>
+                                    <div class="legend d-flex flex-row align-items-center">
+                                        <div class='w-3 h-3 rounded-full bg-yellow me-2'></div><span class='text-xs'>Kilang Oleokimia</span>
+                                    </div>
+                                    <div class="legend d-flex flex-row align-items-center">
+                                        <div class='w-3 h-3 rounded-full bg-purple me-2'></div><span class='text-xs'>Pusat Simpanan</span>
+                                    </div>
+                                    <div class="legend d-flex flex-row align-items-center">
+                                        <div class='w-3 h-3 rounded-full bg-blue me-2'></div><span class='text-xs'>Kilang Biodiesel</span>
                                     </div>
                                 </div>
                             </div>

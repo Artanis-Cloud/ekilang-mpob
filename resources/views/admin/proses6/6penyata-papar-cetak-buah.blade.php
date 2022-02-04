@@ -37,7 +37,7 @@
         }
 
         .tab .btn.active {
-            background-color: #dee2e6;
+            background-color: #aeb3b7;
         }
 
         /* Style the tab content */

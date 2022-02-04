@@ -101,7 +101,10 @@ Route::get('admin/10-port-data-to-dq', [App\Http\Controllers\Admin\KilangControl
 Route::get('admin/11-emel', [App\Http\Controllers\Admin\KilangController::class, 'admin_11emel'])->name('admin.11emel');
 Route::get('admin/11-papar-emel', [App\Http\Controllers\Admin\KilangController::class, 'admin_11paparemel'])->name('admin.11paparemel');
 Route::get('admin/12-validation', [App\Http\Controllers\Admin\KilangController::class, 'admin_12validation'])->name('admin.12validation');
+
 Route::get('admin/direktori', [App\Http\Controllers\Admin\KilangController::class, 'admin_direktori'])->name('admin.direktori');
+Route::get('admin/direktori/process', [App\Http\Controllers\Admin\KilangController::class, 'admin_direktori_process'])->name('admin.direktori.process');
+
 Route::get('admin/pengumuman', [App\Http\Controllers\Admin\KilangController::class, 'admin_pengumuman'])->name('admin.pengumuman');
 Route::get('admin/jadual-penerimanPL', [App\Http\Controllers\Admin\KilangController::class, 'admin_jadualpenerimaanPL'])->name('admin.jadualpenerimaanPL');
 Route::get('admin/senaraigagalPL', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraigagalPL'])->name('admin.senaraigagalPL');
