@@ -29,6 +29,7 @@
         .tab .btn:hover {
             background-color: #ddd;
         }
+
         /* Create an active/current tablink class */
         .tab button.active {
             background-color: #dee2e6;
@@ -104,9 +105,10 @@
                             <a href="{{ route('admin.6penyatapaparcetakbuah') }}" style="color:black">Penyata Bulanan
                                 Terkini</a>
                         </button> --}}
-                        <a href="{{ route('admin.6penyatapaparcetakbuah') }}" style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; background-color:rgba(107, 130, 138, 0.076)"
-                        class="btn btn-work tablinks" onclick="openInit(event, 'All')">Penyata Bulanan
-                        Terkini</a>
+                        <a href="{{ route('admin.6penyatapaparcetakbuah') }}"
+                            style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; background-color:rgba(107, 130, 138, 0.076)"
+                            class="btn btn-work tablinks" onclick="openInit(event, 'All')">Penyata Bulanan
+                            Terkini</a>
                         {{-- <button class="tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum
                             Hantar</button> --}}
                         <a style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; margin-left:-1%"
@@ -180,7 +182,7 @@
                                             Simple Datatable
                                         </div> --}}
 
-                                            <table class='table table-striped' id="table1">
+                                            <table class='table' id="table1">
                                                 <thead>
                                                     <tr>
                                                         <th>Papar?</th>
@@ -192,8 +194,8 @@
                                                         </th>
                                                         <th>Kod Pegawai
                                                         </th>
-                                                        <th>No. Pegawai
-                                                        </th>
+                                                        {{-- <th>No. Pegawai
+                                                        </th> --}}
                                                         <th>Email Pegawai
                                                         </th>
                                                         <th>No. Siri
@@ -201,22 +203,27 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr>
-                                                        <td>
-                                                            <input type="checkbox">&nbspYa
-                                                        </td>
-                                                        <td>
-                                                            x
-                                                        </td>
-                                                        <td>
-                                                            x
-                                                        </td>
-                                                        <td>
-                                                            x
-                                                        </td>
-                                                        <td>
-                                                            x
-                                                        </td>
+                                                    @foreach ($users as $data)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="checkbox">&nbspYa
+                                                            </td>
+                                                            <td>
+                                                                x
+                                                            </td>
+
+                                                            <td>{{ $data->e_nl ?? '-' }}</td>
+                                                            <td>{{ $data->e_np ?? '-' }}</td>
+                                                            <td>{{ $data->kodpgw }}</td>
+
+                                                            <td>{{ $data->e_email ?? '-' }}</td>
+                                                            <td>{{ $data->nosiri }}</td>
+
+
+
+                                                        </tr>
+
+                                                    @endforeach
 
                                                     </tr>
 
@@ -255,7 +262,8 @@
                                             data-bs-target="#exampleModalCenter">Email Peringatan Jan 2008</button>
 
                                         <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float:right; margin-right:-50%" data-bs-target="#exampleModalCenter">Surat
+                                            style="float:right; margin-right:-50%"
+                                            data-bs-target="#exampleModalCenter">Surat
                                             Bayaran</button>
 
                                     </div>

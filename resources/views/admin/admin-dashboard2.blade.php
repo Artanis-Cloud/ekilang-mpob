@@ -882,7 +882,7 @@
 
         <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-        <script>
+        {{-- <script>
             window.addEventListener("load", function() {
                 $.ajax({
                     url: "{{ route('graph_dashboard.default') }}",
@@ -919,7 +919,7 @@
                 }
             });
         }
-        </script>
+        </script> --}}
 
 
 </body>
