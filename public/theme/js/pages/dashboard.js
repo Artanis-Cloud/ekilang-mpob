@@ -368,39 +368,39 @@ Chart.controllers.roundedBar = Chart.controllers.bar.extend({
     dataElementType: Chart.elements.RoundedTopRectangle
 });
 
-window.addEventListener("load", function () {
-    $.ajax({
-        url: "{{ route('ipjpsm.graph_dashboard.default') }}",
-        method: "get",
-        dataType: "JSON",
-        success: function (data) {
-            drawChart(data.query_now);
-        }
-    });
-});
+// window.addEventListener("load", function () {
+//     $.ajax({
+//         url: "{{ route('ipjpsm.graph_dashboard.default') }}",
+//         method: "get",
+//         dataType: "JSON",
+//         success: function (data) {
+//             drawChart(data.query_now);
+//         }
+//     });
+// });
 
 
-$(document).ready(function () {
-    $('#bar').change(function () {
-            load_data();
-        });
-});
+// $(document).ready(function () {
+//     $('#bar').change(function () {
+//             load_data();
+//         });
+// });
 
-function load_data(shuttle) {
-    $.ajax({
-        url: "{{ route('ipjpsm.graph_dashboard') }}",
-        method: "POST",
-        data: {
-            _token: "{{ csrf_token() }}",
-            shuttle_type: shuttle,
-        },
-        dataType: "JSON",
-        success: function (data) {
-            console.log(data.query_now);
-            drawChart(data.query_now);
-        }
-    });
-}
+// function load_data(shuttle) {
+//     $.ajax({
+//         url: "{{ route('ipjpsm.graph_dashboard') }}",
+//         method: "POST",
+//         data: {
+//             _token: "{{ csrf_token() }}",
+//             shuttle_type: shuttle,
+//         },
+//         dataType: "JSON",
+//         success: function (data) {
+//             console.log(data.query_now);
+//             drawChart(data.query_now);
+//         }
+//     });
+// }
 
 
 var ctxBar = document.getElementById("bar").getContext("2d");
@@ -409,19 +409,19 @@ var myBar = new Chart(ctxBar, {
     data: {
         labels: ["Buah", "Penapis", "Isirung", "Oleokimia", "Pusat Simpanan", "Biodiesel"],
         datasets: [{
-            label: 'Kilang',
+            label: 'Students',
             backgroundColor: [chartColors.red, chartColors.grey, chartColors.grey, chartColors.grey, chartColors.info, chartColors.blue, chartColors.grey],
-            data: Screen
+            data:
 
-            //   [
-            //     50,
-            //     50,
-            //     30,
-            //     40,
-            //     35,
-            //     55,
-            //     15,
-            //   ]
+              [
+                50,
+                50,
+                30,
+                40,
+                35,
+                55,
+                15,
+              ]
         }]
     },
     options: {
