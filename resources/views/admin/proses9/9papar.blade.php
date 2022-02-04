@@ -83,7 +83,7 @@
                                             <table class='table ' id="table1">
                                                 <thead>
                                                     <tr class="text-center">
-                                                        <th></th>
+                                                        <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
@@ -98,7 +98,7 @@
                                                     @foreach ($users as $data)
 
                                                     <tr>
-                                                        <td></td>
+                                                        <td><input type="checkbox">&nbspYa</td>
                                                         <td>{{ $data->e_nl }}</td>
                                                         <td>{{ $data->e_np }}</td>
                                                         <td>{{ $data->kodpgw }}</td>
@@ -114,7 +114,12 @@
 
                                         </div>
                                     </section>
+                                    <div class="text-left col-md-8">
+                                        <button type="button" class="btn btn-primary " >Papar</button>
 
+                                        <button type="button" class="btn btn-primary " >Cetak</button>
+
+                                    </div>
 
 
                                 </div>

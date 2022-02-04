@@ -199,10 +199,10 @@
 
                                         <div class="row form-group" style="padding-top: 10px; ">
                                             <div class="text-right col-md-12 mb-2 ">
-                                                {{-- <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                <button type="submit" class="btn btn-primary"
                                                     style="float: right"
-                                                    data-bs-target="#exampleModalCenter">Porting</button> --}}
-                                                <button type="submit">YA</button>
+                                                    >Porting</button>
+                                                {{-- <button type="submit">YA</button> --}}
                                             </div>
                                         </div>
                                         <div class="row" style=" float:right">
