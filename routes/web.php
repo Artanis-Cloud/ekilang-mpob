@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
 Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard'])->name('admin.dashboard');
 Route::get('admin/dashboard2', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard2'])->name('admin.dashboard2');
 
+//AJAX
+Route::get('/ajax/fetch-daerah/{kod_negeri}', [App\Http\Controllers\Admin\KilangController::class, 'fetch_daerah'])->name('ajax-daerah');
 
 
 

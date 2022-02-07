@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Daerah;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
 use App\Models\Negeri;
@@ -142,7 +143,8 @@ class KilangController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Maklumat Asas Pelesen"],
+            ['link' => route('admin.1daftarpelesen'), 'name' => "Daftar Pelesen Baru"],
         ];
 
         $kembali = route('admin.senaraipelesenbuah');
@@ -1492,5 +1494,15 @@ class KilangController extends Controller
         ];
 
         return response($returnArr, 200);
+    }
+
+    public function fetch_daerah($kod_negeri){
+
+        // $list_daerah = Negeri::where('negeri', $kod_negeri)->get();
+
+        $list_daerah = Daerah::where('kod_negeri', $kod_negeri)->distinct()->orderBy('nama_daerah')->get('nama_daerah');
+
+        return json_decode($list_daerah);
+        exit;
     }
 }

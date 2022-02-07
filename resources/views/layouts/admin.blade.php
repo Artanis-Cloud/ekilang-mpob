@@ -115,7 +115,7 @@
                         </div> --}}
                         </li>
                         <br>
-                        <li class='mt-2 sidebar-title' style="color: rgb(54, 51, 41)">Menu Penyelenggaraan</li>
+                        <li class='sidebar-title' style="color: rgb(54, 51, 41); margin-top:-10%">Menu Penyelenggaraan</li>
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link' id="dropdownMenuLink" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -555,8 +555,7 @@
 
 
 
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-</script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" /></script>
 
 
 <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>

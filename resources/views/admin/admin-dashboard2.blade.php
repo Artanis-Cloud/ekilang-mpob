@@ -488,7 +488,7 @@
                             <div class="row justify-content-center" style="margin-bottom: 10%; margin-top: 5%">
                                 <div class="col-xl-12 col-lg-9">
 
-                                    <h3 style="font-size:25px; margin-top:-2%">MENU PENYELENGGARAAN</h3>
+                                    <h3 style="font-size:25px; margin-top:-5%">MENU PENYELENGGARAAN</h3>
                                     <h4 style="font-size:18px; ">Menu Penyelenggaraan Penyata Bulanan </h4>
                                 </div>
                             </div>
