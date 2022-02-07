@@ -37,7 +37,7 @@
         }
 
         .tab .btn.active {
-            background-color: #aeb3b7;
+            background-color: #aeb3b700;
         }
 
         /* Style the tab content */
@@ -290,14 +290,6 @@
 
 
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" style="margin-right:10%; margin-left:10%">
-                        <div class="card-body">
-                            <div id="One" class="tabcontent">
-
                             </div>
                         </div>
                     </div>

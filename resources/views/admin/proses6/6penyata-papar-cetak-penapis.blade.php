@@ -2,6 +2,52 @@
 
 @section('content')
 
+    <style>
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid rgba(204, 204, 204, 0);
+            background-color: #f7f9fd00;
+        }
+
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab .btn:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #dee2e6;
+        }
+
+        .tab .btn.active {
+            background-color: #aeb3b700;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            /* border: 1px solid #ccc; */
+            border-top: none;
+        }
+
+    </style>
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
 
     <!-- ======= Hero Section ======= -->
@@ -16,7 +62,7 @@
                 </div>
             </div> --}}
 
-        <div class=" mt-5  row">
+        <div class="mt-2 mb-4 row">
             <div class="col-md-12">
 
                 <div class="page-breadcrumb" style="padding: 0px">
@@ -52,11 +98,29 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" style="margin-right:2%; margin-left:2%">
+
+                <div class="tab" style="margin-right:10%; margin-left:10%">
+                    {{-- <button class="tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
+                        Terkini</button> --}}
+                    <a style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; "
+                        class="btn btn-work tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
+                        Terkini</a>
+                    {{-- <button class="tablinks" onclick="openInit(event, 'One')"> --}}
+                    <a href="{{ route('admin.5penyatabelumhantarpenapis') }}"
+                        style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; margin-left:-0.315rem; background-color:rgba(107, 130, 138, 0.076)"
+                        class="btn btn-work tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum Hantar</a>
+                    {{-- </button> --}}
+
+                </div>
+
+
+
+                <div class="card" style="margin-right:10%; margin-left:10%">
                     {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-
+                <!-- Tab content -->
+                <div id="All" class="tabcontent">
                     <div class="card-body">
                         <div class="row">
                             <div class="dropdown">
@@ -99,45 +163,43 @@
                                                                     <th>Sudah Cetak?<br>
                                                                     </th>
                                                                     <th>No. Lesen<br>
-                                                                        </th>
+                                                                    </th>
                                                                     <th>Nama Premis
                                                                     </th>
                                                                     <th>Kod Pegawai
+                                                                    </th>
+                                                                    {{-- <th>No. Pegawai
+                                                                    </th> --}}
+                                                                    <th>Email Pegawai
                                                                     </th>
                                                                     <th>No. Siri
                                                                     </th>
                                                                     <th>Tarikh Submit
                                                                     </th>
-
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                                @foreach ($users as $data)
                                                                 <tr>
                                                                     <td>
                                                                         <input type="checkbox">&nbspYa
                                                                     </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
                                                                     <td>
                                                                         x
                                                                     </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
+
+                                                                    <td>{{ $data->e_nl ?? '-' }}</td>
+                                                                    <td>{{ $data->e_np ?? '-' }}</td>
+                                                                    <td>{{ $data->kodpgw }}</td>
+
+                                                                    <td>{{ $data->e_email ?? '-' }}</td>
+                                                                    <td>{{ $data->nosiri }}</td>
+
+                                                                    <td>{{ $data->sdate }}</td>
 
                                                                 </tr>
 
-
+                                                            @endforeach
                                                             </tbody>
                                                         </table>
 
@@ -207,37 +269,45 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                    </div>
 
 
 
-
-
-
-
-
-                                    </form>
 
                                 </div>
                             </div>
                         </div>
 
 
-
-
-
-
                     </div>
+
                 </div>
+            </div>
 
-
+        </div>
 
 
 
     </section><!-- End Hero -->
 
 
+    <script>
+        function openInit(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
 
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 
 
     <!-- ======= Footer ======= -->

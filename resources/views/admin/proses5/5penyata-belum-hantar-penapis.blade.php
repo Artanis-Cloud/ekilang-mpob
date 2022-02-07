@@ -2,8 +2,52 @@
 
 @section('content')
 
+    <style>
+        /* Style the tab */
+        .tab {
+            overflow: hidden;
+            border: 1px solid rgba(204, 204, 204, 0);
+            background-color: #f7f9fd00;
+        }
 
+        /* Style the buttons that are used to open the tab content */
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            transition: 0.3s;
+        }
 
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        .tab .btn:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #dee2e6;
+        }
+
+        .tab .btn.active {
+            background-color: #aeb3b700;
+        }
+
+        /* Style the tab content */
+        .tabcontent {
+            display: none;
+            padding: 6px 12px;
+            /* border: 1px solid #ccc; */
+            border-top: none;
+        }
+
+    </style>
 
 
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
@@ -20,7 +64,7 @@
                 </div>
             </div> --}}
 
-        <div class=" mt-5  row">
+        <div class=" mt-2 mb-4 row">
             <div class="col-md-12">
 
                 <div class="page-breadcrumb" style="padding: 0px">
@@ -56,13 +100,34 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" style="margin-right:2%; margin-left:2%">
+
+                <div class="tab" style="margin-right:10%; margin-left:10%">
+                    {{-- <button class="tablinks" onclick="openInit(event, 'All')">
+                        <a href="{{ route('admin.6penyatapaparcetakbuah') }}" style="color:black">Penyata Bulanan
+                            Terkini</a>
+                    </button> --}}
+                    <a href="{{ route('admin.6penyatapaparcetakpenapis') }}"
+                        style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; background-color:rgba(107, 130, 138, 0.09)"
+                        class="btn btn-work tablinks" onclick="openInit(event, 'All')">Penyata Bulanan
+                        Terkini</a>
+                    {{-- <button class="tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum
+                        Hantar</button> --}}
+                    <a style="color:black; height:49.57px; border-radius:unset; font-size:14.4px; margin-left:-1%"
+                        class="btn btn-work tablinks" onclick="openInit(event, 'One')" id="defaultOpen">Penyata Bulanan
+                        Belum Hantar</a>
+
+                </div>
+
+
+
+
+                <div class="card" style="margin-right:10%; margin-left:10%">
                     {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
 
                     <div class="card-body">
-                        <div class="row">
+                        <div id="One" class="tabcontent">
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
                                  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -84,8 +149,11 @@
                                     <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Penapis - MPOB(EL) MF 4</h3>
                                     <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum Dihantar Sehingga Tarikh
                                     <p><span id="datetime"></span></p>
-                                    <script>var dt = new Date();
-                                        document.getElementById("datetime").innerHTML=dt.toLocaleString();</script>
+                                    <script>
+                                        var dt = new Date();
+                                        document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
+                                            1)).slice(-2)) + "/" + (dt.getFullYear());
+                                    </script>
                                     </h5>
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
@@ -103,42 +171,48 @@
                                         <table class='table table-striped' id="table1" >
                                             <thead>
                                                 <tr>
-                                                                    <th>Pilih?</th>
-                                                                    <th>No. Lesen<br>
-                                                                        </th>
-                                                                    <th>Nama Premis
-                                                                    </th>
-                                                                    <th>E-mail
-                                                                    </th>
-                                                                    <th>No. Telefon
-                                                                    </th>
+                                                    <th>Papar?</th>
+                                                    <th>Sudah Cetak?<br>
+                                                    </th>
+                                                    <th>No. Lesen<br>
+                                                    </th>
+                                                    <th>Nama Premis
+                                                    </th>
+                                                    <th>Kod Pegawai
+                                                    </th>
+                                                    {{-- <th>No. Pegawai
+                                                    </th> --}}
+                                                    <th>Email Pegawai
+                                                    </th>
+                                                    <th>No. Siri
+                                                    </th>
+                                                </tr>
+                                            </thead>
 
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>
-                                                                        <input type="checkbox">&nbspYa
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
-                                                                    <td>
-                                                                        x
-                                                                    </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
+                                                <tbody>
+                                                    @foreach ($users as $data)
+                                                    <tr>
+                                                        <td>
+                                                            <input type="checkbox">&nbspYa
+                                                        </td>
+                                                        <td>
+                                                            x
+                                                        </td>
 
-                                                                </tr>
+                                                        <td>{{ $data->e_nl ?? '-' }}</td>
+                                                        <td>{{ $data->e_np ?? '-' }}</td>
+                                                        <td>{{ $data->kodpgw }}</td>
+
+                                                        <td>{{ $data->e_email ?? '-' }}</td>
+                                                        <td>{{ $data->nosiri }}</td>
 
 
 
-                                                            </tbody>
-                                                        </table>
+                                                    </tr>
+
+                                                    @endforeach
+                                                </tbody>
+                                        </table>
 
                                                     </div>
                                                 </section>
@@ -216,29 +290,20 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                        </div>
                                     </div>
-
-
-
-
-
-
-
-
-                                    </form>
-
                                 </div>
+
+
                             </div>
                         </div>
-
-
-
-
-
-
                     </div>
-                </div>
 
+                </div>
+            </div>
+
+
+        </div>
 
 
 
@@ -246,6 +311,24 @@
     </section><!-- End Hero -->
 
 
+    <script>
+        function openInit(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+    </script>
 
 
 
