@@ -1314,7 +1314,9 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        $pengumuman = Pengumuman::get();
+        $pengumuman = DB::select("SELECT Id, Message, Start_date, End_Date, Icon_new
+        FROM pengumuman
+        order by Id Desc");
 
 
 

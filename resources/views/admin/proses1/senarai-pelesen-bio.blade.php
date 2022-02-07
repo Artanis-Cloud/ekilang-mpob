@@ -16,7 +16,7 @@
                 </div>
             </div> --}}
 
-        <div class=" mt-5  row">
+        <div class=" mt-2  row">
             <div class="col-md-12">
 
                 <div class="page-breadcrumb" style="padding: 0px">
@@ -96,7 +96,7 @@
                                                                 style="float: left"> Tambah Pelesen Baru</a>
                                                         </div>
                                                         <br>
-                                                        
+
                                                         <table class='table table-striped' id="table1" >
                                                             <thead>
                                                                 <tr>
@@ -119,8 +119,7 @@
                                                                     </th>
                                                                     <th>Direktori
                                                                     </th>
-                                                                    <th>Pretasi OER
-                                                                    </th>
+
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -155,9 +154,7 @@
                                                                     <td >
                                                                         x
                                                                     </td>
-                                                                    <td >
-                                                                        x
-                                                                    </td>
+                                                                    
 
                                                                 </tr>
 
@@ -169,64 +166,6 @@
                                                 </section>
 
 
-                                            {{-- <div class="row" style="padding-top: 35px; float:right">
-
-                                                        <div class="col-md-12">
-                                                            <button type="button" class="btn  btn-primary"
-                                                                data-toggle="modal" data-target="#confirmation">Simpan &
-                                                                Seterusnya</button>
-                                                        </div>
-
-                                                    </div> --}}
-
-
-                                                    <div class="text-left col-md-5">
-                                                        <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
-                                                            style="float: left"> Tambah Pelesen Baru</a>
-                                                    </div>
-
-                                            <div class="row" style=" float:right">
-
-                                                <div class="col-md-12">
-
-
-                                                    <!-- Vertically Centered modal Modal -->
-                                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                                                        role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                            role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                        PENGESAHAN</h5>
-                                                                    <button type="button" class="close"
-                                                                        data-bs-dismiss="modal" aria-label="Close">
-                                                                        <i data-feather="x"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <p>
-                                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                                    </p>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-light-secondary"
-                                                                        data-bs-dismiss="modal">
-                                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                                    </button>
-                                                                    <button type="button" class="btn btn-primary ml-1"
-                                                                        data-bs-dismiss="modal">
-                                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                                        <span class="d-none d-sm-block">Ya</span>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                     </div>
 
 

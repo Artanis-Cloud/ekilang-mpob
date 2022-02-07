@@ -15,7 +15,7 @@
             </div>
         </div> --}}
 
-        <div class="mt-5 mb-4 row">
+        <div class="mt-2 mb-4 row">
             <div class="col-md-12">
 
                 <div class="page-breadcrumb" style="padding: 0px">
@@ -63,7 +63,7 @@
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                     <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Emel Pertanyaan /
                                         Pindaan / Cadangan</h4>
-                                        
+
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>
