@@ -129,7 +129,7 @@
                         <div id="All" class="tabcontent">
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="dropdown">
+                                    <div class="dropdown" style="margin-bottom: 2%">
                                         <button class="btn btn-secondary dropdown-toggle"
                                             style="background-color: rgb(238, 70, 70)" type="button" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -149,6 +149,7 @@
                                         </div>
                                     </div>
                                     <br>
+
                                     {{-- <div class="col-md-4 col-12"> --}}
                                     <div class="pl-3">
 

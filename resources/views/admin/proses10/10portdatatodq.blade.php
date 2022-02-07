@@ -15,7 +15,7 @@
             </div>
         </div> --}}
 
-        <div class="mt-5 mb-4 row">
+        <div class="mt-2 mb-4 row">
             <div class="col-md-12">
 
                 <div class="page-breadcrumb" style="padding: 0px">
@@ -188,7 +188,7 @@
                                                     </div>
                                                     <div class="modal-body">
                                                         <p>
-                                                            Anda pasti mahu cetak maklumat ini?
+                                                            Anda pasti mahu porting maklumat ini?
                                                         </p>
                                                     </div>
                                                     <div class="modal-footer">

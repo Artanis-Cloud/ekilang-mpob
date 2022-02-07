@@ -15,7 +15,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-4 row">
+            <div class="mt-2 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -164,7 +164,7 @@
                                         </div> --}}
                                         <div class="text-right col-md-12 mb-2 ">
                                             <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right" data-bs-target="#exampleModalCenter">Porting</button>
+                                                style="float: right" data-bs-target="#exampleModalCenter">Hantar</button>
                                         </div>
 
                                     </div>
@@ -192,7 +192,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <p>
-                                                                Anda pasti mahu cetak maklumat ini?
+                                                                Anda pasti mahu menghantar validasi ini?
                                                             </p>
                                                         </div>
                                                         <div class="modal-footer">

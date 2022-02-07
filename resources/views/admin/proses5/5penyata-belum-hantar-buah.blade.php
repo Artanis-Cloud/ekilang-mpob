@@ -185,9 +185,9 @@
                                             <table class='table' id="table1">
                                                 <thead>
                                                     <tr>
-                                                        <th>Papar?</th>
-                                                        <th>Sudah Cetak?<br>
-                                                        </th>
+                                                        <th>Pilih?</th>
+                                                        {{-- <th>Sudah Cetak?<br>
+                                                        </th> --}}
                                                         <th>No. Lesen<br>
                                                         </th>
                                                         <th>Nama Premis
@@ -208,9 +208,9 @@
                                                             <td>
                                                                 <input type="checkbox">&nbspYa
                                                             </td>
-                                                            <td>
+                                                            {{-- <td>
                                                                 x
-                                                            </td>
+                                                            </td> --}}
 
                                                             <td>{{ $data->e_nl ?? '-' }}</td>
                                                             <td>{{ $data->e_np ?? '-' }}</td>
