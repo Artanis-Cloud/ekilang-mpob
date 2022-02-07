@@ -599,6 +599,13 @@ class KilangController extends Controller
 
     public function admin_5penyatabelumhantarpenapis()
     {
+        $users = DB::select("SELECT e.e101_nl, p.e_nl, p.e_np, p.e_email,  r.nosiri, r.kodpgw, p.e_notel, e.e101_flg
+        FROM pelesen p, e101_init e, reg_pelesen r
+        WHERE   p.e_nl = e.e101_nl
+        and p.e_nl = r.e_nl
+        and r.e_kat = 'PL101'
+        and e.e101_flg = '1'
+        order by p.e_nl");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -615,11 +622,19 @@ class KilangController extends Controller
 
 
 
-        return view('admin.proses5.5penyata-belum-hantar-penapis', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-penapis', compact('returnArr', 'layout', 'users'));
     }
 
     public function admin_5penyatabelumhantarisirung()
     {
+
+        $users = DB::select("SELECT e.e102_nl, p.e_nl, p.e_np, p.e_email, p.e_notel,  e.e102_flg,  r.nosiri, r.kodpgw
+        FROM pelesen p, e102_init e, reg_pelesen r
+        WHERE   p.e_nl = e.e102_nl
+        and p.e_nl = r.e_nl
+        and r.e_kat = 'PL102'
+        and e.e102_flg = '1'
+        order by p.e_nl");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -636,11 +651,19 @@ class KilangController extends Controller
 
 
 
-        return view('admin.proses5.5penyata-belum-hantar-isirung', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-isirung', compact('returnArr', 'layout', 'users'));
     }
 
     public function admin_5penyatabelumhantaroleo()
     {
+
+        $users = DB::select("SELECT e.e104_nl, p.e_nl, p.e_np, p.e_email, p.e_notel,  e.e104_flg,  r.nosiri, r.kodpgw
+        FROM pelesen p, e104_init e, reg_pelesen r
+        WHERE   p.e_nl = e.e104_nl
+        and p.e_nl = r.e_nl
+        and r.e_kat = 'PL104'
+        and e.e104_flg = '1'
+        order by p.e_nl");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -657,11 +680,19 @@ class KilangController extends Controller
 
 
 
-        return view('admin.proses5.5penyata-belum-hantar-oleo', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-oleo', compact('returnArr', 'layout', 'users'));
     }
 
     public function admin_5penyatabelumhantarsimpanan()
     {
+
+        $users = DB::select("SELECT e.e07_nl, p.e_nl, p.e_np, p.e_email, p.e_notel,  e.e07_flg,  r.nosiri, r.kodpgw
+        FROM pelesen p, e07_init e, reg_pelesen r
+        WHERE   p.e_nl = e.e07_nl
+        and p.e_nl = r.e_nl
+        and r.e_kat = 'PL111'
+        and e.e07_flg = '1'
+        order by p.e_nl");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -678,7 +709,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.proses5.5penyata-belum-hantar-simpanan', compact('returnArr', 'layout'));
+        return view('admin.proses5.5penyata-belum-hantar-simpanan', compact('returnArr', 'layout', 'users'));
     }
 
     public function admin_5penyatabelumhantarbio()
@@ -736,6 +767,15 @@ class KilangController extends Controller
     public function admin_6penyatapaparcetakpenapis()
     {
 
+        $users = DB::select("SELECT e.e101_nl, e.e101_flagcetak, p.e_nl, p.e_np,e.e101_flg, p.e_email,
+        k.kodpgw, k.nosiri, date_format(e101_sdate,'%d-%m-%Y') as sdate
+        FROM pelesen p, e101_init e, reg_pelesen k
+        WHERE p.e_nl = e.e101_nl
+        and e.e101_flg in ('2','3')
+        and p.e_nl = k.e_nl
+        and k.e_kat = 'PL101'
+        order by k.kodpgw, k.nosiri");
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.6penyatapaparcetakpenapis'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Penapis"],
@@ -751,11 +791,20 @@ class KilangController extends Controller
 
 
 
-        return view('admin.proses6.6penyata-papar-cetak-penapis', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-penapis', compact('returnArr', 'layout', 'users'));
     }
 
     public function admin_6penyatapaparcetakisirung()
     {
+
+        $users = DB::select("SELECT e.e102_nl, e.e102_flagcetak, p.e_nl, p.e_np, e.e102_flg, p.e_email,
+        k.kodpgw, k.nosiri, date_format(e102_sdate,'%d-%m-%Y') as sdate
+        FROM pelesen p, e102_init e, reg_pelesen k
+        WHERE p.e_nl = e.e102_nl
+        and e.e102_flg in ('2','3')
+        and p.e_nl = k.e_nl
+        and k.e_kat = 'PL102'
+        order by k.kodpgw, k.nosiri");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -772,11 +821,20 @@ class KilangController extends Controller
 
 
 
-        return view('admin.proses6.6penyata-papar-cetak-isirung', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-isirung', compact('returnArr', 'layout', 'users'));
     }
 
     public function admin_6penyatapaparcetakoleo()
     {
+
+        $users = DB::select("SELECT e.e104_nl, e.e104_flagcetak, p.e_nl, p.e_np, e.e104_flg, p.e_email,
+        k.kodpgw, k.nosiri, date_format(e104_sdate,'%d-%m-%Y') as sdate
+        FROM pelesen p, e104_init e, reg_pelesen k
+        WHERE p.e_nl = e.e104_nl
+        and e.e104_flg in ('2','3')
+        and p.e_nl = k.e_nl
+        and k.e_kat = 'PL104'
+        order by k.kodpgw, k.nosiri");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -793,11 +851,20 @@ class KilangController extends Controller
 
 
 
-        return view('admin.proses6.6penyata-papar-cetak-oleo', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-oleo', compact('returnArr', 'layout', 'users'));
     }
 
     public function admin_6penyatapaparcetaksimpanan()
     {
+
+        $users = DB::select("SELECT e.e07_nl, e.e07_flagcetak, p.e_nl, p.e_np, e.e07_flg, p.e_email,
+        k.kodpgw, k.nosiri, date_format(e07_sdate,'%d-%m-%Y') as sdate
+        FROM pelesen p, e07_init e, reg_pelesen k
+        WHERE p.e_nl = e.e07_nl
+        and e.e07_flg in ('2','3')
+        and p.e_nl = k.e_nl
+        and k.e_kat = 'PL111'
+        order by k.kodpgw, k.nosiri");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -814,7 +881,7 @@ class KilangController extends Controller
 
 
 
-        return view('admin.proses6.6penyata-papar-cetak-simpanan', compact('returnArr', 'layout'));
+        return view('admin.proses6.6penyata-papar-cetak-simpanan', compact('returnArr', 'layout', 'users'));
     }
 
     public function admin_6penyatapaparcetakbio()
