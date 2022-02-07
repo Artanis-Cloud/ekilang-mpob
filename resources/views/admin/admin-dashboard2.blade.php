@@ -678,11 +678,12 @@
                             <h4>Peratusan Penghantaran Penyata Bulanan</h4>
                         </div>
                         <div class="card-body">
-                            <div id="radialBars"></div>
-                            <div class="text-center mb-5">
+                            {{-- <div id="radialBars"></div> --}}
+                            <div id="piechart" style="margin-left:-25%"></div>
+                            {{-- <div class="text-center mb-5">
                                 <h6>From last month</h6>
                                 <h1 class='text-green'>+$2,134</h1>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <div class="card widget-todo" style="margin-top: 5%" align="center">
@@ -737,6 +738,12 @@
                 </div>
 
             </div>
+
+
+
+
+
+
 
 
 
@@ -798,6 +805,34 @@
 
 
             <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+            <script type="text/javascript">
+                // Load google charts
+                google.charts.load('current', {'packages':['corechart']});
+                google.charts.setOnLoadCallback(drawChart);
+
+                // Draw the chart and set the chart values
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                  ['Kategori', 'Peratusan'],
+                  ['Sudah Hantar', 174],
+                  ['Belum Hantar', 85],
+                //   ['Eat', 2],
+                //   ['TV', 2],
+                //   ['Gym', 2],
+                //   ['Sleep', 8]
+                ]);
+
+                  // Optional; add a title and set the width and height of the chart
+                  var options = {'width':400, 'height':250};
+
+                  // Display the chart inside the <div> element with id="piechart"
+                  var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+                  chart.draw(data, options);
+                }
+                </script>
 
             {{-- <script>
             window.addEventListener("load", function() {
