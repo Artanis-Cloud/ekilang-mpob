@@ -87,6 +87,7 @@ Route::get('admin/6-penyata-papar-cetak-isirung', [App\Http\Controllers\Admin\Ki
 Route::get('admin/6-penyata-papar-cetak-oleo', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetakoleo'])->name('admin.6penyatapaparcetakoleo');
 Route::get('admin/6-penyata-papar-cetak-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetaksimpanan'])->name('admin.6penyatapaparcetaksimpanan');
 Route::get('admin/6-penyata-papar-cetak-bio', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetakbio'])->name('admin.6penyatapaparcetakbio');
+Route::get('admin/6-papar/process', [App\Http\Controllers\Admin\KilangController::class, 'admin_6papar_process'])->name('admin.6papar.process');
 
 Route::get('admin/7-porting-maklumat', [App\Http\Controllers\Admin\KilangController::class, 'admin_7portingmaklumat'])->name('admin.7portingmaklumat');
 Route::get('admin/8-port-data', [App\Http\Controllers\Admin\KilangController::class, 'admin_8portdata'])->name('admin.8portdata');

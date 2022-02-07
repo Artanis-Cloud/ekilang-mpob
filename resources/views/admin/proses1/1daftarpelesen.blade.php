@@ -1,10 +1,6 @@
 @extends($layout)
 
 @section('content')
-<head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-</head>
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
@@ -703,7 +699,8 @@
             })
     </script>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+{{-- <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-1.9.0.js"></script> --}}
+<script ></script>
 
 {{-- ajax daerah --}}
 <script>
