@@ -1,7 +1,10 @@
 @extends($layout)
 
 @section('content')
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+</head>
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
@@ -32,7 +35,7 @@
                                                 <li class="breadcrumb-item">
                                                     <a href="{{ $breadcrumb['link'] }}" style="color: rgb(102, 100, 100) !important;"
                                                         onMouseOver="this.style.color='lightblue'"
-                                                        onMouseOut="this.style.color='white'">
+                                                        onMouseOut="this.style.color='rgb(102, 100, 100)'">
                                                         {{ $breadcrumb['name'] }}
                                                     </a>
                                                 </li>
@@ -411,10 +414,10 @@
                                                Negeri</label>
                                                <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
+                                                    <select class="form-select" id="negeri_id" onchange="ajax_daerah(this)">
                                                         <option selected hidden disabled>Sila Pilih</option>
-                                                        @foreach (App\Models\Negeri::distinct()->orderBy('kod_negeri')->get('nama_negeri') as $data)
-                                                                        <option value="{{ $data->nama_negeri }}">
+                                                        @foreach (App\Models\Negeri::distinct()->orderBy('kod_negeri')->get() as $data)
+                                                                        <option value="{{ $data->kod_negeri }}">
                                                                             {{ $data->nama_negeri }}
                                                                         </option>
                                                                     @endforeach
@@ -434,8 +437,12 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                Daerah</label>
                                             <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Daerah"
-                                                            name="email-id-column">
+                                                <select class="form-control" id="daerah_id" name='daerah_id'
+                                                    placeholder="Daerah">
+                                                    <option value="" selected hidden disabled>Sila Pilih
+                                                        Daerah Hutan</option>
+
+                                                    </select>
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -627,11 +634,22 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
+
     <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
     <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
     <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
     <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
     <script src="{{ asset('theme/js/app.js') }}"></script>
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" /></script>
+
+    {{-- <script src="jquery-3.5.1.min.js"></script> --}}
 
     <script src="assets/js/main.js"></script>
 
@@ -684,6 +702,52 @@
                 }
             })
     </script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+{{-- ajax daerah --}}
+<script>
+    function ajax_daerah(select) {
+        negeri = select.value;
+        console.log(negeri);
+
+        //clear jenis_data selection
+        $("#daerah_id").empty();
+        //initialize selection
+        $("#daerah_id").append('<option value="" selected disabled hidden>Sila Pilih Daerah</option>');
+
+        $.ajax({
+            type: "get",
+            // url:"/permohonan/fetchSenaraiHargaIdByTahun/jenisDokumen/"+jenis_dokumen+"/jenisData/"+jenis_data+"/tahun/"+tahun+"/negeri/" + negeri + "/jenisKertas/" + jenis_kertas,
+            url: "/ajax/fetch-daerah/" + negeri, //penting
+
+            //url:"/JPSM/permohonan/fetchSenaraiHargaIdByTahun/jenisDokumen/"+jenis_dokumen+"/jenisData/"+jenis_data+"/tahun/"+tahun+"/negeri/" + negeri,
+            success: function(respond) {
+                //fetch data (id) from DB Senarai Harga
+                //   var data = JSON.parse(respond);
+                console.log(respond);
+                //loop for data
+                var x = 0;
+
+                respond.forEach(function() { //penting
+
+                    // console.log(respond[x]);
+                    $("#daerah_id").append('<option value="' + respond[x].list_daerah + '">' +
+                        respond[x]
+                        .list_daerah + '</option>');
+                    x++;
+
+                });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("Status: " + textStatus);
+                console.log("Error: " + errorThrown);
+            }
+        });
+    }
+</script>
+
+
 
 
 
