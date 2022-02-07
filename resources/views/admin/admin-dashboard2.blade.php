@@ -424,440 +424,342 @@
             </nav>
             <br>
 
-            <div class="card">
-                <div class="card-header">
-                    <h3 class='card-heading p-1 pl-3'>Jumlah Penyata Bulanan Yang Sudah Dihantar</h3>
+            {{-- <div class="row justify-content-center" style="margin-bottom: 10%; margin-top: 5%">
+                <div class="col-xl-12 col-lg-9">
+
+                    <h3 style="font-size:25px; margin-top:-2%">MENU PENYELENGGARAAN</h3>
+                    <h4 style="font-size:18px; ">Menu Penyelenggaraan Penyata Bulanan </h4>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-4 col-12">
-                            <div class="pl-3">
-                                {{-- <h1 class='mt-5'>$21,102</h1>
+            </div> --}}
+
+            <div class="row mb-4">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class='card-heading p-1 pl-3'>Jumlah Penyata Bulanan Yang Sudah Dihantar</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 col-12">
+                                    <div class="pl-3">
+                                        {{-- <h1 class='mt-5'>$21,102</h1>
                                 <p class='text-xs'><span class="text-green"><i data-feather="bar-chart" width="15"></i> +19%</span> than last month</p> --}}
-                                <div class="legends">
-                                    <br>
-                                    <br>
-                                    <br>
-                                    <div class="legend d-flex flex-row align-items-center">
-                                        <div class='w-3 h-3 rounded-full bg-red me-2'></div><span class='text-xs'>Kilang Buah</span>
+                                        <div class="legends">
+                                            <br>
+                                            <br>
+                                            <br>
+                                            <div class="legend d-flex flex-row align-items-center">
+                                                <div class='w-3 h-3 rounded-full bg-red me-2'></div><span
+                                                    class='text-xs'>Kilang
+                                                    Buah</span>
+                                            </div>
+                                            <div class="legend d-flex flex-row align-items-center">
+                                                <div class='w-3 h-3 rounded-full bg-green me-2'></div><span
+                                                    class='text-xs'>Kilang Penapis</span>
+                                            </div>
+                                            <div class="legend d-flex flex-row align-items-center">
+                                                <div class='w-3 h-3 rounded-full bg-orange me-2'></div><span
+                                                    class='text-xs'>Kilang Isirung</span>
+                                            </div>
+                                            <div class="legend d-flex flex-row align-items-center">
+                                                <div class='w-3 h-3 rounded-full bg-yellow me-2'></div><span
+                                                    class='text-xs'>Kilang Oleokimia</span>
+                                            </div>
+                                            <div class="legend d-flex flex-row align-items-center">
+                                                <div class='w-3 h-3 rounded-full bg-purple me-2'></div><span
+                                                    class='text-xs'>Pusat Simpanan</span>
+                                            </div>
+                                            <div class="legend d-flex flex-row align-items-center">
+                                                <div class='w-3 h-3 rounded-full bg-blue me-2'></div><span
+                                                    class='text-xs'>Kilang Biodiesel</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="legend d-flex flex-row align-items-center">
-                                        <div class='w-3 h-3 rounded-full bg-green me-2'></div><span class='text-xs'>Kilang Penapis</span>
-                                    </div>
-                                    <div class="legend d-flex flex-row align-items-center">
-                                        <div class='w-3 h-3 rounded-full bg-orange me-2'></div><span class='text-xs'>Kilang Isirung</span>
-                                    </div>
-                                    <div class="legend d-flex flex-row align-items-center">
-                                        <div class='w-3 h-3 rounded-full bg-yellow me-2'></div><span class='text-xs'>Kilang Oleokimia</span>
-                                    </div>
-                                    <div class="legend d-flex flex-row align-items-center">
-                                        <div class='w-3 h-3 rounded-full bg-purple me-2'></div><span class='text-xs'>Pusat Simpanan</span>
-                                    </div>
-                                    <div class="legend d-flex flex-row align-items-center">
-                                        <div class='w-3 h-3 rounded-full bg-blue me-2'></div><span class='text-xs'>Kilang Biodiesel</span>
-                                    </div>
+                                </div>
+                                <div class="col-md-8 col-12">
+                                    <canvas id="bar"></canvas>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8 col-12">
-                            <canvas id="bar"></canvas>
-                        </div>
                     </div>
-                </div>
-            </div>
 
+                    <section id="hero" class="d-flex align-items-center ">
+                        <div class="container position-relative" data-aos="fade-up" data-aos-delay="100" align="center">
+                            <div class="row justify-content-center" style="margin-bottom: 10%; margin-top: 5%">
+                                <div class="col-xl-12 col-lg-9">
 
-
-            <!-- ======= Hero Section ======= -->
-            <section id="hero" class="d-flex align-items-center ">
-                <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-                    <div class="row justify-content-center" style="margin-bottom: 10%">
-                        <div class="col-xl-12 col-lg-9">
-
-                            <h3 style="font-size:25px; margin-top:-2%">MENU PENYELENGGARAAN</h3>
-                            <h4 style="font-size:18px; ">Menu Penyelenggaraan Penyata Bulanan </h4>
-                        </div>
-                    </div>
-                    {{-- <div class="text-center">
-                        <a href="#about" class="btn-get-started scrollto">Get Started</a>
-                    </div> --}}
-
-                    <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%">
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate"
-                            data-aos="zoom-in" data-aos-delay="200">
-
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                    <strong class="" style="font-size:20px;">
-                                        1
-                                    </strong>
-                                </span>
-                                </div> --}}
-                                <div class="icon"><i class="fa fa-file-text-o fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.senaraipelesenbuah') }}">1.
-                                        Daftar
-                                        Pelesen</a></h4>
-                                <p class="description">Daftar maklumat pelesen, cipta id pengguna dan password bagi
-                                    pelesen</p>
-                            </div>
-                        </div>
-
-
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="200">
-
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                    <strong class="" style="font-size:20px;">
-                                        2
-                                    </strong>
-                                </span>
-                                </div> --}}
-                                {{-- <div class="text-center"> --}}
-                                <div class="icon" style="text-align: center"><i class="fas fa-key fa-xs"></i>
+                                    <h3 style="font-size:25px; margin-top:-2%">MENU PENYELENGGARAAN</h3>
+                                    <h4 style="font-size:18px; ">Menu Penyelenggaraan Penyata Bulanan </h4>
                                 </div>
-                                <h4 class="title"><a href="{{ route('admin.2tukarpassword') }}">2. Tukar
-                                        Kata
-                                        Laluan</a></h4>
-                                <p class="description">Tukar kata laluan pelesen bagi kes lupa laluan</p>
                             </div>
-                        </div>
 
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="300">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
+                            <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%" align="center">
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0 aos-init aos-animate"
+                                    data-aos="zoom-in" data-aos-delay="200">
+                                    <div class="icon-box">
+                                        <div class="icon"><i class="fa fa-file-text-o fa-xs"></i></div>
+                                        <h4 class="title"><a href="{{ route('admin.senaraipelesenbuah') }}">
+                                                Daftar
+                                                Pelesen</a></h4>
+                                        <p class="description">Daftar maklumat pelesen, cipta id pengguna dan
+                                            password bagi
+                                            pelesen</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+                                    data-aos="zoom-in" data-aos-delay="200">
+                                    <div class="icon-box">
+                                        <div class="icon" style="text-align: center"><i
+                                                class="fas fa-key fa-xs"></i>
+                                        </div>
+                                        <h4 class="title"><a
+                                                href="{{ route('admin.2tukarpassword') }}">Tukar
+                                                Kata
+                                                Laluan</a></h4>
+                                        <p class="description">Tukar kata laluan pelesen bagi kes lupa laluan</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+                                    data-aos="zoom-in" data-aos-delay="300">
+                                    <div class="icon-box">
+                                        {{-- <div class="icon">
                                     <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
                                         <strong class="" style="font-size:20px;">
                                             3
                                         </strong>
                                     </span>
                                     </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fas fa-file-signature fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.3daftarpenyata') }}">3. Daftar
-                                        Penyata Bulanan Baru</a></h4>
-                                <p class="description">Daftar penyata bulanan baru bagi semua pelesen (Initialization
-                                    Penyata Bulanan)</p>
+                                        <div class="icon" style="text-align: center"><i
+                                                class="fas fa-file-signature fa-xs"></i></div>
+                                        <h4 class="title"><a
+                                                href="{{ route('admin.3daftarpenyata') }}">Daftar
+                                                Penyata Bulanan Baru</a></h4>
+                                        <p class="description">Daftar penyata bulanan baru bagi semua pelesen
+                                            (Initialization
+                                            Penyata Bulanan)</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="400">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            4
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fas fa-file-export fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.4ekilangpleid') }}">4. E-Kilang
-                                        ke PLEID</a></h4>
-                                <p class="description">Pindah data dari E-Kilang ke PLEID</p>
-                            </div>
-                        </div>
 
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            5
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fas fa-ban fa-xs"></i>
+
+
+                            <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%" align="center">
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+                                    data-aos="zoom-in" data-aos-delay="400">
+                                    <div class="icon-box">
+                                        <div class="icon" style="text-align: center"><i
+                                                class="fas fa-file-export fa-xs"></i></div>
+                                        <h4 class="title"><a
+                                                href="{{ route('admin.4ekilangpleid') }}">E-Kilang
+                                                ke PLEID</a></h4>
+                                        <p class="description">Pindah data dari E-Kilang ke PLEID</p>
+                                    </div>
                                 </div>
 
-                                <h4 class="title"><a href="{{ route('admin.5penyatabelumhantarbuah') }}">5.
-                                        Penyata Bulanan Belum Dihantar</a></h4>
-                                <p class="description">Senarai penyata bulanan yang belum dihantar</p>
-                            </div>
-                        </div>
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+                                    data-aos="zoom-in" data-aos-delay="500">
+                                    <div class="icon-box">
+                                        <div class="icon" style="text-align: center"><i
+                                                class="fas fa-ban fa-xs"></i>
+                                        </div>
 
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fa fa-print fa-xs"></i>
+                                        <h4 class="title"><a
+                                                href="{{ route('admin.6penyatapaparcetakbuah') }}">
+                                                Senarai Penyata Bulanan</a></h4>
+                                        <p class="description">Senarai penyata bulanan terkini dan yang belum
+                                            dihantar untuk
+                                            cetakan</p>
+                                    </div>
                                 </div>
-                                <h4 class="title"><a href="{{ route('admin.6penyatapaparcetakbuah') }}">6.
-                                        Papar & Cetak Penyata Bulanan</a></h4>
-                                <p class="description">Papar penyata bulanan untuk cetakan</p>
+
+
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+                                    data-aos="zoom-in" data-aos-delay="500">
+                                    <div class="icon-box">
+                                        <div class="icon" style="text-align: center"><i
+                                                class="fa fa-upload fa-xs"></i></div>
+                                        <h4 class="title"><a
+                                                href="{{ route('admin.7portingmaklumat') }}">Port
+                                                Maklumat</a></h4>
+                                        <p class="description">Pemindahan maklumat produk sawit dan maklumat negara
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%">
 
 
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fa fa-upload fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.7portingmaklumat') }}">7.
-                                        Port Maklumat</a></h4>
-                                <p class="description">Pemindahan maklumat produk sawit dan maklumat negara</p>
+                            <div class="row icon-boxes" style="margin-top: -5%; margin-bottom:8%" align="center">
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+                                    data-aos="zoom-in" data-aos-delay="500">
+                                    <div class="icon-box">
+                                        <div class="icon" style="text-align: center"><i
+                                                class="fas fa-eject fa-xs"></i></div>
+                                        <h4 class="title"><a href="{{ route('admin.8portdata') }}">Port
+                                                Data</a>
+                                        </h4>
+                                        <p class="description">Pemindahan Data ke Stat Admin dan Stat Homepage</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+                                    data-aos="zoom-in" data-aos-delay="500">
+                                    <div class="icon-box">
+                                        <div class="icon" style="text-align: center"><i
+                                                class="fas fa-folder-open fa-xs"></i></div>
+                                        <h4 class="title"><a
+                                                href="{{ route('admin.9penyataterdahulu') }}">Penyata
+                                                Bulan Terdahulu</a>
+                                        </h4>
+                                        <p class="description"> Papar penyata bulanan terdahulu di e-Kilang dan
+                                            PLEID</p>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+                                    data-aos="zoom-in" data-aos-delay="500">
+                                    <div class="icon-box">
+                                        <div class="icon" style="text-align: center"><i
+                                                class="fas fa-file-archive fa-xs"></i></div>
+                                        <h4 class="title"><a
+                                                href="{{ route('admin.10portdatatodq') }}">Port
+                                                Data Ke Dynamic Query</a></h4>
+                                        <p class="description">Pemindahan Data Ke Dynamic Query</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+
+                            <div class="row icon-boxes" style="display: flex;
+                                justify-content: center;
+                                flex-direction: row; margin-top: -5%; margin-bottom:8%">
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+                                    data-aos="zoom-in" data-aos-delay="500">
+                                    <div class="icon-box">
+                                        <div class="icon" style="text-align: center"><i
+                                                class="fa fa-envelope fa-xs"></i></div>
+                                        <h4 class="title"><a href="{{ route('admin.11emel') }}">Emel
+                                                Pertanyaan
+                                                / Pindaan / Cadangan</a>
+                                        </h4>
+                                        <p class="description">Senarai Emel Pertanyaan / Pindaan / Cadangan</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
+                                    data-aos="zoom-in" data-aos-delay="500">
+                                    <div class="icon-box">
+                                        <div class="icon" style="text-align: center"><i
+                                                class="fas fa-check-double fa-xs"></i></div>
+                                        <h4 class="title"><a
+                                                href="{{ route('admin.12validation') }}">Validasi</a>
+                                        </h4>
+                                        <p class="description">Validasi - Semakan FFBProses dan Kapasiti</p>
+                                    </div>
+                                </div>
 
 
 
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fas fa-eject fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.8portdata') }}">8. Port Data</a>
-                                </h4>
-                                <p class="description">Pemindahan Data ke Stat Admin dan Stat Homepage</p>
                             </div>
+
+                            <br>
+                            <br>
                         </div>
-
-
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fas fa-folder-open fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.9penyataterdahulu') }}">9.
-                                        Penyata Bulan Terdahulu</a>
-                                </h4>
-                                <p class="description"> Papar penyata bulanan terdahulu di e-Kilang dan PLEID</p>
-                            </div>
-                        </div>
-
-
-
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fas fa-file-archive fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.10portdatatodq') }}">10. Port
-                                        Data Ke Dynamic Query</a></h4>
-                                <p class="description">Pemindahan Data Ke Dynamic Query</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fa fa-envelope fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.11emel') }}">11. Emel Pertanyaan
-                                        / Pindaan / Cadangan</a>
-                                </h4>
-                                <p class="description">Senarai Emel Pertanyaan / Pindaan / Cadangan</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-lg-2 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in"
-                            data-aos-delay="500">
-                            <div class="icon-box">
-                                {{-- <div class="icon">
-                                    <span class="fa-stack" style="margin-top:-15%; margin-bottom:-15%" >
-                                        <strong class="" style="font-size:20px;">
-                                            6
-                                        </strong>
-                                    </span>
-                                    </div> --}}
-                                <div class="icon" style="text-align: center"><i
-                                        class="fas fa-check-double fa-xs"></i></div>
-                                <h4 class="title"><a href="{{ route('admin.12validation') }}">12.
-                                        Validasi</a></h4>
-                                <p class="description">Validasi - Semakan FFBProses dan Kapasiti</p>
-                            </div>
-                        </div>
-
-
-
-                    </div>
-
-                    <br>
-                    <br>
+                    </section><!-- End Hero -->
                 </div>
-            </section><!-- End Hero -->
-
-
-            <!-- ======= Testimonials Section ======= -->
-            <section id="testimonials" class="testimonials" style="background-color:rgb(255, 255, 255);">
-                {{-- style= "background-image: url('/theme/images/background/palm-oil4.jpg');"> --}}
-                <div class="container" data-aos="fade-up">
-
-                    <div class="section-title">
-                        <h2>Menu Lain-Lain</h2>
-
+                <div class="col-md-4">
+                    <div class="card ">
+                        <div class="card-header">
+                            <h4>Peratusan Penghantaran Penyata Bulanan</h4>
+                        </div>
+                        <div class="card-body">
+                            <div id="radialBars"></div>
+                            <div class="text-center mb-5">
+                                <h6>From last month</h6>
+                                <h1 class='text-green'>+$2,134</h1>
+                            </div>
+                        </div>
                     </div>
+                    <div class="card widget-todo" style="margin-top: 5%" align="center">
+                        <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+                            <h4 class="card-title d-flex">
+                                Menu Lain - Lain
+                            </h4>
 
-
-                    <div class="swiper-wrapper">
-                        <div class="row" style=" display: flex;
-                        justify-content: center;
-                        flex-direction: row; margin-left:5%; margin-right:5%;">
-
-                            <div class="col-md-3 col-lg-3">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <a href="{{ route('admin.direktori') }}">
+                        </div>
+                        <div class="card-body px-0 py-1">
+                            <table class='table table-borderless'>
+                                <tr>
+                                    <td class='col-3'><a href="{{ route('admin.direktori') }}">
                                             <img src="{{ asset('theme/kilangstyles/img/testimonials/dir4.png') }}"
-                                                class="testimonial-img" alt="">
-                                            <h3>Direktori</h3>
-                                        </a>
-                                        <h4>Direktori</h4>
-                                    </div>
-                                </div>
-                            </div><!-- End testimonial item -->
-
-                            <div class="col-md-3 col-lg-3">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <a href="{{ route('admin.pengumuman') }}">
-                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
-                                                class="testimonial-img" alt="">
-                                            <h3>Pengumuman</h3>
-                                            <h4>Pengumuman</h4>
-                                        </a>
-                                    </div>
-                                </div>
-
-                            </div><!-- End testimonial item -->
-
-
-                            {{-- <div class="col-md-4 col-lg-4">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <a href="{{ route('admin.jadualpenerimaanPL') }}">
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/sch.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Jadual Penerimaan PL</h3>
-                                        <h4>Jadual Penerimaan PL Bagi Semua Sektor</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div><!-- End testimonial item --> --}}
-
-                            {{-- <div class="row"> --}}
-                            {{-- <div class="col-md-4 col-lg-4" style="margin-top: -8%">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <a href="{{ route('admin.senaraigagalPL') }}">
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/list.png') }}"
-                                            class="testimonial-img" alt="">
-                                        <h3>Senarai Gagal Penerimaan PL</h3>
-                                        <h4>Senarai Gagal Penerimaan PL </h4>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div> --}}
-
-                            <div class="col-md-3 col-lg-4">
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <a href="{{ route('admin.panduan') }}">
-                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
-                                                class="testimonial-img" alt="">
-                                            <h3>Panduan Pengguna</h3>
-                                            <h4>Panduan bagi menyelenggara penyata bulanan</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-3 col-lg-4" >
-                                <div class="swiper-slide">
-                                    <div class="testimonial-item">
-                                        <a href="{{ route('admin.tukarpassword') }}">
-                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
-                                                class="testimonial-img" alt="">
-                                            <h3>Tukar Kata Laluan</h3>
-                                            <h4>Tukar kata laluan bagi pengguna</h4>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- End testimonial item -->
-
+                                                class="testimonial-img" alt=""
+                                                style="height: 100%; width:100%; margin-left:50%">
+                                        </a></td>
+                                    <td class='col-9'>
+                                        <h4 style="margin-left:40%; font-size:18px">Direktori</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-3'><a href="{{ route('admin.pengumuman') }}">
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
+                                            class="testimonial-img" alt="" style="height: 100%; width:100%; margin-left:50%">
+                                    </a></td>
+                                    <td class='col-9'>
+                                        <h4 style="margin-left:40%; font-size:18px">Pengumuman</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-3'><a href="{{ route('admin.panduan') }}">
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
+                                            class="testimonial-img" alt="" style="height: 100%; width:100%; margin-left:50%">
+                                    </a></td>
+                                    <td class='col-9'>
+                                        <h4 style="margin-left:40%; font-size:18px">Panduan Pengguna</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-3'><a href="{{ route('admin.tukarpassword') }}">
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
+                                            class="testimonial-img" alt="" style="height: 100%; width:100%; margin-left:50%">
+                                    </a></td>
+                                    <td class='col-9'>
+                                        <h4 style="margin-left:40%; font-size:18px">Tukar Kata Laluan</h4>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
-
-
                 </div>
 
-        </div>
-        </section><!-- End Testimonials Section -->
-
-        </main><!-- End #main -->
-
-        <!-- ======= Footer ======= -->
-        <footer>
-            <div class="footer text-muted">
-                {{-- <div class="float-start">
-            <p>2020 &copy; Voler</p>
-        </div> --}}
-                <div style="text-align: center">
-                    <p style="font-size:10px">Developed by Artanis Cloud</a></p>
-                </div>
             </div>
-        </footer>
 
 
 
-        {{-- <div id="preloader"></div> --}}
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
 
-        <!-- Vendor JS Files -->
-        {{-- <script src="assets/vendor/purecounter/purecounter.js"></script>
+            </main><!-- End #main -->
+
+            <!-- ======= Footer ======= -->
+            {{-- <footer>
+                <div class="footer text-muted">
+                    <div style="text-align: center">
+                        <p style="font-size:10px">Developed by Artanis Cloud</a></p>
+                    </div>
+                </div>
+            </footer> --}}
+
+
+
+            {{-- <div id="preloader"></div> --}}
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                    class="bi bi-arrow-up-short"></i></a>
+
+            <!-- Vendor JS Files -->
+            {{-- <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -866,38 +768,38 @@
   <script src="assets/vendor/php-email-form/validate.js"></script> --}}
 
 
-        <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
-        <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
-        <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
-        </script>
-        <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
-        <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
-        </script>
-        <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
-        <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
+            </script>
+            <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
+            </script>
+            <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
 
 
 
-        <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-        <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-        <script src="{{ asset('theme/js/app.js') }}"></script>
-        <script src="{{ asset('theme/vendors/chartjs/Chart.min.css') }}"></script>
-        <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
-        <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
-        <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script>
+            <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+            <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+            <script src="{{ asset('theme/js/app.js') }}"></script>
+            <script src="{{ asset('theme/vendors/chartjs/Chart.min.css') }}"></script>
+            <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
+            <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
+            <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script>
 
-        <script src="{{ asset('theme/js/main.js') }}"></script>
+            <script src="{{ asset('theme/js/main.js') }}"></script>
 
-        <!-- Template Main JS File -->
+            <!-- Template Main JS File -->
 
-        <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
 
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
-        <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+            <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-        {{-- <script>
+            {{-- <script>
             window.addEventListener("load", function() {
                 $.ajax({
                     url: "{{ route('graph_dashboard.default') }}",
