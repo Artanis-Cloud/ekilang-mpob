@@ -235,8 +235,7 @@
 
 
                                         <div class="text-left col-md-8">
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter">Papar</button>
+                                            <button type="button" class="btn btn-primary ">Papar</button>
 
                                             <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                                 data-bs-target="#exampleModalCenter">Cetak</button>

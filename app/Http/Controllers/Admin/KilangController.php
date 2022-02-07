@@ -905,6 +905,27 @@ class KilangController extends Controller
         return view('admin.proses6.6penyata-papar-cetak-bio', compact('returnArr', 'layout'));
     }
 
+    public function admin_6papar_process()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbio'), 'name' => "Papar & Cetak Penyata Bulanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.proses6.6papar', compact('returnArr', 'layout'));
+    }
+
     public function admin_7portingmaklumat()
     {
 
