@@ -50,74 +50,76 @@ Route::get('admin/pusat-simpanan', [App\Http\Controllers\Admin\KilangController:
 Route::get('admin/e-biodiesel', [App\Http\Controllers\Admin\KilangController::class, 'admin_ebiodiesel'])->name('admin.ebiodiesel');
 Route::get('admin/1-daftarpelesen', [App\Http\Controllers\Admin\KilangController::class, 'admin_1daftarpelesen'])->name('admin.1daftarpelesen');
 
-Route::get('admin/senarai-pelesen-buah', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraipelesenbuah'])->name('admin.senaraipelesenbuah');
-Route::get('admin/senarai-pelesen-penapis', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraipelesenpenapis'])->name('admin.senaraipelesenpenapis');
-Route::get('admin/senarai-pelesen-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraipelesenisirung'])->name('admin.senaraipelesenisirung');
-Route::get('admin/senarai-pelesen-oleokimia', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraipelesenoleokimia'])->name('admin.senaraipelesenoleokimia');
-Route::get('admin/senarai-pelesen-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraipelesensimpanan'])->name('admin.senaraipelesensimpanan');
-Route::get('admin/senarai-pelesen-bio', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraipelesenbio'])->name('admin.senaraipelesenbio');
+Route::get('admin/senarai-pelesen-buah', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbuah'])->name('admin.senaraipelesenbuah');
+Route::get('admin/senarai-pelesen-penapis', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenpenapis'])->name('admin.senaraipelesenpenapis');
+Route::get('admin/senarai-pelesen-isirung', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenisirung'])->name('admin.senaraipelesenisirung');
+Route::get('admin/senarai-pelesen-oleokimia', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenoleokimia'])->name('admin.senaraipelesenoleokimia');
+Route::get('admin/senarai-pelesen-simpanan', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesensimpanan'])->name('admin.senaraipelesensimpanan');
+Route::get('admin/senarai-pelesen-bio', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbio'])->name('admin.senaraipelesenbio');
 
-Route::get('admin/2-tukar-password', [App\Http\Controllers\Admin\KilangController::class, 'admin_2tukarpassword'])->name('admin.2tukarpassword');
+Route::get('admin/senarai-pelesen-gagal-buah', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesengagalbuah'])->name('admin.senaraipelesengagalbuah');
 
-
-Route::get('admin/3-daftar-penyata-buah', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyata'])->name('admin.3daftarpenyata');
-Route::get('admin/3-daftar-penyata-penapis', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyatapenapis'])->name('admin.3daftarpenyatapenapis');
-Route::get('admin/3-daftar-penyata-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyataisirung'])->name('admin.3daftarpenyataisirung');
-Route::get('admin/3-daftar-penyata-oleokimia', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyataoleokimia'])->name('admin.3daftarpenyataoleokimia');
-Route::get('admin/3-daftar-penyata-pusat-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyatasimpanan'])->name('admin.3daftarpenyatasimpanan');
-Route::get('admin/3-daftar-penyata-biodiesel', [App\Http\Controllers\Admin\KilangController::class, 'admin_3daftarpenyatabiodiesel'])->name('admin.3daftarpenyatabiodiesel');
-
-Route::get('admin/4-EKilang-PLEID-buah', [App\Http\Controllers\Admin\KilangController::class, 'admin_4ekilangpleid'])->name('admin.4ekilangpleid');
-Route::get('admin/4-EKilang-PLEID-penapis', [App\Http\Controllers\Admin\KilangController::class, 'admin_4ekilangpleidpenapis'])->name('admin.4ekilangpleidpenapis');
-Route::get('admin/4-EKilang-PLEID-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_4ekilangpleidisirung'])->name('admin.4ekilangpleidisirung');
-Route::get('admin/4-EKilang-PLEID-oleokimia', [App\Http\Controllers\Admin\KilangController::class, 'admin_4ekilangpleidoleokimia'])->name('admin.4ekilangpleidoleokimia');
-Route::get('admin/4-EKilang-PLEID-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_4ekilangpleidsimpanan'])->name('admin.4ekilangpleidsimpanan');
+Route::get('admin/2-tukar-password', [App\Http\Controllers\Admin\Proses2Controller::class, 'admin_2tukarpassword'])->name('admin.2tukarpassword');
 
 
-Route::get('admin/5-penyata-belum-hantar-buah', [App\Http\Controllers\Admin\KilangController::class, 'admin_5penyatabelumhantarbuah'])->name('admin.5penyatabelumhantarbuah');
-Route::get('admin/5-penyata-belum-hantar-penapis', [App\Http\Controllers\Admin\KilangController::class, 'admin_5penyatabelumhantarpenapis'])->name('admin.5penyatabelumhantarpenapis');
-Route::get('admin/5-penyata-belum-hantar-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_5penyatabelumhantarisirung'])->name('admin.5penyatabelumhantarisirung');
-Route::get('admin/5-penyata-belum-hantar-oleo', [App\Http\Controllers\Admin\KilangController::class, 'admin_5penyatabelumhantaroleo'])->name('admin.5penyatabelumhantaroleo');
-Route::get('admin/5-penyata-belum-hantar-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_5penyatabelumhantarsimpanan'])->name('admin.5penyatabelumhantarsimpanan');
-Route::get('admin/5-penyata-belum-hantar-bio', [App\Http\Controllers\Admin\KilangController::class, 'admin_5penyatabelumhantarbio'])->name('admin.5penyatabelumhantarbio');
+Route::get('admin/3-daftar-penyata-buah', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3daftarpenyata'])->name('admin.3daftarpenyata');
+Route::get('admin/3-daftar-penyata-penapis', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3daftarpenyatapenapis'])->name('admin.3daftarpenyatapenapis');
+Route::get('admin/3-daftar-penyata-isirung', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3daftarpenyataisirung'])->name('admin.3daftarpenyataisirung');
+Route::get('admin/3-daftar-penyata-oleokimia', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3daftarpenyataoleokimia'])->name('admin.3daftarpenyataoleokimia');
+Route::get('admin/3-daftar-penyata-pusat-simpanan', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3daftarpenyatasimpanan'])->name('admin.3daftarpenyatasimpanan');
+Route::get('admin/3-daftar-penyata-biodiesel', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3daftarpenyatabiodiesel'])->name('admin.3daftarpenyatabiodiesel');
 
-Route::get('admin/6-penyata-papar-cetak-buah', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetakbuah'])->name('admin.6penyatapaparcetakbuah');
-Route::get('admin/6-penyata-papar-cetak-penapis', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetakpenapis'])->name('admin.6penyatapaparcetakpenapis');
-Route::get('admin/6-penyata-papar-cetak-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetakisirung'])->name('admin.6penyatapaparcetakisirung');
-Route::get('admin/6-penyata-papar-cetak-oleo', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetakoleo'])->name('admin.6penyatapaparcetakoleo');
-Route::get('admin/6-penyata-papar-cetak-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetaksimpanan'])->name('admin.6penyatapaparcetaksimpanan');
-Route::get('admin/6-penyata-papar-cetak-bio', [App\Http\Controllers\Admin\KilangController::class, 'admin_6penyatapaparcetakbio'])->name('admin.6penyatapaparcetakbio');
-Route::get('admin/6-papar/process', [App\Http\Controllers\Admin\KilangController::class, 'admin_6papar_process'])->name('admin.6papar.process');
+Route::get('admin/4-EKilang-PLEID-buah', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleid'])->name('admin.4ekilangpleid');
+Route::get('admin/4-EKilang-PLEID-penapis', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleidpenapis'])->name('admin.4ekilangpleidpenapis');
+Route::get('admin/4-EKilang-PLEID-isirung', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleidisirung'])->name('admin.4ekilangpleidisirung');
+Route::get('admin/4-EKilang-PLEID-oleokimia', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleidoleokimia'])->name('admin.4ekilangpleidoleokimia');
+Route::get('admin/4-EKilang-PLEID-simpanan', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleidsimpanan'])->name('admin.4ekilangpleidsimpanan');
 
-Route::get('admin/7-porting-maklumat', [App\Http\Controllers\Admin\KilangController::class, 'admin_7portingmaklumat'])->name('admin.7portingmaklumat');
-Route::get('admin/8-port-data', [App\Http\Controllers\Admin\KilangController::class, 'admin_8portdata'])->name('admin.8portdata');
 
-Route::get('admin/9-penyata-terdahulu', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulu'])->name('admin.9penyataterdahulu');
-Route::get('admin/9-penyata-terdahulu-penapis', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulupenapis'])->name('admin.9penyataterdahulupenapis');
-Route::get('admin/9-penyata-terdahulu-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahuluisirung'])->name('admin.9penyataterdahuluisirung');
-Route::get('admin/9-penyata-terdahulu-oleokimia', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahuluoleokimia'])->name('admin.9penyataterdahuluoleokimia');
-Route::get('admin/9-penyata-terdahulu-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulusimpanan'])->name('admin.9penyataterdahulusimpanan');
-Route::get('admin/9-penyata-terdahulu-biodiesel', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulubiodiesel'])->name('admin.9penyataterdahulubiodiesel');
-Route::post('admin/9-penyata-terdahulu/process', [App\Http\Controllers\Admin\KilangController::class, 'admin_9penyataterdahulu_process'])->name('admin.9penyataterdahulu.process');
-Route::get('admin/9-penyata-terdahulu-papar/process', [App\Http\Controllers\Admin\KilangController::class, 'admin_9papar_process'])->name('admin.9papar.process');
+Route::get('admin/5-penyata-belum-hantar-buah', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantarbuah'])->name('admin.5penyatabelumhantarbuah');
+Route::get('admin/5-penyata-belum-hantar-penapis', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantarpenapis'])->name('admin.5penyatabelumhantarpenapis');
+Route::get('admin/5-penyata-belum-hantar-isirung', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantarisirung'])->name('admin.5penyatabelumhantarisirung');
+Route::get('admin/5-penyata-belum-hantar-oleo', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantaroleo'])->name('admin.5penyatabelumhantaroleo');
+Route::get('admin/5-penyata-belum-hantar-simpanan', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantarsimpanan'])->name('admin.5penyatabelumhantarsimpanan');
+Route::get('admin/5-penyata-belum-hantar-bio', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantarbio'])->name('admin.5penyatabelumhantarbio');
 
-Route::get('admin/10-port-data-to-dq', [App\Http\Controllers\Admin\KilangController::class, 'admin_10portdatatodq'])->name('admin.10portdatatodq');
-Route::get('admin/11-emel', [App\Http\Controllers\Admin\KilangController::class, 'admin_11emel'])->name('admin.11emel');
-Route::get('admin/11-papar-emel', [App\Http\Controllers\Admin\KilangController::class, 'admin_11paparemel'])->name('admin.11paparemel');
-Route::get('admin/12-validation', [App\Http\Controllers\Admin\KilangController::class, 'admin_12validation'])->name('admin.12validation');
+Route::get('admin/6-penyata-papar-cetak-buah', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakbuah'])->name('admin.6penyatapaparcetakbuah');
+Route::get('admin/6-penyata-papar-cetak-penapis', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakpenapis'])->name('admin.6penyatapaparcetakpenapis');
+Route::get('admin/6-penyata-papar-cetak-isirung', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakisirung'])->name('admin.6penyatapaparcetakisirung');
+Route::get('admin/6-penyata-papar-cetak-oleo', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakoleo'])->name('admin.6penyatapaparcetakoleo');
+Route::get('admin/6-penyata-papar-cetak-simpanan', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetaksimpanan'])->name('admin.6penyatapaparcetaksimpanan');
+Route::get('admin/6-penyata-papar-cetak-bio', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakbio'])->name('admin.6penyatapaparcetakbio');
+Route::get('admin/6-papar/process', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6papar_process'])->name('admin.6papar.process');
 
-Route::get('admin/direktori', [App\Http\Controllers\Admin\KilangController::class, 'admin_direktori'])->name('admin.direktori');
-Route::get('admin/direktori/process', [App\Http\Controllers\Admin\KilangController::class, 'admin_direktori_process'])->name('admin.direktori.process');
+Route::get('admin/7-porting-maklumat', [App\Http\Controllers\Admin\Proses7Controller::class, 'admin_7portingmaklumat'])->name('admin.7portingmaklumat');
+Route::get('admin/8-port-data', [App\Http\Controllers\Admin\Proses8Controller::class, 'admin_8portdata'])->name('admin.8portdata');
 
-Route::get('admin/pengumuman', [App\Http\Controllers\Admin\KilangController::class, 'admin_pengumuman'])->name('admin.pengumuman');
-Route::get('admin/tambahpengumuman', [App\Http\Controllers\Admin\KilangController::class, 'admin_tambahpengumuman'])->name('admin.tambahpengumuman');
-Route::get('admin/editpengumuman/{Id}', [App\Http\Controllers\Admin\KilangController::class, 'admin_editpengumuman'])->name('admin.editpengumuman');
-Route::post('admin/updatepengumuman/{Id}', [App\Http\Controllers\Admin\KilangController::class, 'admin_updatepengumuman'])->name('admin.updatepengumuman');
+Route::get('admin/9-penyata-terdahulu', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulu'])->name('admin.9penyataterdahulu');
+Route::get('admin/9-penyata-terdahulu-penapis', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulupenapis'])->name('admin.9penyataterdahulupenapis');
+Route::get('admin/9-penyata-terdahulu-isirung', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahuluisirung'])->name('admin.9penyataterdahuluisirung');
+Route::get('admin/9-penyata-terdahulu-oleokimia', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahuluoleokimia'])->name('admin.9penyataterdahuluoleokimia');
+Route::get('admin/9-penyata-terdahulu-simpanan', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulusimpanan'])->name('admin.9penyataterdahulusimpanan');
+Route::get('admin/9-penyata-terdahulu-biodiesel', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulubiodiesel'])->name('admin.9penyataterdahulubiodiesel');
+Route::post('admin/9-penyata-terdahulu/process', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulu_process'])->name('admin.9penyataterdahulu.process');
+Route::get('admin/9-penyata-terdahulu-papar/process', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9papar_process'])->name('admin.9papar.process');
 
-Route::get('admin/jadual-penerimanPL', [App\Http\Controllers\Admin\KilangController::class, 'admin_jadualpenerimaanPL'])->name('admin.jadualpenerimaanPL');
-Route::get('admin/senaraigagalPL', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraigagalPL'])->name('admin.senaraigagalPL');
-Route::get('admin/panduan', [App\Http\Controllers\Admin\KilangController::class, 'admin_panduan'])->name('admin.panduan');
-Route::get('admin/tukarpassword', [App\Http\Controllers\Admin\KilangController::class, 'admin_tukarpassword'])->name('admin.tukarpassword');
+Route::get('admin/10-port-data-to-dq', [App\Http\Controllers\Admin\Proses10Controller::class, 'admin_10portdatatodq'])->name('admin.10portdatatodq');
+Route::get('admin/11-emel', [App\Http\Controllers\Admin\Proses11Controller::class, 'admin_11emel'])->name('admin.11emel');
+Route::get('admin/11-papar-emel', [App\Http\Controllers\Admin\Proses11Controller::class, 'admin_11paparemel'])->name('admin.11paparemel');
+Route::get('admin/12-validation', [App\Http\Controllers\Admin\Proses12Controller::class, 'admin_12validation'])->name('admin.12validation');
+
+Route::get('admin/direktori', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_direktori'])->name('admin.direktori');
+Route::get('admin/direktori/process', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_direktori_process'])->name('admin.direktori.process');
+
+Route::get('admin/pengumuman', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_pengumuman'])->name('admin.pengumuman');
+Route::get('admin/tambahpengumuman', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambahpengumuman'])->name('admin.tambahpengumuman');
+Route::get('admin/editpengumuman/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_editpengumuman'])->name('admin.editpengumuman');
+Route::post('admin/updatepengumuman/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_updatepengumuman'])->name('admin.updatepengumuman');
+
+Route::get('admin/jadual-penerimanPL', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_jadualpenerimaanPL'])->name('admin.jadualpenerimaanPL');
+Route::get('admin/senaraigagalPL', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_senaraigagalPL'])->name('admin.senaraigagalPL');
+Route::get('admin/panduan', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_panduan'])->name('admin.panduan');
+Route::get('admin/tukarpassword', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tukarpassword'])->name('admin.tukarpassword');
 
 Route::get('try3', [App\Http\Controllers\Admin\KilangController::class, 'try3'])->name('try3');
 
