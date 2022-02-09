@@ -444,7 +444,8 @@
                                                     Daerah</label>
                                                 <div class="col-md-6">
                                                     <select class="form-select" id="daerah_id" name='daerah_id'
-                                                        placeholder="Daerah" style="background-color:#ffffff; margin-top:1%">
+                                                        placeholder="Daerah"
+                                                        style="background-color:#ffffff; margin-top:1%">
                                                         <option selected hidden disabled>Sila Pilih Negeri Terlebih Dahulu
                                                         </option>
                                                     </select>
@@ -710,5 +711,27 @@
                 }
             });
         }
+    </script>
+
+
+    <script type="text/javascript">
+        $("document").ready(function() {
+            setTimeout(function() {
+                $("#message").remove(); //tambah untuk remove flash message
+            }, 5000); // 5 secs  (1 sec = 1000)
+        });
+    </script>
+
+    {{-- toaster --}}
+    <script src="{{ asset('theme/libs/toastr/build/toastr.min.js') }}"></script>
+    <script src="{{ asset('theme/extra-libs/toastr/toastr-init.js') }}"></script>
+
+    {{-- toaster display --}}
+    <script>
+        @if (Session::get('success'))
+            toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
+        @elseif ($message = Session::get('error'))
+            toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
+        @endif
     </script>
 @endsection
