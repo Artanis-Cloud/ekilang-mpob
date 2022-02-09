@@ -1413,6 +1413,66 @@ class KilangController extends Controller
         return view('admin.menu-lain.pengumuman', compact('returnArr', 'layout', 'pengumuman'));
     }
 
+    public function admin_tambahpengumuman()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.tambahpengumuman'), 'name' => "Tambah Pengumuman"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+        return view('admin.menu-lain.tambahpengumuman', compact('returnArr', 'layout'));
+    }
+
+    public function admin_editpengumuman($id, Pengumuman $pengumuman)
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+        return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
+    }
+
+    public function admin_updatepengumuman(Pengumuman $request, $id, $data )
+    {
+
+
+
+        $validateData = $request->validate([
+                'Id'=>'required',
+                'Message'=>'required',
+                'Start_date'=>'required',
+                'End_Date'=>'required',
+                'Icon_new'=>'required',
+
+            ]);
+
+            Pengumuman::whereId($id)->update($validateData);
+
+            return redirect()->back()
+            ->with('message','Job updated Succesfully');
+    }
+
     public function admin_jadualpenerimaanPL()
     {
 

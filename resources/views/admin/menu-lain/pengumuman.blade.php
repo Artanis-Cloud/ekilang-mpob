@@ -16,7 +16,7 @@
                 </div>
             </div> --}}
 
-        <div class=" mt-2  row">
+        <div class=" mt-2 mb-4  row">
             <div class="col-md-12">
 
                 <div class="page-breadcrumb" style="padding: 0px">
@@ -73,88 +73,79 @@
 
 
 
-                                                <section class="section">
-                                                    <div class="card" >
-                                                        {{-- <div class="card-header">
-                                                            Simple Datatable
-                                                        </div> --}}
+                                    <section class="section">
+                                        <div class="card" >
+                                            {{-- <div class="card-header">
+                                                Simple Datatable
+                                            </div> --}}
 
-                                                        <table class='table table-striped' id="table1" >
-                                                            <thead>
+                                            <table class='table table-striped' id="table1" >
+                                                <thead>
 
-                                                                <tr>
-                                                                    <th>No</th>
-                                                                    <th>Mesej<br>
-                                                                    </th>
-                                                                    <th>Tarikh Mula<br>
-                                                                        </th>
-                                                                    <th>Tarikh Akhir
-                                                                    </th>
-                                                                    <th>Icon New
-                                                                    </th>
-
-
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                @foreach($pengumuman as $data)
-                                                                <tr>
-                                                                    <td >
-                                                                        {{$data->Id}}
-                                                                    </td>
-                                                                    <td >
-                                                                        {{$data->Message}}
-                                                                    </td>
-                                                                    <td >
-                                                                        {{$data->Start_date}}
-                                                                    </td>
-                                                                    <td>
-                                                                        {{$data->End_Date}}
-                                                                    </td>
-                                                                    <td >
-                                                                        {{$data->Icon_new}}
-                                                                    </td>
-
-                                                                </tr>
-                                                                @endforeach
-                                                            </tbody>
-
-                                                        </table>
-
-                                                    </div>
-                                                </section>
+                                                    <tr>
+                                                        <th>No</th>
+                                                        <th>Mesej<br>
+                                                        </th>
+                                                        <th>Tarikh Mula<br>
+                                                            </th>
+                                                        <th>Tarikh Akhir
+                                                        </th>
+                                                        <th>Icon New
+                                                        </th>
+                                                        <th>Tindakan
+                                                        </th>
 
 
-                                            {{-- <div class="row" style="padding-top: 35px; float:right">
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($pengumuman as $data)
+                                                    <tr>
+                                                        <td >
+                                                            {{$data->Id}}
+                                                        </td>
+                                                        <td >
+                                                            {{$data->Message}}
+                                                        </td>
+                                                        <td >
+                                                            {{$data->Start_date}}
+                                                        </td>
+                                                        <td>
+                                                            {{$data->End_Date}}
+                                                        </td>
+                                                        <td >
+                                                            {{$data->Icon_new}}
+                                                        </td>
+                                                        <td >
+                                                            <div class="icon" style="text-align: center" >
+                                                            <a href="{{ route('admin.editpengumuman',[$data->Id]) }}">
+                                                                <i class="fas fa-edit fa-lg" style="color: #228c1c" >
+                                                                </i>
+                                                            </a>
+                                                            </div>
+                                                        </td>
 
-                                                        <div class="col-md-12">
-                                                            <button type="button" class="btn  btn-primary"
-                                                                data-toggle="modal" data-target="#confirmation">Simpan &
-                                                                Seterusnya</button>
-                                                        </div>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
 
-                                                    </div> --}}
+                                            </table>
 
-
-                                                    <div class="text-left col-md-8">
-                                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                         data-bs-target="#exampleModalCenter">Tambah</button>
+                                        </div>
+                                    </section>
 
 
+                                    <div class="row" style="padding-top: 35px; float:left">
 
-                                                    </div>
+                                            <div class="text-left col-md-8">
+                                                <a href="{{ route('admin.tambahpengumuman') }}" class="btn btn-primary ">
+                                                    Tambah
+                                                </a>
 
-
+                                            </div>
                                     </div>
 
 
-
-
-
-
-
-
-                                    </form>
 
                                 </div>
                             </div>
@@ -167,9 +158,9 @@
 
                     </div>
                 </div>
-
-
-
+            </div>
+        </div>
+        </div>
 
 
     </section><!-- End Hero -->
