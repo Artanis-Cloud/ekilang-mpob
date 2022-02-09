@@ -10,6 +10,8 @@ class Pelesen extends Model
     use HasFactory;
     protected $table = 'pelesen';
 
+    public $timestamps = false;
+
     protected $fillable = [
         'e_id',
         'e_nl',

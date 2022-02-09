@@ -235,7 +235,7 @@ class KilangController extends Controller
 
         // $list_daerah = Negeri::where('negeri', $kod_negeri)->get();
 
-        $list_daerah = Daerah::where('kod_negeri', $kod_negeri)->distinct()->orderBy('nama_daerah')->get('nama_daerah');
+        $list_daerah = Daerah::where('kod_negeri', $kod_negeri)->distinct()->orderBy('nama_daerah')->get();
 
         return json_decode($list_daerah);
         exit;

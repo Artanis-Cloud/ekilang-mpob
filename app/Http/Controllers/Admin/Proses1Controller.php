@@ -12,6 +12,7 @@ use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Validator;
 
 class Proses1Controller extends Controller
 {
@@ -36,7 +37,7 @@ class Proses1Controller extends Controller
 
     public function admin_1daftarpelesen()
     {
-        $negeri = Negeri::get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -53,8 +54,43 @@ class Proses1Controller extends Controller
         $layout = 'layouts.admin';
 
 
-
         return view('admin.proses1.1daftarpelesen', compact('returnArr', 'layout', 'negeri'));
+    }
+
+    public function admin_1daftarpelesen_proses(Request $request)
+    {
+        $this->validation_daftar_pelesen($request->all())->validate();
+        $this->store_daftar_pelesen($request->all());
+
+        return redirect()->route('admin.senaraipelesenbuah')->with('success', 'Maklumat Pelesen sudah ditambah');
+    }
+
+    protected function validation_daftar_pelesen(array $data)
+    {
+        return Validator::make($data, [
+            'jenis_kilang' => ['required', 'string'],
+            'status_ekilang' => ['required', 'string'],
+            'status_emingguan' => ['required', 'string'],
+            'status_direktori' => ['required', 'string'],
+            'kod_negeri' => ['required', 'string'],
+            'nombor_siri' => ['required', 'string'],
+            'nombor_lesen' => ['required', 'string'],
+            'nama_premis' => ['required', 'string'],
+            'alamat_premis_1' => ['required', 'string' ],
+            'alamat_premis_2' => ['required', 'string'],
+            'alamat_premis_3' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_daftar_pelesen(array $data)
+    {
+        return Pelesen::create([
+            'e_nl' => $data['nombor_lesen'],
+            'e_np' => $data['nama_premis'],
+            'e_ap1' => $data['alamat_premis_1'],
+            'e_ap2' => $data['alamat_premis_2'],
+            'e_ap3' => $data['alamat_premis_3'],
+        ]);
     }
 
     public function admin_senaraipelesenbuah()
