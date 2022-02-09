@@ -231,13 +231,4 @@ class KilangController extends Controller
         return response($returnArr, 200);
     }
 
-    public function fetch_daerah($kod_negeri){
-
-        // $list_daerah = Negeri::where('negeri', $kod_negeri)->get();
-
-        $list_daerah = Daerah::where('kod_negeri', $kod_negeri)->distinct()->orderBy('nama_daerah')->get();
-
-        return json_decode($list_daerah);
-        exit;
-    }
 }
