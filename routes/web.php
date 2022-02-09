@@ -35,7 +35,8 @@ Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardAdminControll
 Route::get('admin/dashboard2', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard2'])->name('admin.dashboard2');
 
 //AJAX
-Route::get('/ajax/fetch-daerah/{kod_negeri}', [App\Http\Controllers\Admin\KilangController::class, 'fetch_daerah'])->name('ajax-daerah');
+Route::get('/ajax/fetch-daerah/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_daerah'])->name('ajax-daerah');
+Route::get('/ajax/fetch-kawasan/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_kawasan'])->name('ajax-kawasan');
 
 
 
@@ -51,6 +52,7 @@ Route::get('admin/e-biodiesel', [App\Http\Controllers\Admin\KilangController::cl
 
 Route::get('admin/1-daftarpelesen', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_1daftarpelesen'])->name('admin.1daftarpelesen');
 Route::post('admin/1-daftarpelesen/proses', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_1daftarpelesen_proses'])->name('admin.1daftarpelesen.proses');
+
 
 Route::get('admin/senarai-pelesen-buah', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbuah'])->name('admin.senaraipelesenbuah');
 Route::get('admin/senarai-pelesen-penapis', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenpenapis'])->name('admin.senaraipelesenpenapis');

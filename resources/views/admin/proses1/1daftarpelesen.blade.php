@@ -195,7 +195,8 @@
                                                     Nombor Siri</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="nombor_siri" class="form-control"
-                                                        placeholder="Nombor Siri" name="nombor_siri" value="{{ old('nombor_siri') }}">
+                                                        placeholder="Nombor Siri" name="nombor_siri"
+                                                        value="{{ old('nombor_siri') }}">
                                                     @error('nombor_siri')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -210,7 +211,8 @@
                                                     Nombor Lesen</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="nombor_lesen" class="form-control"
-                                                        placeholder="Nombor Lesen" name="nombor_lesen" value="{{ old('nombor_siri') }}">
+                                                        placeholder="Nombor Lesen" name="nombor_lesen"
+                                                        value="{{ old('nombor_siri') }}">
                                                     @error('nombor_lesen')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -241,8 +243,7 @@
                                                     Alamat Premis Berlesen</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="alamat_premis_1" class="form-control"
-                                                        placeholder="Alamat Premis 1"
-                                                        name="alamat_premis_1">
+                                                        placeholder="Alamat Premis 1" name="alamat_premis_1">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -251,13 +252,11 @@
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%">
                                                     <input type="text" id="alamat_premis_2" class="form-control"
-                                                        placeholder="Alamat Premis 2"
-                                                        name="alamat_premis_2">
+                                                        placeholder="Alamat Premis 2" name="alamat_premis_2">
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%">
                                                     <input type="text" id="alamat_premis_3" class="form-control"
-                                                        placeholder="Alamat Premis 3"
-                                                        name="alamat_premis_3">
+                                                        placeholder="Alamat Premis 3" name="alamat_premis_3">
                                                 </div>
                                             </div>
 
@@ -444,10 +443,18 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Daerah</label>
                                                 <div class="col-md-6">
-                                                    <select class="form-control" id="daerah_id" name='daerah_id'
-                                                        placeholder="Daerah">
-                                                        <option value="" selected hidden disabled>Sila Pilih
-                                                            Negeri</option>
+                                                    <select class="form-select" id="daerah_id" name='daerah_id'
+                                                        placeholder="Daerah" style="background-color:#ffffff; margin-top:1%"
+                                                        onchange="ajax_kawasan(this)">
+                                                        <option selected hidden disabled>Sila Pilih Negeri Terlebih Dahulu
+                                                        </option>
+                                                        {{-- @foreach ($negeri as $data)
+                                                            <option value="{{ $data->kod_negeri }}">
+                                                                {{ $data->nama_negeri }}
+                                                            </option>
+                                                        @endforeach --}}
+
+                                                    </select>
                                                     </select>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -462,14 +469,16 @@
                                                     Kawasan</label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" id="basicSelect">
-                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                        <select class="form-select" id="kawasan_id">
+                                                            <option value="" selected hidden disabled>Sila Pilih
+                                                                Daerah Terlebih Dahulu</option>
+                                                            {{-- <option selected hidden disabled>Sila Pilih</option>
                                                             <option>Sabah</option>
                                                             <option>Sarawak</option>
                                                             <option>Selatan</option>
                                                             <option>Tengah</option>
                                                             <option>Timur</option>
-                                                            <option>Utara</option>
+                                                            <option>Utara</option> --}}
                                                         </select>
                                                     </fieldset>
                                                     {{-- @error('alamat_kilang_1')
@@ -638,7 +647,7 @@
 @endsection
 
 @section('javascript')
-{{-- ajax daerah --}}
+    {{-- ajax daerah --}}
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script>
         function ajax_daerah(select) {
@@ -665,6 +674,41 @@
                         $("#daerah_id").append('<option value="' + respond[x].kod_daerah + '">' +
                             respond[x]
                             .nama_daerah + '</option>');
+                        x++;
+                    });
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log("Status: " + textStatus);
+                    console.log("Error: " + errorThrown);
+                }
+            });
+        }
+    </script>
+    <script>
+        function ajax_kawasan(select) {
+            negeri = select.value;
+            console.log(negeri);
+            //clear jenis_data selection
+            $("#kawasan_id").empty();
+            //initialize selection
+            $("#kawasan_id").append('<option value="" selected disabled hidden>Sila Pilih Kawasan</option>');
+
+            $.ajax({
+                type: "get",
+                url: "/ajax/fetch-kawasan/" + negeri, //penting
+
+                //url:"/JPSM/permohonan/fetchSenaraiHargaIdByTahun/jenisDokumen/"+jenis_dokumen+"/jenisData/"+jenis_data+"/tahun/"+tahun+"/negeri/" + negeri,
+                success: function(respond) {
+                    //fetch data (id) from DB Senarai Harga
+                    // console.log(respond);
+                    //loop for data
+                    var x = 0;
+                    respond.forEach(function() { //penting
+
+                        // console.log(respond[x]);
+                        $("#kawasan_id").append('<option value="' + respond[x].kod_region + '">' +
+                            respond[x]
+                            .nama_region + '</option>');
                         x++;
                     });
                 },
