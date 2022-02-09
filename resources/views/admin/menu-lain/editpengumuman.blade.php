@@ -10,12 +10,12 @@
         <meta content="" name="description">
         <meta content="" name="keywords">
 
-        <!-- Favicons -->
+        {{-- <!-- Favicons -->
         <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon"> --}}
 
         <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}">
-
+{{--
         <!-- Google Fonts -->
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -34,10 +34,10 @@
 
         <link href="{{ asset('theme/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet" />
 
+ --}}
 
 
-
-        <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
+        {{-- <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
 
         <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
 
@@ -51,16 +51,16 @@
         <link href="{{ asset('theme/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
         <link href="{{ asset('theme/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
 
-
-
+ --}}
+{{--
         <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
             rel="stylesheet" type="text/css" />
         <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-        <meta charset=utf-8 />
+        <meta charset=utf-8 /> --}}
 
         <!-- Template Main CSS File -->
-        <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
+        {{-- <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
 
         <!-- datepicker -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
@@ -71,7 +71,7 @@
             $(function() {
                 $("#datepicker").datepicker();
             });
-        </script>
+        </script> --}}
 
  </head>
 

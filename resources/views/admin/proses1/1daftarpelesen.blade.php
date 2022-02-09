@@ -447,13 +447,6 @@
                                                         placeholder="Daerah" style="background-color:#ffffff; margin-top:1%">
                                                         <option selected hidden disabled>Sila Pilih Negeri Terlebih Dahulu
                                                         </option>
-                                                        {{-- @foreach ($negeri as $data)
-                                                            <option value="{{ $data->kod_negeri }}">
-                                                                {{ $data->nama_negeri }}
-                                                            </option>
-                                                        @endforeach --}}
-
-                                                    </select>
                                                     </select>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
