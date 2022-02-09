@@ -498,113 +498,110 @@
     </script>
 
     <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script> --}}
-
-
-
-<script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
-<script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
-<script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
-</script>
-<script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
-<script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
-</script>
-<script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
-<script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
-
-
-
-<script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-<script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ asset('theme/js/app.js') }}"></script>
-
-<script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
-
-<script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
-<script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
-{{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
-
-<script src="{{ asset('theme/js/vendors.js') }}"></script>
-
-<script src="{{ asset('theme/js/main.js') }}"></script>
-
-<script>
-    function isNumberKey(evt) {
-        var charCode = (evt.which) ? evt.which : evt.keyCode
-        if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
-            return false;
-        return true;
-    }
-</script>
-
-
-
-<!-- Template Main JS File -->
-
-<script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
-
-
-<script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script>
-<script src="{{ asset('theme/js/pages/form-editor.js') }}"></script>
-
-
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-
-
-<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-
-
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" /></script>
-
-
-<script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
-
-
-
-<script>
-$(document).ready(function() {
-    var table = $('#example').DataTable({
-        "language": {
-            "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-            "zeroRecords": "Maaf, tiada rekod.",
-            "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-            "infoEmpty": "Tidak ada rekod yang tersedia",
-            "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-            "search": "Carian",
-            "previous": "Sebelum",
-            "paginate": {
-                "first": "Pertama",
-                "last": "Terakhir",
-                "next": "Seterusnya",
-                "previous": "Sebelumnya"
-            },
-        },
-    });
-});
-
-$(window).on('changed', (e) => {
-    // if($('#example').DataTable().clear().destroy()){
-    // $('#example').DataTable();
-    // }
-})
-
-// document.getElementById("form_type").onchange = function() {
-//     myFunction()
-// };
-
-// function myFunction() {
-//     console.log('asasa');
-//     table.clear().draw();
-// }
-</script>
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-
 </body>
 
+    <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
+    </script>
+    <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
+    </script>
+    <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
+
+
+
+    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('theme/js/app.js') }}"></script>
+
+    <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+
+    <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
+    <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
+    {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
+
+    <script src="{{ asset('theme/js/vendors.js') }}"></script>
+
+    <script src="{{ asset('theme/js/main.js') }}"></script>
+
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode
+            if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+                return false;
+            return true;
+        }
+    </script>
+
+
+
+    <!-- Template Main JS File -->
+
+    <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
+
+
+    <script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/form-editor.js') }}"></script>
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" /></script>
+
+
+    <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+
+
+
+    <script>
+    $(document).ready(function() {
+        var table = $('#example').DataTable({
+            "language": {
+                "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
+                "zeroRecords": "Maaf, tiada rekod.",
+                "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
+                "infoEmpty": "Tidak ada rekod yang tersedia",
+                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                "search": "Carian",
+                "previous": "Sebelum",
+                "paginate": {
+                    "first": "Pertama",
+                    "last": "Terakhir",
+                    "next": "Seterusnya",
+                    "previous": "Sebelumnya"
+                },
+            },
+        });
+    });
+
+    $(window).on('changed', (e) => {
+        // if($('#example').DataTable().clear().destroy()){
+        // $('#example').DataTable();
+        // }
+    })
+
+    // document.getElementById("form_type").onchange = function() {
+    //     myFunction()
+    // };
+
+    // function myFunction() {
+    //     console.log('asasa');
+    //     table.clear().draw();
+    // }
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    @yield('javascript')
 </html>
