@@ -11,6 +11,7 @@ use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use DB;
 
 class MenuLainController extends Controller
@@ -136,7 +137,7 @@ class MenuLainController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        $pengumuman = DB::select("SELECT Id, Message, Start_date, End_Date, Icon_new
+        $pengumuman = DB::select("SELECT Id, Message, Start_date, End_date, Icon_new
         FROM pengumuman
         order by Id Desc");
 
@@ -145,7 +146,7 @@ class MenuLainController extends Controller
         return view('admin.menu-lain.pengumuman', compact('returnArr', 'layout', 'pengumuman'));
     }
 
-    public function admin_tambahpengumuman()
+    public function admin_tambah_pengumuman()
     {
 
         $breadcrumbs    = [
@@ -165,6 +166,38 @@ class MenuLainController extends Controller
         return view('admin.menu-lain.tambahpengumuman', compact('returnArr', 'layout'));
     }
 
+    public function admin_tambah_pengumuman_proses (Request $request)
+    {
+        $this->validation_tambah_pengumuman($request->all())->validate();
+        $this->storetambah_pengumuman($request->all());
+
+        return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
+    }
+
+    protected function validation_tambah_pengumuman(array $data)
+    {
+        return Validator::make($data, [
+            'Id' => ['required', 'string'],
+            'Message' => ['required', 'string'],
+            'Start_date' => ['required', 'string'],
+            'End_date' => ['required', 'string'],
+            'Icon_new' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_tambah_pengumuman(array $data)
+    {
+        return Pelesen::create([
+            'Id' => $data['Id'],
+            'Message' => $data['Message'],
+            'Start_date' => $data['Start_date'],
+            'End_date' => $data['End_date'],
+            'Icon_new' => $data['Icon_new'],
+
+        ]);
+    }
+
+
     public function admin_editpengumuman($id, Pengumuman $pengumuman)
     {
 
@@ -180,7 +213,8 @@ class MenuLainController extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.admin';
-
+        $pengumuman = Pengumuman::find($id);
+        // $pengumuman = \DB::table('pengumuman')->get();
 
         return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
     }
@@ -194,7 +228,7 @@ class MenuLainController extends Controller
                 'Id'=>'required',
                 'Message'=>'required',
                 'Start_date'=>'required',
-                'End_Date'=>'required',
+                'End_date'=>'required',
                 'Icon_new'=>'required',
 
             ]);

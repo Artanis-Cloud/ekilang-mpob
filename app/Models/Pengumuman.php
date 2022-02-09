@@ -10,6 +10,8 @@ class Pengumuman extends Model
     use HasFactory;
     protected $table = 'pengumuman';
 
+    public $timestamps = false;
+    
     protected $fillable = [
         'Id',
         'Message',
