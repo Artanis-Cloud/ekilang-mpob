@@ -152,7 +152,7 @@
                                             class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                             Tarikh Mula</label>
                                         <div class="col-md-6">
-                                            <input type="date" class="form-control" name='from' id="from" required
+                                            <input type="date" class="form-control" name='Start_date' id="Start_date" required
                                                 title="Sila isikan butiran ini."
                                                 value="{{old('Start_date') ?? $pengumuman->Start_date}}">
                                             {{-- @error('alamat_kilang_1')
@@ -167,8 +167,9 @@
                                             class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                             Tarikh Akhir</label>
                                         <div class="col-md-6">
-                                            <input type="date" class="form-control" name='nombor_borang_kastam'
-                                                id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                            <input type="date" class="form-control" name='End_date' id="End_date" required
+                                                title="Sila isikan butiran ini."
+                                                value="{{old('End_date') ?? $pengumuman->End_date}}">
                                             {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -183,11 +184,12 @@
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
                                                 <select class="form-select" id="basicSelect">
-                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option selected hidden disabled>{{old('Icon_new') ?? $pengumuman->Icon_new}}</option>
                                                     <option>Ya
                                                     </option>
                                                     <option>Tidak
                                                     </option>
+
                                                 </select>
                                             </fieldset>
                                             {{-- @error('alamat_kilang_1')
@@ -202,9 +204,17 @@
                                         <label for="fname"
                                             class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                             Mesej</label>
+
                                         <div class="col-md-6">
                                             <div id="snow">
-
+                                                <input type="text" class="form-control" name='Message' id="Message" required
+                                                title="Sila isikan butiran ini.">
+                                                {{old('Message') ?? $pengumuman->Message}}
+                                            {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
 
                                             </div>
 

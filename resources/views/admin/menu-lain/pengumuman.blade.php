@@ -111,7 +111,7 @@
                                                             {{$data->Start_date}}
                                                         </td>
                                                         <td>
-                                                            {{$data->End_Date}}
+                                                            {{$data->End_date}}
                                                         </td>
                                                         <td >
                                                             {{$data->Icon_new}}

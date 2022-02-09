@@ -19,7 +19,7 @@ Auth::routes();
 // });
 
 Route::get('/',[App\Http\Controllers\Auth\PelesenLoginController::class, 'showLoginForm'])->name('pelesen.login');
-Route::post('/',[App\Http\Controllers\Auth\PelesenLoginController::class, 'login'])->name('pelese.login');
+Route::post('/',[App\Http\Controllers\Auth\PelesenLoginController::class, 'login'])->name('pelesen.login');
 // Route::get('/login-page', function () {
 //     return view('auth/login');
 // });
@@ -116,7 +116,10 @@ Route::get('admin/direktori', [App\Http\Controllers\Admin\MenuLainController::cl
 Route::get('admin/direktori/process', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_direktori_process'])->name('admin.direktori.process');
 
 Route::get('admin/pengumuman', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_pengumuman'])->name('admin.pengumuman');
-Route::get('admin/tambahpengumuman', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambahpengumuman'])->name('admin.tambahpengumuman');
+Route::get('admin/tambahpengumuman', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambah_pengumuman'])->name('admin.tambahpengumuman');
+Route::post('admin/tambahpengumuman/proses', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambah_pengumuman_proses'])->name('admin.tambahpengumuman.proses');
+
+
 Route::get('admin/editpengumuman/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_editpengumuman'])->name('admin.editpengumuman');
 Route::post('admin/updatepengumuman/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_updatepengumuman'])->name('admin.updatepengumuman');
 

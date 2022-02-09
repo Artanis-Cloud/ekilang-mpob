@@ -420,7 +420,7 @@
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="negeri_id"
-                                                            onchange="ajax_daerah(this)">
+                                                            onchange="ajax_daerah(this);ajax_kawasan(this)">
                                                             <option selected hidden disabled>Sila Pilih</option>
                                                             @foreach ($negeri as $data)
                                                                 <option value="{{ $data->kod_negeri }}">
@@ -444,8 +444,7 @@
                                                     Daerah</label>
                                                 <div class="col-md-6">
                                                     <select class="form-select" id="daerah_id" name='daerah_id'
-                                                        placeholder="Daerah" style="background-color:#ffffff; margin-top:1%"
-                                                        onchange="ajax_kawasan(this)">
+                                                        placeholder="Daerah" style="background-color:#ffffff; margin-top:1%">
                                                         <option selected hidden disabled>Sila Pilih Negeri Terlebih Dahulu
                                                         </option>
                                                         {{-- @foreach ($negeri as $data)
