@@ -10,13 +10,13 @@
         <meta content="" name="description">
         <meta content="" name="keywords">
 
-        <!-- Favicons -->
+        {{-- <!-- Favicons -->
         <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon"> --}}
 
         <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}">
 
-        <!-- Google Fonts -->
+        {{-- <!-- Google Fonts -->
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
             rel="stylesheet">
@@ -71,7 +71,7 @@
             $(function() {
                 $("#datepicker").datepicker();
             });
-        </script>
+        </script> --}}
 
  </head>
 
@@ -243,12 +243,12 @@
                                     </div>
 
 
-
+{{--
                                             <div class="row form-group" style="padding-top: 10px; ">
                                                 <div class="text-right col-md-12 mb-4 ">
                                                     <button type="submit" class="btn btn-primary ">Tambah</button>
                                                 </div>
-                                            </div>
+                                            </div> --}}
 
 
                                             <div class="row form-group" style="padding-top: 10px; ">
@@ -260,7 +260,7 @@
                                                 </div> --}}
                                                 <div class="text-right col-md-12 ">
                                                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                        style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
+                                                        style="float: right" data-bs-target="#exampleModalCenter">Tambah</button>
                                                 </div>
 
                                             </div>
@@ -282,7 +282,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <p>
-                                                                Anda pasti mahu menghantar emel ini?
+                                                                Anda pasti mahu menambah pengumuman ini?
                                                             </p>
                                                         </div>
                                                         <div class="modal-footer">
