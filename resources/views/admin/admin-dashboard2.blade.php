@@ -759,6 +759,49 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card-body px-0 py-1">
+                            <table class='table table-borderless'>
+                                <tr>
+                                    <td class='col-3'><a href="{{ route('admin.direktori') }}">
+                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/dir4.png') }}"
+                                                class="testimonial-img" alt=""
+                                                style="height: 100%; width:100%; margin-left:50%">
+                                        </a></td>
+                                    <td class='col-9'>
+                                        <h4 style="margin-left:30%; font-size:18px">Direktori</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-3'><a href="{{ route('admin.pengumuman') }}">
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
+                                            class="testimonial-img" alt="" style="height: 100%; width:100%; margin-left:50%">
+                                    </a></td>
+                                    <td class='col-9'>
+                                        <h4 style="margin-left:40%; font-size:18px">Pengumuman</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-3'><a href="{{ route('admin.panduan') }}">
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
+                                            class="testimonial-img" alt="" style="height: 100%; width:100%; margin-left:50%">
+                                    </a></td>
+                                    <td class='col-9'>
+                                        <h4 style="margin-left:40%; font-size:18px">Panduan Pengguna</h4>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class='col-3'><a href="{{ route('admin.tukarpassword') }}">
+                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
+                                            class="testimonial-img" alt="" style="height: 100%; width:100%; margin-left:50%">
+                                    </a></td>
+                                    <td class='col-9'>
+                                        <h4 style="margin-left:40%; font-size:18px">Tukar Kata Laluan</h4>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
 
                     </div>
                 </section>

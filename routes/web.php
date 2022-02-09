@@ -110,6 +110,10 @@ Route::get('admin/direktori', [App\Http\Controllers\Admin\KilangController::clas
 Route::get('admin/direktori/process', [App\Http\Controllers\Admin\KilangController::class, 'admin_direktori_process'])->name('admin.direktori.process');
 
 Route::get('admin/pengumuman', [App\Http\Controllers\Admin\KilangController::class, 'admin_pengumuman'])->name('admin.pengumuman');
+Route::get('admin/tambahpengumuman', [App\Http\Controllers\Admin\KilangController::class, 'admin_tambahpengumuman'])->name('admin.tambahpengumuman');
+Route::get('admin/editpengumuman/{Id}', [App\Http\Controllers\Admin\KilangController::class, 'admin_editpengumuman'])->name('admin.editpengumuman');
+Route::post('admin/updatepengumuman/{Id}', [App\Http\Controllers\Admin\KilangController::class, 'admin_updatepengumuman'])->name('admin.updatepengumuman');
+
 Route::get('admin/jadual-penerimanPL', [App\Http\Controllers\Admin\KilangController::class, 'admin_jadualpenerimaanPL'])->name('admin.jadualpenerimaanPL');
 Route::get('admin/senaraigagalPL', [App\Http\Controllers\Admin\KilangController::class, 'admin_senaraigagalPL'])->name('admin.senaraigagalPL');
 Route::get('admin/panduan', [App\Http\Controllers\Admin\KilangController::class, 'admin_panduan'])->name('admin.panduan');
