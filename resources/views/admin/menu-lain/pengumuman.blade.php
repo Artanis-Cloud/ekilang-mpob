@@ -53,10 +53,6 @@
                     </div>
                 </div>
                 <div class="card" style="margin-right:2%; margin-left:2%">
-                    {{-- <div class="card-header border-bottom">
-                            <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
-                        </div> --}}
-
                     <div class="card-body">
                         <div class="row">
                             {{-- <div class="col-md-4 col-12"> --}}
@@ -69,17 +65,19 @@
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>
-
-
-
-
                                     <section class="section">
                                         <div class="card" >
-                                            {{-- <div class="card-header">
-                                                Simple Datatable
-                                            </div> --}}
+                                            <div class="row" style=" float:left">
 
-                                            <table class='table table-striped' id="table1" >
+                                                <div class="text-left col-md-8">
+                                                    <a href="{{ route('admin.tambahpengumuman') }}" class="btn btn-primary ">
+                                                        Tambah
+                                                    </a>
+
+                                                </div>
+                                        </div>
+                                        <br>
+                                            <table class='table' id="table1" >
                                                 <thead>
 
                                                     <tr>
@@ -101,7 +99,7 @@
                                                 <tbody>
                                                     @foreach($pengumuman as $data)
                                                     <tr>
-                                                        <td >
+                                                        <td>
                                                             {{$data->Id}}
                                                         </td>
                                                         <td >
@@ -135,7 +133,7 @@
                                     </section>
 
 
-                                    <div class="row" style="padding-top: 35px; float:left">
+                                    {{-- <div class="row" style=" float:left">
 
                                             <div class="text-left col-md-8">
                                                 <a href="{{ route('admin.tambahpengumuman') }}" class="btn btn-primary ">
@@ -143,7 +141,7 @@
                                                 </a>
 
                                             </div>
-                                    </div>
+                                    </div> --}}
 
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardAdminController extends Controller
@@ -14,7 +15,9 @@ class DashboardAdminController extends Controller
      */
     public function admin_dashboard()
     {
-        return view('admin.admin-dashboard2');
+        $user = User::first();
+
+        return view('admin.admin-dashboard2', compact('user'));
     }
 
     public function admin_dashboard2()

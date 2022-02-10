@@ -119,6 +119,8 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/panduan', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_panduan'])->name('admin.panduan');
     Route::get('admin/tukarpassword', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tukarpassword'])->name('admin.tukarpassword');
 
+    Route::get('admin/akaun-pentadbir/{Id}', [App\Http\Controllers\Admin\TetapanAkaunController::class, 'admin_akaun_pentadbir'])->name('admin.akaun.pentadbir');
+
     Route::get('try3', [App\Http\Controllers\Admin\KilangController::class, 'try3'])->name('try3');
 
 

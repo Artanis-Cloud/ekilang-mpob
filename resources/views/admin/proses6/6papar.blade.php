@@ -93,44 +93,24 @@
                                                     height="140" style="margin-top:-7%">
                                             </p>
 
-
-
-
-
-
-
                                             <title>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</title>
-
-
-
-
-
-
-
                                             <p align="center"><b>
                                                     <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
-
                                                     </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
-
                                                     BULAN :&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
                                                 </b><br>
-
                                             </p>
                                             <hr>
 
                                             <table border="0" width="100%" cellspacing="0">
-
                                                 <tbody>
                                                     <tr>
-
                                                         <td width="25%" height="19">
                                                             <font face="Times New Roman">Nombor Lesen</font>
                                                         </td>
-
                                                         <td width="88%" height="19"><b>
                                                                 <font face="Times New Roman"></font>
                                                             </b></td>
-
                                                     </tr>
 
                                                     <tr>
