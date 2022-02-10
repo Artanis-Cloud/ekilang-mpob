@@ -21,6 +21,12 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard'])->name('admin.dashboard');
     Route::get('admin/dashboard2', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard2'])->name('admin.dashboard2');
 
+
+    //Data Migration
+    Route::get('/migrate/data', [App\Http\Controllers\DataMigrationController::class, 'transfer_pelesen_to_users'])->name('transfer_pelesen_to_users');
+    Route::get('/migrate/data/admin', [App\Http\Controllers\DataMigrationController::class, 'transfer_admin_to_users'])->name('transfer_admin_to_users');
+
+
     //AJAX
     Route::get('/ajax/fetch-daerah/{kod_negeri}', [App\Http\Controllers\Admin\KilangController::class, 'fetch_daerah'])->name('ajax-daerah');
 
@@ -43,7 +49,7 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/senarai-pelesen-simpanan', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesensimpanan'])->name('admin.senaraipelesensimpanan');
     Route::get('admin/senarai-pelesen-bio', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbio'])->name('admin.senaraipelesenbio');
 
-    Route::get('admin/senarai-pelesen-gagal-buah', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesengagalbuah'])->name('admin.senaraipelesengagalbuah');
+    Route::get('admin/senarai-pelesen-batal-buah', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbatalbuah'])->name('admin.senaraipelesenbatalbuah');
 
     Route::get('admin/2-tukar-password', [App\Http\Controllers\Admin\Proses2Controller::class, 'admin_2tukarpassword'])->name('admin.2tukarpassword');
 
