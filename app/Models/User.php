@@ -1,4 +1,4 @@
-         <?php
+<?php
 
 namespace App\Models;
 
@@ -21,6 +21,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'username',
+        'category',
+        'kod_pegawai',
+        'no_siri',
+        'status',
+        'stock',
+        'directory',
+        'priv',
     ];
 
     /**
