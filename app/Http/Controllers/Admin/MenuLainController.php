@@ -169,8 +169,10 @@ class MenuLainController extends Controller
 
     public function admin_tambah_pengumuman_proses (Request $request)
     {
+        // dd($request->all());
         $this->validation_tambah_pengumuman($request->all())->validate();
-        $this->storetambah_pengumuman($request->all());
+        $this->store_tambah_pengumuman($request->all());
+
 
         return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
     }
@@ -178,7 +180,7 @@ class MenuLainController extends Controller
     protected function validation_tambah_pengumuman(array $data)
     {
         return Validator::make($data, [
-            'Id' => ['required', 'string'],
+            // 'Id' => ['required', 'string'],
             'Message' => ['required', 'string'],
             'Start_date' => ['required', 'string'],
             'End_date' => ['required', 'string'],
@@ -188,8 +190,8 @@ class MenuLainController extends Controller
 
     protected function store_tambah_pengumuman(array $data)
     {
-        return Pelesen::create([
-            'Id' => $data['Id'],
+        return Pengumuman::create([
+            // 'Id' => $data['Id'],
             'Message' => $data['Message'],
             'Start_date' => $data['Start_date'],
             'End_date' => $data['End_date'],
@@ -228,7 +230,7 @@ class MenuLainController extends Controller
 
 
         $validateData = $request->validate([
-                'Id'=>'required',
+             
                 'Message'=>'required',
                 'Start_date'=>'required',
                 'End_date'=>'required',

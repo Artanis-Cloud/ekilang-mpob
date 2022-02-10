@@ -14,64 +14,10 @@
         <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
         <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon"> --}}
 
-        <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}">
-
-        {{-- <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-            rel="stylesheet">
-
-        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
-        <!-- Vendor CSS Files -->
-        <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
-
-        <link href="{{ asset('theme/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet" />
+        {{-- <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}"> --}}
+        <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
 
-
-
-        <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
-        <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
-        <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
-
-        <link href="{{ asset('theme/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
-        <link href="{{ asset('theme/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
-
-
-
-        <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
-            rel="stylesheet" type="text/css" />
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-        <meta charset=utf-8 />
-
-        <!-- Template Main CSS File -->
-        <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
-
-        <!-- datepicker -->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-        <script>
-            $(function() {
-                $("#datepicker").datepicker();
-            });
-        </script> --}}
 
  </head>
 
@@ -145,7 +91,7 @@
                                 <hr>
 
 
-                                <form action="{{ route('admin.tambahpengumuman.proses') }}" method="post">
+                                <form action="{{ route('admin.tambahpengumuman.proses') }}" method="post" onsubmit="add_message()">
                                     @csrf
                                     <div class="container center mt-2">
 
@@ -154,7 +100,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Tarikh Mula</label>
                                             <div class="col-md-6">
-                                                <input type="date" class="form-control" name='from' id="from" required
+                                                <input type="date" class="form-control" name='Start_date' id="Start_date" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -168,8 +114,8 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Tarikh Akhir</label>
                                             <div class="col-md-6">
-                                                <input type="date" class="form-control" name='nombor_borang_kastam'
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                <input type="date" class="form-control" name='End_date'
+                                                    id="End_date" required title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -183,11 +129,11 @@
                                             Icon New</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
+                                                    <select class="form-select" id="basicSelect" name="Icon_new">
                                                         <option selected hidden disabled>Sila Pilih</option>
-                                                        <option>Ya
+                                                        <option>Y
                                                         </option>
-                                                        <option>Tidak
+                                                        <option>N
                                                         </option>
                                                     </select>
                                                 </fieldset>
@@ -203,15 +149,15 @@
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Mesej</label>
-                                            <div class="col-md-6">
-                                                <div id="snow">
 
+                                            <div class="col-md-6">
+                                                <div id="snow" oninput="add_message()">
 
                                                 </div>
-
                                             </div>
+                                            <input type="hidden" id="quill_html" name="Message">
                                         </div>
-                                        <div class="row">
+                                        {{-- <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label align-items-center">
                                             </label>
@@ -224,7 +170,7 @@
                                                 </div>
 
                                             </div>
-                                        </div>
+                                        </div> --}}
 
                                         {{-- <div class="col-md-3">
                                                 <p>Gambar Dimuatnaik:</p>
@@ -243,12 +189,12 @@
                                     </div>
 
 
-{{--
+
                                             <div class="row form-group" style="padding-top: 10px; ">
                                                 <div class="text-right col-md-12 mb-4 ">
                                                     <button type="submit" class="btn btn-primary ">Tambah</button>
                                                 </div>
-                                            </div> --}}
+                                            </div>
 
 
                                             <div class="row form-group" style="padding-top: 10px; ">
@@ -315,30 +261,21 @@
 
 
     </section><!-- End Hero -->
+@endsection
 
+@section('javascript')
+    <script>
+        var quill = new Quill('#snow', {
+            theme: 'snow'
+        });
 
+        function add_message() {
+            // var content = document.querySelector("#snow").innerHTML;
+            // alert(quill.getContents());
+            quill.on('text-change', function(delta, oldDelta, source) {
+                document.getElementById("quill_html").value = quill.root.innerHTML;
+            });
+        }
 
-
-
-    <!-- ======= Footer ======= -->
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
-    {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a> --}}
-
-
-
-    {{-- </body>
-
-    </html> --}}
-
-    {{-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> --}}
-
-
+    </script>
 @endsection

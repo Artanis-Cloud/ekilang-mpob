@@ -265,8 +265,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Alamat Surat Menyurat</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="last-name-column" class="form-control"
-                                                        placeholder="Alamat Surat Menyurat 1" name="lname-column">
+                                                    <input type="text" id="alamat_surat_1" class="form-control"
+                                                        placeholder="Alamat Surat Menyurat 1" name="alamat_surat_1">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -274,12 +274,12 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%">
-                                                    <input type="text" id="last-name-column" class="form-control"
-                                                        placeholder="Alamat Surat Menyurat 2" name="lname-column">
+                                                    <input type="text" id="alamat_surat_2" class="form-control"
+                                                        placeholder="Alamat Surat Menyurat 2" name="alamat_surat_2">
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%">
-                                                    <input type="text" id="last-name-column" class="form-control"
-                                                        placeholder="Alamat Surat Menyurat 3" name="lname-column">
+                                                    <input type="text" id="alamat_surat_3" class="form-control"
+                                                        placeholder="Alamat Surat Menyurat 3" name="alamat_surat_3">
                                                 </div>
                                             </div>
 
@@ -288,8 +288,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     No. Telefon Kilang</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="company-column" class="form-control"
-                                                        placeholder="No. Telefon Kilang" name="company-column">
+                                                    <input type="text" id="no_tel_kilang" class="form-control"
+                                                        placeholder="No. Telefon Kilang" name="no_tel_kilang">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -302,8 +302,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     No. Faks Kilang</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="email-id-column" class="form-control"
-                                                        placeholder="No. Faks Kilang" name="email-id-column">
+                                                    <input type="email" id="no_faks_kilang" class="form-control"
+                                                        placeholder="No. Faks Kilang" name="no_faks_kilang">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -316,8 +316,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Alamat Emel Kilang</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="email-id-column" class="form-control"
-                                                        placeholder="Alamat Emel Kilang" name="email-id-column">
+                                                    <input type="email" id="emel_kilang" class="form-control"
+                                                        placeholder="Alamat Emel Kilang" name="emel_kilang">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -331,8 +331,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Nama Pegawai Melapor</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="email-id-column" class="form-control"
-                                                        placeholder="Nama Pegawai Melapor" name="email-id-column">
+                                                    <input type="email" id="nama_pegawai_lapor" class="form-control"
+                                                        placeholder="Nama Pegawai Melapor" name="nama_pegawai_lapor">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -345,8 +345,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Jawatan Pegawai Melapor</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="email-id-column" class="form-control"
-                                                        placeholder="Jawatan Pegawai Melapor" name="email-id-column">
+                                                    <input type="email" id="jawatan_pegawai_lapor" class="form-control"
+                                                        placeholder="Jawatan Pegawai Melapor" name="jawatan_pegawai_lapor">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -374,8 +374,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Nama Pegawai Bertanggungjawab</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="email-id-column" class="form-control"
-                                                        placeholder="Nama Pegawai Bertanggungjawab" name="email-id-column">
+                                                    <input type="email" id="enama_pegawai_jawab" class="form-control"
+                                                        placeholder="Nama Pegawai Bertanggungjawab" name="nama_pegawai_jawab">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -388,9 +388,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Jawatan Pegawai Bertanggungjawab</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="email-id-column" class="form-control"
+                                                    <input type="email" id="jawatan_pegawai_jawab" class="form-control"
                                                         placeholder="Jawatan Pegawai Bertanggungjawab"
-                                                        name="email-id-column">
+                                                        name="jawatan_pegawai_jawab">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -404,8 +404,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Alamat Emel Pengurus</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="email-id-column" class="form-control"
-                                                        placeholder="Alamat Emel Pengurus" name="email-id-column">
+                                                    <input type="email" id="emel_pengurus" class="form-control"
+                                                        placeholder="Alamat Emel Pengurus" name="eemel_pengurus">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -487,8 +487,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Syarikat Induk</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="email-id-column" class="form-control"
-                                                        placeholder="Syarikat Induk" name="email-id-column">
+                                                    <input type="email" id="syarikat_induk" class="form-control"
+                                                        placeholder="Syarikat Induk" name="syarikat_induk">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -501,8 +501,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Tahun Mula Beroperasi</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="email-id-column" class="form-control"
-                                                        placeholder="Tahun Mula Beroperasi" name="email-id-column">
+                                                    <input type="email" id="tahun_operasi" class="form-control"
+                                                        placeholder="Tahun Mula Beroperasi" name="tahun_operasi">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -516,7 +516,7 @@
                                                     Kumpulan </label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" id="basicSelect">
+                                                        <select class="form-select" id="basicSelect" name="kumpulan">
                                                             <option selected hidden disabled>Sila Pilih</option>
                                                             <option>Kerajaan</option>
                                                             <option>Swasta</option>
@@ -535,7 +535,7 @@
                                                     POMA </label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" id="basicSelect">
+                                                        <select class="form-select" id="basicSelect" name="poma">
                                                             <option selected hidden disabled>Sila Pilih</option>
                                                             <option>Ya</option>
                                                             <option>Tidak</option>

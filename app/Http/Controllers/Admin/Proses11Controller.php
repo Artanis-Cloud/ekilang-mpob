@@ -64,7 +64,7 @@ class Proses11Controller extends Controller
     // }
 
 
-    public function admin_11paparemel($MsgID, Ekmessage $email)
+    public function admin_11paparemel($MsgID, Ekmessage $emel)
     {
 
         $breadcrumbs    = [
@@ -83,11 +83,11 @@ class Proses11Controller extends Controller
         $layout = 'layouts.admin';
 
         // $nid = Ekmessage::where ('MsgID', $request->id)->first('MsgID');
-        $email = Ekmessage::find($MsgID);
+        $emel = Ekmessage::find($MsgID);
         // $pengumuman = \DB::table('pengumuman')->get();
         // dd($id);
 
-        return view('admin.proses11.11paparemel', compact('returnArr', 'layout', 'email'));
+        return view('admin.proses11.11paparemel', compact('returnArr', 'layout', 'emel'));
 
         // return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
     }

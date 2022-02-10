@@ -553,7 +553,8 @@
     <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
 
 
-    <script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script>
+    {{-- <script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script> --}}
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
     <script src="{{ asset('theme/js/pages/form-editor.js') }}"></script>
 
 
@@ -616,10 +617,6 @@
 
     {{-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="{{ asset ('theme/js/toastr.js') }}"></script> --}}
-
-
-
-
 
     @yield('javascript')
 </html>

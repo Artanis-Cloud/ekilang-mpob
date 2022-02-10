@@ -19,9 +19,10 @@ class Ekmessage extends Model
      *
      */
     protected $table = 'ekmessage'; //email
+    protected $primaryKey = 'MsgID';
 
     protected $fillable = [
-        'MsgID',
+        
         'Date',
         'FromName',
         'FromLicense',
@@ -31,8 +32,6 @@ class Ekmessage extends Model
         'Subject',
         'Message',
         'Status',
-       
-
 
     ];
 }
