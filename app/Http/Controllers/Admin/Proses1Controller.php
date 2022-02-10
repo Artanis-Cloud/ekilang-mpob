@@ -315,4 +315,124 @@ class Proses1Controller extends Controller
         return view('admin.proses1.senarai-pelesen-batal-buah', compact('returnArr', 'layout', 'users'));
     }
 
+    public function admin_senarai_pelesen_batal_penapis()
+    {
+
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL101')->where('e_status', 2)->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen Penapis"],
+            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
+        ];
+
+        $kembali = route('admin.senaraipelesenpenapis');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.proses1.senarai-pelesen-batal-penapis', compact('returnArr', 'layout', 'users'));
+    }
+
+    public function admin_senarai_pelesen_batal_isirung()
+    {
+
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL102')->where('e_status', 2)->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenisirung'), 'name' => "Senarai Pelesen Isirung"],
+            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
+        ];
+
+        $kembali = route('admin.senaraipelesenisirung');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.proses1.senarai-pelesen-batal-isirung', compact('returnArr', 'layout', 'users'));
+    }
+
+    public function admin_senarai_pelesen_batal_oleokimia()
+    {
+
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL104')->where('e_status', 2)->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen Oleokimia"],
+            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
+        ];
+
+        $kembali = route('admin.senaraipelesenoleokimia');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.proses1.senarai-pelesen-batal-oleokimia', compact('returnArr', 'layout', 'users'));
+    }
+
+    public function admin_senarai_pelesen_batal_simpanan()
+    {
+
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL111')->where('e_status', 2)->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen Pusat Simpanan"],
+            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
+        ];
+
+        $kembali = route('admin.senaraipelesensimpanan');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.proses1.senarai-pelesen-batal-simpanan', compact('returnArr', 'layout', 'users'));
+    }
+
+    public function admin_senarai_pelesen_batal_bio()
+    {
+
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL111')->where('e_status', 2)->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen E-Biodiesel"],
+            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
+        ];
+
+        $kembali = route('admin.senaraipelesenbio');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.proses1.senarai-pelesen-batal-bio', compact('returnArr', 'layout', 'users'));
+    }
+
 }

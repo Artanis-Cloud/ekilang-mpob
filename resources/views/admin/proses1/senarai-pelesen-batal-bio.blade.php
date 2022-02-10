@@ -52,6 +52,11 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
+
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -63,14 +68,14 @@
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
                                  type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Kilang Penapis
+                                  E-Biodiesel
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang Buah</a>
-                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenisirung') }}">Kilang Isirung</a>
-                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang Oleokimia</a>
-                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesensimpanan') }}">Pusat Simpanan</a>
-                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">E-Biodiesel</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenbatalbuah') }}">Kilang Buah</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang Penapis</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senarai.pelesen.batal.isirung') }}">Kilang Isirung</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senarai.pelesen.batal.oleokimia') }}">Kilang Oleokimia</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senarai.pelesen.batal.simpanan') }}">Pusat Simpanan</a>
                                 </div>
                             </div>
                             {{-- <div class="col-md-4 col-12"> --}}
@@ -78,8 +83,8 @@
 
                                 <div class=" text-center">
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar</h3>
-                                    <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>Kilang Penapis</b></h4>
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Dibatalkan</h3>
+                                    <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>E-Biodiesel</b></h4>
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>
@@ -90,19 +95,19 @@
                                                         {{-- <div class="card-header">
                                                             Simple Datatable
                                                         </div> --}}
-                                                        <div class="text-left col-md-7">
-                                                            <a href="{{ route('admin.senarai.pelesen.batal.penapis') }}" class="btn btn-primary"
-                                                                style="float: left; margin-right:2%">Senarai Pelesen Batal</a>
+                                                        {{-- <div class="text-left col-md-7">
+                                                            <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
+                                                                style="float: left; margin-right:2%">Senarai Pelesen Gagal</a>
 
                                                             <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
                                                                 style="float: left"> Tambah Pelesen Baru</a>
                                                         </div>
-                                                        <br>
+                                                        <br> --}}
 
-                                                        <table class='table' id="table1" >
+                                                        <table class='table ' id="table1" >
                                                             <thead>
                                                                 <tr>
-                                                                    <th>No</th>
+                                                                    <th>Bil.</th>
                                                                     <th>No. Lesen<br>
                                                                         </th>
                                                                     <th>Nama Premis
@@ -121,7 +126,8 @@
                                                                     </th>
                                                                     <th>Direktori
                                                                     </th>
-
+                                                                    <th>Pretasi OER
+                                                                    </th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -134,8 +140,10 @@
                                                                     <td>{{ $data->pelesen->e_np ?? '-'}}</td>
                                                                     <td>{{ $data->pelesen->e_email ?? '-'}}</td>
                                                                     <td>{{ $data->pelesen->e_notel ?? '-'}}</td>
+
                                                                     <td>{{ $data->kodpgw }}</td>
                                                                     <td>{{ $data->nosiri }}</td>
+
                                                                     @if ($data->e_status == 1)
                                                                         <td>Aktif</td>
                                                                     @elseif ($data->e_status == 2)
@@ -157,18 +165,74 @@
                                                                     @endif
 
 
+                                                                    <td></td>
+
 
                                                                 </tr>
 
                                                             @endforeach
 
                                                             </tbody>
+
                                                         </table>
 
                                                     </div>
                                                 </section>
 
 
+                                            {{-- <div class="row" style="padding-top: 35px; float:right">
+
+                                                        <div class="col-md-12">
+                                                            <button type="button" class="btn  btn-primary"
+                                                                data-toggle="modal" data-target="#confirmation">Simpan &
+                                                                Seterusnya</button>
+                                                        </div>
+
+                                                    </div> --}}
+
+
+
+
+                                            <div class="row" style=" float:right">
+
+                                                <div class="col-md-12">
+
+
+                                                    <!-- Vertically Centered modal Modal -->
+                                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                                        role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                        aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                            role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                        PENGESAHAN</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <p>
+                                                                        Anda pasti mahu menyimpan maklumat ini?
+                                                                    </p>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                                    </button>
+                                                                    <button type="button" class="btn btn-primary ml-1"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Ya</span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                     </div>
@@ -191,9 +255,6 @@
 
 
     </section><!-- End Hero -->
-
-
-
 
 
     <!-- ======= Footer ======= -->

@@ -71,11 +71,11 @@
                                   Kilang Buah
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenpenapis') }}">Kilang Penapis</a>
-                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenisirung') }}">Kilang Isirung</a>
-                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang Oleokimia</a>
-                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesensimpanan') }}">Pusat Simpanan</a>
-                                  <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">E-Biodiesel</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang Penapis</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senarai.pelesen.batal.isirung') }}">Kilang Isirung</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senarai.pelesen.batal.oleokimia') }}">Kilang Oleokimia</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senarai.pelesen.batal.simpanan') }}">Pusat Simpanan</a>
+                                  <a class="dropdown-item" href="{{ route('admin.senarai.pelesen.batal.bio') }}">E-Biodiesel</a>
                                 </div>
                             </div>
                             {{-- <div class="col-md-4 col-12"> --}}
