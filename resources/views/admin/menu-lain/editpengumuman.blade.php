@@ -10,12 +10,12 @@
         <meta content="" name="description">
         <meta content="" name="keywords">
 
-        <!-- Favicons -->
+        {{-- <!-- Favicons -->
         <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon"> --}}
 
         <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}">
-
+{{--
         <!-- Google Fonts -->
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
@@ -34,10 +34,10 @@
 
         <link href="{{ asset('theme/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet" />
 
+ --}}
 
 
-
-        <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
+        {{-- <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
 
         <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
 
@@ -51,16 +51,16 @@
         <link href="{{ asset('theme/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
         <link href="{{ asset('theme/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
 
-
-
+ --}}
+{{--
         <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
             rel="stylesheet" type="text/css" />
         <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-        <meta charset=utf-8 />
+        <meta charset=utf-8 /> --}}
 
         <!-- Template Main CSS File -->
-        <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
+        {{-- <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
 
         <!-- datepicker -->
         <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
@@ -71,7 +71,7 @@
             $(function() {
                 $("#datepicker").datepicker();
             });
-        </script>
+        </script> --}}
 
  </head>
 
@@ -152,7 +152,7 @@
                                             class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                             Tarikh Mula</label>
                                         <div class="col-md-6">
-                                            <input type="date" class="form-control" name='from' id="from" required
+                                            <input type="date" class="form-control" name='Start_date' id="Start_date" required
                                                 title="Sila isikan butiran ini."
                                                 value="{{old('Start_date') ?? $pengumuman->Start_date}}">
                                             {{-- @error('alamat_kilang_1')
@@ -167,8 +167,9 @@
                                             class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                             Tarikh Akhir</label>
                                         <div class="col-md-6">
-                                            <input type="date" class="form-control" name='nombor_borang_kastam'
-                                                id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                            <input type="date" class="form-control" name='End_date' id="End_date" required
+                                                title="Sila isikan butiran ini."
+                                                value="{{old('End_date') ?? $pengumuman->End_date}}">
                                             {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -183,11 +184,12 @@
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
                                                 <select class="form-select" id="basicSelect">
-                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option selected hidden disabled>{{old('Icon_new') ?? $pengumuman->Icon_new}}</option>
                                                     <option>Ya
                                                     </option>
                                                     <option>Tidak
                                                     </option>
+
                                                 </select>
                                             </fieldset>
                                             {{-- @error('alamat_kilang_1')
@@ -202,9 +204,17 @@
                                         <label for="fname"
                                             class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                             Mesej</label>
+
                                         <div class="col-md-6">
                                             <div id="snow">
-
+                                                <input type="text" class="form-control" name='Message' id="Message" required
+                                                title="Sila isikan butiran ini.">
+                                                {{old('Message') ?? $pengumuman->Message}}
+                                            {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
 
                                             </div>
 

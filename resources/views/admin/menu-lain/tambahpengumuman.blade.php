@@ -10,13 +10,13 @@
         <meta content="" name="description">
         <meta content="" name="keywords">
 
-        <!-- Favicons -->
+        {{-- <!-- Favicons -->
         <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon"> --}}
 
         <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}">
 
-        <!-- Google Fonts -->
+        {{-- <!-- Google Fonts -->
         <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
             rel="stylesheet">
@@ -71,7 +71,7 @@
             $(function() {
                 $("#datepicker").datepicker();
             });
-        </script>
+        </script> --}}
 
  </head>
 
@@ -145,165 +145,169 @@
                                 <hr>
 
 
+                                <form action="{{ route('admin.tambahpengumuman.proses') }}" method="post">
+                                    @csrf
+                                    <div class="container center mt-2">
 
-                                <div class="container center mt-2">
-
-                                    <div class="row">
-                                        <label for="fname"
-                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                            Tarikh Mula</label>
-                                        <div class="col-md-6">
-                                            <input type="date" class="form-control" name='from' id="from" required
-                                                title="Sila isikan butiran ini.">
-                                            {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Tarikh Mula</label>
+                                            <div class="col-md-6">
+                                                <input type="date" class="form-control" name='from' id="from" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <label for="fname"
-                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                            Tarikh Akhir</label>
-                                        <div class="col-md-6">
-                                            <input type="date" class="form-control" name='nombor_borang_kastam'
-                                                id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
-                                            {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Tarikh Akhir</label>
+                                            <div class="col-md-6">
+                                                <input type="date" class="form-control" name='nombor_borang_kastam'
+                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <label for="fname"
-                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                           Icon New</label>
-                                        <div class="col-md-6">
-                                            <fieldset class="form-group">
-                                                <select class="form-select" id="basicSelect">
-                                                    <option selected hidden disabled>Sila Pilih</option>
-                                                    <option>Ya
-                                                    </option>
-                                                    <option>Tidak
-                                                    </option>
-                                                </select>
-                                            </fieldset>
-                                            {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                            Icon New</label>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-select" id="basicSelect">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        <option>Ya
+                                                        </option>
+                                                        <option>Tidak
+                                                        </option>
+                                                    </select>
+                                                </fieldset>
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
                                         </div>
+
+                                        <div class="row" style="margin-bottom: 5%">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Mesej</label>
+                                            <div class="col-md-6">
+                                                <div id="snow">
+
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                            </label>
+                                            <div class="col-md-6">
+                                                <div class="form-file">
+                                                    <input type="file" class="form-file-input" id="file">
+                                                    <label class="form-file-label" for="file">
+
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        {{-- <div class="col-md-3">
+                                                <p>Gambar Dimuatnaik:</p>
+                                                <img src="" alt="Sila Muatnaik Gambar Sijil SSM"
+                                                    id="category-img-ssm"
+                                                    style="width:100%;height:30vh;display: none;">
+                                            </div> --}}
+                                        {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                    <div class="row" style="margin-bottom: 5%">
-                                        <label for="fname"
-                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                            Mesej</label>
-                                        <div class="col-md-6">
-                                            <div id="snow">
 
+{{--
+                                            <div class="row form-group" style="padding-top: 10px; ">
+                                                <div class="text-right col-md-12 mb-4 ">
+                                                    <button type="submit" class="btn btn-primary ">Tambah</button>
+                                                </div>
+                                            </div> --}}
+
+
+                                            <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                                {{-- <div class="text-left col-md-5">
+                                                    <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
+                                                        style="float: left">Sebelumnya</a>
+                                                </div> --}}
+                                                <div class="text-right col-md-12 ">
+                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                        style="float: right" data-bs-target="#exampleModalCenter">Tambah</button>
+                                                </div>
 
                                             </div>
 
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <label for="fname"
-                                            class="text-right col-sm-5 control-label col-form-label align-items-center">
-                                        </label>
-                                        <div class="col-md-6">
-                                            <div class="form-file">
-                                                <input type="file" class="form-file-input" id="file">
-                                                <label class="form-file-label" for="file">
-
-                                                </label>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                    {{-- <div class="col-md-3">
-                                            <p>Gambar Dimuatnaik:</p>
-                                            <img src="" alt="Sila Muatnaik Gambar Sijil SSM"
-                                                id="category-img-ssm"
-                                                style="width:100%;height:30vh;display: none;">
-                                        </div> --}}
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
+                                            <!-- Vertically Centered modal Modal -->
+                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                    role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                PENGESAHAN</h5>
+                                                            <button type="button" class="close"
+                                                                data-bs-dismiss="modal" aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>
+                                                                Anda pasti mahu menambah pengumuman ini?
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary"
+                                                                data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block"
+                                                                    style="color:#275047">Kembali</span>
+                                                            </button>
+                                                            <button type="button" class="btn btn-primary ml-1"
+                                                                data-bs-dismiss="modal">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Hantar</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            @enderror --}}
-                                        </div>
+                                            </div>
                                     </div>
 
-                                </div>
-                            </div>
-
-
-
-
-                        </div>
-
-
-
-
-                        <div class="row form-group" style="padding-top: 10px; ">
-
-
-                            {{-- <div class="text-left col-md-5">
-                                <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
-                                    style="float: left">Sebelumnya</a>
-                            </div> --}}
-                            <div class="text-right col-md-12 ">
-                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                    style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
-                            </div>
-
-                        </div>
-
-                            <!-- Vertically Centered modal Modal -->
-                            <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                                role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                    role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                PENGESAHAN</h5>
-                                            <button type="button" class="close"
-                                                data-bs-dismiss="modal" aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>
-                                                Anda pasti mahu menghantar emel ini?
-                                            </p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block"
-                                                    style="color:#275047">Kembali</span>
-                                            </button>
-                                            <button type="button" class="btn btn-primary ml-1"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Hantar</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
 
-                    </form>
-
+                    </div>
                 </div>
             </div>
         </div>
