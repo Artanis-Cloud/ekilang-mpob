@@ -166,7 +166,7 @@
                         </li>
 
                         <li class="sidebar-item ">
-                            <a href="form-editor.html" class='sidebar-link'>
+                            <a href="#" class='sidebar-link'  onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                 <i class="fa fa-sign-out" style="color:rgb(54, 51, 41) "> </i>
                                 {{-- <i data-feather="layers" width="20"></i> --}}
                                 <span style="color: rgb(78, 73, 57); ">Log Keluar</span>
@@ -266,7 +266,12 @@
                                 {{-- <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a> --}}
                                 <a class="dropdown-item" href="#"><i data-feather="settings"></i> Tetapan</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Log Keluar</a>
+                                <a class="dropdown-item" href="#"
+                                    onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                                    <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
+                                <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </div>
                         </li>
                     </ul>

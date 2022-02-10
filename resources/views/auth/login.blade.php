@@ -134,17 +134,17 @@
                     {{-- <div class="row">
                             <div class="col-12">
                                 <form method="POST" action="{{ route('login') }}" class="form-horizontal m-t-20"> --}}
-                    <form method="POST" action="{{ route('pelesen.login') }}">
+                    <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="mb-3 input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="fas fa-user"></i></i></span>
                             </div>
-                            <input id="e_nl" type="text" class="form-control @error('e_nl') is-invalid @enderror"
-                                name="e_nl" value="{{ old('e_nl') }}" autocomplete="e_nl" placeholder="No. Lesen">
+                            <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
+                                name="username" value="{{ old('username') }}" autocomplete="username" placeholder="No. Lesen">
 
-                            @error('e_nl')
+                            @error('username')
                                 <div class="col-12 alert alert-danger">
                                     <strong>{{ $message }}</strong>
                                 </div>

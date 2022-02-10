@@ -176,7 +176,7 @@
                                     </a>
                                 </li>
 
-                               
+
                                 <li>
                                     <a href="{{ route('oleo.paparpenyata') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
@@ -327,14 +327,19 @@
                                 {{-- <div class="avatar me-1">
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
                                 </div> --}}
-                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">Pelesen 0001</div>
+                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">{{ auth()->user()->username }}</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp Akaun Pengguna</a>
                                 {{-- <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a> --}}
                                 <a class="dropdown-item" href="#"><i class="fa fa-gear"></i>&nbsp Tetapan</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i class="fa fa-sign-out"></i>&nbsp Log Keluar</a>
+                                <a class="dropdown-item" href="#"
+                                    onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                                    <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
+                                <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </div>
                         </li>
                     </ul>
