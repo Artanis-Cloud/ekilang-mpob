@@ -302,7 +302,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     No. Faks Kilang</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="no_faks_kilang" class="form-control"
+                                                    <input type="text" id="no_faks_kilang" class="form-control"
                                                         placeholder="No. Faks Kilang" name="no_faks_kilang">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -316,7 +316,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Alamat Emel Kilang</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="emel_kilang" class="form-control"
+                                                    <input type="text" id="emel_kilang" class="form-control"
                                                         placeholder="Alamat Emel Kilang" name="emel_kilang">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -331,7 +331,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Nama Pegawai Melapor</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="nama_pegawai_lapor" class="form-control"
+                                                    <input type="text" id="nama_pegawai_lapor" class="form-control"
                                                         placeholder="Nama Pegawai Melapor" name="nama_pegawai_lapor">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -345,7 +345,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Jawatan Pegawai Melapor</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="jawatan_pegawai_lapor" class="form-control"
+                                                    <input type="text" id="jawatan_pegawai_lapor" class="form-control"
                                                         placeholder="Jawatan Pegawai Melapor" name="jawatan_pegawai_lapor">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -359,7 +359,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     No. Telefon Pegawai Melapor</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="email-id-column" class="form-control"
+                                                    <input type="text" id="email-id-column" class="form-control"
                                                         placeholder="No. Telefon Pegawai Melapor" name="email-id-column">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -374,7 +374,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Nama Pegawai Bertanggungjawab</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="enama_pegawai_jawab" class="form-control"
+                                                    <input type="text" id="enama_pegawai_jawab" class="form-control"
                                                         placeholder="Nama Pegawai Bertanggungjawab" name="nama_pegawai_jawab">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -388,7 +388,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Jawatan Pegawai Bertanggungjawab</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="jawatan_pegawai_jawab" class="form-control"
+                                                    <input type="text" id="jawatan_pegawai_jawab" class="form-control"
                                                         placeholder="Jawatan Pegawai Bertanggungjawab"
                                                         name="jawatan_pegawai_jawab">
                                                     {{-- @error('alamat_kilang_1')
@@ -404,7 +404,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Alamat Emel Pengurus</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="emel_pengurus" class="form-control"
+                                                    <input type="text" id="emel_pengurus" class="form-control"
                                                         placeholder="Alamat Emel Pengurus" name="eemel_pengurus">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -444,8 +444,7 @@
                                                     Daerah</label>
                                                 <div class="col-md-6">
                                                     <select class="form-select" id="daerah_id" name='daerah_id'
-                                                        placeholder="Daerah"
-                                                        style="background-color:#ffffff; margin-top:1%">
+                                                        placeholder="Daerah">
                                                         <option selected hidden disabled>Sila Pilih Negeri Terlebih Dahulu
                                                         </option>
                                                     </select>
@@ -487,7 +486,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Syarikat Induk</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="syarikat_induk" class="form-control"
+                                                    <input type="text" id="syarikat_induk" class="form-control"
                                                         placeholder="Syarikat Induk" name="syarikat_induk">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -501,7 +500,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Tahun Mula Beroperasi</label>
                                                 <div class="col-md-6">
-                                                    <input type="email" id="tahun_operasi" class="form-control"
+                                                    <input type="text" id="tahun_operasi" class="form-control"
                                                         placeholder="Tahun Mula Beroperasi" name="tahun_operasi">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
