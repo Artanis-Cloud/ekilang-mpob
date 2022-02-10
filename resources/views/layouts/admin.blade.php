@@ -93,25 +93,25 @@
         <div id="sidebar" class='active'>
             <div class="sidebar-wrapper active" style="background-color: rgba(249, 208, 94)">
                 <a href="{{ route('admin.dashboard') }}">
-                <div class=" sidebar-header" style="margin-bottom: -20%;
+                    <div class=" sidebar-header" style="margin-bottom: -20%;
                 border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
                 box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color: rgb(243, 213, 128)">
 
-                <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
+                        <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
                  width:50px; height:50px">
-                    {{-- <strong>E-Kilang</strong><br />
+                        {{-- <strong>E-Kilang</strong><br />
                     <span>description</span> --}}
 
-                    <h6
-                        style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
-                        <b>
-                            E-Kilang</b>
-                    </h6>
-                    {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
-                    {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
-                    {{-- <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px"> --}}
+                        <h6 style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
+                            <b>
+                                E-Kilang</b>
+                        </h6>
+                        {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
+                        {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
+                        {{-- <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px"> --}}
 
-                </div></a>
+                    </div>
+                </a>
                 <br>
                 <br>
                 <div class="sidebar-menu">
@@ -121,7 +121,8 @@
                         </div> --}}
                         </li>
                         <br>
-                        <li class='sidebar-title' style="color: rgb(54, 51, 41); margin-top:-10%">Menu Penyelenggaraan</li>
+                        <li class='sidebar-title' style="color: rgb(54, 51, 41); margin-top:-10%">Menu Penyelenggaraan
+                        </li>
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link' id="dropdownMenuLink" data-bs-toggle="dropdown"
                                 aria-expanded="false">
@@ -324,11 +325,13 @@
 
                             <ul class="submenu " style="margin-left:-5%">
                                 <li>
-                                    <a href="#">
-                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="user" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
-                                    </a>
+
+                                        <a href="#">
+                                            <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
+                                            {{-- <i data-feather="user" width="20"></i> --}}
+                                            <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
+                                        </a>
+
                                 </li>
 
                                 <li>
@@ -340,7 +343,8 @@
                                 </li>
 
                                 <li>
-                                    <a href="#" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                                    <a href="#"
+                                        onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                         <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="trending-up" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Log Keluar</span>
@@ -350,7 +354,7 @@
                         </li>
                     </ul>
 
-            </div>
+                </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
             </div>
         </div>
@@ -382,7 +386,7 @@
 
 
             <nav class="navbar navbar-header navbar-expand navbar-light"
-             style=" background:transparent; border-bottom: 2px solid rgba(0, 0, 0, 0.131); border-height:10px;">
+                style=" background:transparent; border-bottom: 2px solid rgba(0, 0, 0, 0.131); border-height:10px;">
 
                 <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
                 <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -413,8 +417,8 @@
                         <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-2" >
-                                    <i class="fa fa-bell" style="font-size:18px;" ></i>
+                                <div class="mt-2">
+                                    <i class="fa fa-bell" style="font-size:18px;"></i>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
@@ -465,7 +469,8 @@
                                 <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                     <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
-                                <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logoutform" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </div>
@@ -481,10 +486,10 @@
 
             {{-- <footer>
                 <div class="footer text-muted"> --}}
-                    {{-- <div class="float-start">
+            {{-- <div class="float-start">
                         <p>2020 &copy; Voler</p>
                     </div> --}}
-                    {{-- <div style="text-align: center">
+            {{-- <div style="text-align: center">
                         <p style="font-size:10px">Developed by Artanis Cloud</a></p>
                     </div>
                 </div>
@@ -511,69 +516,70 @@
     <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script> --}}
 </body>
 
-    <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
-    </script>
-    <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
-    </script>
-    <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
+<script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
+<script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
+<script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
+</script>
+<script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
+<script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
+</script>
+<script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
+<script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
 
 
 
-    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('theme/js/app.js') }}"></script>
+<script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+<script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+<script src="{{ asset('theme/js/app.js') }}"></script>
 
-    <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+<script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
 
-    <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
-    <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
-    {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
+<script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
+<script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
+{{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
 
-    <script src="{{ asset('theme/js/vendors.js') }}"></script>
+<script src="{{ asset('theme/js/vendors.js') }}"></script>
 
-    <script src="{{ asset('theme/js/main.js') }}"></script>
+<script src="{{ asset('theme/js/main.js') }}"></script>
 
-    <script>
-        function isNumberKey(evt) {
-            var charCode = (evt.which) ? evt.which : evt.keyCode
-            if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
-                return false;
-            return true;
-        }
-    </script>
-
-
-
-    <!-- Template Main JS File -->
-
-    <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
-
-
-    {{-- <script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script> --}}
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-    <script src="{{ asset('theme/js/pages/form-editor.js') }}"></script>
-
-
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+            return false;
+        return true;
+    }
+</script>
 
 
 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- Template Main JS File -->
+
+<script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
+
+
+{{-- <script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script> --}}
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="{{ asset('theme/js/pages/form-editor.js') }}"></script>
+
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" /></script>
-
-
-    <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 
 
 
-    <script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+</script>
+
+
+<script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+
+
+
+<script>
     $(document).ready(function() {
         var table = $('#example').DataTable({
             "language": {
@@ -608,15 +614,19 @@
     //     console.log('asasa');
     //     table.clear().draw();
     // }
-    </script>
+</script>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    {{-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+{{-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="{{ asset ('theme/js/toastr.js') }}"></script> --}}
 
-    @yield('javascript')
+@yield('javascript')
+
 </html>

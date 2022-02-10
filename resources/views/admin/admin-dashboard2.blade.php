@@ -294,11 +294,15 @@
 
                             <ul class="submenu " style="margin-left:-5%">
                                 <li>
-                                    <a href="#">
-                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="user" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
-                                    </a>
+                                    {{-- @foreach ($collection as $object) --}}
+                                        {{-- {{ $object->title }} --}}
+
+                                        <a href="{{ route('admin.akaun.pentadbir', [$user->id]) }}">
+                                            <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
+                                            {{-- <i data-feather="user" width="20"></i> --}}
+                                            <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
+                                        </a>
+                                    {{-- @endforeach --}}
                                 </li>
 
                                 <li>
@@ -418,7 +422,8 @@
                                 <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                     <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
-                                <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logoutform" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </div>
@@ -778,27 +783,30 @@
                                 </tr>
                                 <tr>
                                     <td class='col-3'><a href="{{ route('admin.pengumuman') }}">
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
-                                            class="testimonial-img" alt="" style="height: 100%; width:100%; margin-left:50%">
-                                    </a></td>
+                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
+                                                class="testimonial-img" alt=""
+                                                style="height: 100%; width:100%; margin-left:50%">
+                                        </a></td>
                                     <td class='col-9'>
                                         <h4 style="margin-left:40%; font-size:18px">Pengumuman</h4>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class='col-3'><a href="{{ route('admin.panduan') }}">
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
-                                            class="testimonial-img" alt="" style="height: 100%; width:100%; margin-left:50%">
-                                    </a></td>
+                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
+                                                class="testimonial-img" alt=""
+                                                style="height: 100%; width:100%; margin-left:50%">
+                                        </a></td>
                                     <td class='col-9'>
                                         <h4 style="margin-left:40%; font-size:18px">Panduan Pengguna</h4>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class='col-3'><a href="{{ route('admin.tukarpassword') }}">
-                                        <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
-                                            class="testimonial-img" alt="" style="height: 100%; width:100%; margin-left:50%">
-                                    </a></td>
+                                            <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
+                                                class="testimonial-img" alt=""
+                                                style="height: 100%; width:100%; margin-left:50%">
+                                        </a></td>
                                     <td class='col-9'>
                                         <h4 style="margin-left:40%; font-size:18px">Tukar Kata Laluan</h4>
                                     </td>
@@ -806,12 +814,11 @@
                             </table>
                         </div>
                     </div>
-                </div>
-
-                    </div>
-                </section>
             </div>
 
+        </div>
+        </section>
+    </div>
 
 
 
@@ -821,10 +828,11 @@
 
 
 
-                    </main><!-- End #main -->
 
-                    <!-- ======= Footer ======= -->
-                    {{-- <footer>
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    {{-- <footer>
                 <div class="footer text-muted">
                     <div style="text-align: center">
                         <p style="font-size:10px">Developed by Artanis Cloud</a></p>
@@ -834,12 +842,12 @@
 
 
 
-                    {{-- <div id="preloader"></div> --}}
-                    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                            class="bi bi-arrow-up-short"></i></a>
+    {{-- <div id="preloader"></div> --}}
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-                    <!-- Vendor JS Files -->
-                    {{-- <script src="assets/vendor/purecounter/purecounter.js"></script>
+    <!-- Vendor JS Files -->
+    {{-- <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -848,71 +856,71 @@
   <script src="assets/vendor/php-email-form/validate.js"></script> --}}
 
 
-                    <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
-                    <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
-                    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
-                    </script>
-                    <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
-                    <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
-                    </script>
-                    <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
-                    <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
+    </script>
+    <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
+    </script>
+    <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
 
 
 
-                    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-                    <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-                    <script src="{{ asset('theme/js/app.js') }}"></script>
-                    <script src="{{ asset('theme/vendors/chartjs/Chart.min.css') }}"></script>
-                    <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
-                    <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
-                    <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script>
+    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('theme/js/app.js') }}"></script>
+    <script src="{{ asset('theme/vendors/chartjs/Chart.min.css') }}"></script>
+    <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
+    <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script>
 
-                    <script src="{{ asset('theme/js/main.js') }}"></script>
+    <script src="{{ asset('theme/js/main.js') }}"></script>
 
-                    <!-- Template Main JS File -->
+    <!-- Template Main JS File -->
 
-                    <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
 
-                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 
-                    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-                    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
-                    <script type="text/javascript">
-                        // Load google charts
-                        google.charts.load('current', {
-                            'packages': ['corechart']
-                        });
-                        google.charts.setOnLoadCallback(drawChart);
+    <script type="text/javascript">
+        // Load google charts
+        google.charts.load('current', {
+            'packages': ['corechart']
+        });
+        google.charts.setOnLoadCallback(drawChart);
 
-                        // Draw the chart and set the chart values
-                        function drawChart() {
-                            var data = google.visualization.arrayToDataTable([
-                                ['Kategori', 'Peratusan'],
-                                ['Sudah Hantar', 174],
-                                ['Belum Hantar', 85],
-                                //   ['Eat', 2],
-                                //   ['TV', 2],
-                                //   ['Gym', 2],
-                                //   ['Sleep', 8]
-                            ]);
+        // Draw the chart and set the chart values
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Kategori', 'Peratusan'],
+                ['Sudah Hantar', 174],
+                ['Belum Hantar', 85],
+                //   ['Eat', 2],
+                //   ['TV', 2],
+                //   ['Gym', 2],
+                //   ['Sleep', 8]
+            ]);
 
-                            // Optional; add a title and set the width and height of the chart
-                            var options = {
-                                'width': 400,
-                                'height': 250
-                            };
+            // Optional; add a title and set the width and height of the chart
+            var options = {
+                'width': 400,
+                'height': 250
+            };
 
-                            // Display the chart inside the <div> element with id="piechart"
-                            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-                            chart.draw(data, options);
-                        }
-                    </script>
+            // Display the chart inside the <div> element with id="piechart"
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+            chart.draw(data, options);
+        }
+    </script>
 
-                    {{-- <script>
+    {{-- <script>
             window.addEventListener("load", function() {
                 $.ajax({
                     url: "{{ route('graph_dashboard.default') }}",

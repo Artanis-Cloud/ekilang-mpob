@@ -69,22 +69,19 @@
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
+                                    <form method="get" action="" id="myfrm">
+                                        <div class="container center">
+                                            <div class="row" id="table-bordered">
+                                                <div class="col-12 mt-2" style="margin-bottom: -2%">
+                                                    {{-- <form wire:submit.prevent='store'> --}}
+                                                    <div class="card">
 
-                                    <div class="container center">
-
-
-
-                                        <div class="row" id="table-bordered">
-                                            <div class="col-12 mt-2" style="margin-bottom: -2%">
-                                                {{-- <form wire:submit.prevent='store'> --}}
-                                                <div class="card">
-
-                                                    <div class="card-content">
+                                                        <div class="card-content">
 
 
-                                                        <div class="table-responsive">
-                                                            <table class="table table-bordered mb-0">
-                                                              
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered mb-0">
+
                                                                     <tr>
                                                                         <th>Tarikh</th>
                                                                         <td>{{ $emel->Date }}</td>
@@ -120,73 +117,30 @@
                                                                         <td>{{ $emel->Message }}</td>
                                                                     </tr>
 
-                                                            </table>
+                                                                </table>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-
-
-
                                             </div>
                                         </div>
-                                        {{-- </diV> --}}
+                                    </form>
+                                    <br>
+                                    <h1 style="page-break-before:always"></h1>
 
-                                        {{-- <section class="section">
-                                        <div class="card">
+                                    <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                            <table class='table ' id="table1">
-                                                <thead>
-                                                    <tr class="text-center">
-                                                        <th>Nama Pelegfgbsen</th>
-                                                        <th>No Lesen</th>
-                                                        <th>Kategori</th>
-                                                        <th>Tarikh</th>
-                                                        <th>Tindakan</th>
 
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($users as $data)
-                                                    <tr>
-                                                        <td>{{ $data->FromName }}</td>
-                                                        <td>{{ $data->FromLicense }}</td>
-                                                        <td>{{ $data->Category }}</td>
-                                                        <td>{{ $data->Date }}</td>
-                                                        <td>
-                                                            <button class="btn" style="margin-left:5%"><i class="fa fa-eye"  style="font-size:18px"></i></button>
-                                                            <button class="btn"><i class="fa fa-download"  style="font-size:18px"></i></button>
-                                                        </td>
-
-                                                    </tr>
-
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-
+                                        <div class="text-right col-md-7 mb-2 ">
+                                            <button type="button" class="btn btn-primary " style="float: right"
+                                                onclick="myPrint('myfrm')" value="print">Cetak</button>
                                         </div>
-                                    </section> --}}
-
-
 
                                     </div>
-
-
-
-
-
                                 </div>
-
-
-
-
                             </div>
-
-
                         </div>
-
-
-
                     </div>
                 </div>
 
@@ -212,12 +166,15 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-
-
-    </body>
-
-    </html>
-
+    <script>
+        function myPrint(myfrm) {
+            var printdata = document.getElementById(myfrm);
+            newwin = window.open("");
+            newwin.document.write(printdata.outerHTML);
+            newwin.print();
+            newwin.close();
+        }
+    </script>
 
 
 
