@@ -84,42 +84,42 @@
 
                                                         <div class="table-responsive">
                                                             <table class="table table-bordered mb-0">
-                                                                @foreach ($emel as $data)
+                                                              
                                                                     <tr>
                                                                         <th>Tarikh</th>
-                                                                        <td>{{ $data->sdate }}</td>
+                                                                        <td>{{ $emel->Date }}</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Nama Pelesen</th>
-                                                                        <td>{{ $data->FromName }}</td>
+                                                                        <td>{{ $emel->FromName }}</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>No. Lesen</th>
-                                                                        <td>{{ $data->FromLicense }}
+                                                                        <td>{{ $emel->FromLicense }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Emel</th>
-                                                                        <td>{{ $data->FromEmail }}
+                                                                        <td>{{ $emel->FromEmail }}
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Kategori</th>
-                                                                        <td>{{ $data->Category }}</td>
+                                                                        <td>{{ $emel->Category }}</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Jenis Emel</th>
-                                                                        <td>{{ $data->TypeOfEmail }}</td>
+                                                                        <td>{{ $emel->TypeOfEmail }}</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Subjek</th>
-                                                                        <td>{{ $data->Subject }}</td>
+                                                                        <td>{{ $emel->Subject }}</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <th>Mesej</th>
-                                                                        <td>{{ $data->Message }}</td>
+                                                                        <td>{{ $emel->Message }}</td>
                                                                     </tr>
-                                                                @endforeach
+
                                                             </table>
                                                         </div>
                                                     </div>
