@@ -98,7 +98,11 @@
                                                             Simple Datatable
                                                         </div> --}}
 
-                                            <div class="text-left col-md-5">
+                                            <div class="text-left col-md-7">
+                                                <a href="{{ route('admin.senarai.pelesen.batal.simpanan') }}"
+                                                    class="btn btn-primary" style="float: left; margin-right:2%">Senarai
+                                                    Pelesen Batal</a>
+
                                                 <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
                                                     style="float: left"> Tambah Pelesen Baru</a>
                                             </div>
@@ -131,8 +135,6 @@
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($users as $data)
-
-
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td style="text-align:left">{{ $data->e_nl }}</td>
@@ -152,16 +154,18 @@
                                                                 <td>Aktif</td>
                                                             @elseif ($data->e_stock == 2)
                                                                 <td>Tidak Aktif</td>
+                                                            @elseif ($data->e_stock == null)
+                                                                <td>-</td>
                                                             @endif
 
                                                             @if ($data->directory == 'Y')
                                                                 <td>Ya</td>
-                                                            @elseif ($data->e_stock == 'N')
+                                                            @elseif ($data->directory == 'N')
                                                                 <td>Tidak</td>
                                                             @endif
 
 
-                                                    </tr>
+                                                        </tr>
 
                                                     @endforeach
 

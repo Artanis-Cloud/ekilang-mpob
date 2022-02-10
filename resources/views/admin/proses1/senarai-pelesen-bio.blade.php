@@ -91,7 +91,10 @@
                                                             Simple Datatable
                                                         </div> --}}
 
-                                                        <div class="text-left col-md-5">
+                                                        <div class="text-left col-md-7">
+                                                            <a href="{{ route('admin.senarai.pelesen.batal.bio') }}" class="btn btn-primary"
+                                                                style="float: left; margin-right:2%">Senarai Pelesen Batal</a>
+
                                                             <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
                                                                 style="float: left"> Tambah Pelesen Baru</a>
                                                         </div>
@@ -154,7 +157,7 @@
                                                                     <td >
                                                                         x
                                                                     </td>
-                                                                    
+
 
                                                                 </tr>
 

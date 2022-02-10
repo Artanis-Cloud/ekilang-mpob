@@ -50,6 +50,12 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/senarai-pelesen-bio', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbio'])->name('admin.senaraipelesenbio');
 
     Route::get('admin/senarai-pelesen-batal-buah', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbatalbuah'])->name('admin.senaraipelesenbatalbuah');
+    Route::get('admin/senarai-pelesen-batal-penapis', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senarai_pelesen_batal_penapis'])->name('admin.senarai.pelesen.batal.penapis');
+    Route::get('admin/senarai-pelesen-batal-isirung', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senarai_pelesen_batal_isirung'])->name('admin.senarai.pelesen.batal.isirung');
+    Route::get('admin/senarai-pelesen-batal-oleokimia', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senarai_pelesen_batal_oleokimia'])->name('admin.senarai.pelesen.batal.oleokimia');
+    Route::get('admin/senarai-pelesen-batal-simpanan', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senarai_pelesen_batal_simpanan'])->name('admin.senarai.pelesen.batal.simpanan');
+    Route::get('admin/senarai-pelesen-batal-bio', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senarai_pelesen_batal_bio'])->name('admin.senarai.pelesen.batal.bio');
+
 
     Route::get('admin/2-tukar-password', [App\Http\Controllers\Admin\Proses2Controller::class, 'admin_2tukarpassword'])->name('admin.2tukarpassword');
 
