@@ -61,7 +61,7 @@ Route::get('admin/senarai-pelesen-oleokimia', [App\Http\Controllers\Admin\Proses
 Route::get('admin/senarai-pelesen-simpanan', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesensimpanan'])->name('admin.senaraipelesensimpanan');
 Route::get('admin/senarai-pelesen-bio', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbio'])->name('admin.senaraipelesenbio');
 
-Route::get('admin/senarai-pelesen-gagal-buah', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesengagalbuah'])->name('admin.senaraipelesengagalbuah');
+Route::get('admin/senarai-pelesen-batal-buah', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbatalbuah'])->name('admin.senaraipelesenbatalbuah');
 
 Route::get('admin/2-tukar-password', [App\Http\Controllers\Admin\Proses2Controller::class, 'admin_2tukarpassword'])->name('admin.2tukarpassword');
 
