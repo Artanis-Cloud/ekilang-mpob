@@ -275,4 +275,28 @@ class Proses1Controller extends Controller
         return view('admin.proses1.senarai-pelesen-bio', compact('returnArr', 'layout'));
     }
 
+    public function admin_senaraipelesenbatalbuah()
+    {
+
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 2)->orderBy('kodpgw', 'asc')->orderBy('nosiri', 'asc')->get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen Buah"],
+            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
+        ];
+
+        $kembali = route('admin.senaraipelesenbuah');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+
+
+        return view('admin.proses1.senarai-pelesen-batal-buah', compact('returnArr', 'layout', 'users'));
+    }
+
 }

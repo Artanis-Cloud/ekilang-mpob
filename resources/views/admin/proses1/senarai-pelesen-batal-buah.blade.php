@@ -83,7 +83,7 @@
 
                                 <div class=" text-center">
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar</h3>
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Dibatalkan</h3>
                                     <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>Kilang Buah</b></h4>
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
@@ -95,14 +95,14 @@
                                                         {{-- <div class="card-header">
                                                             Simple Datatable
                                                         </div> --}}
-                                                        <div class="text-left col-md-7">
+                                                        {{-- <div class="text-left col-md-7">
                                                             <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
                                                                 style="float: left; margin-right:2%">Senarai Pelesen Gagal</a>
 
                                                             <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
                                                                 style="float: left"> Tambah Pelesen Baru</a>
                                                         </div>
-                                                        <br>
+                                                        <br> --}}
 
                                                         <table class='table ' id="table1" >
                                                             <thead>
@@ -154,11 +154,13 @@
                                                                         <td>Aktif</td>
                                                                     @elseif ($data->e_stock == 2)
                                                                         <td>Tidak Aktif</td>
+                                                                    @elseif ($data->e_stock == NULL)
+                                                                        <td>-</td>
                                                                     @endif
 
                                                                     @if ($data->directory == 'Y')
                                                                         <td>Ya</td>
-                                                                    @elseif ($data->e_stock == 'N')
+                                                                    @elseif ($data->directory == 'N')
                                                                         <td>Tidak</td>
                                                                     @endif
 

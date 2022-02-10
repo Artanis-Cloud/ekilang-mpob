@@ -96,8 +96,8 @@
                                                             Simple Datatable
                                                         </div> --}}
                                                         <div class="text-left col-md-7">
-                                                            <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
-                                                                style="float: left; margin-right:2%">Senarai Pelesen Gagal</a>
+                                                            <a href="{{ route('admin.senaraipelesenbatalbuah') }}" class="btn btn-primary"
+                                                                style="float: left; margin-right:2%">Senarai Pelesen Batal</a>
 
                                                             <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
                                                                 style="float: left"> Tambah Pelesen Baru</a>
@@ -154,11 +154,13 @@
                                                                         <td>Aktif</td>
                                                                     @elseif ($data->e_stock == 2)
                                                                         <td>Tidak Aktif</td>
+                                                                    @elseif ($data->e_stock == NULL)
+                                                                        <td>-</td>
                                                                     @endif
 
                                                                     @if ($data->directory == 'Y')
                                                                         <td>Ya</td>
-                                                                    @elseif ($data->e_stock == 'N')
+                                                                    @elseif ($data->directory == 'N')
                                                                         <td>Tidak</td>
                                                                     @endif
 
