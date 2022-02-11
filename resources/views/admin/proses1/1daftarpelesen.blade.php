@@ -6,13 +6,6 @@
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
 
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
 
             <div class="mt-2 mb-4 row">
                 <div class="col-md-12">
@@ -61,11 +54,7 @@
                                 <div class="pl-3">
 
                                     <div class=" text-center">
-                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Daftar Pelesen Baru</h4>
-                                        {{-- <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Asas Pelesen
-                                        </h5> --}}
-                                        {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
                                     <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post">
@@ -442,7 +431,7 @@
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Daerah</label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-6" style="margin-top:3px">
                                                     <select class="form-select" id="daerah_id" name='daerah_id'
                                                         placeholder="Daerah">
                                                         <option selected hidden disabled>Sila Pilih Negeri Terlebih Dahulu
@@ -600,10 +589,6 @@
                                     </form>
                                 </div>
                             </div>
-
-
-
-
                         </div>
 
 
@@ -613,24 +598,11 @@
 
                 </div>
             </div>
-
-
         </div>
         </div>
         </div>
-
-
-
-
 
     </section><!-- End Hero -->
-
-
-
-
-
-
-
 
     {{-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -654,7 +626,6 @@
                 type: "get",
                 url: "/ajax/fetch-daerah/" + negeri, //penting
 
-                //url:"/JPSM/permohonan/fetchSenaraiHargaIdByTahun/jenisDokumen/"+jenis_dokumen+"/jenisData/"+jenis_data+"/tahun/"+tahun+"/negeri/" + negeri,
                 success: function(respond) {
                     //fetch data (id) from DB Senarai Harga
                     // console.log(respond);
@@ -689,7 +660,6 @@
                 type: "get",
                 url: "/ajax/fetch-kawasan/" + negeri, //penting
 
-                //url:"/JPSM/permohonan/fetchSenaraiHargaIdByTahun/jenisDokumen/"+jenis_dokumen+"/jenisData/"+jenis_data+"/tahun/"+tahun+"/negeri/" + negeri,
                 success: function(respond) {
                     //fetch data (id) from DB Senarai Harga
                     // console.log(respond);

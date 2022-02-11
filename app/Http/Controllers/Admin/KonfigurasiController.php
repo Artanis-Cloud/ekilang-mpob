@@ -10,8 +10,11 @@ use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
+use App\Models\RegUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
+
 use DB;
 
 class KonfigurasiController extends Controller
@@ -43,6 +46,7 @@ class KonfigurasiController extends Controller
     {
         $this->validation_daftar_pentadbir($request->all())->validate();
         $this->store_daftar_pentadbir($request->all());
+        $this->store_daftar_pentadbir2($request->all());
 
         return redirect()->route('admin.dashboard')->with('success', 'Maklumat Pentadbir sudah ditambah');
     }
@@ -60,11 +64,25 @@ class KonfigurasiController extends Controller
 
     protected function store_daftar_pentadbir(array $data)
     {
+        $password = Hash::make('admin123');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'password' => $password,
             'username' => $data['username'],
             'category' => $data['category'],
+        ]);
+    }
+
+    protected function store_daftar_pentadbir2(array $data)
+    {
+        // $password = Hash::make('admin123');
+        return RegUser::create([
+            // 'name' => $data['name'],
+            // 'email' => $data['email'],
+            // 'e_pwd' => $password,
+            'e_userid' => $data['username'],
+            // 'category' => $data['category'],
         ]);
     }
 

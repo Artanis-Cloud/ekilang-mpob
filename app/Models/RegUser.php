@@ -10,6 +10,7 @@ class RegUser extends Model
     use HasFactory;
 
     protected $table = 'reg_user';
+    public $timestamps = false;
 
     protected $fillable = [
         'e_userid',
