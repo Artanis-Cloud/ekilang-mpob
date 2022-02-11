@@ -187,7 +187,7 @@ class Proses6Controller extends Controller
         return view('admin.proses6.6penyata-papar-cetak-bio', compact('returnArr', 'layout'));
     }
 
-    public function admin_6papar_process()
+    public function admin_6papar_buah()
     {
 
         $breadcrumbs    = [
@@ -205,7 +205,7 @@ class Proses6Controller extends Controller
 
 
 
-        return view('admin.proses6.6papar', compact('returnArr', 'layout'));
+        return view('admin.proses6.6papar-buah', compact('returnArr', 'layout'));
     }
 
 }
