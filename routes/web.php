@@ -88,7 +88,7 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/6-penyata-papar-cetak-oleo', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakoleo'])->name('admin.6penyatapaparcetakoleo');
     Route::get('admin/6-penyata-papar-cetak-simpanan', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetaksimpanan'])->name('admin.6penyatapaparcetaksimpanan');
     Route::get('admin/6-penyata-papar-cetak-bio', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakbio'])->name('admin.6penyatapaparcetakbio');
-    Route::get('admin/6-papar/process', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6papar_process'])->name('admin.6papar.process');
+    Route::get('admin/6-papar-buah', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6papar_buah'])->name('admin.6papar.buah');
 
     Route::get('admin/7-porting-maklumat', [App\Http\Controllers\Admin\Proses7Controller::class, 'admin_7portingmaklumat'])->name('admin.7portingmaklumat');
     Route::get('admin/8-port-data', [App\Http\Controllers\Admin\Proses8Controller::class, 'admin_8portdata'])->name('admin.8portdata');
@@ -111,7 +111,9 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/direktori/process', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_direktori_process'])->name('admin.direktori.process');
 
     Route::get('admin/pengumuman', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_pengumuman'])->name('admin.pengumuman');
-    Route::get('admin/tambahpengumuman', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambahpengumuman'])->name('admin.tambahpengumuman');
+    Route::get('admin/tambahpengumuman', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambah_pengumuman'])->name('admin.tambahpengumuman');
+    Route::post('admin/tambahpengumuman/proses', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_tambah_pengumuman_proses'])->name('admin.tambahpengumuman.proses');
+
     Route::get('admin/editpengumuman/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_editpengumuman'])->name('admin.editpengumuman');
     Route::post('admin/updatepengumuman/{Id}', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_updatepengumuman'])->name('admin.updatepengumuman');
 

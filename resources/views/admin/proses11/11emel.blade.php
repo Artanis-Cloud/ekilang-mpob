@@ -100,7 +100,7 @@
                                                         <td>{{ $data->Category }}</td>
                                                         <td>{{ $data->Date }}</td>
                                                         <td>
-                                                            <div class="icon" style="text-align: center; margin-left:5%" >
+                                                            <div class="btn"  >
                                                                 <a href="{{ route('admin.11paparemel',[$data->MsgID]) }}">
                                                                     <i class="fa fa-eye" style="color: #228c1c; font-size:18px" >
                                                                     </i>

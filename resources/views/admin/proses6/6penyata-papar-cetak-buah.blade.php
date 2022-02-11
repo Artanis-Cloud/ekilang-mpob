@@ -172,119 +172,127 @@
                                                             Simple Datatable
                                                         </div> --}}
 
-                                                <table class='table' id="table1">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Papar?</th>
-                                                            <th>Sudah Cetak?<br>
-                                                            </th>
-                                                            <th>No. Lesen<br>
-                                                            </th>
-                                                            <th>Nama Premis
-                                                            </th>
-                                                            <th>Kod Pegawai
-                                                            </th>
-                                                            {{-- <th>No. Pegawai
-                                                            </th> --}}
-                                                            <th>Email Pegawai
-                                                            </th>
-                                                            <th>No. Siri
-                                                            </th>
-                                                            <th>Tarikh Submit
-                                                            </th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($users as $data)
+
+
+                                                    <table class='table' id="table1">
+                                                        <thead>
                                                             <tr>
-                                                                <td>
-                                                                    <input type="checkbox">&nbspYa
-                                                                </td>
-                                                                <td>
-                                                                    x
-                                                                </td>
-
-                                                                <td>{{ $data->e_nl ?? '-' }}</td>
-                                                                <td>{{ $data->e_np ?? '-' }}</td>
-                                                                <td>{{ $data->kodpgw }}</td>
-
-                                                                <td>{{ $data->e_email ?? '-' }}</td>
-                                                                <td>{{ $data->nosiri }}</td>
-
-                                                                <td>{{ $data->sdate }}</td>
-
+                                                                <th>Papar?</th>
+                                                                <th>Sudah Cetak?<br>
+                                                                </th>
+                                                                <th>No. Lesen<br>
+                                                                </th>
+                                                                <th>Nama Premis
+                                                                </th>
+                                                                <th>Kod Pegawai
+                                                                </th>
+                                                                {{-- <th>No. Pegawai
+                                                                </th> --}}
+                                                                <th>Email Pegawai
+                                                                </th>
+                                                                <th>No. Siri
+                                                                </th>
+                                                                <th>Tarikh Submit
+                                                                </th>
                                                             </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($users as $data)
+                                                                <tr>
+                                                                    <td>
+                                                                        <input type="checkbox">&nbspYa
+                                                                    </td>
+                                                                    <td>
+                                                                        x
+                                                                    </td>
 
-                                                        @endforeach
-                                                    </tbody>
-                                                </table>
+                                                                    <td>{{ $data->e_nl ?? '-' }}</td>
+                                                                    <td>{{ $data->e_np ?? '-' }}</td>
+                                                                    <td>{{ $data->kodpgw }}</td>
 
+                                                                    <td>{{ $data->e_email ?? '-' }}</td>
+                                                                    <td>{{ $data->nosiri }}</td>
+
+                                                                    <td>{{ $data->sdate }}</td>
+
+                                                                </tr>
+
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+
+
+                                                                    {{-- <div class="row" style="padding-top: 35px; float:right">
+
+                                                                    <div class="col-md-12">
+                                                                        <button type="button" class="btn  btn-primary"
+                                                                            data-toggle="modal" data-target="#confirmation">Simpan &
+                                                                            Seterusnya</button>
+                                                                    </div>
+
+                                                                </div> --}}
+
+
+                                                        <div class="text-left col-md-8">
+                                                            <button type="submit" class="btn btn-primary ">Papar</button>
+
+                                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                                data-bs-target="#exampleModalCenter">
+
+                                                                <a href="{{ route('admin.6papar.buah') }}">
+                                                                Cetak
+                                                                </a>
+                                                            </button>
+
+                                                        </div>
+
+                                                        <div class="row" style=" float:right">
+
+                                                            <div class="col-md-12">
+
+
+                                                                <!-- Vertically Centered modal Modal -->
+                                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                                                    role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                                    aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                                        role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                                    PENGESAHAN</h5>
+                                                                                <button type="button" class="close"
+                                                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                                                    <i data-feather="x"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <p>
+                                                                                    Anda pasti mahu cetak maklumat ini?
+                                                                                </p>
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light-secondary"
+                                                                                    data-bs-dismiss="modal">
+                                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                    <span class="d-none d-sm-block"
+                                                                                        style="color:#275047">Tidak</span>
+                                                                                </button>
+                                                                                <button type="button" class="btn btn-primary ml-1"
+                                                                                    data-bs-dismiss="modal">
+                                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                    <span class="d-none d-sm-block">Ya</span>
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                
                                             </div>
                                         </section>
 
-
-                                        {{-- <div class="row" style="padding-top: 35px; float:right">
-
-                                                        <div class="col-md-12">
-                                                            <button type="button" class="btn  btn-primary"
-                                                                data-toggle="modal" data-target="#confirmation">Simpan &
-                                                                Seterusnya</button>
-                                                        </div>
-
-                                                    </div> --}}
-
-
-                                        <div class="text-left col-md-8">
-                                            <button type="button" class="btn btn-primary ">Papar</button>
-
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                data-bs-target="#exampleModalCenter">Cetak</button>
-
-                                        </div>
-
-                                        <div class="row" style=" float:right">
-
-                                            <div class="col-md-12">
-
-
-                                                <!-- Vertically Centered modal Modal -->
-                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                                                    role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                    aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                        role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                    PENGESAHAN</h5>
-                                                                <button type="button" class="close"
-                                                                    data-bs-dismiss="modal" aria-label="Close">
-                                                                    <i data-feather="x"></i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <p>
-                                                                    Anda pasti mahu cetak maklumat ini?
-                                                                </p>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-light-secondary"
-                                                                    data-bs-dismiss="modal">
-                                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                                    <span class="d-none d-sm-block"
-                                                                        style="color:#275047">Tidak</span>
-                                                                </button>
-                                                                <button type="button" class="btn btn-primary ml-1"
-                                                                    data-bs-dismiss="modal">
-                                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                                    <span class="d-none d-sm-block">Ya</span>
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
 
 

@@ -190,14 +190,8 @@
 
 
 
-                                            <div class="row form-group" style="padding-top: 10px; ">
-                                                <div class="text-right col-md-12 mb-4 ">
-                                                    <button type="submit" class="btn btn-primary ">Tambah</button>
-                                                </div>
-                                            </div>
 
-
-                                            <div class="row form-group" style="padding-top: 10px; ">
+                                            <div class="row form-group" style="padding-top: 50px; ">
 
 
                                                 {{-- <div class="text-left col-md-5">
@@ -238,10 +232,10 @@
                                                                 <span class="d-none d-sm-block"
                                                                     style="color:#275047">Kembali</span>
                                                             </button>
-                                                            <button type="button" class="btn btn-primary ml-1"
-                                                                data-bs-dismiss="modal">
+                                                            <button type="submit" class="btn btn-primary ml-1"
+                                                            data-dismiss="modal">
                                                                 <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Hantar</span>
+                                                                <span class="d-none d-sm-block">Tambah</span>
                                                             </button>
                                                         </div>
                                                     </div>
