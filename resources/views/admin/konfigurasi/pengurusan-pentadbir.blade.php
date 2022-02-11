@@ -64,8 +64,8 @@
                                         <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Daftar Akaun Pentadbir</h4>
                                     </div>
                                     <hr>
-                                    {{-- <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post"> --}}
-                                        {{-- @csrf --}}
+                                    <form action="{{ route('admin.pengurusan.pentadbir.process') }}" method="post">
+                                        @csrf
                                         <div class="container center mt-2">
 
                                             <div class="row">
@@ -122,9 +122,13 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Kategori</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="category" class="form-control"
-                                                        placeholder="Kategori" name="category"
-                                                        value="{{ old('category') }}">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect" name="category" value={{ old('category') }}>
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>Admin</option>
+                                                            <option>Superadmin</option>
+                                                        </select>
+                                                    </fieldset>
                                                     @error('category')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
