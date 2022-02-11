@@ -201,7 +201,7 @@
 
                             <ul class="submenu " style="margin-left:-5%">
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('admin.pengurusan.pentadbir') }}">
                                         <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="user" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Pengurusan Pentadbir</span>
