@@ -53,7 +53,6 @@ class Proses1Controller extends Controller
         ];
         $layout = 'layouts.admin';
 
-
         return view('admin.proses1.1daftarpelesen', compact('returnArr', 'layout', 'negeri'));
     }
 
