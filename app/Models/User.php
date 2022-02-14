@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $primaryKey = 'id';
-    
+
     protected $fillable = [
         'name',
         'email',
@@ -51,4 +51,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function pelesen()
+    {
+
+        return $this->hasOne(Pelesen::class, 'e_nl', 'e_nl');
+    }
 }

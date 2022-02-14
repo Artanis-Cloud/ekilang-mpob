@@ -263,9 +263,13 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('admin.panduan') }}">
+                                    {{-- <div class="mb-2" style="text-align: right">
+                                        <a href="{{ asset('manual/admin/panduan.pdf') }}" target="_blank"
+                                            ><i><u>Panduan Pengguna</u></i></a>
+                                    </div> --}}
+                                    <a href="{{ asset('manual/admin/panduan.pdf') }}" target="_blank"">
                                         <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
+                                         {{-- <i data-feather="trending-up" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Panduan Pengguna</span>
                                     </a>
                                 </li>
