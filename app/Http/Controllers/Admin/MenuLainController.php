@@ -6,11 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Daerah;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
-use App\Models\Negara;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
-use App\Models\Produk;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -169,6 +167,7 @@ class MenuLainController extends Controller
         return view('admin.menu-lain.tambahpengumuman', compact('returnArr', 'layout'));
     }
 
+    
     public function admin_tambah_pengumuman_proses (Request $request)
     {
         // dd($request->all());
@@ -226,24 +225,20 @@ class MenuLainController extends Controller
         return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
     }
 
-    public function admin_updatepengumuman(Pengumuman $request, $id, $data )
+    public function admin_updatepengumuman(Request $request, $id)
     {
+        // dd($request->all());
+        $pengumuman = Pengumuman::findOrFail($id);
+        $pengumuman->Message = $request->Message;
+        $pengumuman->Start_date = $request->Start_date;
+        $pengumuman->End_date = $request->End_date;
+        $pengumuman->Icon_new = $request->Icon_new;
+        $pengumuman->save();
 
 
+        return redirect()->back()
+            ->with('success', 'Pengumuman telah dikemaskini');
 
-        $validateData = $request->validate([
-
-                'Message'=>'required',
-                'Start_date'=>'required',
-                'End_date'=>'required',
-                'Icon_new'=>'required',
-
-            ]);
-
-            Pengumuman::whereId($id)->update($validateData);
-
-            return redirect()->back()
-            ->with('message','Job updated Succesfully');
     }
 
 
@@ -321,48 +316,6 @@ class MenuLainController extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.menu-lain.tukarpassword', compact('returnArr', 'layout'));
-    }
-
-    public function admin_kod_produk()
-    {
-
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.tukarpassword'), 'name' => "Kod & Nama Produk"],
-        ];
-
-        $kembali = route('admin.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
-
-        $produk = Produk::orderBy('prodid', 'asc')->get();
-
-        return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
-    }
-
-    public function admin_kod_negara()
-    {
-
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.tukarpassword'), 'name' => "Kod & Nama Negara"],
-        ];
-
-        $kembali = route('admin.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
-
-        $negara = Negara::get();
-
-        return view('admin.menu-lain.kod-negara', compact('returnArr', 'layout', 'negara'));
     }
 
     public function try3()

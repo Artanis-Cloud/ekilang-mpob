@@ -9,9 +9,9 @@ class Pengumuman extends Model
 {
     use HasFactory;
     protected $table = 'pengumuman';
-
+    protected $primaryKey = 'Id';
     public $timestamps = false;
-    
+
     protected $fillable = [
         'Id',
         'Message',

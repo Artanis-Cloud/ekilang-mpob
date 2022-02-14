@@ -56,109 +56,108 @@
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
-                                <div class="pl-3">
+                                <form action="{{ route('admin.tukar-kata-laluan.kemaskini') }}" method="post">
+                                    @csrf
+                                    <div class="pl-3">
 
-                                    <div class=" text-center">
-                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Tukar Kata Laluan Pengguna</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Sila isi maklumat berkenaan
-                                        </h5>
-                                        {{-- <p>Maklumat Kilang</p> --}}
-                                    </div>
-                                    <hr>
+                                        <div class=" text-center">
+                                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Tukar Kata Laluan Pengguna</h3>
+                                            <h5 style="color: rgb(39, 80, 71); font-size:14px">Sila isi maklumat berkenaan
+                                            </h5>
+                                            {{-- <p>Maklumat Kilang</p> --}}
+                                        </div>
+                                        <hr>
 
-                                    <div class="container center mt-5" >
+                                        <div class="container center mt-5" >
 
-                                        <div class="row" >
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kata Laluan Baru (8 Aksara)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder="Kata Laluan Baru (8 Aksara)"
-                                                            name="company-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row" >
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Kata Laluan Baru (8 Aksara)</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="password" class="form-control" placeholder="Kata Laluan Baru (8 Aksara)"
+                                                                name="password">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="row" >
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kata Laluan Baru Sekali Lagi (8 Aksara)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder=" Kata Laluan Baru Sekali Lagi (8 Aksara)"
-                                                            name="company-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row" >
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Kata Laluan Baru Sekali Lagi (8 Aksara)</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="password" class="form-control" placeholder=" Kata Laluan Baru Sekali Lagi (8 Aksara)"
+                                                                name="password">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
+
                                         </div>
 
-                                    </div>
+
+                                        <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                    <div class="row form-group" style="padding-top: 10px; ">
+                                            {{-- <div class="text-left col-md-5">
+                                                <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
+                                                    style="float: left">Sebelumnya</a>
+                                            </div> --}}
+                                            <div class="text-right col-md-12 mb-4 ">
+                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                    style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
+                                            </div>
 
-
-                                        {{-- <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
-                                        </div> --}}
-                                        <div class="text-right col-md-12 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
                                         </div>
 
-                                    </div>
-
-                                        <!-- Vertically Centered modal Modal -->
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                            aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                            PENGESAHAN</h5>
-                                                        <button type="button" class="close"
-                                                            data-bs-dismiss="modal" aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                            Anda pasti mahu menyimpan maklumat ini?
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block"
-                                                                style="color:#275047">Tidak</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Ya</span>
-                                                        </button>
+                                            <!-- Vertically Centered modal Modal -->
+                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                    role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                PENGESAHAN</h5>
+                                                            <button type="button" class="close"
+                                                                data-bs-dismiss="modal" aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>
+                                                                Anda pasti mahu menyimpan maklumat ini?
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary"
+                                                                data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block"
+                                                                    style="color:#275047">Tidak</span>
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary ml-1"
+                                                                data-dismiss="modal">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Ya</span>
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-
-
-
-                                </div>
+                                </form>
 
 
                             </div>
