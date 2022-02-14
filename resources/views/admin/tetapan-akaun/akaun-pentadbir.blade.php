@@ -75,7 +75,7 @@
                                                 <div class="col-md-6">
                                                     <input type="text" id="nombor_siri" class="form-control"
                                                         placeholder="Nombor Siri" name="nombor_siri"
-                                                        value="{{ $user->name }}">
+                                                        value="{{ auth()->user()->name }}">
                                                     {{-- @error('nombor_siri')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -91,7 +91,7 @@
                                                 <div class="col-md-6">
                                                     <input type="text" id="nombor_siri" class="form-control"
                                                         placeholder="Nombor Siri" name="nombor_siri"
-                                                        value="{{ old('nombor_siri') }}">
+                                                        value="{{ auth()->user()->email }}">
                                                     @error('nombor_siri')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -108,7 +108,7 @@
                                                 <div class="col-md-6">
                                                     <input type="text" id="nombor_siri" class="form-control"
                                                         placeholder="Nombor Siri" name="nombor_siri"
-                                                        value="{{ old('nombor_siri') }}">
+                                                        value="{{ auth()->user()->username }}">
                                                     @error('nombor_siri')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -124,7 +124,7 @@
                                                 <div class="col-md-6">
                                                     <input type="text" id="nombor_siri" class="form-control"
                                                         placeholder="Nombor Siri" name="nombor_siri"
-                                                        value="{{ old('nombor_siri') }}">
+                                                        value="{{ auth()->user()->category }}">
                                                     @error('nombor_siri')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -136,53 +136,7 @@
 
                                         </div>
 
-                                        {{-- <div class="row form-group" style="padding-top: 10px; ">
-                                            <div class="text-right col-md-12 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                    style="float: right"
-                                                    data-bs-target="#exampleModalCenter">Tambah</button>
-                                            </div>
-                                        </div> --}}
-                                        <div class="row form-group" style="padding-top: 10px; ">
-                                            <div class="text-right col-md-12 mb-4 ">
-                                                <button type="submit" class="btn btn-primary ">Tambah</button>
-                                            </div>
-                                        </div>
-                                        <!-- Vertically Centered modal Modal -->
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                            PENGESAHAN</h5>
-                                                        <button type="button" class="close"
-                                                            data-bs-dismiss="modal" aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                            Anda pasti mahu menambah pelesen ini?
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block"
-                                                                style="color:#275047">Tidak</span>
-                                                        </button>
-                                                        <button type="submit" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Ya</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </form>
                                 </div>
                             </div>

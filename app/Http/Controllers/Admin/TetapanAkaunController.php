@@ -17,7 +17,7 @@ class TetapanAkaunController extends Controller
 {
 
 
-    public function admin_akaun_pentadbir($id, User $user)
+    public function admin_akaun_pentadbir()
     {
 
         $breadcrumbs    = [
@@ -33,7 +33,7 @@ class TetapanAkaunController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        $user = User::find($id);
+        $user = User::first();;
 
         return view('admin.tetapan-akaun.akaun-pentadbir', compact('returnArr', 'layout','user'));
     }
