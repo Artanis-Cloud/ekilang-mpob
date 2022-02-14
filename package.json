@@ -23,7 +23,9 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "datatables.net-dt": "^1.11.4",
         "jquery": "^3.6.0",
+        "jszip": "^3.7.1",
         "swiper": "^7.3.2"
     }
 }

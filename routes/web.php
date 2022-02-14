@@ -124,6 +124,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('admin/kod-produk', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_kod_produk'])->name('admin.kod.produk');
+    Route::get('admin/kod-negara', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_kod_negara'])->name('admin.kod.negara');
 
 
     Route::get('admin/akaun-pentadbir', [App\Http\Controllers\Admin\TetapanAkaunController::class, 'admin_akaun_pentadbir'])->name('admin.akaun.pentadbir');

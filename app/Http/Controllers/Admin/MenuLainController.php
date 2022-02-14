@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Daerah;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
+use App\Models\Negara;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
@@ -341,6 +342,27 @@ class MenuLainController extends Controller
         $produk = Produk::orderBy('prodid', 'asc')->get();
 
         return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
+    }
+
+    public function admin_kod_negara()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.tukarpassword'), 'name' => "Kod & Nama Negara"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        $negara = Negara::get();
+
+        return view('admin.menu-lain.kod-negara', compact('returnArr', 'layout', 'negara'));
     }
 
     public function try3()

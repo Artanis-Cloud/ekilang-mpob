@@ -1,9 +1,12 @@
 @extends($layout)
 
 @section('content')
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.css" />
 
-
-
+    {{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"> --}}
 
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
@@ -71,11 +74,18 @@
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
+                                    <div class="row" style=" float:right">
 
-                                    <table>
+                                        <div class="text-left col-md-8">
+                                            <button class="btn btn-primary" onclick="exportTableToExcel('tblData')">Cetak</button>
+
+
+                                        </div>
+                                </div>
+                                <br>
+                                    <table id="tblData">
 
                                         @foreach ($query as $data)
-
                                             <tr>
                                                 <td><b>{{ $loop->iteration }}.</b></td>
                                                 <td colspan=3><b>{{ $data->e_np }}</b></td>
@@ -164,6 +174,8 @@
 
 
 
+                                <button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
+
 
                             </div>
 
@@ -197,7 +209,7 @@
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
-
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.4/datatables.min.js"></script>
 
 
     <script>
@@ -236,10 +248,39 @@
         //     table.clear().draw();
         // }
     </script>
+    <script>
+        function exportTableToExcel(tableID, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+            // Specify file name
+            filename = filename ? filename + '.xls' : 'excel_data.xls';
+
+            // Create download link element
+            downloadLink = document.createElement("a");
+
+            document.body.appendChild(downloadLink);
+
+            if (navigator.msSaveOrOpenBlob) {
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                //triggering the function
+                downloadLink.click();
+            }
+        }
+    </script>
 
 
-    </body>
-
-    </html>
 
 @endsection
