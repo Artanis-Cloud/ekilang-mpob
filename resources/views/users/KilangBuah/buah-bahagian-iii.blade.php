@@ -80,7 +80,6 @@
 
 
 
-                                    {{-- kadar oer meningkat --}}
                                     <div class="row" id="table-bordered">
                                         <div class="col-12 mt-2" style="margin-bottom: -2%">
                                             <form action="#" class="">
@@ -197,7 +196,7 @@
                                         </div>
                                     </div>
                                     <br>
-                                   
+
 
                                     <div class="row form-group"  >
 

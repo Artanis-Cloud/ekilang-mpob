@@ -9,6 +9,7 @@ use App\Models\Ekmessage;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
+use App\Models\Produk;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -230,7 +231,7 @@ class MenuLainController extends Controller
 
 
         $validateData = $request->validate([
-             
+
                 'Message'=>'required',
                 'Start_date'=>'required',
                 'End_date'=>'required',
@@ -319,6 +320,27 @@ class MenuLainController extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.menu-lain.tukarpassword', compact('returnArr', 'layout'));
+    }
+
+    public function admin_kod_produk()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.tukarpassword'), 'name' => "Kod & Nama Produk"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        $produk = Produk::orderBy('prodid', 'asc')->get();
+
+        return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
     }
 
     public function try3()

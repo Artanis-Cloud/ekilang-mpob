@@ -268,7 +268,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="#">
+                                    <a href="{{ route('admin.kod.produk') }}">
                                         <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="trending-up" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Kod & Nama Produk</span>
