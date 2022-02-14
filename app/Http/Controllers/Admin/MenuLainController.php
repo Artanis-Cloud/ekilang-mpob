@@ -227,6 +227,8 @@ class MenuLainController extends Controller
 
     public function admin_updatepengumuman(Request $request, $id)
     {
+        // dd($request->all());
+        $pengumuman = Pengumuman::findOrFail($id);
         $pengumuman->Message = $request->Message;
         $pengumuman->Start_date = $request->Start_date;
         $pengumuman->End_date = $request->End_date;
@@ -316,19 +318,6 @@ class MenuLainController extends Controller
         return view('admin.menu-lain.tukarpassword', compact('returnArr', 'layout'));
     }
 
-    {
-
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.tukarpassword'), 'name' => "Kod & Nama Produk"],
-        ];
-
-        $kembali = route('admin.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
     public function try3()
     {
 
