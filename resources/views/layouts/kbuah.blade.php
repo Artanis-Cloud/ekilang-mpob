@@ -38,6 +38,8 @@
     {{-- <link rel="stylesheet" href="{{ asset('theme/vendors/simple-datatables/style.css') }}"> --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.4/r-2.2.9/sc-2.0.5/datatables.min.css"/>
 
+    <!-- Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 </head>
 
 <body>
@@ -349,6 +351,9 @@
     <script src="{{ asset('theme/js/app.js') }}"></script>
     <script src="{{ asset('theme/js/main.js') }}"></script>
 
+    <!-- Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     @yield('datatable')
 
     <script>
@@ -371,6 +376,16 @@
                 },
             });
         });
+    </script>
+
+    {{-- toaster display --}}
+    <script>
+        toastr.options.fadeOut = 2500;
+        @if (Session::get('success'))
+            toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
+        @elseif ($message = Session::get('error'))
+            toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
+        @endif
     </script>
 
 </body>

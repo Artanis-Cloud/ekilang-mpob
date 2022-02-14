@@ -44,20 +44,13 @@
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
 
-
-
     <link rel="stylesheet" href="{{ asset('theme/vendors/simple-datatables/style.css') }}">
-
-
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
-    <!-- =======================================================
-  * Template Name: OnePage - v4.7.0
-  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+
+    <!-- Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 </head>
 
 <body>
@@ -68,13 +61,12 @@
                 border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
                 box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color:  rgb(243, 213, 128)">
 
-                <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
+                    <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
                  width:50px; height:50px">
                     {{-- <strong>E-Kilang</strong><br />
                     <span>description</span> --}}
 
-                    <h6
-                        style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
+                    <h6 style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
                         <b>
                             E-Kilang</b>
                     </h6>
@@ -91,7 +83,7 @@
                         </div> --}}
                         </li>
                         <br>
-                        <li class="sidebar-item  has-sub" >
+                        <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
                                 <i class="fas fa-user-edit" style="color:rgb(54, 51, 41) "></i>
@@ -121,7 +113,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-pen"  style="color:rgb(54, 51, 41) "></i>
+                                <i class="fas fa-pen" style="color:rgb(54, 51, 41) "></i>
 
                                 <span><b>Kemasukan Penyata Bulanan</b></span>
                             </a>
@@ -291,8 +283,8 @@
                         <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-2" >
-                                    <i class="fa fa-bell" style="font-size:18px;" ></i>
+                                <div class="mt-2">
+                                    <i class="fa fa-bell" style="font-size:18px;"></i>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
@@ -333,17 +325,20 @@
                                 {{-- <div class="avatar me-1">
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
                                 </div> --}}
-                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">{{ auth()->user()->username }}</div>
+                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">
+                                    {{ auth()->user()->username }}</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp Akaun Pengguna</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp Akaun
+                                    Pengguna</a>
                                 {{-- <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a> --}}
                                 <a class="dropdown-item" href="#"><i class="fa fa-gear"></i>&nbsp Tetapan</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                     <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
-                                <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logoutform" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </div>
@@ -432,46 +427,41 @@
     </script>
 
 
-<script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+    <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
 
+    <!-- Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-
-<script>
-    $(document).ready(function() {
-        var table = $('#example').DataTable({
-            "language": {
-                "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                "zeroRecords": "Maaf, tiada rekod.",
-                "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                "infoEmpty": "Tidak ada rekod yang tersedia",
-                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                "search": "Carian",
-                "previous": "Sebelum",
-                "paginate": {
-                    "first": "Pertama",
-                    "last": "Terakhir",
-                    "next": "Seterusnya",
-                    "previous": "Sebelumnya"
+    <script>
+        $(document).ready(function() {
+            var table = $('#example').DataTable({
+                "language": {
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
+                    "zeroRecords": "Maaf, tiada rekod.",
+                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
+                    "infoEmpty": "Tidak ada rekod yang tersedia",
+                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                    "search": "Carian",
+                    "previous": "Sebelum",
+                    "paginate": {
+                        "first": "Pertama",
+                        "last": "Terakhir",
+                        "next": "Seterusnya",
+                        "previous": "Sebelumnya"
+                    },
                 },
-            },
+            });
         });
-    });
-
-    $(window).on('changed', (e) => {
-        // if($('#example').DataTable().clear().destroy()){
-        // $('#example').DataTable();
-        // }
-    })
-
-    // document.getElementById("form_type").onchange = function() {
-    //     myFunction()
-    // };
-
-    // function myFunction() {
-    //     console.log('asasa');
-    //     table.clear().draw();
-    // }
-</script>
+    </script>
+    {{-- toaster display --}}
+    <script>
+        toastr.options.fadeOut = 2500;
+        @if (Session::get('success'))
+            toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
+        @elseif ($message = Session::get('error'))
+            toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
+        @endif
+    </script>
 
 
 
