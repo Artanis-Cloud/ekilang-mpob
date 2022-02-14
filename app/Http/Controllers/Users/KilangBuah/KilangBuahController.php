@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\RegPelesen;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class KilangBuahController extends Controller
@@ -34,7 +35,8 @@ class KilangBuahController extends Controller
         $layout = 'layouts.kbuah';
 
         // $pelesen = E91Init::get();
-        $pelesen = Pelesen::where('e_nl', '000101506000')->first();
+        // $pelesen = Pelesen::first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
 
 
