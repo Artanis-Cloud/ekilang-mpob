@@ -136,7 +136,9 @@
 
                                                                 <tr>
                                                                     <td>{{ $loop->iteration }}</td>
-                                                                    <td style="text-align:left">{{ $data->e_nl }}</td>
+                                                                    <td style="text-align:left">
+                                                                        <a href="#" ><u> {{ $data->e_nl }}</u></a>
+                                                                       </td>
                                                                     <td>{{ $data->pelesen->e_np ?? '-'}}</td>
                                                                     <td>{{ $data->pelesen->e_email ?? '-'}}</td>
                                                                     <td>{{ $data->pelesen->e_notel ?? '-'}}</td>
