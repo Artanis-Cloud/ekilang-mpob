@@ -21,7 +21,7 @@
             </div> --}}
 
             <div class="row">
-                <div class="col-md-12" style="margin-top:-3%">
+                <div class="col-md-12" style="margin-top:-4%">
 
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
@@ -160,22 +160,6 @@
 
 
 
-                                {{-- <div class="row form-group">
-
-
-
-                                    <div class="text-right col-md-12  ">
-                                        {{-- <button type="button" class="btn btn-primary " data-toggle="modal"
-                                            style="float: right" data-target="#confirmation">Direktori</button> --}}
-                                {{-- <button type="submit">YA</button>
-                                    </div>
-
-                                </div> --}}
-
-
-
-                                <button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
-
 
                             </div>
 
@@ -256,7 +240,7 @@
             var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
 
             // Specify file name
-            filename = filename ? filename + '.xls' : 'excel_data.xls';
+            filename = filename ? filename + '.xls' : 'direktori.xls';
 
             // Create download link element
             downloadLink = document.createElement("a");
