@@ -61,17 +61,23 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
-                                     type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      Kilang Penapis
+                                    <button class="btn btn-secondary dropdown-toggle"
+                                        style="background-color: rgb(238, 70, 70)" type="button" id="dropdownMenuButton"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Kilang Penapis
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                      {{-- <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang Buah</a> --}}
-                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahulu') }}">Kilang Buah</a>
-                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahuluisirung') }}">Kilang Isirung</a>
-                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahuluoleokimia') }}">Kilang Oleokimia</a>
-                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahulusimpanan') }}">Pusat Simpanan</a>
-                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahulubiodiesel') }}">E-Biodiesel</a>
+                                        {{-- <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang Buah</a> --}}
+                                        <a class="dropdown-item" href="{{ route('admin.9penyataterdahulu') }}">Kilang
+                                            Buah</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.9penyataterdahuluisirung') }}">Kilang Isirung</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.9penyataterdahuluoleokimia') }}">Kilang Oleokimia</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.9penyataterdahulusimpanan') }}">Pusat Simpanan</a>
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.9penyataterdahulubiodiesel') }}">E-Biodiesel</a>
                                     </div>
                                 </div>
                                 {{-- <div class="col-md-4 col-12"> --}}
@@ -195,7 +201,7 @@
                                                 {{-- <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                                     style="float: right"
                                                     data-bs-target="#exampleModalCenter">Porting</button> --}}
-                                                    <button type="submit">YA</button>
+                                                <button type="submit">YA</button>
                                             </div>
                                         </div>
                                         <div class="row" style=" float:right">
@@ -239,9 +245,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </form>
                                             </div>
                                         </div>
-                                    </div>
+                                </div>
                                 </form>
                             </div>
                         </div>

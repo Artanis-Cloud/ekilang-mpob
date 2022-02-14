@@ -174,13 +174,6 @@
                             style="color: black; background-color: rgba(89, 194, 154, 0.801)" type="submit">
                             Log Masuk</button>
 
-<br>
-
-                            <div class="row">
-                                <a href="{{ route('admin.login') }}" style="text-decoration:none; text-align:center; color:white">Log Masuk Akaun Pentadbir</a>
-                            </div>
-                        {{-- </div> --}}
-                        {{-- </div> --}}
                     </form>
                 </div>
             </div>

@@ -539,18 +539,18 @@
                                             </div>
                                         </div>
 
-                                        {{-- <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="row form-group" style="padding-top: 10px; ">
                                             <div class="text-right col-md-12 mb-4 ">
                                                 <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                                     style="float: right"
                                                     data-bs-target="#exampleModalCenter">Tambah</button>
                                             </div>
-                                        </div> --}}
-                                        <div class="row form-group" style="padding-top: 10px; ">
+                                        </div>
+                                        {{-- <div class="row form-group" style="padding-top: 10px; ">
                                             <div class="text-right col-md-12 mb-4 ">
                                                 <button type="submit" class="btn btn-primary ">Tambah</button>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <!-- Vertically Centered modal Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
