@@ -48,12 +48,10 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('theme/kilangstyles/css/penapisstyle.css') }}"" rel=" stylesheet">
-    <!-- =======================================================
-  * Template Name: OnePage - v4.7.0
-  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <!-- Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -64,13 +62,12 @@
                 border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
                 box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color:  rgb(243, 213, 128)">
 
-                <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
+                    <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
                  width:50px; height:50px">
                     {{-- <strong>E-Kilang</strong><br />
                     <span>description</span> --}}
 
-                    <h6
-                        style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
+                    <h6 style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
                         <b>
                             E-Kilang</b>
                     </h6>
@@ -96,7 +93,7 @@
 
                             <ul class="submenu " style="margin-left:-5%">
                                 <li class="sidebar-item ">
-                                    <a href="{{ route('penapis.maklumatasaspelesen') }}" >
+                                    <a href="{{ route('penapis.maklumatasaspelesen') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i class="fas fa-seedling" style="color: rgb(54, 51, 41)" data-feather="home" width="20"></i> --}}
                                         <span style="color: rgb(78, 73, 57)">Maklumat Asas Pelesen</span>
@@ -117,7 +114,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-pen"  style="color:rgb(54, 51, 41) "></i>
+                                <i class="fas fa-pen" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Kemasukan Penyata Bulanan</b></span>
                             </a>
 
@@ -169,7 +166,7 @@
                                 </li>
 
                                 <li class="sidebar-item ">
-                                    <a href="{{ route('penapis.bahagianva') }}" >
+                                    <a href="{{ route('penapis.bahagianva') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
                                         <span style="color: rgb(78, 73, 57); ">Bahagian V(a)</span>
@@ -178,7 +175,7 @@
                                 </li>
 
                                 <li class="sidebar-item ">
-                                    <a href="{{ route('penapis.bahagianvb') }}" >
+                                    <a href="{{ route('penapis.bahagianvb') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
                                         <span style="color: rgb(78, 73, 57); ">Bahagian V(b)</span>
@@ -187,7 +184,7 @@
                                 </li>
 
                                 <li class="sidebar-item ">
-                                    <a href="{{ route('penapis.bahagianvi') }}" >
+                                    <a href="{{ route('penapis.bahagianvi') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
                                         <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
@@ -287,8 +284,8 @@
                         <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-2" >
-                                    <i class="fa fa-bell" style="font-size:18px;" ></i>
+                                <div class="mt-2">
+                                    <i class="fa fa-bell" style="font-size:18px;"></i>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
@@ -329,17 +326,20 @@
                                 {{-- <div class="avatar me-1">
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
                                 </div> --}}
-                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">{{ auth()->user()->username }}</div>
+                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">
+                                    {{ auth()->user()->username }}</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp Akaun Pengguna</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp Akaun
+                                    Pengguna</a>
                                 {{-- <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a> --}}
                                 <a class="dropdown-item" href="#"><i class="fa fa-gear"></i>&nbsp Tetapan</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                     <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
-                                <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logoutform" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </div>
@@ -364,7 +364,8 @@
                         <div class="col-md-12">
                             <div class="card" style="margin-right:10%; margin-left:10%">
                                 <div class="card-header" style="margin-bottom: -1%">
-                                    <h2 class='pl-3 card-heading' style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Pengumuman
+                                    <h2 class='pl-3 card-heading'
+                                        style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Pengumuman
                                     </h2>
                                 </div>
                                 <hr>
@@ -446,7 +447,8 @@
 
                             <div class="card" style="margin-right:10%; margin-left:10%">
                                 <div class="card-header " style="margin-bottom:-2%">
-                                    <h2 class='pl-3 card-heading' style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Peringatan
+                                    <h2 class='pl-3 card-heading'
+                                        style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Peringatan
                                     </h2>
                                 </div>
                                 <hr>
@@ -474,7 +476,8 @@
 
                             <div class="card" style="margin-right:10%; margin-left:10%">
                                 <div class="card-header" style="margin-bottom:-2%">
-                                    <h2 class='pl-3 card-heading' style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Penafian
+                                    <h2 class='pl-3 card-heading'
+                                        style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Penafian
                                     </h2>
                                 </div>
                                 <hr>
@@ -506,12 +509,12 @@
 
 
 
-                            </div>
                         </div>
-                        <br>
-
-
                     </div>
+                    <br>
+
+
+                </div>
 
 
 
@@ -520,13 +523,13 @@
             </section><!-- End Hero -->
 
 
-    <!-- ======= Testimonials Section ======= -->
-    {{-- <section id="testimonials" class="testimonials">
+            <!-- ======= Testimonials Section ======= -->
+            {{-- <section id="testimonials" class="testimonials">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
                 <h2>Menu Lain-Lain</h2> --}}
-                {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
+            {{-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem.
                             Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit
                             alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> --}}
             {{-- </div> --}}
@@ -539,14 +542,14 @@
                     <div class="col-md-4 col-lg-3">
                         <div class="swiper-slide">
                             <div class="testimonial-item"> --}}
-                                {{-- <p>
+            {{-- <p>
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Proin iaculis purus consequat sem cure digni ssim donec porttitora entum
                                             suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et.
                                             Maecen aliquam, risus at semper.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/email2.png') }}"
+            {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/email2.png') }}"
                                     class="testimonial-img" alt="">
                                 <h3>Emel Semua Pelesen Aktif</h3>
                                 <h4>Penghantaran e-mail kepada semua pelesen aktif</h4>
@@ -554,10 +557,10 @@
                         </div><!-- End testimonial item -->
                     </div> --}}
 
-                    {{-- <div class="col-md-4 col-lg-3">
+            {{-- <div class="col-md-4 col-lg-3">
                         <div class="swiper-slide">
                             <div class="testimonial-item"> --}}
-                                {{-- <p>
+            {{-- <p>
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Export tempor illum tamen malis malis eram quae irure esse labore quem
                                             cillum
@@ -566,7 +569,7 @@
                                             irure amet legam anim culpa.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/dir4.png') }}"
+            {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/dir4.png') }}"
                                     class="testimonial-img" alt="">
                                 <h3>Direktori</h3>
                                 <h4>Direktori</h4>
@@ -574,10 +577,10 @@
                         </div>
                     </div><!-- End testimonial item --> --}}
 
-                    {{-- <div class="col-md-4 col-lg-3">
+            {{-- <div class="col-md-4 col-lg-3">
                         <div class="swiper-slide">
                             <div class="testimonial-item"> --}}
-                                {{-- <p>
+            {{-- <p>
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla
                                             quem
@@ -586,7 +589,7 @@
                                             sint minim.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
+            {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/ann2.png') }}"
                                     class="testimonial-img" alt="">
                                 <h3>Pengumuman</h3>
                                 <h4>Pengumuman</h4>
@@ -596,10 +599,10 @@
                     </div><!-- End testimonial item -->
 
                     {{-- <div class="row"> --}}
-                    {{-- <div class="col-md-4 col-lg-3">
+            {{-- <div class="col-md-4 col-lg-3">
                         <div class="swiper-slide">
                             <div class="testimonial-item"> --}}
-                                {{-- <p>
+            {{-- <p>
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export
                                             minim
@@ -608,7 +611,7 @@
                                             quem dolore labore illum veniam.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/sch.png') }}"
+            {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/sch.png') }}"
                                     class="testimonial-img" alt="">
                                 <h3>Jadual Penerimaan PL</h3>
                                 <h4>Jadual Penerimaan PL Bagi Semua Sektor</h4>
@@ -619,7 +622,7 @@
                     <div class="col-md-4 col-lg-3" style="margin-top: -8%">
                         <div class="swiper-slide">
                             <div class="testimonial-item"> --}}
-                                {{-- <p>
+            {{-- <p>
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
                                             noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
@@ -627,7 +630,7 @@
                                             esse veniam culpa fore nisi cillum quid.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/list.png') }}"
+            {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/list.png') }}"
                                     class="testimonial-img" alt="">
                                 <h3>Senarai Gagal Penerimaan PL</h3>
                                 <h4>Senarai Gagal Penerimaan PL </h4>
@@ -638,7 +641,7 @@
                     <div class="col-md-4 col-lg-3" style="margin-top: -8%">
                         <div class="swiper-slide">
                             <div class="testimonial-item"> --}}
-                                {{-- <p>
+            {{-- <p>
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
                                             noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
@@ -646,7 +649,7 @@
                                             esse veniam culpa fore nisi cillum quid.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
+            {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/manual.png') }}"
                                     class="testimonial-img" alt="">
                                 <h3>Panduan Penyelenggaraan</h3>
                                 <h4>Panduan bagi menyelenggara penyata bulanan</h4>
@@ -657,7 +660,7 @@
                     <div class="col-md-4 col-lg-3" style="margin-top: -8%">
                         <div class="swiper-slide">
                             <div class="testimonial-item"> --}}
-                                {{-- <p>
+            {{-- <p>
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
                                             noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
@@ -665,7 +668,7 @@
                                             esse veniam culpa fore nisi cillum quid.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/uem.png') }}"
+            {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/uem.png') }}"
                                     class="testimonial-img" alt="">
                                 <h3>Emel Pelesen</h3>
                                 <h4>Penghantaran e-mail kepada pelesen</h4>
@@ -676,7 +679,7 @@
                     <div class="col-md-4 col-lg-3" style="margin-top: -8%">
                         <div class="swiper-slide">
                             <div class="testimonial-item"> --}}
-                                {{-- <p>
+            {{-- <p>
                                             <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                             Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor
                                             noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat
@@ -684,7 +687,7 @@
                                             esse veniam culpa fore nisi cillum quid.
                                             <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                                         </p> --}}
-                                {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
+            {{-- <img src="{{ asset('theme/kilangstyles/img/testimonials/cp.png') }}"
                                     class="testimonial-img" alt="">
                                 <h3>Tukar Kata Laluan</h3>
                                 <h4>Tukar kata laluan bagi pengguna</h4>
@@ -700,9 +703,9 @@
         </div>
     </section><!-- End Testimonials Section --> --}}
 
-    </main><!-- End #main -->
+            </main><!-- End #main -->
 
-    {{-- <!-- ======= Footer ======= -->
+            {{-- <!-- ======= Footer ======= -->
     <footer>
         <div class="footer text-muted"> --}}
             {{-- <div class="float-start">
@@ -716,7 +719,7 @@
 
 
 
-    {{-- <footer id="footer">
+            {{-- <footer id="footer">
 
     <div class="footer-top">
       <div class="container">
@@ -791,12 +794,12 @@
     </div>
   </footer><!-- End Footer --> --}}
 
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+            {{-- <div id="preloader"></div> --}}
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                    class="bi bi-arrow-up-short"></i></a>
 
-    <!-- Vendor JS Files -->
-    {{-- <script src="assets/vendor/purecounter/purecounter.js"></script>
+            <!-- Vendor JS Files -->
+            {{-- <script src="assets/vendor/purecounter/purecounter.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -805,36 +808,50 @@
   <script src="assets/vendor/php-email-form/validate.js"></script> --}}
 
 
-    <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
-    </script>
-    <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
-    </script>
-    <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
+            </script>
+            <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
+            </script>
+            <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
+            <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
 
 
 
-    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('theme/js/app.js') }}"></script>
+            <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+            <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+            <script src="{{ asset('theme/js/app.js') }}"></script>
 
-    <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
-    <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
-    {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
+            <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
+            <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
+            {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
 
-    <script src="{{ asset('theme/js/main.js') }}"></script>
+            <script src="{{ asset('theme/js/main.js') }}"></script>
 
-    <!-- Template Main JS File -->
+            <!-- Template Main JS File -->
 
-    <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
-
-
-    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+            <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
 
 
+            <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+            </script>
+            <!-- Toastr -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+                        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+                        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+            {{-- toaster display --}}
+            <script>
+                toastr.options.fadeOut = 2500;
+                @if (Session::get('success'))
+                    toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
+                @elseif ($message = Session::get('error'))
+                    toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
+                @endif
+            </script>
 </body>
 
 </html>

@@ -30,15 +30,6 @@
     <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
     <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
 
-
-    <!-- Toastr -->
-    {{-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet"> --}}
-    {{-- <link href="build/toastr.css" rel="stylesheet" type="text/css" /> --}}
-    <link href="{{ asset('theme/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
-
-
-
-
     <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
 
     <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
@@ -50,16 +41,13 @@
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
 
-
-
     <link rel="stylesheet" href="{{ asset('theme/vendors/simple-datatables/style.css') }}">
-
-
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}" rel=" stylesheet">
 
-
+    <!-- Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
 
 
     {{-- <meta charset="UTF-8">
@@ -326,11 +314,11 @@
                             <ul class="submenu " style="margin-left:-5%">
                                 <li>
 
-                                        <a href="#">
-                                            <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
-                                            {{-- <i data-feather="user" width="20"></i> --}}
-                                            <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
-                                        </a>
+                                    <a href="#">
+                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="user" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
+                                    </a>
 
                                 </li>
 
@@ -526,8 +514,6 @@
 <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
 <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
 
-
-
 <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
 <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
 <script src="{{ asset('theme/js/app.js') }}"></script>
@@ -542,21 +528,8 @@
 
 <script src="{{ asset('theme/js/main.js') }}"></script>
 
-<script>
-    function isNumberKey(evt) {
-        var charCode = (evt.which) ? evt.which : evt.keyCode
-        if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
-            return false;
-        return true;
-    }
-</script>
-
-
-
 <!-- Template Main JS File -->
-
 <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
-
 
 {{-- <script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script> --}}
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
@@ -577,7 +550,26 @@
 
 <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
 
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+<!-- Toastr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+@yield('javascript')
+{{-- toaster display --}}
+<script>
+    toastr.options.fadeOut = 2500;
+    @if (Session::get('success'))
+        toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
+    @elseif ($message = Session::get('error'))
+        toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
+    @endif
+</script>
 
 <script>
     $(document).ready(function() {
@@ -599,34 +591,15 @@
             },
         });
     });
-
-    $(window).on('changed', (e) => {
-        // if($('#example').DataTable().clear().destroy()){
-        // $('#example').DataTable();
-        // }
-    })
-
-    // document.getElementById("form_type").onchange = function() {
-    //     myFunction()
-    // };
-
-    // function myFunction() {
-    //     console.log('asasa');
-    //     table.clear().draw();
-    // }
 </script>
 
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-{{-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="{{ asset ('theme/js/toastr.js') }}"></script> --}}
-
-@yield('javascript')
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+            return false;
+        return true;
+    }
+</script>
 
 </html>

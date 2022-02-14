@@ -48,12 +48,10 @@
 
     <!-- Template Main CSS File -->
     <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
-    <!-- =======================================================
-  * Template Name: OnePage - v4.7.0
-  * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <!-- Toastr -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -64,13 +62,12 @@
                 border-bottom: 2px solid rgb(0 0 0 / 24%);border-right: 1px solid #b0e9cc2b;
                 box-shadow: 20px 0px 20px 0px rgb(22 44 60 / 21%); background-color:  rgb(243, 213, 128)">
 
-                <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
+                    <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
                  width:50px; height:50px">
                     {{-- <strong>E-Kilang</strong><br />
                     <span>description</span> --}}
 
-                    <h6
-                        style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
+                    <h6 style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
                         <b>
                             E-Kilang</b>
                     </h6>
@@ -117,7 +114,7 @@
                         <li class="sidebar-item  has-sub">
                             <a href="#" class='sidebar-link'>
                                 <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-pen"  style="color:rgb(54, 51, 41) "></i>
+                                <i class="fas fa-pen" style="color:rgb(54, 51, 41) "></i>
                                 <span><b>Kemasukan Penyata Bulanan</b></span>
                             </a>
 
@@ -270,8 +267,8 @@
                         <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-2" >
-                                    <i class="fa fa-bell" style="font-size:18px;" ></i>
+                                <div class="mt-2">
+                                    <i class="fa fa-bell" style="font-size:18px;"></i>
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end dropdown-menu-large">
@@ -312,17 +309,20 @@
                                 {{-- <div class="avatar me-1">
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
                                 </div> --}}
-                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">{{ auth()->user()->username }}</div>
+                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">
+                                    {{ auth()->user()->username }}</div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp Akaun Pengguna</a>
+                                <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp Akaun
+                                    Pengguna</a>
                                 {{-- <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a> --}}
                                 <a class="dropdown-item" href="#"><i class="fa fa-gear"></i>&nbsp Tetapan</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                     <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
-                                <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logoutform" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </div>
@@ -351,7 +351,8 @@
                         <div class="col-md-12">
                             <div class="card" style="margin-right:10%; margin-left:10%">
                                 <div class="card-header" style="margin-bottom: -1%">
-                                    <h2 class='pl-3 card-heading' style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Pengumuman
+                                    <h2 class='pl-3 card-heading'
+                                        style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Pengumuman
                                     </h2>
                                 </div>
                                 <hr>
@@ -433,7 +434,8 @@
 
                             <div class="card" style="margin-right:10%; margin-left:10%">
                                 <div class="card-header " style="margin-bottom:-2%">
-                                    <h2 class='pl-3 card-heading' style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Peringatan
+                                    <h2 class='pl-3 card-heading'
+                                        style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Peringatan
                                     </h2>
                                 </div>
                                 <hr>
@@ -461,7 +463,8 @@
 
                             <div class="card" style="margin-right:10%; margin-left:10%">
                                 <div class="card-header" style="margin-bottom:-2%">
-                                    <h2 class='pl-3 card-heading' style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Penafian
+                                    <h2 class='pl-3 card-heading'
+                                        style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Penafian
                                     </h2>
                                 </div>
                                 <hr>
@@ -489,12 +492,12 @@
 
 
 
-                            </div>
                         </div>
-                        <br>
-
-
                     </div>
+                    <br>
+
+
+                </div>
 
 
 
@@ -548,8 +551,23 @@
 
 
             <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+            </script>
 
+            <!-- Toastr -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+                        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+                        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+            {{-- toaster display --}}
+            <script>
+                toastr.options.fadeOut = 2500;
+                @if (Session::get('success'))
+                    toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
+                @elseif ($message = Session::get('error'))
+                    toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
+                @endif
+            </script>
 </body>
 
 </html>
