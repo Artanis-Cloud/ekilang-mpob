@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
 use App\Models\H91Init;
-use App\Models\Ekmessage;
+use App\Models\Produk;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
@@ -152,7 +152,9 @@ class KilangController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.try', compact('returnArr', 'layout'));
+        $produk = Produk::orderBy('prodid', 'asc')->get();
+
+        return view('admin.try', compact('returnArr', 'layout', 'produk'));
     }
 
 

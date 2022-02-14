@@ -69,8 +69,8 @@ class Proses11Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.pengumuman'), 'name' => "Pengumuman"],
-            ['link' => route('admin.pengumuman'), 'name' => "Kemaskini Pengumuman"],
+            ['link' => route('admin.11emel'), 'name' => "Senarai Emel"],
+            ['link' => route('admin.11emel'), 'name' => "Papar Emel"],
 
         ];
 
