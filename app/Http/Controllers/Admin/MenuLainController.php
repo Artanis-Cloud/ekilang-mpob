@@ -167,7 +167,7 @@ class MenuLainController extends Controller
         return view('admin.menu-lain.tambahpengumuman', compact('returnArr', 'layout'));
     }
 
-    
+
     public function admin_tambah_pengumuman_proses (Request $request)
     {
         // dd($request->all());

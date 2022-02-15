@@ -107,21 +107,39 @@ class KilangBuahController extends Controller
     }
 
 
-    // public function admin_update_bahagian_i(Request $request, $id)
-    // {
-    //     // dd($request->all());
-    //     $pengumuman = Pengumuman::findOrFail($id);
-    //     $pengumuman->Message = $request->Message;
-    //     $pengumuman->Start_date = $request->Start_date;
-    //     $pengumuman->End_date = $request->End_date;
-    //     $pengumuman->Icon_new = $request->Icon_new;
-    //     $pengumuman->save();
+    public function buah_update_bahagian_i(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = E91Init::findOrFail($id);
+        $penyata->e91_aa1 = $request->e91_aa1;
+        $penyata->e91_aa2 = $request->e91_aa2;
+        $penyata->e91_aa3 = $request->e91_aa3;
+        $penyata->e91_aa4 = $request->e91_aa4;
+        $penyata->e91_ab1 = $request->e91_ab1;
+        $penyata->e91_ab2 = $request->e91_ab2;
+        $penyata->e91_ab3 = $request->e91_ab3;
+        $penyata->e91_ab4 = $request->e91_ab4;
+        $penyata->e91_ac1 = $request->e91_ac1;
+        $penyata->e91_ad1 = $request->e91_ad1;
+        $penyata->e91_ad2 = $request->e91_ad2;
+        $penyata->e91_ad3 = $request->e91_ad3;
+        $penyata->e91_ae1 = $request->e91_ae1;
+        $penyata->e91_ae2 = $request->e91_ae2;
+        $penyata->e91_ae3 = $request->e91_ae3;
+        $penyata->e91_ae4 = $request->e91_ae4;
+        $penyata->e91_ag1 = $request->e91_ag1;
+        $penyata->e91_ag2 = $request->e91_ag2;
+        $penyata->e91_ag3 = $request->e91_ag3;
+        $penyata->e91_ag4 = $request->e91_ag4;
+        $penyata->save();
 
 
-    //     return redirect()->back()
-    //         ->with('success', 'Pengumuman telah dikemaskini');
 
-    // }
+
+        return redirect()->route('buah.bahagianii')
+            ->with('success', 'Maklumat telah disimpan');
+
+    }
 
     public function buah_bahagianii()
     {
