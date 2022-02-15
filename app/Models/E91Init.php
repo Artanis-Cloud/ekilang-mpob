@@ -18,7 +18,8 @@ class E91Init extends Model
      *
      */
     protected $table = 'e91_init'; //Penyata bulanan terkini - Kilang Buah (initialize - proses 3)
-
+    protected $primaryKey = 'e91_reg';
+    public $timestamps = false;
     protected $fillable = [
         'e91_reg',
         'e91_nl',

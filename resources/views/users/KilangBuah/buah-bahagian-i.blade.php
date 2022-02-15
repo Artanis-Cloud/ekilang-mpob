@@ -83,7 +83,8 @@
                                         </div>
                                         <div class="row" id="table-bordered">
 
-                                            <form wire:submit.prevent='store'>
+                                            <form action="{{route('buah.update.bahagian.i',[$penyata->e91_reg])}}" method="post">
+                                                @csrf
                                                 <div class="card">
 
                                                     <div class="card-content">
@@ -113,25 +114,25 @@
                                                                         <td class="text-bold-500">A.
                                                                             Stok Awal Di Premis</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="number" size="10"
+                                                                            <input type="number" size="10" name='e91_aa1'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_aa1 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="number" size="10"
+                                                                            <input type="number" size="10" name='e91_aa2'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_aa2 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="number" size="10"
+                                                                            <input type="number" size="10" name='e91_aa3'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_aa3 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="number" size="10"
+                                                                            <input type="number" size="10" name='e91_aa4'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_aa4 ?? 0 }}">
@@ -142,7 +143,7 @@
                                                                         <td class="text-bold-500">B.
                                                                             Pembelian / Penerimaan</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="number" size="10"
+                                                                            <input type="number" size="10" name='e91_ab1'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ab1 ?? 0 }}">
@@ -313,11 +314,15 @@
                                                 <div class="row" style=" float:right">
 
                                                     <div class="col-md-12">
-
-                                                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                                        <div class="row form-group" style="padding-top: 10px; ">
+                                                            <div class="text-right col-md-12 mb-4 ">
+                                                                <button type="submit" class="btn btn-primary ">Simpan & Seterusnya</button>
+                                                            </div>
+                                                        </div>
+                                                        {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                                             data-bs-target="#exampleModalCenter">
                                                             Simpan & Seterusnya
-                                                        </button>
+                                                        </button> --}}
                                                         <!-- Vertically Centered modal Modal -->
                                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1"
                                                             role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -347,7 +352,7 @@
                                                                             <span class="d-none d-sm-block"
                                                                                 style="color:#275047">Tidak</span>
                                                                         </button>
-                                                                        <button type="button" class="btn btn-primary ml-1"
+                                                                        <button type="submit" class="btn btn-primary ml-1"
                                                                             data-bs-dismiss="modal">
                                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                                             <span class="d-none d-sm-block">Ya</span>
