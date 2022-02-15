@@ -190,7 +190,7 @@ class Proses9Controller extends Controller
         return view('admin.proses9.9papar-process', compact('returnArr', 'layout', 'tahun', 'bulan', 'users'));
     }
 
-    public function admin_9penyataterdahulu_process(Request $request)
+    public function nnnadmin_9penyataterdahulu_process(Request $request)
     {
         //dd($request->all());
 
