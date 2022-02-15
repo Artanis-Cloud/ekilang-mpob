@@ -1,7 +1,6 @@
 @extends($layout)
 
 @section('content')
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
     <!-- ======= Hero Section ======= -->
@@ -66,7 +65,8 @@
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian II</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Jam Pengilangan, Kadar Perahan Dan
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Jam Pengilangan, Kadar
+                                            Perahan Dan
                                             Harga</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
@@ -79,7 +79,7 @@
                                             style="text-align:right"><i><u>Panduan
                                                     Mengisi Maklumat Bahagian II</u></i></a>
                                     </div>
-                                    <form>
+                                    <form action="{{route('buah.update.bahagian.ii',[$penyata->e91_reg])}}" method="post">
                                         @csrf
                                         <div class="container center mt-3">
                                             <div class="row">
@@ -87,9 +87,11 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
                                                     Jumlah Jam Pengilangan</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='jam_pengilangan' style="margin-left:42%; width:40%"
+                                                    <input type="text" class="form-control" name='e91_ah1'
+                                                        style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="jam_pengilangan" required
-                                                        title="Sila isikan butiran ini.">
+                                                        title="Sila isikan butiran ini."
+                                                        value="{{ $penyata->e91_ah1 ?? 0 }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -103,9 +105,11 @@
                                                     Kadar
                                                     Perahan MKSM (OER) Yang Diperolehi</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='kadar_perahan_mksm' style="margin-left:42%; width:40%"
+                                                    <input type="text" class="form-control" name='e91_ah2'
+                                                        style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="kadar_perahan_mksm"
-                                                        required title="Sila isikan butiran ini.">
+                                                        required title="Sila isikan butiran ini."
+                                                        value="{{ $penyata->e91_ah2 ?? 0 }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -118,9 +122,11 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">iii.
                                                     Kadar Perolehan Isirung (KER)</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='kadar_perolehan_isirung' style="margin-left:42%; width:40%"
+                                                    <input type="text" class="form-control" name='e91_ah3'
+                                                        style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="kadar_perolehan_isirung"
-                                                        required title="Sila isikan butiran ini.">
+                                                        required title="Sila isikan butiran ini."
+                                                        value="{{ $penyata->e91_ah2 ?? 0 }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -133,9 +139,11 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">iv.
                                                     Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='harga_purata_buah_sawit' style="margin-left:42%; width:40%"
+                                                    <input type="text" class="form-control" name='e91_ah4'
+                                                        style="margin-left:42%; width:40%"
                                                         onkeypress="return isNumberKey(event)" id="harga_purata_buah_sawit"
-                                                        placeholder="RM" required title="Sila isikan butiran ini.">
+                                                        placeholder="RM" required title="Sila isikan butiran ini."
+                                                        value="{{ $penyata->e91_ah4 ?? 0 }}">
                                                     <p style="margin-left:42%;"><i>(1% Kadar Perahan)</i></p>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -168,7 +176,7 @@
                                                 </div>
                                             </div>
                                         </div>
-<br>
+                                        <br>
 
 
                                         {{-- kadar oer meningkat --}}
@@ -186,9 +194,6 @@
                                                                         <tr>
                                                                             <th>Sebab-Sebab OER Meningkat</th>
                                                                             <th>Tanda (&#10004;)</th>
-
-
-
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -196,11 +201,18 @@
                                                                             <td class="text-bold-500">a.
                                                                                 Buah berkualiti</td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox1"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah5 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox1" name='e91_ah5'
+                                                                                        style=" width: 25px;height: 25px;"
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox1"
+                                                                                        style=" width: 25px;height: 25px;" name='e91_ah5'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
+
+
 
 
                                                                         </tr>
@@ -209,10 +221,15 @@
                                                                                 yang
                                                                                 baik</td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox2"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah6 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox2"
+                                                                                        style=" width: 25px;height: 25px;" name='e91_ah6'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox2"
+                                                                                        style=" width: 25px;height: 25px;" name='e91_ah6'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -222,10 +239,15 @@
                                                                                 semula
                                                                                 minyak</td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox3"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah7 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox3"
+                                                                                        style=" width: 25px;height: 25px;" name='e91_ah7'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox3"
+                                                                                        style=" width: 25px;height: 25px;" name='e91_ah7'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -234,10 +256,15 @@
                                                                             <td class="text-bold-500">d. Kecekapan kilang /
                                                                                 mesin</td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox4"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah8 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox4"
+                                                                                        style=" width: 25px;height: 25px;" name='e91_ah8'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox4"
+                                                                                        style=" width: 25px;height: 25px;" name='e91_ah8'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -248,10 +275,15 @@
                                                                                 bks yang minima <i>(Less ffb handling)</i>
                                                                             </td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox5"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah9 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox5"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah9'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox5"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah9'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -260,10 +292,15 @@
                                                                             <td class="text-bold-500">f. Proses lebih buah
                                                                                 lerai</td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox6"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah10 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox6"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah10'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox6"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah10'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -285,16 +322,7 @@
                                                                     </tr> --}}
                                                                     </tbody>
                                                                 </table>
-
-
-
-
-
-
                                                             </div>
-
-
-
                                                         </div>
                                                     </div>
 
@@ -307,7 +335,7 @@
                                                                     <i>(Max.
                                                                         100 character)</i></label>
                                                                 <input type="text" id="lain-sebab" class="form-control"
-                                                                    maxlength="100" name="lain-sebab">
+                                                                    maxlength="100" name="lain-sebab" value="{{ $penyata->e91_ah18 ?? '-' }}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -342,10 +370,15 @@
                                                                             <td class="text-bold-500">a.
                                                                                 Tiada / Kurang buah berkualiti</td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox7"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah11 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox7"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah11'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox7"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah11'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -354,10 +387,15 @@
                                                                             <td class="text-bold-500">b. Kesan cuaca kering
                                                                             </td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox8"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah12 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox8"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah12'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox8"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah12'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -365,10 +403,15 @@
                                                                         <tr>
                                                                             <td class="text-bold-500">c. Jerebu</td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox9"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah13 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox9"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah13'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox9"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah13'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -378,10 +421,18 @@
                                                                                 hujan
                                                                                 yang berlebihan</td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox10"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                {{-- <input type="checkbox" id="checkbox10"
+                                                                                    style=" width: 25px;height: 25px;"
+                                                                                    class='form-check-input' value="{{ $penyata->e91_ah14 == 'Y' ? checked }}" > --}}
+                                                                                @if ($penyata->e91_ah14 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox10"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah14'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox10"
+                                                                                        style=" width: 25px;height: 25px;"  name='e91_ah14'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -389,10 +440,17 @@
                                                                         <tr>
                                                                             <td class="text-bold-500">e. Banjir</td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox11"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah15 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox11"
+                                                                                        style=" width: 25px;height: 25px;"
+                                                                                        name='e91_ah15'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox11"
+                                                                                        style=" width: 25px;height: 25px;"
+                                                                                        name='e91_ah15'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -402,10 +460,17 @@
                                                                                 baru
                                                                                 berhasil</td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox12"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah16 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox12"
+                                                                                        style=" width: 25px;height: 25px;"
+                                                                                        name='e91_ah16'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox12"
+                                                                                        style=" width: 25px;height: 25px;"
+                                                                                        name='e91_ah16'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
 
@@ -414,10 +479,17 @@
                                                                             <td class="text-bold-500">g. Kurang buah lerai
                                                                             </td>
                                                                             <td style="text-align:center;">
-                                                                                <input type="checkbox" id="checkbox13"
-                                                                                    style=" width: 25px;
-                                                                                                                                    height: 25px;"
-                                                                                    class='form-check-input'>
+                                                                                @if ($penyata->e91_ah17 == 'Y')
+                                                                                    <input type="checkbox" id="checkbox13"
+                                                                                        style=" width: 25px;height: 25px;"
+                                                                                        name='e91_ah17'
+                                                                                        class='form-check-input' checked>
+                                                                                @else
+                                                                                    <input type="checkbox" id="checkbox13"
+                                                                                        style=" width: 25px;height: 25px;"
+                                                                                        name='e91_ah17'
+                                                                                        class='form-check-input'>
+                                                                                @endif
                                                                             </td>
 
                                                                         </tr>
@@ -442,7 +514,8 @@
                                                                     <i>(Max.
                                                                         100 character)</i></label>
                                                                 <input type="text" id="lain-sebab" class="form-control"
-                                                                    name="lain-sebab" maxlength="100">
+                                                                    name='e91_ah18' maxlength="100"
+                                                                    value="{{ $penyata->e91_ah18 ?? '-' }}">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -487,11 +560,16 @@
                                                     <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
                                                         style="float: left">Sebelumnya</a>
                                                 </div>
-                                                <div class="text-right col-md-7 mb-4 ">
+                                                {{-- <div class="text-right col-md-7 mb-4 ">
                                                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                                         style="float: right" data-bs-target="#exampleModalCenter">Simpan &
                                                         Seterusnya</button>
-                                                </div>
+                                                </div> --}}
+                                                {{-- <div class="row form-group" style="padding-top: 10px; "> --}}
+                                                    <div class="text-right col-md-7 mb-4 ">
+                                                        <button type="submit" class="btn btn-primary" style="float: right">Simpan & Seterusnya</button>
+                                                    </div>
+                                                {{-- </div> --}}
 
                                             </div>
 
@@ -521,7 +599,7 @@
                                                                 <span class="d-none d-sm-block"
                                                                     style="color:#275047">Tidak</span>
                                                             </button>
-                                                            <button type="button" class="btn btn-primary ml-1"
+                                                            <button type="submit" class="btn btn-primary ml-1"
                                                                 data-bs-dismiss="modal">
                                                                 <i class="bx bx-check d-block d-sm-none"></i>
                                                                 <span class="d-none d-sm-block">Ya</span>
@@ -603,5 +681,4 @@
             }
         }
     </script>
-
 @endsection

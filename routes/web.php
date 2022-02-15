@@ -140,13 +140,25 @@ Route::middleware('auth')->group(function () {
         Route::get('buah/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'buah_dashboard'])->name('buah.dashboard');
         Route::get('buah/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_maklumatasaspelesen'])->name('buah.maklumatasaspelesen');
         Route::get('buah/tukar-password', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_tukarpassword'])->name('buah.tukarpassword');
+
         Route::get('buah/bahagian-i', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagiani'])->name('buah.bahagiani');
         Route::post('buah/update-bahagian-i/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_i'])->name('buah.update.bahagian.i');
 
         Route::get('buah/bahagian-ii', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianii'])->name('buah.bahagianii');
+        Route::post('buah/update-bahagian-ii/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_ii'])->name('buah.update.bahagian.ii');
+
+
         Route::get('buah/bahagian-iii', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianiii'])->name('buah.bahagianiii');
+        Route::post('buah/update-bahagian-iii/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_iii'])->name('buah.update.bahagian.iii');
+
         Route::get('buah/bahagian-iv', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianiv'])->name('buah.bahagianiv');
+        Route::post('buah/update-bahagian-iv/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_iv'])->name('buah.update.bahagian.iv');
+
+
         Route::get('buah/bahagian-v', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianv'])->name('buah.bahagianv');
+        Route::post('buah/update-bahagian-v/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_v'])->name('buah.update.bahagian.v');
+
+
         Route::get('buah/bahagian-vi', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianvi'])->name('buah.bahagianvi');
         Route::get('buah/papar-penyata', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_paparpenyata'])->name('buah.paparpenyata');
         Route::get('buah/email', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_email'])->name('buah.email');

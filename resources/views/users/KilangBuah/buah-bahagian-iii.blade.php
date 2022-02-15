@@ -1,9 +1,6 @@
 @extends($layout)
 
 @section('content')
-
-
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
@@ -16,7 +13,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-2 row">
+            <div class="mt-3 mb-2 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -66,23 +63,17 @@
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian III</h3>
-                                        <h5 style="color: rgb(39, 80, 71) ; font-size:14px">Belian / Penerimaan Bekalan Buah Kelapa Sawit
+                                        <h5 style="color: rgb(39, 80, 71) ; font-size:14px">Belian / Penerimaan Bekalan Buah
+                                            Kelapa Sawit
                                             (FFB) (52)</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
 
-
-
-
-
-
-
-
-
                                     <div class="row" id="table-bordered">
                                         <div class="col-12 mt-2" style="margin-bottom: -2%">
-                                            <form action="#" class="">
+                                            <form action="{{ route('buah.update.bahagian.iii', [$penyata->e91_reg]) }}"
+                                                method="post">
                                                 @csrf
                                                 <div class="card">
 
@@ -104,9 +95,10 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">1. Estet Sendiri</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc" name='e91_ai1'
+                                                                                size="15" style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e91_ai1 ?? 0 }}">
                                                                         </td>
 
 
@@ -114,9 +106,10 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">2. Estet Luar</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc" name='e91_ai2'
+                                                                                size="15" style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e91_ai2 ?? 0 }}">
                                                                         </td>
 
 
@@ -124,9 +117,10 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">3. Peniaga Buah</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc" name='e91_ai3'
+                                                                                size="15" style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e91_ai3 ?? 0 }}">
                                                                         </td>
 
 
@@ -134,9 +128,10 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">4. Pekebun Kecil</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc" name='e91_ai4'
+                                                                                size="15" style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e91_ai4 ?? 0 }}">
                                                                         </td>
 
 
@@ -144,9 +139,10 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">5. Kilang Buah Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc" name='e91_ai5'
+                                                                                size="15" style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e91_ai5 ?? 0 }}">
                                                                         </td>
 
 
@@ -154,9 +150,10 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">6. Lain-Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" class="calc"
-                                                                                value="" size="15"
-                                                                                onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" class="calc" name='e91_ai6'
+                                                                                size="15" style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e91_ai6 ?? 0 }}">
                                                                         </td>
 
 
@@ -178,8 +175,7 @@
                                                                             <b>Jumlah Bahagian I</b>
                                                                         </td>
                                                                         <td style="text-align:center;">
-
-                                                                        </td>
+                                                                            <span><b>{{ $penyata->e91_ab1 }}</b></span>
 
                                                                     </tr>
                                                                 </tbody>
@@ -198,16 +194,21 @@
                                     <br>
 
 
-                                    <div class="row form-group"  >
+                                    <div class="row form-group">
 
 
                                         <div class="text-left col-md-5">
                                             <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
                                         </div>
-                                        <div class="text-right col-md-7 ">
+                                        {{-- <div class="text-right col-md-7 ">
                                             <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                                 style="float: right" data-bs-target="#exampleModalCenter">Simpan &
+                                                Seterusnya</button>
+                                        </div> --}}
+
+                                        <div class="text-right col-md-7 mb-4 ">
+                                            <button type="submit" class="btn btn-primary" style="float: right">Simpan &
                                                 Seterusnya</button>
                                         </div>
 
@@ -247,22 +248,21 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                {{-- </div> --}}
-                                </form>
+                                    </form>
 
+
+                                </div>
 
                             </div>
                         </div>
-
-
                     </div>
+
+
+
+
                 </div>
             </div>
-
-
-
-
+        </div>
     </section><!-- End Hero -->
 
 
@@ -302,5 +302,4 @@
     </body>
 
     </html>
-
 @endsection

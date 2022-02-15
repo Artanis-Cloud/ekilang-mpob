@@ -134,8 +134,6 @@ class KilangBuahController extends Controller
         $penyata->save();
 
 
-
-
         return redirect()->route('buah.bahagianii')
             ->with('success', 'Maklumat telah disimpan');
 
@@ -157,31 +155,63 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+        // $oer->assign('checked_flag', $db_data=='0'  ? '' : 'checked');
 
-
-        return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout'));
+        return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata'));
     }
 
-    public function buah_bahagianii2()
+
+    public function buah_update_bahagian_ii(Request $request, $id)
     {
+        // dd($request->all());
+        $penyata = E91Init::findOrFail($id);
+        $penyata->e91_ah1 = $request->e91_ah1;
+        $penyata->e91_ah2 = $request->e91_ah2;
+        $penyata->e91_ah3 = $request->e91_ah3;
+        $penyata->e91_ah4 = $request->e91_ah4;
+        // $penyata->e91_ah5 = $request->e91_ah5;
+        // $penyata->e91_ah6 = $request->e91_ah6;
+        // $penyata->e91_ah7 = $request->e91_ah7;
+        // $penyata->e91_ah8 = $request->e91_ah8;
+        // $penyata->e91_ah9 = $request->e91_ah9;
+        // $penyata->e91_ah10 = $request->e91_ah10;
+        // $penyata->e91_ah11 = $request->e91_ah11;
+        // $penyata->e91_ah12 = $request->e91_ah12;
+        // $penyata->e91_ah13 = $request->e91_ah13;
+        // $penyata->e91_ah14 = $request->e91_ah14;
+        // $penyata->e91_ah15 = $request->e91_ah15;
+        // $penyata->e91_ah16 = $request->e91_ah16;
+        // $penyata->e91_ah17 = $request->e91_ah17;
+        // $penyata->e91_ah18 = $request->e91_ah18;
+        $penyata->save();
 
-        $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianii'), 'name' => "Bahagian II"],
-        ];
 
-        $kembali = route('buah.bahagiani');
+        return redirect()->route('buah.bahagianiii')
+            ->with('success', 'Maklumat telah disimpan');
 
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.kbuah';
-
-
-
-        return view('users.KilangBuah.buah-bahagian-ii2', compact('returnArr', 'layout'));
     }
+
+    // public function buah_bahagianii2()
+    // {
+
+    //     $breadcrumbs    = [
+    //         ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+    //         ['link' => route('buah.bahagianii'), 'name' => "Bahagian II"],
+    //     ];
+
+    //     $kembali = route('buah.bahagiani');
+
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.kbuah';
+
+
+
+    //     return view('users.KilangBuah.buah-bahagian-ii2', compact('returnArr', 'layout'));
+    // }
 
     public function buah_bahagianiii()
     {
@@ -199,9 +229,44 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+        // dd($penyata);
 
 
-        return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout'));
+        return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata'));
+    }
+
+
+    public function buah_update_bahagian_iii(Request $request, $id)
+    {
+
+
+        // dd($request->all());
+        $penyata = E91Init::findOrFail($id);
+        $penyata->e91_ai1 = $request->e91_ai1;
+        $penyata->e91_ai2 = $request->e91_ai2;
+        $penyata->e91_ai3 = $request->e91_ai3;
+        $penyata->e91_ai4 = $request->e91_ai4;
+        $penyata->e91_ai5 = $request->e91_ai5;
+        $penyata->e91_ai6 = $request->e91_ai6;
+        // $penyata->e91_ah7 = $request->e91_ah7;
+        // $penyata->e91_ah8 = $request->e91_ah8;
+        // $penyata->e91_ah9 = $request->e91_ah9;
+        // $penyata->e91_ah10 = $request->e91_ah10;
+        // $penyata->e91_ah11 = $request->e91_ah11;
+        // $penyata->e91_ah12 = $request->e91_ah12;
+        // $penyata->e91_ah13 = $request->e91_ah13;
+        // $penyata->e91_ah14 = $request->e91_ah14;
+        // $penyata->e91_ah15 = $request->e91_ah15;
+        // $penyata->e91_ah16 = $request->e91_ah16;
+        // $penyata->e91_ah17 = $request->e91_ah17;
+        // $penyata->e91_ah18 = $request->e91_ah18;
+        $penyata->save();
+
+
+        return redirect()->route('buah.bahagianiv')
+            ->with('success', 'Maklumat telah disimpan');
+
     }
 
     public function buah_bahagianiv()
@@ -220,10 +285,46 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout'));
+        return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata'));
     }
+
+
+
+    public function buah_update_bahagian_iv(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = E91Init::findOrFail($id);
+        $penyata->e91_aj1 = $request->e91_aj1;
+        $penyata->e91_aj2 = $request->e91_aj2;
+        $penyata->e91_aj3 = $request->e91_aj3;
+        $penyata->e91_aj4 = $request->e91_aj4;
+        $penyata->e91_aj5 = $request->e91_aj5;
+        $penyata->e91_aj6 = $request->e91_aj6;
+        $penyata->e91_aj7 = $request->e91_aj7;
+        $penyata->e91_aj8 = $request->e91_aj8;
+        // $penyata->e91_ac1 = $request->e91_ac1;
+        // $penyata->e91_ad1 = $request->e91_ad1;
+        // $penyata->e91_ad2 = $request->e91_ad2;
+        // $penyata->e91_ad3 = $request->e91_ad3;
+        // $penyata->e91_ae1 = $request->e91_ae1;
+        // $penyata->e91_ae2 = $request->e91_ae2;
+        // $penyata->e91_ae3 = $request->e91_ae3;
+        // $penyata->e91_ae4 = $request->e91_ae4;
+        // $penyata->e91_ag1 = $request->e91_ag1;
+        // $penyata->e91_ag2 = $request->e91_ag2;
+        // $penyata->e91_ag3 = $request->e91_ag3;
+        // $penyata->e91_ag4 = $request->e91_ag4;
+        $penyata->save();
+
+
+        return redirect()->route('buah.bahagianv')
+            ->with('success', 'Maklumat telah disimpan');
+
+    }
+
 
     public function buah_bahagianv()
     {
@@ -241,9 +342,43 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout'));
+        return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata'));
+    }
+
+
+    public function buah_update_bahagian_v(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = E91Init::findOrFail($id);
+        $penyata->e91_ak1 = $request->e91_ak1;
+        $penyata->e91_ak2 = $request->e91_ak2;
+        $penyata->e91_ak3 = $request->e91_ak3;
+        // $penyata->e91_aj4 = $request->e91_aj4;
+        // $penyata->e91_aj5 = $request->e91_aj5;
+        // $penyata->e91_aj6 = $request->e91_aj6;
+        // $penyata->e91_aj7 = $request->e91_aj7;
+        // $penyata->e91_aj8 = $request->e91_aj8;
+        // $penyata->e91_ac1 = $request->e91_ac1;
+        // $penyata->e91_ad1 = $request->e91_ad1;
+        // $penyata->e91_ad2 = $request->e91_ad2;
+        // $penyata->e91_ad3 = $request->e91_ad3;
+        // $penyata->e91_ae1 = $request->e91_ae1;
+        // $penyata->e91_ae2 = $request->e91_ae2;
+        // $penyata->e91_ae3 = $request->e91_ae3;
+        // $penyata->e91_ae4 = $request->e91_ae4;
+        // $penyata->e91_ag1 = $request->e91_ag1;
+        // $penyata->e91_ag2 = $request->e91_ag2;
+        // $penyata->e91_ag3 = $request->e91_ag3;
+        // $penyata->e91_ag4 = $request->e91_ag4;
+        $penyata->save();
+
+
+        return redirect()->route('buah.paparpenyata')
+            ->with('success', 'Maklumat telah disimpan');
+
     }
 
     public function buah_bahagianvi()
@@ -270,22 +405,22 @@ class KilangBuahController extends Controller
     public function buah_paparpenyata()
     {
 
-        // $breadcrumbs    = [
-        //     ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-        //     ['link' => route('buah.paparpenyata'), 'name' => "Penyata Bulanan"],
-        // ];
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('buah.paparpenyata'), 'name' => "Penyata Bulanan"],
+        ];
 
-        // $kembali = route('buah.bahagianvi');
+        $kembali = route('buah.bahagianvi');
 
-        // $returnArr = [
-        //     'breadcrumbs' => $breadcrumbs,
-        //     'kembali'     => $kembali,
-        // ];
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
         $layout = 'layouts.kbuah';
 
 
 
-        return view('users.KilangBuah.buah-papar-penyata', compact('layout'));
+        return view('users.KilangBuah.buah-papar-penyata', compact('layout','returnArr'));
     }
 
     public function buah_email()
