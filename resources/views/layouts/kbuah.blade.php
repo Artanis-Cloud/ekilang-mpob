@@ -313,14 +313,14 @@
 
 
 
-            <footer>
+            {{-- <footer>
                 <div class="footer text-muted">
 
                     <div style="text-align: center">
                         <p style="font-size:14px; color:white">Developed by Artanis Cloud</a></p>
                     </div>
                 </div>
-            </footer>
+            </footer> --}}
 
         </div>
     </div>
@@ -355,6 +355,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     @yield('datatable')
+    @yield('javascript')
 
     <script>
         $(document).ready(function() {

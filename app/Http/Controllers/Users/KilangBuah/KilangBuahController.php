@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Users\KilangBuah;
 
 use App\Http\Controllers\Controller;
+use App\Models\E91Init;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\RegPelesen;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use DB;
 
 class KilangBuahController extends Controller
 {
@@ -41,6 +43,7 @@ class KilangBuahController extends Controller
 
 
         //dd($pelesen);
+        // $data = .....;
 
 
 
@@ -85,10 +88,40 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+        // dd($no_lesen);
+
+        // foreach($no_lesen  as $data){
+        //     $penyata = DB::select("SELECT e91_aa1,e91_aa2,e91_aa3,e91_aa4,e91_ab1,e91_ab2,
+		// 	e91_ab3,e91_ab4,e91_ac1,e91_ad1,e91_ad2,
+		// 	e91_ad3,e91_ae1,e91_ae2,e91_ae3,e91_ae4,
+		// 	e91_af1,e91_af2,e91_af3,e91_ag1,e91_ag2,e91_ag3,e91_ag4
+        //     FROM e91_init
+        //    WHERE e91_nl = $data->e91_nl");
+        // }
+
+        // dd($penyata);
 
 
-        return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout'));
+        return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout','penyata'));
     }
+
+
+    // public function admin_update_bahagian_i(Request $request, $id)
+    // {
+    //     // dd($request->all());
+    //     $pengumuman = Pengumuman::findOrFail($id);
+    //     $pengumuman->Message = $request->Message;
+    //     $pengumuman->Start_date = $request->Start_date;
+    //     $pengumuman->End_date = $request->End_date;
+    //     $pengumuman->Icon_new = $request->Icon_new;
+    //     $pengumuman->save();
+
+
+    //     return redirect()->back()
+    //         ->with('success', 'Pengumuman telah dikemaskini');
+
+    // }
 
     public function buah_bahagianii()
     {
