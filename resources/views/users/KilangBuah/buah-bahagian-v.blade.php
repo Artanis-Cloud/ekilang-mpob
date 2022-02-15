@@ -1,9 +1,6 @@
 @extends($layout)
 
 @section('content')
-
-
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
@@ -16,7 +13,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-2 row">
+            <div class="mt-3 mb-2 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -66,7 +63,8 @@
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian V</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Edaran / Jualan Isirung Sawit (PK) Dalam Negeri
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Edaran / Jualan Isirung Sawit
+                                            (PK) Dalam Negeri
                                             (51)
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
@@ -74,10 +72,11 @@
                                     <hr>
 
 
-
-                                    <div class="row" id="table-bordered">
-                                        <div class="col-12 mt-2" style="margin-bottom: -2%">
-                                            <form wire:submit.prevent='store'>
+                                    <form action="{{ route('buah.update.bahagian.v', [$penyata->e91_reg]) }}"
+                                        method="post">
+                                        @csrf
+                                        <div class="row" id="table-bordered">
+                                            <div class="col-12 mt-2" style="margin-bottom: -2%">
                                                 <div class="card">
 
                                                     <div class="card-content">
@@ -98,8 +97,10 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">1. Kilang Isirung</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" class="calc"
-                                                                                onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" size="15"
+                                                                                class="calc" name='e91_ak1' style="text-align:center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e91_ak1 ?? 0 }}">
                                                                         </td>
 
 
@@ -107,8 +108,10 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">2. Kilang Peniaga</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" class="calc"
-                                                                                onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" size="15"
+                                                                                class="calc" name='e91_ak2' style="text-align:center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e91_ak2 ?? 0 }}">
                                                                         </td>
 
 
@@ -116,8 +119,10 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">3. Lain-Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15" class="calc"
-                                                                                onkeypress="return isNumberKey(event)">
+                                                                            <input type="text" size="15"
+                                                                                class="calc" name='e91_ak3' style="text-align:center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e91_ak3 ?? 0 }}">
                                                                         </td>
 
 
@@ -130,7 +135,7 @@
                                                                             <b>Jumlah</b>
                                                                         </td>
                                                                         <td style="text-align:center;">
-                                                                            <b><span id="total"></span></b>
+                                                                            <b><span id="total">{{ ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) }}</span></b>
 
                                                                         </td>
 
@@ -141,7 +146,7 @@
                                                                             <b>Jumlah Bahagian I</b>
                                                                         </td>
                                                                         <td style="text-align:center;">
-
+                                                                            <b><span>{{ $penyata->e91_ae3 }}</span></b>
                                                                         </td>
 
                                                                     </tr>
@@ -153,65 +158,71 @@
 
 
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    <br>
+                                        <br>
 
 
 
 
 
-                                    <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                        <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
+                                            <div class="text-left col-md-5">
+                                                <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
+                                                    style="float: left">Sebelumnya</a>
+                                            </div>
+                                            {{-- <div class="text-right col-md-7 mb-2 ">
+                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                    style="float: right"
+                                                    data-bs-target="#exampleModalCenter">Hantar</button>
+                                            </div> --}}
+                                            <div class="text-right col-md-7 mb-4 ">
+                                                <button type="submit" class="btn btn-primary " style="float: right;">Hantar</button>
+                                            </div>
+
                                         </div>
-                                        <div class="text-right col-md-7 mb-2 ">
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right" data-bs-target="#exampleModalCenter">Hantar</button>
-                                        </div>
 
-                                    </div>
-
-                                    <!-- Vertically Centered modal Modal -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menghantar penyata ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Hantar</span>
-                                                    </button>
+                                        <!-- Vertically Centered modal Modal -->
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Anda pasti mahu menghantar penyata ini?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block"
+                                                                style="color:#275047">Tidak</span>
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary ml-1"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Hantar</span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                                 <br>
-                                </form>
+
 
                             </div>
                         </div>
@@ -256,7 +267,7 @@
                 var total = 0;
                 $('.calc').each(function() {
                     if ($(this).val() != '') {
-                        total += parseInt($(this).val());
+                        total += parseFloat($(this).val());
                     }
                 });
                 $('#total').html(total);
@@ -267,5 +278,4 @@
     </body>
 
     </html>
-
 @endsection

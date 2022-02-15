@@ -150,19 +150,19 @@
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ab2'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ab2 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ab3'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ab3 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ab4'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ab4 ?? 0 }}">
                                                                         </td>
@@ -173,7 +173,7 @@
                                                                             Diproses</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ac1'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ac1 ?? 0 }}">
                                                                         </td>
@@ -204,19 +204,19 @@
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ad1'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ad1 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ad2'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ad2 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ad3'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ad3 ?? 0 }}">
                                                                         </td>
@@ -227,25 +227,25 @@
                                                                             Penjualan / Pengedaran Tempatan</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ae1'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ae1 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ae2'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ae2 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ae3'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ae3 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ae4'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ae4 ?? 0 }}">
                                                                         </td>
@@ -277,26 +277,26 @@
                                                                             Stok Akhir Di Premis</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ag1'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ag1 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ag2'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ag2 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ag3'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 onchange="setTwoNumberDecimal"
                                                                                 value="{{ $penyata->e91_ag3 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="number" size="10"
-                                                                                style="text-align: center"
+                                                                                style="text-align: center"  name='e91_ag4'
                                                                                 onchange="setTwoNumberDecimal"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ag4 ?? 0 }}">
