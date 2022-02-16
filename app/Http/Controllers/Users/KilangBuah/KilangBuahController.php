@@ -170,20 +170,20 @@ class KilangBuahController extends Controller
         $penyata->e91_ah2 = $request->e91_ah2;
         $penyata->e91_ah3 = $request->e91_ah3;
         $penyata->e91_ah4 = $request->e91_ah4;
-        // $penyata->e91_ah5 = $request->e91_ah5;
-        // $penyata->e91_ah6 = $request->e91_ah6;
-        // $penyata->e91_ah7 = $request->e91_ah7;
-        // $penyata->e91_ah8 = $request->e91_ah8;
-        // $penyata->e91_ah9 = $request->e91_ah9;
-        // $penyata->e91_ah10 = $request->e91_ah10;
-        // $penyata->e91_ah11 = $request->e91_ah11;
-        // $penyata->e91_ah12 = $request->e91_ah12;
-        // $penyata->e91_ah13 = $request->e91_ah13;
-        // $penyata->e91_ah14 = $request->e91_ah14;
-        // $penyata->e91_ah15 = $request->e91_ah15;
-        // $penyata->e91_ah16 = $request->e91_ah16;
-        // $penyata->e91_ah17 = $request->e91_ah17;
-        // $penyata->e91_ah18 = $request->e91_ah18;
+        $penyata->e91_ah5 = $request->e91_ah5 ?? 'N';
+        $penyata->e91_ah6 = $request->e91_ah6 ;
+        $penyata->e91_ah7 = $request->e91_ah7 ;
+        $penyata->e91_ah8 = $request->e91_ah8 ;
+        $penyata->e91_ah9 = $request->e91_ah9 ;
+        $penyata->e91_ah10 = $request->e91_ah10 ;
+        $penyata->e91_ah11 = $request->e91_ah11 ;
+        $penyata->e91_ah12 = $request->e91_ah12 ;
+        $penyata->e91_ah13 = $request->e91_ah13 ;
+        $penyata->e91_ah14 = $request->e91_ah14 ;
+        $penyata->e91_ah15 = $request->e91_ah15 ;
+        $penyata->e91_ah16 = $request->e91_ah16 ;
+        $penyata->e91_ah17 = $request->e91_ah17 ;
+        $penyata->e91_ah18 = $request->e91_ah18 ;
         $penyata->save();
 
 
@@ -418,9 +418,13 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        $user = User::first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangBuah.buah-papar-penyata', compact('layout','returnArr'));
+
+        return view('users.KilangBuah.buah-papar-penyata', compact('layout','returnArr','user', 'pelesen','penyata'));
     }
 
     public function buah_email()
