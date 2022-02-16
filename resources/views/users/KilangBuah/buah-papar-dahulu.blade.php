@@ -50,6 +50,7 @@
                             </div>
                         </div>
                     </div>
+                    <form method="get" action="" id="myfrm">
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -82,8 +83,7 @@
                                                     </tbody>
                                                 </table>
                                             </div> --}}
-                                        <br>
-                                        <br>
+
                                         <p align="center">
                                             <img border="0" src="{{ asset('/papar_mpob.png') }}" width="200" height="140">
                                         </p>
@@ -93,7 +93,7 @@
 
                                                 </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
-                                                BULAN :&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
+                                                BULAN : {{ $penyata->e91_bln }} &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN : {{ $penyata->e91_thn }} &nbsp;&nbsp;
                                             </b><br>
 
                                         </p>
@@ -477,7 +477,7 @@
                                                     <td width="380">
                                                         <font size="3">i.&nbsp;&nbsp; Jumlah Jam Pengilangan&nbsp;</font>
                                                     </td>
-                                                    <td width="70">
+                                                    <td width="100">
                                                         <font size="3">: {{ $penyata->e91_ah1 ?? 0 }}</font>
                                                     </td>
                                                 </tr>
@@ -487,7 +487,7 @@
                                                         <font size="3">ii.&nbsp; Kadar Perahan MKSM (OER) yang
                                                             diperolehi&nbsp;</font>
                                                     </td>
-                                                    <td width="70">
+                                                    <td width="200">
                                                         <font size="3">: {{ $penyata->e91_ah2 ?? 0 }} %</font>
                                                     </td>
                                                 </tr>
@@ -495,14 +495,14 @@
                                                     <td width="380">
                                                         <font size="3">iii. Kadar Perolehan Isirung (KER)</font>
                                                     </td>
-                                                    <td width="70">
+                                                    <td width="200">
                                                         <font size="3">: {{ $penyata->e91_ah3 ?? 0 }} %</font>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="1000">
+                                                    <td width="1500">
                                                         <font size="3">iv. Harga Purata Belian Buah Kelapa Sawit
-                                                            (FFB)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RM
+                                                            (FFB) &nbsp; RM
                                                         </font>
                                                     </td>
                                                     <td width="70">
@@ -1026,14 +1026,13 @@
                                         <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                            <div class="text-left col-md-5">
+                                            {{-- <div class="text-left col-md-5">
                                                 <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
                                                     style="float: left">Sebelumnya</a>
-                                            </div>
+                                            </div> --}}
                                             <div class="text-right col-md-7 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                    style="float: right"
-                                                    data-bs-target="#exampleModalCenter">Hantar</button>
+                                                <button type="button" class="btn btn-primary "
+                                                    style="float: right" onclick="myPrint('myfrm')" value="print">Cetak</button>
                                             </div>
 
                                         </div>
@@ -1073,52 +1072,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        {{-- <p><a href="adsubmenu.php">Keluar Ke Menu Penyelenggaraan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a href="proses6.php">Proses 6</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            </p> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
                     </div>
                 </div>
-
-
-
-
-
-
-
-
+                    </form>
             </div>
             <br>
-            </form>
+            {{-- </form> --}}
 
         </div>
         </div>
@@ -1179,6 +1141,17 @@
             });
         });
     </script>
+
+
+<script>
+    function myPrint(myfrm) {
+        var printdata = document.getElementById(myfrm);
+        newwin = window.open("");
+        newwin.document.write(printdata.outerHTML);
+        newwin.print();
+        newwin.close();
+    }
+</script>
 
     </body>
 
