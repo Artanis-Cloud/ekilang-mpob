@@ -52,6 +52,35 @@ class KilangBuahController extends Controller
         return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout','pelesen'));
     }
 
+
+    public function buah_update_maklumat_asas_pelesen(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = Pelesen::findOrFail($id);
+        $penyata->e_ap1 = $request->e_ap1;
+        $penyata->e_ap2 = $request->e_ap2;
+        $penyata->e_ap3 = $request->e_ap3;
+        $penyata->e_as1 = $request->e_as1;
+        $penyata->e_as2 = $request->e_as2;
+        $penyata->e_as3 = $request->e_as3;
+        $penyata->e_notel = $request->e_notel;
+        $penyata->e_nofax = $request->e_nofax;
+        $penyata->e_email = $request->e_email;
+        $penyata->e_npg = $request->e_npg;
+        $penyata->e_jpg = $request->e_jpg;
+        // $penyata->e_notelpg = $request->e_notelpg;
+        $penyata->e_npgtg = $request->e_npgtg;
+        $penyata->e_jpgtg = $request->e_jpgtg;
+        $penyata->e_email_pengurus = $request->e_email_pengurus;
+        $penyata->save();
+
+
+        return redirect()->route('buah.maklumatasaspelesen')
+            ->with('success', 'Maklumat telah dikemaskini');
+
+    }
+
+
     public function buah_tukarpassword()
     {
 
@@ -193,27 +222,6 @@ class KilangBuahController extends Controller
 
     }
 
-    // public function buah_bahagianii2()
-    // {
-
-    //     $breadcrumbs    = [
-    //         ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-    //         ['link' => route('buah.bahagianii'), 'name' => "Bahagian II"],
-    //     ];
-
-    //     $kembali = route('buah.bahagiani');
-
-    //     $returnArr = [
-    //         'breadcrumbs' => $breadcrumbs,
-    //         'kembali'     => $kembali,
-    //     ];
-    //     $layout = 'layouts.kbuah';
-
-
-
-    //     return view('users.KilangBuah.buah-bahagian-ii2', compact('returnArr', 'layout'));
-    // }
-
     public function buah_bahagianiii()
     {
 
@@ -250,18 +258,6 @@ class KilangBuahController extends Controller
         $penyata->e91_ai4 = $request->e91_ai4;
         $penyata->e91_ai5 = $request->e91_ai5;
         $penyata->e91_ai6 = $request->e91_ai6;
-        // $penyata->e91_ah7 = $request->e91_ah7;
-        // $penyata->e91_ah8 = $request->e91_ah8;
-        // $penyata->e91_ah9 = $request->e91_ah9;
-        // $penyata->e91_ah10 = $request->e91_ah10;
-        // $penyata->e91_ah11 = $request->e91_ah11;
-        // $penyata->e91_ah12 = $request->e91_ah12;
-        // $penyata->e91_ah13 = $request->e91_ah13;
-        // $penyata->e91_ah14 = $request->e91_ah14;
-        // $penyata->e91_ah15 = $request->e91_ah15;
-        // $penyata->e91_ah16 = $request->e91_ah16;
-        // $penyata->e91_ah17 = $request->e91_ah17;
-        // $penyata->e91_ah18 = $request->e91_ah18;
         $penyata->save();
 
 
@@ -306,18 +302,6 @@ class KilangBuahController extends Controller
         $penyata->e91_aj6 = $request->e91_aj6;
         $penyata->e91_aj7 = $request->e91_aj7;
         $penyata->e91_aj8 = $request->e91_aj8;
-        // $penyata->e91_ac1 = $request->e91_ac1;
-        // $penyata->e91_ad1 = $request->e91_ad1;
-        // $penyata->e91_ad2 = $request->e91_ad2;
-        // $penyata->e91_ad3 = $request->e91_ad3;
-        // $penyata->e91_ae1 = $request->e91_ae1;
-        // $penyata->e91_ae2 = $request->e91_ae2;
-        // $penyata->e91_ae3 = $request->e91_ae3;
-        // $penyata->e91_ae4 = $request->e91_ae4;
-        // $penyata->e91_ag1 = $request->e91_ag1;
-        // $penyata->e91_ag2 = $request->e91_ag2;
-        // $penyata->e91_ag3 = $request->e91_ag3;
-        // $penyata->e91_ag4 = $request->e91_ag4;
         $penyata->save();
 
 
@@ -357,23 +341,6 @@ class KilangBuahController extends Controller
         $penyata->e91_ak1 = $request->e91_ak1;
         $penyata->e91_ak2 = $request->e91_ak2;
         $penyata->e91_ak3 = $request->e91_ak3;
-        // $penyata->e91_aj4 = $request->e91_aj4;
-        // $penyata->e91_aj5 = $request->e91_aj5;
-        // $penyata->e91_aj6 = $request->e91_aj6;
-        // $penyata->e91_aj7 = $request->e91_aj7;
-        // $penyata->e91_aj8 = $request->e91_aj8;
-        // $penyata->e91_ac1 = $request->e91_ac1;
-        // $penyata->e91_ad1 = $request->e91_ad1;
-        // $penyata->e91_ad2 = $request->e91_ad2;
-        // $penyata->e91_ad3 = $request->e91_ad3;
-        // $penyata->e91_ae1 = $request->e91_ae1;
-        // $penyata->e91_ae2 = $request->e91_ae2;
-        // $penyata->e91_ae3 = $request->e91_ae3;
-        // $penyata->e91_ae4 = $request->e91_ae4;
-        // $penyata->e91_ag1 = $request->e91_ag1;
-        // $penyata->e91_ag2 = $request->e91_ag2;
-        // $penyata->e91_ag3 = $request->e91_ag3;
-        // $penyata->e91_ag4 = $request->e91_ag4;
         $penyata->save();
 
 
@@ -514,15 +481,6 @@ class KilangBuahController extends Controller
             $penyata = H91Init::where('e91_nl', auth()->user()->username)->first();
             // dd($penyata);
 
-            // $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, date_format(e91_sdate,'%d-%m-%Y') as sdate
-            //             FROM pelesen p, h91_init e, reg_pelesen k
-            //             WHERE e.e91_thn = '$request->tahun'
-            //             and e.e91_bln = '$request->bulan'
-            //             and p.e_nl = e.e91_nl
-            //             and e.e91_flg = '3'
-            //             and p.e_nl = k.e_nl
-            //             and k.e_kat = 'PL91'
-            //             order by k.kodpgw, k.nosiri");
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('buah.penyatadahulu'), 'name' => "Papar Penyata Terdahulu"],

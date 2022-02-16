@@ -11,6 +11,9 @@ class Pelesen extends Model
     protected $table = 'pelesen';
 
     public $timestamps = false;
+    protected $primaryKey = 'e_id';
+
+
 
     protected $fillable = [
         'e_id',

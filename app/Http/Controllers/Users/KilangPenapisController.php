@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Users;
 
 use App\Http\Controllers\Controller;
+use App\Models\E101B;
+use App\Models\E101Init;
+use App\Models\Pelesen;
+use App\Models\Produk;
 use Illuminate\Http\Request;
 
 class KilangPenapisController extends Controller
@@ -30,9 +34,37 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout','pelesen'));
+    }
+
+    public function penapis_update_maklumat_asas_pelesen(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = Pelesen::findOrFail($id);
+        $penyata->e_ap1 = $request->e_ap1;
+        $penyata->e_ap2 = $request->e_ap2;
+        $penyata->e_ap3 = $request->e_ap3;
+        $penyata->e_as1 = $request->e_as1;
+        $penyata->e_as2 = $request->e_as2;
+        $penyata->e_as3 = $request->e_as3;
+        $penyata->e_notel = $request->e_notel;
+        $penyata->e_nofax = $request->e_nofax;
+        $penyata->e_email = $request->e_email;
+        $penyata->e_npg = $request->e_npg;
+        $penyata->e_jpg = $request->e_jpg;
+        // $penyata->e_notelpg = $request->e_notelpg;
+        $penyata->e_npgtg = $request->e_npgtg;
+        $penyata->e_jpgtg = $request->e_jpgtg;
+        $penyata->e_email_pengurus = $request->e_email_pengurus;
+        $penyata->save();
+
+
+        return redirect()->route('penapis.maklumatasaspelesen')
+            ->with('success', 'Maklumat telah dikemaskini');
+
     }
 
     public function penapis_tukarpassword()
@@ -72,10 +104,29 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
+        $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout','produk','penyata'));
     }
+
+
+    public function penapis_update_bahagian_i(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = E101B::findOrFail($id);
+        $penyata->e101_b4 = $request->e101_b4;
+        $penyata->e101_b5 = $request->e101_b5;
+        $penyata->e101_b6 = $request->e101_b6;
+        $penyata->save();
+
+
+        return redirect()->route('penapis.bahagiani')
+            ->with('success', 'Maklumat telah disimpan');
+
+    }
+
 
     public function penapis_bahagianii()
     {
@@ -97,6 +148,8 @@ class KilangPenapisController extends Controller
 
         return view('users.KilangPenapis.penapis-bahagian-ii', compact('returnArr', 'layout'));
     }
+
+
 
     public function penapis_bahagianii2()
     {

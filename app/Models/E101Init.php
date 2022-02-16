@@ -34,4 +34,11 @@ class E101Init extends Model
         'e101_flagcetak',
 
     ];
+
+
+    public function e101b()
+    {
+
+        return $this->hasOne(E101B::class, 'e101_reg', 'e101_reg');
+    }
 }
