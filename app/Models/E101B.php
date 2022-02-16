@@ -17,6 +17,8 @@ class E101B extends Model
      *
      */
     protected $table = 'e101_b'; //penyata bulanan terkini - kilang penapis
+    protected $primaryKey = 'e101_b1';
+    public $timestamps = false;
 
     protected $fillable = [
         'e101_b1',
