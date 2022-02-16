@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users\KilangBuah;
 
 use App\Http\Controllers\Controller;
 use App\Models\E91Init;
+use App\Models\H91Init;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\RegPelesen;
@@ -488,6 +489,55 @@ class KilangBuahController extends Controller
 
 
         return view('users.KilangBuah.buah-penyata-dahulu', compact('returnArr', 'layout'));
+    }
+
+
+    public function buah_penyata_dahulu_process(Request $request)
+    {
+        //dd($request->all());
+
+        $tahun = H91Init::where('tahun', $request->e91_thn);
+        $bulan = H91Init::where('tahun', $request->e91_bln);
+        // $ekat = RegPelesen::get('e_kat');
+        // $ekat = DB::select("SELECT * FROM reg_pelesen");
+        // dd($ekat);
+        // $users = RegPelesen::with('pelesen')->where('e_kat','PL91')->where('e_status',1)->get();
+        // foreach($ekat as $data){
+        // if('e_kat' == "PL91")
+        // {
+
+            $user = User::first();
+            // dd($user);
+            $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+            // dd($pelesen);
+
+            $penyata = H91Init::where('e91_nl', auth()->user()->username)->first();
+            // dd($penyata);
+
+            // $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, date_format(e91_sdate,'%d-%m-%Y') as sdate
+            //             FROM pelesen p, h91_init e, reg_pelesen k
+            //             WHERE e.e91_thn = '$request->tahun'
+            //             and e.e91_bln = '$request->bulan'
+            //             and p.e_nl = e.e91_nl
+            //             and e.e91_flg = '3'
+            //             and p.e_nl = k.e_nl
+            //             and k.e_kat = 'PL91'
+            //             order by k.kodpgw, k.nosiri");
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('buah.penyatadahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
+        ];
+
+        $kembali = route('buah.penyatadahulu');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kbuah';
+
+        return view('users.KilangBuah.buah-papar-dahulu', compact('returnArr', 'layout', 'tahun', 'bulan', 'user','pelesen','penyata'));
     }
 
     public function try()

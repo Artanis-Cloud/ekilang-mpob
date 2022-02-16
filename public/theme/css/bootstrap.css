@@ -2034,7 +2034,7 @@ progress {
     margin-bottom: 1rem;
     color: #727e8c;
     vertical-align: top;
-    /* border-color: #dfe3e7 */
+    border-color: #dfe3e7
 }
 
 .table>:not(caption)>*>* {
