@@ -184,6 +184,7 @@ class Proses1Controller extends Controller
     {
 
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PL101')->where('e_status', 1)->get();
+        // dd($users);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],

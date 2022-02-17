@@ -8,6 +8,7 @@ use App\Models\E101Init;
 use App\Models\Pelesen;
 use App\Models\Produk;
 use Illuminate\Http\Request;
+use DB;
 
 class KilangPenapisController extends Controller
 {
@@ -105,8 +106,13 @@ class KilangPenapisController extends Controller
         $layout = 'layouts.kpenapis';
 
         $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
-        $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->first();
-
+        $penyatas = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
+        // $noreg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        // $penyata2 = DB::select("SELECT *
+        //                         FROM e101_b
+        //                         WHERE e101_reg = $noreg'");
+        // $penyata2 = E101B::where('e101_reg', $noreg)->first();
+        dd($penyatas);
 
         return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout','produk','penyata'));
     }
@@ -188,9 +194,26 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $penyata = E101Init::where('e101_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout','penyata'));
+    }
+
+
+    public function penapis_update_bahagian_iii(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = E101Init::findOrFail($id);
+        $penyata->e101_a1 = $request->e101_a1;
+        $penyata->e101_a2 = $request->e101_a2;
+        $penyata->e101_a3 = $request->e101_a3;
+        $penyata->save();
+
+
+        return redirect()->route('penapis.bahagianiva')
+            ->with('success', 'Maklumat telah disimpan');
+
     }
 
     public function penapis_bahagianiva()
@@ -209,9 +232,10 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $produk = Produk::where('prodcat', 04)->orderBy('prodname')->get();
 
 
-        return view('users.KilangPenapis.penapis-bahagian-iva', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-bahagian-iva', compact('returnArr', 'layout','produk'));
     }
 
     public function penapis_bahagianivb()

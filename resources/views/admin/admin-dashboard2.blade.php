@@ -769,7 +769,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body px-0 py-1">
+                        {{-- <div class="card-body px-0 py-1">
                             <table class='table table-borderless'>
                                 <tr>
                                     <td class='col-3'><a href="{{ route('admin.direktori') }}">
@@ -812,7 +812,7 @@
                                     </td>
                                 </tr>
                             </table>
-                        </div>
+                        </div> --}}
                     </div>
             </div>
 

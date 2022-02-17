@@ -17,6 +17,8 @@ class E101Init extends Model
      *
      */
     protected $table = 'e101_init'; //penyata bulanan terkini - kilang penapis (initialize - proses 3)
+    protected $primaryKey = 'e101_reg';
+    public $timestamps = false;
 
     protected $fillable = [
         'e101_reg',

@@ -57,7 +57,8 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-
+                        <form action="{{ route('penapis.update.bahagian.iii', [$penyata->e101_reg]) }}" method="post">
+                            @csrf
                         <div class="card-body" style="margin-left:8%">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
@@ -78,8 +79,8 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Jumlah Hari Kilang Beroperasi Sebulan</label>
                                             <div class="col-md-2">
-                                                <input type="text" class="form-control" style="margin-left:150%;" name='nombor_borang_kastam'
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" style="margin-left:150%;" name='e101_a1'
+                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -92,8 +93,8 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kadar Penggunaan Kapasiti(Refining) Sebulan</label>
                                             <div class="col-md-2">
-                                                <input type="text" class="form-control"  style="margin-left:150%; " name='nombor_borang_kastam'
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control"  style="margin-left:150%; " name='e101_a2'
+                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini." value="{{ $penyata->e101_a2 }}">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -106,9 +107,9 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kadar Penggunaan Kapasiti(Fractionation) Sebulan</label>
                                             <div class="col-md-2">
-                                                <input type="text" class="form-control"  style="margin-left:150%;" name='kuantiti' id="kuantiti"
+                                                <input type="text" class="form-control"  style="margin-left:150%;" name='e101_a3' id="kuantiti"
                                                     onkeypress="return isNumberKey(event)" required
-                                                    title="Sila isikan butiran ini.">
+                                                    title="Sila isikan butiran ini." value="{{ $penyata->e101_a3 }}">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -118,8 +119,12 @@
                                         </div>
 
                                     <div class="row form-group" style="padding-top: 10px; ">
-
-
+                                        <div class="row form-group" style="padding-top: 10px; ">
+                                            <div class="text-right col-md-12 mb-4 ">
+                                                <button type="submit" class="btn btn-primary ">Simpan & Seterusnya</button>
+                                            </div>
+                                        </div>
+{{--
                                         <div class="text-left col-md-5">
                                             <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
@@ -128,7 +133,7 @@
                                             <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                                 style="float: right" data-bs-target="#exampleModalCenter">Simpan &
                                                 Seterusnya</button>
-                                        </div>
+                                        </div> --}}
 
                                     </div>
 
@@ -157,7 +162,7 @@
                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                     </button>
-                                                    <button type="button" class="btn btn-primary ml-1"
+                                                    <button type="submit" class="btn btn-primary ml-1"
                                                         data-bs-dismiss="modal">
                                                         <i class="bx bx-check d-block d-sm-none"></i>
                                                         <span class="d-none d-sm-block">Ya</span>
@@ -166,6 +171,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                </form>
                                 </div>
                                 {{-- </div> --}}
                                 </form>

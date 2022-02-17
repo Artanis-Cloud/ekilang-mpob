@@ -43,7 +43,7 @@ class KilangBuahController extends Controller
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
 
 
-        //dd($pelesen);
+        // dd($pelesen);
         // $data = .....;
 
 
