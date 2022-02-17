@@ -77,44 +77,14 @@
                                                 Nama Produk</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
-                                                        <option selected hidden disabled>Sila Pilih Produk</option>
-                                                        
-                                                            <option value="H9">BOSFP/CBS - H9
-                                                            </option><option value="U7">BVO - U7
-                                                            </option><option value="M9">CBE - M9
-                                                            </option><option value="N0">CBEXT - N0
-                                                            </option><option value="N1">CBR - N1
-                                                            </option><option value="44">CBS - 44
-                                                            </option><option value="M2">CF - M2
-                                                            </option><option value="FM">CTENE - FM
-                                                            </option><option value="86">DF - 86
-                                                            </option><option value="DV">DFS - DV
-                                                            </option><option value="46">FB - 46
-                                                            </option><option value="DU">HFV - DU
-                                                            </option><option value="G2">HPF - G2
-                                                            </option><option value="AJ">HVF - AJ
-                                                            </option><option value="C0">HVG - C0
-                                                            </option><option value="78">HVO - 78
-                                                            </option><option value="FA">IEFAT - FA
-                                                            </option><option value="H5">IMVF - H5
-                                                            </option><option value="DL">INTFATBLD - DL
-                                                            </option><option value="42">M - 42
-                                                            </option><option value="M3">PF - M3
-                                                            </option><option value="DW">PFAT - DW
-                                                            </option><option value="79">PKF - 79
-                                                            </option><option value="G5">PRYO - G5
-                                                            </option><option value="G4">RL - G4
-                                                            </option><option value="43">SH - 43
-                                                            </option><option value="48">SOAP - 48
-                                                            </option><option value="I3">TOCO - I3
-                                                            </option><option value="FN">TRIE - FN
-                                                            </option><option value="F8">VC - F8
-                                                            </option><option value="I2">VEGPO - I2
-                                                            </option><option value="M0">VF - M0
-                                                            </option><option value="41">VG - 41
-                                                            </option><option value="AI">VSO - AI
-                                                                    </option>
+                                                    <select class="form-select" id="produk"
+                                                        style="margin-left:42%; width:40%" name="e101_b4">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        @foreach ($produk as $data)
+                                                            <option value="{{ $data->prodid }}">
+                                                                {{ $data->prodname }}
+                                                            </option>
+                                                        @endforeach
 
                                                     </select>
                                                 </fieldset>
