@@ -185,7 +185,7 @@ Route::middleware('auth')->group(function () {
         Route::get('penapis/tukar-password', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_tukarpassword'])->name('penapis.tukarpassword');
 
         Route::get('penapis/bahagian-i', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagiani'])->name('penapis.bahagiani');
-        Route::post('penapis/update-bahagian-i/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_update_bahagian_i'])->name('penapis.update.bahagian.i');
+        Route::post('penapis/update-bahagian-i', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_update_bahagian_i'])->name('penapis.update.bahagian.i');
 
         Route::get('penapis/bahagian-ii', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianii'])->name('penapis.bahagianii');
 
