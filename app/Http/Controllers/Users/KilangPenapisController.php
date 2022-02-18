@@ -106,15 +106,15 @@ class KilangPenapisController extends Controller
         $layout = 'layouts.kpenapis';
 
         $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
-        $penyatas = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
+        // $penyatas = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
         // $noreg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // $penyata2 = DB::select("SELECT *
         //                         FROM e101_b
         //                         WHERE e101_reg = $noreg'");
         // $penyata2 = E101B::where('e101_reg', $noreg)->first();
-        dd($penyatas);
+        // dd($penyatas);
 
-        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout','produk','penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout','produk'));
     }
 
 
@@ -150,9 +150,26 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
+        // $penyatas = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
+        // $b = E101B::with(['e101init'],['produk'])->get();
+        $user = E101Init::where('e101_nl', auth()->user()->username)->first();
+        // dd($user);
+        $b = E101B::with(['e101init'],['produk'])->where('e101_reg', $user->e101_reg)->get();
 
+        // $b = E101B::with('e101init_produk')->where('e101_reg', $user->e101_reg)->where('e101_b4', $produk[0]->prodid)->get();
+        // dd($b);
 
-        return view('users.KilangPenapis.penapis-bahagian-ii', compact('returnArr', 'layout'));
+        // $penyata = DB::select("SELECT e.e101_b1, e.e101_b2, e.e101_b3, e.e101_b4,
+        // e.e101_b5, e.e101_b6, e.e101_b7, e.e101_b8, e.e101_b9, e.e101_b10,
+        // e.e101_b11, e.e101_b12, e.e101_b3, e.e101_b14 p.e101_reg, p.e101_nl,
+        // k.prodid, k.prodname, k.prodcat
+        // FROM e101_init p, e101_b e, produk k
+        // WHERE p.e101_reg = e.e101_reg
+        // and k.prodid = e.101_b4
+        // and k.prodcat = '02'");
+
+        return view('users.KilangPenapis.penapis-bahagian-ii', compact('returnArr', 'layout','produk','b'));
     }
 
 

@@ -146,22 +146,6 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Import</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nilai' id="nilai"
-                                                    style="margin-left:42%; width:40%"
-                                                    onkeypress="return isNumberKey(event)" required
-                                                    title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Pengeluaran</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='destinasi_negara'
@@ -295,7 +279,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                @foreach ($penyata->e101b as $data)
+                                                @foreach ($b as $data)
                                                     <td>{{ $data->e101_b4 }}
 
 
