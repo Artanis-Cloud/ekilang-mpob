@@ -48,7 +48,7 @@ class E101B extends Model
 
     // public function e101init_produk()
     // {
-    //     return $this->hasManyThrough(
+    //     return $this->hasOneThrough(
     //         Produk::class,
     //         E101Init::class,
     //         'e101_reg', // Foreign key on the owners table...
@@ -67,11 +67,11 @@ class E101B extends Model
     public function e101init()
     {
 
-        return $this->hasOne(E101Init::class, 'e101_reg', 'e101_b1');
+        return $this->hasMany(E101Init::class, 'e101_reg', 'e101_b1');
     }
 
     public function produk()
     {
-        return $this->hasOne(Produk::class, 'e101_b4', 'produk');
+        return $this->hasMany(Produk::class, 'e101_b4', 'produk');
     }
 }
