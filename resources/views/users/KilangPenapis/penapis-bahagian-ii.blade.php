@@ -1,9 +1,6 @@
 @extends($layout)
 
 @section('content')
-
-
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
@@ -79,68 +76,15 @@
                                                 Nama Produk</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
-                                                        <option selected hidden disabled>Sila Pilih Produk</option>
-
-                                                                        <option value="C8">BPKL - C8
-                                                            </option><option value="X3">BPKL - X3
-                                                            </option><option value="DT">BPKO - DT
-                                                            </option><option value="X2">BPKO - X2
-                                                            </option><option value="C9">BPKS - C9
-                                                            </option><option value="X4">BPKS - X4
-                                                            </option><option value="82">CBPKO - 82
-                                                            </option><option value="06">CPKL - 06
-                                                            </option><option value="04">CPKO - 04
-                                                            </option><option value="05">CPKS - 05
-                                                            </option><option value="Y3">DFRBDPKL - Y3
-                                                            </option><option value="Y4">DFRBDPKS - Y4
-                                                            </option><option value="D2">HNBDPKL - D2
-                                                            </option><option value="D5">HNBDPKO - D5
-                                                            </option><option value="D6">HNBDPKS - D6
-                                                            </option><option value="D3">HNBPKL - D3
-                                                            </option><option value="D1">HNBPKO - D1
-                                                            </option><option value="D4">HNBPKS - D4
-                                                            </option><option value="C6">HPKL - C6
-                                                            </option><option value="54">HPKO - 54
-                                                            </option><option value="65">HPKS - 65
-                                                            </option><option value="73">HRBDPKL - 73
-                                                            </option><option value="72">HRBDPKO - 72
-                                                            </option><option value="74">HRBDPKS - 74
-                                                            </option><option value="Z7">INTER  PKO - Z7
-                                                            </option><option value="AA">JGQRBDPKOS - AA
-                                                            </option><option value="EN">MVO_CPKO - EN
-                                                            </option><option value="Y2">MVO_RBDPKL - Y2
-                                                            </option><option value="Y1">MVO_RBDPKO - Y1
-                                                            </option><option value="A6">NBDPKL - A6
-                                                            </option><option value="68">NBDPKO - 68
-                                                            </option><option value="66">NBDPKS - 66
-                                                            </option><option value="X6">NBHPKL - X6
-                                                            </option><option value="X5">NBHPKO - X5
-                                                            </option><option value="X7">NBHPKS - X7
-                                                            </option><option value="A1">NBPKL - A1
-                                                            </option><option value="57">NBPKO - 57
-                                                            </option><option value="A8">NBPKS - A8
-                                                            </option><option value="A5">NPKL - A5
-                                                            </option><option value="58">NPKO - 58
-                                                            </option><option value="A7">NPKS - A7
-                                                            </option><option value="C1">PKAO - C1
-                                                            </option><option value="56">PKFAD - 56
-                                                            </option><option value="EV">PKMF - EV
-                                                            </option><option value="M1">PKOF - M1
-                                                            </option><option value="X0">RBDHPKL - X0
-                                                            </option><option value="W9">RBDHPKO - W9
-                                                            </option><option value="X1">RBDHPKS - X1
-                                                            </option><option value="32">RBDPKL - 32
-                                                            </option><option value="GG">RBDPKL IP - GG
-                                                            </option><option value="GE">RBDPKL MB - GE
-                                                            </option><option value="GF">RBDPKL SG - GF
-                                                            </option><option value="30">RBDPKO - 30
-                                                            </option><option value="31">RBDPKS - 31
-                                                            </option><option value="M7">RPKL - M7
-                                                            </option><option value="G3">RPKO - G3
-                                                            </option><option value="M8">RPKS - M8
-                                                            </option><option value="FZ">SPKLFA - FZ
+                                                    <select class="form-select" id="produk"
+                                                        style="margin-left:42%; width:40%" name="e101_b4">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        @foreach ($produk as $data)
+                                                            <option value="{{ $data->prodid }}">
+                                                                {{ $data->prodname }}
                                                             </option>
+                                                        @endforeach
+
                                                     </select>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
@@ -155,8 +99,9 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Stok Awal Di Premis</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='nombor_borang_kastam'
+                                                    style="margin-left:42%; width:40%" id="nombor_borang_kastam" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -169,8 +114,9 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Stok Awal Di Pusat Simpanan</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='nombor_borang_kastam'
+                                                    style="margin-left:42%; width:40%" id="nombor_borang_kastam" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -183,7 +129,8 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Belian / Penerimaan</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='kuantiti' id="kuantiti" style="margin-left:42%; width:40%"
+                                                <input type="text" class="form-control" name='kuantiti' id="kuantiti"
+                                                    style="margin-left:42%; width:40%"
                                                     onkeypress="return isNumberKey(event)" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
@@ -196,10 +143,10 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Import</label>
+                                                Pengeluaran</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nilai' id="nilai" style="margin-left:42%; width:40%"
-                                                    onkeypress="return isNumberKey(event)" required
+                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -211,10 +158,11 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Pengeluaran</label>
+                                                Digunakan Untuk Proses Selanjutnya</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -225,10 +173,11 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Digunakan Untuk Proses Selanjutnya</label>
+                                                Jualan / Edaran Dalam Negeri</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -239,10 +188,11 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Jualan / Edaran Dalam Negeri</label>
+                                                Eksport</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -253,10 +203,11 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Eksport</label>
+                                                Stok Akhir Di Premis</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -267,24 +218,11 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Stok Akhir Di Premis</label>
+                                                Stok Akhir Di Pusat Simpanan</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Stok Akhir Di Pusat Simpanan</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -312,15 +250,15 @@
                                     <section class="section">
                                         <div class="card">
 
-                                            <div class="card-body">
-                                                <table class='table table-striped' id="table1">
-                                                    <thead>
-                                                        <tr style="text-align: center">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered mb-0">
+                                                    <thead style="text-align: center">
+                                                        <tr>
                                                             <th>Nama Produk</th>
                                                             <th>Stok Awal Di Premis</th>
                                                             <th>Stok Awal Di Pusat Simpanan</th>
                                                             <th>Belian / Penerimaan</th>
-                                                            <th>Import</th>
+                                                            {{-- <th>Import</th> --}}
                                                             <th>Pengeluaran</th>
                                                             <th>Digunakan Untuk Proses Selanjutnya</th>
                                                             <th>Jualan / Edaran Dalam Negeri</th>
@@ -330,27 +268,34 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <tr>
-                                                            <td>BPL</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
+                                                        @foreach ($b as $data)
+                                                            <tr style="text-align: center">
 
-                                                        <br>
+                                                                <td>{{ $data->e101_b4 }}
 
+
+                                                                    {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
+                                                                <span>{{ $produk->prodname }}</span>
+                                                            @endif --}}
+
+                                                                </td>
+                                                                <td>{{ $data->e101_b5 }}</td>
+                                                                <td>{{ $data->e101_b6 }}</td>
+                                                                <td>{{ $data->e101_b7 }}</td>
+                                                                {{-- <td>{{ $data->e101_b8 }}</td> --}}
+                                                                <td>{{ $data->e101_b9 }}</td>
+                                                                <td>{{ $data->e101_b10 }}</td>
+                                                                <td>{{ $data->e101_b11 }}</td>
+                                                                <td>{{ $data->e101_b12 }}</td>
+                                                                <td>{{ $data->e101_b13 }}</td>
+                                                                <td>{{ $data->e101_b14 }}</td>
+                                                                {{-- <td>{{ $data->e101_b15 }}</td> --}}
+
+
+                                                            </tr>
+                                                        @endforeach
                                                     </tbody>
-
                                                 </table>
-
                                             </div>
                                         </div>
 
@@ -567,5 +512,4 @@
     </body>
 
     </html>
-
 @endsection
