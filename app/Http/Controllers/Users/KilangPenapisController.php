@@ -106,15 +106,19 @@ class KilangPenapisController extends Controller
         $layout = 'layouts.kpenapis';
 
         $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
-        // $penyatas = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
+        // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
+        $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        // dd($user);
+
+        $penyata = E101B::with(['e101init'],['produk'])->where('e101_reg', $user->e101_reg)->get();
         // $noreg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // $penyata2 = DB::select("SELECT *
         //                         FROM e101_b
         //                         WHERE e101_reg = $noreg'");
         // $penyata2 = E101B::where('e101_reg', $noreg)->first();
-        // dd($penyatas);
+        dd($penyata);
 
-        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout','produk'));
+        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout','produk','penyata'));
     }
 
 
@@ -155,10 +159,10 @@ class KilangPenapisController extends Controller
         // $b = E101B::with(['e101init'],['produk'])->get();
         $user = E101Init::where('e101_nl', auth()->user()->username)->first();
         // dd($user);
-        $b = E101B::with(['e101init'],['produk'])->where('e101_reg', $user->e101_reg)->get();
+        $b = E101B::with('e101init')->where('e101_reg', $user->e101_reg)->get();
 
         // $b = E101B::with('e101init_produk')->where('e101_reg', $user->e101_reg)->where('e101_b4', $produk[0]->prodid)->get();
-        // dd($b);
+        dd($b);
 
         // $penyata = DB::select("SELECT e.e101_b1, e.e101_b2, e.e101_b3, e.e101_b4,
         // e.e101_b5, e.e101_b6, e.e101_b7, e.e101_b8, e.e101_b9, e.e101_b10,
