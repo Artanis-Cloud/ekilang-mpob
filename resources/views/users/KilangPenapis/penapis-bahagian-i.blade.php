@@ -54,7 +54,7 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <form action="{{ route('penapis.update.bahagian.i', [$penyata->e101_reg]) }}" method="post">
+                        <form action="{{ route('penapis.update.bahagian.i') }}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -104,7 +104,7 @@
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e101_b5'
                                                     style="margin-left:42%; width:40%" id="e101_b5" required
-                                                    title="Sila isikan butiran ini." value="{{ $penyata->e101_b5 }}">
+                                                    title="Sila isikan butiran ini." value="">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -117,7 +117,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Stok Awal Di Pusat Simpanan</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nombor_borang_kastam'
+                                                <input type="text" class="form-control" name='e101_b6'
                                                     style="margin-left:42%; width:40%" id="nombor_borang_kastam" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
@@ -132,7 +132,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Belian / Penerimaan</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='kuantiti' id="kuantiti"
+                                                <input type="text" class="form-control" name='e101_b7' id="kuantiti"
                                                     style="margin-left:42%; width:40%"
                                                     onkeypress="return isNumberKey(event)" required
                                                     title="Sila isikan butiran ini.">
@@ -148,7 +148,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Pengeluaran</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                <input type="text" class="form-control" name='e101_b9'
                                                     style="margin-left:42%; width:40%" id="destinasi_negara" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
@@ -163,7 +163,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Digunakan Untuk Proses Selanjutnya</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                <input type="text" class="form-control" name='e101_b10'
                                                     style="margin-left:42%; width:40%" id="destinasi_negara" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
@@ -178,7 +178,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Jualan / Edaran Dalam Negeri</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                <input type="text" class="form-control" name='e101_b11'
                                                     style="margin-left:42%; width:40%" id="destinasi_negara" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
@@ -193,7 +193,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Eksport</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                <input type="text" class="form-control" name='e101_b12'
                                                     style="margin-left:42%; width:40%" id="destinasi_negara" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
@@ -208,7 +208,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Stok Akhir Di Premis</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                <input type="text" class="form-control" name='e101_b13'
                                                     style="margin-left:42%; width:40%" id="destinasi_negara" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
@@ -223,7 +223,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Stok Akhir Di Pusat Simpanan</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara'
+                                                <input type="text" class="form-control" name='e101_b14'
                                                     style="margin-left:42%; width:40%" id="destinasi_negara" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
@@ -268,7 +268,7 @@
                                                 <th>Stok Awal Di Premis</th>
                                                 <th>Stok Awal Di Pusat Simpanan</th>
                                                 <th>Belian / Penerimaan</th>
-                                                <th>Import</th>
+                                                {{-- <th>Import</th> --}}
                                                 <th>Pengeluaran</th>
                                                 <th>Digunakan Untuk Proses Selanjutnya</th>
                                                 <th>Jualan / Edaran Dalam Negeri</th>
@@ -278,30 +278,33 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                @foreach ($b as $data)
-                                                    <td>{{ $data->e101_b4 }}
+                                            @foreach ($penyata as $data)
+                                                <tr>
+
+                                                    <td>
+                                                        {{ $data->e101_b4 }}
 
 
-                                                        {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
-                                                    <span>{{ $produk->prodname }}</span>
-                                                @endif --}}
+                                                        {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid) --}}
+                                                    {{-- <span value={{ $data->e101_b4 }}>{{ $data->e101_b4   }}</span> --}}
+                                                {{-- @endif --}}
 
                                                     </td>
                                                     <td>{{ $data->e101_b5 }}</td>
                                                     <td>{{ $data->e101_b6 }}</td>
-                                                    <td>{{ $$data->e101_b7 }}</td>
-                                                    <td>{{ $data->e101_b8 }}</td>
+                                                    <td>{{ $data->e101_b7 }}</td>
+                                                    {{-- <td>{{ $data->e101_b8 }}</td> --}}
                                                     <td>{{ $data->e101_b9 }}</td>
                                                     <td>{{ $data->e101_b10 }}</td>
                                                     <td>{{ $data->e101_b11 }}</td>
                                                     <td>{{ $data->e101_b12 }}</td>
                                                     <td>{{ $data->e101_b13 }}</td>
                                                     <td>{{ $data->e101_b14 }}</td>
-                                                    <td>{{ $data->e101_b15 }}</td>
-                                                @endforeach
+                                                    {{-- <td>{{ $data->e101_b15 }}</td> --}}
 
-                                            </tr>
+
+                                                </tr>
+                                                @endforeach
                                         </tbody>
                                     </table>
                                 </div>

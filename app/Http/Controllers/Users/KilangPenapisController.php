@@ -9,6 +9,8 @@ use App\Models\Pelesen;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Validator;
+
 
 class KilangPenapisController extends Controller
 {
@@ -110,31 +112,70 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // dd($user);
 
-        $penyata = E101B::with(['e101init'],['produk'])->where('e101_reg', $user->e101_reg)->get();
+        // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
+        $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->
+        whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 01);
+        })->get();
         // $noreg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // $penyata2 = DB::select("SELECT *
         //                         FROM e101_b
         //                         WHERE e101_reg = $noreg'");
         // $penyata2 = E101B::where('e101_reg', $noreg)->first();
-        dd($penyata);
+        // dd($penyata);
 
-        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout','produk','penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout','produk','penyata','user'));
     }
 
 
-    public function penapis_update_bahagian_i(Request $request, $id)
+    public function penapis_update_bahagian_i(Request $request)
     {
         // dd($request->all());
-        $penyata = E101B::findOrFail($id);
-        $penyata->e101_b4 = $request->e101_b4;
-        $penyata->e101_b5 = $request->e101_b5;
-        $penyata->e101_b6 = $request->e101_b6;
-        $penyata->save();
+        $this->validation_bahagian_i($request->all())->validate();
+        $this->store_bahagian_i($request->all());
 
+        return redirect()->route('penapis.bahagiani')->with('success', 'Maklumat sudah ditambah');
+    }
 
-        return redirect()->route('penapis.bahagiani')
-            ->with('success', 'Maklumat telah disimpan');
+    protected function validation_bahagian_i(array $data)
+    {
+        return Validator::make($data, [
+            'e101_b4' => ['required', 'string'],
+            'e101_b5' => ['required', 'string'],
+            'e101_b6' => ['required', 'string'],
+            'e101_b7' => ['required', 'string'],
+            // 'e101_b8' => ['required', 'string'],
+            'e101_b9' => ['required', 'string'],
+            'e101_b10' => ['required', 'string'],
+            'e101_b11' => ['required', 'string'],
+            'e101_b12' => ['required', 'string' ],
+            'e101_b13' => ['required', 'string'],
+            'e101_b14' => ['required', 'string'],
+            // 'e101_b15' => ['required', 'string'],
+        ]);
+    }
 
+    protected function store_bahagian_i(array $data)
+    {
+        $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        // dd($e101_reg->e101_reg);
+        return E101B::create([
+            'e101_reg'=> $e101_reg->e101_reg,
+            'e101_b4' => $data['e101_b4'],
+            'e101_b5' => $data['e101_b5'],
+            'e101_b6' => $data['e101_b6'],
+            'e101_b7' => $data['e101_b7'],
+            // 'e101_b8' => $data['e101_b8'],
+            'e101_b9' => $data['e101_b9'],
+            'e101_b10' => $data['e101_b10'],
+            'e101_b11' => $data['e101_b11'],
+            'e101_b12' => $data['e101_b12'],
+            'e101_b13' => $data['e101_b13'],
+            'e101_b14' => $data['e101_b14'],
+            // 'e101_b15' => $data['e101_b15'],
+        ]);
+        // return $data;
+        // dd($data);
     }
 
 
@@ -159,10 +200,14 @@ class KilangPenapisController extends Controller
         // $b = E101B::with(['e101init'],['produk'])->get();
         $user = E101Init::where('e101_nl', auth()->user()->username)->first();
         // dd($user);
-        $b = E101B::with('e101init')->where('e101_reg', $user->e101_reg)->get();
+        // $b = E101B::with('e101init')->where('e101_reg', $user->e101_reg)->get();
+        // $b = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
 
-        // $b = E101B::with('e101init_produk')->where('e101_reg', $user->e101_reg)->where('e101_b4', $produk[0]->prodid)->get();
-        dd($b);
+        $b = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->
+        whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 02);
+        })->get();
+        // dd($b);
 
         // $penyata = DB::select("SELECT e.e101_b1, e.e101_b2, e.e101_b3, e.e101_b4,
         // e.e101_b5, e.e101_b6, e.e101_b7, e.e101_b8, e.e101_b9, e.e101_b10,

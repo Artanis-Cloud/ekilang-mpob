@@ -67,11 +67,11 @@ class E101B extends Model
     public function e101init()
     {
 
-        return $this->hasMany(E101Init::class, 'e101_reg', 'e101_b1');
+        return $this->hasMany(E101Init::class, 'e101_reg', 'e101_reg');
     }
 
     public function produk()
     {
-        return $this->hasMany(Produk::class, 'e101_b4', 'produk');
+        return $this->hasMany(Produk::class, 'prodid', 'e101_b4');
     }
 }
