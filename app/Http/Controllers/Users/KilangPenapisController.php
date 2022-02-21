@@ -178,6 +178,14 @@ class KilangPenapisController extends Controller
         // dd($data);
     }
 
+    // public function destroy(E101B $penyata)
+    // {
+    //     $penyata->delete();
+
+    //     return redirect()->route('penapis.bahagiani')
+    //                     ->with('success','Product deleted successfully');
+    // }
+
 
     public function penapis_bahagianii()
     {

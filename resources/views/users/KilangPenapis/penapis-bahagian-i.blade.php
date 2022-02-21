@@ -249,6 +249,7 @@
                                         </div> --}}
 
                                     </div>
+                                    <input type="hidden" name="hidDelete" id="hidDelete" value="" />
                         </form>
                         <br>
                         <br>
@@ -261,7 +262,7 @@
 
 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered mb-0">
+                                    <table class="table table-bordered mb-0"  id="cuba">
                                         <thead style="text-align: center">
                                             <tr>
                                                 <th>Nama Produk</th>
@@ -275,6 +276,8 @@
                                                 <th>Eksport</th>
                                                 <th>Stok Akhir Di Premis</th>
                                                 <th>Stok Akhir Di Pusat Simpanan</th>
+                                                <th>Kemaskini</th>
+                                                <th>Buang?</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -286,8 +289,8 @@
 
 
                                                         {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid) --}}
-                                                    {{-- <span value={{ $data->e101_b4 }}>{{ $data->e101_b4   }}</span> --}}
-                                                {{-- @endif --}}
+                                                        {{-- <span value={{ $data->e101_b4 }}>{{ $data->e101_b4   }}</span> --}}
+                                                        {{-- @endif --}}
 
                                                     </td>
                                                     <td>{{ $data->e101_b5 }}</td>
@@ -300,11 +303,17 @@
                                                     <td>{{ $data->e101_b12 }}</td>
                                                     <td>{{ $data->e101_b13 }}</td>
                                                     <td>{{ $data->e101_b14 }}</td>
+                                                    <td></td>
+                                                    <td>
+
+                                                        <button type="button" value="Delete" onclick="myDeleteFunction()"
+                                                            class="btn btn-danger">Delete</button>
+                                                    </td>
                                                     {{-- <td>{{ $data->e101_b15 }}</td> --}}
 
 
                                                 </tr>
-                                                @endforeach
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -387,34 +396,6 @@
         <br>
         <br>
         <br>
-
-
-
-        {{-- </div>
-                                                                    </div> --}}
-
-        {{-- </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {{-- </div>
-
-                    </div> --}}
-
-
-
         <br>
         <br>
 
@@ -521,6 +502,28 @@
             if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
                 return false;
             return true;
+        }
+    </script>
+
+    <script type="text/javascript">
+        function deleteThis(id) {
+            document.getElementById("hidDelete").value = id;
+            document.yourFormName.submit();
+        }
+    </script>
+
+    <script>
+        // function myCreateFunction() {
+        //     var table = document.getElementById("myTable");
+        //     var row = table.insertRow(0);
+        //     var cell1 = row.insertCell(0);
+        //     var cell2 = row.insertCell(1);
+        //     cell1.innerHTML = "NEW CELL1";
+        //     cell2.innerHTML = "NEW CELL2";
+        // }
+
+        function myDeleteFunction() {
+            document.getElementById("cuba").deleteRow(0);
         }
     </script>
 
