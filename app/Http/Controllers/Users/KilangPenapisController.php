@@ -246,13 +246,13 @@ class KilangPenapisController extends Controller
 
 
 
-    public function penapis_update_bahagian_ii(Request $request)
+    public function penapis_add_bahagian_ii(Request $request)
     {
         // dd($request->all());
-        $this->validation_bahagian_ii($request->all())->validate();
-        $this->store_bahagian_ii($request->all());
+        $this->validation_bahagian_i($request->all())->validate();
+        $this->store_bahagian_i($request->all());
 
-        return redirect()->route('penapis.bahagiani')->with('success', 'Maklumat sudah ditambah');
+        return redirect()->route('penapis.bahagianii')->with('success', 'Maklumat sudah ditambah');
     }
 
     protected function validation_bahagian_ii(array $data)
@@ -297,26 +297,38 @@ class KilangPenapisController extends Controller
         // dd($data);
     }
 
-    // public function penapis_bahagianii2()
+    // public function destroy(E101B $penyata)
     // {
+    //     $penyata->delete();
 
-    //     $breadcrumbs    = [
-    //         ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-    //         ['link' => route('penapis.bahagianii'), 'name' => "Bahagian II"],
-    //     ];
-
-    //     $kembali = route('penapis.bahagiani');
-
-    //     $returnArr = [
-    //         'breadcrumbs' => $breadcrumbs,
-    //         'kembali'     => $kembali,
-    //     ];
-    //     $layout = 'layouts.kpenapis';
-
-
-
-    //     return view('users.KilangBuah.penapis-bahagian-ii2', compact('returnArr', 'layout'));
+    //     return redirect()->route('penapis.bahagiani')
+    //                     ->with('success','Product deleted successfully');
     // }
+
+
+    public function penapis_edit_bahagian_ii(Request $request, $id)
+    {
+
+
+        // dd($request->all());
+            $penyata = E101B::findOrFail($id);
+            $penyata->e101_b4 = $request->e101_b4;
+            $penyata->e101_b5 = $request->e101_b5;
+            $penyata->e101_b6 = $request->e101_b6;
+            $penyata->e101_b7 = $request->e101_b7;
+            $penyata->e101_b9 = $request->e101_b9;
+            $penyata->e101_b10 = $request->e101_b10;
+            $penyata->e101_b11 = $request->e101_b11;
+            $penyata->e101_b12 = $request->e101_b12;
+            $penyata->e101_b13 = $request->e101_b13;
+            $penyata->e101_b14 = $request->e101_b14;
+            $penyata->save();
+
+
+            return redirect()->route('penapis.bahagianii')
+                ->with('success', 'Maklumat telah disimpan');
+    }
+
 
     public function penapis_bahagianiii()
     {

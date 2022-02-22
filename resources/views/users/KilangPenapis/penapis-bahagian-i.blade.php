@@ -118,7 +118,7 @@
                                                 Stok Awal Di Pusat Simpanan</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e101_b6'
-                                                    style="margin-left:42%; width:40%" id="nombor_borang_kastam" required
+                                                    style="margin-left:42%; width:40%" id="e101_b6" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -132,7 +132,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Belian / Penerimaan</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='e101_b7' id="kuantiti"
+                                                <input type="text" class="form-control" name='e101_b7' id="e101_b7"
                                                     style="margin-left:42%; width:40%"
                                                     onkeypress="return isNumberKey(event)" required
                                                     title="Sila isikan butiran ini.">
@@ -149,7 +149,7 @@
                                                 Pengeluaran</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e101_b9'
-                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    style="margin-left:42%; width:40%" id="e101_b9" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -164,7 +164,7 @@
                                                 Digunakan Untuk Proses Selanjutnya</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e101_b10'
-                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    style="margin-left:42%; width:40%" id="e101_b10" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -179,7 +179,7 @@
                                                 Jualan / Edaran Dalam Negeri</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e101_b11'
-                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    style="margin-left:42%; width:40%" id="e101_b11" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -194,7 +194,7 @@
                                                 Eksport</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e101_b12'
-                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    style="margin-left:42%; width:40%" id="e101_b12" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -209,7 +209,7 @@
                                                 Stok Akhir Di Premis</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e101_b13'
-                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    style="margin-left:42%; width:40%" id="e101_b13" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -224,7 +224,7 @@
                                                 Stok Akhir Di Pusat Simpanan</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e101_b14'
-                                                    style="margin-left:42%; width:40%" id="destinasi_negara" required
+                                                    style="margin-left:42%; width:40%" id="e101_b14" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">

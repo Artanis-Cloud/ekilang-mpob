@@ -352,15 +352,15 @@
             <section id="hero" class="d-flex align-items-center ">
                 <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
 
-                    <div class="row justify-content-center" style="margin-top: -5%">
+                    <div class="row justify-content-center" style="margin-top: -3%">
                         <div class="col-xl-12 col-lg-8">
 
                             <h1 style="font-size:20px; margin-left:10%;">KILANG PENAPIS</h1>
-                            <h6 style=" margin-left:10%">Penyata Bulanan Kilang Penapis</h6>
+                            <h6 style=" margin-left:10%; margin-top:-1%">Penyata Bulanan Kilang Penapis</h6>
                         </div>
                     </div>
 
-                    <div class="mb-4 row">
+                    <div class="mb-4 mt-3 row">
                         <div class="col-md-12">
                             <div class="card" style="margin-right:10%; margin-left:10%">
                                 <div class="card-header" style="margin-bottom: -1%">
