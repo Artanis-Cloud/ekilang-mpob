@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Models\E101B;
 use App\Models\E101C;
+use App\Models\E101D;
 use App\Models\E101Init;
 use App\Models\Pelesen;
+use App\Models\ProdCat;
 use App\Models\Produk;
 use Illuminate\Http\Request;
 use DB;
@@ -577,12 +579,12 @@ class KilangPenapisController extends Controller
     }
 
 
-    public function penapis_bahagianva()
+    public function penapis_bahagianv()
     {
 
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianva'), 'name' => "Bahagian V(a)"],
+            ['link' => route('penapis.bahagianv'), 'name' => "Bahagian V"],
         ];
 
         $kembali = route('penapis.bahagianivb');
@@ -594,9 +596,85 @@ class KilangPenapisController extends Controller
         $layout = 'layouts.kpenapis';
 
 
+        // $produk = ProdCat::where('prodcat', 04)->orderBy('prodname')->get();
 
-        return view('users.KilangPenapis.penapis-bahagian-va', compact('returnArr', 'layout'));
+        $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+
+
+        $penyata = E101D::with('e101init','prodcat')->where('e101_reg', $user->e101_reg)->get();
+// dd($penyata);
+
+        return view('users.KilangPenapis.penapis-bahagian-v', compact('returnArr', 'layout','user','penyata'));
     }
+
+
+
+    public function penapis_add_bahagian_v(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_v($request->all())->validate();
+        $this->store_bahagian_v($request->all());
+
+        return redirect()->route('penapis.bahagianv')->with('success', 'Maklumat sudah ditambah');
+    }
+
+    protected function validation_bahagian_v(array $data)
+    {
+        return Validator::make($data, [
+            'e101_d3' => ['required', 'string'],
+            'e101_d4' => ['required', 'string'],
+            'e101_d5' => ['required', 'string'],
+            'e101_d6' => ['required', 'string'],
+            'e101_d7' => ['required', 'string'],
+            'e101_d8' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_bahagian_v(array $data)
+    {
+        $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        // dd($e101_reg->e101_reg);
+        return E101D::create([
+            'e101_reg'=> $e101_reg->e101_reg,
+            'e101_d3' => $data['e101_d3'],
+            'e101_d4' => $data['e101_d4'],
+            'e101_d5' => $data['e101_d5'],
+            'e101_d6' => $data['e101_d6'],
+            'e101_d7' => $data['e101_d7'],
+            'e101_d8' => $data['e101_d8'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
+
+    // public function destroy(E101B $penyata)
+    // {
+    //     $penyata->delete();
+
+    //     return redirect()->route('penapis.bahagiani')
+    //                     ->with('success','Product deleted successfully');
+    // }
+
+
+    public function penapis_edit_bahagian_v(Request $request, $id)
+    {
+
+
+        // dd($request->all());
+            $penyata = E101D::findOrFail($id);
+            $penyata->e101_d3 = $request->e101_d3;
+            $penyata->e101_d4 = $request->e101_d4;
+            $penyata->e101_d5 = $request->e101_d5;
+            $penyata->e101_d6 = $request->e101_d6;
+            $penyata->e101_d7 = $request->e101_d7;
+            $penyata->e101_d8 = $request->e101_d8;
+            $penyata->save();
+
+
+            return redirect()->route('penapis.bahagianv')
+                ->with('success', 'Maklumat telah disimpan');
+    }
+
 
     public function penapis_bahagianvb()
     {

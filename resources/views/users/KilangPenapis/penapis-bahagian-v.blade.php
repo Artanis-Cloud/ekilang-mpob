@@ -54,7 +54,7 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <form action="{{ route('penapis.add.bahagian.iva') }}" method="post">
+                        <form action="{{ route('penapis.add.bahagian.v') }}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -62,10 +62,8 @@
                                     <div class="pl-3">
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                            <h3 style="color: rgb(39, 80, 71);">Bahagian IV(a)</h3>
-                                            <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan
-                                                Minyak Isirung Sawit
-                                                - Bahan Makanan</h5>
+                                            <h3 style="color: rgb(39, 80, 71);">Bahagian V</h3>
+                                            <h5 style="color: rgb(39, 80, 71)">Belian/Penerimaan Bekalan Produk Sawit</h5>
                                             {{-- <p>Maklumat Kilang</p> --}}
                                         </div>
                                         <hr>
@@ -73,17 +71,14 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Nama Produk</label>
+                                                    Sendiri / Luar</label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" id="produk"
-                                                            style="margin-left:42%; width:40%" name="e101_c4">
+                                                        <select class="form-select" id="e101_d3"
+                                                            style="margin-left:42%; width:40%" name="e101_d3">
                                                             <option selected hidden disabled>Sila Pilih</option>
-                                                            @foreach ($produk as $data)
-                                                                <option value="{{ $data->prodid }}">
-                                                                    {{ $data->prodname }}
-                                                                </option>
-                                                            @endforeach
+                                                            <option value="1"> Sendiri </option>
+                                                            <option value="2"> Luar </option>
 
                                                         </select>
                                                     </fieldset>
@@ -97,10 +92,35 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Stok Awal</label>
+                                                    Belian/Penerimaan dari</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_c5'
-                                                        style="margin-left:42%; width:40%" id="e101_c5" required
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="e101_d4"
+                                                            style="margin-left:42%; width:40%" name="e101_d4">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option value="1">KILANG BUAH</option>
+                                                            <option value="2">KILANG PENAPIS</option>
+                                                            <option value="3">KILANG ISIRUNG</option>
+                                                            <option value="4">KILANG OLEOKIMIA</option>
+                                                            <option value="5">PUSAT SIMPANAN</option>
+                                                            <option value="6">PENIAGA</option>
+                                                            <option value="9">LAIN-LAIN</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    CPO</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name='e101_d5'
+                                                        style="margin-left:42%; width:40%" id="e101_d5" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -112,10 +132,10 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Belian/Penerimaan</label>
+                                                    PPO</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_c6'
-                                                        style="margin-left:42%; width:40%" id="e101_c6" required
+                                                    <input type="text" class="form-control" name='e101_d6'
+                                                        style="margin-left:42%; width:40%" id="e101_d6" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -127,10 +147,10 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Pengeluaran</label>
+                                                    CPKO</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_c7'
-                                                        style="margin-left:42%; width:40%" id="e101_c7" required
+                                                    <input type="text" class="form-control" name='e101_d7'
+                                                        style="margin-left:42%; width:40%" id="e101_d7" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -142,40 +162,10 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Jualan / Edaran Dalam Negeri</label>
+                                                    PPKO</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_c8'
-                                                        style="margin-left:42%; width:40%" id="e101_c8" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Eksport</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_c9'
-                                                        style="margin-left:42%; width:40%" id="e101_c9" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Stok Akhir</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_c10'
-                                                        style="margin-left:42%; width:40%" id="e101_c10" required
+                                                    <input type="text" class="form-control" name='e101_d8'
+                                                        style="margin-left:42%; width:40%" id="e101_d8" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -201,7 +191,8 @@
                                         </div>
                         </form>
                         <br>
-                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Belian/Penerimaan Bekalan Produk Sawit
+                        </h5>
                         <hr>
                         <section class="section">
                             <div class="card">
@@ -210,13 +201,12 @@
                                     <table class="table table-bordered mb-0">
                                         <thead>
                                             <tr style="text-align: center">
-                                                <th>Nama Produk</th>
-                                                <th>Stok Awal</th>
-                                                <th>Belian / Penerimaan</th>
-                                                <th>Pengeluaran</th>
-                                                <th>Jualan / Edaran Dalam Negeri</th>
-                                                <th>Eksport</th>
-                                                <th>Stok Akhir</th>
+                                                <th>Sendiri / Luar</th>
+                                                <th>Belian/Penerimaan dari</th>
+                                                <th>CPO</th>
+                                                <th>PPO</th>
+                                                <th>CPKO</th>
+                                                <th>PPKO</th>
                                                 <th>Kemaskini</th>
                                                 <th>Buang?</th>
 
@@ -225,96 +215,101 @@
                                         <tbody>
                                             @foreach ($penyata as $data)
                                                 <tr style="text-align: center">
-                                                <td>{{ $data->e101_c4 }}</td>
-                                                <td>{{ $data->e101_c5 }}</td>
-                                                <td>{{ $data->e101_c6 }}</td>
-                                                <td>{{ $data->e101_c7 }}</td>
-                                                <td>{{ $data->e101_c8 }}</td>
-                                                <td>{{ $data->e101_c9 }}</td>
-                                                <td>{{ $data->e101_c10 }}</td>
-                                                <td>
-                                                    <div class="icon" style="text-align: center">
-                                                        <a href="#"
-                                                            type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal{{ $data->e101_c1 }}">
-                                                            <i class="fas fa-edit fa-lg" style="color: #228c1c">
-                                                            </i>
-                                                        </a>
-                                                    </div>
-                                                </td>
-                                                <td>
 
-                                                    <button type="button" value="Delete" onclick="myDeleteFunction()"
-                                                        class="btn btn-danger">Delete</button>
-                                                </td>
-                                            </tr>
+                                                    @if ($data->e101_d3 == 1)
+                                                        <td>Sendiri</td>
+                                                    @elseif ($data->e101_d3 == 2)
+                                                        <td>Luar</td>
+                                                    @endif
 
-                                            <div class="col-md-6 col-12">
 
-                                                <!--scrolling content Modal -->
-                                                <div class="modal fade" id="modal{{ $data->e101_c1 }}"
-                                                    tabindex="-1" role="dialog"
-                                                    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title"
-                                                                    id="exampleModalScrollableTitle">
-                                                                    Kemaskini Maklumat Produk</h5>
-                                                                <button type="button" class="close"
-                                                                    data-bs-dismiss="modal" aria-label="Close">
-                                                                    <i data-feather="x"></i>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <form
-                                                                    action="{{ route('penapis.edit.bahagian.iva', [$data->e101_c1]) }}"
-                                                                    method="post">
-                                                                    @csrf
-                                                                    <div class="modal-body">
-                                                                        <label>Nama Produk </label>
-                                                                        <div class="form-group">
-                                                                            <input type="text" name='e101_c4'
-                                                                                class="form-control"
-                                                                                value="{{ $data->e101_c4 }}" readonly>
-                                                                        </div>
-                                                                        <label>Stok Awal </label>
-                                                                        <div class="form-group">
-                                                                            <input type="text" name='e101_c5'
-                                                                                class="form-control" value="{{  $data->e101_c5 }}">
-                                                                        </div>
-                                                                        <label>Belian / Penerimaan </label>
-                                                                        <div class="form-group">
-                                                                            <input type="text" name='e101_c6'
-                                                                                class="form-control" value="{{ $data->e101_c6 }}">
-                                                                        </div>
-                                                                        {{-- <label>Import </label>
+                                                    <td>{{ $data->e101_d4 }}</td>
+                                                    <td>{{ $data->e101_d5 }}</td>
+                                                    <td>{{ $data->e101_d6 }}</td>
+                                                    <td>{{ $data->e101_d7 }}</td>
+                                                    <td>{{ $data->e101_d8 }}</td>
+                                                    <td>
+                                                        <div class="icon" style="text-align: center">
+                                                            <a href="#" type="button" data-bs-toggle="modal"
+                                                                data-bs-target="#modal{{ $data->e101_d1 }}">
+                                                                <i class="fas fa-edit fa-lg" style="color: #228c1c">
+                                                                </i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+
+                                                        <button type="button" value="Delete" onclick="myDeleteFunction()"
+                                                            class="btn btn-danger">Delete</button>
+                                                    </td>
+                                                </tr>
+
+                                                <div class="col-md-6 col-12">
+
+                                                    <!--scrolling content Modal -->
+                                                    <div class="modal fade" id="modal{{ $data->e101_d1 }}"
+                                                        tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="exampleModalScrollableTitle">
+                                                                        Kemaskini Maklumat Produk</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('penapis.edit.bahagian.v', [$data->e101_d1]) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <label>Sendiri / Luar </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_d3'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->e101_d3 }}" readonly>
+                                                                            </div>
+                                                                            <label>Belian/Penerimaan dari </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_d4'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->e101_d4 }}" readonly>
+                                                                            </div>
+                                                                            <label>CPO </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_d5'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->e101_d5 }}">
+                                                                            </div>
+                                                                            <label>PPO </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_d6'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->e101_d6 }}">
+                                                                            </div>
+                                                                            {{-- <label>Import </label>
                                                                         <div class="form-group">
                                                                             <input type="password" placeholder="Password"
                                                                                 class="form-control">
                                                                         </div> --}}
-                                                                        <label>Pengeluaran </label>
-                                                                        <div class="form-group">
-                                                                            <input type="text" name='e101_c7'
-                                                                                class="form-control" value="{{ $data->e101_c7 }}">
+                                                                            <label>CPKO </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_d7'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->e101_d7 }}">
+                                                                            </div>
+                                                                            <label>PPKO </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_d8'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->e101_d8 }}">
+                                                                            </div>
                                                                         </div>
-                                                                        <label>Jualan / Edaran Dalam Negeri </label>
-                                                                        <div class="form-group">
-                                                                            <input type="text" name='e101_c8'
-                                                                                class="form-control" value="{{ $data->e101_c8 }}">
-                                                                        </div>
-                                                                        <label>Eksport </label>
-                                                                        <div class="form-group">
-                                                                            <input type="text" name='e101_c9'
-                                                                                class="form-control" value="{{ $data->e101_c9 }}">
-                                                                        </div>
-                                                                        <label>Stok Akhir </label>
-                                                                        <div class="form-group">
-                                                                            <input type="text" name='e101_c10'
-                                                                                class="form-control" value="{{ $data->e101_c10 }}">
-                                                                        </div>
-                                                                    </div>
-                                                                    {{-- <div class="modal-footer">
+                                                                        {{-- <div class="modal-footer">
                                                                         <button type="button" class="btn btn-light-secondary"
                                                                             data-bs-dismiss="modal">
                                                                             <i class="bx bx-x d-block d-sm-none"></i>
@@ -328,32 +323,32 @@
                                                                     </div> --}}
 
 
-                                                            </div>
-                                                            <div class="text-right col-md-7 mb-4 ">
-                                                                <button type="submit" class="btn btn-primary" style="float: right">Simpan &
-                                                                    Seterusnya</button>
-                                                            </div>
+                                                                </div>
+                                                                <div class="text-right col-md-7 mb-4 ">
+                                                                    <button type="submit" class="btn btn-primary"
+                                                                        style="float: right">Simpan &
+                                                                        Seterusnya</button>
+                                                                </div>
 
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-light-secondary"
-                                                                    data-bs-dismiss="modal">
-                                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                                    <span class="d-none d-sm-block">Batal</span>
-                                                                </button>
-                                                                <button type="submit" class="btn btn-primary ml-1"
-                                                                    data-bs-dismiss="modal">
-                                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                                    <span class="d-none d-sm-block">Kemaskini</span>
-                                                                </button>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
                                                             </div>
-                                                            </form>
                                                         </div>
                                                     </div>
+
                                                 </div>
-
-                                            </div>
-
-                                        @endforeach
+                                            @endforeach
                                             <br>
 
                                         </tbody>
@@ -415,7 +410,7 @@
                                         <i class="bx bx-x d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                     </button>
-                                    <a href="{{ route('penapis.bahagianivb') }}" type="button"
+                                    <a href="{{ route('penapis.bahagianvi') }}" type="button"
                                         class="btn btn-primary ml-1">
 
                                         <i class="bx bx-check d-block d-sm-none"></i>
