@@ -276,7 +276,7 @@
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_c4'
                                                                                 class="form-control"
-                                                                                value="{{ $data->e101_c4 }}">
+                                                                                value="{{ $data->e101_c4 }}" readonly>
                                                                         </div>
                                                                         <label>Stok Awal </label>
                                                                         <div class="form-group">
@@ -415,7 +415,7 @@
                                         <i class="bx bx-x d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                     </button>
-                                    <a href="{{ route('penapis.bahagianva') }}" type="button"
+                                    <a href="{{ route('penapis.bahagianv') }}" type="button"
                                         class="btn btn-primary ml-1">
 
                                         <i class="bx bx-check d-block d-sm-none"></i>

@@ -176,22 +176,22 @@
                                 </li>
 
                                 <li class="sidebar-item ">
-                                    <a href="{{ route('penapis.bahagianva') }}">
+                                    <a href="{{ route('penapis.bahagianv') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                        <span style="color: rgb(78, 73, 57); ">Bahagian V(a)</span>
+                                        <span style="color: rgb(78, 73, 57); ">Bahagian V</span>
                                     </a>
 
                                 </li>
 
-                                <li class="sidebar-item ">
+                                {{-- <li class="sidebar-item ">
                                     <a href="{{ route('penapis.bahagianvb') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                        <span style="color: rgb(78, 73, 57); ">Bahagian V(b)</span>
+                                        {{-- <span style="color: rgb(78, 73, 57); ">Bahagian V(b)</span>
                                     </a>
 
-                                </li>
+                                </li> --}} 
 
                                 <li class="sidebar-item ">
                                     <a href="{{ route('penapis.bahagianvi') }}">
