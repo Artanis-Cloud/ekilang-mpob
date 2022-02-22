@@ -1,9 +1,6 @@
 @extends($layout)
 
 @section('content')
-
-
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
@@ -57,300 +54,401 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
+                        <form action="{{ route('penapis.add.bahagian.ivb') }}" method="post">
+                            @csrf
+                            <div class="card-body">
+                                <div class="row">
+                                    {{-- <div class="col-md-4 col-12"> --}}
+                                    <div class="pl-3">
+                                        <div class="mb-4 text-center">
+                                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                            <h3 style="color: rgb(39, 80, 71);">Bahagian IV (b)</h3>
+                                            <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan
+                                                Minyak Isirung Sawit
+                                                - Bahan Bukan Makanan</h5>
+                                            {{-- <p>Maklumat Kilang</p> --}}
+                                        </div>
+                                        <hr>
+                                        <div class="container center mt-4">
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Nama Produk</label>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="produk"
+                                                            style="margin-left:42%; width:40%" name="e101_c4">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            @foreach ($produk as $data)
+                                                                <option value="{{ $data->prodid }}">
+                                                                    {{ $data->prodname }}
+                                                                </option>
+                                                            @endforeach
 
-                        <div class="card-body">
-                            <div class="row">
-                                {{-- <div class="col-md-4 col-12"> --}}
-                                <div class="pl-3">
-                                    <div class="mb-4 text-center">
-                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71);">Bahagian IV(b)</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan Minyak Isirung Sawit
-                                            - Bahan Bukan Makanan</h5>
-                                        {{-- <p>Maklumat Kilang</p> --}}
-                                    </div>
-                                    <hr>
-                                    <div class="container center mt-4">
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nama Produk</label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
-                                                        <option selected hidden disabled>Sila Pilih Produk</option>
-                                                        <option value="H9">BOSFP/CBS - H9
-                                                        </option><option value="U7">BVO - U7
-                                                        </option><option value="M9">CBE - M9
-                                                        </option><option value="N0">CBEXT - N0
-                                                        </option><option value="N1">CBR - N1
-                                                        </option><option value="44">CBS - 44
-                                                        </option><option value="M2">CF - M2
-                                                        </option><option value="FM">CTENE - FM
-                                                        </option><option value="86">DF - 86
-                                                        </option><option value="DV">DFS - DV
-                                                        </option><option value="46">FB - 46
-                                                        </option><option value="DU">HFV - DU
-                                                        </option><option value="G2">HPF - G2
-                                                        </option><option value="AJ">HVF - AJ
-                                                        </option><option value="C0">HVG - C0
-                                                        </option><option value="78">HVO - 78
-                                                        </option><option value="FA">IEFAT - FA
-                                                        </option><option value="H5">IMVF - H5
-                                                        </option><option value="DL">INTFATBLD - DL
-                                                        </option><option value="42">M - 42
-                                                        </option><option value="M3">PF - M3
-                                                        </option><option value="DW">PFAT - DW
-                                                        </option><option value="79">PKF - 79
-                                                        </option><option value="G5">PRYO - G5
-                                                        </option><option value="G4">RL - G4
-                                                        </option><option value="43">SH - 43
-                                                        </option><option value="48">SOAP - 48
-                                                        </option><option value="I3">TOCO - I3
-                                                        </option><option value="FN">TRIE - FN
-                                                        </option><option value="F8">VC - F8
-                                                        </option><option value="I2">VEGPO - I2
-                                                        </option><option value="M0">VF - M0
-                                                        </option><option value="41">VG - 41
-                                                        </option><option value="AI">VSO - AI
-                                                                   </option>
-
-                                                    </select>
-                                                </fieldset>
-                                                {{-- @error('alamat_kilang_1')
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Stok Awal</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Stok Awal</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name='e101_c5'
+                                                        style="margin-left:42%; width:40%" id="e101_c5" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Belian/Penerimaan</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Belian/Penerimaan</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name='e101_c6'
+                                                        style="margin-left:42%; width:40%" id="e101_c6" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Pengeluaran</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Pengeluaran</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name='e101_c7'
+                                                        style="margin-left:42%; width:40%" id="e101_c7" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Jualan / Edaran Dalam Negeri</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Jualan / Edaran Dalam Negeri</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name='e101_c8'
+                                                        style="margin-left:42%; width:40%" id="e101_c8" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Eksport</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Eksport</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name='e101_c9'
+                                                        style="margin-left:42%; width:40%" id="e101_c9" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Stok Akhir</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Stok Akhir</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name='e101_c10'
+                                                        style="margin-left:42%; width:40%" id="e101_c10" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
+                                                </div>
                                             </div>
+
                                         </div>
 
-                                    </div>
 
-
-                                    <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="row form-group" style="padding-top: 10px; ">
 
 
 
-                                        <div class="text-right col-md-11 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                style="float: right" data-target="#confirmation">
-                                                Simpan</button>
+                                            <div class="row form-group" style="padding-top: 10px; ">
+                                                <div class="text-right col-md-12 mb-4 ">
+                                                    <button type="submit" class="btn btn-primary ">Tambah</button>
+                                                </div>
+                                            </div>
+
                                         </div>
+                        </form>
+                        <br>
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
+                        <hr>
+                        <section class="section">
+                            <div class="card">
 
-                                    </div>
-                                    <br>
-                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-                                    <hr>
-                                    <section class="section">
-                                        <div class="card">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered mb-0">
+                                        <thead>
+                                            <tr style="text-align: center">
+                                                <th>Nama Produk</th>
+                                                <th>Stok Awal</th>
+                                                <th>Belian / Penerimaan</th>
+                                                <th>Pengeluaran</th>
+                                                <th>Jualan / Edaran Dalam Negeri</th>
+                                                <th>Eksport</th>
+                                                <th>Stok Akhir</th>
+                                                <th>Kemaskini</th>
+                                                <th>Buang?</th>
 
-                                            <div class="card-body">
-                                                <table class='table table-striped' id="table1">
-                                                    <thead>
-                                                        <tr style="text-align: center">
-                                                            <th>Nama Produk</th>
-                                                            <th>Stok Awal</th>
-                                                            <th>Belian / Penerimaan</th>
-                                                            <th>Pengeluaran</th>
-                                                            <th>Jualan / Edaran Dalam Negeri</th>
-                                                            <th>Eksport</th>
-                                                            <th>Stok Akhir</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($penyata as $data)
+                                                <tr style="text-align: center">
+                                                <td>{{ $data->e101_c4 }}</td>
+                                                <td>{{ $data->e101_c5 }}</td>
+                                                <td>{{ $data->e101_c6 }}</td>
+                                                <td>{{ $data->e101_c7 }}</td>
+                                                <td>{{ $data->e101_c8 }}</td>
+                                                <td>{{ $data->e101_c9 }}</td>
+                                                <td>{{ $data->e101_c10 }}</td>
+                                                <td>
+                                                    <div class="icon" style="text-align: center">
+                                                        <a href="#"
+                                                            type="button" data-bs-toggle="modal"
+                                                            data-bs-target="#modal{{ $data->e101_c1 }}">
+                                                            <i class="fas fa-edit fa-lg" style="color: #228c1c">
+                                                            </i>
+                                                        </a>
+                                                    </div>
+                                                </td>
+                                                <td>
 
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>BPL</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
+                                                    <button type="button" value="Delete" onclick="myDeleteFunction()"
+                                                        class="btn btn-danger">Delete</button>
+                                                </td>
+                                            </tr>
 
-                                                        <br>
+                                            <div class="col-md-6 col-12">
 
-                                                    </tbody>
+                                                <!--scrolling content Modal -->
+                                                <div class="modal fade" id="modal{{ $data->e101_c1 }}"
+                                                    tabindex="-1" role="dialog"
+                                                    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title"
+                                                                    id="exampleModalScrollableTitle">
+                                                                    Kemaskini Maklumat Produk</h5>
+                                                                <button type="button" class="close"
+                                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                                    <i data-feather="x"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form
+                                                                    action="{{ route('penapis.edit.bahagian.ivb', [$data->e101_c1]) }}"
+                                                                    method="post">
+                                                                    @csrf
+                                                                    <div class="modal-body">
+                                                                        <label>Nama Produk </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='e101_c4'
+                                                                                class="form-control"
+                                                                                value="{{ $data->e101_c4 }}">
+                                                                        </div>
+                                                                        <label>Stok Awal </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='e101_c5'
+                                                                                class="form-control" value="{{  $data->e101_c5 }}">
+                                                                        </div>
+                                                                        <label>Belian / Penerimaan </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='e101_c6'
+                                                                                class="form-control" value="{{ $data->e101_c6 }}">
+                                                                        </div>
+                                                                        {{-- <label>Import </label>
+                                                                        <div class="form-group">
+                                                                            <input type="password" placeholder="Password"
+                                                                                class="form-control">
+                                                                        </div> --}}
+                                                                        <label>Pengeluaran </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='e101_c7'
+                                                                                class="form-control" value="{{ $data->e101_c7 }}">
+                                                                        </div>
+                                                                        <label>Jualan / Edaran Dalam Negeri </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='e101_c8'
+                                                                                class="form-control" value="{{ $data->e101_c8 }}">
+                                                                        </div>
+                                                                        <label>Eksport </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='e101_c9'
+                                                                                class="form-control" value="{{ $data->e101_c9 }}">
+                                                                        </div>
+                                                                        <label>Stok Akhir </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='e101_c10'
+                                                                                class="form-control" value="{{ $data->e101_c10 }}">
+                                                                        </div>
+                                                                    </div>
+                                                                    {{-- <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-light-secondary"
+                                                                            data-bs-dismiss="modal">
+                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Batal</span>
+                                                                        </button>
+                                                                        <button type="button" class="btn btn-primary ml-1"
+                                                                            data-bs-dismiss="modal">
+                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Kemaskini</span>
+                                                                        </button>
+                                                                    </div> --}}
 
-                                                </table>
+
+                                                            </div>
+                                                            <div class="text-right col-md-7 mb-4 ">
+                                                                <button type="submit" class="btn btn-primary" style="float: right">Simpan &
+                                                                    Seterusnya</button>
+                                                            </div>
+
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-light-secondary"
+                                                                    data-bs-dismiss="modal">
+                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Batal</span>
+                                                                </button>
+                                                                <button type="submit" class="btn btn-primary ml-1"
+                                                                    data-bs-dismiss="modal">
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Kemaskini</span>
+                                                                </button>
+                                                            </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                             </div>
-                                        </div>
 
-                                    </section>
+                                        @endforeach
+                                            <br>
 
-                                </div>
+                                        </tbody>
 
+                                    </table>
 
-
-
-
-
-
-
-
-
-
-                                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                    <div class="text-left col-md-5">
-                                        <a href="{{ route('penapis.bahagiani') }}" class="btn btn-primary"
-                                            style="float: left">Sebelumnya</a>
-                                    </div>
-                                    <div class="text-right col-md-7 mb-4 ">
-                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
-                                            Seterusnya</button>
-                                    </div>
-
-                                </div>
-
-                                <!-- Vertically Centered modal Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                        role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                    PENGESAHAN</h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>
-                                                    Anda pasti mahu menyimpan maklumat ini?
-                                                </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                </button>
-                                                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Ya</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                            <br>
-                            </form>
 
-                        </div>
-
-                        <br>
+                        </section>
 
                     </div>
+
+
+
+
+
+
+
+
+
+
+
+                    <div class="row form-group" style="padding-top: 10px; ">
+
+
+                        <div class="text-left col-md-5">
+                            <a href="{{ route('penapis.bahagiani') }}" class="btn btn-primary"
+                                style="float: left">Sebelumnya</a>
+                        </div>
+                        <div class="text-right col-md-7 mb-4 ">
+                            <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
+                                data-bs-target="#exampleModalCenter">Simpan &
+                                Seterusnya</button>
+                        </div>
+
+                    </div>
+
+                    <!-- Vertically Centered modal Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                            role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                        PENGESAHAN</h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Anda pasti mahu menyimpan maklumat ini?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                    </button>
+                                    <a href="{{ route('penapis.bahagianva') }}" type="button"
+                                        class="btn btn-primary ml-1">
+
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Ya</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <br>
+                </form>
+
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
             <br>
+
+        </div>
+        </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <br>
 
 
 
@@ -394,5 +492,4 @@
     </body>
 
     </html>
-
 @endsection

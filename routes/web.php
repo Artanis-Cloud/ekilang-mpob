@@ -202,6 +202,11 @@ Route::middleware('auth')->group(function () {
         Route::post('penapis/edit-bahagian-iva/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_iva'])->name('penapis.edit.bahagian.iva');
 
         Route::get('penapis/bahagian-ivb', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianivb'])->name('penapis.bahagianivb');
+        Route::post('penapis/add-bahagian-ivb', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_ivb'])->name('penapis.add.bahagian.ivb');
+        Route::post('penapis/edit-bahagian-ivb/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_ivb'])->name('penapis.edit.bahagian.ivb');
+
+
+
         Route::get('penapis/bahagian-va', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianva'])->name('penapis.bahagianva');
         Route::get('penapis/bahagian-vb', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianvb'])->name('penapis.bahagianvb');
         Route::get('penapis/bahagian-vi', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianvi'])->name('penapis.bahagianvi');
