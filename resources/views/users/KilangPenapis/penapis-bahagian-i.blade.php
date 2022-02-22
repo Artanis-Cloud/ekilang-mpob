@@ -54,7 +54,7 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-                        <form action="{{ route('penapis.update.bahagian.i') }}" method="post">
+                        <form action="{{ route('penapis.add.bahagian.i') }}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
@@ -240,7 +240,7 @@
 
                                         <div class="row form-group" style="padding-top: 10px; ">
                                             <div class="text-right col-md-12 mb-4 ">
-                                                <button type="submit" class="btn btn-primary ">Simpan & Seterusnya</button>
+                                                <button type="submit" class="btn btn-primary ">Tambah</button>
                                             </div>
                                         </div>
                                         {{-- <div class="text-right col-md-10 mb-7 ">
@@ -262,7 +262,7 @@
 
 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered mb-0"  id="cuba">
+                                    <table class="table table-bordered mb-0" id="cuba">
                                         <thead style="text-align: center">
                                             <tr>
                                                 <th>Nama Produk</th>
@@ -303,7 +303,16 @@
                                                     <td>{{ $data->e101_b12 }}</td>
                                                     <td>{{ $data->e101_b13 }}</td>
                                                     <td>{{ $data->e101_b14 }}</td>
-                                                    <td></td>
+                                                    <td>
+                                                        <div class="icon" style="text-align: center">
+                                                            <a href="#"
+                                                                type="button" data-bs-toggle="modal"
+                                                                data-bs-target="#modal{{ $data->e101_b1 }}">
+                                                                <i class="fas fa-edit fa-lg" style="color: #228c1c">
+                                                                </i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
                                                     <td>
 
                                                         <button type="button" value="Delete" onclick="myDeleteFunction()"
@@ -313,6 +322,125 @@
 
 
                                                 </tr>
+                                                <div class="col-md-6 col-12">
+
+                                                    <!--scrolling content Modal -->
+                                                    <div class="modal fade" id="modal{{ $data->e101_b1 }}"
+                                                        tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="exampleModalScrollableTitle">
+                                                                        Kemaskini Maklumat Produk</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('penapis.edit.bahagian.i', [$data->e101_b1]) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <label>Nama Produk </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_b4'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->e101_b4 }}">
+                                                                            </div>
+                                                                            <label>Stok Awal Di Premis </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_b5'
+                                                                                    class="form-control" value="{{ old('e101_b5') ?? $data->e101_b5 }}">
+                                                                            </div>
+                                                                            <label>Stok Awal Di Pusat Simpanan </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_b6'
+                                                                                    class="form-control" value="{{  $data->e101_b6 }}">
+                                                                            </div>
+                                                                            <label>Belian / Penerimaan </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_b7'
+                                                                                    class="form-control" value="{{ old('e101_b7') ?? $data->e101_b7 }}">
+                                                                            </div>
+                                                                            {{-- <label>Import </label>
+                                                                            <div class="form-group">
+                                                                                <input type="password" placeholder="Password"
+                                                                                    class="form-control">
+                                                                            </div> --}}
+                                                                            <label>Pengeluaran </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_b9'
+                                                                                    class="form-control" value="{{ old('e101_b9') ?? $data->e101_b9 }}">
+                                                                            </div>
+                                                                            <label>Digunakan Untuk Proses
+                                                                                Selanjutnya</label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_b10'
+                                                                                    class="form-control" value="{{ old('e101_b10') ?? $data->e101_b10 }}">
+                                                                            </div>
+                                                                            <label>Jualan / Edaran Dalam Negeri </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_b11'
+                                                                                    class="form-control" value="{{ old('e101_b11') ?? $data->e101_b11 }}">
+                                                                            </div>
+                                                                            <label>Eksport </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_b12'
+                                                                                    class="form-control" value="{{ old('e101_b12') ?? $data->e101_b12 }}">
+                                                                            </div>
+                                                                            <label>Stok Akhir Di Premis </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_b13'
+                                                                                    class="form-control" value="{{ old('e101_b13') ?? $data->e101_b13 }}">
+                                                                            </div>
+                                                                            <label>Stok Akhir Di Pusat Simpanan </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e101_b14'
+                                                                                    class="form-control" value="{{ old('e101_b14') ?? $data->e101_b14 }}">
+                                                                            </div>
+                                                                        </div>
+                                                                        {{-- <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-light-secondary"
+                                                                                data-bs-dismiss="modal">
+                                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                <span class="d-none d-sm-block">Batal</span>
+                                                                            </button>
+                                                                            <button type="button" class="btn btn-primary ml-1"
+                                                                                data-bs-dismiss="modal">
+                                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                <span class="d-none d-sm-block">Kemaskini</span>
+                                                                            </button>
+                                                                        </div> --}}
+
+
+                                                                </div>
+                                                                <div class="text-right col-md-7 mb-4 ">
+                                                                    <button type="submit" class="btn btn-primary" style="float: right">Simpan &
+                                                                        Seterusnya</button>
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -325,6 +453,9 @@
                             </div>
 
                         </section>
+
+
+
 
                     </div>
 
@@ -362,7 +493,8 @@
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalCenterTitle">
                                         PENGESAHAN</h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                        aria-label="Close">
                                         <i data-feather="x"></i>
                                     </button>
                                 </div>
@@ -376,10 +508,12 @@
                                         <i class="bx bx-x d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                     </button>
-                                    <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                    <a href="{{ route('penapis.bahagianii') }}" type="button"
+                                        class="btn btn-primary ml-1">
+
                                         <i class="bx bx-check d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block">Ya</span>
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
