@@ -18,6 +18,9 @@ class E101C extends Model
      */
     protected $table = 'e101_c'; //penyata bulanan terkini - kilang penapis
 
+    protected $primaryKey = 'e101_c1';
+    public $timestamps = false;
+
     protected $fillable = [
         'e101_c1',
         'e101_reg',
@@ -31,4 +34,16 @@ class E101C extends Model
         'e101_c10',
 
     ];
+
+
+    public function e101init()
+    {
+
+        return $this->hasMany(E101Init::class, 'e101_reg', 'e101_reg');
+    }
+
+    public function produk()
+    {
+        return $this->hasMany(Produk::class, 'prodid', 'e101_c4');
+    }
 }
