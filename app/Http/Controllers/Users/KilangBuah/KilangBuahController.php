@@ -249,20 +249,19 @@ class KilangBuahController extends Controller
     public function buah_update_bahagian_iii(Request $request, $id)
     {
 
+       // dd($request->all());
+       $penyata = E91Init::findOrFail($id);
+       $penyata->e91_ai1 = $request->e91_ai1;
+       $penyata->e91_ai2 = $request->e91_ai2;
+       $penyata->e91_ai3 = $request->e91_ai3;
+       $penyata->e91_ai4 = $request->e91_ai4;
+       $penyata->e91_ai5 = $request->e91_ai5;
+       $penyata->e91_ai6 = $request->e91_ai6;
+       $penyata->save();
 
-        // dd($request->all());
-        $penyata = E91Init::findOrFail($id);
-        $penyata->e91_ai1 = $request->e91_ai1;
-        $penyata->e91_ai2 = $request->e91_ai2;
-        $penyata->e91_ai3 = $request->e91_ai3;
-        $penyata->e91_ai4 = $request->e91_ai4;
-        $penyata->e91_ai5 = $request->e91_ai5;
-        $penyata->e91_ai6 = $request->e91_ai6;
-        $penyata->save();
 
-
-        return redirect()->route('buah.bahagianiv')
-            ->with('success', 'Maklumat telah disimpan');
+       return redirect()->route('buah.bahagianiv')
+           ->with('success', 'Maklumat telah disimpan');
 
     }
 
@@ -538,6 +537,27 @@ class KilangBuahController extends Controller
 
 
         return view('users.try2', compact('returnArr', 'layout'));
+    }
+
+    public function trylogin()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('buah.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
+        ];
+
+        $kembali = route('buah.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kbuah';
+
+
+
+        return view('users.KilangBuah.[B]-login', compact('returnArr', 'layout'));
     }
 
 

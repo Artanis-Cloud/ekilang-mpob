@@ -117,18 +117,16 @@ class KilangPenapisController extends Controller
         whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 01);
         })->get();
-        // $noreg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
-        // $penyata2 = DB::select("SELECT *
-        //                         FROM e101_b
-        //                         WHERE e101_reg = $noreg'");
-        // $penyata2 = E101B::where('e101_reg', $noreg)->first();
-        // dd($penyata);
+
+
 
         return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout','produk','penyata','user'));
     }
 
 
-    public function penapis_update_bahagian_i(Request $request)
+
+
+    public function penapis_add_bahagian_i(Request $request)
     {
         // dd($request->all());
         $this->validation_bahagian_i($request->all())->validate();
@@ -161,6 +159,7 @@ class KilangPenapisController extends Controller
         // dd($e101_reg->e101_reg);
         return E101B::create([
             'e101_reg'=> $e101_reg->e101_reg,
+            'e101_b3'=> '1',
             'e101_b4' => $data['e101_b4'],
             'e101_b5' => $data['e101_b5'],
             'e101_b6' => $data['e101_b6'],
@@ -185,6 +184,30 @@ class KilangPenapisController extends Controller
     //     return redirect()->route('penapis.bahagiani')
     //                     ->with('success','Product deleted successfully');
     // }
+
+
+    public function penapis_edit_bahagian_i(Request $request, $id)
+    {
+
+
+        // dd($request->all());
+            $penyata = E101B::findOrFail($id);
+            $penyata->e101_b4 = $request->e101_b4;
+            $penyata->e101_b5 = $request->e101_b5;
+            $penyata->e101_b6 = $request->e101_b6;
+            $penyata->e101_b7 = $request->e101_b7;
+            $penyata->e101_b9 = $request->e101_b9;
+            $penyata->e101_b10 = $request->e101_b10;
+            $penyata->e101_b11 = $request->e101_b11;
+            $penyata->e101_b12 = $request->e101_b12;
+            $penyata->e101_b13 = $request->e101_b13;
+            $penyata->e101_b14 = $request->e101_b14;
+            $penyata->save();
+
+
+            return redirect()->route('penapis.bahagiani')
+                ->with('success', 'Maklumat telah disimpan');
+    }
 
 
     public function penapis_bahagianii()
@@ -217,40 +240,83 @@ class KilangPenapisController extends Controller
         })->get();
         // dd($b);
 
-        // $penyata = DB::select("SELECT e.e101_b1, e.e101_b2, e.e101_b3, e.e101_b4,
-        // e.e101_b5, e.e101_b6, e.e101_b7, e.e101_b8, e.e101_b9, e.e101_b10,
-        // e.e101_b11, e.e101_b12, e.e101_b3, e.e101_b14 p.e101_reg, p.e101_nl,
-        // k.prodid, k.prodname, k.prodcat
-        // FROM e101_init p, e101_b e, produk k
-        // WHERE p.e101_reg = e.e101_reg
-        // and k.prodid = e.101_b4
-        // and k.prodcat = '02'");
 
         return view('users.KilangPenapis.penapis-bahagian-ii', compact('returnArr', 'layout','produk','b'));
     }
 
 
 
-    public function penapis_bahagianii2()
+    public function penapis_update_bahagian_ii(Request $request)
     {
+        // dd($request->all());
+        $this->validation_bahagian_ii($request->all())->validate();
+        $this->store_bahagian_ii($request->all());
 
-        $breadcrumbs    = [
-            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianii'), 'name' => "Bahagian II"],
-        ];
-
-        $kembali = route('penapis.bahagiani');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.kpenapis';
-
-
-
-        return view('users.KilangBuah.penapis-bahagian-ii2', compact('returnArr', 'layout'));
+        return redirect()->route('penapis.bahagiani')->with('success', 'Maklumat sudah ditambah');
     }
+
+    protected function validation_bahagian_ii(array $data)
+    {
+        return Validator::make($data, [
+            'e101_b4' => ['required', 'string'],
+            'e101_b5' => ['required', 'string'],
+            'e101_b6' => ['required', 'string'],
+            'e101_b7' => ['required', 'string'],
+            // 'e101_b8' => ['required', 'string'],
+            'e101_b9' => ['required', 'string'],
+            'e101_b10' => ['required', 'string'],
+            'e101_b11' => ['required', 'string'],
+            'e101_b12' => ['required', 'string' ],
+            'e101_b13' => ['required', 'string'],
+            'e101_b14' => ['required', 'string'],
+            // 'e101_b15' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_bahagian_ii(array $data)
+    {
+        $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+        // dd($e101_reg->e101_reg);
+        return E101B::create([
+            'e101_reg'=> $e101_reg->e101_reg,
+            'e101_b3'=> '2',
+            'e101_b4' => $data['e101_b4'],
+            'e101_b5' => $data['e101_b5'],
+            'e101_b6' => $data['e101_b6'],
+            'e101_b7' => $data['e101_b7'],
+            // 'e101_b8' => $data['e101_b8'],
+            'e101_b9' => $data['e101_b9'],
+            'e101_b10' => $data['e101_b10'],
+            'e101_b11' => $data['e101_b11'],
+            'e101_b12' => $data['e101_b12'],
+            'e101_b13' => $data['e101_b13'],
+            'e101_b14' => $data['e101_b14'],
+            // 'e101_b15' => $data['e101_b15'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
+
+    // public function penapis_bahagianii2()
+    // {
+
+    //     $breadcrumbs    = [
+    //         ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+    //         ['link' => route('penapis.bahagianii'), 'name' => "Bahagian II"],
+    //     ];
+
+    //     $kembali = route('penapis.bahagiani');
+
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.kpenapis';
+
+
+
+    //     return view('users.KilangBuah.penapis-bahagian-ii2', compact('returnArr', 'layout'));
+    // }
 
     public function penapis_bahagianiii()
     {
