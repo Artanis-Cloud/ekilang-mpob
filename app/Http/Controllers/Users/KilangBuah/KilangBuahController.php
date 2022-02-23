@@ -463,7 +463,7 @@ class KilangBuahController extends Controller
         //dd($request->all());
 
         $tahun = H91Init::where('tahun', $request->e91_thn);
-        $bulan = H91Init::where('tahun', $request->e91_bln);
+        $bulan = H91Init::where('bulan', $request->e91_bln);
         // $ekat = RegPelesen::get('e_kat');
         // $ekat = DB::select("SELECT * FROM reg_pelesen");
         // dd($ekat);

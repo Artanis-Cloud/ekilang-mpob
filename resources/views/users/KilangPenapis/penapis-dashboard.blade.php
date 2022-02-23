@@ -166,19 +166,10 @@
                                 </li>
 
                                 <li class="sidebar-item ">
-                                    <a href="{{ route('penapis.bahagianva') }}">
+                                    <a href="{{ route('penapis.bahagianv') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                        <span style="color: rgb(78, 73, 57); ">Bahagian V(a)</span>
-                                    </a>
-
-                                </li>
-
-                                <li class="sidebar-item ">
-                                    <a href="{{ route('penapis.bahagianvb') }}">
-                                        <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                        <span style="color: rgb(78, 73, 57); ">Bahagian V(b)</span>
+                                        <span style="color: rgb(78, 73, 57); ">Bahagian V</span>
                                     </a>
 
                                 </li>
@@ -192,14 +183,6 @@
 
                                 </li>
 
-                                <li class="sidebar-item ">
-                                    <a href="{{ route('penapis.bahagianvii') }}">
-                                        <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                        <span style="color: rgb(78, 73, 57); ">Bahagian VII</span>
-                                    </a>
-
-                                </li>
 
                                 <li class="sidebar-item ">
                                     <a href="#">
@@ -231,15 +214,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('buah.prestasioer') }}">
-                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Prestasi OER</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{{ route('buah.penyatadahulu') }}">
+                                    <a href="{{ route('penapis.penyatadahulu') }}">
                                         <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="trending-up" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Papar Penyata Bulanan Terdahulu</span>
