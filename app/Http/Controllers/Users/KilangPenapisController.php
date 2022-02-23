@@ -7,6 +7,11 @@ use App\Models\E101B;
 use App\Models\E101C;
 use App\Models\E101D;
 use App\Models\E101Init;
+use App\Models\H101Init;
+use App\Models\H101B;
+use App\Models\H101C;
+use App\Models\H101D;
+use App\Models\User;
 use App\Models\Pelesen;
 use App\Models\ProdCat;
 use App\Models\Produk;
@@ -718,15 +723,15 @@ class KilangPenapisController extends Controller
         return view('users.KilangPenapis.penapis-bahagian-vi', compact('returnArr', 'layout'));
     }
 
-    public function penapis_bahagianvii()
+    public function penapis_penyatadahulu()
     {
 
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianvii'), 'name' => "Bahagian VII"],
+            ['link' => route('penapis.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
         ];
 
-        $kembali = route('penapis.bahagianvi');
+        $kembali = route('penapis.dashboard');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -736,8 +741,67 @@ class KilangPenapisController extends Controller
 
 
 
-        return view('users.KilangPenapis.penapis-bahagian-vii', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-penyata-dahulu', compact('returnArr', 'layout'));
     }
+
+
+    public function penapis_penyata_dahulu_process(Request $request)
+    {
+        // dd($request->all());
+
+        $tahun = H101Init::where('tahun', $request->e101_thn);
+        $bulan = H101Init::where('bulan', $request->e101_bln);
+
+        $user = User::first();
+        // dd($user);
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // dd($pelesen);
+
+        $users = H101Init::where('e101_nl', auth()->user()->username)->first();
+        // dd($users);
+
+        $i = H101B::with('h101init','produk')->where('e101_nobatch', $users->e101_nobatch)->
+        whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 01);
+        })->get();
+        // dd($i);
+
+        $ii = H101B::with('h101init','produk')->where('e101_nobatch', $users->e101_nobatch)->
+        whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 02);
+        })->get();
+
+        $iii = H101Init::where('e101_nl', auth()->user()->username)->first();
+
+        $iv = H101C::with('h101init','produk')->where('e101_nobatch', $user->e101_nobatch)->
+        whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 04);
+        })->get();
+        // dd($iv);
+
+        $va = H101D::with('h101init')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', '1')->get();
+        dd($va);
+
+        $vb = H101D::with('h101init','prodcat')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', 2)->get();
+
+
+        $breadcrumbs    = [
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.penyatadahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
+        ];
+
+        $kembali = route('penapis.penyatadahulu');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kpenapis';
+
+        return view('users.KilangPenapis.penapis-papar-dahulu', compact('returnArr', 'layout', 'tahun', 'bulan', 'user','pelesen','users','i','ii','iii','iv','va','vb'));
+    }
+
 
     public function buah_email()
     {
@@ -760,57 +824,16 @@ class KilangPenapisController extends Controller
         return view('users.KilangBuah.buah-email', compact('returnArr', 'layout'));
     }
 
-    public function buah_prestasioer()
-    {
-
-        $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.prestasioer'), 'name' => "Prestasi OER  "],
-        ];
-
-        $kembali = route('buah.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.kbuah';
-
-
-
-        return view('users.KilangBuah.buah-prestasi-oer', compact('returnArr', 'layout'));
-    }
-
-    public function buah_penyatadahulu()
-    {
-
-        $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
-        ];
-
-        $kembali = route('buah.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.kbuah';
-
-
-
-        return view('users.KilangBuah.buah-penyata-dahulu', compact('returnArr', 'layout'));
-    }
 
     public function try()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
         ];
 
-        $kembali = route('buah.dashboard');
+        $kembali = route('penapis.dashboard');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -820,7 +843,7 @@ class KilangPenapisController extends Controller
 
 
 
-        return view('users.KilangBuah.try', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.try', compact('returnArr', 'layout'));
     }
 
 

@@ -191,22 +191,13 @@
                                         {{-- <span style="color: rgb(78, 73, 57); ">Bahagian V(b)</span>
                                     </a>
 
-                                </li> --}} 
+                                </li> --}}
 
                                 <li class="sidebar-item ">
                                     <a href="{{ route('penapis.bahagianvi') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
                                         <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
-                                    </a>
-
-                                </li>
-
-                                <li class="sidebar-item ">
-                                    <a href="{{ route('penapis.bahagianvii') }}">
-                                        <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                        <span style="color: rgb(78, 73, 57); ">Bahagian VII</span>
                                     </a>
 
                                 </li>
@@ -241,7 +232,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('buah.penyatadahulu') }}">
+                                    <a href="{{ route('penapis.penyatadahulu') }}">
                                         <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="trending-up" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Papar Penyata Bulanan Terdahulu</span>

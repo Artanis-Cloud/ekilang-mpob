@@ -17,7 +17,8 @@ class H101C extends Model
      *
      */
     protected $table = 'h101_c'; //penyata arkib (history) - kilang penapis
-
+    protected $primaryKey = 'e101_c1';
+    public $timestamps = false;
     protected $fillable = [
         'e101_c1',
         'e101_nobatch',
@@ -31,4 +32,16 @@ class H101C extends Model
         'e101_c10',
 
     ];
+
+
+    public function h101init()
+    {
+
+        return $this->hasMany(H101Init::class, 'e101_nobatch', 'e101_nobatch');
+    }
+
+    public function produk()
+    {
+        return $this->hasMany(Produk::class, 'prodid', 'e101_c4');
+    }
 }
