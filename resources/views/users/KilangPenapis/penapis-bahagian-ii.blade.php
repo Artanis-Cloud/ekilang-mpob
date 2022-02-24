@@ -304,9 +304,13 @@
                                                         </div>
                                                     </td>
                                                     <td>
+                                                        <div class="icon" style="text-align: center">
+                                                            <a href="#"
+                                                                type="button" >
+                                                                <i class="fa fa-trash-o" style="color: #228c1c;font-size:18px"></i>
+                                                            </a>
+                                                        </div>
 
-                                                        <button type="button" value="Delete" onclick="myDeleteFunction()"
-                                                            class="btn btn-danger">Delete</button>
                                                     </td>
                                                     {{-- <td>{{ $data->e101_b15 }}</td> --}}
 
