@@ -62,7 +62,7 @@
                                 <div class="pl-3">
                                     <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71);">Bahagian Vi</h3>
+                                        <h3 style="color: rgb(39, 80, 71);">Bahagian VI</h3>
                                         <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
@@ -1114,7 +1114,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nombor Borang Kastam 1</label>
+                                                Nombor Borang Kastam 2</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e101_e5'
                                                     style="margin-left:42%; width:40%" id="e101_e5" required
@@ -1456,7 +1456,7 @@
                                                         <thead>
                                                             <tr style="text-align: center">
                                                                 <th>Nama Produk</th>
-                                                                <th>Nombor Borang Kastam 1</th>
+                                                                <th>Nombor Borang Kastam 2</th>
                                                                 <th>Tarikh Eksport</th>
                                                                 <th>Kuantiti (Tan Metrik)</th>
                                                                 <th>Nilai</th>
@@ -1525,7 +1525,7 @@
                                                                                                 class="form-control"
                                                                                                 value="{{ $data->e101_e4 }}" readonly>
                                                                                         </div>
-                                                                                        <label>Nombor Borang Kastam 1 </label>
+                                                                                        <label>Nombor Borang Kastam 2 </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text" name='e101_e5'
                                                                                                 class="form-control" value="{{  $data->e101_e5 }}">

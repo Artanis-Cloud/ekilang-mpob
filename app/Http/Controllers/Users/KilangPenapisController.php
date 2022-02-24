@@ -50,7 +50,7 @@ class KilangPenapisController extends Controller
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout','pelesen'));
+        return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
     }
 
     public function penapis_update_maklumat_asas_pelesen(Request $request, $id)
@@ -77,7 +77,6 @@ class KilangPenapisController extends Controller
 
         return redirect()->route('penapis.maklumatasaspelesen')
             ->with('success', 'Maklumat telah dikemaskini');
-
     }
 
     public function penapis_tukarpassword()
@@ -123,14 +122,14 @@ class KilangPenapisController extends Controller
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->
-        whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 01);
-        })->get();
+        $penyata = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 01);
+            })->get();
+        dd($penyata);
 
 
 
-        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout','produk','penyata','user'));
+        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout', 'produk', 'penyata', 'user'));
     }
 
 
@@ -156,7 +155,7 @@ class KilangPenapisController extends Controller
             'e101_b9' => ['required', 'string'],
             'e101_b10' => ['required', 'string'],
             'e101_b11' => ['required', 'string'],
-            'e101_b12' => ['required', 'string' ],
+            'e101_b12' => ['required', 'string'],
             'e101_b13' => ['required', 'string'],
             'e101_b14' => ['required', 'string'],
             // 'e101_b15' => ['required', 'string'],
@@ -168,8 +167,8 @@ class KilangPenapisController extends Controller
         $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // dd($e101_reg->e101_reg);
         return E101B::create([
-            'e101_reg'=> $e101_reg->e101_reg,
-            'e101_b3'=> '1',
+            'e101_reg' => $e101_reg->e101_reg,
+            'e101_b3' => '1',
             'e101_b4' => $data['e101_b4'],
             'e101_b5' => $data['e101_b5'],
             'e101_b6' => $data['e101_b6'],
@@ -201,22 +200,22 @@ class KilangPenapisController extends Controller
 
 
         // dd($request->all());
-            $penyata = E101B::findOrFail($id);
-            $penyata->e101_b4 = $request->e101_b4;
-            $penyata->e101_b5 = $request->e101_b5;
-            $penyata->e101_b6 = $request->e101_b6;
-            $penyata->e101_b7 = $request->e101_b7;
-            $penyata->e101_b9 = $request->e101_b9;
-            $penyata->e101_b10 = $request->e101_b10;
-            $penyata->e101_b11 = $request->e101_b11;
-            $penyata->e101_b12 = $request->e101_b12;
-            $penyata->e101_b13 = $request->e101_b13;
-            $penyata->e101_b14 = $request->e101_b14;
-            $penyata->save();
+        $penyata = E101B::findOrFail($id);
+        $penyata->e101_b4 = $request->e101_b4;
+        $penyata->e101_b5 = $request->e101_b5;
+        $penyata->e101_b6 = $request->e101_b6;
+        $penyata->e101_b7 = $request->e101_b7;
+        $penyata->e101_b9 = $request->e101_b9;
+        $penyata->e101_b10 = $request->e101_b10;
+        $penyata->e101_b11 = $request->e101_b11;
+        $penyata->e101_b12 = $request->e101_b12;
+        $penyata->e101_b13 = $request->e101_b13;
+        $penyata->e101_b14 = $request->e101_b14;
+        $penyata->save();
 
 
-            return redirect()->route('penapis.bahagiani')
-                ->with('success', 'Maklumat telah disimpan');
+        return redirect()->route('penapis.bahagiani')
+            ->with('success', 'Maklumat telah disimpan');
     }
 
 
@@ -244,14 +243,13 @@ class KilangPenapisController extends Controller
         // $b = E101B::with('e101init')->where('e101_reg', $user->e101_reg)->get();
         // $b = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
 
-        $b = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->
-        whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 02);
-        })->get();
+        $b = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 02);
+            })->get();
         // dd($b);
 
 
-        return view('users.KilangPenapis.penapis-bahagian-ii', compact('returnArr', 'layout','produk','b'));
+        return view('users.KilangPenapis.penapis-bahagian-ii', compact('returnArr', 'layout', 'produk', 'b'));
     }
 
 
@@ -276,7 +274,7 @@ class KilangPenapisController extends Controller
             'e101_b9' => ['required', 'string'],
             'e101_b10' => ['required', 'string'],
             'e101_b11' => ['required', 'string'],
-            'e101_b12' => ['required', 'string' ],
+            'e101_b12' => ['required', 'string'],
             'e101_b13' => ['required', 'string'],
             'e101_b14' => ['required', 'string'],
             // 'e101_b15' => ['required', 'string'],
@@ -288,8 +286,8 @@ class KilangPenapisController extends Controller
         $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // dd($e101_reg->e101_reg);
         return E101B::create([
-            'e101_reg'=> $e101_reg->e101_reg,
-            'e101_b3'=> '2',
+            'e101_reg' => $e101_reg->e101_reg,
+            'e101_b3' => '2',
             'e101_b4' => $data['e101_b4'],
             'e101_b5' => $data['e101_b5'],
             'e101_b6' => $data['e101_b6'],
@@ -321,22 +319,22 @@ class KilangPenapisController extends Controller
 
 
         // dd($request->all());
-            $penyata = E101B::findOrFail($id);
-            $penyata->e101_b4 = $request->e101_b4;
-            $penyata->e101_b5 = $request->e101_b5;
-            $penyata->e101_b6 = $request->e101_b6;
-            $penyata->e101_b7 = $request->e101_b7;
-            $penyata->e101_b9 = $request->e101_b9;
-            $penyata->e101_b10 = $request->e101_b10;
-            $penyata->e101_b11 = $request->e101_b11;
-            $penyata->e101_b12 = $request->e101_b12;
-            $penyata->e101_b13 = $request->e101_b13;
-            $penyata->e101_b14 = $request->e101_b14;
-            $penyata->save();
+        $penyata = E101B::findOrFail($id);
+        $penyata->e101_b4 = $request->e101_b4;
+        $penyata->e101_b5 = $request->e101_b5;
+        $penyata->e101_b6 = $request->e101_b6;
+        $penyata->e101_b7 = $request->e101_b7;
+        $penyata->e101_b9 = $request->e101_b9;
+        $penyata->e101_b10 = $request->e101_b10;
+        $penyata->e101_b11 = $request->e101_b11;
+        $penyata->e101_b12 = $request->e101_b12;
+        $penyata->e101_b13 = $request->e101_b13;
+        $penyata->e101_b14 = $request->e101_b14;
+        $penyata->save();
 
 
-            return redirect()->route('penapis.bahagianii')
-                ->with('success', 'Maklumat telah disimpan');
+        return redirect()->route('penapis.bahagianii')
+            ->with('success', 'Maklumat telah disimpan');
     }
 
 
@@ -359,7 +357,7 @@ class KilangPenapisController extends Controller
         $penyata = E101Init::where('e101_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout','penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout', 'penyata'));
     }
 
 
@@ -375,7 +373,6 @@ class KilangPenapisController extends Controller
 
         return redirect()->route('penapis.bahagianiva')
             ->with('success', 'Maklumat telah disimpan');
-
     }
 
     public function penapis_bahagianiva()
@@ -399,13 +396,14 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
 
-        $penyata = E101C::with('e101init','produk')->where('e101_reg', $user->e101_reg)->
-        whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 04);
-        })->get();
-// dd($penyata);
+        // $penyata = E101C::with('e101init','produk')->where('e101_reg', $user->e101_reg)->
+        // whereHas('produk', function ($query) {
+        //         return $query->where('prodcat', '=', 04);
+        //     })->get();
+        $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 1)->get();
+        // dd($penyata);
 
-        return view('users.KilangPenapis.penapis-bahagian-iva', compact('returnArr', 'layout','produk','user','penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-iva', compact('returnArr', 'layout', 'produk', 'user', 'penyata'));
     }
 
 
@@ -437,8 +435,8 @@ class KilangPenapisController extends Controller
         $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // dd($e101_reg->e101_reg);
         return E101C::create([
-            'e101_reg'=> $e101_reg->e101_reg,
-            'e101_c3'=> '1',
+            'e101_reg' => $e101_reg->e101_reg,
+            'e101_c3' => '1',
             'e101_c4' => $data['e101_c4'],
             'e101_c5' => $data['e101_c5'],
             'e101_c6' => $data['e101_c6'],
@@ -465,19 +463,19 @@ class KilangPenapisController extends Controller
 
 
         // dd($request->all());
-            $penyata = E101C::findOrFail($id);
-            $penyata->e101_c4 = $request->e101_c4;
-            $penyata->e101_c5 = $request->e101_c5;
-            $penyata->e101_c6 = $request->e101_c6;
-            $penyata->e101_c7 = $request->e101_c7;
-            $penyata->e101_c8 = $request->e101_c8;
-            $penyata->e101_c9 = $request->e101_c9;
-            $penyata->e101_c10 = $request->e101_c10;
-            $penyata->save();
+        $penyata = E101C::findOrFail($id);
+        $penyata->e101_c4 = $request->e101_c4;
+        $penyata->e101_c5 = $request->e101_c5;
+        $penyata->e101_c6 = $request->e101_c6;
+        $penyata->e101_c7 = $request->e101_c7;
+        $penyata->e101_c8 = $request->e101_c8;
+        $penyata->e101_c9 = $request->e101_c9;
+        $penyata->e101_c10 = $request->e101_c10;
+        $penyata->save();
 
 
-            return redirect()->route('penapis.bahagianiva')
-                ->with('success', 'Maklumat telah disimpan');
+        return redirect()->route('penapis.bahagianiva')
+            ->with('success', 'Maklumat telah disimpan');
     }
 
 
@@ -504,13 +502,10 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
 
-        $penyata = E101C::with('e101init','produk')->where('e101_reg', $user->e101_reg)->
-        whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 04);
-        })->get();
-// dd($penyata);
+        $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 2)->get();
+        // dd($penyata);
 
-        return view('users.KilangPenapis.penapis-bahagian-ivb', compact('returnArr', 'layout','produk','user','penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-ivb', compact('returnArr', 'layout', 'produk', 'user', 'penyata'));
     }
 
 
@@ -542,8 +537,8 @@ class KilangPenapisController extends Controller
         $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // dd($e101_reg->e101_reg);
         return E101C::create([
-            'e101_reg'=> $e101_reg->e101_reg,
-            'e101_c3'=> '2',
+            'e101_reg' => $e101_reg->e101_reg,
+            'e101_c3' => '2',
             'e101_c4' => $data['e101_c4'],
             'e101_c5' => $data['e101_c5'],
             'e101_c6' => $data['e101_c6'],
@@ -570,19 +565,19 @@ class KilangPenapisController extends Controller
 
 
         // dd($request->all());
-            $penyata = E101C::findOrFail($id);
-            $penyata->e101_c4 = $request->e101_c4;
-            $penyata->e101_c5 = $request->e101_c5;
-            $penyata->e101_c6 = $request->e101_c6;
-            $penyata->e101_c7 = $request->e101_c7;
-            $penyata->e101_c8 = $request->e101_c8;
-            $penyata->e101_c9 = $request->e101_c9;
-            $penyata->e101_c10 = $request->e101_c10;
-            $penyata->save();
+        $penyata = E101C::findOrFail($id);
+        $penyata->e101_c4 = $request->e101_c4;
+        $penyata->e101_c5 = $request->e101_c5;
+        $penyata->e101_c6 = $request->e101_c6;
+        $penyata->e101_c7 = $request->e101_c7;
+        $penyata->e101_c8 = $request->e101_c8;
+        $penyata->e101_c9 = $request->e101_c9;
+        $penyata->e101_c10 = $request->e101_c10;
+        $penyata->save();
 
 
-            return redirect()->route('penapis.bahagianivb')
-                ->with('success', 'Maklumat telah disimpan');
+        return redirect()->route('penapis.bahagianivb')
+            ->with('success', 'Maklumat telah disimpan');
     }
 
 
@@ -608,10 +603,10 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
 
-        $penyata = E101D::with('e101init','prodcat')->where('e101_reg', $user->e101_reg)->get();
-// dd($penyata);
+        $penyata = E101D::with('e101init', 'prodcat')->where('e101_reg', $user->e101_reg)->get();
+        // dd($penyata);
 
-        return view('users.KilangPenapis.penapis-bahagian-v', compact('returnArr', 'layout','user','penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-v', compact('returnArr', 'layout', 'user', 'penyata'));
     }
 
 
@@ -642,7 +637,7 @@ class KilangPenapisController extends Controller
         $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // dd($e101_reg->e101_reg);
         return E101D::create([
-            'e101_reg'=> $e101_reg->e101_reg,
+            'e101_reg' => $e101_reg->e101_reg,
             'e101_d3' => $data['e101_d3'],
             'e101_d4' => $data['e101_d4'],
             'e101_d5' => $data['e101_d5'],
@@ -668,41 +663,41 @@ class KilangPenapisController extends Controller
 
 
         // dd($request->all());
-            $penyata = E101D::findOrFail($id);
-            $penyata->e101_d3 = $request->e101_d3;
-            $penyata->e101_d4 = $request->e101_d4;
-            $penyata->e101_d5 = $request->e101_d5;
-            $penyata->e101_d6 = $request->e101_d6;
-            $penyata->e101_d7 = $request->e101_d7;
-            $penyata->e101_d8 = $request->e101_d8;
-            $penyata->save();
+        $penyata = E101D::findOrFail($id);
+        $penyata->e101_d3 = $request->e101_d3;
+        $penyata->e101_d4 = $request->e101_d4;
+        $penyata->e101_d5 = $request->e101_d5;
+        $penyata->e101_d6 = $request->e101_d6;
+        $penyata->e101_d7 = $request->e101_d7;
+        $penyata->e101_d8 = $request->e101_d8;
+        $penyata->save();
 
 
-            return redirect()->route('penapis.bahagianv')
-                ->with('success', 'Maklumat telah disimpan');
+        return redirect()->route('penapis.bahagianv')
+            ->with('success', 'Maklumat telah disimpan');
     }
 
 
-    public function penapis_bahagianvb()
-    {
+    // public function penapis_bahagianvb()
+    // {
 
-        $breadcrumbs    = [
-            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianvb'), 'name' => "Bahagian V(b)"],
-        ];
+    //     $breadcrumbs    = [
+    //         ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+    //         ['link' => route('penapis.bahagianvb'), 'name' => "Bahagian V(b)"],
+    //     ];
 
-        $kembali = route('penapis.bahagianva');
+    //     $kembali = route('penapis.bahagianva');
 
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.kpenapis';
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangPenapis.penapis-bahagian-vb', compact('returnArr', 'layout'));
-    }
+    //     return view('users.KilangPenapis.penapis-bahagian-vb', compact('returnArr', 'layout'));
+    // }
 
     public function penapis_bahagianvi()
     {
@@ -728,11 +723,11 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
 
-        $penyata = E101E::with('e101init','produk')->where('e101_reg', $user->e101_reg)->where('e101_e3',1)->get();
+        $penyata = E101E::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_e3', 1)->get();
         // dd($penyata);
 
 
-        return view('users.KilangPenapis.penapis-bahagian-vi', compact('returnArr', 'layout','produk','negara','penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-vi', compact('returnArr', 'layout', 'produk', 'negara', 'penyata'));
     }
 
 
@@ -763,7 +758,7 @@ class KilangPenapisController extends Controller
         $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // dd($e101_reg->e101_reg);
         return E101E::create([
-            'e101_reg'=> $e101_reg->e101_reg,
+            'e101_reg' => $e101_reg->e101_reg,
             'e101_e3' => '1',
             'e101_e4' => $data['e101_e4'],
             'e101_e5' => $data['e101_e5'],
@@ -790,18 +785,88 @@ class KilangPenapisController extends Controller
 
 
         // dd($request->all());
-            $penyata = E101E::findOrFail($id);
-            $penyata->e101_e4 = $request->e101_e4;
-            $penyata->e101_e5 = $request->e101_e5;
-            $penyata->e101_e6 = $request->e101_e6;
-            $penyata->e101_e7 = $request->e101_e7;
-            $penyata->e101_e8 = $request->e101_e8;
-            $penyata->e101_e9 = $request->e101_e9;
-            $penyata->save();
+        $penyata = E101E::findOrFail($id);
+        $penyata->e101_e4 = $request->e101_e4;
+        $penyata->e101_e5 = $request->e101_e5;
+        $penyata->e101_e6 = $request->e101_e6;
+        $penyata->e101_e7 = $request->e101_e7;
+        $penyata->e101_e8 = $request->e101_e8;
+        $penyata->e101_e9 = $request->e101_e9;
+        $penyata->save();
 
 
-            return redirect()->route('penapis.bahagianvi')
-                ->with('success', 'Maklumat telah disimpan');
+        return redirect()->route('penapis.bahagianvi')
+            ->with('success', 'Maklumat telah disimpan');
+    }
+
+
+    public function penapis_paparpenyata()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.paparpenyata'), 'name' => "Penyata Bulanan"],
+        ];
+
+        $kembali = route('penapis.bahagianvi');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kpenapis';
+
+        $user = User::first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+
+        $pelesen2 = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+
+
+        $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 01);
+            })->get();
+        // dd($penyatai);
+
+        $penyataii = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 02);
+            })->get();
+        // dd($penyataii);
+
+        $penyataiii = E101Init::where('e101_nl', auth()->user()->username)->first();
+        // dd($penyataiii);
+
+        $penyataiva = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', 1)->get();
+        // dd($penyataiva);
+
+        $penyataivb = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', 2)->get();
+        // dd($penyataivb);
+
+        $penyatava = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', 1)->get();
+        // dd($penyatava);
+
+        $penyatavb = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', 2)->get();
+        // dd($penyatavb);
+
+        $penyatavii = E101E::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_e3', 1)->get();
+        // dd($penyatavii);
+
+
+
+
+        return view('users.KilangPenapis.penapis-papar-penyata', compact(
+            'layout',
+            'returnArr',
+            'user',
+            'pelesen',
+            'penyatai',
+            'penyataii',
+            'penyataiii',
+            'penyataiva',
+            'penyataivb',
+            'penyatava',
+            'penyatavb',
+            'penyatavii',
+        ));
     }
 
 
@@ -839,32 +904,29 @@ class KilangPenapisController extends Controller
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
 
-        $users = H101Init::where('e101_nl', auth()->user()->username)->first();
+        $users = H101Init::where('e101_nl', auth()->user()->username)->first('e101_nobatch');
         // dd($users);
 
-        $i = H101B::with('h101init','produk')->where('e101_nobatch', $users->e101_nobatch)->
-        whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 01);
-        })->get();
+        $i = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 01);
+            })->get();
         // dd($i);
 
-        $ii = H101B::with('h101init','produk')->where('e101_nobatch', $users->e101_nobatch)->
-        whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 02);
-        })->get();
+        $ii = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 02);
+            })->get();
 
         $iii = H101Init::where('e101_nl', auth()->user()->username)->first();
 
-        $iv = H101C::with('h101init','produk')->where('e101_nobatch', $user->e101_nobatch)->
-        whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 04);
-        })->get();
+        $iv = H101C::with('h101init', 'produk')->where('e101_nobatch', $user->e101_nobatch)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 04);
+            })->get();
         // dd($iv);
 
         $va = H101D::with('h101init')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', '1')->get();
-        dd($va);
+        // dd($va);
 
-        $vb = H101D::with('h101init','prodcat')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', 2)->get();
+        $vb = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', 2)->get();
 
 
         $breadcrumbs    = [
@@ -881,7 +943,7 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
-        return view('users.KilangPenapis.penapis-papar-dahulu', compact('returnArr', 'layout', 'tahun', 'bulan', 'user','pelesen','users','i','ii','iii','iv','va','vb'));
+        return view('users.KilangPenapis.penapis-papar-dahulu', compact('returnArr', 'layout', 'tahun', 'bulan', 'user', 'pelesen', 'users', 'i', 'ii', 'iii', 'iv', 'va', 'vb'));
     }
 
 
