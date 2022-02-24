@@ -211,8 +211,11 @@ Route::middleware('auth')->group(function () {
         Route::post('penapis/add-bahagian-v', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_v'])->name('penapis.add.bahagian.v');
         Route::post('penapis/edit-bahagian-v/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_v'])->name('penapis.edit.bahagian.v');
 
-        Route::get('penapis/bahagian-vb', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianvb'])->name('penapis.bahagianvb');
+        // Route::get('penapis/bahagian-vb', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianvb'])->name('penapis.bahagianvb');'
+
         Route::get('penapis/bahagian-vi', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianvi'])->name('penapis.bahagianvi');
+        Route::post('penapis/add-bahagian-vi', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_vi'])->name('penapis.add.bahagian.vi');
+        Route::post('penapis/edit-bahagian-vi/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_vi'])->name('penapis.edit.bahagian.vi');
 
 
         Route::get('penapis/penyata-dahulu', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_penyatadahulu'])->name('penapis.penyatadahulu');
