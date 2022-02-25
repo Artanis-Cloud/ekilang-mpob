@@ -11,6 +11,7 @@ use App\Models\E102c;
 use App\Models\KodSl;
 use App\Models\Negara;
 use App\Models\ProdCat2;
+use App\Models\User;
 use DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -118,6 +119,7 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
         $penyata = E102Init::where('e102_nl', auth()->user()->username)->first();
+        // dd($penyata);
 
 
         return view('users.KilangIsirung.isirung-bahagian-i', compact('returnArr', 'layout', 'penyata'));
@@ -285,7 +287,7 @@ class KilangIsirungController extends Controller
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
         $penyata = E102b::with('e102init')->where('e102_b2', $user->e102_reg)->where('e102_b3',51)->get();
-        // dd($penyata);
+        dd($penyata);
 
 
 
@@ -680,22 +682,51 @@ class KilangIsirungController extends Controller
     public function isirung_paparpenyata()
     {
 
-        // $breadcrumbs    = [
-        //     ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-        //     ['link' => route('isirung.paparpenyata'), 'name' => "Penyata Bulanan"],
-        // ];
+        $breadcrumbs    = [
+            ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('isirung.paparpenyata'), 'name' => "Penyata Bulanan"],
+        ];
 
-        // $kembali = route('isirung.bahagianvi');
+        $kembali = route('isirung.bahagianvi');
 
-        // $returnArr = [
-        //     'breadcrumbs' => $breadcrumbs,
-        //     'kembali'     => $kembali,
-        // ];
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
         $layout = 'layouts.kisirung';
 
+        $user = User::first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+
+        $penyatai = E102Init::where('e102_nl', auth()->user()->username)->first();
+        // dd($penyatai);
+
+        $penyataii = E102Init::where('e102_nl', auth()->user()->username)->first();
+
+        $penyataiii = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3',51)->get();
+        // dd($penyataiii);
+
+        $penyataiv = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3',04)->get();
+
+        $penyatav = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', 33)->get();
+
+        $penyatavi = E102c::with('e102init')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', 1)->get();
 
 
-        return view('users.KilangIsirung.isirung-papar-penyata', compact('layout'));
+        return view('users.KilangIsirung.isirung-papar-penyata', compact(
+            'layout',
+            'returnArr',
+            'user',
+            'pelesen',
+            'penyatai',
+            'penyataii',
+            'penyataiii',
+            'penyataiv',
+            'penyatav',
+            'penyatavi',
+
+
+        ));
     }
 
     public function isirung_email()
