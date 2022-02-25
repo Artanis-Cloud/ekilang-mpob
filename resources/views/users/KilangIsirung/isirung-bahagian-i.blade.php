@@ -30,20 +30,21 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                            @if (!$loop->last)
-                                                <li class="breadcrumb-item">
-                                                    <a href="{{ $breadcrumb['link'] }}" style="color: white !important;"
-                                                        onMouseOver="this.style.color='lightblue'"
-                                                        onMouseOut="this.style.color='white'">
+                                                @if (!$loop->last)
+                                                    <li class="breadcrumb-item">
+                                                        <a href="{{ $breadcrumb['link'] }}"
+                                                            style="color: white !important;"
+                                                            onMouseOver="this.style.color='#25877b'"
+                                                            onMouseOut="this.style.color='white'">
+                                                            {{ $breadcrumb['name'] }}
+                                                        </a>
+                                                    </li>
+                                                @else
+                                                    <li class="breadcrumb-item active" aria-current="page"
+                                                        style="color: #25877b  !important;">
                                                         {{ $breadcrumb['name'] }}
-                                                    </a>
-                                                </li>
-                                            @else
-                                                <li class="breadcrumb-item active" aria-current="page"
-                                                    style="color: #fff03e  !important;">
-                                                    {{ $breadcrumb['name'] }}
-                                                </li>
-                                            @endif
+                                                    </li>
+                                                @endif
                                         @endforeach
 
                                     </ol>

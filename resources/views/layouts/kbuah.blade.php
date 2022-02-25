@@ -57,7 +57,7 @@
 
                     <h6 style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
                         <b>
-                            E-Kilang</b>
+                            e-Kilang</b>
                     </h6>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
                     {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
@@ -172,7 +172,7 @@
                                     <a href="{{ route('buah.email') }}">
                                         <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="user" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">E-mail Pertanyaan / Pindaan /
+                                        <span style="color: rgb(0, 0, 0); ">Emel Pertanyaan / Pindaan /
                                             Cadangan</span>
                                     </a>
                                 </li>
@@ -234,20 +234,18 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <a class="navbar-brand">
+                {{-- <a class="navbar-brand">
 
-                    {{-- <img src="theme/images/background/favicon.png" height='45px' alt=""> --}}
-                    {{-- <img src="theme/images/background/mspo.png" height='60px' alt=""> --}}
+
                     <img src="{{ asset('/mpob.png') }}" height='50px' width='60px' alt=""
                         style="margin-left:25%; margin-top: 3px;">
-                    {{-- <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%"> --}}
-                </a>
 
-                <span class="mx-2 mt-2 mb-0 text-center navbar-brand h1"
+                </a>--}}
+
+                <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
-                        style="margin-left:10%;">
-                        E-Kilang </b></span>
-
+                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;">KILANG BUAH </b>
+                </span>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
