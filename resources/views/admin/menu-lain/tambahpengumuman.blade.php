@@ -99,7 +99,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Tarikh Mula</label>
+                                                Tarikh Mula :</label>
                                             <div class="col-md-6">
                                                 <input type="date" class="form-control" name='Start_date' id="Start_date" required
                                                     title="Sila isikan butiran ini.">
@@ -113,7 +113,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Tarikh Akhir</label>
+                                                Tarikh Akhir :</label>
                                             <div class="col-md-6">
                                                 <input type="date" class="form-control" name='End_date'
                                                     id="End_date" required title="Sila isikan butiran ini.">
@@ -127,7 +127,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                            Icon New</label>
+                                            Icon New :</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" name="Icon_new">
@@ -148,10 +148,10 @@
 
                                         <div class="row" style="margin-bottom: 5%">
                                             <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Mesej</label>
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center" style="width: 20%;">
+                                                Mesej :</label>
 
-                                            <div class="col-md-6">
+                                            <div class="col-md-6" style="width: 70%; margin-left: 2%">
                                                 <div id="snow" oninput="add_message()">
 
                                                 </div>
@@ -261,7 +261,7 @@
 @section('javascript')
     <script>
         var quill = new Quill('#snow', {
-            theme: 'snow'
+            // theme: 'snow'
         });
 
         function add_message() {
