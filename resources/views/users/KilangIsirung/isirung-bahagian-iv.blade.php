@@ -212,7 +212,7 @@
                                                                         </div>
                                                                         <div class="modal-body">
                                                                             <form
-                                                                                action="{{ route('isirung.edit.bahagian.iii', [$data->e102_b1]) }}"
+                                                                                action="{{ route('isirung.edit.bahagian.iv', [$data->e102_b1]) }}"
                                                                                 method="post">
                                                                                 @csrf
                                                                                 <div class="modal-body">
