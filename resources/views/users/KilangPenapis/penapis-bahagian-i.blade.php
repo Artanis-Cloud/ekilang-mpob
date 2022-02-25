@@ -285,7 +285,7 @@
                                                 <tr>
 
                                                     <td>
-                                                        {{ $data->e101_b4 }}
+                                                        {{ $data->produk[0]->prodname  }}
 
 
                                                         {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid) --}}
@@ -349,7 +349,7 @@
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b4'
                                                                                     class="form-control"
-                                                                                    value="{{ $data->e101_b4 }}" readonly>
+                                                                                    value="{{ $data->produk[0]->prodname}}" readonly>
                                                                             </div>
                                                                             <label>Stok Awal Di Premis </label>
                                                                             <div class="form-group">

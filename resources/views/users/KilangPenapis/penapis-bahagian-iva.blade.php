@@ -225,7 +225,7 @@
                                         <tbody>
                                             @foreach ($penyata as $data)
                                                 <tr style="text-align: center">
-                                                <td>{{ $data->e101_c4 }}</td>
+                                                <td>{{ $data->produk[0]->prodname  }}</td>
                                                 <td>{{ $data->e101_c5 }}</td>
                                                 <td>{{ $data->e101_c6 }}</td>
                                                 <td>{{ $data->e101_c7 }}</td>

@@ -287,7 +287,7 @@ class KilangIsirungController extends Controller
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
         $penyata = E102b::with('e102init')->where('e102_b2', $user->e102_reg)->where('e102_b3',51)->get();
-        dd($penyata);
+        // dd($penyata);
 
 
 

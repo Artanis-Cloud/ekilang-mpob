@@ -275,9 +275,8 @@
                                             @foreach ($b as $data)
                                                 <tr style="text-align: center">
 
-                                                    <td>{{ $data->e101_b4 }}
-
-
+                                                    <td>
+                                                    {{ $data->produk[0]->prodname }}
                                                         {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
                                                                 <span>{{ $produk->prodname }}</span>
                                                             @endif --}}
