@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\E102Init;
 use App\Models\E102b;
+use App\Models\KodSl;
+use App\Models\ProdCat2;
 use DB;
+use Illuminate\Support\Facades\Validator;
+
 
 
 class KilangIsirungController extends Controller
@@ -220,25 +224,46 @@ class KilangIsirungController extends Controller
 
 
 
-    public function isirung_bahagianiii(Request $request)
+    // public function isirung_bahagianiii(Request $request)
+    // {
+
+    //     $belian = E102b::where('belian', $request->e102b_4);
+    //     $dari =E102b::where('dari', $request->e102b_5);
+    //     // dd($request->all());
+    //     $users = DB::select("SELECT e.e102_b1, p.catname, c.catname, e.e102_b6
+    //     FROM e102b e, kod_sl p, prod_cat2 c
+    //     WHERE e.e102_b2 = '$request->e102b_5' and e.e102_b3 = '51'
+    //     and e.e102_b4 = p.catid and e.e102_b5 = c.catid
+    //     order by p.catname, c.catname");
+
+
+    //     $breadcrumbs    = [
+    //         ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
+    //         ['link' => route('isirung.bahagianiii'), 'name' => "Bahagian III"],
+    //     ];
+
+    //     $kembali = route('isirung.bahagianii');
+
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.kisirung';
+
+
+    //     return view('users.KilangIsirung.isirung-bahagian-iii', compact( 'returnArr', 'layout', 'belian', 'dari',  'users'));
+    // }
+
+
+    public function isirung_bahagianiii()
     {
-
-        $belian = E102b::where('belian', $request->e102b_4);
-        $dari =E102b::where('dari', $request->e102b_5);
-        // dd($request->all());
-        $users = DB::select("SELECT e.e102_b1, p.catname, c.catname, e.e102_b6
-        FROM e102b e, kod_sl p, prod_cat2 c
-        WHERE e.e102_b2 = '$request->e102b_5' and e.e102_b3 = '51'
-        and e.e102_b4 = p.catid and e.e102_b5 = c.catid
-        order by p.catname, c.catname");
-
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('isirung.bahagianiii'), 'name' => "Bahagian III"],
         ];
 
-        $kembali = route('isirung.bahagianii');
+        $kembali = route('isirung.dashboard');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -246,25 +271,85 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
 
+        $prodcat = KodSl::get();
+        // dd($prodcat);
 
-        return view('users.KilangIsirung.isirung-bahagian-iii', compact( 'returnArr', 'layout', 'belian', 'dari',  'users'));
+        $produk = ProdCat2::where('catid', [1,5,6,7])->orderBy('catid')->get();
+        // dd($produk);
+
+        // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        // dd($user);
+
+        // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
+        $penyata = E102b::with('e102init')->where('e102_b2', $user->e102_reg)->where('e102_b3',51)->get();
+        // dd($penyata);
+
+
+
+        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user','produk'));
     }
 
-    public function isirung_update_bahagian_iii(Request $request, $id)
+
+
+    public function isirung_add_bahagian_iii(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_iii($request->all())->validate();
+        $this->store_bahagian_iii($request->all());
+
+        return redirect()->route('isirung.bahagianiii')->with('success', 'Maklumat sudah ditambah');
+    }
+
+    protected function validation_bahagian_iii(array $data)
+    {
+        return Validator::make($data, [
+            'e102_b4' => ['required', 'string'],
+            'e102_b5' => ['required', 'string'],
+            'e102_b6' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_bahagian_iii(array $data)
+    {
+        $e102_reg = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        // dd($e101_reg->e101_reg);
+        return E102b::create([
+            'e102_b2' => $e102_reg->e102_reg,
+            'e102_b3' => '51',
+            'e102_b4' => $data['e102_b4'],
+            'e102_b5' => $data['e102_b5'],
+            'e102_b6' => $data['e102_b6'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
+
+    // public function destroy(E101B $penyata)
+    // {
+    //     $penyata->delete();
+
+    //     return redirect()->route('penapis.bahagiani')
+    //                     ->with('success','Product deleted successfully');
+    // }
+
+
+    public function isirung_edit_bahagian_iii(Request $request, $id)
     {
 
-        $belian = E102b::where('belian', $request->e102b_4);
-        $dari =E102b::where('dari', $request->e102b_5);
+
         // dd($request->all());
-        $users = DB::select("SELECT e.e102_b1, p.catname, c.catname, e.e102_b6
-        FROM e102b e, kod_sl p, prod_cat2 c
-        WHERE e.e102_b2 = $noreg and e.e102_b3 = '51'
-        and e.e102_b4 = p.catid and e.e102_b5 = c.catid
-        order by p.catname, c.catname");
+        $penyata = E102b::findOrFail($id);
+        $penyata->e102_b4 = $request->e102_b4;
+        $penyata->e102_b5 = $request->e102_b5;
+        $penyata->e102_b6 = $request->e102_b6;
+        $penyata->save();
 
-        return view('users.KilangIsirung.isirung-bahagian-iii', compact( 'returnArr', 'layout', 'belian', 'dari',  'users'));
 
+        return redirect()->route('isirung.bahagianiii')
+            ->with('success', 'Maklumat telah disimpan');
     }
+
 
 
     public function isirung_bahagianiv()
