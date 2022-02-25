@@ -346,7 +346,7 @@ class KilangIsirungController extends Controller
         $penyata->save();
 
 
-        return redirect()->route('isirung.bahagianiii')
+        return redirect()->route('isirung.bahagianiv')
             ->with('success', 'Maklumat telah disimpan');
     }
 
@@ -368,10 +368,87 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
 
+        $prodcat = KodSl::get();
+        // dd($prodcat);
+
+        // $produk = ProdCat2::where('catid', [1,5,6,7])->orderBy('catid')->get();
+        // dd($produk);
+
+        // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        // dd($user);
+
+        // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
+        $penyata = E102b::with('e102init')->where('e102_b2', $user->e102_reg)->where('e102_b3',04)->get();
+        // dd($penyata);
 
 
-        return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout'));
+
+        return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user'));
+
+
     }
+
+
+
+    public function isirung_add_bahagian_iv(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_iv($request->all())->validate();
+        $this->store_bahagian_iv($request->all());
+
+        return redirect()->route('isirung.bahagianiv')->with('success', 'Maklumat sudah ditambah');
+    }
+
+    protected function validation_bahagian_iv(array $data)
+    {
+        return Validator::make($data, [
+            'e102_b4' => ['required', 'string'],
+            'e102_b5' => ['required', 'string'],
+            'e102_b6' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_bahagian_iv(array $data)
+    {
+        $e102_reg = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+        // dd($e101_reg->e101_reg);
+        return E102b::create([
+            'e102_b2' => $e102_reg->e102_reg,
+            'e102_b3' => '04',
+            'e102_b4' => $data['e102_b4'],
+            'e102_b5' => $data['e102_b5'],
+            'e102_b6' => $data['e102_b6'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
+
+    // public function destroy(E101B $penyata)
+    // {
+    //     $penyata->delete();
+
+    //     return redirect()->route('penapis.bahagiani')
+    //                     ->with('success','Product deleted successfully');
+    // }
+
+
+    public function isirung_edit_bahagian_iv(Request $request, $id)
+    {
+
+
+        // dd($request->all());
+        $penyata = E102b::findOrFail($id);
+        $penyata->e102_b4 = $request->e102_b4;
+        $penyata->e102_b5 = $request->e102_b5;
+        $penyata->e102_b6 = $request->e102_b6;
+        $penyata->save();
+
+
+        return redirect()->route('isirung.bahagianiv')
+            ->with('success', 'Maklumat telah disimpan');
+    }
+
 
     public function isirung_bahagianv()
     {
