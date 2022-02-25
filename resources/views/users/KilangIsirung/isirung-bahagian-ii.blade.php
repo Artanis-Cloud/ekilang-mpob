@@ -80,7 +80,7 @@
                                             style="text-align:right"><i><u>Panduan
                                                     Mengisi Maklumat Bahagian II</u></i></a>
                                     </div>
-                                    <form>
+                                    <form action="{{ route('isirung.update.bahagian.ii', [$penyata->e102_reg]) }}" method="post">
                                         @csrf
                                         <div class="container center mt-3">
                                             <div class="row">
@@ -88,14 +88,16 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
                                                     Kadar Perahan Minyak Isirung Sawit Mentah (CPKO) <b>%</b> </label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='jam_pengilangan' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="jam_pengilangan" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                    <input type="text" class="form-control" name='e102_al1'
+                                                    style="margin-left:42%; width:40%"
+                                                    onkeypress="return isNumberKey(event)" id="kadar_perahan" required
+                                                    title="Sila isikan butiran ini."
+                                                    value="{{ $penyata->e102_al1 ?? 0 }}">
+                                                        {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
                                                 </div>
                                                 <div>
 
@@ -106,9 +108,11 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
                                                     Kadar Perolehan Dedak Isirung (PKC)<b>%</b></label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='kadar_perahan_mksm' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="kadar_perahan_mksm"
-                                                        required title="Sila isikan butiran ini.">
+                                                    <input type="text" class="form-control" name='e102_al2'
+                                                    style="margin-left:42%; width:40%"
+                                                    onkeypress="return isNumberKey(event)" id="kadar_perolehan" required
+                                                    title="Sila isikan butiran ini."
+                                                    value="{{ $penyata->e102_al2 ?? 0 }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -121,9 +125,11 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">iii.
                                                     Jumlah Jam Pengilangan Isirung (PK)</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='kadar_perolehan_isirung' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="kadar_perolehan_isirung"
-                                                        required title="Sila isikan butiran ini.">
+                                                    <input type="text" class="form-control" name='e102_al3'
+                                                    style="margin-left:42%; width:40%"
+                                                    onkeypress="return isNumberKey(event)" id="jumlah_jam" required
+                                                    title="Sila isikan butiran ini."
+                                                    value="{{ $penyata->e102_al3 ?? 0 }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -136,9 +142,11 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">iv.
                                                     Kadar Penggunaan Kapasiti Sebulan <b>%</b></label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='harga_purata_buah_sawit' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="harga_purata_buah_sawit"
-                                                        placeholder="" required title="Sila isikan butiran ini.">
+                                                    <input type="text" class="form-control" name='e102_al4'
+                                                    style="margin-left:42%; width:40%"
+                                                    onkeypress="return isNumberKey(event)" id="kadar_penggunaan" required
+                                                    title="Sila isikan butiran ini."
+                                                    value="{{ $penyata->e102_al4 ?? 0 }}">
                                                     {{-- <p style="margin-left:42%;"><i>(1% Kadar Perahan)</i></p> --}}
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -150,56 +158,56 @@
 
                                         </div>
 
-                                    </form>
-                                    <div class="row form-group" style="padding-top: 10px; ">
 
-                                        <br>
-                                        <div class="text-left col-md-5">
-                                            <a href="{{ route('isirung.bahagiani') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
-                                        </div>
-                                        <div class="text-right col-md-5 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right;" data-bs-target="#exampleModalCenter">Simpan &
-                                                Seterusnya</button>
+                                        <div class="row form-group" style="padding-top: 10px; ">
+
+                                            <br>
+                                            <div class="text-left col-md-5">
+                                                <a href="{{ route('isirung.bahagiani') }}" class="btn btn-primary"
+                                                    style="float: left">Sebelumnya</a>
+                                            </div>
+                                            <div class="text-right col-md-5 mb-4 ">
+                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                    style="float: right;" data-bs-target="#exampleModalCenter">Simpan &
+                                                    Seterusnya</button>
+                                            </div>
+
                                         </div>
 
-                                    </div>
-                              
-                                    <!-- Vertically Centered modal Modal -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
+                                        <!-- Vertically Centered modal Modal -->
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Anda pasti mahu menyimpan maklumat ini?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-secondary"
                                                         data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
-                                                    </button>
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary ml-1">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Ya</span>
+                                                        </button>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                             <br>
