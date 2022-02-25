@@ -1469,12 +1469,12 @@
                                                         <tbody>
                                                             @foreach ($penyata as $data)
                                                             <tr>
-                                                                <td>{{ $data->e101_e4 }}</td>
+                                                                <td>{{ $data->produk[0]->prodname  }}</td>
                                                                 <td>{{ $data->e101_e5 }}</td>
                                                                 <td>{{ $data->e101_e6 }}</td>
                                                                 <td>{{ $data->e101_e7 }}</td>
                                                                 <td>{{ $data->e101_e8 }}</td>
-                                                                <td>{{ $data->e101_e9 }}</td>
+                                                                <td>{{ $data->negara[0]->namanegara }}</td>
                                                                 <td>
                                                                     <div class="icon" style="text-align: center">
                                                                         <a href="#"
@@ -1523,7 +1523,7 @@
                                                                                         <div class="form-group">
                                                                                             <input type="text" name='e101_e4'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->e101_e4 }}" readonly>
+                                                                                                value="{{ $data->produk[0]->prodname }}" readonly>
                                                                                         </div>
                                                                                         <label>Nombor Borang Kastam 2 </label>
                                                                                         <div class="form-group">
@@ -1545,12 +1545,21 @@
                                                                                             <input type="text" name='e101_e8'
                                                                                                 class="form-control" value="{{ $data->e101_e8 }}">
                                                                                         </div>
-                                                                                        <label>DDestinasi Negara</label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text" name='e101_e9'
-                                                                                                class="form-control" value="{{ $data->e101_e9 }}">
-                                                                                        </div>
-                                                                                    </div>
+                                                                                        <label>Destinasi Negara</label>
+
+                                                                                                <fieldset class="form-group">
+                                                                                                    <select class="form-select" id="e101_e9"
+                                                                                                         name="e101_e9">
+                                                                                                        <option value="{{ $data->negara[0]->kodnegara }}" hidden selected>{{ $data->negara[0]->namanegara }}</option>
+                                                                                                        @foreach ($negara as $data)
+                                                                                                            <option value="{{ $data->kodnegara }}">
+                                                                                                                {{ $data->namanegara }}
+                                                                                                            </option>
+                                                                                                        @endforeach
+
+                                                                                                    </select>
+                                                                                                </fieldset>
+
                                                                                     {{-- <div class="modal-footer">
                                                                                         <button type="button" class="btn btn-light-secondary"
                                                                                             data-bs-dismiss="modal">
@@ -1566,10 +1575,6 @@
 
 
                                                                             </div>
-                                                                            <div class="text-right col-md-7 mb-4 ">
-                                                                                <button type="submit" class="btn btn-primary" style="float: right">Simpan &
-                                                                                    Seterusnya</button>
-                                                                            </div>
 
                                                                             <div class="modal-footer">
                                                                                 <button type="button" class="btn btn-light-secondary"
@@ -1577,8 +1582,7 @@
                                                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                                                     <span class="d-none d-sm-block">Batal</span>
                                                                                 </button>
-                                                                                <button type="submit" class="btn btn-primary ml-1"
-                                                                                    data-bs-dismiss="modal">
+                                                                                <button type="submit" class="btn btn-primary ml-1">
                                                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                                                     <span class="d-none d-sm-block">Kemaskini</span>
                                                                                 </button>

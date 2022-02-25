@@ -62,4 +62,9 @@ class E101E extends Model
     {
         return $this->hasMany(Produk::class, 'prodid', 'e101_e4');
     }
+
+    public function negara()
+    {
+        return $this->hasMany(Negara::class, 'kodnegara', 'e101_e9');
+    }
 }

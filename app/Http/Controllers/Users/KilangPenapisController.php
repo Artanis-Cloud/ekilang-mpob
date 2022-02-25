@@ -12,6 +12,7 @@ use App\Models\H101Init;
 use App\Models\H101B;
 use App\Models\H101C;
 use App\Models\H101D;
+use App\Models\KodSl;
 use App\Models\Negara;
 use App\Models\User;
 use App\Models\Pelesen;
@@ -246,7 +247,9 @@ class KilangPenapisController extends Controller
         $b = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 02);
             })->get();
+
         // dd($b);
+        // dd($b->produk);
 
 
         return view('users.KilangPenapis.penapis-bahagian-ii', compact('returnArr', 'layout', 'produk', 'b'));
@@ -597,7 +600,6 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
-
         // $produk = ProdCat::where('prodcat', 04)->orderBy('prodname')->get();
 
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
@@ -723,7 +725,7 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
 
-        $penyata = E101E::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_e3', 1)->get();
+        $penyata = E101E::with('e101init', 'produk','negara')->where('e101_reg', $user->e101_reg)->where('e101_e3', 1)->get();
         // dd($penyata);
 
 
@@ -786,7 +788,6 @@ class KilangPenapisController extends Controller
 
         // dd($request->all());
         $penyata = E101E::findOrFail($id);
-        $penyata->e101_e4 = $request->e101_e4;
         $penyata->e101_e5 = $request->e101_e5;
         $penyata->e101_e6 = $request->e101_e6;
         $penyata->e101_e7 = $request->e101_e7;

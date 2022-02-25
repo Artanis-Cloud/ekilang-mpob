@@ -223,7 +223,7 @@
                                                     @endif
 
 
-                                                    <td>{{ $data->e101_d4 }}</td>
+                                                    <td>{{ $data->prodcat[0]->catname }}</td>
                                                     <td>{{ $data->e101_d5 }}</td>
                                                     <td>{{ $data->e101_d6 }}</td>
                                                     <td>{{ $data->e101_d7 }}</td>
@@ -271,13 +271,16 @@
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_d3'
                                                                                     class="form-control"
-                                                                                    value="{{ $data->e101_d3 }}" readonly>
+                                                                                    value="{{ $data->e101_d3 == '1' ? 'SENDIRI' : 'LUAR'  }}"
+                                                                                    readonly>
+
                                                                             </div>
                                                                             <label>Belian/Penerimaan dari </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_d4'
                                                                                     class="form-control"
-                                                                                    value="{{ $data->e101_d4 }}" readonly>
+                                                                                    value="{{ $data->prodcat[0]->catname }}"
+                                                                                    readonly>
                                                                             </div>
                                                                             <label>CPO </label>
                                                                             <div class="form-group">
