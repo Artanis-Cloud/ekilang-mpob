@@ -97,7 +97,8 @@
 
                                                     </tr>
                                                 </thead>
-                                                <tbody>
+                                                <tbody style= "max-width: 100px;
+                                                word-break: break-all;">
                                                     @foreach($pengumuman as $data)
                                                     <tr>
                                                         <td>
