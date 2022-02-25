@@ -47,7 +47,7 @@
     <link rel="stylesheet" href="{{ asset('theme/vendors/simple-datatables/style.css') }}">
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/css/isirungstyle.css') }}" rel=" stylesheet">
 
     <!-- Toastr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>

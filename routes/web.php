@@ -246,6 +246,9 @@ Route::middleware('auth')->group(function () {
         Route::post('isirung/edit-bahagian-iii/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_edit_bahagian_iii'])->name('isirung.edit.bahagian.iii');
 
         Route::get('isirung/bahagian-iv', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagianiv'])->name('isirung.bahagianiv');
+        Route::post('isirung/add-bahagian-iv', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_add_bahagian_iv'])->name('isirung.add.bahagian.iv');
+        Route::post('isirung/edit-bahagian-iv/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_edit_bahagian_iv'])->name('isirung.edit.bahagian.iv');
+
         Route::get('isirung/bahagian-v', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagianv'])->name('isirung.bahagianv');
         Route::get('isirung/bahagian-vi', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagianvi'])->name('isirung.bahagianvi');
         Route::get('isirung/bahagian-vii', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagianvii'])->name('isirung.bahagianvii');

@@ -98,7 +98,7 @@
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="e102_b5" style="margin-left:42%; width:40%" name='e102_b5'>
-                                                        <option selected hidden disabled>Kilang Buah</option>
+                                                        <option selected hidden disabled>Sila Pilih</option>
 
                                                             <option value="1">Kilang Buah</option>
                                                             <option value="5">Peniaga</option>
