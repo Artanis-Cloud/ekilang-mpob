@@ -250,7 +250,7 @@
 
         <script>
             var quill = new Quill('#snow', {
-                theme: 'snow'
+                // theme: 'snow'
             });
 
             function add_message() {

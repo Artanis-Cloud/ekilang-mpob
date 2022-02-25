@@ -155,7 +155,7 @@ class MenuLainController extends Controller
             ['link' => route('admin.tambahpengumuman'), 'name' => "Tambah Pengumuman"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.pengumuman');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -212,7 +212,7 @@ class MenuLainController extends Controller
 
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.pengumuman');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
