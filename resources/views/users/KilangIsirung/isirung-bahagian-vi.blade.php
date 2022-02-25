@@ -1,9 +1,6 @@
 @extends($layout)
 
 @section('content')
-
-
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
@@ -16,7 +13,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-2 row">
+            <div class="mt-5 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -57,7 +54,8 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-
+                        <form action="{{ route('isirung.add.bahagian.vi') }}" method="post">
+                            @csrf
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
@@ -75,8 +73,20 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nama Produk</label>
                                             <div class="col-md-6">
+                                                {{-- <fieldset class="form-group">
+                                                    <select class="form-select" id="produk"
+                                                        style="margin-left:42%; width:40%" name="e101_e4">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        @foreach ($produk as $data)
+                                                            <option value="{{ $data->prodid }}">
+                                                                {{ $data->prodname }}
+                                                            </option>
+                                                        @endforeach
+
+                                                    </select>
+                                                </fieldset> --}}
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
+                                                    <select class="form-select" id="e102_c4" style="margin-left:42%; width:40%" name='e102_c4'>
                                                         <option selected hidden disabled>Sila Pilih Produk</option>
 
                                                             <option value="X3">BPKL - X3
@@ -157,8 +167,9 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nombor Borang Kastam 2</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='e102_c5'
+                                                    style="margin-left:42%; width:40%" id="e102_c5" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -169,10 +180,11 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Tarikh Eksport (dd/mm/yyyy)	</label>
+                                                Tarikh Eksport (dd/mm/yyyy) </label>
                                             <div class="col-md-6">
-                                                <input type="date" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                <input type="date" class="form-control" name='e102_c6'
+                                                    style="margin-left:42%; width:40%" id="e102_c6" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -183,10 +195,11 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kuantiti(Tan Metrik)	</label>
+                                                Kuantiti(Tan Metrik) </label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='e102_c7'
+                                                    style="margin-left:42%; width:40%" id="e102_c7" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -199,8 +212,9 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nilai</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='e102_c8'
+                                                    style="margin-left:42%; width:40%" id="e102_c8" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -214,249 +228,254 @@
                                                 Destinasi Negara</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
-                                                        <option selected hidden disabled>Sila Pilih Negara</option>
-
-                                                            <option value="A01">AFGHANISTAN
-                                                            </option><option value="A02">ALBANIA
-                                                            </option><option value="A03">ALGERIA
-                                                            </option><option value="A05">ANGOLA
-                                                            </option><option value="A06">ANGUILLA
-                                                            </option><option value="A07">ANTIGUA
-                                                            </option><option value="A08">ARGENTINA
-                                                            </option><option value="A09">AUSTRALIA
-                                                            </option><option value="A10">AUSTRIA
-                                                            </option><option value="A12">ARMENIA
-                                                            </option><option value="A13">AZERBAIJAN
-                                                            </option><option value="A14">AMERICAN SAMOA
-                                                            </option><option value="A15">ANDORRA
-                                                            </option><option value="B01">BAHAMAS
-                                                            </option><option value="B02">BAHRAIN
-                                                            </option><option value="B03">BANGLADESH
-                                                            </option><option value="B04">BARBADOS
-                                                            </option><option value="B05">BELGIUM
-                                                            </option><option value="B06">BERMUDA
-                                                            </option><option value="B07">BHUTAN
-                                                            </option><option value="B08">BOLIVIA
-                                                            </option><option value="B09">BOTSWANA
-                                                            </option><option value="B10">BRAZIL
-                                                            </option><option value="B11">BRUNEI
-                                                            </option><option value="B12">BULGARIA
-                                                            </option><option value="B14">BURUNDI
-                                                            </option><option value="B15">BENIN
-                                                            </option><option value="B16">BELARUS
-                                                            </option><option value="B17">BELIZE
-                                                            </option><option value="B18">BOSNIA  AND HERZEGOVINA
-                                                            </option><option value="B19">BULKINA FASO
-                                                            </option><option value="B20">BRITISH VIRGIN ISLANDS
-                                                            </option><option value="C01">CAMEROON
-                                                            </option><option value="C02">CANADA
-                                                            </option><option value="C03">CHAD
-                                                            </option><option value="C04">CHILE
-                                                            </option><option value="C05">CHINA
-                                                            </option><option value="C06">COLOMBIA
-                                                            </option><option value="C07">CONGO, DEMOCRATIC REP. OF THE
-                                                            </option><option value="C08">COSTA RICA
-                                                            </option><option value="C09">CUBA
-                                                            </option><option value="C10">CYPRUS
-                                                            </option><option value="C11">CZECH
-                                                            </option><option value="C12">CROATIA
-                                                            </option><option value="C14">CAMBODIA
-                                                            </option><option value="C15">COMOROS
-                                                            </option><option value="C16">CHECHNYA
-                                                            </option><option value="C17">CENTRAL AFRICAN REPUBLIC
-                                                            </option><option value="C18">CAPE VERDE
-                                                            </option><option value="C19">COOK ISLANDS
-                                                            </option><option value="C20">CASTRIES
-                                                            </option><option value="C21">CURACAO
-                                                            </option><option value="C22">COMMONWEALTH OF DOMINICA
-                                                            </option><option value="D01">DAHOMEY
-                                                            </option><option value="D02">DENMARK
-                                                            </option><option value="D03">DOMINICA
-                                                            </option><option value="D04">DJIBOUTI
-                                                            </option><option value="D05">DOMINICAN REPUBLIC
-                                                            </option><option value="E01">ECUADOR
-                                                            </option><option value="E02">EGYPT
-                                                            </option><option value="E03">EL SALVADOR
-                                                            </option><option value="E04">ETHIOPIA
-                                                            </option><option value="E05">ERITREA
-                                                            </option><option value="E06">ESTONIA
-                                                            </option><option value="E07">EAST TIMOR
-                                                            </option><option value="E08">EQUATORIAL GUINEA
-                                                            </option><option value="F01">FIJI
-                                                            </option><option value="F02">FINLAND
-                                                            </option><option value="F03">FRANCE
-                                                            </option><option value="F04">FRENCH POLYNESIA
-                                                            </option><option value="G01">GABON
-                                                            </option><option value="G02">GUAM
-                                                            </option><option value="G03">GERMANY
-                                                            </option><option value="G04">GHANA
-                                                            </option><option value="G05">GIBRALTAR
-                                                            </option><option value="G06">GREECE
-                                                            </option><option value="G07">GRENADA
-                                                            </option><option value="G08">GUATEMALA
-                                                            </option><option value="G09">GUINEA
-                                                            </option><option value="G10">GUYANA
-                                                            </option><option value="G11">GAMBIA
-                                                            </option><option value="G12">GEORGIA
-                                                            </option><option value="G13">GERMANY, DEMOCRATIC REP. OF
-                                                            </option><option value="G14">GUINEA BISSAU
-                                                            </option><option value="G15">GUADELOUPE
-                                                            </option><option value="H01">HAITI
-                                                            </option><option value="H03">HONDURAS
-                                                            </option><option value="H04">HONG KONG
-                                                            </option><option value="H05">HUNGARY
-                                                            </option><option value="I01">ICELAND
-                                                            </option><option value="I02">INDIA
-                                                            </option><option value="I03">INDONESIA
-                                                            </option><option value="I04">IRAN
-                                                            </option><option value="I05">IRAQ
-                                                            </option><option value="I06">IRELAND REP.
-                                                            </option><option value="I07">ISRAEL
-                                                            </option><option value="I08">ITALY
-                                                            </option><option value="I09">COTE D'IVOIRE
-                                                            </option><option value="J01">JAMAICA
-                                                            </option><option value="J02">JAPAN
-                                                            </option><option value="J03">JORDAN
-                                                            </option><option value="K02">KENYA
-                                                            </option><option value="K04">NORTH KOREA
-                                                            </option><option value="K05">SOUTH KOREA
-                                                            </option><option value="K06">KUWAIT
-                                                            </option><option value="K08">KAZAKHSTAN
-                                                            </option><option value="K09">KYRGYZSTAN
-                                                            </option><option value="K10">KIRIBATI
-                                                            </option><option value="K45">KIRIBATI
-                                                            </option><option value="L01">LAOS
-                                                            </option><option value="L02">LEBANON
-                                                            </option><option value="L03">LESOTHO
-                                                            </option><option value="L04">LIBERIA
-                                                            </option><option value="L05">LIBYA
-                                                            </option><option value="L06">LIECHTENSTEIN
-                                                            </option><option value="L07">LUXEMBOURG
-                                                            </option><option value="L08">LATVIA
-                                                            </option><option value="L09">LITHUANIA
-                                                            </option><option value="M02">MALAWI
-                                                            </option><option value="M03">MALAYSIA
-                                                            </option><option value="M04">MALI
-                                                            </option><option value="M05">MALTA
-                                                            </option><option value="M06">MAURITANIA
-                                                            </option><option value="M07">MAURITIUS
-                                                            </option><option value="M08">MEXICO
-                                                            </option><option value="M09">MONACO
-                                                            </option><option value="M10">MONGOLIA
-                                                            </option><option value="M11">MONTSERRAT
-                                                            </option><option value="M12">MOROCCO
-                                                            </option><option value="M13">MOZAMBIQUE
-                                                            </option><option value="M14">MALDIVES
-                                                            </option><option value="M15">MADAGASCAR
-                                                            </option><option value="M16">MOLDOVA
-                                                            </option><option value="M17">MYANMAR
-                                                            </option><option value="M18">MUSCAT
-                                                            </option><option value="M19">MACAU
-                                                            </option><option value="M20">MACEDONIA
-                                                            </option><option value="M21">MAYOTTE
-                                                            </option><option value="M22">MARSHALL ISLAND
-                                                            </option><option value="M23">MICRONESIA FEDERATION
-                                                            </option><option value="M24">MONTENEGRO
-                                                            </option><option value="N01">NAURU
-                                                            </option><option value="N02">NEPAL
-                                                            </option><option value="N03">NETHERLANDS
-                                                            </option><option value="N04">NEW ZEALAND
-                                                            </option><option value="N05">NICARAGUA
-                                                            </option><option value="N06">NIGER
-                                                            </option><option value="N07">NIGERIA
-                                                            </option><option value="N08">NORWAY
-                                                            </option><option value="N09">NAMIBIA
-                                                            </option><option value="N10">NEW CALEDONIA
-                                                            </option><option value="N11">NETHERLANDS ANTILLES
-                                                            </option><option value="N12">NORTHERN MARIANA ISLANDS
-                                                            </option><option value="O01">OMAN
-                                                            </option><option value="P01">PAKISTAN
-                                                            </option><option value="P02">PANAMA
-                                                            </option><option value="P03">PAPUA N GUINEA
-                                                            </option><option value="P04">PARAGUAY
-                                                            </option><option value="P05">PERU
-                                                            </option><option value="P06">PHILIPPINES
-                                                            </option><option value="P07">POLAND
-                                                            </option><option value="P08">PORTUGAL
-                                                            </option><option value="P09">PACIFIC ISLAND
-                                                            </option><option value="P10">PUERTO RICO
-                                                            </option><option value="P11">PALESTINE
-                                                            </option><option value="P12">PALAU
-                                                            </option><option value="Q01">QATAR
-                                                            </option><option value="R01">RHODESIA
-                                                            </option><option value="R02">ROMANIA
-                                                            </option><option value="R04">RWANDA
-                                                            </option><option value="R05">REUNION
-                                                            </option><option value="R06">RUSSIA
-                                                            </option><option value="R07">CONGO, REP. OF THE
-                                                            </option><option value="R08">REP OF NAURU
-                                                            </option><option value="S01">SAMOA
-                                                            </option><option value="S02">SAN MARINO
-                                                            </option><option value="S03">SAUDI ARABIA
-                                                            </option><option value="S04">SENEGAL
-                                                            </option><option value="S05">SEYCHELLES
-                                                            </option><option value="S06">SIERRA LEONE
-                                                            </option><option value="S07">SINGAPORE
-                                                            </option><option value="S08">SOMALIA
-                                                            </option><option value="S09">SOUTH AFRICA
-                                                            </option><option value="S10">SPAIN
-                                                            </option><option value="S11">SRI LANKA
-                                                            </option><option value="S12">SUDAN
-                                                            </option><option value="S14">SWEDEN
-                                                            </option><option value="S15">SWITZERLAND
-                                                            </option><option value="S16">SYRIA
-                                                            </option><option value="S17">SOLOMON ISLAND
-                                                            </option><option value="S18">SLOVENIA
-                                                            </option><option value="S19">SLOVAKIA, REP.
-                                                            </option><option value="S20">SURINAME
-                                                            </option><option value="S21">SWAZILAND
-                                                            </option><option value="S22">SAO TOME &amp; PRINCIPE
-                                                            </option><option value="S23">SERBIA  AND MONTENEGRO
-                                                            </option><option value="S24">ST. LUCIA
-                                                            </option><option value="S25">SOUTH GEORGIA &amp; SOUTH SANDWICH ISLAND
-                                                            </option><option value="S26">SERBIA
-                                                            </option><option value="S27">ST. VINCENT AND THE GRENADINES
-                                                            </option><option value="S28">SOUTH SUDAN
-                                                            </option><option value="S29">SAINT KITTS AND NEVIS
-                                                            </option><option value="T01">TAHITI
-                                                            </option><option value="T02">TAIWAN
-                                                            </option><option value="T03">TANZANIA
-                                                            </option><option value="T04">TURKMENISTAN
-                                                            </option><option value="T05">THAILAND
-                                                            </option><option value="T06">TOBAGO
-                                                            </option><option value="T07">TOGO
-                                                            </option><option value="T08">TONGA
-                                                            </option><option value="T09">TRINIDAD
-                                                            </option><option value="T10">TUNISIA
-                                                            </option><option value="T11">TURKEY
-                                                            </option><option value="T12">TAJIKISTAN
-                                                            </option><option value="T13">TUVALU
-                                                            </option><option value="U01">UGANDA
-                                                            </option><option value="U03">UNITED KINGDOM
-                                                            </option><option value="U04">U.S.A
-                                                            </option><option value="U05">URUGUAY
-                                                            </option><option value="U06">U.A.E
-                                                            </option><option value="U07">UKRAINE
-                                                            </option><option value="U08">UZBEKISTAN
-                                                            </option><option value="V01">VENEZUELA
-                                                            </option><option value="V02">VIETNAM
-                                                            </option><option value="V03">VANUATU
-                                                            </option><option value="Y01">YEMEN ARAB REP.
-                                                            </option><option value="Y02">YUGOSLAVIA
-                                                            </option><option value="Z01">ZAIRE
-                                                            </option><option value="Z02">ZAMBIA
-                                                            </option><option value="Z03">ZIMBABWE
-                                                                        </option>
-
+                                                    <select class="form-select" id="e102_c9"
+                                                        style="margin-left:42%; width:40%" name="e102_c9">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        @foreach ($negara as $data)
+                                                            <option value="{{ $data->kodnegara }}">
+                                                                {{ $data->namanegara }}
+                                                            </option>
+                                                        @endforeach
 
                                                     </select>
                                                 </fieldset>
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                {{-- <fieldset class="form-group">
+                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
+                                                        <option selected hidden disabled>Sila Pilih Negara</option>
+
+                                                        </option><option value="A01">AFGHANISTAN
+                                                        </option><option value="A02">ALBANIA
+                                                        </option><option value="A03">ALGERIA
+                                                        </option><option value="A05">ANGOLA
+                                                        </option><option value="A06">ANGUILLA
+                                                        </option><option value="A07">ANTIGUA
+                                                        </option><option value="A08">ARGENTINA
+                                                        </option><option value="A09">AUSTRALIA
+                                                        </option><option value="A10">AUSTRIA
+                                                        </option><option value="A12">ARMENIA
+                                                        </option><option value="A13">AZERBAIJAN
+                                                        </option><option value="A14">AMERICAN SAMOA
+                                                        </option><option value="A15">ANDORRA
+                                                        </option><option value="B01">BAHAMAS
+                                                        </option><option value="B02">BAHRAIN
+                                                        </option><option value="B03">BANGLADESH
+                                                        </option><option value="B04">BARBADOS
+                                                        </option><option value="B05">BELGIUM
+                                                        </option><option value="B06">BERMUDA
+                                                        </option><option value="B07">BHUTAN
+                                                        </option><option value="B08">BOLIVIA
+                                                        </option><option value="B09">BOTSWANA
+                                                        </option><option value="B10">BRAZIL
+                                                        </option><option value="B11">BRUNEI
+                                                        </option><option value="B12">BULGARIA
+                                                        </option><option value="B14">BURUNDI
+                                                        </option><option value="B15">BENIN
+                                                        </option><option value="B16">BELARUS
+                                                        </option><option value="B17">BELIZE
+                                                        </option><option value="B18">BOSNIA  AND HERZEGOVINA
+                                                        </option><option value="B19">BULKINA FASO
+                                                        </option><option value="B20">BRITISH VIRGIN ISLANDS
+                                                        </option><option value="C01">CAMEROON
+                                                        </option><option value="C02">CANADA
+                                                        </option><option value="C03">CHAD
+                                                        </option><option value="C04">CHILE
+                                                        </option><option value="C05">CHINA
+                                                        </option><option value="C06">COLOMBIA
+                                                        </option><option value="C07">CONGO, DEMOCRATIC REP. OF THE
+                                                        </option><option value="C08">COSTA RICA
+                                                        </option><option value="C09">CUBA
+                                                        </option><option value="C10">CYPRUS
+                                                        </option><option value="C11">CZECH
+                                                        </option><option value="C12">CROATIA
+                                                        </option><option value="C14">CAMBODIA
+                                                        </option><option value="C15">COMOROS
+                                                        </option><option value="C16">CHECHNYA
+                                                        </option><option value="C17">CENTRAL AFRICAN REPUBLIC
+                                                        </option><option value="C18">CAPE VERDE
+                                                        </option><option value="C19">COOK ISLANDS
+                                                        </option><option value="C20">CASTRIES
+                                                        </option><option value="C21">CURACAO
+                                                        </option><option value="C22">COMMONWEALTH OF DOMINICA
+                                                        </option><option value="D01">DAHOMEY
+                                                        </option><option value="D02">DENMARK
+                                                        </option><option value="D03">DOMINICA
+                                                        </option><option value="D04">DJIBOUTI
+                                                        </option><option value="D05">DOMINICAN REPUBLIC
+                                                        </option><option value="E01">ECUADOR
+                                                        </option><option value="E02">EGYPT
+                                                        </option><option value="E03">EL SALVADOR
+                                                        </option><option value="E04">ETHIOPIA
+                                                        </option><option value="E05">ERITREA
+                                                        </option><option value="E06">ESTONIA
+                                                        </option><option value="E07">EAST TIMOR
+                                                        </option><option value="E08">EQUATORIAL GUINEA
+                                                        </option><option value="F01">FIJI
+                                                        </option><option value="F02">FINLAND
+                                                        </option><option value="F03">FRANCE
+                                                        </option><option value="F04">FRENCH POLYNESIA
+                                                        </option><option value="G01">GABON
+                                                        </option><option value="G02">GUAM
+                                                        </option><option value="G03">GERMANY
+                                                        </option><option value="G04">GHANA
+                                                        </option><option value="G05">GIBRALTAR
+                                                        </option><option value="G06">GREECE
+                                                        </option><option value="G07">GRENADA
+                                                        </option><option value="G08">GUATEMALA
+                                                        </option><option value="G09">GUINEA
+                                                        </option><option value="G10">GUYANA
+                                                        </option><option value="G11">GAMBIA
+                                                        </option><option value="G12">GEORGIA
+                                                        </option><option value="G13">GERMANY, DEMOCRATIC REP. OF
+                                                        </option><option value="G14">GUINEA BISSAU
+                                                        </option><option value="G15">GUADELOUPE
+                                                        </option><option value="H01">HAITI
+                                                        </option><option value="H03">HONDURAS
+                                                        </option><option value="H04">HONG KONG
+                                                        </option><option value="H05">HUNGARY
+                                                        </option><option value="I01">ICELAND
+                                                        </option><option value="I02">INDIA
+                                                        </option><option value="I03">INDONESIA
+                                                        </option><option value="I04">IRAN
+                                                        </option><option value="I05">IRAQ
+                                                        </option><option value="I06">IRELAND REP.
+                                                        </option><option value="I07">ISRAEL
+                                                        </option><option value="I08">ITALY
+                                                        </option><option value="I09">COTE D'IVOIRE
+                                                        </option><option value="J01">JAMAICA
+                                                        </option><option value="J02">JAPAN
+                                                        </option><option value="J03">JORDAN
+                                                        </option><option value="K02">KENYA
+                                                        </option><option value="K04">NORTH KOREA
+                                                        </option><option value="K05">SOUTH KOREA
+                                                        </option><option value="K06">KUWAIT
+                                                        </option><option value="K08">KAZAKHSTAN
+                                                        </option><option value="K09">KYRGYZSTAN
+                                                        </option><option value="K10">KIRIBATI
+                                                        </option><option value="K45">KIRIBATI
+                                                        </option><option value="L01">LAOS
+                                                        </option><option value="L02">LEBANON
+                                                        </option><option value="L03">LESOTHO
+                                                        </option><option value="L04">LIBERIA
+                                                        </option><option value="L05">LIBYA
+                                                        </option><option value="L06">LIECHTENSTEIN
+                                                        </option><option value="L07">LUXEMBOURG
+                                                        </option><option value="L08">LATVIA
+                                                        </option><option value="L09">LITHUANIA
+                                                        </option><option value="M02">MALAWI
+                                                        </option><option value="M03">MALAYSIA
+                                                        </option><option value="M04">MALI
+                                                        </option><option value="M05">MALTA
+                                                        </option><option value="M06">MAURITANIA
+                                                        </option><option value="M07">MAURITIUS
+                                                        </option><option value="M08">MEXICO
+                                                        </option><option value="M09">MONACO
+                                                        </option><option value="M10">MONGOLIA
+                                                        </option><option value="M11">MONTSERRAT
+                                                        </option><option value="M12">MOROCCO
+                                                        </option><option value="M13">MOZAMBIQUE
+                                                        </option><option value="M14">MALDIVES
+                                                        </option><option value="M15">MADAGASCAR
+                                                        </option><option value="M16">MOLDOVA
+                                                        </option><option value="M17">MYANMAR
+                                                        </option><option value="M18">MUSCAT
+                                                        </option><option value="M19">MACAU
+                                                        </option><option value="M20">MACEDONIA
+                                                        </option><option value="M21">MAYOTTE
+                                                        </option><option value="M22">MARSHALL ISLAND
+                                                        </option><option value="M23">MICRONESIA FEDERATION
+                                                        </option><option value="M24">MONTENEGRO
+                                                        </option><option value="N01">NAURU
+                                                        </option><option value="N02">NEPAL
+                                                        </option><option value="N03">NETHERLANDS
+                                                        </option><option value="N04">NEW ZEALAND
+                                                        </option><option value="N05">NICARAGUA
+                                                        </option><option value="N06">NIGER
+                                                        </option><option value="N07">NIGERIA
+                                                        </option><option value="N08">NORWAY
+                                                        </option><option value="N09">NAMIBIA
+                                                        </option><option value="N10">NEW CALEDONIA
+                                                        </option><option value="N11">NETHERLANDS ANTILLES
+                                                        </option><option value="N12">NORTHERN MARIANA ISLANDS
+                                                        </option><option value="O01">OMAN
+                                                        </option><option value="P01">PAKISTAN
+                                                        </option><option value="P02">PANAMA
+                                                        </option><option value="P03">PAPUA N GUINEA
+                                                        </option><option value="P04">PARAGUAY
+                                                        </option><option value="P05">PERU
+                                                        </option><option value="P06">PHILIPPINES
+                                                        </option><option value="P07">POLAND
+                                                        </option><option value="P08">PORTUGAL
+                                                        </option><option value="P09">PACIFIC ISLAND
+                                                        </option><option value="P10">PUERTO RICO
+                                                        </option><option value="P11">PALESTINE
+                                                        </option><option value="P12">PALAU
+                                                        </option><option value="Q01">QATAR
+                                                        </option><option value="R01">RHODESIA
+                                                        </option><option value="R02">ROMANIA
+                                                        </option><option value="R04">RWANDA
+                                                        </option><option value="R05">REUNION
+                                                        </option><option value="R06">RUSSIA
+                                                        </option><option value="R07">CONGO, REP. OF THE
+                                                        </option><option value="R08">REP OF NAURU
+                                                        </option><option value="S01">SAMOA
+                                                        </option><option value="S02">SAN MARINO
+                                                        </option><option value="S03">SAUDI ARABIA
+                                                        </option><option value="S04">SENEGAL
+                                                        </option><option value="S05">SEYCHELLES
+                                                        </option><option value="S06">SIERRA LEONE
+                                                        </option><option value="S07">SINGAPORE
+                                                        </option><option value="S08">SOMALIA
+                                                        </option><option value="S09">SOUTH AFRICA
+                                                        </option><option value="S10">SPAIN
+                                                        </option><option value="S11">SRI LANKA
+                                                        </option><option value="S12">SUDAN
+                                                        </option><option value="S14">SWEDEN
+                                                        </option><option value="S15">SWITZERLAND
+                                                        </option><option value="S16">SYRIA
+                                                        </option><option value="S17">SOLOMON ISLAND
+                                                        </option><option value="S18">SLOVENIA
+                                                        </option><option value="S19">SLOVAKIA, REP.
+                                                        </option><option value="S20">SURINAME
+                                                        </option><option value="S21">SWAZILAND
+                                                        </option><option value="S22">SAO TOME &amp; PRINCIPE
+                                                        </option><option value="S23">SERBIA  AND MONTENEGRO
+                                                        </option><option value="S24">ST. LUCIA
+                                                        </option><option value="S25">SOUTH GEORGIA &amp; SOUTH SANDWICH ISLAND
+                                                        </option><option value="S26">SERBIA
+                                                        </option><option value="S27">ST. VINCENT AND THE GRENADINES
+                                                        </option><option value="S28">SOUTH SUDAN
+                                                        </option><option value="S29">SAINT KITTS AND NEVIS
+                                                        </option><option value="T01">TAHITI
+                                                        </option><option value="T02">TAIWAN
+                                                        </option><option value="T03">TANZANIA
+                                                        </option><option value="T04">TURKMENISTAN
+                                                        </option><option value="T05">THAILAND
+                                                        </option><option value="T06">TOBAGO
+                                                        </option><option value="T07">TOGO
+                                                        </option><option value="T08">TONGA
+                                                        </option><option value="T09">TRINIDAD
+                                                        </option><option value="T10">TUNISIA
+                                                        </option><option value="T11">TURKEY
+                                                        </option><option value="T12">TAJIKISTAN
+                                                        </option><option value="T13">TUVALU
+                                                        </option><option value="U01">UGANDA
+                                                        </option><option value="U03">UNITED KINGDOM
+                                                        </option><option value="U04">U.S.A
+                                                        </option><option value="U05">URUGUAY
+                                                        </option><option value="U06">U.A.E
+                                                        </option><option value="U07">UKRAINE
+                                                        </option><option value="U08">UZBEKISTAN
+                                                        </option><option value="V01">VENEZUELA
+                                                        </option><option value="V02">VIETNAM
+                                                        </option><option value="V03">VANUATU
+                                                        </option><option value="Y01">YEMEN ARAB REP.
+                                                        </option><option value="Y02">YUGOSLAVIA
+                                                        </option><option value="Z01">ZAIRE
+                                                        </option><option value="Z02">ZAMBIA
+                                                        </option><option value="Z03">ZIMBABWE
+                                                                   </option>
+                                                    </select>
+                                                </fieldset> --}}
                                             </div>
                                         </div>
 
@@ -469,12 +488,13 @@
 
 
                                         <div class="text-right col-md-11 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-toggle="modal"
+                                            <button type="submit" class="btn btn-primary " data-toggle="modal"
                                                 style="float: right" data-target="#confirmation">
-                                                Simpan</button>
+                                                Tambah</button>
                                         </div>
 
                                     </div>
+                                </form>
                                     <br>
                                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
                                     <hr>
@@ -482,33 +502,151 @@
                                         <div class="card">
 
                                             <div class="card-body">
-                                                <table class='table table-striped' id="table1">
-                                                    <thead>
-                                                        <tr style="text-align: center">
-                                                            <th>Nama Produk</th>
-                                                            <th>Nombor Borang Kastam 2</th>
-                                                            <th>Tarikh Eksport</th>
-                                                            <th>Kuantiti (Tan Metrik)</th>
-                                                            <th>Nilai</th>
-                                                            <th>Destinasi Negara</th>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered mb-0">
+                                                        <thead>
+                                                            <tr style="text-align: center">
+                                                                <th>Nama Produk</th>
+                                                                <th>Nombor Borang Kastam 2</th>
+                                                                <th>Tarikh Eksport</th>
+                                                                <th>Kuantiti (Tan Metrik)</th>
+                                                                <th>Nilai</th>
+                                                                <th>Destinasi Negara</th>
+                                                                <th>Kemaskini</th>
+                                                                <th>Buang?</th>
 
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>BPL</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                        </tr>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach ($penyata as $data)
+                                                            <tr>
+                                                                <td>{{ $data->e102_c4 }}</td>
+                                                                <td>{{ $data->e102_c5 }}</td>
+                                                                <td>{{ $data->e102_c6 }}</td>
+                                                                <td>{{ $data->e102_c7 }}</td>
+                                                                <td>{{ $data->e102_c8 }}</td>
+                                                                <td>{{ $data->e102_c9 }}</td>
+                                                                <td>
+                                                                    <div class="icon" style="text-align: center">
+                                                                        <a href="#"
+                                                                            type="button" data-bs-toggle="modal"
+                                                                            data-bs-target="#modal{{ $data->e102_c1 }}">
+                                                                            <i class="fas fa-edit fa-lg" style="color: #228c1c">
+                                                                            </i>
+                                                                        </a>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="icon" style="text-align: center">
+                                                                        <a href="#"
+                                                                            type="button" >
+                                                                            <i class="fa fa-trash-o" style="color: #228c1c;font-size:18px"></i>
+                                                                        </a>
+                                                                    </div>
 
-                                                        <br>
+                                                                </td>
+                                                            </tr>
 
-                                                    </tbody>
+                                                            <div class="col-md-6 col-12">
 
-                                                </table>
+                                                                <!--scrolling content Modal -->
+                                                                <div class="modal fade" id="modal{{ $data->e102_c1 }}"
+                                                                    tabindex="-1" role="dialog"
+                                                                    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title"
+                                                                                    id="exampleModalScrollableTitle">
+                                                                                    Kemaskini Maklumat Produk</h5>
+                                                                                <button type="button" class="close"
+                                                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                                                    <i data-feather="x"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <form
+                                                                                    action="{{ route('isirung.edit.bahagian.vi', [$data->e102_c1]) }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    <div class="modal-body">
+                                                                                        <label>Nama Produk </label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='e102_c4'
+                                                                                                class="form-control"
+                                                                                                value="{{ $data->e102_c4 }}" readonly>
+                                                                                        </div>
+                                                                                        <label>Nombor Borang Kastam 2 </label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='e102_c5'
+                                                                                                class="form-control" value="{{  $data->e102_c5 }}">
+                                                                                        </div>
+                                                                                        <label>Tarikh Eksport </label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='e102_c6'
+                                                                                                class="form-control" value="{{  $data->e102_c6 }}">
+                                                                                        </div>
+                                                                                        <label>Kuantiti (Tan Metrik) </label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='e102_c7'
+                                                                                                class="form-control" value="{{ $data->e102_c7 }}">
+                                                                                        </div>
+                                                                                        <label>Nilai </label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='e102_c8'
+                                                                                                class="form-control" value="{{ $data->e102_c8 }}">
+                                                                                        </div>
+                                                                                        <label>DDestinasi Negara</label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='e102_c9'
+                                                                                                class="form-control" value="{{ $data->e102_c9 }}">
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    {{-- <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-light-secondary"
+                                                                                            data-bs-dismiss="modal">
+                                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                            <span class="d-none d-sm-block">Batal</span>
+                                                                                        </button>
+                                                                                        <button type="button" class="btn btn-primary ml-1"
+                                                                                            data-bs-dismiss="modal">
+                                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                            <span class="d-none d-sm-block">Kemaskini</span>
+                                                                                        </button>
+                                                                                    </div> --}}
+
+
+                                                                            </div>
+                                                                            
+
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light-secondary"
+                                                                                    data-bs-dismiss="modal">
+                                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                    <span class="d-none d-sm-block">Batal</span>
+                                                                                </button>
+                                                                                <button type="submit" class="btn btn-primary ml-1"
+                                                                                    >
+                                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                    <span class="d-none d-sm-block">Kemaskini</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+
+                                                            @endforeach
+
+                                                            <br>
+
+                                                        </tbody>
+
+                                                    </table>
+                                                </div>
 
                                             </div>
                                         </div>
@@ -590,6 +728,20 @@
 
 
 
+
+
+
+
+
+
+
+
+
+            <br>
+
+
+
+
     </section><!-- End Hero -->
 
 
@@ -607,7 +759,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" >
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -629,5 +781,4 @@
     </body>
 
     </html>
-
 @endsection

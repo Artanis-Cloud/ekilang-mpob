@@ -18,7 +18,8 @@ class E102c extends Model
      *
      */
     protected $table = 'e102c'; //Penyata bulanan terkini - kilang isirung
-
+    protected $primaryKey = 'e102_c1';
+    public $timestamps = false;
     protected $fillable = [
         'e102_c1',
         'e102_c2',
@@ -45,7 +46,13 @@ class E102c extends Model
         'nama_sykt1',
         'mpobq_bungkusan',
         'mpobq_nilai_2',
-        
+
 
     ];
+
+    public function e102init()
+    {
+
+        return $this->hasOne(E102Init::class, 'e102_reg', 'e102_c2');
+    }
 }

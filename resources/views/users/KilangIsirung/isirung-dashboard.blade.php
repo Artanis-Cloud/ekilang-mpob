@@ -187,15 +187,6 @@
                                             Cadangan</span>
                                     </a>
                                 </li>
-
-                                <li>
-                                    <a href="{{ route('isirung.prestasioer') }}">
-                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Prestasi OER</span>
-                                    </a>
-                                </li>
-
                                 <li>
                                     <a href="{{ route('isirung.penyatadahulu') }}">
                                         <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
