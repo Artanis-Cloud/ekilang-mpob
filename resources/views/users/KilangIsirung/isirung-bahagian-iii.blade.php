@@ -57,14 +57,15 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-
+                        <form action="{{ route('isirung.add.bahagian.iii') }}" method="post">
+                            @csrf
                         <div class="card-body">
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71);">Bahagian iii</h3>
+                                        <h3 style="color: rgb(39, 80, 71);">Bahagian III</h3>
                                         <h5 style="color: rgb(39, 80, 71)">Belian/Penerimaan Bekalan Isirung Sawit - (PK) (51)
                                             </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
@@ -77,19 +78,17 @@
                                                 Belian/Penerimaan</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
+                                                    <select class="form-select" id="e102_b4"
+                                                        style="margin-left:42%; width:40%" name="e102_b4">
                                                         <option selected hidden disabled>Sila Pilih</option>
-                                                            <option value="15">Sendiri
+                                                        @foreach ($prodcat as $data)
+                                                            <option value="{{ $data->catid }}">
+                                                                {{ $data->catname }}
                                                             </option>
-                                                            <option value="13">Luar
-                                                            </option>
+                                                        @endforeach
+
                                                     </select>
                                                 </fieldset>
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
                                             </div>
                                         </div>
                                         <div class="row">
@@ -98,13 +97,12 @@
                                                 Dari</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
+                                                    <select class="form-select" id="e102_b5" style="margin-left:42%; width:40%" name='e102_b5'>
                                                         <option selected hidden disabled>Kilang Buah</option>
 
-                                                            <option value="15">Kilang Buah</option>
-                                                            <option value="15">Peniaga</option>
-                                                            <option value="15">CD3</option>
-                                                            <option value="15">Lain-lain</option>
+                                                            <option value="1">Kilang Buah</option>
+                                                            <option value="5">Peniaga</option>
+                                                            <option value="7">Lain-lain</option>
 
                                                     </select>
                                                 </fieldset>
@@ -121,8 +119,8 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                Kuantiti</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='e102_b6' style="margin-left:42%; width:40%"
+                                                    id="e102_b6" required title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -139,12 +137,13 @@
 
 
                                         <div class="text-right col-md-11 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-toggle="modal"
+                                            <button type="submit" class="btn btn-primary " data-toggle="modal"
                                                 style="float: right" data-target="#confirmation">
-                                                Simpan</button>
+                                                Tambah</button>
                                         </div>
 
                                     </div>
+                                </form>
                                     <br>
                                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
                                     <hr>
@@ -152,29 +151,130 @@
                                         <div class="card">
 
                                             <div class="card-body">
-                                                <table class='table table-striped' id="table1">
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered mb-0">
                                                     <thead>
                                                         <tr style="text-align: center">
                                                             <th>Belian/Penerimaan</th>
                                                             <th>Dari</th>
                                                             <th>Kuantiti</th>
+                                                            <th>Kemaskini</th>
+                                                            <th>Buang?</th>
 
 
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @foreach ($penyata as $data)
                                                         <tr>
-                                                            <td>BPL</td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>{{ $data->e102_b4 }}</td>
+                                                            <td>{{ $data->e102_b5 }}</td>
+                                                            <td>{{ $data->e102_b6 }}</td>
+                                                            <td>
+                                                                <div class="icon" style="text-align: center">
+                                                                    <a href="#"
+                                                                        type="button" data-bs-toggle="modal"
+                                                                        data-bs-target="#modal{{ $data->e102_b1 }}">
+                                                                        <i class="fas fa-edit fa-lg" style="color: #228c1c">
+                                                                        </i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="icon" style="text-align: center">
+                                                                    <a href="#"
+                                                                        type="button" >
+                                                                        <i class="fa fa-trash-o" style="color: #228c1c;font-size:18px"></i>
+                                                                    </a>
+                                                                </div>
+
+                                                            </td>
 
                                                         </tr>
+                                                        <div class="col-md-6 col-12">
+
+                                                            <!--scrolling content Modal -->
+                                                            <div class="modal fade" id="modal{{ $data->e102_b1 }}"
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalScrollableTitle">
+                                                                                Kemaskini Maklumat Produk</h5>
+                                                                            <button type="button" class="close"
+                                                                                data-bs-dismiss="modal" aria-label="Close">
+                                                                                <i data-feather="x"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <form
+                                                                                action="{{ route('isirung.edit.bahagian.iii', [$data->e102_b1]) }}"
+                                                                                method="post">
+                                                                                @csrf
+                                                                                <div class="modal-body">
+                                                                                    <label>Belian/Penerimaan </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text" name='e102_b4'
+                                                                                            class="form-control"
+                                                                                            value="{{ $data->e102_b4 }}" readonly>
+                                                                                    </div>
+                                                                                    <label>Dari </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text" name='e102_b5'
+                                                                                            class="form-control" value="{{  $data->e102_b5 }}">
+                                                                                    </div>
+                                                                                    <label>Kuantiti </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text" name='e102_b6'
+                                                                                            class="form-control" value="{{  $data->e102_b6 }}">
+                                                                                    </div>
+                                                                                </div>
+                                                                                {{-- <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                                        data-bs-dismiss="modal">
+                                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                                    </button>
+                                                                                    <button type="button" class="btn btn-primary ml-1"
+                                                                                        data-bs-dismiss="modal">
+                                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                                    </button>
+                                                                                </div> --}}
+
+
+                                                                        </div>
+
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-light-secondary"
+                                                                                data-bs-dismiss="modal">
+                                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                <span class="d-none d-sm-block">Batal</span>
+                                                                            </button>
+                                                                            <button type="submit" class="btn btn-primary ml-1">
+                                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                <span class="d-none d-sm-block">Kemaskini</span>
+                                                                            </button>
+                                                                        </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        @endforeach
+
 
                                                         <br>
 
                                                     </tbody>
 
                                                 </table>
+                                                </div>
 
                                             </div>
                                         </div>

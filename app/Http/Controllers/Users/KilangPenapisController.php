@@ -125,7 +125,7 @@ class KilangPenapisController extends Controller
         $penyata = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 01);
             })->get();
-        dd($penyata);
+        // dd($penyata);
 
 
 
