@@ -37,15 +37,15 @@
                                                 @if (!$loop->last)
                                                     <li class="breadcrumb-item">
                                                         <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: rgb(63, 60, 60) !important;"
-                                                            onMouseOver="this.style.color='lightblue'"
-                                                            onMouseOut="this.style.color='black'">
+                                                            style="color: rgb(64, 69, 68) !important;"
+                                                            onMouseOver="this.style.color='#25877b'"
+                                                            onMouseOut="this.style.color='grey'">
                                                             {{ $breadcrumb['name'] }}
                                                         </a>
                                                     </li>
                                                 @else
                                                     <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #fff03e  !important;">
+                                                        style="color: #25877b  !important;">
                                                         {{ $breadcrumb['name'] }}
                                                     </li>
                                                 @endif

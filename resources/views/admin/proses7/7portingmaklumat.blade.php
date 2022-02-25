@@ -30,21 +30,22 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                        @if (!$loop->last)
-                                            <li class="breadcrumb-item">
-                                                <a href="{{ $breadcrumb['link'] }}" style="color: rgb(102, 100, 100) !important;"
-                                                    onMouseOver="this.style.color='lightblue'"
-                                                    onMouseOut="this.style.color='white'">
+                                            @if (!$loop->last)
+                                                <li class="breadcrumb-item">
+                                                    <a href="{{ $breadcrumb['link'] }}"
+                                                        style="color: rgb(64, 69, 68) !important;"
+                                                        onMouseOver="this.style.color='#25877b'"
+                                                        onMouseOut="this.style.color='grey'">
+                                                        {{ $breadcrumb['name'] }}
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li class="breadcrumb-item active" aria-current="page"
+                                                    style="color: #25877b  !important;">
                                                     {{ $breadcrumb['name'] }}
-                                                </a>
-                                            </li>
-                                        @else
-                                            <li class="breadcrumb-item active" aria-current="page"
-                                                style="color: #e8d255  !important;">
-                                                {{ $breadcrumb['name'] }}
-                                            </li>
-                                        @endif
-                                    @endforeach
+                                                </li>
+                                            @endif
+                                        @endforeach
 
                                     </ol>
                                 </nav>
@@ -85,7 +86,7 @@
                                             <fieldset class="form-group">
                                                 <select class="form-select" id="basicSelect">
                                                     <option selected hidden disabled>Sila Pilih Jenis Maklumat</option>
-                                                  
+
                                                     <option>Produk Sawit</option>
                                                     <option>Negara</option>
 

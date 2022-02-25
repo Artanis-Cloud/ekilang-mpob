@@ -33,14 +33,14 @@
                                                     <li class="breadcrumb-item">
                                                         <a href="{{ $breadcrumb['link'] }}"
                                                             style="color: white !important;"
-                                                            onMouseOver="this.style.color='lightblue'"
+                                                            onMouseOver="this.style.color='#25877b'"
                                                             onMouseOut="this.style.color='white'">
                                                             {{ $breadcrumb['name'] }}
                                                         </a>
                                                     </li>
                                                 @else
                                                     <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #fff03e  !important;">
+                                                        style="color: #25877b  !important;">
                                                         {{ $breadcrumb['name'] }}
                                                     </li>
                                                 @endif
@@ -80,7 +80,7 @@
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
                                                         <option selected hidden disabled>Sila Pilih Produk</option>
-                                                    
+
                                                             <option value="U9">CCNO - U9
                                                             </option><option value="V0">CNOFA - V0
                                                             </option><option value="V1">DCNOFA - V1
