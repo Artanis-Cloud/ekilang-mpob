@@ -82,7 +82,8 @@
                                     </div>
                                     <div class="row" id="table-bordered">
 
-                                    <form wire:submit.prevent='store'>
+                                        <form action="{{route('isirung.update.bahagian.i',[$penyata->e102_reg])}}" method="post">
+                                            @csrf
                                             <div class="card">
 
                                                 <div class="card-content">
@@ -93,15 +94,13 @@
                                                             <thead style="text-align: center">
                                                                 <tr>
                                                                     <th>Butiran</th>
-                                                                    <th>Buah Kelapa Sawit (FFB) <br>
-                                                                        Kod 52</th>
-                                                                    <th>Minyak Sawit Mentah (CPO)
-                                                                        <br> Kod 01
-                                                                    </th>
                                                                     <th>Isirung (PK) <br> Kod 51
                                                                     </th>
-                                                                    <th>Minyak Keledak (Sludge Oil)
-                                                                        <br> Kod 49
+                                                                    <th>Minyak Isirung Sawit Mentah (CPKO)
+                                                                        <br> Kod 04
+                                                                    </th>
+                                                                    <th>Dedak Isirung (PKC)
+                                                                        <br> Kod 33
                                                                     </th>
 
 
@@ -111,94 +110,108 @@
                                                                 <tr>
                                                                     <td class="text-bold-500">A.
                                                                         Stok Awal Di Premis</td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_aa1'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_aa1 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_aa2'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_aa2 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_aa3'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_aa3 ?? 0 }}">
+                                                                        </td>
+
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">B.
                                                                         Stok Awal Di Pusat Simpanan</td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ab1'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ab1 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ab2'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ab2 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ab3'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ab3 ?? 0 }}">
+                                                                        </td>
+
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">C.
                                                                         Pembelian / Penerimaan</td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ac1'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ac1 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ac2'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ac2 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ac3'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ac3 ?? 0 }}">
+                                                                        </td>
+
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">D.
                                                                         Import</td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ad1'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ad1 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ad2'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ad2 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ad3'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ad3 ?? 0 }}">
+                                                                        </td>
+
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">E.
                                                                         Diproses</td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ae1'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ae1 ?? 0 }}">
+                                                                        </td>
                                                                     <td
                                                                         style="text-align:center; background-color:#808080b8">
                                                                         {{-- <input type="text" size="10"
@@ -209,11 +222,7 @@
                                                                         {{-- <input type="text" size="10"
                                                                                     onkeypress="return isNumberKey(event)"> --}}
                                                                     </td>
-                                                                    <td
-                                                                        style="text-align:center; background-color:#808080b8">
-                                                                        {{-- <input type="text" size="10"
-                                                                                    onkeypress="return isNumberKey(event)"> --}}
-                                                                    </td>
+
 
                                                                 </tr>
                                                                 <tr>
@@ -225,122 +234,138 @@
                                                                                     onkeypress="return isNumberKey(event)"> --}}
                                                                     </td>
                                                                     <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
+                                                                        <input type="number" size="10" name='e102_af2'
+                                                                            style="text-align: center"
+                                                                            onkeypress="return isNumberKey(event)"
+                                                                            value="{{ $penyata->e102_af2 ?? 0 }}">
                                                                     </td>
                                                                     <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
+                                                                        <input type="number" size="10" name='e102_af3'
+                                                                            style="text-align: center"
+                                                                            onkeypress="return isNumberKey(event)"
+                                                                            value="{{ $penyata->e102_af3 ?? 0 }}">
                                                                     </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
+
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">G.
                                                                         Jualan / Edaran Tempatan</td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ag1'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ag1 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ag2'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ag2 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ag3'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ag3 ?? 0 }}">
+                                                                        </td>
+
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">H.
                                                                         Hantar ke Pusat Simpanan / Gudang</td>
-                                                                    <td
-                                                                        style="text-align:center; background-color:#808080b8">
-                                                                        {{-- <input type="text" size="10" disabled> --}}
-                                                                    </td>
-                                                                    <td
-                                                                        style="text-align:center; background-color:#808080b8">
-                                                                        {{-- <input type="text" size="10" disabled> --}}
-                                                                    </td>
-                                                                    <td
-                                                                        style="text-align:center; background-color:#808080b8">
-                                                                        {{-- <input type="text" size="10" disabled> --}}
-                                                                    </td>
-                                                                    <td
-                                                                        style="text-align:center; background-color:#808080b8">
-                                                                        {{-- <input type="text" size="10" disabled> --}}
-                                                                    </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ah1'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ah1 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ah2'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ah2 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ah3'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ah3 ?? 0 }}">
+                                                                        </td>
+
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">I.
                                                                         Eksport</td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ai1'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ai1 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ai2'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ai2 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ai3'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ai3 ?? 0 }}">
+                                                                        </td>
+
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">J.
                                                                         Stok Akhir di Premis</td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_aj1'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_aj1 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_aj2'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_aj2 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_aj3'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_aj3 ?? 0 }}">
+                                                                        </td>
+
 
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">K.
                                                                         Stok Akhir di Pusat Simpanan</td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
-                                                                    <td style="text-align:center;">
-                                                                        <input type="text" size="10"
-                                                                            onkeypress="return isNumberKey(event)">
-                                                                    </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ak1'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ak1 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ak2'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ak2 ?? 0 }}">
+                                                                        </td>
+                                                                        <td style="text-align:center;">
+                                                                            <input type="number" size="10" name='e102_ak3'
+                                                                                style="text-align: center"
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                value="{{ $penyata->e102_ak3 ?? 0 }}">
+                                                                        </td>
+
 
                                                                 </tr>
                                                             </tbody>
@@ -369,7 +394,7 @@
                                                     </div> --}}
 
 
-
+                                            <br>
                                             <div class="row" style=" float:right">
 
 
@@ -404,10 +429,9 @@
                                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                                     </button>
-                                                                    <button type="button" class="btn btn-primary ml-1"
-                                                                        data-bs-dismiss="modal">
-                                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                                        <span class="d-none d-sm-block">Ya</span>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Ya</span>
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -417,7 +441,7 @@
                                             </div>
 
 
-                                    </form>
+                                        </form>
 
                                 </div>
                             </div>
