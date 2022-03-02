@@ -528,16 +528,16 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                        <td width="40%"><b>{{ $iii->e101_a1 }} Hari</b></td>
+                                                        <td width="40%"><b>{{ $iii->e101_a5 }} Hari</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="60%">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
-                                                        <td width="40%"><b>{{ $iii->e101_a2 }} %</b></td>
+                                                        <td width="40%"><b>{{ $iii->e101_a6 }} %</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="60%">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
                                                         </td>
-                                                        <td width="40%"><b>{{ $iii->e101_a3 }} %</b></td>
+                                                        <td width="40%"><b>{{ $iii->e101_a7 }} %</b></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
