@@ -202,7 +202,7 @@ class KilangPenapisController extends Controller
 
         // dd($request->all());
         $penyata = E101B::findOrFail($id);
-        $penyata->e101_b4 = $request->e101_b4;
+        // $penyata->e101_b4 = $request->e101_b4;
         $penyata->e101_b5 = $request->e101_b5;
         $penyata->e101_b6 = $request->e101_b6;
         $penyata->e101_b7 = $request->e101_b7;
@@ -323,7 +323,7 @@ class KilangPenapisController extends Controller
 
         // dd($request->all());
         $penyata = E101B::findOrFail($id);
-        $penyata->e101_b4 = $request->e101_b4;
+        // $penyata->e101_b4 = $request->e101_b4;
         $penyata->e101_b5 = $request->e101_b5;
         $penyata->e101_b6 = $request->e101_b6;
         $penyata->e101_b7 = $request->e101_b7;
@@ -467,7 +467,7 @@ class KilangPenapisController extends Controller
 
         // dd($request->all());
         $penyata = E101C::findOrFail($id);
-        $penyata->e101_c4 = $request->e101_c4;
+        // $penyata->e101_c4 = $request->e101_c4;
         $penyata->e101_c5 = $request->e101_c5;
         $penyata->e101_c6 = $request->e101_c6;
         $penyata->e101_c7 = $request->e101_c7;
@@ -569,7 +569,7 @@ class KilangPenapisController extends Controller
 
         // dd($request->all());
         $penyata = E101C::findOrFail($id);
-        $penyata->e101_c4 = $request->e101_c4;
+        // $penyata->e101_c4 = $request->e101_c4;
         $penyata->e101_c5 = $request->e101_c5;
         $penyata->e101_c6 = $request->e101_c6;
         $penyata->e101_c7 = $request->e101_c7;

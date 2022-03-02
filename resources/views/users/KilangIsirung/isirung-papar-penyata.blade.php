@@ -571,10 +571,10 @@
                                                     @foreach ($penyataiii as $data)
                                                     <tr>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->e102_b4 }}</font>
+                                                            <font size="2">{{ $data->kodsl[0]->catname }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->e102_b5 }}</font>
+                                                            <font size="2">{{ $data->prodcat2[0]->catname }}</font>
                                                         </td>
                                                         <td  align="center">
                                                             <font size="2">{{ $data->e102_b6 }}</font>

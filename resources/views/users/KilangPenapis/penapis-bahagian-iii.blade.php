@@ -127,7 +127,7 @@
                                                     </div>
                                                 </div> --}}
                                                 <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
+                                            <a href="{{ route('penapis.bahagianii') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
                                         </div>
                                         <div class="text-right col-md-5 mb-4 ">

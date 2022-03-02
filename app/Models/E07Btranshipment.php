@@ -17,7 +17,8 @@ class E07Btranshipment extends Model
      *
      */
     protected $table = 'e07_btranshipment'; //penyata bulanan terkini - pusat simpanan
-
+    protected $primaryKey = 'e07bt_id';
+    public $timestamps = false;
     protected $fillable = [
         'e07bt_id',
         'e07bt_idborang',
@@ -30,4 +31,12 @@ class E07Btranshipment extends Model
         'e07bt_pelarasan',
         'e07bt_stokakhir',
     ];
+
+
+    public function e07init()
+    {
+
+        return $this->hasMany(E07Init::class, 'e07bt_idborang', 'e07_reg');
+    }
+
 }
