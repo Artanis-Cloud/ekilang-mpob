@@ -897,15 +897,14 @@ class KilangPenapisController extends Controller
     {
         // dd($request->all());
 
-        $tahun = H101Init::where('tahun', $request->e101_thn);
-        $bulan = H101Init::where('bulan', $request->e101_bln);
-
         $user = User::first();
         // dd($user);
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
 
-        $users = H101Init::where('e101_nl', auth()->user()->username)->first('e101_nobatch');
+        $users = H101Init::where('e101_nl', auth()->user()->username)
+            ->where('e101_thn', $request->tahun)
+            ->where('e101_bln', $request->bulan)->first();
         // dd($users);
 
         $i = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
@@ -918,7 +917,7 @@ class KilangPenapisController extends Controller
             })->get();
 
         $iii = H101Init::where('e101_nl', auth()->user()->username)->first();
-
+        // dd($iii);
         $iv = H101C::with('h101init', 'produk')->where('e101_nobatch', $user->e101_nobatch)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', 04);
             })->get();
@@ -944,7 +943,7 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
-        return view('users.KilangPenapis.penapis-papar-dahulu', compact('returnArr', 'layout', 'tahun', 'bulan', 'user', 'pelesen', 'users', 'i', 'ii', 'iii', 'iv', 'va', 'vb'));
+        return view('users.KilangPenapis.penapis-papar-dahulu', compact('returnArr', 'layout', 'user', 'pelesen', 'users', 'i', 'ii', 'iii', 'iv', 'va', 'vb'));
     }
 
 
