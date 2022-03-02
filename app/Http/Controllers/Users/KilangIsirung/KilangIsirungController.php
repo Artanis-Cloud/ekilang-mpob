@@ -286,7 +286,7 @@ class KilangIsirungController extends Controller
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E102b::with('e102init')->where('e102_b2', $user->e102_reg)->where('e102_b3',51)->get();
+        $penyata = E102b::with('e102init','kodsl','prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3',51)->get();
         // dd($penyata);
 
 
@@ -703,7 +703,7 @@ class KilangIsirungController extends Controller
 
         $penyataii = E102Init::where('e102_nl', auth()->user()->username)->first();
 
-        $penyataiii = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3',51)->get();
+        $penyataiii = E102b::with('e102init','kodsl','prodcat2')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3',51)->get();
         // dd($penyataiii);
 
         $penyataiv = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3',04)->get();

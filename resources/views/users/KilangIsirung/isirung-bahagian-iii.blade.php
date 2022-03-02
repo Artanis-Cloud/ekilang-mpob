@@ -167,8 +167,8 @@
                                                     <tbody>
                                                         @foreach ($penyata as $data)
                                                         <tr>
-                                                            <td>{{ $data->e102_b4 }}</td>
-                                                            <td>{{ $data->e102_b5 }}</td>
+                                                            <td>{{ $data->kodsl[0]->catname }}</td>
+                                                            <td>{{ $data->prodcat2[0]->catname}}</td>
                                                             <td>{{ $data->e102_b6 }}</td>
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
@@ -218,12 +218,12 @@
                                                                                     <div class="form-group">
                                                                                         <input type="text" name='e102_b4'
                                                                                             class="form-control"
-                                                                                            value="{{ $data->e102_b4 }}" readonly>
+                                                                                            value="{{ $data->kodsl[0]->catname }}" readonly>
                                                                                     </div>
                                                                                     <label>Dari </label>
                                                                                     <div class="form-group">
                                                                                         <input type="text" name='e102_b5'
-                                                                                            class="form-control" value="{{  $data->e102_b5 }}">
+                                                                                            class="form-control" value="{{  $data->prodcat2[0]->catname }}">
                                                                                     </div>
                                                                                     <label>Kuantiti </label>
                                                                                     <div class="form-group">

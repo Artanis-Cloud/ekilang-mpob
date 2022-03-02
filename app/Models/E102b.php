@@ -34,12 +34,17 @@ class E102b extends Model
     public function e102init()
     {
 
-        return $this->hasOne(E102Init::class, 'e102_reg', 'e102_b2');
+        return $this->hasMany(E102Init::class, 'e102_reg', 'e102_b2');
     }
-    // public function e102init()
-    // {
+    public function kodsl()
+    {
 
-    //     return $this->hasOne(E102Init::class, 'e101_b2', 'e101_reg');
-    // }
+        return $this->hasMany(KodSl::class, 'catid', 'e102_b4');
+    }
+    public function prodcat2()
+    {
+
+        return $this->hasMany(ProdCat2::class, 'catid', 'e102_b5');
+    }
 
 }

@@ -51,7 +51,7 @@
 
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/css/simpananstyle.css') }}" rel=" stylesheet">
 
     <!-- Toastr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
@@ -322,16 +322,6 @@
 
 
 
-            <footer>
-                <div class="footer text-muted">
-                    {{-- <div class="float-start">
-                        <p>2020 &copy; Voler</p>
-                    </div> --}}
-                    <div style="text-align: center">
-                        <p style="font-size:14px; color:white">Developed by Artanis Cloud</a></p>
-                    </div>
-                </div>
-            </footer>
 
         </div>
     </div>
@@ -398,7 +388,7 @@
     <!-- Toastr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             var table = $('#example').DataTable({
                 "language": {
@@ -418,10 +408,10 @@
                 },
             });
         });
-    </script>
+    </script> --}}
 
     {{-- toaster display --}}
-    <script>
+    {{-- <script>
     toastr.options.fadeOut = 2500;
     toastr.info('Are you the 6 fingered man?')
         @if (Session::get('success'))
@@ -429,7 +419,7 @@
         @elseif ($message = Session::get('error'))
             toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
         @endif
-    </script>
+    </script> --}}
 
 
 </body>
