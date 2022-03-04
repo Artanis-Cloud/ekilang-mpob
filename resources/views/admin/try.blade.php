@@ -6,7 +6,7 @@
 
 <body>
 
- 
+
     <p>
         <font color="#005000"><b>SENARAI KOD DAN NAMA PRODUK SAWIT</b></font>
     </p>
@@ -3247,7 +3247,7 @@
     </table>
 
     <p>&nbsp; &nbsp;&nbsp;&nbsp; Keluar Ke
-        <a href="index.php">Main Menu E-Kilang&nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="index.php">Main Menu e-Kilang&nbsp;</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     </p>
 
 

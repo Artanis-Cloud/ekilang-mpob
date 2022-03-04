@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
-    <title>Sistem E-Kilang</title>
+    <title>Sistem e-Kilang</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -60,7 +60,7 @@ height: auto;">
 
                         <span class="mx-5 mb-0 text-center navbar-brand h1"
                             style="color: white; text-align:center; font-family:verdana"><b>
-                                Sistem E-Kilang </b></span>
+                                Sistem e-Kilang </b></span>
 
 
                     {{-- </a> --}}
