@@ -348,16 +348,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <a class="navbar-brand">
+            
 
-                    {{-- <img src="theme/images/background/favicon.png" height='45px' alt=""> --}}
-                    {{-- <img src="theme/images/background/mspo.png" height='60px' alt=""> --}}
-                    {{-- <img src="{{ asset('/mpob.png') }}" height='50px' width='60px' alt=""
-                        style="margin-left:25%; margin-top: 3px;"> --}}
-                    {{-- <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%"> --}}
-                </a>
-
-                <span class="mx-2 mt-2 mb-0 text-center navbar-brand h1"
+                <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
                         style="margin-left:10%;">
                         Admin </b></span>

@@ -33,6 +33,7 @@ class KilangController extends Controller
         return view('admin.admin-login');
     }
 
+
     public function admin_kilangbuah()
     {
 

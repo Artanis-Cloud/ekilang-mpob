@@ -24,7 +24,7 @@
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
+                                    style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
                             </div>
                             <div class="col-7 align-self-center">
                                 <div class="d-flex align-items-center justify-content-end">
@@ -60,6 +60,20 @@
                     </div> --}}
                         <div class="card-body">
                             <div class="row">
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
+                                     type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Kilang Oleokimia
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      {{-- <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang Buah</a> --}}
+                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahulu') }}">Kilang Buah</a>
+                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahulupenapis') }}">Kilang Penapis</a>
+                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahuluisirung') }}">Kilang Isirung</a>
+                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahulusimpanan') }}">Pusat Simpanan</a>
+                                      <a class="dropdown-item" href="{{ route('admin.9penyataterdahulubiodiesel') }}">E-Biodiesel</a>
+                                    </div>
+                                </div>
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <form action="{{ route('admin.9penyataterdahulu.process') }}" method="post">

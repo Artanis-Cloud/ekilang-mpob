@@ -20,9 +20,10 @@
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:white; background-color:#25877bd1">Kembali</a>
+                                <a href="{{ $returnArr['kembali'] }}" class="btn"
+                                    style="margin-left:25%; color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class="col-6 align-self-center">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -43,7 +44,6 @@
                                                     </li>
                                                 @endif
                                             @endforeach
-
                                         </ol>
                                     </nav>
                                 </div>
