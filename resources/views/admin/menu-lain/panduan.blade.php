@@ -66,7 +66,7 @@
                                 <div class=" text-center">
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                     <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Panduan Penyelenggaraan</h3>
-                                    <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Panduan Menyelenggara Web E-Kilang</h5>
+                                    <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Panduan Menyelenggara Web e-Kilang</h5>
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>

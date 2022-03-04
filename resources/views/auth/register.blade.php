@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem E-Kilang</title>
+    <title>Sistem e-Kilang</title>
     <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
     {{-- <link rel="stylesheet" href="assets/css/bootstrap.css"> --}}
     <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">

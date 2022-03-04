@@ -23,7 +23,7 @@
                     <div class="pb-2 row">
                         <div class="col-5 align-self-center">
                             <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                style="color:rgb(255, 255, 255); background-color:#25877bd1">Kembali</a>
+                                style="margin-left:5%; color:rgb(255, 255, 255); background-color:#25877bd1">Kembali</a>
                         </div>
                         <div class="col-7 align-self-center">
                             <div class="d-flex align-items-center justify-content-end">
@@ -121,7 +121,7 @@
                                                                     </th>
                                                                     <th>No. Siri
                                                                     </th>
-                                                                    <th>Status E-Kilang
+                                                                    <th>Status e-Kilang
                                                                     </th>
                                                                     <th>Status E-Stok
                                                                     </th>
@@ -131,7 +131,8 @@
                                                                     </th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
+                                                            <tbody style= "max-width: 100px;
+                                                            word-break: break-word;">
                                                                 @foreach ($users as $data)
 
 

@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('theme/images/favicon.png') }}">
-    <title>Sistem E-Kilang</title>
+    <title>Sistem e-Kilang</title>
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <!-- Toaster CSS -->
@@ -117,7 +117,7 @@
                         <br>
                         <h3 class="text-center"
                             style="color:rgba(15, 15, 15, 0.801); font-size:25px; font-family:verdana"><b> Sistem
-                                E-Kilang </b></h3>
+                                e-Kilang </b></h3>
                         <h4 class="text-center"
                             style="color:rgba(15, 15, 15, 0.801); font-size:20px; font-family:Trebuchet MS (sans-serif)">
                             Lembaga

@@ -74,7 +74,7 @@
 
                     <h6 style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
                         <b>
-                            E-Kilang</b>
+                            e-Kilang</b>
                     </h6>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
                     {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
@@ -352,15 +352,15 @@
 
                     {{-- <img src="theme/images/background/favicon.png" height='45px' alt=""> --}}
                     {{-- <img src="theme/images/background/mspo.png" height='60px' alt=""> --}}
-                    <img src="{{ asset('/mpob.png') }}" height='50px' width='60px' alt=""
-                        style="margin-left:25%; margin-top: 3px;">
+                    {{-- <img src="{{ asset('/mpob.png') }}" height='50px' width='60px' alt=""
+                        style="margin-left:25%; margin-top: 3px;"> --}}
                     {{-- <img src="{{ asset('/mspo.png') }}" height='80px' width='60px' alt="" style="margin-top: 20px; margin-right:10%"> --}}
                 </a>
 
                 <span class="mx-2 mt-2 mb-0 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
                         style="margin-left:10%;">
-                        E-Kilang </b></span>
+                        Admin </b></span>
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -575,7 +575,7 @@
                                                 <div class="icon" style="text-align: center"><i
                                                         class="fas fa-file-export fa-xs"></i></div>
                                                 <h4 class="title"><a
-                                                        href="{{ route('admin.4ekilangpleid') }}">E-Kilang
+                                                        href="{{ route('admin.4ekilangpleid') }}">e-Kilang
                                                         ke PLEID</a></h4>
                                                 <p class="description">Pindah data dari E-Kilang ke PLEID</p>
                                             </div>
