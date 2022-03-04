@@ -70,29 +70,29 @@
                     <div class="pb-2 row">
                         <div class="col-5 align-self-center">
                             <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                style="color:rgb(255, 255, 255); background-color:#25877bd1">Kembali</a>
+                                style="margin-left:25%; color:rgb(255, 255, 255); background-color:#25877bd1">Kembali</a>
                         </div>
                         <div class="col-7 align-self-center">
                             <div class="d-flex align-items-center justify-content-end">
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                            @if (!$loop->last)
-                                                <li class="breadcrumb-item">
-                                                    <a href="{{ $breadcrumb['link'] }}"
-                                                        style="color: rgb(64, 69, 68) !important;"
-                                                        onMouseOver="this.style.color='#25877b'"
-                                                        onMouseOut="this.style.color='grey'">
-                                                        {{ $breadcrumb['name'] }}
-                                                    </a>
-                                                </li>
-                                            @else
-                                                <li class="breadcrumb-item active" aria-current="page"
-                                                    style="color: #25877b  !important;">
+                                        @if (!$loop->last)
+                                            <li class="breadcrumb-item">
+                                                <a href="{{ $breadcrumb['link'] }}"
+                                                    style="color: rgb(64, 69, 68) !important;"
+                                                    onMouseOver="this.style.color='#25877b'"
+                                                    onMouseOut="this.style.color='grey'">
                                                     {{ $breadcrumb['name'] }}
-                                                </li>
-                                            @endif
-                                        @endforeach
+                                                </a>
+                                            </li>
+                                        @else
+                                            <li class="breadcrumb-item active" aria-current="page"
+                                                style="color: #25877b  !important; margin-right: 100px;">
+                                                {{ $breadcrumb['name'] }}
+                                            </li>
+                                        @endif
+                                    @endforeach
 
                                     </ol>
                                 </nav>

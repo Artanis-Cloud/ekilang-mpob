@@ -95,7 +95,7 @@
                                                 </li>
                                             @else
                                                 <li class="breadcrumb-item active" aria-current="page"
-                                                    style="color: #25877b  !important;">
+                                                    style="color: #25877b  !important; margin-right: 100px;">
                                                     {{ $breadcrumb['name'] }}
                                                 </li>
                                             @endif
