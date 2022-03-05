@@ -333,8 +333,7 @@
                     <div class="row justify-content-center" style="margin-top: -5%">
                         <div class="col-xl-12 col-lg-8">
 
-                            <h1 style="font-size:20px; margin-left:10%;">KILANG ISIRUNG</h1>
-                            <h6 style=" margin-left:10%">Penyata Bulanan Kilang Isirung</h6>
+                            <h1 style="font-size:15px; margin-left:10%; margin-bottom:-1%">PENYATA BULANAN KILANG ISIRUNG</h1>
                         </div>
                     </div>
 

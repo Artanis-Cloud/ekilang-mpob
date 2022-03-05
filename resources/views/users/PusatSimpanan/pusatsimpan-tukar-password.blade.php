@@ -22,9 +22,9 @@
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
+                                    style="margin-left:25%; color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class="col-6 align-self-center">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -134,111 +134,101 @@
                                             </div>
                                         </div>
 
+                                            <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                                {{-- <div class="text-left col-md-5">
+                                                    <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
+                                                        style="float: left">Sebelumnya</a>
+                                                </div> --}}
+                                                <div class="text-right col-md-12 mb-4 ">
+                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                        style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                    role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                PENGESAHAN</h5>
+                                                            <button type="button" class="close"
+                                                                data-bs-dismiss="modal" aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>
+                                                                Anda pasti mahu menyimpan maklumat ini?
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary"
+                                                                data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block"
+                                                                    style="color:#275047">Tidak</span>
+                                                            </button>
+                                                            <button type="submit" class="btn btn-primary ml-1"
+                                                                data-dismiss="modal">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Ya</span>
+                                                            </button>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                    </form>
+                                </div>
 
 
 
 
-
-                                </diV>
-
+                                </div>
 
 
-                                {{-- <div class="row float-left ">
-                                    <div class="col-md-12 offset-md-12">
-                                        <button type="submit" class="btn btn-primary" style="float: right;">
-                                            {{ __('Simpan') }}
-                                        </button>
-                                    </div>
-                                </div> --}}
-                                <br>
+                            </div>
 
 
-
-                            {{-- </div>
                         </div>
-                        <br>
-
-                    </div> --}}
-                    <br>
-
-                    <br>
-
-
-
-                    <div class="row form-group" >
-
-
-                        {{-- <div class="text-left col-md-5">
-                            <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
-                                style="float: left">Sebelumnya</a>
-                        </div> --}}
-                        <div class="text-right col-md-12 mb-2 ">
-                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
-                        </div>
-
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
+                            <br>
                     </div>
                 </div>
             </div>
-
-
-
         </div>
 
-                        <!-- Vertically Centered modal Modal -->
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                            role="dialog" aria-labelledby="exampleModalCenterTitle"
-                            aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                            PENGESAHAN</h5>
-                                        <button type="button" class="close"
-                                            data-bs-dismiss="modal" aria-label="Close">
-                                            <i data-feather="x"></i>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <p>
-                                            Anda pasti mahu menukar kata laluan ini?
-                                        </p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-light-secondary"
-                                            data-bs-dismiss="modal">
-                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block"
-                                                style="color:#275047">Kembali</span>
-                                        </button>
-                                        <button type="button" class="btn btn-primary ml-1"
-                                            data-bs-dismiss="modal">
-                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Tukar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        </div>
 
 
 
 
 
-                </div>
-                </form>
 
-        </div>
-        {{-- </div> --}}
-        {{-- </div> --}}
+
+                    <br>
 
 
 
 
 
     </section><!-- End Hero -->
+
 
 
 
