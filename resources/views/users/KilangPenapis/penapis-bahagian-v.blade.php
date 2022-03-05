@@ -77,8 +77,8 @@
                                                         <select class="form-select" id="e101_d3"
                                                             style="margin-left:42%; width:40%" name="e101_d3">
                                                             <option selected hidden disabled>Sila Pilih</option>
-                                                            <option value="1"> Sendiri </option>
-                                                            <option value="2"> Luar </option>
+                                                            <option value="1"> SENDIRI </option>
+                                                            <option value="2"> LUAR </option>
 
                                                         </select>
                                                     </fieldset>
@@ -268,7 +268,7 @@
                                                                             <div class="form-group">
                                                                                 <fieldset class="form-group">
                                                                                     <select class="form-select" id="e101_d3" name="e101_d3">
-                                                                                        <option selected hidden disabled>{{ $data->kodsl[0]->catname }}</option>
+                                                                                        <option hidden value="{{ $data->e101_d3 }}">{{ $data->kodsl[0]->catname }}</option>
                                                                                         <option value="1"> SENDIRI</option>
                                                                                         <option value="2"> LUAR </option>
 
@@ -284,7 +284,7 @@
                                                                             <div class="form-group">
                                                                                 <fieldset class="form-group">
                                                                                     <select class="form-select" id="e101_d4" name="e101_d4">
-                                                                                        <option selected hidden disabled>{{ $data->prodcat[0]->catname }}</option>
+                                                                                        <option hidden  value="{{ $data->e101_d4 }}">{{ $data->prodcat[0]->catname }}</option>
                                                                                         <option value="1">KILANG BUAH</option>
                                                                                         <option value="2">KILANG PENAPIS</option>
                                                                                         <option value="3">KILANG ISIRUNG</option>

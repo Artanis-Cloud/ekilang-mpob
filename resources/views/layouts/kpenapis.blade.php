@@ -369,19 +369,10 @@
             {{-- CONTENT BODY --}}
             @yield('content')
 
-            <footer>
-                <div class="footer text-muted">
-                    {{-- <div class="float-start">
-                        <p>2020 &copy; Voler</p>
-                    </div> --}}
-                    <div style="text-align: center">
-                        <p style="font-size:14px; color:white">Developed by Artanis Cloud</a></p>
-                    </div>
-                </div>
-            </footer>
 
         </div>
     </div>
+</main>
     <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
     <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
     <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
