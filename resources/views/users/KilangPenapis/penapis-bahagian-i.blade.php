@@ -13,16 +13,16 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-4 row">
+            <div class="mt-3 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
+                            <div class=" align-self-center" style="margin-left: 2%; margin-bottom:-2%">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
                                     style="color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class=" align-self-center" style="margin-left: -1%;">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -285,7 +285,7 @@
                                                 <tr>
 
                                                     <td>
-                                                        {{ $data->produk[0]->prodname  }}
+                                                        {{ $data->produk[0]->prodname }}
 
 
                                                         {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid) --}}
@@ -305,8 +305,7 @@
                                                     <td>{{ $data->e101_b14 }}</td>
                                                     <td>
                                                         <div class="icon" style="text-align: center">
-                                                            <a href="#"
-                                                                type="button" data-bs-toggle="modal"
+                                                            <a href="#" type="button" data-bs-toggle="modal"
                                                                 data-bs-target="#modal{{ $data->e101_b1 }}">
                                                                 <i class="fas fa-edit fa-lg" style="color: #228c1c">
                                                                 </i>
@@ -314,9 +313,12 @@
                                                         </div>
                                                     </td>
                                                     <td>
-
-                                                        <button type="button" value="Delete" onclick="myDeleteFunction()"
-                                                            class="btn btn-danger">Delete</button>
+                                                        <div class="icon" style="text-align: center">
+                                                            <a href="#" type="button">
+                                                                <i class="fa fa-trash-o"
+                                                                    style="color: #228c1c;font-size:18px"></i>
+                                                            </a>
+                                                        </div>
                                                     </td>
                                                     {{-- <td>{{ $data->e101_b15 }}</td> --}}
 
@@ -349,22 +351,26 @@
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b4'
                                                                                     class="form-control"
-                                                                                    value="{{ $data->produk[0]->prodname}}" readonly>
+                                                                                    value="{{ $data->produk[0]->prodname }}"
+                                                                                    readonly>
                                                                             </div>
                                                                             <label>Stok Awal Di Premis </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b5'
-                                                                                    class="form-control" value="{{ old('e101_b5') ?? $data->e101_b5 }}">
+                                                                                    class="form-control"
+                                                                                    value="{{ old('e101_b5') ?? $data->e101_b5 }}">
                                                                             </div>
                                                                             <label>Stok Awal Di Pusat Simpanan </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b6'
-                                                                                    class="form-control" value="{{  $data->e101_b6 }}">
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->e101_b6 }}">
                                                                             </div>
                                                                             <label>Belian / Penerimaan </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b7'
-                                                                                    class="form-control" value="{{ old('e101_b7') ?? $data->e101_b7 }}">
+                                                                                    class="form-control"
+                                                                                    value="{{ old('e101_b7') ?? $data->e101_b7 }}">
                                                                             </div>
                                                                             {{-- <label>Import </label>
                                                                             <div class="form-group">
@@ -374,33 +380,39 @@
                                                                             <label>Pengeluaran </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b9'
-                                                                                    class="form-control" value="{{ old('e101_b9') ?? $data->e101_b9 }}">
+                                                                                    class="form-control"
+                                                                                    value="{{ old('e101_b9') ?? $data->e101_b9 }}">
                                                                             </div>
                                                                             <label>Digunakan Untuk Proses
                                                                                 Selanjutnya</label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b10'
-                                                                                    class="form-control" value="{{ old('e101_b10') ?? $data->e101_b10 }}">
+                                                                                    class="form-control"
+                                                                                    value="{{ old('e101_b10') ?? $data->e101_b10 }}">
                                                                             </div>
                                                                             <label>Jualan / Edaran Dalam Negeri </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b11'
-                                                                                    class="form-control" value="{{ old('e101_b11') ?? $data->e101_b11 }}">
+                                                                                    class="form-control"
+                                                                                    value="{{ old('e101_b11') ?? $data->e101_b11 }}">
                                                                             </div>
                                                                             <label>Eksport </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b12'
-                                                                                    class="form-control" value="{{ old('e101_b12') ?? $data->e101_b12 }}">
+                                                                                    class="form-control"
+                                                                                    value="{{ old('e101_b12') ?? $data->e101_b12 }}">
                                                                             </div>
                                                                             <label>Stok Akhir Di Premis </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b13'
-                                                                                    class="form-control" value="{{ old('e101_b13') ?? $data->e101_b13 }}">
+                                                                                    class="form-control"
+                                                                                    value="{{ old('e101_b13') ?? $data->e101_b13 }}">
                                                                             </div>
                                                                             <label>Stok Akhir Di Pusat Simpanan </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b14'
-                                                                                    class="form-control" value="{{ old('e101_b14') ?? $data->e101_b14 }}">
+                                                                                    class="form-control"
+                                                                                    value="{{ old('e101_b14') ?? $data->e101_b14 }}">
                                                                             </div>
                                                                         </div>
                                                                         {{-- <div class="modal-footer">
@@ -418,10 +430,11 @@
 
 
                                                                 </div>
-                                                                <div class="text-right col-md-7 mb-4 ">
-                                                                    <button type="submit" class="btn btn-primary" style="float: right">Simpan &
+                                                                {{-- <div class="text-right col-md-7 mb-4 ">
+                                                                    <button type="submit" class="btn btn-primary"
+                                                                        style="float: right">Simpan &
                                                                         Seterusnya</button>
-                                                                </div>
+                                                                </div> --}}
 
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-light-secondary"
@@ -429,8 +442,7 @@
                                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                                         <span class="d-none d-sm-block">Batal</span>
                                                                     </button>
-                                                                    <button type="submit" class="btn btn-primary ml-1"
-                                                                        data-bs-dismiss="modal">
+                                                                    <button type="submit" class="btn btn-primary ml-1">
                                                                         <i class="bx bx-check d-block d-sm-none"></i>
                                                                         <span class="d-none d-sm-block">Kemaskini</span>
                                                                     </button>
