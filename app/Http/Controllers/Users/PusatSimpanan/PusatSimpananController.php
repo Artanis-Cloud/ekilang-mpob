@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Users\PusatSimpanan;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Pelesen;
 
 class PusatSimpananController extends Controller
 {
@@ -32,7 +32,7 @@ class PusatSimpananController extends Controller
         $layout = 'layouts.psimpan';
 
         // $pelesen = E91Init::get();
-
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
 
 
@@ -41,8 +41,37 @@ class PusatSimpananController extends Controller
 
 
 
-        return view('users.PusatSimpanan.pusatsimpan-maklumat-asas-pelesen', compact('returnArr', 'layout'));
+        return view('users.PusatSimpanan.pusatsimpan-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
     }
+
+    public function pusatsimpan_update_maklumat_asas_pelesen(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = Pelesen::findOrFail($id);
+        $penyata->e_ap1 = $request->e_ap1;
+        $penyata->e_ap2 = $request->e_ap2;
+        $penyata->e_ap3 = $request->e_ap3;
+        $penyata->e_as1 = $request->e_as1;
+        $penyata->e_as2 = $request->e_as2;
+        $penyata->e_as3 = $request->e_as3;
+        $penyata->e_notel = $request->e_notel;
+        $penyata->e_nofax = $request->e_nofax;
+        $penyata->e_email = $request->e_email;
+        $penyata->e_npg = $request->e_npg;
+        $penyata->e_jpg = $request->e_jpg;
+        // $penyata->e_notelpg = $request->e_notelpg;
+        $penyata->e_npgtg = $request->e_npgtg;
+        $penyata->e_jpgtg = $request->e_jpgtg;
+        $penyata->e_email_pengurus = $request->e_email_pengurus;
+        $penyata->save();
+
+
+        return redirect()->route('pusatsimpan.maklumatasaspelesen')
+            ->with('success', 'Maklumat telah dikemaskini');
+
+    }
+
+
 
     public function pusatsimpan_tukarpassword()
     {

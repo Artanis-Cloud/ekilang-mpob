@@ -330,8 +330,7 @@
                     <div class="row justify-content-center" style="margin-top: -3%">
                         <div class="col-xl-12 col-lg-8">
 
-                            <h1 style="font-size:20px; margin-left:10%;">KILANG PENAPIS</h1>
-                            <h6 style=" margin-left:10%; margin-top:-1%">Penyata Bulanan Kilang Penapis</h6>
+                            <h1 style="font-size:15px; margin-left:10%; margin-bottom:-1%">PENYATA BULANAN KILANG PENAPIS</h1>
                         </div>
                     </div>
 
