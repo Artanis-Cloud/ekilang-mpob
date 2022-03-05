@@ -920,25 +920,25 @@ class KilangPenapisController extends Controller
         // dd($users);
 
         $i = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 01);
+            return $query->where('prodcat', '=', '01');
         })->get();
         // dd($i);
 
         $ii = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 02);
+            return $query->where('prodcat', '=', '02');
         })->get();
 
         $iii = H101Init::where('e101_nl', auth()->user()->username)->first();
         // dd($iii);
         $iv = H101C::with('h101init', 'produk')->where('e101_nobatch', $user->e101_nobatch)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 04);
+            return $query->where('prodcat', '=', '04');
         })->get();
         // dd($iv);
 
         $va = H101D::with('h101init')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', '1')->get();
         // dd($va);
 
-        $vb = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', 2)->get();
+        $vb = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', '2')->get();
 
 
         $breadcrumbs    = [
