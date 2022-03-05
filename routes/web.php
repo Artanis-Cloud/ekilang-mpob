@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/dashboard', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard'])->name('admin.dashboard');
         Route::get('admin/dashboard2', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard2'])->name('admin.dashboard2');
 
-    
+
 
         Route::get('admin/login', [App\Http\Controllers\Admin\KilangController::class, 'admin_login'])->name('admin.login');
         Route::get('admin/kilang-buah', [App\Http\Controllers\Admin\KilangController::class, 'admin_kilangbuah'])->name('admin.kilangbuah');
@@ -221,6 +221,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('penapis/papar-penyata', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_paparpenyata'])->name('penapis.paparpenyata');
 
+        Route::get('penapis/email', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_email'])->name('penapis.email');
 
 
         Route::get('penapis/penyata-dahulu', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_penyatadahulu'])->name('penapis.penyatadahulu');

@@ -892,6 +892,28 @@ class KilangPenapisController extends Controller
     }
 
 
+    public function penapis_email()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.email'), 'name' => "Emel Pertanyaan / Pindaan / Cadangan  "],
+        ];
+
+        $kembali = route('penapis.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kpenapis';
+
+
+
+        return view('users.KilangPenapis.penapis-email', compact('returnArr', 'layout'));
+    }
+
+
     public function penapis_penyatadahulu()
     {
 
