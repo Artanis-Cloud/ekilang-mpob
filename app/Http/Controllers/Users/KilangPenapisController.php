@@ -616,8 +616,14 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
 
-        $penyata = E101D::with('e101init', 'prodcat','kodsl')->where('e101_reg', $user->e101_reg)->get();
+        $penyata = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->get();
         // dd($penyata);
+
+        // $kodsl = KodSl::all();
+        // dd($kodsl);
+        // $selectedKod = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_d3', $kodsl->catid)->get();
+        // dd($selectedKod);
+
 
         return view('users.KilangPenapis.penapis-bahagian-v', compact('returnArr', 'layout', 'user', 'penyata'));
     }
@@ -673,7 +679,7 @@ class KilangPenapisController extends Controller
 
     public function penapis_edit_bahagian_v(Request $request, $id)
     {
-        $produk = Produk::where('prodname', $request->e101_d4)->first();
+        // $produk = Produk::where('prodname', $request->e101_d4)->first();
         // $kodsl = KodSl::where('catname', $request->e101_d3)->first();
 
         // dd($request->all());
@@ -729,7 +735,7 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
-        $produk = Produk::where('prodcat', [01, 02, 03, 04, 06])->orderBy('prodname')->get();
+        $produk = Produk::where('prodcat', ['01', '02', '03', '04', '06'])->orderBy('prodname')->get();
         // dd($produk);
 
         $negara = Negara::get();
@@ -796,10 +802,13 @@ class KilangPenapisController extends Controller
 
     public function penapis_edit_bahagian_vi(Request $request, $id)
     {
+        // $produk = Produk::where('prodname', $request->e101_e4)->first();
+        // $negara = Negara::where('namanegara', $request->e101_e9)->first();
 
 
         // dd($request->all());
         $penyata = E101E::findOrFail($id);
+        // $penyata->e101_e4 = $produk->prodid;
         $penyata->e101_e5 = $request->e101_e5;
         $penyata->e101_e6 = $request->e101_e6;
         $penyata->e101_e7 = $request->e101_e7;
