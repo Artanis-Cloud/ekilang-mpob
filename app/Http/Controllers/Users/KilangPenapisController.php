@@ -124,8 +124,8 @@ class KilangPenapisController extends Controller
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
         $penyata = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', 01);
-            })->get();
+            return $query->where('prodcat', '=', 01);
+        })->get();
         // dd($penyata);
 
 
@@ -199,10 +199,11 @@ class KilangPenapisController extends Controller
     public function penapis_edit_bahagian_i(Request $request, $id)
     {
 
+        $produk = Produk::where('prodname', $request->e101_b4)->first();
 
         // dd($request->all());
         $penyata = E101B::findOrFail($id);
-        // $penyata->e101_b4 = $request->e101_b4;
+        $penyata->e101_b4 = $produk->prodid;
         $penyata->e101_b5 = $request->e101_b5;
         $penyata->e101_b6 = $request->e101_b6;
         $penyata->e101_b7 = $request->e101_b7;
@@ -217,6 +218,14 @@ class KilangPenapisController extends Controller
 
         return redirect()->route('penapis.bahagiani')
             ->with('success', 'Maklumat telah disimpan');
+    }
+
+    public function penapis_delete_bahagian_i($id)
+    {
+        $penyata = E101B::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
     }
 
 
@@ -245,8 +254,8 @@ class KilangPenapisController extends Controller
         // $b = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
 
         $b = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', 02);
-            })->get();
+            return $query->where('prodcat', '=', 02);
+        })->get();
 
         // dd($b);
         // dd($b->produk);
@@ -320,10 +329,11 @@ class KilangPenapisController extends Controller
     public function penapis_edit_bahagian_ii(Request $request, $id)
     {
 
+        $produk = Produk::where('prodname', $request->e101_b4)->first();
 
         // dd($request->all());
         $penyata = E101B::findOrFail($id);
-        // $penyata->e101_b4 = $request->e101_b4;
+        $penyata->e101_b4 = $produk->prodid;
         $penyata->e101_b5 = $request->e101_b5;
         $penyata->e101_b6 = $request->e101_b6;
         $penyata->e101_b7 = $request->e101_b7;
@@ -463,11 +473,11 @@ class KilangPenapisController extends Controller
 
     public function penapis_edit_bahagian_iva(Request $request, $id)
     {
-
+        $produk = Produk::where('prodname', $request->e101_c4)->first();
 
         // dd($request->all());
         $penyata = E101C::findOrFail($id);
-        // $penyata->e101_c4 = $request->e101_c4;
+        $penyata->e101_c4 = $produk->prodid;
         $penyata->e101_c5 = $request->e101_c5;
         $penyata->e101_c6 = $request->e101_c6;
         $penyata->e101_c7 = $request->e101_c7;
@@ -566,10 +576,11 @@ class KilangPenapisController extends Controller
     public function penapis_edit_bahagian_ivb(Request $request, $id)
     {
 
+        $produk = Produk::where('prodname', $request->e101_c4)->first();
 
         // dd($request->all());
         $penyata = E101C::findOrFail($id);
-        // $penyata->e101_c4 = $request->e101_c4;
+        $penyata->e101_c4 = $produk->prodid;
         $penyata->e101_c5 = $request->e101_c5;
         $penyata->e101_c6 = $request->e101_c6;
         $penyata->e101_c7 = $request->e101_c7;
@@ -605,7 +616,7 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
 
-        $penyata = E101D::with('e101init', 'prodcat')->where('e101_reg', $user->e101_reg)->get();
+        $penyata = E101D::with('e101init', 'prodcat','kodsl')->where('e101_reg', $user->e101_reg)->get();
         // dd($penyata);
 
         return view('users.KilangPenapis.penapis-bahagian-v', compact('returnArr', 'layout', 'user', 'penyata'));
@@ -662,7 +673,8 @@ class KilangPenapisController extends Controller
 
     public function penapis_edit_bahagian_v(Request $request, $id)
     {
-
+        $produk = Produk::where('prodname', $request->e101_d4)->first();
+        // $kodsl = KodSl::where('catname', $request->e101_d3)->first();
 
         // dd($request->all());
         $penyata = E101D::findOrFail($id);
@@ -725,7 +737,7 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
 
-        $penyata = E101E::with('e101init', 'produk','negara')->where('e101_reg', $user->e101_reg)->where('e101_e3', 1)->get();
+        $penyata = E101E::with('e101init', 'produk', 'negara')->where('e101_reg', $user->e101_reg)->where('e101_e3', 1)->get();
         // dd($penyata);
 
 
@@ -824,13 +836,13 @@ class KilangPenapisController extends Controller
 
 
         $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', 01);
-            })->get();
+            return $query->where('prodcat', '=', 01);
+        })->get();
         // dd($penyatai);
 
         $penyataii = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', 02);
-            })->get();
+            return $query->where('prodcat', '=', 02);
+        })->get();
         // dd($penyataii);
 
         $penyataiii = E101Init::where('e101_nl', auth()->user()->username)->first();
@@ -908,19 +920,19 @@ class KilangPenapisController extends Controller
         // dd($users);
 
         $i = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', 01);
-            })->get();
+            return $query->where('prodcat', '=', 01);
+        })->get();
         // dd($i);
 
         $ii = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', 02);
-            })->get();
+            return $query->where('prodcat', '=', 02);
+        })->get();
 
         $iii = H101Init::where('e101_nl', auth()->user()->username)->first();
         // dd($iii);
         $iv = H101C::with('h101init', 'produk')->where('e101_nobatch', $user->e101_nobatch)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', 04);
-            })->get();
+            return $query->where('prodcat', '=', 04);
+        })->get();
         // dd($iv);
 
         $va = H101D::with('h101init')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', '1')->get();

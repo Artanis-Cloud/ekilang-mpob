@@ -45,4 +45,10 @@ class E101D extends Model
     {
         return $this->hasMany(ProdCat::class, 'catid', 'e101_d4');
     }
+
+    public function kodsl()
+    {
+        return $this->hasMany(KodSl::class, 'catid', 'e101_d3');
+    }
+
 }

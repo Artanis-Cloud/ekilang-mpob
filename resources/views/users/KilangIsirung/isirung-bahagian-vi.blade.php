@@ -596,7 +596,7 @@
                                                                                             <input type="text" name='e102_c8'
                                                                                                 class="form-control" value="{{ $data->e102_c8 }}">
                                                                                         </div>
-                                                                                        <label>DDestinasi Negara</label>
+                                                                                        <label>Destinasi Negara</label>
                                                                                         <div class="form-group">
                                                                                             <input type="text" name='e102_c9'
                                                                                                 class="form-control" value="{{ $data->e102_c9 }}">
@@ -617,7 +617,7 @@
 
 
                                                                             </div>
-                                                                            
+
 
                                                                             <div class="modal-footer">
                                                                                 <button type="button" class="btn btn-light-secondary"

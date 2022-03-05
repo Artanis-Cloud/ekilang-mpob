@@ -13,16 +13,16 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-4 row">
+            <div class="mt-3 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
+                            <div class=" align-self-center" style="margin-left: 2%; margin-bottom:-2%">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
                                     style="color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class=" align-self-center" style="margin-left: -1%;">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -200,7 +200,7 @@
 
                                         </div>
                         </form>
-                        <br>
+                        <hr>
                         <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
                         <hr>
                         <section class="section">
@@ -243,9 +243,12 @@
                                                     </div>
                                                 </td>
                                                 <td>
-
-                                                    <button type="button" value="Delete" onclick="myDeleteFunction()"
-                                                        class="btn btn-danger">Delete</button>
+                                                    <div class="icon" style="text-align: center">
+                                                        <a href="#" type="button">
+                                                            <i class="fa fa-trash-o"
+                                                                style="color: #228c1c;font-size:18px"></i>
+                                                        </a>
+                                                    </div>
                                                 </td>
                                             </tr>
 
@@ -329,10 +332,6 @@
 
 
                                                             </div>
-                                                            <div class="text-right col-md-7 mb-4 ">
-                                                                <button type="submit" class="btn btn-primary" style="float: right">Simpan &
-                                                                    Seterusnya</button>
-                                                            </div>
 
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-light-secondary"
@@ -340,8 +339,7 @@
                                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Batal</span>
                                                                 </button>
-                                                                <button type="submit" class="btn btn-primary ml-1"
-                                                                    data-bs-dismiss="modal">
+                                                                <button type="submit" class="btn btn-primary ml-1">
                                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Kemaskini</span>
                                                                 </button>
@@ -381,7 +379,7 @@
 
 
                         <div class="text-left col-md-5">
-                            <a href="{{ route('penapis.bahagiani') }}" class="btn btn-primary"
+                            <a href="{{ route('penapis.bahagianiii') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
                         </div>
                         <div class="text-right col-md-7 mb-4 ">
