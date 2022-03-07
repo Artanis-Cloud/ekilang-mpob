@@ -213,7 +213,7 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Alamat Emel</label>
+                                                    Alamat Emel Kilang</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_email" class="form-control" placeholder="Alamat Emel"
                                                                 name="e_email" value="{{ $pelesen->e_email  ?? '-'}}">
