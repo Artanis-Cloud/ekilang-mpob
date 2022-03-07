@@ -20,9 +20,9 @@
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
+                                    style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class="col-7 align-self-center" style="margin-left:-1%;">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -172,7 +172,7 @@
                                                                     <tr style="background-color: #1526224a">
                                                                         <td class="text-bold-500"
                                                                             style="text-align:center;">
-                                                                            <b>Jumlah Bahagian I</b>
+                                                                            <b>Jumlah Bahagian I (FFB)</b>
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <span><b>{{ $penyata->e91_ab1 }}</b></span>
@@ -261,7 +261,7 @@
 
 
                 </div>
-            </div>
+            </div><br><br><br><br><br>
         </div>
     </section><!-- End Hero -->
 

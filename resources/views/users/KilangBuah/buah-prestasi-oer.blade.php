@@ -24,9 +24,9 @@
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
+                                    style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class="col-7 align-self-center"  style="margin-left:-1%;" >
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -81,7 +81,7 @@
                                             </li>
                                             <li>
                                                 <p><i> Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai
-                                                        lebih daripada lima pelesen.</i></p>
+                                                        lebih daripada tiga pelesen.</i></p>
                                             </li>
                                             <li>
                                                 <p><i> Paparan hanya dapat dilakukan bermula dari tahun 2000 sahaja.</i></p>
@@ -143,7 +143,7 @@
 
 
 
-                                <div class="row form-group"  ">
+                                <div class="row form-group" >
 
 
 
@@ -162,11 +162,12 @@
 
 
                         </div>
-
-                    {{-- </div> --}}
                     </div>
-                    <br>
-                    <br>
+                </div>
+            </div><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div>
+
+
 
 
 
