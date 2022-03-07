@@ -487,26 +487,26 @@
                                                         <font size="3">ii.&nbsp; Kadar Perahan MKSM (OER) yang
                                                             diperolehi&nbsp;</font>
                                                     </td>
-                                                    <td width="70">
-                                                        <font size="3">: {{ $penyata->e91_ah2 ?? 0 }} %</font>
+                                                    <td width="100">
+                                                        <font size="3">: {{ $penyata->e91_ah2 ?? 0 }}%</font>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td width="380">
                                                         <font size="3">iii. Kadar Perolehan Isirung (KER)</font>
                                                     </td>
-                                                    <td width="70">
-                                                        <font size="3">: {{ $penyata->e91_ah3 ?? 0 }} %</font>
+                                                    <td width="100">
+                                                        <font size="3">: {{ $penyata->e91_ah3 ?? 0 }}%</font>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td width="1000">
                                                         <font size="3">iv. Harga Purata Belian Buah Kelapa Sawit
-                                                            (FFB)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RM
+                                                            (FFB)
                                                         </font>
                                                     </td>
-                                                    <td width="70">
-                                                        <font size="3">: {{ $penyata->e91_ah4 ?? 0 }}</font>
+                                                    <td width="150">
+                                                        <font size="3">:&nbsp;RM {{ $penyata->e91_ah4 ?? 0 }}</font>
                                                     </td>
                                                 </tr>
                                                 <tr>
