@@ -571,7 +571,7 @@ class KilangIsirungController extends Controller
         $layout = 'layouts.kisirung';
 
         $negara = Negara::get();
-        dd($negara);
+        // dd($negara);
 
         $prodcat = KodSl::get();
         // dd($prodcat);
