@@ -254,7 +254,7 @@
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
-                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;">KILANG BUAH </b>
+                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;"> {{ auth()->user()->name }}</b>
                 </span>
 
 
