@@ -269,6 +269,20 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Alamat Emel Pegawai Melapor</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control" placeholder="Alamat Emel Pegawai Melapor"
+                                                                name="no-tel-pegawai-melapor" value="">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Nama Pegawai Bertanggungjawab</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_npgtg" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"

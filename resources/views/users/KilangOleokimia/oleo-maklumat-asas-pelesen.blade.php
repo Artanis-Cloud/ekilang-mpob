@@ -85,9 +85,9 @@
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:white; background-color:#25877bd1">Kembali</a>
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" margin-left:25%;color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class="col-6 align-self-center">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -211,7 +211,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Emel</label>
+                                                Alamat Emel Kilang</label>
                                             <div class="col-md-6">
                                                 <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel"
                                                             name="email-id-column">
@@ -243,6 +243,34 @@
                                             <div class="col-md-6">
                                                 <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Melapor"
                                                             name="email-id-column">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                No. Telefon Pegawai Melapor</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="no-tel-pegawai-melapor" class="form-control" placeholder="No. Telefon Pegawai Melapor"
+                                                            name="no-tel-pegawai-melapor" value="">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Alamat Emel Pegawai Melapor</label>
+                                            <div class="col-md-6">
+                                                <input type="text" id="no-tel-pegawai-melapor" class="form-control" placeholder="Alamat Emel Pegawai Melapor"
+                                                            name="no-tel-pegawai-melapor" value="">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
