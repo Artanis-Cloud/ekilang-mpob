@@ -21,11 +21,11 @@
 
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
+                            <div class="align-self-center" style="margin-left: 2%; margin-bottom:-2%">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
                                     style="color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class="align-self-center" style="margin-left: -1%;">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -166,8 +166,8 @@
                                                     <tbody>
                                                         @foreach ($penyata as $data)
                                                         <tr>
-                                                            <td>{{ $data->e102_b4 }}</td>
-                                                            <td>{{ $data->e102_b5 }}</td>
+                                                            <td>{{ $data->kodsl[0]->catname }}</td>
+                                                            <td>{{ $data->prodcat2[0]->catname }}</td>
                                                             <td>{{ $data->e102_b6 }}</td>
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
@@ -215,14 +215,38 @@
                                                                                 <div class="modal-body">
                                                                                     <label>Belian/Penerimaan </label>
                                                                                     <div class="form-group">
-                                                                                        <input type="text" name='e102_b4'
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->e102_b4 }}" readonly>
+                                                                                        <fieldset class="form-group">
+                                                                                            <select class="form-select"
+                                                                                                id="e102_b4" name="e102_b4">
+                                                                                                <option hidden
+                                                                                                    value="{{ $data->e102_b4 }}">
+                                                                                                    {{ $data->kodsl[0]->catname }}
+                                                                                                </option>
+                                                                                                <option value="1"> SENDIRI
+                                                                                                </option>
+                                                                                                <option value="2"> LUAR
+                                                                                                </option>
+
+                                                                                            </select>
+                                                                                        </fieldset>
                                                                                     </div>
                                                                                     <label>Dari </label>
                                                                                     <div class="form-group">
-                                                                                        <input type="text" name='e102_b5'
-                                                                                            class="form-control" value="{{  $data->e102_b5 }}" readonly>
+                                                                                        <fieldset class="form-group">
+                                                                                            <select class="form-select"
+                                                                                                id="e102_b5" name="e102_b5">
+                                                                                                <option hidden
+                                                                                                    value="{{ $data->e102_b5 }}">
+                                                                                                    {{ $data->prodcat2[0]->catname }}
+                                                                                                </option>
+                                                                                                <option value="3">KILANG ISIRUNG
+                                                                                                </option>
+                                                                                                <option value="5">PENIAGA
+                                                                                                </option>
+                                                                                                <option value="7">LAIN-LAIN
+                                                                                                </option>
+                                                                                            </select>
+                                                                                        </fieldset>
                                                                                     </div>
                                                                                     <label>Kuantiti </label>
                                                                                     <div class="form-group">
@@ -325,10 +349,12 @@
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                 </button>
-                                                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Ya</span>
-                                                </button>
+                                                <a href="{{ route('isirung.bahagianvi') }}" type="button"
+                                        class="btn btn-primary ml-1">
+
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Ya</span>
+                                    </a>
                                             </div>
                                         </div>
                                     </div>

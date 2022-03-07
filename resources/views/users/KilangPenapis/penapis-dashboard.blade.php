@@ -205,7 +205,7 @@
 
                             <ul class="submenu " style="margin-left:-5%">
                                 <li>
-                                    <a href="{{ route('buah.email') }}">
+                                    <a href="{{ route('penapis.email') }}">
                                         <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="user" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Emel Pertanyaan / Pindaan /
