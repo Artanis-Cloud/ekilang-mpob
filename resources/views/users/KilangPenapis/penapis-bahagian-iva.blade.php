@@ -70,37 +70,33 @@
                                         </div>
                                         <hr>
                                         <div class="container center mt-4">
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Nama Produk</label>
-                                                <div class="col-md-6">
-                                                    <fieldset class="form-group">
-                                                        <select class="form-select" id="produk"
-                                                            style="margin-left:42%; width:40%" name="e101_c4">
-                                                            <option selected hidden disabled>Sila Pilih</option>
-                                                            @foreach ($produk as $data)
-                                                                <option value="{{ $data->prodid }}">
-                                                                    {{ $data->prodname }}
-                                                                </option>
-                                                            @endforeach
 
-                                                        </select>
-                                                    </fieldset>
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <span class="required">Nama Produk:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select class="form-select" id="produk"
+                                                        name="e101_c4" style="width: 50%">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        @foreach ($produk as $data)
+                                                            <option value="{{ $data->prodid }}">
+                                                                {{ $data->prodname }} -   {{ $data->prodid }}
+                                                            </option>
+                                                        @endforeach
+
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Stok Awal</label>
-                                                <div class="col-md-6">
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required">Stok Awal Diproses</span>
+                                                </div>
+                                                <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_c5'
-                                                        style="margin-left:42%; width:40%" id="e101_c5" required
+                                                        id="e101_c5" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -108,44 +104,12 @@
                                                     </div>
                                                 @enderror --}}
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Belian/Penerimaan</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_c6'
-                                                        style="margin-left:42%; width:40%" id="e101_c6" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                <div class="col-md-2">
+                                                    <span class="required">Jualan / Edaran Dalam Negeri</span>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Pengeluaran</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_c7'
-                                                        style="margin-left:42%; width:40%" id="e101_c7" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Jualan / Edaran Dalam Negeri</label>
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_c8'
-                                                        style="margin-left:42%; width:40%" id="e101_c8" required
+                                                        id="e101_c8" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -154,13 +118,29 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Eksport</label>
-                                                <div class="col-md-6">
+
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required">Belian/Penerimaan</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_c6'
+                                                        id="e101_c6" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span class="required">Eksport</span>
+                                                </div>
+                                                <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_c9'
-                                                        style="margin-left:42%; width:40%" id="e101_c9" required
+                                                        id="e101_c9" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -168,14 +148,30 @@
                                                     </div>
                                                 @enderror --}}
                                                 </div>
+
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Stok Akhir</label>
-                                                <div class="col-md-6">
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required">Pengeluaran</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_c7'
+                                                        id="e101_c7" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span class="required">Stok Akhir</span>
+                                                </div>
+                                                <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_c10'
-                                                        style="margin-left:42%; width:40%" id="e101_c10" required
+                                                        id="e101_c10" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -183,49 +179,60 @@
                                                     </div>
                                                 @enderror --}}
                                                 </div>
+
                                             </div>
+
+
 
                                         </div>
 
 
-                                        <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="row form-group">
 
 
 
-                                            <div class="row form-group" style="padding-top: 10px; ">
+                                            <div class="row form-group"  style="margin-left: 45%;">
                                                 <div class="text-right col-md-12 mb-4 ">
                                                     <button type="submit" class="btn btn-primary ">Tambah</button>
                                                 </div>
                                             </div>
 
                                         </div>
+                                    </div>
+
+
                         </form>
+
                         <hr>
+                        <br>
+                        <br>
                         <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-                        <hr>
+
                         <section class="section">
                             <div class="card">
 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered mb-0">
+                                    <table class="table table-bordered mb-0"  style="font-size: 13px">
                                         <thead>
                                             <tr style="text-align: center">
                                                 <th>Nama Produk</th>
-                                                <th>Stok Awal</th>
+                                                <th>Kod Produk</th>
+                                                <th>Stok Awal Diproses</th>
                                                 <th>Belian / Penerimaan</th>
                                                 <th>Pengeluaran</th>
                                                 <th>Jualan / Edaran Dalam Negeri</th>
                                                 <th>Eksport</th>
                                                 <th>Stok Akhir</th>
                                                 <th>Kemaskini</th>
-                                                <th>Buang?</th>
+                                                <th>Hapus?</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($penyata as $data)
-                                                <tr style="text-align: center">
-                                                <td>{{ $data->produk[0]->prodname  }}</td>
+                                                <tr style="text-align: right">
+                                                <td  style="text-align: left">{{ $data->produk[0]->prodname  }}</td>
+                                                <td>{{ $data->produk[0]->prodid  }}</td>
                                                 <td>{{ $data->e101_c5 }}</td>
                                                 <td>{{ $data->e101_c6 }}</td>
                                                 <td>{{ $data->e101_c7 }}</td>

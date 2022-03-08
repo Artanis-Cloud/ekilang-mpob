@@ -1430,9 +1430,9 @@
 
 
                                         </div>
-                                        <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="row form-group">
 
-                                            <div class="row form-group" style="padding-top: 10px; ">
+                                            <div class="row form-group" style="margin-left: 45%;">
                                                 <div class="text-right col-md-12 mb-4 ">
                                                     <button type="submit" class="btn btn-primary ">Tambah</button>
                                                 </div>
@@ -1456,32 +1456,36 @@
 
                                     </div> --}}
                         </form>
+                        <br>
+                        <br>
                         <hr>
                         <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-                        <hr>
+
                         <section class="section">
                             <div class="card">
 
                                 <div class="card-body">
                                     <div class="table-responsive">
-                                        <table class="table table-bordered mb-0">
+                                        <table class="table table-bordered mb-0"  style="font-size: 13px">
                                             <thead>
-                                                <tr style="text-align: center">
+                                                <tr>
                                                     <th>Nama Produk</th>
+                                                    <th>Kod Produk</th>
                                                     <th>Nombor Borang Kastam 2</th>
                                                     <th>Tarikh Eksport</th>
                                                     <th>Kuantiti (Tan Metrik)</th>
                                                     <th>Nilai</th>
                                                     <th>Destinasi Negara</th>
                                                     <th>Kemaskini</th>
-                                                    <th>Buang?</th>
+                                                    <th>Hapus?</th>
 
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 @foreach ($penyata as $data)
-                                                    <tr>
-                                                        <td>{{ $data->produk[0]->prodname }}</td>
+                                                    <tr style="text-align: right">
+                                                        <td style="text-align: left">{{ $data->produk[0]->prodname }}</td>
+                                                        <td>{{ $data->produk[0]->prodid }}</td>
                                                         <td>{{ $data->e101_e5 }}</td>
                                                         <td>{{ $data->e101_e6 }}</td>
                                                         <td>{{ $data->e101_e7 }}</td>
