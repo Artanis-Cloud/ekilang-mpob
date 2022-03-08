@@ -178,11 +178,11 @@
                                         </div>
 
 
-                                        <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="row form-group">
 
 
 
-                                            <div class="row form-group" style="padding-top: 10px; ">
+                                            <div class="row form-group" style="margin-left: 45%;">
                                                 <div class="text-right col-md-12 mb-4 ">
                                                     <button type="submit" class="btn btn-primary ">Tambah</button>
                                                 </div>
@@ -190,15 +190,17 @@
 
                                         </div>
                         </form>
+                        <br>
+                        <br>
                         <hr>
                         <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Belian/Penerimaan Bekalan Produk Sawit
                         </h5>
-                        <hr>
+
                         <section class="section">
                             <div class="card">
 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered mb-0">
+                                    <table class="table table-bordered mb-0"   style="font-size: 13px">
                                         <thead>
                                             <tr style="text-align: center">
                                                 <th>Sendiri / Luar</th>
@@ -214,10 +216,10 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($penyata as $data)
-                                                <tr style="text-align: center">
+                                                <tr style="text-align: right">
 
-                                                    <td>{{ $data->kodsl[0]->catname }}</td>
-                                                    <td>{{ $data->prodcat[0]->catname }}</td>
+                                                    <td style="text-align: left">{{ $data->kodsl[0]->catname }}</td>
+                                                    <td style="text-align: left">{{ $data->prodcat[0]->catname }}</td>
                                                     <td>{{ $data->e101_d5 }}</td>
                                                     <td>{{ $data->e101_d6 }}</td>
                                                     <td>{{ $data->e101_d7 }}</td>

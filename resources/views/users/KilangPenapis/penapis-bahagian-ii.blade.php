@@ -82,7 +82,7 @@
                                                             <option selected hidden disabled>Sila Pilih</option>
                                                             @foreach ($produk as $data)
                                                                 <option value="{{ $data->prodid }}">
-                                                                    {{ $data->prodname }}
+                                                                    {{ $data->prodname }} - {{ $data->prodid }}
                                                                 </option>
                                                             @endforeach
 
@@ -234,11 +234,11 @@
                                         </div>
 
 
-                                        <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="row form-group">
 
 
 
-                                            <div class="row form-group" style="padding-top: 10px; ">
+                                            <div class="row form-group"  style="margin-left: 45%;">
                                                 <div class="text-right col-md-12 mb-4 ">
                                                     <button type="submit" class="btn btn-primary ">Tambah</button>
                                                 </div>
@@ -248,17 +248,19 @@
                         </form>
 
                         <hr>
+                        <br>
+                        <br>
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Isirung Sawit</h5>
 
-                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-                        <hr>
                         <section class="section">
                             <div class="card">
 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered mb-0">
+                                    <table class="table table-bordered mb-0" style="font-size: 13px">
                                         <thead style="text-align: center">
                                             <tr>
                                                 <th>Nama Produk</th>
+                                                <th>Kod Produk</th>
                                                 <th>Stok Awal Di Premis</th>
                                                 <th>Stok Awal Di Pusat Simpanan</th>
                                                 <th>Belian / Penerimaan</th>
@@ -270,15 +272,22 @@
                                                 <th>Stok Akhir Di Premis</th>
                                                 <th>Stok Akhir Di Pusat Simpanan</th>
                                                 <th>Kemaskini</th>
-                                                <th>Buang?</th>
+                                                <th>Hapus?</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($b as $data)
-                                                <tr style="text-align: center">
+                                                <tr style="text-align: right">
 
-                                                    <td>
+                                                    <td  style="text-align: left">
                                                         {{ $data->produk[0]->prodname }}
+                                                        {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
+                                                                <span>{{ $produk->prodname }}</span>
+                                                            @endif --}}
+
+                                                    </td>
+                                                    <td>
+                                                        {{ $data->produk[0]->prodid }}
                                                         {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
                                                                 <span>{{ $produk->prodname }}</span>
                                                             @endif --}}

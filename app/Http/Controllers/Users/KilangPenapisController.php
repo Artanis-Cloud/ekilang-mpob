@@ -576,7 +576,7 @@ class KilangPenapisController extends Controller
     public function penapis_edit_bahagian_ivb(Request $request, $id)
     {
 
-        $produk = Produk::where('prodname', $request->e101_c4)->first(); 
+        $produk = Produk::where('prodname', $request->e101_c4)->first();
 
         // dd($request->all());
         $penyata = E101C::findOrFail($id);

@@ -81,7 +81,7 @@
                                                             <option selected hidden disabled>Sila Pilih</option>
                                                             @foreach ($produk as $data)
                                                                 <option value="{{ $data->prodid }}">
-                                                                    {{ $data->prodname }}
+                                                                    {{ $data->prodname }} - {{ $data->prodid }}
                                                                 </option>
                                                             @endforeach
 
@@ -188,29 +188,34 @@
                                         </div>
 
 
-                                        <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="row form-group">
 
 
 
-                                            <div class="row form-group" style="padding-top: 10px; ">
+                                            <div class="row form-group" style="margin-left: 45%;">
                                                 <div class="text-right col-md-12 mb-4 ">
                                                     <button type="submit" class="btn btn-primary ">Tambah</button>
                                                 </div>
                                             </div>
 
                                         </div>
+
                         </form>
+
                         <hr>
-                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-                        <hr>
+                        <br>
+                        <br>
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Akhir Berasaskan Minyak Sawit dan Minyak Isirung Sawit - Bahan Bukan Makanan</h5>
+
                         <section class="section">
                             <div class="card">
 
                                 <div class="table-responsive">
-                                    <table class="table table-bordered mb-0">
+                                    <table class="table table-bordered mb-0"  style="font-size: 13px">
                                         <thead>
                                             <tr style="text-align: center">
                                                 <th>Nama Produk</th>
+                                                <th>Kod Produk</th>
                                                 <th>Stok Awal</th>
                                                 <th>Belian / Penerimaan</th>
                                                 <th>Pengeluaran</th>
@@ -218,14 +223,15 @@
                                                 <th>Eksport</th>
                                                 <th>Stok Akhir</th>
                                                 <th>Kemaskini</th>
-                                                <th>Buang?</th>
+                                                <th>Hapus?</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($penyata as $data)
-                                                <tr style="text-align: center">
-                                                <td>{{ $data->produk[0]->prodname  }}</td>
+                                            <tr style="text-align: right">
+                                                <td  style="text-align: left">{{ $data->produk[0]->prodname  }}</td>
+                                                <td>{{ $data->produk[0]->prodid  }}</td>
                                                 <td>{{ $data->e101_c5 }}</td>
                                                 <td>{{ $data->e101_c6 }}</td>
                                                 <td>{{ $data->e101_c7 }}</td>
@@ -251,6 +257,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+
 
                                             <div class="col-md-6 col-12">
 
