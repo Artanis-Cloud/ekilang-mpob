@@ -212,23 +212,7 @@
                                             </div>
 
 
-                                            <div class="row mt-4">
-                                                <div class="col-md-2">
-                                                    <span class="required">Digunakan Untuk Proses Selanjutnya:</span>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_b10'style="width: 50%"
-                                                        id="e101_b10" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                           
-                                            </div>
-
+                                        
                                         </div>
 
 

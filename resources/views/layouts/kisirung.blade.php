@@ -246,7 +246,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-              
+
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
@@ -334,16 +334,16 @@
 
 
 
-            <footer>
+            {{-- <footer>
                 <div class="footer text-muted">
-                    {{-- <div class="float-start">
+                    <div class="float-start">
                         <p>2020 &copy; Voler</p>
-                    </div> --}}
+                    </div>
                     <div style="text-align: center">
                         <p style="font-size:14px; color:white">Developed by Artanis Cloud</a></p>
                     </div>
                 </div>
-            </footer>
+            </footer> --}}
 
         </div>
     </div>

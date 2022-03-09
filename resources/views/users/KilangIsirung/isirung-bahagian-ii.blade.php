@@ -89,7 +89,7 @@
                                                     Kadar Perahan Minyak Isirung Sawit Mentah (CPKO) <b>%</b> </label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e102_al1'
-                                                    style="margin-left:42%; width:40%"
+                                                    style="margin-left:42%; width:40%; text-align: right"
                                                     onkeypress="return isNumberKey(event)" id="kadar_perahan" required
                                                     title="Sila isikan butiran ini."
                                                     value="{{ $penyata->e102_al1 ?? 0 }}">
@@ -109,7 +109,7 @@
                                                     Kadar Perolehan Dedak Isirung (PKC)<b>%</b></label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e102_al2'
-                                                    style="margin-left:42%; width:40%"
+                                                    style="margin-left:42%; width:40%; text-align: right"
                                                     onkeypress="return isNumberKey(event)" id="kadar_perolehan" required
                                                     title="Sila isikan butiran ini."
                                                     value="{{ $penyata->e102_al2 ?? 0 }}">
@@ -126,7 +126,7 @@
                                                     Jumlah Jam Pengilangan Isirung (PK)</label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e102_al3'
-                                                    style="margin-left:42%; width:40%"
+                                                    style="margin-left:42%; width:40%; text-align: right"
                                                     onkeypress="return isNumberKey(event)" id="jumlah_jam" required
                                                     title="Sila isikan butiran ini."
                                                     value="{{ $penyata->e102_al3 ?? 0 }}">
@@ -143,7 +143,7 @@
                                                     Kadar Penggunaan Kapasiti Sebulan <b>%</b></label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e102_al4'
-                                                    style="margin-left:42%; width:40%"
+                                                    style="margin-left:42%; width:40%; text-align: right"
                                                     onkeypress="return isNumberKey(event)" id="kadar_penggunaan" required
                                                     title="Sila isikan butiran ini."
                                                     value="{{ $penyata->e102_al4 ?? 0 }}">
@@ -217,7 +217,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div><br><br><br><br><br><br><br><br>
 
 
 
