@@ -17,7 +17,8 @@ class H102Init extends Model
      *
      */
     protected $table = 'h102_init'; //penyata arkib (history) - kilang isirung
-
+    protected $primaryKey = 'e102_nobatch';
+    public $timestamps = false;
     protected $fillable = [
         'e102_nobatch',
         'e102_nl',
@@ -63,7 +64,7 @@ class H102Init extends Model
         'e102_npg',
         'e102_jpg',
         'e102_ae3',
-      
+
 
 
 

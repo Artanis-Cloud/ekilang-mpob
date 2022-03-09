@@ -18,11 +18,11 @@
 
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
+                            <div class="align-self-center" style="margin-left: 2%; margin-bottom:-2%">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
                                     style="color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class="align-self-center" style="margin-left: -1%;">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -64,10 +64,10 @@
                                     {{-- <div class="col-md-4 col-12"> --}}
                                     <div class="pl-3">
 
-                    <body>
-                        <div align="right">
-                            <table border="0" width="25%" id="table1">
-                                {{-- <tbody>
+                                        <body>
+                                            <div align="center">
+                                                <table border="0" width="25%">
+                                                    {{-- <tbody>
                                     <tr>
                                         <td>
                                             <p align="left"><b>MPOB(EL) CF 4</b></p>
@@ -80,11 +80,12 @@
                                         <td><b>MPOB(EL) PX 4-CF </b></td>
                                     </tr>
                                 </tbody> --}}
-                            </table>
-                        </div>
-                        <p align="center">
-                            <img border="0" src="{{ asset('/papar_mpob.png') }}" width="128" height="100">
-                        </p>
+                                                </table>
+                                            </div>
+                                            <p align="center">
+                                                <img border="0" src="{{ asset('/papar_mpob.png') }}" width="128"
+                                                    height="100">
+                                            </p>
 
 
 
@@ -92,7 +93,7 @@
 
 
 
-                        <title>PENYATA BULANAN KILANG ISIRONG - MPOB (EL) CF 4</title>
+                                            <title>PENYATA BULANAN KILANG ISIRONG - MPOB (EL) CF 4</title>
 
 
 
@@ -100,703 +101,704 @@
 
 
 
-                        <p align="center"><b>
-                                <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
+                                            <p align="center"><b>
+                                                    <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
-                                </font>PENYATA BULANAN KILANG ISIRONG - MPOB (EL) CF 4<br>
+                                                    </font>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4<br>
 
-                                BULAN :&nbsp;&nbsp; 08&nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp; 2021
-                            </b><br>
+                                                    BULAN :&nbsp;&nbsp;{{ $users->e102_bln }}
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $users->e102_thn }}
+                                                </b><br>
 
-                        </p>
-                        <hr>
+                                            </p>
+                                            <hr>
 
-                        <table border="0" width="100%" cellspacing="0">
+                                            <table border="0" width="100%" cellspacing="0">
 
-                            <tbody>
-                                <tr>
+                                                <tbody>
+                                                    <tr>
 
-                                    <td width="25%" height="19">
-                                        <font face="Times New Roman">Nombor Lesen</font>
-                                    </td>
+                                                        <td width="25%" height="19">
+                                                            <font face="Times New Roman">Nombor Lesen</font>
+                                                        </td>
 
-                                    <td width="88%" height="19"><b>
-                                            <font face="Times New Roman">500622105000</font>
-                                        </b></td>
+                                                        <td width="88%" height="19"><b>
+                                                                <font face="Times New Roman">
+                                                                    {{ auth()->user()->username }}</font>
+                                                            </b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="25%" height="19">
-                                        <font face="Times New Roman">Nama Premis </font>
-                                    </td>
+                                                        <td width="25%" height="19">
+                                                            <font face="Times New Roman">Nama Premis </font>
+                                                        </td>
 
-                                    <td width="88%" height="19"><b>
-                                            <font face="Times New Roman">KENINGAU PALM OIL MILL SDN BHD</font>
-                                        </b></td>
+                                                        <td width="88%" height="19"><b>
+                                                                <font face="Times New Roman">{{ auth()->user()->name }}
+                                                                </font>
+                                                            </b></td>
 
-                                </tr>
+                                                    </tr>
 
-                            </tbody>
-                        </table>
+                                                </tbody>
+                                            </table>
 
-                        <hr>
+                                            <hr>
 
-                        <p></p>
+                                            <p></p>
 
 
-                        <p align="left"><b>
-                                <font color="#0000FF">MAKLUMAT PELESEN </font>
-                            </b></p>
+                                            <p align="left"><b>
+                                                    <font color="#0000FF">MAKLUMAT PELESEN </font>
+                                                </b></p>
 
-                        <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
-                            <tbody>
-                                <tr>
+                                                <tbody>
+                                                    <tr>
 
-                                    <td width="35%">Nombor Lesen</td>
+                                                        <td width="35%">Nombor Lesen</td>
 
-                                    <td width="65%"><b>500622105000</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">Nama Premis</td>
+                                                        <td width="35%">Nama Premis</td>
 
-                                    <td width="65%"><b>KENINGAU PALM OIL MILL SDN BHD</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">Alamat Premis Berlesen</td>
+                                                        <td width="35%">Alamat Premis Berlesen</td>
 
-                                    <td width="65%"><b>KG.BELININ, JLN ANSIP-DALIT</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_ap1 }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">&nbsp;</td>
+                                                        <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>KENINGAU</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_ap2 }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">&nbsp;</td>
+                                                        <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>SABAH</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_ap3 }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">Alamat Surat Menyurat</td>
+                                                        <td width="35%">Alamat Surat Menyurat</td>
 
-                                    <td width="65%"><b>P.O. BOX 1733,</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_as1 }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">&nbsp;</td>
+                                                        <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>89008 KENINGAU,</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_as2 }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">&nbsp;</td>
+                                                        <td width="35%">&nbsp;</td>
 
-                                    <td width="65%"><b>SABAH</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_as3 }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">No Telefon</td>
+                                                        <td width="35%">No Telefon</td>
 
-                                    <td width="65%"><b>087-335 636 HQ/338 787/ 017-2708818</b>
+                                                        <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp; <b>087-333421</b></td>
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                            <b>{{ $pelesen->e_nofax }}</b>
+                                                        </td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">Alamat e-mail </td>
+                                                        <td width="35%">Alamat e-mail </td>
 
-                                    <td width="65%"><b>kpom2000@gmail.com</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_email }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">Nama Pegawai Melapor</td>
+                                                        <td width="35%">Nama Pegawai Melapor</td>
 
-                                    <td width="65%"><b>SANKERAN A/L SUPPIAH /JOE / SUE ATIQAH</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_npg }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">Jawatan Pegawai Melapor</td>
+                                                        <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                    <td width="65%"><b>MILL MANAGER/LAB SUPERVISOR/ ASST.EXEC</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_jpg }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">Nama Pegawai Bertanggungjawab</td>
+                                                        <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                    <td width="65%"><b>SANKERAN A/L SUPPIAH/ RAHIM UDIN/ JOE JARDINE/</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_npgtg }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                                <tr>
+                                                    <tr>
 
-                                    <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
+                                                        <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                    <td width="65%"><b>MILL MANAGER / LAB SUPERVISOR/ ASST.EXEC</b></td>
+                                                        <td width="65%"><b>{{ $pelesen->e_jpgtg }}</b></td>
 
-                                </tr>
+                                                    </tr>
 
-                            </tbody>
-                        </table>
-
-
-                        <p><b>
-                                <font color="#000FF0">BAHAGIAN I : MAKLUMAT IMBANGAN </font>
-                            </b> </p>
-
-                        <table border="1" width="650" cellspacing="0" cellpadding="0">
-                            <tbody>
-                                <tr>
-                                    <td width="255">
-                                        <p align="center"><b>
-                                                <font size="2"> Butir-Butir</font>
-                                            </b></p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="center"><b>
-                                                <font size="2"> Isirong (PK) (51) </font>
-                                            </b></p>
-                                    </td>
-                                    <td width="135">
-                                        <p align="center"><b>
-                                                <font size="2"> Minyak Isirong Sawit Mentah (CPKO) (04)</font>
-                                            </b></p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="center"><b>
-                                                <font size="2"> Dedak Isirong (PKC) (33)</font>
-                                            </b></p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">A. Stok Awal Di Premis</font>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">69.03</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="135">
-                                        <p align="right">
-                                            <font size="2">54.36</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">115.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">B. Stok Awal Di Pusat Simpanan / Gudang</font>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">0.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="135">
-                                        <p align="right">
-                                            <font size="2">0.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">100.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">C. Belian / Penerimaan</font>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">100.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="135">
-                                        <p align="right">
-                                            <font size="2">50.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">50.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">D. Import</font>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">150.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="135">
-                                        <p align="right">
-                                            <font size="2">150.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">0.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">E. Diproses</font>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">1,100.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="135" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">0.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">F. Pengeluaran</font>
-                                    </td>
-                                    <td width="115" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                    <td width="135">
-                                        <p align="right">
-                                            <font size="2">110.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">1,310.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">G. Jualan / Edaran Tempatan</font>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">10.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="135">
-                                        <p align="right">
-                                            <font size="2">10.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">130.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">H. Hantar Ke Pusat Simpanan / Gudang</font>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">0.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="135">
-                                        <p align="right">
-                                            <font size="2">0.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">3.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">I. Eksport</font>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">3.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="135">
-                                        <p align="right">
-                                            <font size="2">0.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">34.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">J. Stok Akhir Di Premis</font>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">34.12</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="135">
-                                        <p align="right">
-                                            <font size="2">341.12</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">312.05</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td width="255">
-                                        <font size="2">K. Stok Akhir Di Pusat Simpanan</font>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">0.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="135">
-                                        <p align="right">
-                                            <font size="2">7.00</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                    <td width="115">
-                                        <p align="right">
-                                            <font size="2">7.45</font>
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        </p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-
-                        <p><b>
-                                <font color="#000FF0">BAHAGIAN II : KADAR PERAHAN CPKO, KADAR PEROLEHAN PKC, JAM PENGILANGAN
-                                    DAN PENGGUNAAN KAPASITI</font>
-                            </b> </p>
-
-                        <table border="0" width="498" cellspacing="0" cellpadding="0">
-                            <tbody>
-                                <tr>
-                                    <td width="378">i.&nbsp;&nbsp; Kadar Perahan Minyak Isirong Sawit Mentah (CPKO)&nbsp;
-                                    </td>
-                                    <td width="116">: 45.72 % </td>
-                                </tr>
-                                <tr>
-                                    <td width="378">ii.&nbsp; Kadar Perolehan Dedak Isirong (PKC)&nbsp;</td>
-                                    <td width="116">: 52.28 %</td>
-                                </tr>
-                                <tr>
-                                    <td width="378">iii. Jumlah Jam Pengilangan Isirong (PK)</td>
-                                    <td width="116">: 473 </td>
-                                </tr>
-                                <tr>
-                                    <td width="378">iv. Kadar Penggunaan Kapasiti Sebulan
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                    <td width="116">: 72.22 % </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p><b>
-                                <font color="#0000FF">BAHAGIAN III : BELIAN / PENERIMAAN BEKALAN ISIRONG SAWIT (PK) (51)
-                                </font>
-                            </b></p>
-                        <table border="1" width="100%" cellspacing="0" cellpadding="0">
-                            <tbody>
-                                <tr>
-                                    <td width="8%" align="center"><b>
-                                            <font size="2">Belian/Penerimaan</font>
-                                        </b></td>
-                                    <td width="11%" align="center"><b>
-                                            <font size="2">Dari</font>
-                                        </b></td>
-                                    <td width="11%" align="center"><b>
-                                            <font size="2">Kuantiti</font>
-                                        </b></td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <font size="2">SENDIRI</font>
-                                    </td>
-                                    <td align="center">
-                                        <font size="2">KILANG BUAH</font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2">100.05</font>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <font size="2"><b>-</b></font>
-                                    </td>
-                                    <td align="center">
-                                        <font size="2"><b>JUMLAH</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>100.05</b></font>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p><b>
-                                <font color="#0000FF">BAHAGIAN IV : EDARAN / JUALAN MINYAK ISIRONG SAWIT MENTAH (CPKO) (04)
-                                </font>
-                            </b></p>
-                        <table border="1" width="100%" cellspacing="0" cellpadding="0">
-                            <tbody>
-                                <tr>
-                                    <td width="8%" align="center"><b>
-                                            <font size="2">Edaran/jualan</font>
-                                        </b></td>
-                                    <td width="11%" align="center"><b>
-                                            <font size="2">Ke</font>
-                                        </b></td>
-                                    <td width="11%" align="center"><b>
-                                            <font size="2">Kuantiti</font>
-                                        </b></td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <font size="2">LUAR</font>
-                                    </td>
-                                    <td align="center">
-                                        <font size="2">KILANG PENAPIS</font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2">100.05</font>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <font size="2"><b>-</b></font>
-                                    </td>
-                                    <td align="center">
-                                        <font size="2"><b>JUMLAH</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>100.05</b></font>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p><b>
-                                <font color="#0000FF">BAHAGIAN V : EDARAN / JUALAN DEDAK ISIRONG SAWIT (PKC) (33)</font>
-                            </b></p>
-                        <table border="1" width="100%" cellspacing="0" cellpadding="0">
-                            <tbody>
-                                <tr>
-                                    <td width="8%" align="center"><b>
-                                            <font size="2">Edaran/Jualan</font>
-                                        </b></td>
-                                    <td width="11%" align="center"><b>
-                                            <font size="2">Ke</font>
-                                        </b></td>
-                                    <td width="11%" align="center"><b>
-                                            <font size="2">Kuantiti</font>
-                                        </b></td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <font size="2">LUAR</font>
-                                    </td>
-                                    <td align="center">
-                                        <font size="2">PENIAGA</font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2">100.05</font>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td align="center">
-                                        <font size="2"><b>-</b></font>
-                                    </td>
-                                    <td align="center">
-                                        <font size="2"><b>JUMLAH</b></font>
-                                    </td>
-                                    <td align="right">
-                                        <font size="2"><b>100.05</b></font>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p><b>
-                                <font color="#0000FF">BAHAGIAN VI : EKSPORT PRODUK SAWIT</font>
-                            </b></p>
-                        <table border="1" width="100%" cellspacing="0" cellpadding="0">
-                            <tbody>
-                                <tr>
-                                    <td width="14%" align="center"><b>
-                                            <font size="2">Produk Minyak Sawit</font>
-                                        </b></td>
-                                    <td width="7%" align="center"><b>
-                                            <font size="2">Kod Produk</font>
-                                        </b></td>
-                                    <td width="15%" align="center"><b>
-                                            <font size="2">Nombor Borang Kastam 2</font>
-                                        </b></td>
-                                    <td width="12%" align="center"><b>
-                                            <font size="2">Tarikh Eksport</font>
-                                        </b></td>
-                                    <td width="10%" align="center"><b>
-                                            <font size="2">Kuantiti<br> (Tan Metrik)</font>
-                                        </b></td>
-                                    <td width="11%" align="center"><b>
-                                            <font size="2">Nilai (RM)</font>
-                                        </b></td>
-                                    <td width="6%" align="center"><b>
-                                            <font size="2">Kod Negara</font>
-                                        </b></td>
-                                    <td width="15%" align="center"><b>
-                                            <font size="2">Destinasi Negara</font>
-                                        </b></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <p><b>
-                                <font color="#0000FF">BAHAGIAN VII : IMPORT PRODUK SAWIT</font>
-                            </b></p>
-                        <table border="1" width="100%" cellspacing="0" cellpadding="0">
-                            <tbody>
-                                <tr>
-                                    <td width="14%" align="center"><b>
-                                            <font size="2">Produk Minyak Sawit</font>
-                                        </b></td>
-                                    <td width="7%" align="center"><b>
-                                            <font size="2">Kod Produk</font>
-                                        </b></td>
-                                    <td width="15%" align="center"><b>
-                                            <font size="2">Nombor Borang Kastam 1</font>
-                                        </b></td>
-                                    <td width="12%" align="center"><b>
-                                            <font size="2">Tarikh Import</font>
-                                        </b></td>
-                                    <td width="10%" align="center"><b>
-                                            <font size="2">Kuantiti<br> (Tan Metrik)</font>
-                                        </b></td>
-                                    <td width="11%" align="center"><b>
-                                            <font size="2">Nilai (RM)</font>
-                                        </b></td>
-                                    <td width="6%" align="center"><b>
-                                            <font size="2">Kod Negara</font>
-                                        </b></td>
-                                    <td width="15%" align="center"><b>
-                                            <font size="2">Negara Sumber</font>
-                                        </b></td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
-                                adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                        <p>Tarikh Penghantaran&nbsp;&nbsp;&nbsp; 04-09-2021</p>
-                        <p>Nama Pegawai Melapor&nbsp;&nbsp; <b>SANKERAN A/L SUPPIAH / RAHIM UDIN/ JOE JARDINE/ ATIQAH</b>
-                        </p>
-                        <p>Jawatan Pegawai Melapor&nbsp;&nbsp; <b>MILL MANAGER/LAB SUPERVISOR/ ASST.EXEC</b></p>
-                        <p>Keluar Ke <a href="submenu.php">Menu Penyata Bulanan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
-
-                    </body>
-
-                    </html>
-
-
-
-
-                                            <h1 style="page-break-before:always"></h1>
-
-                                            <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                                <div class="text-left col-md-5">
-                                                    <a href="{{ route('isirung.bahagianvi') }}" class="btn btn-primary"
-                                                        style="float: left">Sebelumnya</a>
-                                                </div>
-                                                <div class="text-right col-md-7 mb-4 ">
-                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                        style="float: right"
-                                                        data-bs-target="#exampleModalCenter">Hantar</button>
-                                                </div>
-
+                                                </tbody>
+                                            </table>
+
+                                            <br>
+                                            <p><b>
+                                                    <font color="#000FF0">BAHAGIAN I : MAKLUMAT IMBANGAN </font>
+                                                </b> </p>
+
+                                            <table border="1" width="650" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <p align="center"><b>
+                                                                    <font size="2"> Butir-Butir</font>
+                                                                </b></p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center"><b>
+                                                                    <font size="2"> Isirong (PK) (51) </font>
+                                                                </b></p>
+                                                        </td>
+                                                        <td width="135">
+                                                            <p align="center"><b>
+                                                                    <font size="2"> Minyak Isirong Sawit Mentah (CPKO) (04)
+                                                                    </font>
+                                                                </b></p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center"><b>
+                                                                    <font size="2"> Dedak Isirong (PKC) (33)</font>
+                                                                </b></p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">A. Stok Awal Di Premis</font>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_aa1 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="135">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_aa2 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_aa3 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">B. Stok Awal Di Pusat Simpanan / Gudang</font>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ab1 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="135">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ab2 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ab3 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">C. Belian / Penerimaan</font>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ac1 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="135">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ac2 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ac3 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">D. Import</font>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ad1 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="135">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ad2 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ad3 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">E. Diproses</font>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ae1 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="135" bgcolor="#808080b8" align="center" style="
+                                                                background-color: #808080b8;
+                                                            ">&nbsp;</td>
+                                                        <td width="135" bgcolor="#808080b8" align="center" style="
+                                                                background-color: #808080b8;
+                                                            ">&nbsp;</td>
+
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">F. Pengeluaran</font>
+                                                        </td>
+                                                        <td width="115" bgcolor="#C0C0C0" align="center" style="
+                                                            background-color: #808080b8;
+                                                        ">&nbsp;</td>
+                                                        <td width="135">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_af2 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_af3 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">G. Jualan / Edaran Tempatan</font>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ag1 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="135">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ag2 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ag3 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">H. Hantar Ke Pusat Simpanan / Gudang</font>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ah1 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="135">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ah2 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ah3 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">I. Eksport</font>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ai1 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="135">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ai2 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ai3 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">J. Stok Akhir Di Premis</font>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_aj1 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="135">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_aj2 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_aj3 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="255">
+                                                            <font size="2">K. Stok Akhir Di Pusat Simpanan</font>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ak1 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="135">
+                                                            <p align="center">{{ $i->e102_ak2 ?? 0 }}
+                                                                </font>
+                                                            </p>
+                                                        </td>
+                                                        <td width="115">
+                                                            <p align="center">
+                                                                <font size="2">{{ $i->e102_ak3 ?? 0 }}</font>
+                                                            </p>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+
+
+                                            <p><b>
+                                                    <font color="#000FF0">BAHAGIAN II : KADAR PERAHAN CPKO, KADAR PEROLEHAN
+                                                        PKC, JAM PENGILANGAN
+                                                        DAN PENGGUNAAN KAPASITI</font>
+                                                </b> </p>
+
+                                            <table border="0" width="498" cellspacing="0" cellpadding="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="378">i.&nbsp;&nbsp; Kadar Perahan Minyak Isirong Sawit
+                                                            Mentah (CPKO)&nbsp;
+                                                        </td>
+                                                        <td width="116">: {{ $i->e102_al1 ?? 0 }} % </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="378">ii.&nbsp; Kadar Perolehan Dedak Isirong (PKC)&nbsp;
+                                                        </td>
+                                                        <td width="116">: {{ $i->e102_al2 ?? 0 }} %</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="378">iii. Jumlah Jam Pengilangan Isirong (PK)</td>
+                                                        <td width="116">: {{ $i->e102_al3 ?? 0 }} </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="378">iv. Kadar Penggunaan Kapasiti Sebulan
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                        <td width="116">: {{ $i->e102_al4 ?? 0 }} % </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <br>
+                                            <p><b>
+                                                    <font color="#0000FF">BAHAGIAN III : BELIAN / PENERIMAAN BEKALAN ISIRONG
+                                                        SAWIT (PK) (51)
+                                                    </font>
+                                                </b></p>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Belian/Penerimaan</font>
+                                                            </b></td>
+                                                        <td width="11%" align="center"><b>
+                                                                <font size="2">Dari</font>
+                                                            </b></td>
+                                                        <td width="11%" align="center"><b>
+                                                                <font size="2">Kuantiti</font>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($iii as $data)
+                                                    <tr>
+                                                        <td>{{ $data->kodsl[0]->catname }}</td>
+                                                        <td>{{ $data->prodcat2[0]->catname }}</td>
+                                                        <td>{{ $data->e102_b6 }}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>100.05</b></font>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <p><b>
+                                                    <font color="#0000FF">BAHAGIAN IV : EDARAN / JUALAN MINYAK ISIRONG SAWIT
+                                                        MENTAH (CPKO) (04)
+                                                    </font>
+                                                </b></p>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Edaran/jualan</font>
+                                                            </b></td>
+                                                        <td width="11%" align="center"><b>
+                                                                <font size="2">Ke</font>
+                                                            </b></td>
+                                                        <td width="11%" align="center"><b>
+                                                                <font size="2">Kuantiti</font>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($iv as $data)
+                                                    <tr>
+                                                        <td>{{ $data->kodsl[0]->catname }}</td>
+                                                        <td>{{ $data->prodcat2[0]->catname }}</td>
+                                                        <td>{{ $data->e102_b6 }}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>100.05</b></font>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <p><b>
+                                                    <font color="#0000FF">BAHAGIAN V : EDARAN / JUALAN DEDAK ISIRONG SAWIT
+                                                        (PKC) (33)</font>
+                                                </b></p>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Edaran/Jualan</font>
+                                                            </b></td>
+                                                        <td width="11%" align="center"><b>
+                                                                <font size="2">Ke</font>
+                                                            </b></td>
+                                                        <td width="11%" align="center"><b>
+                                                                <font size="2">Kuantiti</font>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($v as $data)
+                                                    <tr>
+                                                        <td>{{ $data->kodsl[0]->catname }}</td>
+                                                        <td>{{ $data->prodcat2[0]->catname }}</td>
+                                                        <td>{{ $data->e102_b6 }}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                    <tr>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="center">
+                                                            <font size="2"><b>100.05</b></font>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                            <p><b>
+                                                    <font color="#0000FF">BAHAGIAN VI : EKSPORT PRODUK SAWIT</font>
+                                                </b></p>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="14%" align="center"><b>
+                                                                <font size="2">Produk Minyak Sawit</font>
+                                                            </b></td>
+                                                        <td width="7%" align="center"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="15%" align="center"><b>
+                                                                <font size="2">Nombor Borang Kastam 2</font>
+                                                            </b></td>
+                                                        <td width="12%" align="center"><b>
+                                                                <font size="2">Tarikh Eksport</font>
+                                                            </b></td>
+                                                        <td width="10%" align="center"><b>
+                                                                <font size="2">Kuantiti<br> (Tan Metrik)</font>
+                                                            </b></td>
+                                                        <td width="11%" align="center"><b>
+                                                                <font size="2">Nilai (RM)</font>
+                                                            </b></td>
+                                                        <td width="6%" align="center"><b>
+                                                                <font size="2">Kod Negara</font>
+                                                            </b></td>
+                                                        <td width="15%" align="center"><b>
+                                                                <font size="2">Destinasi Negara</font>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($vi as $data)
+                                                    <tr>
+                                                        <td>{{ $data->produk[0]->prodname }}</td>
+                                                        <td>{{ $data->e102_c4 }}</td>
+                                                        <td>{{ $data->e102_c5 }}</td>
+                                                        <td>{{ $data->e102_c6 }}</td>
+                                                        <td>{{ $data->e102_c7 }}</td>
+                                                        <td>{{ $data->e102_c8 }}</td>
+                                                        <td>{{ $data->e102_c9 }}</td>
+                                                        <td>{{ $data->negara[0]->namanegara }}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            <p><b>
+                                                    <font color="#0000FF">BAHAGIAN VII : IMPORT PRODUK SAWIT</font>
+                                                </b></p>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="14%" align="center"><b>
+                                                                <font size="2">Produk Minyak Sawit</font>
+                                                            </b></td>
+                                                        <td width="7%" align="center"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="15%" align="center"><b>
+                                                                <font size="2">Nombor Borang Kastam 1</font>
+                                                            </b></td>
+                                                        <td width="12%" align="center"><b>
+                                                                <font size="2">Tarikh Import</font>
+                                                            </b></td>
+                                                        <td width="10%" align="center"><b>
+                                                                <font size="2">Kuantiti<br> (Tan Metrik)</font>
+                                                            </b></td>
+                                                        <td width="11%" align="center"><b>
+                                                                <font size="2">Nilai (RM)</font>
+                                                            </b></td>
+                                                        <td width="6%" align="center"><b>
+                                                                <font size="2">Kod Negara</font>
+                                                            </b></td>
+                                                        <td width="15%" align="center"><b>
+                                                                <font size="2">Negara Sumber</font>
+                                                            </b></td>
+                                                    </tr>
+                                                    @foreach ($vi as $data)
+                                                    <tr>
+                                                        <td>{{ $data->produk[0]->prodname }}</td>
+                                                        <td>{{ $data->e102_c4 }}</td>
+                                                        <td>{{ $data->e102_c5 }}</td>
+                                                        <td>{{ $data->e102_c6 }}</td>
+                                                        <td>{{ $data->e102_c7 }}</td>
+                                                        <td>{{ $data->e102_c8 }}</td>
+                                                        <td>{{ $data->e102_c9 }}</td>
+                                                        <td>{{ $data->negara[0]->namanegara }}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+
+                                            <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
+                                                    adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
+
+                                            <p>Tarikh Penghantaran&nbsp;&nbsp;&nbsp; 04-09-2021</p>
+                                            <p>Nama Pegawai Melapor&nbsp;&nbsp; <b>SANKERAN A/L SUPPIAH / RAHIM UDIN/ JOE
+                                                    JARDINE/ ATIQAH</b>
+                                            </p>
+                                            <p>Jawatan Pegawai Melapor&nbsp;&nbsp; <b>MILL MANAGER/LAB SUPERVISOR/
+                                                    ASST.EXEC</b></p>
+                                            <p>No Telefon Kilang&nbsp;&nbsp; <b>MILL MANAGER/LAB SUPERVISOR/ ASST.EXEC</b>
+                                            </p>
+
+                                        </body>
+
+                                        </html>
+
+
+
+
+                                        <h1 style="page-break-before:always"></h1>
+
+                                        <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                            <div class="text-right col-md-7 mb-4 ">
+                                                <button type="button" class="btn btn-primary " style="float: right"
+                                                    onclick="myPrint('myfrm')" value="print">Cetak</button>
                                             </div>
 
-                                            <!-- Vertically Centered modal Modal -->
-                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                        </div>
+
+                                        <!-- Vertically Centered modal Modal -->
+                                        {{-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                                     role="document">
@@ -829,7 +831,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                     </div>
                                 </div>
                             </div>
