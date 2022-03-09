@@ -9,6 +9,7 @@ use App\Models\E102Init;
 use App\Models\E102b;
 use App\Models\E102c;
 use App\Models\H102b;
+use App\Models\H102c;
 use App\Models\H102Init;
 use App\Models\KodSl;
 use App\Models\Negara;
@@ -795,21 +796,25 @@ class KilangIsirungController extends Controller
             ->where('e102_bln', $request->bulan)->first();
         // dd($users);
 
-        // $i = H102b::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
-        //     return $query->where('prodcat', '=', '01');
-        // })->get();
+        $i = H102Init::where('e102_nobatch', $users->e102_nobatch)->first();
         // dd($i);
 
-        // $ii = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
-        //     return $query->where('prodcat', '=', '02');
-        // })->get();
 
-        // $iii = H101Init::where('e101_nl', auth()->user()->username)->first();
+        $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->get();
         // dd($iii);
-        // $iv = H101C::with('h101init', 'produk')->where('e101_nobatch', $user->e101_nobatch)->whereHas('produk', function ($query) {
-        //     return $query->where('prodcat', '=', '04');
-        // })->get();
+
+        $iv = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '04')->get();
         // dd($iv);
+
+        $v = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '33')->get();
+        // dd($v);
+
+        $vi = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '1')->get();
+        // dd($vi);
+
+        $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();
+        // dd($vii);
+
 
         // $va = H101D::with('h101init')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', '1')->get();
         // dd($va);
@@ -831,7 +836,19 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
 
-        return view('users.KilangIsirung.isirung-papar-dahulu', compact('returnArr', 'layout', 'user', 'pelesen', 'users', 'i', 'ii', 'iii', 'iv', 'va', 'vb'));
+        return view('users.KilangIsirung.isirung-papar-dahulu', compact(
+            'returnArr',
+            'layout',
+            'user',
+            'pelesen',
+            'users',
+            'i',
+            'iii',
+            'iv',
+            'v',
+            'vi',
+            'vii',
+        ));
     }
 
     public function try()

@@ -18,7 +18,8 @@ class H102b extends Model
      *
      */
     protected $table = 'h102b'; //penyata arkib (history) - kilang isirung
-
+    protected $primaryKey = 'e102_b1';
+    public $timestamps = false;
     protected $fillable = [
         'e102_b1',
         'e102_nobatch',
@@ -28,4 +29,21 @@ class H102b extends Model
         'e102_b6',
 
     ];
+
+
+    public function h102init()
+    {
+
+        return $this->hasMany(H102Init::class, 'e102_nobatch', 'e102_nobatch');
+    }
+    public function kodsl()
+    {
+
+        return $this->hasMany(KodSl::class, 'catid', 'e102_b4');
+    }
+    public function prodcat2()
+    {
+
+        return $this->hasMany(ProdCat2::class, 'catid', 'e102_b5');
+    }
 }
