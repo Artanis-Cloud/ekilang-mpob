@@ -92,10 +92,10 @@
 
                                             <div class="row mt-4">
                                                 <div class="col-md-2">
-                                                    <span class="required">Stok Awal Diproses</span>
+                                                    <span class="required">Stok Awal Diproses:</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_c5'
+                                                    <input type="text" class="form-control" name='e101_c5'style="width: 50%"
                                                         id="e101_c5" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
@@ -105,10 +105,10 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <span class="required">Jualan / Edaran Dalam Negeri</span>
+                                                    <span class="required">Jualan / Edaran Dalam Negeri:</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_c8'
+                                                    <input type="text" class="form-control" name='e101_c8'style="width: 50%"
                                                         id="e101_c8" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
@@ -123,10 +123,10 @@
 
                                             <div class="row mt-4">
                                                 <div class="col-md-2">
-                                                    <span class="required">Belian/Penerimaan</span>
+                                                    <span class="required">Belian/Penerimaan:</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_c6'
+                                                    <input type="text" class="form-control" name='e101_c6' style="width: 50%"
                                                         id="e101_c6" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
@@ -136,10 +136,10 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <span class="required">Eksport</span>
+                                                    <span class="required">Eksport:</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_c9'
+                                                    <input type="text" class="form-control" name='e101_c9' style="width: 50%"
                                                         id="e101_c9" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
@@ -154,10 +154,10 @@
 
                                             <div class="row mt-4">
                                                 <div class="col-md-2">
-                                                    <span class="required">Pengeluaran</span>
+                                                    <span class="required">Pengeluaran:</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_c7'
+                                                    <input type="text" class="form-control" name='e101_c7' style="width: 50%"
                                                         id="e101_c7" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
@@ -170,7 +170,7 @@
                                                     <span class="required">Stok Akhir</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_c10'
+                                                    <input type="text" class="form-control" name='e101_c10' style="width: 50%"
                                                         id="e101_c10" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
@@ -206,7 +206,9 @@
                         <hr>
                         <br>
                         <br>
-                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Akhir Berasaskan Minyak Sawit dan
+                            Minyak Isirung Sawit
+                            - Bahan Makanan</h5>
 
                         <section class="section">
                             <div class="card">

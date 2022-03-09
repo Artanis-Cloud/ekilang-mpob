@@ -71,37 +71,47 @@
                                         <hr>
 
                                         <div class="container center mt-4">
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Nama Produk</label>
-                                                <div class="col-md-6">
-                                                    <fieldset class="form-group">
-                                                        <select class="form-select" id="produk"
-                                                            style="margin-left:42%; width:40%" name="e101_b4">
-                                                            <option selected hidden disabled>Sila Pilih</option>
-                                                            @foreach ($produk as $data)
-                                                                <option value="{{ $data->prodid }}">
-                                                                    {{ $data->prodname }} - {{ $data->prodid }}
-                                                                </option>
-                                                            @endforeach
 
-                                                        </select>
-                                                    </fieldset>
+
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <span class="required">Nama Produk:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select class="form-select" id="produk"
+                                                        name="e101_b4" style="width: 50%">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        @foreach ($produk as $data)
+                                                            <option value="{{ $data->prodid }}">
+                                                                {{ $data->prodname }} -   {{ $data->prodid }}
+                                                            </option>
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required">Stok Awal Di Premis:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b5'style="width: 50%"
+                                                        id="e101_b5" required
+                                                        title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Stok Awal Di Premis</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_b5'
-                                                        style="margin-left:42%; width:40%" id="e101_b5" required
+                                                <div class="col-md-2">
+                                                    <span class="required">Jualan / Edaran Dalam Negeri:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b11'style="width: 50%"
+                                                        id="e101_b11" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -110,13 +120,28 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Stok Awal Di Pusat Simpanan</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_b6'
-                                                        style="margin-left:42%; width:40%" id="e101_b6" required
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required">Stok Awal Di Pusat Simpanan:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b6'style="width: 50%"
+                                                        id="e101_b6" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span class="required">Eksport:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b12'style="width: 50%"
+                                                        id="e101_b12" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -125,14 +150,28 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Belian / Penerimaan</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_b7' id="e101_b7"
-                                                        style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" required
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required"> Belian / Penerimaan:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b7'style="width: 50%"
+                                                        id="e101_b7" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span class="required">Stok Akhir Di Premis:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b13'style="width: 50%"
+                                                        id="e101_b13" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -141,13 +180,28 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Pengeluaran</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_b9'
-                                                        style="margin-left:42%; width:40%" id="e101_b9" required
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required">Pengeluaran:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b9'style="width: 50%"
+                                                        id="e101_b9" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span class="required">Stok Akhir Di Pusat Simpanan:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b14'style="width: 50%"
+                                                        id="e101_b14" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -156,13 +210,15 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Digunakan Untuk Proses Selanjutnya</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_b10'
-                                                        style="margin-left:42%; width:40%" id="e101_b10" required
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required">Digunakan Untuk Proses Selanjutnya:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b10'style="width: 50%"
+                                                        id="e101_b10" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -170,67 +226,9 @@
                                                     </div>
                                                 @enderror --}}
                                                 </div>
+
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Jualan / Edaran Dalam Negeri</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_b11'
-                                                        style="margin-left:42%; width:40%" id="e101_b11" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Eksport</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_b12'
-                                                        style="margin-left:42%; width:40%" id="e101_b12" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Stok Akhir Di Premis</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_b13'
-                                                        style="margin-left:42%; width:40%" id="e101_b13" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Stok Akhir Di Pusat Simpanan</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_b14'
-                                                        style="margin-left:42%; width:40%" id="e101_b14" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                            </div>
+
                                         </div>
 
 
