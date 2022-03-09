@@ -164,7 +164,8 @@
                                                                             <b>Jumlah</b>
                                                                         </td>
                                                                         <td style="text-align:center;">
-                                                                            <b><span id="total"></span></b>
+                                                                            <b><span id="total">{{ ($penyata->e91_ai1 ?? 0) + ($penyata->e91_ai2 ?? 0) + ($penyata->e91_ai3 ?? 0)
+                                                                             + ($penyata->e91_ai4 ?? 0) + ($penyata->e91_ai5 ?? 0) + ($penyata->e91_ai6 ?? 0) }}</span></b>
 
                                                                         </td>
 
