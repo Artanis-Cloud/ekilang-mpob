@@ -8,9 +8,12 @@ use App\Models\Pelesen;
 use App\Models\E102Init;
 use App\Models\E102b;
 use App\Models\E102c;
+use App\Models\H102b;
+use App\Models\H102Init;
 use App\Models\KodSl;
 use App\Models\Negara;
 use App\Models\ProdCat2;
+use App\Models\Produk;
 use App\Models\User;
 use DB;
 use Illuminate\Support\Facades\Validator;
@@ -79,7 +82,6 @@ class KilangIsirungController extends Controller
 
         return redirect()->route('isirung.maklumatasaspelesen')
             ->with('success', 'Maklumat telah dikemaskini');
-
     }
 
     public function isirung_tukarpassword()
@@ -164,7 +166,6 @@ class KilangIsirungController extends Controller
 
         return redirect()->route('isirung.bahagianii')
             ->with('success', 'Maklumat telah disimpan');
-
     }
 
     public function isirung_bahagianii()
@@ -202,7 +203,6 @@ class KilangIsirungController extends Controller
 
         return redirect()->route('isirung.bahagianiii')
             ->with('success', 'Maklumat telah disimpan');
-
     }
 
     public function isirung_bahagianii2()
@@ -280,7 +280,7 @@ class KilangIsirungController extends Controller
 
         $prodcat2 = ProdCat2::get();
 
-        $produk = ProdCat2::where('catid', [1,5,6,7])->orderBy('catid')->get();
+        $produk = ProdCat2::where('catid', [1, 5, 6, 7])->orderBy('catid')->get();
         // dd($produk);
 
         // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
@@ -288,12 +288,12 @@ class KilangIsirungController extends Controller
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E102b::with('e102init','kodsl','prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3',51)->get();
+        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', 51)->get();
         // dd($penyata);
 
 
 
-        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user','produk'));
+        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user', 'produk'));
     }
 
 
@@ -387,14 +387,12 @@ class KilangIsirungController extends Controller
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E102b::with('e102init','kodsl','prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3',04)->get();
+        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', 04)->get();
         // dd($penyata);
 
 
 
         return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user'));
-
-
     }
 
 
@@ -485,7 +483,7 @@ class KilangIsirungController extends Controller
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E102b::with('e102init','kodsl','prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', 33)->get();
+        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', 33)->get();
         // dd($penyata);
 
 
@@ -579,18 +577,22 @@ class KilangIsirungController extends Controller
         // $produk = ProdCat2::where('catid', [1,5,6,7])->orderBy('catid')->get();
         // dd($produk);
 
+        // $produk = Produk::where('prodcat', ['02','05'])->orderBy('prodname')->get();
+        // dd($produk);
+
+
         // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
         $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E102c::with('e102init','produk','negara')->where('e102_c2', $user->e102_reg)->where('e102_c3', 1)->get();
+        $penyata = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $user->e102_reg)->where('e102_c3', 1)->get();
         // dd($penyata);
 
 
 
 
-        return view('users.KilangIsirung.isirung-bahagian-vi', compact('returnArr', 'layout','negara','prodcat','user','penyata'));
+        return view('users.KilangIsirung.isirung-bahagian-vi', compact('returnArr', 'layout', 'negara', 'prodcat', 'user', 'penyata'));
     }
 
 
@@ -645,11 +647,12 @@ class KilangIsirungController extends Controller
 
     public function isirung_edit_bahagian_vi(Request $request, $id)
     {
+        $produk = Produk::where('prodname', $request->e102_c4)->first();
 
 
         // dd($request->all());
         $penyata = E102c::findOrFail($id);
-        $penyata->e102_c4 = $request->e102_c4;
+        $penyata->e102_c4 = $produk->prodid;
         $penyata->e102_c5 = $request->e102_c5;
         $penyata->e102_c6 = $request->e102_c6;
         $penyata->e102_c7 = $request->e102_c7;
@@ -708,14 +711,14 @@ class KilangIsirungController extends Controller
 
         $penyataii = E102Init::where('e102_nl', auth()->user()->username)->first();
 
-        $penyataiii = E102b::with('e102init','kodsl','prodcat2')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3',51)->get();
+        $penyataiii = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '51')->get();
         // dd($penyataiii);
 
-        $penyataiv = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3',04)->get();
+        $penyataiv = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '04')->get();
 
-        $penyatav = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', 33)->get();
+        $penyatav = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '33')->get();
 
-        $penyatavi = E102c::with('e102init')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', 1)->get();
+        $penyatavi = E102c::with('e102init')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
 
 
         return view('users.KilangIsirung.isirung-papar-penyata', compact(
@@ -755,27 +758,6 @@ class KilangIsirungController extends Controller
         return view('users.KilangIsirung.isirung-email', compact('returnArr', 'layout'));
     }
 
-    public function isirung_prestasioer()
-    {
-
-        $breadcrumbs    = [
-            ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.prestasioer'), 'name' => "Prestasi OER  "],
-        ];
-
-        $kembali = route('isirung.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.kisirung';
-
-
-
-        return view('users.KilangIsirung.isirung-prestasi-oer', compact('returnArr', 'layout'));
-    }
-
     public function isirung_penyatadahulu()
     {
 
@@ -795,6 +777,61 @@ class KilangIsirungController extends Controller
 
 
         return view('users.KilangIsirung.isirung-penyata-dahulu', compact('returnArr', 'layout'));
+    }
+
+
+
+    public function isirung_penyata_dahulu_process(Request $request)
+    {
+        // dd($request->all());
+
+        $user = User::first();
+        // dd($user);
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // dd($pelesen);
+
+        $users = H102Init::where('e102_nl', auth()->user()->username)
+            ->where('e102_thn', $request->tahun)
+            ->where('e102_bln', $request->bulan)->first();
+        // dd($users);
+
+        // $i = H102b::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
+        //     return $query->where('prodcat', '=', '01');
+        // })->get();
+        // dd($i);
+
+        // $ii = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
+        //     return $query->where('prodcat', '=', '02');
+        // })->get();
+
+        // $iii = H101Init::where('e101_nl', auth()->user()->username)->first();
+        // dd($iii);
+        // $iv = H101C::with('h101init', 'produk')->where('e101_nobatch', $user->e101_nobatch)->whereHas('produk', function ($query) {
+        //     return $query->where('prodcat', '=', '04');
+        // })->get();
+        // dd($iv);
+
+        // $va = H101D::with('h101init')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', '1')->get();
+        // dd($va);
+
+        // $vb = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', '2')->get();
+
+
+        $breadcrumbs    = [
+            ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('isirung.penyatadahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
+        ];
+
+        $kembali = route('isirung.penyatadahulu');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kisirung';
+
+        return view('users.KilangIsirung.isirung-papar-dahulu', compact('returnArr', 'layout', 'user', 'pelesen', 'users', 'i', 'ii', 'iii', 'iv', 'va', 'vb'));
     }
 
     public function try()
@@ -913,5 +950,4 @@ class KilangIsirungController extends Controller
     {
         //
     }
-
 }

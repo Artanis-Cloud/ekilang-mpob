@@ -520,12 +520,12 @@
                                                         <tbody>
                                                             @foreach ($penyata as $data)
                                                             <tr>
-                                                                <td>{{ $data->e102_c4 }}</td>
+                                                                <td>{{ $data->produk[0]->prodname }}</td>
                                                                 <td>{{ $data->e102_c5 }}</td>
                                                                 <td>{{ $data->e102_c6 }}</td>
                                                                 <td>{{ $data->e102_c7 }}</td>
                                                                 <td>{{ $data->e102_c8 }}</td>
-                                                                <td>{{ $data->e102_c9 }}</td>
+                                                                <td>{{ $data->negara[0]->namanegara }}</td>
                                                                 <td>
                                                                     <div class="icon" style="text-align: center">
                                                                         <a href="#"
@@ -574,7 +574,7 @@
                                                                                         <div class="form-group">
                                                                                             <input type="text" name='e102_c4'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->e102_c4 }}" readonly>
+                                                                                                value="{{ $data->produk[0]->prodname }}" readonly>
                                                                                         </div>
                                                                                         <label>Nombor Borang Kastam 2 </label>
                                                                                         <div class="form-group">
@@ -597,10 +597,21 @@
                                                                                                 class="form-control" value="{{ $data->e102_c8 }}">
                                                                                         </div>
                                                                                         <label>Destinasi Negara</label>
-                                                                                        <div class="form-group">
+                                                                                        <fieldset class="form-group">
+                                                                                            <select class="form-select" id="e102_c9" name="e102_c9">
+                                                                                                <option value="{{ $data->e102_c9 }}" selected hidden>{{ $data->negara[0]->namanegara }}</option>
+                                                                                                @foreach ($negara as $data)
+                                                                                                    <option value="{{ $data->kodnegara }}">
+                                                                                                        {{ $data->namanegara }}
+                                                                                                    </option>
+                                                                                                @endforeach
+
+                                                                                            </select>
+                                                                                        </fieldset>
+                                                                                        {{-- <div class="form-group">
                                                                                             <input type="text" name='e102_c9'
                                                                                                 class="form-control" value="{{ $data->e102_c9 }}">
-                                                                                        </div>
+                                                                                        </div> --}}
                                                                                     </div>
                                                                                     {{-- <div class="modal-footer">
                                                                                         <button type="button" class="btn btn-light-secondary"
