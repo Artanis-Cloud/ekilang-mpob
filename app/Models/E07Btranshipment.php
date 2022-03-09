@@ -36,7 +36,12 @@ class E07Btranshipment extends Model
     public function e07init()
     {
 
-        return $this->hasMany(E07Init::class, 'e07bt_idborang', 'e07_reg');
+        return $this->hasMany(E07Init::class, 'e07_reg', 'e07bt_idborang');
+    }
+
+    public function produk()
+    {
+        return $this->hasMany(Produk::class, 'prodid', 'e07bt_produk');
     }
 
 }
