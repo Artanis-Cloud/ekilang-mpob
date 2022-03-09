@@ -320,8 +320,8 @@
     </div>
     <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}" rel=" stylesheet"></script>
     <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}" rel=" stylesheet"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}" rel=" stylesheet">
-    </script>
+    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
+
     <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}" rel=" stylesheet"></script>
     <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}" rel=" stylesheet">
     </script>
