@@ -293,7 +293,8 @@
                                 <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                     <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
-                                <form id="logoutform" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logoutform" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </div>
@@ -333,7 +334,7 @@
     </script>
 
     <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
     <script src="{{ asset('theme/kilangstyles/js/main.js') }}"></script>
     <script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script>
     <script src="{{ asset('theme/js/pages/form-editor.js') }}"></script>

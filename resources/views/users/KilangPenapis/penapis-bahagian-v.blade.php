@@ -68,20 +68,27 @@
                                         </div>
                                         <hr>
                                         <div class="container center mt-4">
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Sendiri / Luar</label>
-                                                <div class="col-md-6">
-                                                    <fieldset class="form-group">
-                                                        <select class="form-select" id="e101_d3"
-                                                            style="margin-left:42%; width:40%" name="e101_d3">
-                                                            <option selected hidden disabled>Sila Pilih</option>
-                                                            <option value="1"> SENDIRI </option>
-                                                            <option value="2"> LUAR </option>
 
-                                                        </select>
-                                                    </fieldset>
+                                            <div class="row">
+                                                <div class="col-md-2">
+                                                    <span class="required">Sendiri / Luar:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select class="form-select" id="e101_d3"
+                                                        name="e101_d3" style="width: 50%">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        <option value="1"> SENDIRI </option>
+                                                        <option value="2"> LUAR </option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <span class="required">PPO:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_d6' style="width: 50%"
+                                                        id="e101_d6" required
+                                                        title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -89,14 +96,15 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Belian/Penerimaan dari</label>
-                                                <div class="col-md-6">
-                                                    <fieldset class="form-group">
-                                                        <select class="form-select" id="e101_d4"
-                                                            style="margin-left:42%; width:40%" name="e101_d4">
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required">Belian/Penerimaan dari:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <select class="form-select" id="e101_d4"
+                                                            style="width:50%" name="e101_d4">
                                                             <option selected hidden disabled>Sila Pilih</option>
                                                             <option value="1">KILANG BUAH</option>
                                                             <option value="2">KILANG PENAPIS</option>
@@ -106,21 +114,14 @@
                                                             <option value="6">PENIAGA</option>
                                                             <option value="9">LAIN-LAIN</option>
                                                         </select>
-                                                    </fieldset>
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    CPO</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_d5'
-                                                        style="margin-left:42%; width:40%" id="e101_d5" required
+
+                                                <div class="col-md-2">
+                                                    <span class="required">CPKO:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_d7'style="width: 50%"
+                                                        id="e101_d7" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -129,13 +130,16 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    PPO</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_d6'
-                                                        style="margin-left:42%; width:40%" id="e101_d6" required
+
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required">CPO:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_d5' style="width: 50%"
+                                                        id="e101_d5" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -143,14 +147,12 @@
                                                     </div>
                                                 @enderror --}}
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    CPKO</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_d7'
-                                                        style="margin-left:42%; width:40%" id="e101_d7" required
+                                                <div class="col-md-2">
+                                                    <span class="required">PPKO:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_d8' style="width: 50%"
+                                                        id="e101_d8" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -158,25 +160,15 @@
                                                     </div>
                                                 @enderror --}}
                                                 </div>
+
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    PPKO</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='e101_d8'
-                                                        style="margin-left:42%; width:40%" id="e101_d8" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-                                            </div>
+
+
+
+
+
 
                                         </div>
-
 
                                         <div class="row form-group">
 

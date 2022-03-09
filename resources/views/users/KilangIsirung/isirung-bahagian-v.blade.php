@@ -72,14 +72,13 @@
                                     </div>
                                     <hr>
                                     <div class="container center mt-4">
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Belian/Penerimaan</label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="e102_b4"
-                                                        style="margin-left:42%; width:40%" name="e102_b4">
+                                        <div class="row mt-4">
+                                            <div class="col-md-2">
+                                                <span class="required">Edaran/Jualan:</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select class="form-select" id="e102_b4"
+                                                        style=" width:50%" name="e102_b4">
                                                         <option selected hidden disabled>Sila Pilih</option>
                                                         @foreach ($prodcat as $data)
                                                             <option value="{{ $data->catid }}">
@@ -88,43 +87,43 @@
                                                         @endforeach
 
                                                     </select>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Dari</label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="e102_b5" style="margin-left:42%; width:40%" name='e102_b5'>
-                                                        <option selected hidden disabled>Sila Pilih</option>
-                                                            <option value="3">Kilang Isirung</option>
-                                                            <option value="5">Peniaga</option>
-                                                            <option value="7">Lain-lain</option>
-
-                                                    </select>
-                                                </fieldset>
                                                 {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
                                             </div>
+                                            <div class="col-md-2">
+                                                <span class="required">Ke:</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select class="form-select" id="e102_b5"
+                                                    style=" margin-left:-30%; width:50%" name="e102_b5">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+
+                                                    <option value="3">Kilang Isirung</option>
+                                                    <option value="5">Peniaga</option>
+                                                    <option value="7">Lain-lain</option>
+
+
+                                                </select>
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+
                                         </div>
 
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Kuantiti</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='e102_b6' style="margin-left:42%; width:40%"
-                                                    id="e102_b6" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        <div class="row mt-4">
+                                            <div class="col-md-2">
+                                                <span class="required">Kuantiti:</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name='e102_b6'
+                                                    style="width:50%" id="e102_b6" required
+                                                    title="Sila isikan butiran ini.">
                                             </div>
                                         </div>
 
@@ -135,30 +134,33 @@
 
 
 
-                                        <div class="text-right col-md-11 mb-4 ">
-                                            <button type="submit" class="btn btn-primary " data-toggle="modal"
-                                                style="float: right" data-target="#confirmation">
-                                                Tambah</button>
+                                        <div class="row form-group" style="margin-left: 45%;">
+                                            <div class="text-right col-md-12 mb-4 ">
+                                                <button type="submit" class="btn btn-primary ">Tambah</button>
+                                            </div>
                                         </div>
 
                                     </div>
                                 </form>
-                                    <br>
+
+                                <hr>
+                                <br>
+                                <br>
                                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Edaran/Jualan Dedak Isirung Sawit</h5>
-                                    <hr>
+
                                     <section class="section">
                                         <div class="card">
 
-                                            <div class="card-body">
+                                            {{-- <div class="card-body"> --}}
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered mb-0">
                                                     <thead>
                                                         <tr style="text-align: center">
-                                                            <th>Belian/Penerimaan</th>
-                                                            <th>Dari</th>
+                                                            <th>Edaran/Jualan</th>
+                                                            <th>Ke</th>
                                                             <th>Kuantiti</th>
                                                             <th>Kemaskini</th>
-                                                            <th>Buang?</th>
+                                                            <th>Hapus?</th>
 
 
                                                         </tr>
@@ -168,7 +170,7 @@
                                                         <tr>
                                                             <td>{{ $data->kodsl[0]->catname }}</td>
                                                             <td>{{ $data->prodcat2[0]->catname }}</td>
-                                                            <td>{{ $data->e102_b6 }}</td>
+                                                            <td style="text-align: right">{{ $data->e102_b6 }}</td>
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
                                                                     <a href="#"
@@ -299,7 +301,7 @@
                                                 </table>
                                                 </div>
 
-                                            </div>
+                                            {{-- </div> --}}
                                         </div>
 
                                     </section>
@@ -363,11 +365,11 @@
                             <br>
                             </form>
 
-                        </div>
+                        </div><br>
 
-                        <br>
 
-                    </div>
+
+                    </div> <br><br>
                 </div>
             </div>
 

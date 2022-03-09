@@ -76,7 +76,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Jumlah Hari Kilang Beroperasi Sebulan</label>
                                                 <div class="col-md-2">
-                                                    <input type="text" class="form-control" style="margin-left:150%;"
+                                                    <input type="text" class="form-control" style="margin-left:150%; text-align:right"
                                                         name='e101_a1' id="nombor_borang_kastam" required
                                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -91,7 +91,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Kadar Penggunaan Kapasiti(Refining) Sebulan</label>
                                                 <div class="col-md-2">
-                                                    <input type="text" class="form-control" style="margin-left:150%; "
+                                                    <input type="text" class="form-control" style="margin-left:150%; text-align:right"
                                                         name='e101_a2' id="nombor_borang_kastam" required
                                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a2 }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -106,7 +106,7 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Kadar Penggunaan Kapasiti(Fractionation) Sebulan</label>
                                                 <div class="col-md-2">
-                                                    <input type="text" class="form-control" style="margin-left:150%;"
+                                                    <input type="text" class="form-control" style="margin-left:150%; text-align:right"
                                                         name='e101_a3' id="kuantiti" onkeypress="return isNumberKey(event)"
                                                         required title="Sila isikan butiran ini."
                                                         value="{{ $penyata->e101_a3 }}">
@@ -192,7 +192,7 @@
 
 
         </div>
-        </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
         </div>
 
 

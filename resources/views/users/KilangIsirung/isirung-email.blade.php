@@ -103,7 +103,7 @@
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
+                                    style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
                             </div>
                             <div class="col-7 align-self-center">
                                 <div class="d-flex align-items-center justify-content-end">
@@ -315,7 +315,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div><br><br> <br><br> <br><br>
 
 
 
