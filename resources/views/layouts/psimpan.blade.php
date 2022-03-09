@@ -414,6 +414,15 @@
         @endif
     </script> --}}
 
+    <script>
+        toastr.options.fadeOut = 2500;
+        @if (Session::get('success'))
+            toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
+        @elseif ($message = Session::get('error'))
+            toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
+        @endif
+    </script>
+
 
 </body>
 

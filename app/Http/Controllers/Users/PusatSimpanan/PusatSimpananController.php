@@ -3,8 +3,13 @@
 namespace App\Http\Controllers\Users\PusatSimpanan;
 
 use App\Http\Controllers\Controller;
+use App\Models\E07Btranshipment;
+use App\Models\E07Init;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
+use App\Models\Produk;
+use Illuminate\Support\Facades\Validator;
+
 
 class PusatSimpananController extends Controller
 {
@@ -110,10 +115,92 @@ class PusatSimpananController extends Controller
         ];
         $layout = 'layouts.psimpan';
 
+        $user = E07Init::where('e07_nl', auth()->user()->username)->first('e07_reg');
+
+        $penyata = E07Btranshipment::with('e07init','produk')->where('e07bt_idborang', $user->e07_reg)->get();
+        // dd($penyata);
 
 
-        return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact('returnArr', 'layout'));
+
+        return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact('returnArr', 'layout','user','penyata'));
     }
+
+    public function pusatsimpan_add_bahagian_a(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_a($request->all())->validate();
+        $this->store_bahagian_a($request->all());
+
+        return redirect()->route('pusatsimpan.bahagiana')->with('success', 'Maklumat sudah ditambah');
+    }
+
+    protected function validation_bahagian_a(array $data)
+    {
+        return Validator::make($data, [
+            'e07bt_produk' => ['required', 'string'],
+            'e07bt_stokawal' => ['required', 'string'],
+            'e07bt_terima' => ['required', 'string'],
+            'e07bt_import' => ['required', 'string'],
+            'e07bt_edaran' => ['required', 'string'],
+            'e07bt_eksport' => ['required', 'string'],
+            'e07bt_pelarasan' => ['required', 'string'],
+            'e07bt_stokakhir' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_bahagian_a(array $data)
+    {
+        $e07bt_idborang = E07Init::where('e07_nl', auth()->user()->username)->first('e07_reg');
+        // dd($e101_reg->e101_reg);
+        return E07Btranshipment::create([
+            'e07bt_idborang' => $e07bt_idborang->e07_reg,
+            'e07bt_produk' => $data['e07bt_produk'],
+            'e07bt_stokawal' => $data['e07bt_stokawal'],
+            'e07bt_terima' => $data['e07bt_terima'],
+            'e07bt_import' => $data['e07bt_import'],
+            'e07bt_edaran' => $data['e07bt_edaran'],
+            'e07bt_eksport' => $data['e07bt_eksport'],
+            'e07bt_pelarasan' => $data['e07bt_pelarasan'],
+            'e07bt_stokakhir' => $data['e07bt_stokakhir'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
+
+    // public function destroy(E101B $penyata)
+    // {
+    //     $penyata->delete();
+
+    //     return redirect()->route('penapis.bahagiani')
+    //                     ->with('success','Product deleted successfully');
+    // }
+
+
+    public function pusatsimpan_edit_bahagian_a(Request $request, $id)
+    {
+        $produk = Produk::where('prodname', $request->e07bt_produk)->first();
+        // dd($produk);
+        // $prodcat2 = ProdCat2::where('catname', $request->e101_b5)->first();
+
+
+        // dd($request->all());
+        $penyata = E07Btranshipment::findOrFail($id);
+        $penyata->e07bt_produk = $produk->prodid;
+        $penyata->e07bt_stokawal = $request->e07bt_stokawal;
+        $penyata->e07bt_terima = $request->e07bt_terima;
+        $penyata->e07bt_import = $request->e07bt_import;
+        $penyata->e07bt_edaran = $request->e07bt_edaran;
+        $penyata->e07bt_eksport = $request->e07bt_eksport;
+        $penyata->e07bt_pelarasan = $request->e07bt_pelarasan;
+        $penyata->e07bt_stokakhir = $request->e07bt_stokakhir;
+        $penyata->save();
+
+
+        return redirect()->route('pusatsimpan.bahagiana')
+            ->with('success', 'Maklumat telah disimpan');
+    }
+
+
 
     public function pusatsimpan_bahagianb()
     {
