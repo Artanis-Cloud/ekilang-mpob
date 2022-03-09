@@ -17,7 +17,8 @@ class H102c extends Model
      *
      */
     protected $table = 'h102c'; //penyata arkib (history) - kilang isirung
-
+    protected $primaryKey = 'e102_c1';
+    public $timestamps = false;
     protected $fillable = [
         'e102_c1',
         'e102_nobatch',
@@ -46,4 +47,21 @@ class H102c extends Model
         'mpobq_nilai_2',
 
     ];
+
+
+    public function h102init()
+    {
+
+        return $this->hasMany(H102Init::class, 'e102_nobatch', 'e102_nobatch');
+    }
+    public function produk()
+    {
+
+        return $this->hasMany(Produk::class, 'prodid', 'e102_c4');
+    }
+    public function negara()
+    {
+
+        return $this->hasMany(Negara::class, 'kodnegara', 'e102_c9');
+    }
 }

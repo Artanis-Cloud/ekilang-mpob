@@ -63,7 +63,8 @@
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-
+                                    <form action="{{ route('isirung.penyata.dahulu.process') }}" method="post">
+                                        @csrf
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Terdahulu</h3>
@@ -92,13 +93,13 @@
 
 
                                     <div class="container center mt-2">
-                                        <div class="row" style="margin-bottom:2%;">
+                                        <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Sila Pilih Tahun</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
+                                                    <select class="form-select" id="basicSelect" name="tahun">
                                                         <option selected hidden disabled>Sila Pilih Tahun</option>
                                                         <option>2004</option>
                                                         <option>2005</option>
@@ -129,6 +130,39 @@
                                             </div>
                                         </div>
 
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">Bulan
+                                            </label>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-select" id="basicSelect" name="bulan">
+                                                        <option selected hidden disabled>Sila Pilih Bulan</option>
+                                                        <option value="01">Januari</option>
+                                                        <option value="02">Februari</option>
+                                                        <option value="03">Mac</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">Mei</option>
+                                                        <option value="06">Jun</option>
+                                                        <option value="07">Julai</option>
+                                                        <option value="08">Ogos</option>
+                                                        <option value="09">September</option>
+                                                        <option value="10">Oktober</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">Disember</option>
+
+
+
+                                                    </select>
+                                                </fieldset>
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+
 
 
 
@@ -146,11 +180,12 @@
 
 
                                             <div class="text-right col-md-12 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                <button type="submit" class="btn btn-primary " data-toggle="modal"
                                                     style="float: right" data-target="#confirmation">Papar Penyata</button>
                                             </div>
 
                                     </div>
+                                </form>
                                     {{-- Hidden Gap - Just Ignore --}}
 
 
