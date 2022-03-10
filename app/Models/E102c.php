@@ -64,8 +64,7 @@ class E102c extends Model
     public function negara()
     {
 
-        return $this->hasOne(Negara::class, 'kodnegara', 'e102_c9
-        ');
+        return $this->hasOne(Negara::class, 'kodnegara', 'e102_c9');
     }
 
 }
