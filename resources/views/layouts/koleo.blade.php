@@ -64,8 +64,10 @@
                     <span>description</span> --}}
 
                     <h6 style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
-                        <b>
-                            e-Kilang</b>
+                        <a href="{{ route('oleo.dashboard') }}" style="color: rgb(29, 28, 24)">
+                            <b>
+                                e-Kilang</b>
+                            </a>
                     </h6>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
                     {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
@@ -178,40 +180,14 @@
 
                         </li>
 
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
-                                <span><b>Menu-Menu Lain</b></span>
-                            </a>
 
-                            <ul class="submenu " style="margin-left:-5%">
-                                <li>
-                                    <a href="{{ route('oleo.email') }}">
-                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="user" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Emel Pertanyaan / Pindaan /
-                                            Cadangan</span>
-                                    </a>
-                                </li>
 
-                                <li>
-                                    <a href="{{ route('oleo.prestasioer') }}">
-                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Prestasi OER</span>
-                                    </a>
-                                </li>
+                        <a  href="{{ route('oleo.penyatadahulu') }}" class='sidebar-link'>
+                            <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                            <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "></i>
+                            <span><b>Papar Penyata Bulanan Terdahulu</b></span>
+                        </a>
 
-                                <li>
-                                    <a href="{{ route('oleo.penyatadahulu') }}">
-                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Papar Penyata Bulanan Terdahulu</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -252,7 +228,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-               
+
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
@@ -264,6 +240,18 @@
 
 
                     <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
+
+                        <li class="dropdown nav-icon">
+                            <a href="{{ route('oleo.email') }}"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="mt-2">
+                                    <i class="fa fa-envelope" style="font-size:18px;"></i>
+                                </div>
+                            </a>
+
+                        </li>
+
+
                         <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -340,16 +328,16 @@
 
 
 
-            <footer>
+            {{-- <footer>
                 <div class="footer text-muted">
                     {{-- <div class="float-start">
                         <p>2020 &copy; Voler</p>
                     </div> --}}
-                    <div style="text-align: center">
+                    {{-- <div style="text-align: center">
                         <p style="font-size:14px; color:white">Developed by Artanis Cloud</a></p>
                     </div>
                 </div>
-            </footer>
+            </footer> --}} 
 
         </div>
     </div>

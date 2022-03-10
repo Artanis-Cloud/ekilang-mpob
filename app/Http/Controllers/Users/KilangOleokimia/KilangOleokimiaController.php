@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Users\KilangOleokimia;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Produk;
 
 
 class KilangOleokimiaController extends Controller
@@ -81,9 +82,9 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
+        $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
 
-
-        return view('users.KilangOleokimia.oleo-bahagian-ia', compact('returnArr', 'layout'));
+        return view('users.KilangOleokimia.oleo-bahagian-ia', compact('returnArr', 'layout','produk'));
     }
 
     public function oleo_bahagianib()

@@ -78,7 +78,7 @@
                                                     <select class="form-select" id="e102_b4"
                                                             style=" width:50%" name="e102_b4">
                                                             <option selected hidden disabled>Sila Pilih</option>
-                                                            @foreach ($prodcat as $data)
+                                                            @foreach ($prodcat2 as $data)
                                                                 <option value="{{ $data->catid }}">
                                                                     {{ $data->catname }}
                                                                 </option>

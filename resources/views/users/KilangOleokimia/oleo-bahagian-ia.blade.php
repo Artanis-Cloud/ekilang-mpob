@@ -22,7 +22,7 @@
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
+                                    style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
                             </div>
                             <div class="col-7 align-self-center">
                                 <div class="d-flex align-items-center justify-content-end">
@@ -64,7 +64,7 @@
 
                                     <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); ">Bahagian Ia</h3>
+                                        <h3 style="color: rgb(39, 80, 71); ">Bahagian I(a)</h3>
                                         <h5 style="color: rgb(39, 80, 71)">Produk Minyak Sawit
                                         </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
@@ -72,408 +72,368 @@
                                     <hr>
 
                                     <div class="container center mt-4">
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nama Produk</label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" style="margin-left:42%; width:40%">
-                                                        <option selected hidden disabled>Sila Pilih Produk</option>
-                                                            <option value="15">BPL - 15
-                                                            </option>
-                                                            <option value="13">BPO - 13
-                                                            </option>
-                                                            <option value="14">BPS - 14
-                                                            </option>
-                                                            <option value="47">CO - 47
-                                                            </option>
-                                                            <option value="03">CPL - 03
-                                                            </option>
-                                                            <option value="01">CPO - 01
-                                                            </option>
-                                                            <option value="02">CPS - 02
-                                                            </option>
-                                                            <option value="V7">DFPL - V7
-                                                            </option>
-                                                            <option value="Z9">DFRBDPL - Z9
-                                                            </option>
-                                                            <option value="CZ">DFRDBPS - CZ
-                                                            </option>
-                                                            <option value="85">DPL - 85
-                                                            </option>
-                                                            <option value="84">DPO - 84
-                                                            </option>
-                                                            <option value="DS">DPST - DS
-                                                            </option>
-                                                            <option value="JH">DR RBDPL - JH
-                                                            </option>
-                                                            <option value="F6">DRBDPO - F6
-                                                            </option>
-                                                            <option value="D7">HCBST - D7
-                                                            </option>
-                                                            <option value="H0">HDFPL - H0
-                                                            </option>
-                                                            <option value="B3">HFFAPO - B3
-                                                            </option>
-                                                            <option value="Y7">HNPL - Y7
-                                                            </option>
-                                                            <option value="87">HPFAD - 87
-                                                            </option>
-                                                            <option value="C3">HPL - C3
-                                                            </option>
-                                                            <option value="Y9">HPMF - Y9
-                                                            </option>
-                                                            <option value="55">HPO - 55
-                                                            </option>
-                                                            <option value="H7">HPPS - H7
-                                                            </option>
-                                                            <option value="B9">HPS - B9
-                                                            </option>
-                                                            <option value="W1">HRBDDFL - W1
-                                                            </option>
-                                                            <option value="A3">HRBDPL - A3
-                                                            </option>
-                                                            <option value="H2">HRBDPO - H2
-                                                            </option>
-                                                            <option value="B6">HRBDSF - B6
-                                                            </option>
-                                                            <option value="B8">HRBDST - B8
-                                                            </option>
-                                                            <option value="Z3">IMPF - Z3
-                                                            </option>
-                                                            <option value="Z2">IMVO - Z2
-                                                            </option>
-                                                            <option value="X8">INTER PL - X8
-                                                            </option>
-                                                            <option value="Z6">INTER PO - Z6
-                                                            </option>
-                                                            <option value="DK">INTERPST - DK
-                                                            </option>
-                                                            <option value="Z4">JGQ RBDPO - Z4
-                                                            </option>
-                                                            <option value="KB">MVORBDPLMB - KB
-                                                            </option>
-                                                            <option value="GV">MVO_PMF - GV
-                                                            </option>
-                                                            <option value="Y0">MVO_RBDPL - Y0
-                                                            </option>
-                                                            <option value="X9">MVO_RBDPO - X9
-                                                            </option>
-                                                            <option value="BO">MVO_RBDPS - BO
-                                                            </option>
-                                                            <option value="GA">NBDDFPL - GA
-                                                            </option>
-                                                            <option value="Y6">NBDHPL - Y6
-                                                            </option>
-                                                            <option value="W3">NBDHPO - W3
-                                                            </option>
-                                                            <option value="W5">NBDHPS - W5
-                                                            </option>
-                                                            <option value="28">NBDPL - 28
-                                                            </option>
-                                                            <option value="JW">NBDPLRS - JW
-                                                            </option>
-                                                            <option value="HM">NBDPMF - HM
-                                                            </option>
-                                                            <option value="24">NBDPO3 - 24
-                                                            </option>
-                                                            <option value="22">NBDPO6 - 22
-                                                            </option>
-                                                            <option value="26">NBDPS - 26
-                                                            </option>
-                                                            <option value="Y8">NBHPL - Y8
-                                                            </option>
-                                                            <option value="W7">NBHPL - W7
-                                                            </option>
-                                                            <option value="W6">NBHPO - W6
-                                                            </option>
-                                                            <option value="W8">NBHPS - W8
-                                                            </option>
-                                                            <option value="H6">NBIF - H6
-                                                            </option>
-                                                            <option value="K0">NBIOL - K0
-                                                            </option>
-                                                            <option value="L0">NBIS - L0
-                                                            </option>
-                                                            <option value="20">NBPL - 20
-                                                            </option>
-                                                            <option value="16">NBPO - 16
-                                                            </option>
-                                                            <option value="18">NBPS - 18
-                                                            </option>
-                                                            <option value="G9">NO - G9
-                                                            </option>
-                                                            <option value="11">NPL - 11
-                                                            </option>
-                                                            <option value="07">NPO - 07
-                                                            </option>
-                                                            <option value="09">NPS - 09
-                                                            </option>
-                                                            <option value="34">PAO - 34
-                                                            </option>
-                                                            <option value="35">PFAD - 35
-                                                            </option>
-                                                            <option value="DF">PFAME - DF
-                                                            </option>
-                                                            <option value="45">PMF - 45
-                                                            </option>
-                                                            <option value="DI">PRLFAT - DI
-                                                            </option>
-                                                            <option value="AD">RBD SL - AD
-                                                            </option>
-                                                            <option value="D0">RBDBO - D0
-                                                            </option>
-                                                            <option value="V9">RBDHPL - V9
-                                                            </option>
-                                                            <option value="B0">RBDHPMF - B0
-                                                            </option>
-                                                            <option value="W2">RBDHPMF - W2
-                                                            </option>
-                                                            <option value="V8">RBDHPO - V8
-                                                            </option>
-                                                            <option value="W0">RBDHPS - W0
-                                                            </option>
-                                                            <option value="29">RBDPL - 29
-                                                            </option>
-                                                            <option value="25">RBDPO3 - 25
-                                                            </option>
-                                                            <option value="23">RBDPO6 - 23
-                                                            </option>
-                                                            <option value="27">RBDPS - 27
-                                                            </option>
-                                                            <option value="AL">RBDPSH - AL
-                                                            </option>
-                                                            <option value="21">RBPL - 21
-                                                            </option>
-                                                            <option value="17">RBPO - 17
-                                                            </option>
-                                                            <option value="19">RBPS - 19
-                                                            </option>
-                                                            <option value="Z5">RED PSL - Z5
-                                                            </option>
-                                                            <option value="DJ">REDPO - DJ
-                                                            </option>
-                                                            <option value="T1">RHPS - T1
-                                                            </option>
-                                                            <option value="12">RPL - 12
-                                                            </option>
-                                                            <option value="08">RPO - 08
-                                                            </option>
-                                                            <option value="10">RPS - 10
-                                                            </option>
-                                                            <option value="G6">SBO - G6
-                                                            </option>
-                                                            <option value="H1">SL - H1
-                                                            </option>
-                                                            <option value="EO">TFPS - EO
-                                                            </option>
-                                                            <option value="61">US - 61
-                                                            </option>
-                                                            <option value="AK">VCO - AK
-                                                            </option>
-                                                            <option value="AN">VO - AN
-                                                            </option>
-                                                            <option value="AM">VPL - AM
-                                                            </option>
-                                                            <option value="DR">VPO - DR
-                                                            </option>
 
-                                                    </select>
-                                                </fieldset>
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" >
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Stok Awal Di Premis</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
                                         <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Stok Awal Di Pusat Simpanan</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nombor_borang_kastam' style="margin-left:42%; width:40%"
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="col-md-2">
+                                                <span class="required">Nama Produk</span>
                                             </div>
+                                            <div class="col-md-4">
+                                                <select class="form-select" id="produk"
+                                                name="e101_b4" style="width: 50%">
+                                                <option selected hidden disabled>Sila Pilih</option>
+                                                @foreach ($produk as $data)
+                                                    <option value="{{ $data->prodid }}">
+                                                        {{ $data->prodname }} -   {{ $data->prodid }}
+                                                    </option>
+                                                @endforeach
+
+                                            </select>
+
+                                            </div>
+
                                         </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Belian / Penerimaan</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='kuantiti' id="kuantiti" style="margin-left:42%; width:40%"
-                                                    onkeypress="return isNumberKey(event)" required
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-2">
+                                                <span class="required">Stok Awal di Premis</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name='#'
+                                                    style="width:50%" id="#" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Import</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nilai' id="nilai" style="margin-left:42%; width:40%"
-                                                    onkeypress="return isNumberKey(event)" required
+                                            <div class="col-md-2">
+                                                <span class="required">Jualan/Edaran dalam Negeri</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name='#'
+                                                    style="width:50%" id="#" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
                                             </div>
+
                                         </div>
-                                        <div class="row" >
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                              Jumlah Yang Diproses</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-2">
+                                                <span class="required">Stok Awal di Pusat Simpanan</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name='#'
+                                                    style="width:50%" id="#" required
+                                                    title="Sila isikan butiran ini.">
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <span class="required">Eksport</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name='#'
+                                                    style="width:50%" id="#" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Jualan / Edaran Dalam Negeri</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-2">
+                                                <span class="required">Belian/Penerimaan</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name='#'
+                                                    style="width:50%" id="#" required
+                                                    title="Sila isikan butiran ini.">
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <span class="required">Stok Akhir di Premis</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name='#'
+                                                    style="width:50%" id="#" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Eksport</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-2">
+                                                <span class="required">Import</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name='#'
+                                                    style="width:50%" id="#" required
+                                                    title="Sila isikan butiran ini.">
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <span class="required">Stok Akhir di Pusat Simpanan</span>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name='#'
+                                                    style="width:50%" id="#" required
+                                                    title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Stok Akhir Di Premis</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-2">
+                                                <span class="required">Jumlah Yang diProses</span>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                               Stok Akhir Di Pusat Simpanan</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='destinasi_negara' style="margin-left:42%; width:40%"
-                                                    id="destinasi_negara" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="col-md-4">
+                                                <input type="text" class="form-control" name='#'
+                                                    style="width:50%" id="#" required
+                                                    title="Sila isikan butiran ini.">
                                             </div>
+
+
                                         </div>
+
+
+
+
                                     </div>
                                     <br>
 
                                     <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                        <div class="text-right col-md-10 mb-7 ">
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
+                                        <div class="row form-group"  style="margin-left: 45%;">
+                                            <div class="text-right col-md-12 mb-4 ">
+                                                <button type="submit" class="btn btn-primary ">Tambah</button>
+                                            </div>
                                         </div>
 
-                                    </div>
+                                    </form>
+
+                                    <hr>
                                     <br>
                                     <br>
 
                                     <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-                                    <hr>
+
                                     <section class="section">
                                         <div class="card">
 
-                                            <div class="card-body">
-                                                <table class='table table-striped' id="table1">
-                                                    <thead>
-                                                        <tr style="text-align: center">
-                                                            <th>Nama Produk</th>
-                                                            <th>Stok Awal Di Premis</th>
-                                                            <th>Stok Awal Di Pusat Simpanan</th>
-                                                            <th>Belian / Penerimaan</th>
-                                                            <th>Import</th>
-                                                            <th>Jumlah Yang Diproses</th>
-                                                            <th>Jualan / Edaran Dalam Negeri</th>
-                                                            <th>Eksport</th>
-                                                            <th>Stok Akhir Di Premis</th>
-                                                            <th>Stok Akhir Di Pusat Simpanan</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>BPL</td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
+                                            {{-- <div class="card-body"> --}}
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered mb-0" style="font-size: 13px">
+                                                        <thead style="text-align: center">
+                                                            <tr>
+                                                                <th>Nama Produk</th>
+                                                                <th>Kod Produk</th>
+                                                                <th>Stok Awal Di Premis</th>
+                                                                <th>Stok Awal Di Pusat Simpanan</th>
+                                                                <th>Belian / Penerimaan</th>
+                                                                {{-- <th>Import</th> --}}
+                                                                <th>Pengeluaran</th>
+                                                                <th>Digunakan Untuk Proses Selanjutnya</th>
+                                                                <th>Jualan / Edaran Dalam Negeri</th>
+                                                                <th>Eksport</th>
+                                                                <th>Stok Akhir Di Premis</th>
+                                                                <th>Stok Akhir Di Pusat Simpanan</th>
+                                                                <th>Kemaskini</th>
+                                                                <th>Hapus?</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            {{-- @foreach ($b as $data) --}}
+                                                                <tr style="text-align: right">
 
-                                                        </tr>
+                                                                    <td  style="text-align: left">
 
-                                                        <br>
 
-                                                    </tbody>
 
-                                                </table>
+                                                                    </td>
+                                                                    <td>
 
-                                            </div>
+
+                                                                    </td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td></td>
+                                                                    <td>
+                                                                        <div class="icon" style="text-align: center">
+                                                                            <a href="#" type="button" data-bs-toggle="modal"
+                                                                                {{-- data-bs-target="#modal{{ $data->e101_b1 }}"> --}}
+                                                                                <i class="fas fa-edit fa-lg" style="color: #228c1c">
+                                                                                </i>
+                                                                            </a>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="icon" style="text-align: center">
+                                                                            <a href="#" type="button">
+                                                                                <i class="fa fa-trash-o"
+                                                                                    style="color: #228c1c;font-size:18px"></i>
+                                                                            </a>
+                                                                        </div>
+
+                                                                    </td>
+                                                                    {{-- <td>{{ $data->e101_b15 }}</td> --}}
+
+
+                                                                </tr>
+
+                                                                <div class="col-md-6 col-12">
+
+                                                                    <!--scrolling content Modal -->
+                                                                    <div class="modal fade" id="modal{{ $data->e101_b1 }}"
+                                                                        tabindex="-1" role="dialog"
+                                                                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                                            <div class="modal-content">
+                                                                                <div class="modal-header">
+                                                                                    <h5 class="modal-title"
+                                                                                        id="exampleModalScrollableTitle">
+                                                                                        Kemaskini Maklumat Produk</h5>
+                                                                                    <button type="button" class="close"
+                                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                                        <i data-feather="x"></i>
+                                                                                    </button>
+                                                                                </div>
+                                                                                <div class="modal-body">
+                                                                                    <form
+                                                                                        action="{{ route('penapis.edit.bahagian.ii', [$data->e101_b1]) }}"
+                                                                                        method="post">
+                                                                                        @csrf
+                                                                                        <div class="modal-body">
+                                                                                            <label>Nama Produk </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text" name='e101_b4'
+                                                                                                    class="form-control"
+                                                                                                    value="{{ $data->produk[0]->prodname }}"
+                                                                                                    readonly>
+                                                                                            </div>
+                                                                                            <label>Stok Awal Di Premis </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text" name='e101_b5'
+                                                                                                    class="form-control"
+                                                                                                    value="{{ $data->e101_b5 }}">
+                                                                                            </div>
+                                                                                            <label>Stok Awal Di Pusat Simpanan </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text" name='e101_b6'
+                                                                                                    class="form-control"
+                                                                                                    value="{{ $data->e101_b6 }}">
+                                                                                            </div>
+                                                                                            <label>Belian / Penerimaan </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text" name='e101_b7'
+                                                                                                    class="form-control"
+                                                                                                    value="{{ $data->e101_b7 }}">
+                                                                                            </div>
+                                                                                            {{-- <label>Import </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="password" placeholder="Password"
+                                                                                                    class="form-control">
+                                                                                            </div> --}}
+                                                                                            <label>Pengeluaran </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text" name='e101_b9'
+                                                                                                    class="form-control"
+                                                                                                    value="{{ $data->e101_b9 }}">
+                                                                                            </div>
+                                                                                            <label>Digunakan Untuk Proses
+                                                                                                Selanjutnya</label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text" name='e101_b10'
+                                                                                                    class="form-control"
+                                                                                                    value="{{ $data->e101_b10 }}">
+                                                                                            </div>
+                                                                                            <label>Jualan / Edaran Dalam Negeri </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text" name='e101_b11'
+                                                                                                    class="form-control"
+                                                                                                    value="{{ $data->e101_b11 }}">
+                                                                                            </div>
+                                                                                            <label>Eksport </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text" name='e101_b12'
+                                                                                                    class="form-control"
+                                                                                                    value="{{ $data->e101_b12 }}">
+                                                                                            </div>
+                                                                                            <label>Stok Akhir Di Premis </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text" name='e101_b13'
+                                                                                                    class="form-control"
+                                                                                                    value="{{ $data->e101_b13 }}">
+                                                                                            </div>
+                                                                                            <label>Stok Akhir Di Pusat Simpanan </label>
+                                                                                            <div class="form-group">
+                                                                                                <input type="text" name='e101_b14'
+                                                                                                    class="form-control"
+                                                                                                    value="{{ $data->e101_b14 }}">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        {{-- <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-light-secondary"
+                                                                                                data-bs-dismiss="modal">
+                                                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                                <span class="d-none d-sm-block">Batal</span>
+                                                                                            </button>
+                                                                                            <button type="button" class="btn btn-primary ml-1"
+                                                                                                data-bs-dismiss="modal">
+                                                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                                <span class="d-none d-sm-block">Kemaskini</span>
+                                                                                            </button>
+                                                                                        </div> --}}
+
+
+                                                                                </div>
+
+
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                                        data-bs-dismiss="modal">
+                                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                                    </button>
+                                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                                    </button>
+                                                                                </div>
+                                                                                </form>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                            {{-- @endforeach --}}
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            {{-- </div> --}}
                                         </div>
 
                                     </section>

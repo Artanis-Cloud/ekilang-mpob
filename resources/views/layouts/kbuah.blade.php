@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
@@ -55,9 +56,11 @@
                     {{-- <strong>E-Kilang</strong><br />
                     <span>description</span> --}}
 
-                    <h6 style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
+                    <h6 style="text-align:left; margin-left:15%; margin-top:-2%; ">
+                        <a href="{{ route('buah.dashboard') }}" style="color: rgb(29, 28, 24)">
                         <b>
                             e-Kilang</b>
+                        </a>
                     </h6>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
                     {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
@@ -160,40 +163,19 @@
 
                         </li>
 
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
-                                <span><b>Menu-Menu Lain</b></span>
-                            </a>
 
-                            <ul class="submenu " style="margin-left:-5%">
-                                <li>
-                                    <a href="{{ route('buah.email') }}">
-                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="user" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Emel Pertanyaan / Pindaan /
-                                            Cadangan</span>
-                                    </a>
-                                </li>
+                        <a  href="{{ route('buah.prestasioer') }}" class='sidebar-link'>
+                            <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                            <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                            <span><b>Prestasi OER</b></span>
+                        </a>
+                        
+                        <a  href="{{ route('buah.penyatadahulu') }}" class='sidebar-link'>
+                            <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                            <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "></i>
+                            <span><b>Papar Penyata Bulanan Terdahulu</b></span>
+                        </a>
 
-                                <li>
-                                    <a href="{{ route('buah.prestasioer') }}">
-                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Prestasi OER</span>
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="{{ route('buah.penyatadahulu') }}">
-                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Papar Penyata Bulanan Terdahulu</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -252,6 +234,16 @@
 
                     <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
                         <li class="dropdown nav-icon">
+                            <a href="{{ route('buah.email') }}"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="mt-2">
+                                    <i class="fa fa-envelope" style="font-size:18px;"></i>
+                                </div>
+                            </a>
+
+                        </li>
+
+                        <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="mt-2">
@@ -275,6 +267,7 @@
                                 </ul>
                             </div>
                         </li>
+
 
                         <li class="dropdown">
                             <a href="#" data-bs-toggle="dropdown"
@@ -386,6 +379,24 @@
         @elseif ($message = Session::get('error'))
             toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
         @endif
+    </script>
+
+    <script>
+                .sidebar .main-navigation .main-nav .sub-menu {
+            opacity: 1 !important;
+            display: block !important;
+            left: auto;
+            right: auto !important;
+            position: relative;
+            width: 100%;
+            clear: both !important;
+            top: auto;
+            float: none;
+        }
+
+        .sidebar .dropdown-menu-toggle {
+            display: none;
+}
     </script>
 
 </body>

@@ -159,7 +159,7 @@
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nama Produk</label>
+                                                Jenis Emel</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-select" id="basicSelect">
@@ -344,7 +344,7 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
-    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+    {{-- <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
     <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
     <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
     <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
@@ -460,7 +460,7 @@
                 this.value = "";
             };
         };
-    </script>
+    </script> --}}
 
 
 
