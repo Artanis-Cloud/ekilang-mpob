@@ -796,10 +796,13 @@ class KilangIsirungController extends Controller
         $users = H102Init::where('e102_nl', auth()->user()->username)
             ->where('e102_thn', $request->tahun)
             ->where('e102_bln', $request->bulan)->first();
-        // dd($users);
+        // dd($users->e102_nobatch);
 
         $i = H102Init::where('e102_nobatch', $users->e102_nobatch)->first();
         // dd($i);
+
+
+
 
 
         $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->get();

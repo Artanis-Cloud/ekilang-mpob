@@ -67,6 +67,13 @@
 
 
                                         <body>
+                                            <div class="col-12" style="margin-right: 20%; margin-top:-4%">
+                                                <b style="margin-left: 85%">MPOB(EL) RF 4</b>
+
+                                                <b style="margin-left: 85%">MPOB(EL) PX 4-RF </b>
+                                                <b style="margin-left: 85%">MPOB(EL) PM 4-RF </b>
+
+                                            </div>
                                             {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
                                             {{-- <div align="right">
@@ -85,7 +92,7 @@
                                             </div> --}}
 
                                             <p align="center">
-                                                <img border="0" src="{{ asset('/papar_mpob.png') }}" width="128"
+                                                <img border="0" src="{{ asset('/mpob.png') }}" width="128"
                                                     height="100">
                                             </p>
 
@@ -545,10 +552,7 @@
                                             <p><b>
                                                     <font color="#0000FF">BAHAGIAN IV (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         AKHIR
-                                                        BERASASKAN MINYAK SAWIT DAN MINYAK<br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISIRUNG SAWIT -
+                                                        BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                                         BAHAN MAKANAN</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -640,10 +644,7 @@
                                             <p><b>
                                                     <font color="#0000FF">BAHAGIAN IV (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         AKHIR
-                                                        BERASASKAN MINYAK SAWIT DAN MINYAK<br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISIRUNG SAWIT -
+                                                        BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                                         BAHAN BUKAN MAKANAN</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -859,7 +860,7 @@
                                                     <font color="#0000FF">BAHAGIAN VI :&nbsp;&nbsp;&nbsp;&nbsp;
                                                         EKSPORT PRODUK SAWIT</font>
                                                 </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0">
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr>
                                                         <td width="14%" align="center"><b>
@@ -893,7 +894,7 @@
                                                     <font color="#0000FF">BAHAGIAN VII :&nbsp;&nbsp;&nbsp;&nbsp; IMPORT
                                                         PRODUK SAWIT</font>
                                                 </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0">
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr>
                                                         <td width="14%" align="center"><b>
@@ -927,40 +928,28 @@
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                            <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                                <input type="text" id="e91_sdate" class="form-control" size="50"
-                                                    name='e91_sdate' value="{{ $penyata->e91_sdate ?? '' }}">
-                                            </p>
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_npg" class="form-control" size="50" name='e_npg'
-                                                    value="{{ $pelesen->e_npg }}">
-                                            </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_jpg" class="form-control" size="50" name='e_jpg'
-                                                    value="{{ $pelesen->e_jpg }}">
-                                            </p>
-                                            <p>No Telefon Kilang: &nbsp;&nbsp;
+                                                    <p>Tarikh Penghantaran&nbsp;&nbsp;&nbsp; {{ $penyata->e101_sdate ?? '' }}</p>
+                                                    <p>Nama Pegawai Melapor&nbsp;&nbsp; <b>{{ $pelesen->e_npg }}</b>
+                                                    </p>
+                                                    <p>Jawatan Pegawai Melapor&nbsp;&nbsp; <b>{{ $pelesen->e_jpg }}</b></p>
+                                                    <p>No Telefon Kilang&nbsp;&nbsp; <b>{{ $pelesen->e_notel }}</b>
+                                                    </p>
+                                                </form>
+                                                    <h1 style="page-break-before:always"></h1>
 
-                                                <input type="text" id="e_notel" class="form-control" size="50"
-                                                    name="e_notel" value="{{ $pelesen->e_notel }}">
-                                            </p>
-
-                                            <h1 style="page-break-before:always"></h1>
-
-                                            <div class="row form-group" style="padding-top: 10px; ">
+                                                    <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                                <div class="text-left col-md-5">
-                                                    <a href="{{ route('penapis.bahagianvi') }}" class="btn btn-primary"
-                                                        style="float: left">Sebelumnya</a>
-                                                </div>
-                                                <div class="text-right col-md-7 mb-4 ">
-                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                        style="float: right"
-                                                        data-bs-target="#exampleModalCenter">Hantar</button>
-                                                </div>
+                                                        {{-- <div class="text-left col-md-5">
+                                                            <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
+                                                                style="float: left">Sebelumnya</a>
+                                                        </div> --}}
+                                                        <div class="text-right col-md-7 mb-4 ">
+                                                            <button type="button" class="btn btn-primary "
+                                                                style="float: right" onclick="myPrint('myfrm')" value="print">Cetak</button>
+                                                        </div>
 
-                                            </div>
+                                                    </div>
 
                                             <!-- Vertically Centered modal Modal -->
                                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -1002,7 +991,7 @@
                             </div>
                         </div>
                 </div>
-                </form>
+
             </div>
             <br>
             {{-- </form> --}}

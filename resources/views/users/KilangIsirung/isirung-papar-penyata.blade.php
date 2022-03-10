@@ -261,18 +261,18 @@
                                                         </td>
                                                         <td width="115">
                                                             <p align="center"><b>
-                                                                    <font size="2"> Isirong (PK) (51) </font>
+                                                                    <font size="2"> Isirung <br>(PK) (51) </font>
                                                                 </b></p>
                                                         </td>
                                                         <td width="135">
                                                             <p align="center"><b>
-                                                                    <font size="2"> Minyak Isirong Sawit Mentah (CPKO) (04)
+                                                                    <font size="2"> Minyak Isirung Sawit Mentah <br>(CPKO) (04)
                                                                     </font>
                                                                 </b></p>
                                                         </td>
                                                         <td width="115">
                                                             <p align="center"><b>
-                                                                    <font size="2"> Dedak Isirong (PKC) (33)</font>
+                                                                    <font size="2"> Dedak Isirung <br> (PKC) (33)</font>
                                                                 </b></p>
                                                         </td>
                                                     </tr>
