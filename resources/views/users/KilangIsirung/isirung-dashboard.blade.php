@@ -171,31 +171,13 @@
 
                         </li>
 
-                        <li class="sidebar-item  has-sub">
-                            <a href="#" class='sidebar-link'>
-                                <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
-                                <span><b>Menu-Menu Lain</b></span>
-                            </a>
 
-                            <ul class="submenu " style="margin-left:-5%">
-                                <li>
-                                    <a href="{{ route('isirung.email') }}">
-                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="user" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Emel Pertanyaan / Pindaan /
-                                            Cadangan</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('isirung.penyatadahulu') }}">
-                                        <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="trending-up" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Papar Penyata Bulanan Terdahulu</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        <a  href="{{ route('isirung.penyatadahulu') }}" class='sidebar-link'>
+                            <i data-feather="#" width="20" style="margin-left:-10px; "></i>
+                            <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "></i>
+                            <span><b>Papar Penyata Bulanan Terdahulu</b></span>
+                        </a>
+
                     </ul>
                 </div>
                 <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
@@ -248,6 +230,17 @@
 
 
                     <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
+
+                        <li class="dropdown nav-icon">
+                            <a href="{{ route('isirung.email') }}"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="mt-2">
+                                    <i class="fa fa-envelope" style="font-size:18px;"></i>
+                                </div>
+                            </a>
+
+                        </li>
+
                         <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
