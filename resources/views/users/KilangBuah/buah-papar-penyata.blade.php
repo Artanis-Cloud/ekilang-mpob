@@ -13,7 +13,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-4 row">
+            <div class="mt-3 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -22,7 +22,7 @@
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
                                     style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center"  style="margin-left:-1%;">
+                            <div class="col-7 align-self-center" style="margin-left:-1%;">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -68,22 +68,14 @@
                                     <body>
                                         {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
-                                        {{-- <div align="right">
-                                                <table border="0" width="25%" id="table1">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>MPOB(EL) PX 4-MF </b></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div> --}}
-                                        <br>
-                                        <br>
+                                        
+                                        <div class="col-12" style="margin-right: 20%">
+                                            <b style="margin-left: 85%">MPOB(EL) MF 4</b>
+
+                                            <b style="margin-left: 85%">MPOB(EL) PX 4-MF </b>
+
+                                        </div>
+
                                         <p align="center">
                                             <img border="0" src="{{ asset('/papar_mpob.png') }}" width="200" height="140">
                                         </p>
@@ -808,7 +800,7 @@
                                                     </td>
                                                     <td width="158" align="center">
                                                         <font size="3">
-                                                            <b>{{ ($penyata->e91_ai1 ?? 0) +($penyata->e91_ai2 ?? 0) +($penyata->e91_ai3 ?? 0) +($penyata->e91_ai4 ?? 0) +($penyata->e91_ai4 ?? 0) + ($penyata->e91_ai5 ?? 0) + ($penyata->e91_ai6 ?? 0) }}</b>
+                                                            <b>{{ ($penyata->e91_ai1 ?? 0) +($penyata->e91_ai2 ?? 0) +($penyata->e91_ai3 ?? 0) +($penyata->e91_ai4 ?? 0) +($penyata->e91_ai4 ?? 0) +($penyata->e91_ai5 ?? 0) +($penyata->e91_ai6 ?? 0) }}</b>
                                                         </font>
                                                     </td>
                                                 </tr>
@@ -903,7 +895,7 @@
                                                     </td>
                                                     <td width="158" align="center">
                                                         <font size="3">
-                                                            <b>{{ ($penyata->e91_aj1 ?? 0) +($penyata->e91_aj2 ?? 0) +($penyata->e91_aj3 ?? 0) +($penyata->e91_aj4 ?? 0) +($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj6 ?? 0) + ($penyata->e91_aj7 ?? 0) + ($penyata->e91_aj8 ?? 0) }}</b>
+                                                            <b>{{ ($penyata->e91_aj1 ?? 0) +($penyata->e91_aj2 ?? 0) +($penyata->e91_aj3 ?? 0) +($penyata->e91_aj4 ?? 0) +($penyata->e91_aj4 ?? 0) +($penyata->e91_aj5 ?? 0) +($penyata->e91_aj6 ?? 0) +($penyata->e91_aj7 ?? 0) +($penyata->e91_aj8 ?? 0) }}</b>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -1008,17 +1000,17 @@
                                                 name='e91_sdate' value="{{ $penyata->e91_sdate ?? '' }}">
                                         </p>
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            <input type="text" id="e_npg" class="form-control" size="50"
-                                                name='e_npg' value="{{ $pelesen->e_npg }}">
+                                            <input type="text" id="e_npg" class="form-control" size="50" name='e_npg'
+                                                value="{{ $pelesen->e_npg }}">
                                         </p>
                                         <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            <input type="text" id="e_jpg" class="form-control" size="50"
-                                                name='e_jpg' value="{{ $pelesen->e_jpg }}">
+                                            <input type="text" id="e_jpg" class="form-control" size="50" name='e_jpg'
+                                                value="{{ $pelesen->e_jpg }}">
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            <input type="text" id="e_notel" class="form-control" size="50"
-                                                name="e_notel" value="{{ $pelesen->e_notel }}">
+                                            <input type="text" id="e_notel" class="form-control" size="50" name="e_notel"
+                                                value="{{ $pelesen->e_notel }}">
                                         </p>
 
                                         <h1 style="page-break-before:always"></h1>

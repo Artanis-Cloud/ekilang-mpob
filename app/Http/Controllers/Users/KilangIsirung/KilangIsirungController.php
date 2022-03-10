@@ -719,7 +719,8 @@ class KilangIsirungController extends Controller
 
         $penyatav = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '33')->get();
 
-        $penyatavi = E102c::with('e102init')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
+        $penyatavi = E102c::with('e102init','produk','negara')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
+        // dd($penyatavi);
 
 
         return view('users.KilangIsirung.isirung-papar-penyata', compact(

@@ -168,8 +168,8 @@
                                                     <tbody>
                                                         @foreach ($penyata as $data)
                                                         <tr>
-                                                            <td>{{ $data->kodsl[0]->catname }}</td>
-                                                            <td>{{ $data->prodcat2[0]->catname }}</td>
+                                                            <td>{{ $data->kodsl->catname ?? '' }}</td>
+                                                            <td>{{ $data->prodcat2->catname ?? ''}}</td>
                                                             <td style="text-align: right">{{ $data->e102_b6 }}</td>
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
@@ -221,8 +221,8 @@
                                                                                             <select class="form-select"
                                                                                                 id="e102_b4" name="e102_b4">
                                                                                                 <option hidden
-                                                                                                    value="{{ $data->e102_b4 }}">
-                                                                                                    {{ $data->kodsl[0]->catname }}
+                                                                                                    value="{{ $data->kodsl->catid ?? '' }}">
+                                                                                                    {{ $data->kodsl->catname ?? ''}}
                                                                                                 </option>
                                                                                                 <option value="1"> SENDIRI
                                                                                                 </option>
@@ -238,8 +238,8 @@
                                                                                             <select class="form-select"
                                                                                                 id="e102_b5" name="e102_b5">
                                                                                                 <option hidden
-                                                                                                    value="{{ $data->e102_b5 }}">
-                                                                                                    {{ $data->prodcat2[0]->catname }}
+                                                                                                    value="{{ $data->prodcat2->catid ?? '' }}">
+                                                                                                    {{ $data->prodcat2->catname ?? ''}}
                                                                                                 </option>
                                                                                                 <option value="3">KILANG ISIRUNG
                                                                                                 </option>
