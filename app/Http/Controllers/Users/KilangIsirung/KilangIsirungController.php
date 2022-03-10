@@ -649,6 +649,7 @@ class KilangIsirungController extends Controller
     public function isirung_edit_bahagian_vi(Request $request, $id)
     {
         $produk = Produk::where('prodname', $request->e102_c4)->first();
+        $negara = Negara::where('namanegara', $request->e102_c9)->first();
 
 
         // dd($request->all());
@@ -658,7 +659,7 @@ class KilangIsirungController extends Controller
         $penyata->e102_c6 = $request->e102_c6;
         $penyata->e102_c7 = $request->e102_c7;
         $penyata->e102_c8 = $request->e102_c8;
-        $penyata->e102_c9 = $request->e102_c9;
+        $penyata->e102_c9 = $negara->kodnegara;
         $penyata->save();
 
 

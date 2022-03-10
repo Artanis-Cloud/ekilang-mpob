@@ -460,10 +460,10 @@ class KilangBuahController extends Controller
 
     public function buah_penyata_dahulu_process(Request $request)
     {
-        //dd($request->all());
+        // //dd($request->all());
 
-        $tahun = H91Init::where('tahun', $request->e91_thn);
-        $bulan = H91Init::where('bulan', $request->e91_bln);
+        // $tahun = H91Init::where('tahun', $request->e91_thn);
+        // $bulan = H91Init::where('bulan', $request->e91_bln);
         // $ekat = RegPelesen::get('e_kat');
         // $ekat = DB::select("SELECT * FROM reg_pelesen");
         // dd($ekat);
@@ -477,7 +477,9 @@ class KilangBuahController extends Controller
             $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
             // dd($pelesen);
 
-            $penyata = H91Init::where('e91_nl', auth()->user()->username)->first();
+            $penyata = H91Init::where('e91_nl', auth()->user()->username)
+                ->where('e91_thn', $request->tahun)
+                ->where('e91_bln', $request->bulan)->first();
             // dd($penyata);
 
         $breadcrumbs    = [
@@ -494,7 +496,7 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
-        return view('users.KilangBuah.buah-papar-dahulu', compact('returnArr', 'layout', 'tahun', 'bulan', 'user','pelesen','penyata'));
+        return view('users.KilangBuah.buah-papar-dahulu', compact('returnArr', 'layout', 'user','pelesen','penyata'));
     }
 
     public function try()

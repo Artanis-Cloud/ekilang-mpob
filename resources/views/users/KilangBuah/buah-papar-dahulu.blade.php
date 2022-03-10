@@ -13,16 +13,16 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-4 row">
+            <div class="mt-2 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
+                            <div class="align-self-center" style="margin-left: 2%; margin-bottom:-2%">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
                                     style="color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class="align-self-center" style="margin-left: -1%;">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -83,9 +83,16 @@
                                                     </tbody>
                                                 </table>
                                             </div> --}}
+                                            <div class="col-12" style="margin-right: 20%; margin-top:-4%">
+                                                <b style="margin-left: 83%">MPOB(EL) MF 4</b>
 
+                                                <b style="margin-left: 83%">MPOB(EL) PX 4-MF </b>
+
+                                            </div>
+                                            <br>
                                         <p align="center">
-                                            <img border="0" src="{{ asset('/papar_mpob.png') }}" width="200" height="140">
+                                            <img border="0" src="{{ asset('/mpob.png') }}"  width="128"
+                                            height="100">
                                         </p>
                                         <title>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</title>
                                         <p align="center"><b>
@@ -93,7 +100,7 @@
 
                                                 </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
-                                                BULAN : {{ $penyata->e91_bln }} &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN : {{ $penyata->e91_thn }} &nbsp;&nbsp;
+                                                BULAN : {{ $penyata->e91_bln ?? '' }} &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN : {{ $penyata->e91_thn ?? ''}} &nbsp;&nbsp;
                                             </b><br>
 
                                         </p>
@@ -281,22 +288,22 @@
                                                     </td>
                                                     <td width="120">
                                                         <p align="center"><b>
-                                                                <font size="3">Buah Kelapa Sawit (FFB) Kod 52</font>
+                                                                <font size="3">Buah Kelapa Sawit <br>(FFB) Kod 52</font>
                                                             </b></p>
                                                     </td>
                                                     <td width="135">
                                                         <p align="center"><b>
-                                                                <font size="3">Minyak Sawit Mentah(CPO) Kod 01</font>
+                                                                <font size="3">Minyak Sawit Mentah <br>(CPO) Kod 01</font>
                                                             </b></p>
                                                     </td>
                                                     <td width="110">
                                                         <p align="center"><b>
-                                                                <font size="3">Isirung (PK) Kod 51</font>
+                                                                <font size="3">Isirung <br>(PK) Kod 51</font>
                                                             </b></p>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center"><b>
-                                                                <font size="3">Minyak Keladak (Sludge Oil) Kod 49</font>
+                                                                <font size="3">Minyak Keladak <br>(Sludge Oil) Kod 49</font>
                                                             </b></p>
                                                     </td>
                                                 </tr>
@@ -555,7 +562,11 @@
                                                         <td width="92" align="center">
                                                             <font size="3">&#10004; &nbsp;</font>
                                                         </td>
-                                                    @elseif ($penyata->e91_ah5 == null)
+                                                    @elseif ($penyata->e91_ah5 == NULL)
+                                                        <td width="92" align="center">
+                                                            <font size="3"> &nbsp;</font>
+                                                        </td>
+                                                    @elseif ($penyata->e91_ah5 == '')
                                                         <td width="92" align="center">
                                                             <font size="3"> &nbsp;</font>
                                                         </td>
@@ -837,7 +848,7 @@
                                                     <td width="168">
                                                         <font size="3">1. Kilang Buah</font>
                                                     </td>
-                                                    <td width="158" align="right">
+                                                    <td width="158" align="center">
                                                         <font size="3">{{ $penyata->e91_aj1 ?? 0 }}</font>
                                                     </td>
                                                 </tr>
@@ -1003,23 +1014,15 @@
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                        <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                            <input type="text" id="e91_sdate" class="form-control" size="50"
-                                                name='e91_sdate' value="{{ $penyata->e91_sdate ?? '' }}">
-                                        </p>
-                                        <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                            <input type="text" id="e_npg" class="form-control" size="50"
-                                                name='e_npg' value="{{ $pelesen->e_npg }}">
-                                        </p>
-                                        <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                            <input type="text" id="e_jpg" class="form-control" size="50"
-                                                name='e_jpg' value="{{ $pelesen->e_jpg }}">
-                                        </p>
-                                        <p>No Telefon Kilang: &nbsp;&nbsp;
+                                                <p>Tarikh Penghantaran&nbsp;&nbsp;&nbsp; {{ $penyata->e91_sdate ?? '' }}</p>
+                                                <p>Nama Pegawai Melapor&nbsp;&nbsp; <b>{{ $pelesen->e_npg }}</b>
+                                                </p>
+                                                <p>Jawatan Pegawai Melapor&nbsp;&nbsp; <b>{{ $pelesen->e_jpg }}</b></p>
+                                                <p>No Telefon Kilang&nbsp;&nbsp; <b>{{ $pelesen->e_notel }}</b>
+                                                </p>
 
-                                            <input type="text" id="e_notel" class="form-control" size="50"
-                                                name="e_notel" value="{{ $pelesen->e_notel }}">
-                                        </p>
+
+
 
                                         <h1 style="page-break-before:always"></h1>
 
