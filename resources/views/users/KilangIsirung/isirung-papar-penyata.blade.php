@@ -571,10 +571,10 @@
                                                     @foreach ($penyataiii as $data)
                                                     <tr>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->kodsl[0]->catname }}</font>
+                                                            <font size="2">{{ $data->kodsl->catname ?? '' }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->prodcat2[0]->catname }}</font>
+                                                            <font size="2">{{ $data->prodcat2->catname ?? '' }}</font>
                                                         </td>
                                                         <td  align="center">
                                                             <font size="2">{{ $data->e102_b6 }}</font>
@@ -615,10 +615,10 @@
                                                     @foreach ($penyataiv as $data)
                                                     <tr>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->e102_b4 }}</font>
+                                                            <font size="2">{{ $data->kodsl->catname ?? '' }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->e102_b5 }}</font>
+                                                            <font size="2">{{ $data->prodcat2->catname ?? '' }}</font>
                                                         </td>
                                                         <td  align="center">
                                                             <font size="2">{{ $data->e102_b6 }}</font>
@@ -658,10 +658,10 @@
                                                     @foreach ($penyatav as $data)
                                                     <tr>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->e102_b4 }}</font>
+                                                            <font size="2">{{ $data->kodsl->catname ?? '' }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">{{ $data->e102_b5 }}</font>
+                                                            <font size="2">{{ $data->prodcat2->catname ?? '' }}</font>
                                                         </td>
                                                         <td  align="center">
                                                             <font size="2">{{ $data->e102_b6 }}</font>
@@ -736,7 +736,7 @@
                                                             <font size="2">{{ $data->e102_c9 }}</font>
                                                         </td>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->e102_c9 }}</font>
+                                                            <font size="2">{{ $data->negara->namanegara ?? '' }}</font>
                                                         </td>
                                                     </tr>
                                                     @endforeach

@@ -62,7 +62,7 @@
                                     <div class="pl-3">
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                            <h3 style="color: rgb(39, 80, 71);">Bahagian V</h3>
+                                            <h3 style="color: rgb(39, 80, 71);">Bahagian V (a) & (b)</h3>
                                             <h5 style="color: rgb(39, 80, 71)">Belian/Penerimaan Bekalan Produk Sawit</h5>
                                             {{-- <p>Maklumat Kilang</p> --}}
                                         </div>
@@ -202,7 +202,7 @@
                                                 <th>CPKO</th>
                                                 <th>PPKO</th>
                                                 <th>Kemaskini</th>
-                                                <th>Buang?</th>
+                                                <th>Hapus?</th>
 
                                             </tr>
                                         </thead>

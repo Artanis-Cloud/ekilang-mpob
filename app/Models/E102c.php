@@ -54,17 +54,17 @@ class E102c extends Model
     public function e102init()
     {
 
-        return $this->hasMany(E102Init::class, 'e102_reg', 'e102_c2');
+        return $this->hasOne(E102Init::class, 'e102_reg', 'e102_c2');
     }
     public function produk()
     {
 
-        return $this->hasMany(Produk::class, 'prodid', 'e102_c4');
+        return $this->hasOne(Produk::class, 'prodid', 'e102_c4');
     }
     public function negara()
     {
 
-        return $this->hasMany(Negara::class, 'kodnegara', 'e102_c9
+        return $this->hasOne(Negara::class, 'kodnegara', 'e102_c9
         ');
     }
 

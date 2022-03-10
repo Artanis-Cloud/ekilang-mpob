@@ -69,6 +69,15 @@
                                         <body>
                                             {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
+
+                                                <div class="col-12" style="margin-right: 20%">
+                                                    <b style="margin-left: 85%">MPOB(EL) RF 4</b>
+
+                                                    <b style="margin-left: 85%">MPOB(EL) PX 4-RF </b>
+                                                    <b style="margin-left: 85%">MPOB(EL) PM 4-RF </b>
+
+                                                </div>
+                        
                                             {{-- <div align="right">
                                                 <table border="0" width="25%" id="table1">
                                                     <tbody>
@@ -545,10 +554,7 @@
                                             <p><b>
                                                     <font color="#0000FF">BAHAGIAN IV (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         AKHIR
-                                                        BERASASKAN MINYAK SAWIT DAN MINYAK<br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISIRUNG SAWIT -
+                                                        BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                                         BAHAN MAKANAN</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -640,10 +646,7 @@
                                             <p><b>
                                                     <font color="#0000FF">BAHAGIAN IV (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         AKHIR
-                                                        BERASASKAN MINYAK SAWIT DAN MINYAK<br>
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ISIRUNG SAWIT -
+                                                        BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                                         BAHAN BUKAN MAKANAN</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"

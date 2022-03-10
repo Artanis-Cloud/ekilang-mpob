@@ -520,12 +520,12 @@
                                                         <tbody>
                                                             @foreach ($penyata as $data)
                                                             <tr>
-                                                                <td>{{ $data->produk[0]->prodname }}</td>
+                                                                <td>{{ $data->produk->prodname ?? '' }}</td>
                                                                 <td>{{ $data->e102_c5 }}</td>
                                                                 <td>{{ $data->e102_c6 }}</td>
                                                                 <td>{{ $data->e102_c7 }}</td>
                                                                 <td>{{ $data->e102_c8 }}</td>
-                                                                <td>{{ $data->negara[0]->namanegara }}</td>
+                                                                <td>{{ $data->negara->namanegara ?? ''}}</td>
                                                                 <td>
                                                                     <div class="icon" style="text-align: center">
                                                                         <a href="#"
@@ -574,7 +574,7 @@
                                                                                         <div class="form-group">
                                                                                             <input type="text" name='e102_c4'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->produk[0]->prodname }}" readonly>
+                                                                                                value="{{ $data->produk->prodname ?? '' }}" readonly>
                                                                                         </div>
                                                                                         <label>Nombor Borang Kastam 2 </label>
                                                                                         <div class="form-group">
@@ -599,7 +599,7 @@
                                                                                         <label>Destinasi Negara</label>
                                                                                         <fieldset class="form-group">
                                                                                             <select class="form-select" id="e102_c9" name="e102_c9">
-                                                                                                <option value="{{ $data->e102_c9 }}" selected hidden>{{ $data->negara[0]->namanegara }}</option>
+                                                                                                <option value="{{ $data->e102_c9 }}" selected hidden>{{ $data->negara->namanegara ?? '' }}</option>
                                                                                                 @foreach ($negara as $data)
                                                                                                     <option value="{{ $data->kodnegara }}">
                                                                                                         {{ $data->namanegara }}

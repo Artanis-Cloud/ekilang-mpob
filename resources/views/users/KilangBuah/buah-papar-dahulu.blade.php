@@ -837,7 +837,7 @@
                                                     <td width="168">
                                                         <font size="3">1. Kilang Buah</font>
                                                     </td>
-                                                    <td width="158" align="center">
+                                                    <td width="158" align="right">
                                                         <font size="3">{{ $penyata->e91_aj1 ?? 0 }}</font>
                                                     </td>
                                                 </tr>
