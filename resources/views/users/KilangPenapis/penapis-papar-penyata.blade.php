@@ -70,14 +70,14 @@
                                             {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                                <div class="col-12" style="margin-right: 20%">
+                                                <div class="col-12" style="margin-right: 20%; margin-top:-4%">
                                                     <b style="margin-left: 85%">MPOB(EL) RF 4</b>
 
                                                     <b style="margin-left: 85%">MPOB(EL) PX 4-RF </b>
                                                     <b style="margin-left: 85%">MPOB(EL) PM 4-RF </b>
 
                                                 </div>
-                        
+
                                             {{-- <div align="right">
                                                 <table border="0" width="25%" id="table1">
                                                     <tbody>
@@ -94,7 +94,7 @@
                                             </div> --}}
 
                                             <p align="center">
-                                                <img border="0" src="{{ asset('/papar_mpob.png') }}" width="128"
+                                                <img border="0" src="{{ asset('/mpob.png') }}" width="128"
                                                     height="100">
                                             </p>
 
@@ -962,7 +962,7 @@
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                             <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
                                                 <input type="text" id="e91_sdate" class="form-control" size="50"
-                                                    name='e91_sdate' value="{{ $penyataiii->e101_sdate ?? '' }}">
+                                                    name='e91_sdate' value="{{ $penyataiii->e101_sdate ?? '' }}" readonly>
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 <input type="text" id="e_npg" class="form-control" size="50" name='e_npg'

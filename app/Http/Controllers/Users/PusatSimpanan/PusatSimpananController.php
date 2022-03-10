@@ -118,11 +118,13 @@ class PusatSimpananController extends Controller
         $user = E07Init::where('e07_nl', auth()->user()->username)->first('e07_reg');
 
         $penyata = E07Btranshipment::with('e07init','produk')->where('e07bt_idborang', $user->e07_reg)->get();
+
+        $produks = Produk::select('prodid', 'prodname')->where('prodcat', '!=', '07')->orderBy('prodname')->get();
         // dd($penyata);
 
 
 
-        return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact('returnArr', 'layout','user','penyata'));
+        return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact('returnArr', 'layout','user','penyata','produks'));
     }
 
     public function pusatsimpan_add_bahagian_a(Request $request)

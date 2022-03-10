@@ -649,6 +649,7 @@ class KilangIsirungController extends Controller
     public function isirung_edit_bahagian_vi(Request $request, $id)
     {
         $produk = Produk::where('prodname', $request->e102_c4)->first();
+        $negara = Negara::where('namanegara', $request->e102_c9)->first();
 
 
         // dd($request->all());
@@ -658,7 +659,7 @@ class KilangIsirungController extends Controller
         $penyata->e102_c6 = $request->e102_c6;
         $penyata->e102_c7 = $request->e102_c7;
         $penyata->e102_c8 = $request->e102_c8;
-        $penyata->e102_c9 = $request->e102_c9;
+        $penyata->e102_c9 = $negara->kodnegara;
         $penyata->save();
 
 
@@ -795,10 +796,13 @@ class KilangIsirungController extends Controller
         $users = H102Init::where('e102_nl', auth()->user()->username)
             ->where('e102_thn', $request->tahun)
             ->where('e102_bln', $request->bulan)->first();
-        // dd($users);
+        // dd($users->e102_nobatch);
 
         $i = H102Init::where('e102_nobatch', $users->e102_nobatch)->first();
         // dd($i);
+
+
+
 
 
         $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->get();

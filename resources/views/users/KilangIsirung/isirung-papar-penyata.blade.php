@@ -67,8 +67,15 @@
 
 
                                         <body>
+                                            <div class="col-12" style="margin-right: 20%;margin-top:-4%">
+                                                <b style="margin-left: 85%">MPOB(EL) CF 4</b>
+
+                                                <b style="margin-left: 85%">MPOB(EL) PM 4-CF </b>
+                                                <b style="margin-left: 85%">MPOB(EL) PX 4-CF </b>
+
+                                            </div>
                                             <p align="center">
-                                                <img border="0" src="{{ asset('/papar_mpob.png') }}" width="128" height="100">
+                                                <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
                                             </p>
                                             <title>PENYATA BULANAN KILANG ISIRONG - MPOB (EL) CF 4</title>
                                             <p align="center"><b>
@@ -254,18 +261,18 @@
                                                         </td>
                                                         <td width="115">
                                                             <p align="center"><b>
-                                                                    <font size="2"> Isirong (PK) (51) </font>
+                                                                    <font size="2"> Isirung <br>(PK) (51) </font>
                                                                 </b></p>
                                                         </td>
                                                         <td width="135">
                                                             <p align="center"><b>
-                                                                    <font size="2"> Minyak Isirong Sawit Mentah (CPKO) (04)
+                                                                    <font size="2"> Minyak Isirung Sawit Mentah <br>(CPKO) (04)
                                                                     </font>
                                                                 </b></p>
                                                         </td>
                                                         <td width="115">
                                                             <p align="center"><b>
-                                                                    <font size="2"> Dedak Isirong (PKC) (33)</font>
+                                                                    <font size="2"> Dedak Isirung <br> (PKC) (33)</font>
                                                                 </b></p>
                                                         </td>
                                                     </tr>
@@ -715,7 +722,7 @@
                                                     @foreach ($penyatavi as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->e102_c4 }}</font>
+                                                            <font size="2">{{ $data->produk->prodname ?? '' }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ $data->e102_c4 }}</font>
@@ -780,7 +787,7 @@
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                         <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
                                             <input type="text" id="e91_sdate" class="form-control" size="50"
-                                                name='e102_sdate' value="{{ $penyatai->e102_sdate }}">
+                                                name='e102_sdate' value="{{ $penyatai->e102_sdate }}" readonly>
                                         </p>
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                             <input type="text" id="e_npg" class="form-control" size="50"
