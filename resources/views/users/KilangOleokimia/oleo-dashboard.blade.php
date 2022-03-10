@@ -173,7 +173,7 @@
 
                         </li>
 
-                        
+
 
                         <a  href="{{ route('oleo.penyatadahulu') }}" class='sidebar-link'>
                             <i data-feather="#" width="20" style="margin-left:-10px; "></i>
@@ -232,7 +232,7 @@
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
-                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;">KILANG OLEOKIMIA</b>
+                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;"> {{ auth()->user()->name }}</b>
                 </span>
 
 
@@ -326,7 +326,7 @@
             <section id="hero" class="d-flex align-items-center ">
                 <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
 
-                    <div class="row justify-content-center" style="margin-top: -5%">
+                    <div class="row justify-content-center" style="margin-top: -4%">
                         <div class="col-xl-12 col-lg-8">
 
                             <h1 style="font-size:15px; margin-left:10%; margin-bottom:-1%">PENYATA BULANAN KILANG OLEOKIMIA</h1>

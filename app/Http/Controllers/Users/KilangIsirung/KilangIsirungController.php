@@ -281,9 +281,9 @@ class KilangIsirungController extends Controller
 
         $prodcat2 = ProdCat2::get();
 
-        $produk = ProdCat2::where('catid', [1, 5, 6, 7])->orderBy('catid')->get();
+        // $produk = ProdCat2::where('catid', [1, 5, 6, 7])->orderBy('catid')->get();
         // dd($produk);
-
+        $produk= Prodcat2::select('catid','catname')->where('catid', [1, 5, 6, 7])->orderBy('catid')->get();
         // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
         $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
         // dd($user);
@@ -294,7 +294,7 @@ class KilangIsirungController extends Controller
 
 
 
-        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user', 'produk'));
+        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'prodcat', 'prodcat2', 'penyata', 'user', 'produk'));
     }
 
 

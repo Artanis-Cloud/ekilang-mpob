@@ -328,16 +328,16 @@
 
 
 
-            <footer>
+            {{-- <footer>
                 <div class="footer text-muted">
                     {{-- <div class="float-start">
                         <p>2020 &copy; Voler</p>
                     </div> --}}
-                    <div style="text-align: center">
+                    {{-- <div style="text-align: center">
                         <p style="font-size:14px; color:white">Developed by Artanis Cloud</a></p>
                     </div>
                 </div>
-            </footer>
+            </footer> --}} 
 
         </div>
     </div>
