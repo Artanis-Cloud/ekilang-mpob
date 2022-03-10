@@ -65,6 +65,14 @@
                                     <div class="pl-3">
 
                                         <body>
+                                            <div class="col-12" style="margin-right: 20%;margin-top:-4%">
+                                                <b style="margin-left: 85%">MPOB(EL) CF 4</b>
+
+                                                <b style="margin-left: 85%">MPOB(EL) PM 4-CF </b>
+                                                <b style="margin-left: 85%">MPOB(EL) PX 4-CF </b>
+
+                                            </div>
+                                            <br>
                                             <div align="center">
                                                 <table border="0" width="25%">
                                                     {{-- <tbody>
@@ -83,7 +91,7 @@
                                                 </table>
                                             </div>
                                             <p align="center">
-                                                <img border="0" src="{{ asset('/papar_mpob.png') }}" width="128"
+                                                <img border="0" src="{{ asset('/mpob.png') }}" width="128"
                                                     height="100">
                                             </p>
 
@@ -93,7 +101,7 @@
 
 
 
-                                            <title>PENYATA BULANAN KILANG ISIRONG - MPOB (EL) CF 4</title>
+                                            <title>PENYATA BULANAN KILANG Isirung - MPOB (EL) CF 4</title>
 
 
 
@@ -292,18 +300,18 @@
                                                         </td>
                                                         <td width="115">
                                                             <p align="center"><b>
-                                                                    <font size="2"> Isirong (PK) (51) </font>
+                                                                    <font size="2"> Isirung <br>(PK) (51) </font>
                                                                 </b></p>
                                                         </td>
                                                         <td width="135">
                                                             <p align="center"><b>
-                                                                    <font size="2"> Minyak Isirong Sawit Mentah (CPKO) (04)
+                                                                    <font size="2"> Minyak Isirung Sawit Mentah <br>(CPKO) (04)
                                                                     </font>
                                                                 </b></p>
                                                         </td>
                                                         <td width="115">
                                                             <p align="center"><b>
-                                                                    <font size="2"> Dedak Isirong (PKC) (33)</font>
+                                                                    <font size="2"> Dedak Isirung <br>(PKC) (33)</font>
                                                                 </b></p>
                                                         </td>
                                                     </tr>
@@ -535,18 +543,18 @@
                                             <table border="0" width="498" cellspacing="0" cellpadding="0">
                                                 <tbody>
                                                     <tr>
-                                                        <td width="378">i.&nbsp;&nbsp; Kadar Perahan Minyak Isirong Sawit
+                                                        <td width="378">i.&nbsp;&nbsp; Kadar Perahan Minyak Isirung Sawit
                                                             Mentah (CPKO)&nbsp;
                                                         </td>
                                                         <td width="116">: {{ $i->e102_al1 ?? 0 }} % </td>
                                                     </tr>
                                                     <tr>
-                                                        <td width="378">ii.&nbsp; Kadar Perolehan Dedak Isirong (PKC)&nbsp;
+                                                        <td width="378">ii.&nbsp; Kadar Perolehan Dedak Isirung (PKC)&nbsp;
                                                         </td>
                                                         <td width="116">: {{ $i->e102_al2 ?? 0 }} %</td>
                                                     </tr>
                                                     <tr>
-                                                        <td width="378">iii. Jumlah Jam Pengilangan Isirong (PK)</td>
+                                                        <td width="378">iii. Jumlah Jam Pengilangan Isirung (PK)</td>
                                                         <td width="116">: {{ $i->e102_al3 ?? 0 }} </td>
                                                     </tr>
                                                     <tr>
@@ -558,7 +566,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN III : BELIAN / PENERIMAAN BEKALAN ISIRONG
+                                                    <font color="#0000FF">BAHAGIAN III : BELIAN / PENERIMAAN BEKALAN Isirung
                                                         SAWIT (PK) (51)
                                                     </font>
                                                 </b></p>
@@ -597,7 +605,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN IV : EDARAN / JUALAN MINYAK ISIRONG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN IV : EDARAN / JUALAN MINYAK ISIRUNG SAWIT
                                                         MENTAH (CPKO) (04)
                                                     </font>
                                                 </b></p>
@@ -636,7 +644,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN V : EDARAN / JUALAN DEDAK ISIRONG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN V : EDARAN / JUALAN DEDAK ISIRUNG SAWIT
                                                         (PKC) (33)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"

@@ -185,7 +185,7 @@
 
 
                                 <li class="sidebar-item ">
-                                    <a href="{{ route('penapis.paparpenyata') }}>
+                                    <a href="{{ route('penapis.paparpenyata') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
                                         <span style="color: rgb(78, 73, 57); ">Papar & Hantar Penyata Bulanan</span>
@@ -237,7 +237,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-               
+
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
