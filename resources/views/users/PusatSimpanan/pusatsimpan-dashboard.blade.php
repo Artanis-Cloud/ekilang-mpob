@@ -135,7 +135,14 @@
                                         <span style="color: rgb(0, 0, 0); ">Bahagian B</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('pusatsimpan.paparpenyata') }}">
+                                        <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Papar & Hantar Penyata Bulanan</span>
+                                    </a>
 
+                                </li>
 
                             </ul>
 
