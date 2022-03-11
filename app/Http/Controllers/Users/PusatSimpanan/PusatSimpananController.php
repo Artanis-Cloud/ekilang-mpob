@@ -8,6 +8,7 @@ use App\Models\E07Init;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\Produk;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -232,22 +233,32 @@ class PusatSimpananController extends Controller
     public function pusatsimpan_paparpenyata()
     {
 
-        // $breadcrumbs    = [
-        //     ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
-        //     ['link' => route('pusatsimpan.paparpenyata'), 'name' => "Penyata Bulanan"],
-        // ];
+        $breadcrumbs    = [
+            ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('pusatsimpan.paparpenyata'), 'name' => "Penyata Bulanan"],
+        ];
 
-        // $kembali = route('pusatsimpan.bahagianvi');
+        $kembali = route('pusatsimpan.bahagiana');
 
-        // $returnArr = [
-        //     'breadcrumbs' => $breadcrumbs,
-        //     'kembali'     => $kembali,
-        // ];
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
         $layout = 'layouts.psimpan';
 
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+
+        $user = E07Init::where('e07_nl', auth()->user()->username)->first();
+
+        $penyata = E07Btranshipment::with('e07init','produk')->where('e07bt_idborang', $user->e07_reg)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '!=', '07');
+        })->get();
+        // dd($penyata);
 
 
-        return view('users.PusatSimpanan.pusatsimpan-papar-penyata', compact('layout'));
+
+
+        return view('users.PusatSimpanan.pusatsimpan-papar-penyata', compact('layout','returnArr','user','penyata','pelesen'));
     }
 
     public function pusatsimpan_email()

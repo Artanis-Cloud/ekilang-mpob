@@ -62,10 +62,6 @@
                                     {{-- <div class="col-md-4 col-12"> --}}
                                     <div class="pl-3">
 
-
-
-
-
                                         <body>
                                             <div class="col-12" style="margin-right: 20%;margin-top:-4%">
                                                 <b style="margin-left: 85%">MPOB(EL) CF 4</b>
