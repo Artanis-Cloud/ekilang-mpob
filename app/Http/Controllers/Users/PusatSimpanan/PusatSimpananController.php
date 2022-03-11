@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Users\PusatSimpanan;
 use App\Http\Controllers\Controller;
 use App\Models\E07Btranshipment;
 use App\Models\E07Init;
+use App\Models\H07Btranshipment;
+use App\Models\H07Init;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\Produk;
@@ -325,7 +327,50 @@ class PusatSimpananController extends Controller
     }
 
 
+    public function pusatsimpan_penyata_dahulu_process(Request $request)
+    {
+        // dd($request->all());
 
+        // $user = User::first();
+        // dd($user);
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // dd($pelesen);
+
+        $user = H07Init::where('e07_nl', auth()->user()->username)
+            ->where('e07_thn', $request->tahun)
+            ->where('e07_bln', $request->bulan)->first();
+        // dd($users->e102_nobatch);
+
+
+        $penyata = H07Btranshipment::with('e07init','produk')->where('e07bt_nobatch', $user->e07_nobatch)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '!=', '07');
+        })->get();
+        // dd($penyata);
+
+
+
+        $breadcrumbs    = [
+            ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('pusatsimpan.penyatadahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
+        ];
+
+        $kembali = route('pusatsimpan.penyatadahulu');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.psimpan';
+
+        return view('users.PusatSimpanan.pusatsimpan-papar-dahulu', compact(
+            'returnArr',
+            'layout',
+            'user',
+            'pelesen',
+            'penyata',
+        ));
+    }
 
 
 
