@@ -777,13 +777,11 @@
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
-                                            <p>Tarikh Penghantaran&nbsp;&nbsp;&nbsp; 04-09-2021</p>
-                                            <p>Nama Pegawai Melapor&nbsp;&nbsp; <b>SANKERAN A/L SUPPIAH / RAHIM UDIN/ JOE
-                                                    JARDINE/ ATIQAH</b>
+                                            <p>Tarikh Penghantaran&nbsp;&nbsp;&nbsp; {{ $users->e102_sdate }}</p>
+                                            <p>Nama Pegawai Melapor&nbsp;&nbsp; <b>{{ $users->e102_npg }}</b>
                                             </p>
-                                            <p>Jawatan Pegawai Melapor&nbsp;&nbsp; <b>MILL MANAGER/LAB SUPERVISOR/
-                                                    ASST.EXEC</b></p>
-                                            <p>No Telefon Kilang&nbsp;&nbsp; <b>MILL MANAGER/LAB SUPERVISOR/ ASST.EXEC</b>
+                                            <p>Jawatan Pegawai Melapor&nbsp;&nbsp; <b>{{ $users->e102_jpg }}</b></p>
+                                            <p>No Telefon Kilang&nbsp;&nbsp; <b>{{ $users->e102_notel }}</b>
                                             </p>
 
                                         </body>

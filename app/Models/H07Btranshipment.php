@@ -17,7 +17,8 @@ class H07Btranshipment extends Model
      *
      */
     protected $table = 'h07_btranshipment'; //penyata arkib (history) - pusat simpanan
-
+    protected $primaryKey = 'e07bt_id';
+    public $timestamps = false;
     protected $fillable = [
         'e07bt_id',
         'e07bt_nobatch',
@@ -31,4 +32,15 @@ class H07Btranshipment extends Model
         'e07bt_stokakhir',
 
     ];
+
+    public function h07init()
+    {
+
+        return $this->hasOne(H07Init::class, 'e07_nobatch', 'e07bt_nobatch');
+    }
+
+    public function produk()
+    {
+        return $this->hasOne(Produk::class, 'prodid', 'e07bt_produk');
+    }
 }
