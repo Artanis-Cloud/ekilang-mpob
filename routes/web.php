@@ -274,8 +274,13 @@ Route::middleware('auth')->group(function () {
         Route::get('oleokimia/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'oleo_dashboard'])->name('oleo.dashboard');
         Route::get('oleokimia/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_maklumatasaspelesen'])->name('oleo.maklumatasaspelesen');
         Route::get('oleokimia/tukar-password', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_tukarpassword'])->name('oleo.tukarpassword');
+
         Route::get('oleokimia/bahagian-ia', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagiania'])->name('oleo.bahagiania');
+        Route::post('oleokimia/add-bahagian-ia', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class,  'oleo_add_bahagian_ia'])->name('oleo.add.bahagian.ia');
+        Route::post('oleokimia/edit-bahagian-ia/{Id}', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_edit_bahagian_ia'])->name('oleo.edit.bahagian.ia');
+
         Route::get('oleokimia/bahagian-ib', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagianib'])->name('oleo.bahagianib');
+
         Route::get('oleokimia/bahagian-ic', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagianic'])->name('oleo.bahagianic');
         Route::get('oleokimia/bahagian-ii', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagianii'])->name('oleo.bahagianii');
         Route::get('oleokimia/bahagian-iii', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagianiii'])->name('oleo.bahagianiii');
