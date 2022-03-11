@@ -183,14 +183,14 @@ class PusatSimpananController extends Controller
 
     public function pusatsimpan_edit_bahagian_a(Request $request, $id)
     {
-        $produk = Produk::where('prodname', $request->e07bt_produk)->first();
+        // $produk = Produk::where('prodname', $request->e07bt_produk)->first();
         // dd($produk);
         // $prodcat2 = ProdCat2::where('catname', $request->e101_b5)->first();
 
 
         // dd($request->all());
         $penyata = E07Btranshipment::findOrFail($id);
-        $penyata->e07bt_produk = $produk->prodid;
+        // $penyata->e07bt_produk = $produk->prodid;
         $penyata->e07bt_stokawal = $request->e07bt_stokawal;
         $penyata->e07bt_terima = $request->e07bt_terima;
         $penyata->e07bt_import = $request->e07bt_import;

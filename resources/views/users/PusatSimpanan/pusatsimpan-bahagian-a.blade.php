@@ -77,12 +77,14 @@
                                                     Nama Produk Sawit</label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" id="basicSelect"
-                                                        style="width:50%" name="e07bt_produk">
+                                                        <select class="form-select" id="basicSelect" style="width:50%"
+                                                            name="e07bt_produk">
                                                             <option selected hidden disabled>Sila Pilih Produk</option>
                                                             @foreach ($produks as $produk)
-                                                                @if($produk->prodname != '')
-                                                                    <option value="{{ $produk->prodid }}">{{ $produk->prodname }}</option>
+                                                                @if ($produk->prodname != '')
+                                                                    <option value="{{ $produk->prodid }}">
+                                                                        {{ $produk->prodname }} - {{ $produk->prodid }}
+                                                                    </option>
                                                                 @endif
                                                             @endforeach
                                                         </select>
@@ -100,7 +102,7 @@
                                                     Stok Awal</label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e07bt_stokawal'
-                                                    style="width:50%" id="e07bt_stokawal" required
+                                                        style="width:50%" id="e07bt_stokawal" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -112,10 +114,12 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Penerimaan Dalam Negeri</label>
+                                                    Penerimaan Dalam Negeri &nbsp;<i class="fa fa-exclamation-circle"
+                                                        style="color: red"
+                                                        title="Jumlah Penerimaan Dalam Negeri adalah termasuk jumlah Import."></i></label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e07bt_terima'
-                                                    style="width:50%" id="e07bt_terima" required
+                                                        style="width:50%" id="e07bt_terima" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -131,8 +135,7 @@
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e07bt_import'
                                                         id="e07bt_import" style="width:50%"
-                                                        onkeypress="return isNumberKey(event)" required
-                                                        title="Sila isikan butiran ini.">
+                                                        onkeypress="return isNumberKey(event)" readonly>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -143,7 +146,8 @@
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Edaran Dalam Negeri</label>
+                                                    Edaran Dalam Negeri &nbsp;<i class="fa fa-exclamation-circle"
+                                                        style="color: red" title="Jumlah Edaran Dalam Negeri adalah termasuk jumlah Eksport."></i></label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e07bt_edaran'
                                                         id="e07bt_edaran" style="width:50%"
@@ -162,8 +166,7 @@
                                                     Eksport</label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e07bt_eksport'
-                                                    style="width:50%" id="e07bt_eksport" required
-                                                        title="Sila isikan butiran ini.">
+                                                        style="width:50%" id="e07bt_eksport" readonly>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -177,7 +180,7 @@
                                                     Pelarasan(+/-)</label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e07bt_pelarasan'
-                                                    style="width:50%" id="e07bt_pelarasan" required
+                                                        style="width:50%" id="e07bt_pelarasan" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -192,7 +195,7 @@
                                                     Stok Akhir</label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e07bt_stokakhir'
-                                                    style="width:50%" id="e07bt_stokakhir" required
+                                                        style="width:50%" id="e07bt_stokakhir" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -210,8 +213,7 @@
 
                                             <div class="text-right col-md-10 mb-7 ">
                                                 <button type="submit" class="btn btn-primary "
-                                                    style="float: left"
-                                                   >Tambah</button>
+                                                    style="float: left">Tambah</button>
                                             </div>
 
                                         </div>
@@ -245,7 +247,7 @@
                                                         <tbody>
                                                             @foreach ($penyata as $data)
                                                                 <tr>
-                                                                    <td>{{ $data->produk[0]->prodname }}</td>
+                                                                    <td>{{ $data->produk->prodname }}</td>
                                                                     <td>{{ $data->e07bt_stokawal }}</td>
                                                                     <td>{{ $data->e07bt_terima }}</td>
                                                                     <td>{{ $data->e07bt_import }}</td>
@@ -308,7 +310,7 @@
                                                                                                 <input type="text"
                                                                                                     name='e07bt_produk'
                                                                                                     class="form-control"
-                                                                                                    value="{{ $data->produk[0]->prodname }}"
+                                                                                                    value="{{ $data->produk->prodname }}"
                                                                                                     readonly>
                                                                                             </div>
                                                                                             <label>Stok Awal </label>
@@ -318,7 +320,8 @@
                                                                                                     class="form-control"
                                                                                                     value="{{ $data->e07bt_stokawal }}">
                                                                                             </div>
-                                                                                            <label>Penerimaan Dalam Negeri </label>
+                                                                                            <label>Penerimaan Dalam Negeri
+                                                                                            </label>
                                                                                             <div class="form-group">
                                                                                                 <input type="text"
                                                                                                     name='e07bt_terima'
@@ -330,9 +333,11 @@
                                                                                                 <input type="text"
                                                                                                     name='e07bt_import'
                                                                                                     class="form-control"
-                                                                                                    value="{{ $data->e07bt_import }}">
+                                                                                                    value="{{ $data->e07bt_import }}"
+                                                                                                    readonly>
                                                                                             </div>
-                                                                                            <label>Edaran Dalam Negeri </label>
+                                                                                            <label>Edaran Dalam Negeri
+                                                                                            </label>
                                                                                             <div class="form-group">
                                                                                                 <input type="text"
                                                                                                     name='e07bt_edaran'
@@ -463,7 +468,7 @@
                                 </div>
                             </div>
                             <br>
-                        </form>
+                            </form>
 
                         </div>
                     </div>
