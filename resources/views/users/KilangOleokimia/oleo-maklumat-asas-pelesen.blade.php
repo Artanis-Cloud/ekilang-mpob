@@ -132,211 +132,212 @@
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
+                                    <form action="{{ route('oleo.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
+                                        @csrf
+                                        <div class="container center mt-5" >
+                                            <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label required col-form-label align-items-center">
+                                                    Alamat Premis Berlesen</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="e_ap1" class="form-control" placeholder="Alamat Surat Menyurat 1"
+                                                                name="e_ap1" value="{{ $pelesen->e_ap1 }}">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
+                                                <div class="col-md-6" style="margin-left: 41.6%; ">
+                                                    <input type="text" id="e_ap2" class="form-control" placeholder="Alamat Surat Menyurat 2"
+                                                                name="e_ap2" value="{{ $pelesen->e_ap2 }}">
+                                                </div>
+                                                <div class="col-md-6" style="margin-left: 41.6%;">
+                                                    <input type="text" id="e_ap3" class="form-control" placeholder="Alamat Surat Menyurat 3"
+                                                                name="e_ap3" value="{{ $pelesen->e_ap3 }}">
+                                                </div>
+                                            </div>
 
-                                    <div class="container center mt-5" >
-                                        <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label required col-form-label align-items-center">
-                                                Alamat Premis Berlesen</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                            name="lname-column" >
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row" style="margin-bottom:2.5%">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Alamat Surat Menyurat</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="e_as1" class="form-control" placeholder="Alamat Surat Menyurat 1"
+                                                                name="e_as1" value="{{ $pelesen->e_as1 }}">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
+                                                <div class="col-md-6" style="margin-left: 41.6%">
+                                                    <input type="text" id="e_as2" class="form-control" placeholder="Alamat Surat Menyurat 2"
+                                                                name="e_as2" value="{{ $pelesen->e_as2 }}">
+                                                </div>
+                                                <div class="col-md-6" style="margin-left: 41.6%">
+                                                    <input type="text" id="e_as3" class="form-control" placeholder="Alamat Surat Menyurat 3"
+                                                                name="e_as3" value="{{ $pelesen->e_as3 }}">
+                                                </div>
                                             </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%; ">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
-                                                            name="lname-column">
-                                            </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%;">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 3"
-                                                            name="lname-column" >
-                                            </div>
-                                        </div>
 
-                                        <div class="row" style="margin-bottom:2.5%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Surat Menyurat</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                            name="lname-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    No. Telefon (Pejabat / Kilang)</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="e_notel" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
+                                                                name="e_notel" value="{{ $pelesen->e_notel }}">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 2"
-                                                            name="lname-column">
+                                            <div class="row" >
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    No. Faks</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
+                                                                name="e_nofax" value="{{ $pelesen->e_nofax }}">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
-                                            <div class="col-md-6" style="margin-left: 41.6%">
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Alamat Surat Menyurat 3"
-                                                            name="lname-column">
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Alamat Emel Kilang</label>
+                                                <div class="col-md-6">
+                                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
+                                                                name="e_email" value="{{ $pelesen->e_email }}">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Telefon (Pejabat / Kilang)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
-                                                            name="company-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Nama Pegawai Melapor</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="e_npg" class="form-control" placeholder="Nama Pegawai Melapor"
+                                                                name="e_npg" value="{{ $pelesen->e_npg }}">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row" >
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Faks</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="No. Faks"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Jawatan Pegawai Melapor</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="e_jpg" class="form-control" placeholder="Jawatan Pegawai Melapor"
+                                                                name="e_jpg" value="{{ $pelesen->e_jpg }}">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Emel Kilang</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    No. Telefon Pegawai Melapor</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control" placeholder="No. Telefon Pegawai Melapor"
+                                                                name="no-tel-pegawai-melapor" value="">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nama Pegawai Melapor</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Melapor"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Alamat Emel Pegawai Melapor</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control" placeholder="Alamat Emel Pegawai Melapor"
+                                                                name="no-tel-pegawai-melapor" value="">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Jawatan Pegawai Melapor</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Melapor"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Nama Pegawai Bertanggungjawab</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="e_npgtg" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
+                                                                name="e_npgtg" value="{{ $pelesen->e_npgtg }}">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                No. Telefon Pegawai Melapor</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="no-tel-pegawai-melapor" class="form-control" placeholder="No. Telefon Pegawai Melapor"
-                                                            name="no-tel-pegawai-melapor" value="">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Jawatan Pegawai
+                                                    Bertanggungjawab</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="e_jpgtg" class="form-control" placeholder="Jawatan Pegawai Bertanggungjawab"
+                                                                name="e_jpgtg" value="{{ $pelesen->e_jpgtg }}">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Emel Pegawai Melapor</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="no-tel-pegawai-melapor" class="form-control" placeholder="Alamat Emel Pegawai Melapor"
-                                                            name="no-tel-pegawai-melapor" value="">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Nama Pegawai Bertanggungjawab</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Jawatan Pegawai
-                                                Bertanggungjawab</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Jawatan Pegawai Bertanggungjawab"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                            <div class="row" style="margin-bottom:2.5%">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Alamat Emel Pengurus</label>
+                                                <div class="col-md-6">
+                                                    <input type="email" id="e_email_pengurus" class="form-control" placeholder="Alamat Emel Pengurus"
+                                                                name="e_email_pengurus" value="{{ $pelesen->e_email_pengurus ?? '-'}}">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom:2.5%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Alamat Emel Pengurus</label>
-                                            <div class="col-md-6">
-                                                <input type="email" id="email-id-column" class="form-control" placeholder="Alamat Emel Pengurus"
-                                                            name="email-id-column">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                    <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                        {{-- <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
-                                        </div> --}}
-                                        <div class="text-right col-md-12 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
-                                        </div>
+                                        <div class="row form-group" style="padding-top: 10px; ">
 
-                                    </div>
+
+                                            {{-- <div class="text-left col-md-5">
+                                                <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
+                                                    style="float: left">Sebelumnya</a>
+                                            </div> --}}
+                                            <div class="text-right col-md-12 mb-4 ">
+                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                    style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
+                                            </div>
+
+                                        </div>
 
                                         <!-- Vertically Centered modal Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1"
@@ -365,8 +366,8 @@
                                                             <span class="d-none d-sm-block"
                                                                 style="color:#275047">Tidak</span>
                                                         </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
+                                                        <button type="submit" class="btn btn-primary ml-1"
+                                                            data-bs="modal">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Ya</span>
                                                         </button>
@@ -374,7 +375,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
+
                                 </div>
 
 
