@@ -59,124 +59,125 @@
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
+                        <form action="{{ route('oleo.update.bahagian.ii', [$penyata->e104_reg]) }}" method="post">
+                            @csrf
+                            <div class="card-body">
+                                <div class="row">
+                                    {{-- <div class="col-md-4 col-12"> --}}
+                                    <div class="pl-3">
 
-                        <div class="card-body">
-                            <div class="row">
-                                {{-- <div class="col-md-4 col-12"> --}}
-                                <div class="pl-3">
-
-                                    <div class="text-center">
-                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian II</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Hari Beroperasi dan Kadar Penggunaan Kapasiti</h5>
-                                        {{-- <p>Maklumat Kilang</p> --}}
-                                    </div>
-                                    <hr>
+                                        <div class="text-center">
+                                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian II</h3>
+                                            <h5 style="color: rgb(39, 80, 71); font-size:14px">Hari Beroperasi dan Kadar Penggunaan Kapasiti</h5>
+                                            {{-- <p>Maklumat Kilang</p> --}}
+                                        </div>
+                                        <hr>
 
 
 
-                                    <div class=" mt-2" style="text-align: right">
-                                        <a href="{{ asset('manual/kilangisirung/2.pdf') }}" target="_blank"
-                                            style="text-align:right"><i><u>Panduan
-                                                    Mengisi Maklumat Bahagian II</u></i></a>
-                                    </div>
-                                    <form>
-                                        @csrf
-                                        <div class="container center mt-3">
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
-                                                    Jumlah Hari Kilang Beroperasi Sebulan </label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='jam_pengilangan' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="jam_pengilangan" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
+                                        <div class=" mt-2" style="text-align: right">
+                                            <a href="{{ asset('manual/kilangisirung/2.pdf') }}" target="_blank"
+                                                style="text-align:right"><i><u>Panduan
+                                                        Mengisi Maklumat Bahagian II</u></i></a>
+                                        </div>
+                                        <form>
+                                            @csrf
+                                            <div class="container center mt-3">
+                                                <div class="row">
+                                                    <label for="fname"
+                                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
+                                                        Jumlah Hari Kilang Beroperasi Sebulan </label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name='e104_a5' style="margin-left:42%; width:40%"
+                                                            onkeypress="return isNumberKey(event)" id="e104_a5" required
+                                                            title="Sila isikan butiran ini." value="{{ $penyata->e104_a5 }}">
+                                                        {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
                                                     </div>
-                                                @enderror --}}
-                                                </div>
-                                                <div>
+                                                    <div>
 
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
-                                                    Kadar Penggunaan Kapasiti Sebulan	</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='kadar_perahan_mksm' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="kadar_perahan_mksm"
-                                                        required title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
                                                     </div>
-                                                @enderror --}}
                                                 </div>
+                                                <div class="row">
+                                                    <label for="fname"
+                                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
+                                                        Kadar Penggunaan Kapasiti Sebulan	</label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name='e104_a6' style="margin-left:42%; width:40%"
+                                                            onkeypress="return isNumberKey(event)" id="e104_a6"
+                                                            required title="Sila isikan butiran ini." value="{{ $penyata->e104_a6 }}">
+                                                        {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                    </div>
+                                                </div>
+
+
                                             </div>
 
+                                        </form>
+                                        <div class="row form-group" style="padding-top: 10px; ">
+
+                                            <br>
+                                            <div class="text-left col-md-5">
+                                                <a href="{{ route('oleo.bahagianic') }}" class="btn btn-primary"
+                                                    style="float: left">Sebelumnya</a>
+                                            </div>
+                                            <div class="text-right col-md-5 mb-4 ">
+                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                                                    style="float: right;" data-bs-target="#exampleModalCenter">Simpan &
+                                                    Seterusnya</button>
+                                            </div>
 
                                         </div>
 
-                                    </form>
-                                    <div class="row form-group" style="padding-top: 10px; ">
-
-                                        <br>
-                                        <div class="text-left col-md-5">
-                                            <a href="{{ route('isirung.bahagiani') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
-                                        </div>
-                                        <div class="text-right col-md-5 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right;" data-bs-target="#exampleModalCenter">Simpan &
-                                                Seterusnya</button>
-                                        </div>
-
-                                    </div>
-
-                                    <!-- Vertically Centered modal Modal -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menyimpan maklumat ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
-                                                    </button>
+                                        <!-- Vertically Centered modal Modal -->
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Anda pasti mahu menyimpan maklumat ini?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary ml-1"
+                                                            data-bs="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Ya</span>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <br>
+
                             </div>
-                            <br>
-
-                        </div>
-
-                    </div>
+                        </form>
+                    </div><br><br><br><br><br><br><br><br><br><br><br>
 
                 </div>
             </div>

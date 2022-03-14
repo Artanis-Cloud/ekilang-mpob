@@ -578,7 +578,7 @@
                                                                 style="color:#275047">Tidak</span>
                                                         </button>
                                                         <button type="submit" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
+                                                            data-bs="modal">
                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block">Ya</span>
                                                         </button>

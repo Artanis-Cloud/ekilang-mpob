@@ -18,6 +18,8 @@ class E104C extends Model
      *
      */
     protected $table = 'e104_c'; //penyata bulanan terkini - kilang oleokimia
+    protected $primaryKey = 'e104_c1';
+    public $timestamps = false;
 
     protected $fillable = [
         'e104_c1',
@@ -30,4 +32,12 @@ class E104C extends Model
         'e104_c8',
 
     ];
+    
+    public function e104init(){
+        return $this->hasOne(E104Init::class,'e104_reg', 'e104_reg');
+    }
+
+    public function produk(){
+        return $this->hasOne(Produk::class,'prodid','e104_c3');
+    }
 }

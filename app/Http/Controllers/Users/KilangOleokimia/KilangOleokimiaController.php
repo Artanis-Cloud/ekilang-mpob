@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Users\KilangOleokimia;
 
 use App\Http\Controllers\Controller;
 use App\Models\E104B;
+use App\Models\E104C;
+use App\Models\E104D;
 use App\Models\E104Init;
+use App\Models\Negara;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
 use App\Models\Produk;
@@ -219,7 +222,7 @@ class KilangOleokimiaController extends Controller
             ['link' => route('oleo.bahagianib'), 'name' => "Bahagian Ib"],
         ];
 
-        $kembali = route('oleo.dashboard');
+        $kembali = route('oleo.bahagiania');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -332,7 +335,7 @@ class KilangOleokimiaController extends Controller
             ['link' => route('oleo.bahagianic'), 'name' => "Bahagian Ic"],
         ];
 
-        $kembali = route('oleo.dashboard');
+        $kembali = route('oleo.bahagianib');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
@@ -340,10 +343,102 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
+        $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
 
 
-        return view('users.KilangOleokimia.oleo-bahagian-ic', compact('returnArr', 'layout'));
+        $produk = Produk::where('prodcat', '08')->orderBy('prodname')->get();
+
+        $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->where('e104_b3','3')->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', '08');
+        })->get();
+
+        return view('users.KilangOleokimia.oleo-bahagian-ic', compact('returnArr', 'layout', 'produk', 'penyata', 'user'));
     }
+
+    public function oleo_add_bahagian_ic(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_ic($request->all())->validate();
+        $this->store_bahagian_ic($request->all());
+
+        return redirect()->route('oleo.bahagianic')->with('success', 'Maklumat sudah ditambah');
+    }
+
+    protected function validation_bahagian_ic(array $data)
+    {
+        return Validator::make($data, [
+
+            'e104_b4' => ['required', 'string'],
+            'e104_b5' => ['required', 'string'],
+            'e104_b6' => ['required', 'string'],
+            'e104_b7' => ['required', 'string'],
+            // 'e104_b8' => ['required', 'string'],
+            'e104_b9' => ['required', 'string'],
+            'e104_b10' => ['required', 'string'],
+            'e104_b11' => ['required', 'string'],
+            'e104_b12' => ['required', 'string'],
+            'e104_b13' => ['required', 'string'],
+
+            // 'e101_b15' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_bahagian_ic(array $data)
+    {
+        $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
+        // dd($e104_reg);
+        return E104B::create([
+            'e104_reg' => $e104_reg->e104_reg,
+            'e104_b3' => '3',
+            'e104_b4' => $data['e104_b4'],
+            'e104_b5' => $data['e104_b5'],
+            'e104_b6' => $data['e104_b6'],
+            'e104_b7' => $data['e104_b7'],
+            // 'e104_b8' => $data['e104_b8'],
+            'e104_b9' => $data['e104_b9'],
+            'e104_b10' => $data['e104_b10'],
+            'e104_b11' => $data['e104_b11'],
+            'e104_b12' => $data['e104_b12'],
+            'e104_b13' => $data['e104_b13'],
+
+            // 'e101_b15' => $data['e104_b15'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
+
+    // public function destroy(E101B $penyata)
+    // {
+    //     $penyata->delete();
+
+    //     return redirect()->route('penapis.bahagiani')
+    //                     ->with('success','Product deleted successfully');
+    // }
+
+
+    public function oleo_edit_bahagian_ic(Request $request, $id)
+    {
+
+        $produk = Produk::where('prodname', $request->e104_b4)->first();
+
+        // dd($request->all());
+        $penyata = E104B::findOrFail($id);
+        $penyata->e104_b4 = $produk->prodid;
+        $penyata->e104_b5 = $request->e104_b5;
+        $penyata->e104_b6 = $request->e104_b6;
+        $penyata->e104_b7 = $request->e104_b7;
+        $penyata->e104_b9 = $request->e104_b9;
+        $penyata->e104_b10 = $request->e104_b10;
+        $penyata->e104_b11 = $request->e104_b11;
+        $penyata->e104_b12 = $request->e104_b12;
+        $penyata->e104_b13 = $request->e104_b13;
+        $penyata->save();
+
+
+        return redirect()->route('oleo.bahagianic')
+            ->with('success', 'Maklumat telah disimpan');
+    }
+
 
     public function oleo_bahagianii()
     {
@@ -361,11 +456,28 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
+        $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
+
+        $penyata = E104Init::where('e104_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangOleokimia.oleo-bahagian-ii', compact('returnArr', 'layout'));
+
+
+        return view('users.KilangOleokimia.oleo-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'user'));
     }
 
+    public function oleo_update_bahagian_ii(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = E104Init::findOrFail($id);
+        $penyata->e104_a5 = $request->e104_a5;
+        $penyata->e104_a6 = $request->e104_a6;
+        $penyata->save();
+
+
+        return redirect()->route('oleo.bahagianiii')
+            ->with('success', 'Maklumat telah disimpan');
+    }
 
     public function oleo_bahagianiii()
     {
@@ -383,9 +495,78 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
+        $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
+
+        $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
+
+        $penyata = E104C::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 02);
+        })->get();
+        // dd($penyata);
+
+        return view('users.KilangOleokimia.oleo-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'user', 'produk'));
+    }
 
 
-        return view('users.KilangOleokimia.oleo-bahagian-iii', compact('returnArr', 'layout'));
+    public function oleo_add_bahagian_iii(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_iii($request->all())->validate();
+        $this->store_bahagian_iii($request->all());
+
+        return redirect()->route('oleo.bahagianiii')->with('success', 'Maklumat sudah ditambah');
+    }
+
+    protected function validation_bahagian_iii(array $data)
+    {
+        return Validator::make($data, [
+            'e104_c3' => ['required', 'string'],
+            'e104_c4' => ['required', 'string'],
+            'e104_c5' => ['required', 'string'],
+            'e104_c6' => ['required', 'string'],
+            'e104_c7' => ['required', 'string'],
+            'e104_c8' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_bahagian_iii(array $data)
+    {
+        $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
+        // dd($e101_reg->e101_reg);
+        return E104C::create([
+            'e104_reg' => $e104_reg->e104_reg,
+            'e104_c3' => $data['e104_c3'],
+            'e104_c4' => $data['e104_c4'],
+            'e104_c5' => $data['e104_c5'],
+            'e104_c6' => $data['e104_c6'],
+            'e104_c7' => $data['e104_c7'],
+            'e104_c8' => $data['e104_c8'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
+
+
+    public function oleo_edit_bahagian_iii(Request $request, $id)
+    {
+
+
+        // $produk = Produk::where('prodname', $request->e104_C3)->first();
+
+        // dd($request->all());
+        $penyata = E104C::findOrFail($id);
+        // $penyata->e104_c3 = $request->e104_c3;
+        $penyata->e104_c4 = $request->e104_c4;
+        $penyata->e104_c5 = $request->e104_c5;
+        $penyata->e104_c6 = $request->e104_c6;
+        $penyata->e104_c7 = $request->e104_c7;
+        $penyata->e104_c8 = $request->e104_c8;
+
+        $penyata->save();
+
+
+        return redirect()->route('oleo.bahagianiii')
+            ->with('success', 'Maklumat telah disimpan');
     }
 
     public function oleo_bahagianiv()
@@ -404,9 +585,83 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
+        $produk = Produk::where('prodcat', ['03', '06', '08'])->orderBy('prodname')->get();
+        // dd($produk);
+
+        $negara = Negara::get();
+
+        $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
 
 
-        return view('users.KilangOleokimia.oleo-bahagian-iv', compact('returnArr', 'layout'));
+        $penyata = E104D::with('e104init', 'produk', 'negara')->where('e104_reg', $user->e104_reg)->where('e104_d3', 1)->get();
+        // dd($penyata);
+
+
+        return view('users.KilangOleokimia.oleo-bahagian-iv', compact('returnArr', 'layout', 'produk', 'negara', 'penyata'));
+    }
+
+
+
+    public function oleo_add_bahagian_iv(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_iv($request->all())->validate();
+        $this->store_bahagian_iv($request->all());
+
+        return redirect()->route('oleo.bahagianiv')->with('success', 'Maklumat sudah ditambah');
+    }
+
+    protected function validation_bahagian_iv(array $data)
+    {
+        return Validator::make($data, [
+            'e104_d4' => ['required', 'string'],
+            'e104_d5' => ['required', 'string'],
+            'e104_d6' => ['required', 'string'],
+            'e104_d7' => ['required', 'string'],
+            'e104_d8' => ['required', 'string'],
+            'e104_d9' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_bahagian_iv(array $data)
+    {
+        $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
+        // dd($e101_reg->e101_reg);
+        return E104D::create([
+            'e104_reg' => $e104_reg->e104_reg,
+            'e104_d3' => '1',
+            'e104_d4' => $data['e104_d4'],
+            'e104_d5' => $data['e104_d5'],
+            'e104_d6' => $data['e104_d6'],
+            'e104_d7' => $data['e104_d7'],
+            'e104_d8' => $data['e104_d8'],
+            'e104_d9' => $data['e104_d9'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
+
+
+
+    public function oleo_edit_bahagian_iv(Request $request, $id)
+    {
+        // $produk = Produk::where('prodname', $request->e101_e4)->first();
+        // $negara = Negara::where('namanegara', $request->e101_e9)->first();
+
+
+        // dd($request->all());
+        $penyata = E104D::findOrFail($id);
+        // $penyata->e101_e4 = $produk->prodid;
+        $penyata->e104_d5 = $request->e104_d5;
+        $penyata->e104_d6 = $request->e104_d6;
+        $penyata->e104_d7 = $request->e104_d7;
+        $penyata->e104_d8 = $request->e104_d8;
+        $penyata->e104_d9 = $request->e104_d9;
+        $penyata->save();
+
+
+        return redirect()->route('oleo.bahagianiv')
+            ->with('success', 'Maklumat telah disimpan');
     }
 
 

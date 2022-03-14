@@ -17,6 +17,8 @@ class E104Init extends Model
      *
      */
     protected $table = 'e104_init'; //penyata bulanan terkini - kilang oleokimia (initialize - proses 3)
+    protected $primaryKey = 'e104_reg';
+    public $timestamps = false;
 
     protected $fillable = [
         'e104_reg',
