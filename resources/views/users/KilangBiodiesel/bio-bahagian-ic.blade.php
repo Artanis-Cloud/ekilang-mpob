@@ -60,7 +60,7 @@
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-                                    <form action="{{ route('bio.add.bahagian.ia') }}" method="post">
+                                    <form action="{{ route('bio.add.bahagian.ic') }}" method="post">
                                         @csrf
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -468,7 +468,7 @@
 
 
                                     <div class="text-left col-md-5">
-                                        <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
+                                        <a href="{{ route('bio.bahagianib') }}" class="btn btn-primary"
                                             style="float: left">Sebelumnya</a>
                                     </div>
                                     <div class="text-right col-md-7 mb-4 ">

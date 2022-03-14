@@ -160,10 +160,19 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('bio.bahagianiv') }}">
+                                    <a class="btn" style="text-align: left" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalCenter">
                                         <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="grid" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian IV</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="btn" style="text-align: left" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalCenter">
+                                        <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="grid" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian V</span>
                                     </a>
                                 </li>
 
@@ -321,7 +330,33 @@
                     </ul>
                 </div>
             </nav>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                            PERINGATAN</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Anda tidak dibenarkan mengisi maklumat bahagian ini
+                        </p>
+                    </div>
+                    <div class="modal-footer">
 
+                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
