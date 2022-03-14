@@ -8,6 +8,7 @@ use App\Models\E101C;
 use App\Models\E101D;
 use App\Models\E101E;
 use App\Models\E101Init;
+use App\Models\Ekmessage;
 use App\Models\H101Init;
 use App\Models\H101B;
 use App\Models\H101C;
@@ -892,26 +893,26 @@ class KilangPenapisController extends Controller
     }
 
 
-    public function penapis_email()
-    {
+    // public function penapis_email()
+    // {
 
-        $breadcrumbs    = [
-            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.email'), 'name' => "Emel Pertanyaan / Pindaan / Cadangan  "],
-        ];
+    //     $breadcrumbs    = [
+    //         ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+    //         ['link' => route('penapis.email'), 'name' => "Emel Pertanyaan / Pindaan / Cadangan  "],
+    //     ];
 
-        $kembali = route('penapis.dashboard');
+    //     $kembali = route('penapis.dashboard');
 
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.kpenapis';
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangPenapis.penapis-email', compact('returnArr', 'layout'));
-    }
+    //     return view('users.KilangPenapis.penapis-email', compact('returnArr', 'layout'));
+    // }
 
 
     public function penapis_penyatadahulu()
@@ -991,25 +992,65 @@ class KilangPenapisController extends Controller
     }
 
 
-    public function buah_email()
+    public function penapis_email()
     {
 
         $breadcrumbs    = [
-            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.email'), 'name' => "Emel Pertanyaan / Pindaan / Cadangan  "],
+            ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('penapis.email'), 'name' => "Emel Pertanyaan / Pindaan / Cadangan  "],
         ];
 
-        $kembali = route('buah.dashboard');
+        $kembali = route('penapis.dashboard');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.kbuah';
+        $layout = 'layouts.kpenapis';
 
 
 
-        return view('users.KilangBuah.buah-email', compact('returnArr', 'layout'));
+        return view('users.KilangPenapis.penapis-email', compact('returnArr', 'layout'));
+    }
+
+    public function penapis_send_email_proses (Request $request)
+    {
+        // dd($request->all());
+        $this->validation_send_email($request->all())->validate();
+        $this->store_send_email($request->all());
+
+
+        return redirect()->back()->with('success', 'Emel sudah dihantar');
+    }
+
+    protected function validation_send_email(array $data)
+    {
+        return Validator::make($data, [
+            // 'Id' => ['required', 'string'],
+            'TypeOfEmail' => ['required', 'string'],
+            'FromEmail' => ['required', 'string'],
+            'Subject' => ['required', 'string'],
+            'Message' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_send_email(array $data)
+    {
+
+        // $user = User::where('e_nl', auth()->user()->username)->first();
+
+        return Ekmessage::create([
+            // 'Id' => $data['Id'],
+            'Date' => date("Y-m-d H:i:s"),
+            'FromName' => auth()->user()->name,
+            'FromLicense' => auth()->user()->username,
+            'TypeOfEmail' => $data['TypeOfEmail'],
+            'FromEmail' => $data['FromEmail'],
+            'Category' => auth()->user()->category,
+            'Subject' => $data['Subject'],
+            'Message' => $data['Message'],
+
+        ]);
     }
 
 

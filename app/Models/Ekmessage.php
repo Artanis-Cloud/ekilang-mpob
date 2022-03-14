@@ -20,9 +20,10 @@ class Ekmessage extends Model
      */
     protected $table = 'ekmessage'; //email
     protected $primaryKey = 'MsgID';
+    public $timestamps = false;
 
     protected $fillable = [
-        
+
         'Date',
         'FromName',
         'FromLicense',
