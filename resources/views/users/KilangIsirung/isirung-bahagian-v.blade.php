@@ -292,7 +292,15 @@
 
 
                                                         @endforeach
+                                                        <tr>
+                                                            <td></td>
+                                                            <td><b>JUMLAH</b></td>
+                                                            {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                            <td style="text-align: right"><b>{{ $data->e102_b6 }}</b></td>
+                                                            <td colspan="2"></td>
+                                                            {{-- <td></td> --}}
 
+                                                        </tr>
 
                                                         <br>
 
@@ -320,14 +328,13 @@
                                     </div>
                                     <div class="text-right col-md-7 mb-4 ">
                                         <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
-                                            Seterusnya</button>
+                                            style="float: right" data-bs-target="#next">Hantar</button>
                                     </div>
 
                                 </div>
 
                                 <!-- Vertically Centered modal Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="next" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                         role="document">
@@ -351,7 +358,7 @@
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                 </button>
-                                                <a href="{{ route('isirung.bahagianvi') }}" type="button"
+                                                <a href="{{ route('isirung.paparpenyata') }}" type="button"
                                         class="btn btn-primary ml-1">
 
                                         <i class="bx bx-check d-block d-sm-none"></i>

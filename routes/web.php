@@ -22,6 +22,8 @@ Route::middleware('auth')->group(function () {
     //Data Migration
     Route::get('/migrate/data', [App\Http\Controllers\DataMigrationController::class, 'transfer_pelesen_to_users'])->name('transfer_pelesen_to_users');
     Route::get('/migrate/data/admin', [App\Http\Controllers\DataMigrationController::class, 'transfer_admin_to_users'])->name('transfer_admin_to_users');
+    Route::get('/migrate/data/loginmill', [App\Http\Controllers\DataMigrationController::class, 'transfer_loginmill_to_users'])->name('transfer_loginmill_to_users');
+    Route::get('/migrate/data/kilang', [App\Http\Controllers\DataMigrationController::class, 'transfer_kilang_to_pelesen'])->name('transfer_kilang_to_pelesen');
 
     //AJAX
     Route::get('/ajax/fetch-daerah/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_daerah'])->name('ajax-daerah');
@@ -264,7 +266,10 @@ Route::middleware('auth')->group(function () {
 
         // Route::get('isirung/bahagian-vii', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagianvii'])->name('isirung.bahagianvii');
         Route::get('isirung/papar-penyata', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_paparpenyata'])->name('isirung.paparpenyata');
+
         Route::get('isirung/email', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_email'])->name('isirung.email');
+        Route::post('isirung/send-email', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_send_email_proses'])->name('isirung.send.email.proses');
+
 
         Route::get('isirung/penyata-dahulu', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_penyatadahulu'])->name('isirung.penyatadahulu');
         Route::post('isirung/penyata-dahulu/process', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_penyata_dahulu_process'])->name('isirung.penyata.dahulu.process');
@@ -367,3 +372,7 @@ Route::get('biodiesel/papar-penyata', [App\Http\Controllers\Users\KilangBiodiese
 Route::get('biodiesel/email', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_email'])->name('bio.email');
 Route::get('biodiesel/prestasi-oer', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_prestasioer'])->name('bio.prestasioer');
 Route::get('biodiesel/penyata-dahulu', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_penyatadahulu'])->name('bio.penyatadahulu');
+
+Route::group(['middleware' => ['kilang-biodiesel']], function () {
+
+});
