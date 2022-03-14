@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title> Kilang Oleokimia</title>
+    <title> Kilang Biodiesel</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -47,7 +47,7 @@
 
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/css/biostyle.css') }}" rel=" stylesheet">
     <!-- Toastr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
         integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
@@ -93,7 +93,7 @@
 
                             <ul class="submenu " style="margin-left:-5%">
                                 <li>
-                                    <a href="{{ route('oleo.maklumatasaspelesen') }}">
+                                    <a href="{{ route('bio.maklumatasaspelesen') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Maklumat Asas Pelesen</span>
@@ -101,7 +101,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('oleo.tukarpassword') }}">
+                                    <a href="{{ route('bio.tukarpassword') }}">
                                         <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layout" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Tukar Kata Laluan</span>
@@ -121,31 +121,31 @@
                             <ul class="submenu " style="margin-left:-5%">
 
                                 <li>
-                                    <a href="{{ route('oleo.bahagiania') }}">
+                                    <a href="{{ route('bio.bahagiania') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian Ia</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian I(a)</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('oleo.bahagianib') }}">
+                                    <a href="{{ route('bio.bahagianib') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian Ib</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian I(b)</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('oleo.bahagianic') }}">
+                                    <a href="{{ route('bio.bahagianic') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian Ic</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian I(c)</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('oleo.bahagianii') }}">
+                                    <a href="{{ route('bio.bahagianii') }}">
                                         <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layout" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian II</span>
@@ -153,7 +153,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('oleo.bahagianiii') }}">
+                                    <a href="{{ route('bio.bahagianiii') }}">
                                         <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layers" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian III</span>
@@ -161,7 +161,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('oleo.bahagianiv') }}">
+                                    <a href="{{ route('bio.bahagianiv') }}">
                                         <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="grid" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian IV</span>
@@ -175,7 +175,7 @@
 
 
 
-                        <a  href="{{ route('oleo.penyatadahulu') }}" class='sidebar-link'>
+                        <a  href="{{ route('bio.penyatadahulu') }}" class='sidebar-link'>
                             <i data-feather="#" width="20" style="margin-left:-10px; "></i>
                             <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "></i>
                             <span><b>Papar Penyata Bulanan Terdahulu</b></span>
@@ -232,7 +232,9 @@
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
-                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;"> {{ auth()->user()->name }}</b>
+                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;">
+                    {{-- {{ auth()->user()->name }} --}}
+                </b>
                 </span>
 
 
@@ -242,7 +244,7 @@
                     <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
 
                         <li class="dropdown nav-icon">
-                            <a href="{{ route('oleo.email') }}"
+                            <a href="{{ route('bio.email') }}"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="mt-2">
                                     <i class="fa fa-envelope" style="font-size:18px;"></i>
@@ -275,21 +277,6 @@
                                 </ul>
                             </div>
                         </li>
-                        {{-- <li class="dropdown nav-icon me-2">
-                            <a href="#" data-bs-toggle="dropdown"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="d-lg-inline-block">
-                                    <i data-feather="mail"></i>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
-                                <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
-                                <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
-                            </div>
-                        </li> --}}
                         <li class="dropdown">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -297,7 +284,8 @@
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
                                 </div> --}}
                                 <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">
-                                    {{ auth()->user()->username }}</div>
+                                    {{-- {{ auth()->user()->username }} --}}
+                                </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp Akaun
@@ -305,13 +293,13 @@
                                 {{-- <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a> --}}
                                 <a class="dropdown-item" href="#"><i class="fa fa-gear"></i>&nbsp Tetapan</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"
+                                {{-- <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                     <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
                                 <form id="logoutform" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">
                                     {{ csrf_field() }}
-                                </form>
+                                </form> --}}
                             </div>
                         </li>
                     </ul>
@@ -329,7 +317,7 @@
                     <div class="row justify-content-center" style="margin-top: -4%">
                         <div class="col-xl-12 col-lg-8">
 
-                            <h1 style="font-size:15px; margin-left:10%; margin-bottom:-1%">PENYATA BULANAN KILANG OLEOKIMIA</h1>
+                            <h1 style="font-size:15px; margin-left:10%; margin-bottom:-1%">PENYATA BULANAN KILANG BIODIESEL</h1>
                         </div>
                     </div>
 
@@ -418,7 +406,7 @@
                                     </div>
                                 </div>
                             </div>
-
+<br>
                             <div class="card" style="margin-right:10%; margin-left:10%">
                                 <div class="card-header " style="margin-bottom:-2%">
                                     <h2 class='pl-3 card-heading'
@@ -447,7 +435,7 @@
                                 </div>
 
                             </div>
-
+<br>
                             <div class="card" style="margin-right:10%; margin-left:10%">
                                 <div class="card-header" style="margin-bottom:-2%">
                                     <h2 class='pl-3 card-heading'

@@ -2,42 +2,49 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title> Kilang Buah</title>
+    <title> Kilang Biodiesel</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
     <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
     <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-    <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
+
 
     <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
         rel="stylesheet">
 
+
+
     <!-- Vendor CSS Files -->
-    {{-- <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet"> --}}
-    {{-- <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet"> --}}
+    <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
+    <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
 
     <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
-    <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.bubble.css') }}">
-    <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
+
     <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
+    <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
+    <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
+
+    <link rel="stylesheet" href="{{ asset('theme/vendors/simple-datatables/style.css') }}">
 
     <!-- Template Main CSS File -->
-    <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
-
-    {{-- DataTables --}}
-    {{-- <link rel="stylesheet" href="{{ asset('theme/vendors/simple-datatables/style.css') }}"> --}}
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.4/r-2.2.9/sc-2.0.5/datatables.min.css"/>
+    <link href="{{ asset('theme/kilangstyles/css/biostyle.css') }}" rel=" stylesheet">
 
     <!-- Toastr -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
@@ -56,11 +63,11 @@
                     {{-- <strong>E-Kilang</strong><br />
                     <span>description</span> --}}
 
-                    <h6 style="text-align:left; margin-left:15%; margin-top:-2%; ">
-                        <a href="{{ route('buah.dashboard') }}" style="color: rgb(29, 28, 24)">
-                        <b>
-                            e-Kilang</b>
-                        </a>
+                    <h6 style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
+                        <a href="{{ route('bio.dashboard') }}" style="color: rgb(29, 28, 24)">
+                            <b>
+                                e-Kilang</b>
+                            </a>
                     </h6>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
                     {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
@@ -71,7 +78,7 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         {{-- <div class="container" style="margin-top: 30%; margin-left:6%; ">
-                            <h6 style="color: rgb(54, 51, 41)"><b>KILANG BUAH</b></h6>
+                            <h6 style="color: rgb(54, 51, 41)"><b>KILANG oleo</b></h6>
                         </div> --}}
                         </li>
                         <br>
@@ -84,7 +91,7 @@
 
                             <ul class="submenu " style="margin-left:-5%">
                                 <li>
-                                    <a href="{{ route('buah.maklumatasaspelesen') }}">
+                                    <a href="{{ route('bio.maklumatasaspelesen') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Maklumat Asas Pelesen</span>
@@ -92,7 +99,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('buah.tukarpassword') }}">
+                                    <a href="{{ route('bio.tukarpassword') }}">
                                         <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layout" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Tukar Kata Laluan</span>
@@ -113,15 +120,31 @@
                             <ul class="submenu " style="margin-left:-5%">
 
                                 <li>
-                                    <a href="{{ route('buah.bahagiani') }}">
+                                    <a href="{{ route('bio.bahagiania') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian I</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian I(a)</span>
                                     </a>
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('buah.bahagianii') }}">
+                                    <a href="{{ route('bio.bahagianib') }}">
+                                        <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="file-text" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian I(b)</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('bio.bahagianic') }}">
+                                        <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="file-text" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian I(c)</span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('bio.bahagianii') }}">
                                         <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layout" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian II</span>
@@ -129,7 +152,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('buah.bahagianiii') }}">
+                                    <a href="{{ route('bio.bahagianiii') }}">
                                         <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layers" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian III</span>
@@ -137,22 +160,16 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('buah.bahagianiv') }}">
+                                    <a href="{{ route('bio.bahagianiv') }}">
                                         <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="grid" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Bahagian IV</span>
                                     </a>
                                 </li>
 
+
                                 <li>
-                                    <a href="{{ route('buah.bahagianv') }}">
-                                        <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
-                                        {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian V</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('buah.paparpenyata') }}">
+                                    <a href="{{ route('bio.paparpenyata') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Papar & Hantar Penyata Bulanan</span>
@@ -164,13 +181,8 @@
                         </li>
 
 
-                        <a  href="{{ route('buah.prestasioer') }}" class='sidebar-link'>
-                            <i data-feather="#" width="20" style="margin-left:-10px; "></i>
-                            <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
-                            <span><b>Prestasi OER</b></span>
-                        </a>
-                        
-                        <a  href="{{ route('buah.penyatadahulu') }}" class='sidebar-link'>
+
+                        <a  href="{{ route('bio.penyatadahulu') }}" class='sidebar-link'>
                             <i data-feather="#" width="20" style="margin-left:-10px; "></i>
                             <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "></i>
                             <span><b>Papar Penyata Bulanan Terdahulu</b></span>
@@ -216,25 +228,23 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                {{-- <a class="navbar-brand">
 
-
-                    <img src="{{ asset('/mpob.png') }}" height='50px' width='60px' alt=""
-                        style="margin-left:25%; margin-top: 3px;">
-
-                </a>--}}
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
-                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;"> {{ auth()->user()->name }} </b>
+                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;">
+                    {{-- {{ auth()->user()->name }}  --}}
+                </b>
                 </span>
+
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 
                     <ul class="navbar-nav d-flex align-items-center navbar-light ms-auto">
+
                         <li class="dropdown nav-icon">
-                            <a href="{{ route('buah.email') }}"
+                            <a href="{{ route('bio.email') }}"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="mt-2">
                                     <i class="fa fa-envelope" style="font-size:18px;"></i>
@@ -242,6 +252,7 @@
                             </a>
 
                         </li>
+
 
                         <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
@@ -267,15 +278,30 @@
                                 </ul>
                             </div>
                         </li>
-
-
+                        {{-- <li class="dropdown nav-icon me-2">
+                            <a href="#" data-bs-toggle="dropdown"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="d-lg-inline-block">
+                                    <i data-feather="mail"></i>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end">
+                                <a class="dropdown-item" href="#"><i data-feather="user"></i> Account</a>
+                                <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a>
+                                <a class="dropdown-item" href="#"><i data-feather="settings"></i> Settings</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#"><i data-feather="log-out"></i> Logout</a>
+                            </div>
+                        </li> --}}
                         <li class="dropdown">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 {{-- <div class="avatar me-1">
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
                                 </div> --}}
-                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">{{ auth()->user()->username }}</div>
+                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">
+                                    {{-- {{ auth()->user()->username }} --}}
+                                </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp Akaun
@@ -283,13 +309,13 @@
                                 {{-- <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a> --}}
                                 <a class="dropdown-item" href="#"><i class="fa fa-gear"></i>&nbsp Tetapan</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#"
+                                {{-- <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                     <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
                                 <form id="logoutform" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">
                                     {{ csrf_field() }}
-                                </form>
+                                </form> --}}
                             </div>
                         </li>
                     </ul>
@@ -307,8 +333,10 @@
 
             {{-- <footer>
                 <div class="footer text-muted">
-
-                    <div style="text-align: center">
+                    {{-- <div class="float-start">
+                        <p>2020 &copy; Voler</p>
+                    </div> --}}
+                    {{-- <div style="text-align: center">
                         <p style="font-size:14px; color:white">Developed by Artanis Cloud</a></p>
                     </div>
                 </div>
@@ -316,6 +344,31 @@
 
         </div>
     </div>
+    <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
+    </script>
+    <script href="{{ asset('theme/kilangstyles/vendor/glightbox/js/glightbox.min.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/isotope-layout/isotope.pkgd.min.js') }}"" rel=" stylesheet">
+    </script>
+    <script href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.js') }}"" rel=" stylesheet"></script>
+    <script href="{{ asset('theme/kilangstyles/vendor/php-email-form/validate.js') }}"" rel=" stylesheet"></script>
+
+
+
+    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+    <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('theme/js/app.js') }}"></script>
+
+    <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
+
+    <script src="{{ asset('theme/vendors/chartjs/Chart.min.js') }}"></script>
+    <script src="{{ asset('theme/vendors/apexcharts/apexcharts.min.js') }}"></script>
+    {{-- <script src="{{ asset('theme/js/pages/dashboard.js') }}"></script> --}}
+
+    <script src="{{ asset('theme/js/vendors.js') }}"></script>
+
+    <script src="{{ asset('theme/js/main.js') }}"></script>
 
     <script>
         function isNumberKey(evt) {
@@ -326,32 +379,37 @@
         }
     </script>
 
-    <script src="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
-    <script src="{{ asset('theme/kilangstyles/js/main.js') }}"></script>
-    <script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/form-editor.js') }}"></script>
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"/></script>
-
-    {{-- Datatable Scripts --}}
-    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.4/r-2.2.9/sc-2.0.5/datatables.min.js"></script>
-    {{-- <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script> --}}
 
 
     <!-- Template Main JS File -->
-    <script src="{{ asset('theme/js/app.js') }}"></script>
-    <script src="{{ asset('theme/js/main.js') }}"></script>
+
+    <script href="{{ asset('theme/kilangstyles/js/main.js') }}" rel=" stylesheet"></script>
+
+
+    <script src="{{ asset('theme/vendors/quill/quill.min.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/form-editor.js') }}"></script>
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+    </script>
+
+
+    <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
 
     <!-- Toastr -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    @yield('datatable')
-    @yield('javascript')
-
     <script>
         $(document).ready(function() {
-            var table = $('#table1').DataTable({
+            var table = $('#example').DataTable({
                 "language": {
                     "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
                     "zeroRecords": "Maaf, tiada rekod.",
@@ -381,23 +439,6 @@
         @endif
     </script>
 
-    <script>
-                .sidebar .main-navigation .main-nav .sub-menu {
-            opacity: 1 !important;
-            display: block !important;
-            left: auto;
-            right: auto !important;
-            position: relative;
-            width: 100%;
-            clear: both !important;
-            top: auto;
-            float: none;
-        }
-
-        .sidebar .dropdown-menu-toggle {
-            display: none;
-}
-    </script>
 
 </body>
 
