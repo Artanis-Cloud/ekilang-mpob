@@ -262,14 +262,14 @@
                                                             <tr style="text-align: right">
 
                                                                 <td style="text-align: left">
-                                                                    {{ $data->produk[0]->prodname }}
+                                                                    {{ $data->produk->prodname }}
                                                                     {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
                                                                                     <span>{{ $produk->prodname }}</span>
                                                                                 @endif --}}
 
                                                                 </td>
                                                                 <td>
-                                                                    {{ $data->produk[0]->prodid }}
+                                                                    {{ $data->produk->prodid }}
                                                                     {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
                                                                                     <span>{{ $produk->prodname }}</span>
                                                                                 @endif --}}
@@ -341,7 +341,7 @@
                                                                                             <input type="text"
                                                                                                 name='e104_b4'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->produk[0]->prodname }}"
+                                                                                                value="{{ $data->produk->prodname }}"
                                                                                                 readonly>
                                                                                         </div>
                                                                                         <label>Stok Awal Di Premis </label>
