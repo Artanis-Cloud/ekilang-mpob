@@ -8,6 +8,7 @@ use App\Models\Pelesen;
 use App\Models\E102Init;
 use App\Models\E102b;
 use App\Models\E102c;
+use App\Models\Ekmessage;
 use App\Models\H102b;
 use App\Models\H102c;
 use App\Models\H102Init;
@@ -185,7 +186,6 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
         $penyata = E102Init::where('e102_nl', auth()->user()->username)->first();
-
 
         return view('users.KilangIsirung.isirung-bahagian-ii', compact('returnArr', 'layout', 'penyata'));
     }
@@ -759,6 +759,47 @@ class KilangIsirungController extends Controller
 
 
         return view('users.KilangIsirung.isirung-email', compact('returnArr', 'layout'));
+    }
+
+
+    public function isirung_send_email_proses (Request $request)
+    {
+        // dd($request->all());
+        $this->validation_send_email($request->all())->validate();
+        $this->store_send_email($request->all());
+
+
+        return redirect()->back()->with('success', 'Emel sudah dihantar');
+    }
+
+    protected function validation_send_email(array $data)
+    {
+        return Validator::make($data, [
+            // 'Id' => ['required', 'string'],
+            'TypeOfEmail' => ['required', 'string'],
+            'FromEmail' => ['required', 'string'],
+            'Subject' => ['required', 'string'],
+            'Message' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_send_email(array $data)
+    {
+
+        // $user = User::where('e_nl', auth()->user()->username)->first();
+
+        return Ekmessage::create([
+            // 'Id' => $data['Id'],
+            'Date' => date("Y-m-d H:i:s"),
+            'FromName' => auth()->user()->name,
+            'FromLicense' => auth()->user()->username,
+            'TypeOfEmail' => $data['TypeOfEmail'],
+            'FromEmail' => $data['FromEmail'],
+            'Category' => auth()->user()->category,
+            'Subject' => $data['Subject'],
+            'Message' => $data['Message'],
+
+        ]);
     }
 
     public function isirung_penyatadahulu()

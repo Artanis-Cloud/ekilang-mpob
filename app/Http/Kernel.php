@@ -70,5 +70,6 @@ class Kernel extends HttpKernel
         'kilang-oleokimia' => \App\Http\Middleware\KilangOleokimia::class,
         'kilang-penapis' => \App\Http\Middleware\KilangPenapis::class,
         'pusat-simpanan' => \App\Http\Middleware\PusatSimpanan::class,
+        'kilang-biodiesel' => \App\Http\Middleware\KilangBiodiesel::class,
     ];
 }
