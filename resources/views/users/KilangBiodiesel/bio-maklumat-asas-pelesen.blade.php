@@ -2,69 +2,7 @@
 
 @section('content')
 
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <title> Kilang Buah</title>
-        <meta content="" name="description">
-        <meta content="" name="keywords">
-
-        <!-- Favicons -->
-        <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-
-        <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-            rel="stylesheet">
-
-        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
-        <!-- Vendor CSS Files -->
-        <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
-
-
-
-
-        <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
-        <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
-        <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
-
-        <link href="{{ asset('theme/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
-        <link href="{{ asset('theme/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
-
-
-
-        <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
-            rel="stylesheet" type="text/css" />
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-        <meta charset=utf-8 />
-
-        <!-- Template Main CSS File -->
-        <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet">
-        <!-- =======================================================
-                      * Template Name: OnePage - v4.7.0
-                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                      * Author: BootstrapMade.com
-                      * License: https://bootstrapmade.com/license/
-                      ======================================================== -->
-    </head>
 
 
     <!-- ======= Hero Section ======= -->
@@ -79,7 +17,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-4 row">
+            <div class="mt-3 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -132,7 +70,7 @@
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
-                                    <form action="{{ route('oleo.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
+                                    <form action="#" method="post">
                                         @csrf
                                         <div class="container center mt-5" >
                                             <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
@@ -141,7 +79,7 @@
                                                     Alamat Premis Berlesen</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_ap1" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                                name="e_ap1" value="{{ $pelesen->e_ap1 }}">
+                                                                name="e_ap1" value="">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -150,11 +88,11 @@
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%; ">
                                                     <input type="text" id="e_ap2" class="form-control" placeholder="Alamat Surat Menyurat 2"
-                                                                name="e_ap2" value="{{ $pelesen->e_ap2 }}">
+                                                                name="e_ap2" value="">
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%;">
                                                     <input type="text" id="e_ap3" class="form-control" placeholder="Alamat Surat Menyurat 3"
-                                                                name="e_ap3" value="{{ $pelesen->e_ap3 }}">
+                                                                name="e_ap3" value="">
                                                 </div>
                                             </div>
 
@@ -164,7 +102,7 @@
                                                     Alamat Surat Menyurat</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_as1" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                                name="e_as1" value="{{ $pelesen->e_as1 }}">
+                                                                name="e_as1" value="">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -173,11 +111,11 @@
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%">
                                                     <input type="text" id="e_as2" class="form-control" placeholder="Alamat Surat Menyurat 2"
-                                                                name="e_as2" value="{{ $pelesen->e_as2 }}">
+                                                                name="e_as2" value="">
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%">
                                                     <input type="text" id="e_as3" class="form-control" placeholder="Alamat Surat Menyurat 3"
-                                                                name="e_as3" value="{{ $pelesen->e_as3 }}">
+                                                                name="e_as3" value="">
                                                 </div>
                                             </div>
 
@@ -187,7 +125,7 @@
                                                     No. Telefon (Pejabat / Kilang)</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_notel" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
-                                                                name="e_notel" value="{{ $pelesen->e_notel }}">
+                                                                name="e_notel" value="">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -201,7 +139,7 @@
                                                     No. Faks</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
-                                                                name="e_nofax" value="{{ $pelesen->e_nofax }}">
+                                                                name="e_nofax" value="">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -215,7 +153,7 @@
                                                     Alamat Emel Kilang</label>
                                                 <div class="col-md-6">
                                                     <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
-                                                                name="e_email" value="{{ $pelesen->e_email }}">
+                                                                name="e_email" value="">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -229,7 +167,7 @@
                                                     Nama Pegawai Melapor</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_npg" class="form-control" placeholder="Nama Pegawai Melapor"
-                                                                name="e_npg" value="{{ $pelesen->e_npg }}">
+                                                                name="e_npg" value="">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -243,7 +181,7 @@
                                                     Jawatan Pegawai Melapor</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_jpg" class="form-control" placeholder="Jawatan Pegawai Melapor"
-                                                                name="e_jpg" value="{{ $pelesen->e_jpg }}">
+                                                                name="e_jpg" value="">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -285,7 +223,7 @@
                                                     Nama Pegawai Bertanggungjawab</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_npgtg" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
-                                                                name="e_npgtg" value="{{ $pelesen->e_npgtg }}">
+                                                                name="e_npgtg" value="">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -300,7 +238,7 @@
                                                     Bertanggungjawab</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_jpgtg" class="form-control" placeholder="Jawatan Pegawai Bertanggungjawab"
-                                                                name="e_jpgtg" value="{{ $pelesen->e_jpgtg }}">
+                                                                name="e_jpgtg" value="">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -314,7 +252,7 @@
                                                     Alamat Emel Pengurus</label>
                                                 <div class="col-md-6">
                                                     <input type="email" id="e_email_pengurus" class="form-control" placeholder="Alamat Emel Pengurus"
-                                                                name="e_email_pengurus" value="{{ $pelesen->e_email_pengurus ?? '-'}}">
+                                                                name="e_email_pengurus" value="">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
