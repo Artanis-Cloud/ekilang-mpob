@@ -61,7 +61,10 @@
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-
+                                    <form
+                                    action="{{ route('penapis.send.email.proses') }}"
+                                    method="post">
+                                    @csrf
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Emel Pertanyaan / Pindaan /
@@ -81,13 +84,13 @@
                                                 Jenis Emel</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
+                                                    <select class="form-select" id="basicSelect" name="TypeOfEmail">
                                                         <option selected hidden disabled>Sila Pilih Jenis Emel</option>
-                                                        <option>Pertanyaan
+                                                        <option value="pertanyaan">Pertanyaan
                                                         </option>
-                                                        <option>Pindaan
+                                                        <option value="pindaan">Pindaan
                                                         </option>
-                                                        <option>Cadangan
+                                                        <option value="cadangan"  >Cadangan
                                                         </option>
 
                                                     </select>
@@ -106,7 +109,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Daripada (Alamat Emel)</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='from' id="from" required
+                                                <input type="text" class="form-control" name='FromEmail' id="FromEmail" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -120,8 +123,8 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Tajuk</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='nombor_borang_kastam'
-                                                    id="nombor_borang_kastam" required title="Sila isikan butiran ini.">
+                                                <input type="text" class="form-control" name='Subject'
+                                                    id="Subject" required title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -133,13 +136,17 @@
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kandungan</label>
-                                            <div class="col-md-6">
-                                                <div id="snow">
-
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name='Message'
+                                                        id="Subject" required title="Sila isikan butiran ini.">
 
                                                 </div>
+                                                {{-- <div class="col-md-6" >
+                                                    <div id="snow" oninput="add_message()">
 
-                                            </div>
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="quill_html" name="Message"> --}}
                                         </div>
                                         <br>
                                         <div class="row" style="margin-bottom: 5%; margin-top:-1%">
@@ -176,13 +183,13 @@
                                 </div> --}}
                                 <div class="text-right col-md-12 ">
                                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                        style="float: right" data-bs-target="#exampleModalCenter">Hantar</button>
+                                        style="float: right" data-bs-target="#emel">Hantar</button>
                                 </div>
 
                             </div>
 
                                 <!-- Vertically Centered modal Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                <div class="modal fade" id="emel" tabindex="-1"
                                     role="dialog" aria-labelledby="exampleModalCenterTitle"
                                     aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
@@ -208,8 +215,8 @@
                                                     <span class="d-none d-sm-block"
                                                         style="color:#275047">Kembali</span>
                                                 </button>
-                                                <button type="button" class="btn btn-primary ml-1"
-                                                    data-bs-dismiss="modal">
+                                                <button type="submit" class="btn btn-primary ml-1"
+                                                    >
                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Hantar</span>
                                                 </button>
@@ -217,9 +224,10 @@
                                         </div>
                                     </div>
                                 </div>
+                                </form>
                             </div>
 
-                        </form>
+
 
                     </div><br><br><br><br><br>
                 </div>
@@ -236,7 +244,20 @@
 
 
     </section><!-- End Hero -->
+    <script>
+        var quill = new Quill('#snow', {
+            // theme: 'snow'
+        });
 
+        function add_message() {
+            // var content = document.querySelector("#snow").innerHTML;
+            // alert(quill.getContents());
+            quill.on('text-change', function(delta, oldDelta, source) {
+                document.getElementById("quill_html").value = quill.root.innerHTML;
+            });
+        }
+
+    </script>
 
 
     </main><!-- End #main -->
