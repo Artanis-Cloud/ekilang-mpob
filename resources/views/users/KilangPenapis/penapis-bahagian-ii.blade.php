@@ -107,11 +107,11 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <span class="required">Jualan / Edaran Dalam Negeri:</span>
+                                                    <span class="required">Digunakan Untuk Proses Selanjutnya:</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_b11'style="width: 50%"
-                                                        id="e101_b11" required
+                                                    <input type="text" class="form-control" name='e101_b10'style="width: 50%"
+                                                        id="e101_b10" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -137,11 +137,11 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <span class="required">Eksport:</span>
+                                                    <span class="required">Jualan / Edaran Dalam Negeri:</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_b12'style="width: 50%"
-                                                        id="e101_b12" required
+                                                    <input type="text" class="form-control" name='e101_b11'style="width: 50%"
+                                                        id="e101_b11" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -160,6 +160,36 @@
                                                     <input type="text" class="form-control" name='e101_b7'style="width: 50%"
                                                         id="e101_b7" required
                                                         title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span class="required">Eksport:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b12'style="width: 50%"
+                                                        id="e101_b12" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span >Import:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b8'style="width: 50%"
+                                                        id="e101_b8"
+                                                        title="Sila isikan butiran ini." readonly>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -209,23 +239,6 @@
                                                     </div>
                                                 @enderror --}}
                                                 </div>
-                                            </div>
-
-
-                                            <div class="row mt-4">
-                                                <div class="col-md-2">
-                                                    <span class="required">Digunakan Untuk Proses Selanjutnya:</span>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_b10'style="width: 50%"
-                                                        id="e101_b10" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
 
                                             </div>
 
@@ -262,7 +275,7 @@
                                                 <th>Stok Awal Di Premis</th>
                                                 <th>Stok Awal Di Pusat Simpanan</th>
                                                 <th>Belian / Penerimaan</th>
-                                                {{-- <th>Import</th> --}}
+                                                <th>Import</th>
                                                 <th>Pengeluaran</th>
                                                 <th>Digunakan Untuk Proses Selanjutnya</th>
                                                 <th>Jualan / Edaran Dalam Negeri</th>
@@ -294,7 +307,7 @@
                                                     <td>{{ $data->e101_b5 }}</td>
                                                     <td>{{ $data->e101_b6 }}</td>
                                                     <td>{{ $data->e101_b7 }}</td>
-                                                    {{-- <td>{{ $data->e101_b8 }}</td> --}}
+                                                    <td>{{ $data->e101_b8 }}</td>
                                                     <td>{{ $data->e101_b9 }}</td>
                                                     <td>{{ $data->e101_b10 }}</td>
                                                     <td>{{ $data->e101_b11 }}</td>
@@ -372,11 +385,12 @@
                                                                                     class="form-control"
                                                                                     value="{{ $data->e101_b7 }}">
                                                                             </div>
-                                                                            {{-- <label>Import </label>
+                                                                            <label>Import </label>
                                                                             <div class="form-group">
-                                                                                <input type="password" placeholder="Password"
-                                                                                    class="form-control">
-                                                                            </div> --}}
+                                                                                <input type="text" name='e101_b8'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->e101_b8 }}" readonly>
+                                                                            </div>
                                                                             <label>Pengeluaran </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b9'
@@ -478,14 +492,14 @@
                         </div>
                         <div class="text-right col-md-7 mb-4 ">
                             <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                data-bs-target="#exampleModalCenter">Simpan &
+                                data-bs-target="#next">Simpan &
                                 Seterusnya</button>
                         </div>
 
                     </div>
 
                     <!-- Vertically Centered modal Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    <div class="modal fade" id="next" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                             role="document">

@@ -184,12 +184,12 @@
 
                                             <div class="row mt-4">
                                                 <div class="col-md-2">
-                                                    <span class="required">Pengeluaran:</span>
+                                                    <span class="required">Import:</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e101_b9'style="width: 50%"
-                                                        id="e101_b9" required
-                                                        title="Sila isikan butiran ini.">
+                                                    <input type="text" class="form-control" name='e101_b8'style="width: 50%"
+                                                        id="e101_b8" required
+                                                        title="Sila isikan butiran ini." readonly>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -210,9 +210,25 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
+                                            <div class="row mt-4">
+                                                <div class="col-md-2">
+                                                    <span class="required">Pengeluaran:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b9'style="width: 50%"
+                                                        id="e101_b9" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+
+                                            </div>
 
 
-                                        
+
                                         </div>
 
 
@@ -253,7 +269,7 @@
                                                 <th>Stok Awal Di Premis</th>
                                                 <th>Stok Awal Di Pusat Simpanan</th>
                                                 <th>Belian / Penerimaan</th>
-                                                {{-- <th>Import</th> --}}
+                                                <th>Import</th>
                                                 <th>Pengeluaran</th>
                                                 <th>Digunakan Untuk Proses Selanjutnya</th>
                                                 <th>Jualan / Edaran Dalam Negeri</th>
@@ -289,7 +305,7 @@
                                                     <td>{{ $data->e101_b5 }}</td>
                                                     <td>{{ $data->e101_b6 }}</td>
                                                     <td>{{ $data->e101_b7 }}</td>
-                                                    {{-- <td>{{ $data->e101_b8 }}</td> --}}
+                                                    <td>{{ $data->e101_b8 }}</td>
                                                     <td>{{ $data->e101_b9 }}</td>
                                                     <td>{{ $data->e101_b10 }}</td>
                                                     <td>{{ $data->e101_b11 }}</td>
@@ -365,11 +381,12 @@
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b7') ?? $data->e101_b7 }}">
                                                                             </div>
-                                                                            {{-- <label>Import </label>
+                                                                            <label>Import </label>
                                                                             <div class="form-group">
-                                                                                <input type="password" placeholder="Password"
-                                                                                    class="form-control">
-                                                                            </div> --}}
+                                                                                <input type="text" name='e101_b8'
+                                                                                    class="form-control"
+                                                                                    value="{{ old('e101_b8') ?? $data->e101_b8 }}" readonly>
+                                                                            </div>
                                                                             <label>Pengeluaran </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_b9'
