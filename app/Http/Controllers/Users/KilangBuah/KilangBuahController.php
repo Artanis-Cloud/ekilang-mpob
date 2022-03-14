@@ -4,12 +4,15 @@ namespace App\Http\Controllers\Users\KilangBuah;
 
 use App\Http\Controllers\Controller;
 use App\Models\E91Init;
+use App\Models\Ekmessage;
 use App\Models\H91Init;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\RegPelesen;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
+
 use DB;
 
 class KilangBuahController extends Controller
@@ -413,6 +416,47 @@ class KilangBuahController extends Controller
 
 
         return view('users.KilangBuah.buah-email', compact('returnArr', 'layout'));
+    }
+
+
+    public function buah_send_email_proses (Request $request)
+    {
+        // dd($request->all());
+        $this->validation_send_email($request->all())->validate();
+        $this->store_send_email($request->all());
+
+
+        return redirect()->back()->with('success', 'Emel sudah dihantar');
+    }
+
+    protected function validation_send_email(array $data)
+    {
+        return Validator::make($data, [
+            // 'Id' => ['required', 'string'],
+            'TypeOfEmail' => ['required', 'string'],
+            'FromEmail' => ['required', 'string'],
+            'Subject' => ['required', 'string'],
+            'Message' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_send_email(array $data)
+    {
+
+        // $user = User::where('e_nl', auth()->user()->username)->first();
+
+        return Ekmessage::create([
+            // 'Id' => $data['Id'],
+            'Date' => date("Y-m-d H:i:s"),
+            'FromName' => auth()->user()->name,
+            'FromLicense' => auth()->user()->username,
+            'TypeOfEmail' => $data['TypeOfEmail'],
+            'FromEmail' => $data['FromEmail'],
+            'Category' => auth()->user()->category,
+            'Subject' => $data['Subject'],
+            'Message' => $data['Message'],
+
+        ]);
     }
 
     public function buah_prestasioer()

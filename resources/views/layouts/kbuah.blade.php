@@ -152,6 +152,14 @@
                                     </a>
                                 </li>
                                 <li>
+                                    <a class="btn" style="text-align: left" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalCenter">
+                                        <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian VI</span>
+                                    </a>
+                                </li>
+                                <li>
                                     <a href="{{ route('buah.paparpenyata') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
@@ -169,7 +177,7 @@
                             <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
                             <span><b>Prestasi OER</b></span>
                         </a>
-                        
+
                         <a  href="{{ route('buah.penyatadahulu') }}" class='sidebar-link'>
                             <i data-feather="#" width="20" style="margin-left:-10px; "></i>
                             <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "></i>
@@ -295,7 +303,33 @@
                     </ul>
                 </div>
             </nav>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                            PERINGATAN</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <i data-feather="x"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Anda tidak dibenarkan mengisi maklumat bahagian ini
+                        </p>
+                    </div>
+                    <div class="modal-footer">
 
+                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 

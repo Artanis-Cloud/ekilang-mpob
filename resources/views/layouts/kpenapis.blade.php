@@ -203,7 +203,8 @@
                                 </li> --}}
 
                                 <li class="sidebar-item ">
-                                    <a href="#">
+                                    <a class="btn" style="text-align: left" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalCenter">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
                                         <span style="color: rgb(78, 73, 57); ">Bahagian VI</span>
@@ -397,7 +398,7 @@
                     </div>
                 </div>
             </div>
-           
+
 
             {{-- CONTENT BODY --}}
             @yield('content')

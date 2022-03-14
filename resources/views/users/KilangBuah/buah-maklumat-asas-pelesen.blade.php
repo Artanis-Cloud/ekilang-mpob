@@ -2,69 +2,6 @@
 
 @section('content')
 
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-        <title> Kilang Buah</title>
-        <meta content="" name="description">
-        <meta content="" name="keywords">
-
-        <!-- Favicons -->
-        <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-
-
-        <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-            rel="stylesheet">
-
-        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
-        <!-- Vendor CSS Files -->
-        <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
-
-
-
-
-        <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
-        <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
-        <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
-
-        <link href="{{ asset('theme/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
-        <link href="{{ asset('theme/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
-
-
-
-        <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
-            rel="stylesheet" type="text/css" />
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-        <meta charset=utf-8 />
-
-        <!-- Template Main CSS File -->
-        <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
-        <!-- =======================================================
-                      * Template Name: OnePage - v4.7.0
-                      * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                      * Author: BootstrapMade.com
-                      * License: https://bootstrapmade.com/license/
-                      ======================================================== -->
-    </head>
 
 
     <!-- ======= Hero Section ======= -->
@@ -309,7 +246,7 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row" style="margin-bottom:2.5%">
+                                            <div class="row" >
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Alamat Emel Pengurus</label>
@@ -323,6 +260,87 @@
                                                             <strong>{{ $message }}</strong>
                                                         </div>
                                                     @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Syarikat Induk</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="syarikat_induk" class="form-control"
+                                                        placeholder="Syarikat Induk" name="syarikat_induk">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Kumpulan </label>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect" name="kumpulan">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>Kerajaan</option>
+                                                            <option>Swasta</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    POMA </label>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect" name="poma">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>Ya</option>
+                                                            <option>Tidak</option>
+
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Kapasiti Pemprosesan / Tahun</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="" class="form-control"
+                                                        placeholder="Kapasiti Pemprosesan / Tahun" name="">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Kapasiti Tangki Simpanan</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="" class="form-control"
+                                                        placeholder="Kapasiti Tangki Simpanan" name="">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
                                                 </div>
                                             </div>
                                         </div>
