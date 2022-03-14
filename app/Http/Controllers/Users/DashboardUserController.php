@@ -39,6 +39,11 @@ class DashboardUserController extends Controller
         return view('users.PusatSimpanan.pusatsimpan-dashboard');
     }
 
+    public function biodiesel_dashboard()
+    {
+        return view('users.KilangBiodiesel.bio-dashboard');
+    }
+
     public function index_form()
     {
         return view('users.form');
