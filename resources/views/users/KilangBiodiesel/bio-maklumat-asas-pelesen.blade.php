@@ -72,8 +72,22 @@
                                     <hr>
                                     <form action="#" method="post">
                                         @csrf
-                                        <div class="container center mt-5" >
-                                            <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
+
+                                            <div class="row" style="margin-bottom:2.5%">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    No. Lesen KPPK</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="" class="form-control" placeholder="No. Lesen KPPK"
+                                                                name="" value="">
+                                                    {{-- @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row" style="margin-bottom:2.5%">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label required col-form-label align-items-center">
                                                     Alamat Premis Berlesen</label>
@@ -246,7 +260,7 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row" style="margin-bottom:2.5%">
+                                            <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Alamat Emel Pengurus</label>
@@ -258,6 +272,67 @@
                                                             <strong>{{ $message }}</strong>
                                                         </div>
                                                     @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Syarikat Induk</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="syarikat_induk" class="form-control"
+                                                        placeholder="Syarikat Induk" name="syarikat_induk">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Kumpulan </label>
+                                                <div class="col-md-6">
+                                                    <fieldset class="form-group">
+                                                        <select class="form-select" id="basicSelect" name="kumpulan">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            <option>Kerajaan</option>
+                                                            <option>Swasta</option>
+                                                        </select>
+                                                    </fieldset>
+                                                    {{-- @error('alamat_kilang_1')
+                                                                <div class="alert alert-danger">
+                                                                    <strong>{{ $message }}</strong>
+                                                                </div>
+                                                            @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Kapasiti Pemprosesan / Tahun</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="" class="form-control"
+                                                        placeholder="Kapasiti Pemprosesan / Tahun" name="">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Kapasiti Tangki Simpanan</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="" class="form-control"
+                                                        placeholder="Kapasiti Tangki Simpanan" name="">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
                                                 </div>
                                             </div>
                                         </div>

@@ -20,13 +20,13 @@
             <div class="mb-2 row">
                 <div class="col-md-12">
 
-                    <div class="page-breadcrumb" style="padding: 0px">
+                    <div class="page-breadcrumb" style="padding: 0px; margin-top:-2%">
                         <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
+                            <div class=" align-self-center" style="margin-left: 2%; margin-bottom:-2%">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
                                     style="color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class=" align-self-center" style="margin-left: -1%">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -92,7 +92,7 @@
 
 
                                     <div class="container center mt-2">
-                                        <div class="row" style="margin-bottom:2%;">
+                                        <div class="row" >
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Sila Pilih Tahun</label>
@@ -128,6 +128,40 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
+
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">Bulan
+                                            </label>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-select" id="basicSelect" name="bulan">
+                                                        <option selected hidden disabled>Sila Pilih Bulan</option>
+                                                        <option value="01">Januari</option>
+                                                        <option value="02">Februari</option>
+                                                        <option value="03">Mac</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">Mei</option>
+                                                        <option value="06">Jun</option>
+                                                        <option value="07">Julai</option>
+                                                        <option value="08">Ogos</option>
+                                                        <option value="09">September</option>
+                                                        <option value="10">Oktober</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">Disember</option>
+
+
+
+                                                    </select>
+                                                </fieldset>
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+
 
 
 

@@ -2,86 +2,9 @@
 
 @section('content')
 
-    <head>
-        <meta charset="utf-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-        <title> Kilang Buah</title>
-        <meta content="" name="description">
-        <meta content="" name="keywords">
-
-        <!-- Favicons -->
-        <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
-        <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
         <link rel="stylesheet" href="{{ asset('theme/vendors/quill/quill.snow.css') }}">
 
-        <!-- Google Fonts -->
-        <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-            rel="stylesheet">
-
-        <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
-
-        <!-- Vendor CSS Files -->
-        <link href="{{ asset('theme/kilangstyles/vendor/aos/aos.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap/css/bootstrap.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/boxicons/css/boxicons.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/glightbox/css/glightbox.min.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/remixicon/remixicon.css') }}" rel=" stylesheet">
-        <link href="{{ asset('theme/kilangstyles/vendor/swiper/swiper-bundle.min.css') }}" rel=" stylesheet">
-
-        <link href="{{ asset('theme/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet" />
-
-
-
-
-        <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/chartjs/Chart.min.css') }}">
-
-        <link rel="stylesheet" href="{{ asset('theme/vendors/perfect-scrollbar/perfect-scrollbar.css') }}">
-        <link rel="stylesheet" href="{{ asset('theme/css/app.css') }}">
-        <link rel="shortcut icon" href="{{ asset('theme/images/favicon.png') }}" type="image/x-icon">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-            integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-        <script src='https://kit.fontawesome.com/82f28bb8e5.js' crossorigin='anonymous'></script>
-
-        <link href="{{ asset('theme/libs/jquery-steps/jquery.steps.css') }}" rel="stylesheet" />
-        <link href="{{ asset('theme/libs/jquery-steps/steps.css') }}" rel="stylesheet" />
-
-
-
-        <link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css"
-            rel="stylesheet" type="text/css" />
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-        <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
-        <meta charset=utf-8 />
-
-        <!-- Template Main CSS File -->
-        <link href="{{ asset('theme/kilangstyles/css/style.css') }}"" rel=" stylesheet">
-
-        <!-- datepicker -->
-        <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-        <link rel="stylesheet" href="/resources/demos/style.css">
-        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-        <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-        <script>
-            $(function() {
-                $("#datepicker").datepicker();
-            });
-        </script>
-
-
-
-        <!-- =======================================================
-                                                                                                                              * Template Name: OnePage - v4.7.0
-                                                                                                                              * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
-                                                                                                                              * Author: BootstrapMade.com
-                                                                                                                              * License: https://bootstrapmade.com/license/
-                                                                                                                              ======================================================== -->
-    </head>
 
 
     <!-- ======= Hero Section ======= -->
@@ -96,16 +19,16 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 row">
+            <div class="mt-3 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
+                            <div class="align-self-center" style="margin-left: 2%; margin-bottom:-2%">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
                                     style="color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class="align-self-center" style="margin-left: -1%">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -314,7 +237,15 @@
                         </form>
 
                     </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
                 </div>
+                <br>
             </div>
 
 

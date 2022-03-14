@@ -58,9 +58,12 @@
     {{-- <link href="{{ asset('theme/kilangstyles/css/style.css') }}" rel=" stylesheet"> --}}
 
     <!-- Toastr -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" /></head>
-    <link href="{{ asset('theme/kilangstyles/css/penapisstyle.css') }}"" rel=" stylesheet">
-    <!-- =======================================================
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+        integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<link href="{{ asset('theme/kilangstyles/css/penapisstyle.css') }}"" rel=" stylesheet">
+<!-- =======================================================
   * Template Name: OnePage - v4.7.0
   * Template URL: https://bootstrapmade.com/onepage-multipurpose-bootstrap-template/
   * Author: BootstrapMade.com
@@ -85,7 +88,7 @@
                         <a href="{{ route('penapis.dashboard') }}" style="color: rgb(29, 28, 24)">
                             <b>
                                 e-Kilang</b>
-                            </a>
+                        </a>
                     </h6>
                     {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
                     {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
@@ -194,7 +197,7 @@
                                     <a href="{{ route('penapis.bahagianvb') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                        {{-- <span style="color: rgb(78, 73, 57); ">Bahagian V(b)</span>
+                                {{-- <span style="color: rgb(78, 73, 57); ">Bahagian V(b)</span>
                                     </a>
 
                                 </li> --}}
@@ -208,8 +211,8 @@
 
                                 </li>
                                 <li class="sidebar-item ">
-                                    <a class="btn" style="text-align: left"
-                                    data-bs-toggle="modal" data-bs-target="#danger">
+                                    <a class="btn" style="text-align: left" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalCenter">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
                                         <span style="color: rgb(78, 73, 57); text-align:left ">Bahagian VII</span>
@@ -217,40 +220,6 @@
 
                                 </li>
 
-                                <!--Danger theme Modal -->
-                                <div class="modal fade text-left" id="danger" tabindex="-1"
-                                role="dialog" aria-labelledby="myModalLabel120"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"
-                                    role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header bg-danger">
-                                            <h5 class="modal-title white" id="myModalLabel120">
-                                                Peringatan</h5>
-                                            <button type="button" class="close"
-                                                data-bs-dismiss="modal" aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            Anda tidak dibenarkan mengisi maklumat bahagian ini
-                                        </div>
-                                        <div class="modal-footer">
-                                            {{-- <button type="button"
-                                                class="btn btn-light-secondary"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Close</span>
-                                            </button> --}}
-                                            <button type="button" class="btn btn-danger ml-1"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Tutup</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                                 <li class="sidebar-item ">
                                     <a href="{{ route('penapis.paparpenyata') }}">
@@ -265,7 +234,7 @@
                         </li>
 
 
-                        <a  href="{{ route('penapis.penyatadahulu') }}" class='sidebar-link'>
+                        <a href="{{ route('penapis.penyatadahulu') }}" class='sidebar-link'>
                             <i data-feather="#" width="20" style="margin-left:-10px; "></i>
                             <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "></i>
                             <span><b>Papar Penyata Bulanan Terdahulu</b></span>
@@ -315,7 +284,8 @@
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
-                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;"> {{ auth()->user()->name }} </b>
+                        style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;">
+                        {{ auth()->user()->name }} </b>
                 </span>
 
 
@@ -400,6 +370,34 @@
                     </ul>
                 </div>
             </nav>
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                    role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                PERINGATAN</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <i data-feather="x"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Anda tidak dibenarkan mengisi maklumat bahagian ini
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+
+                            <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Tutup</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
 
             {{-- CONTENT BODY --}}
             @yield('content')
@@ -407,7 +405,7 @@
 
         </div>
     </div>
-</main>
+    </main>
     <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
     <script href="{{ asset('theme/kilangstyles/vendor/aos/aos.js') }}"" rel=" stylesheet"></script>
     <script href="{{ asset('theme/kilangstyles/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"" rel=" stylesheet">
@@ -469,7 +467,9 @@
     <script src="{{ asset('theme/vendors/simple-datatables/simple-datatables.js') }}"></script>
 
     <!-- Toastr -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"
+        integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         $(document).ready(function() {
             var table = $('#example').DataTable({
@@ -495,8 +495,8 @@
 
     {{-- toaster display --}}
     <script>
-    toastr.options.fadeOut = 2500;
-    @if (Session::get('success'))
+        toastr.options.fadeOut = 2500;
+        @if (Session::get('success'))
             toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
         @elseif ($message = Session::get('error'))
             toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
