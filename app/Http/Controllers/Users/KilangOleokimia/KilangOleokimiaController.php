@@ -11,6 +11,7 @@ use App\Models\Negara;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -153,7 +154,7 @@ class KilangOleokimiaController extends Controller
             'e104_b12' => ['required', 'string'],
             'e104_b13' => ['required', 'string'],
 
-            // 'e101_b15' => ['required', 'string'],
+            // 'e104_b15' => ['required', 'string'],
         ]);
     }
 
@@ -175,7 +176,7 @@ class KilangOleokimiaController extends Controller
             'e104_b12' => $data['e104_b12'],
             'e104_b13' => $data['e104_b13'],
 
-            // 'e101_b15' => $data['e104_b15'],
+            // 'e104_b15' => $data['e104_b15'],
         ]);
         // return $data;
         // dd($data);
@@ -266,7 +267,7 @@ class KilangOleokimiaController extends Controller
             'e104_b12' => ['required', 'string'],
             'e104_b13' => ['required', 'string'],
 
-            // 'e101_b15' => ['required', 'string'],
+            // 'e104_b15' => ['required', 'string'],
         ]);
     }
 
@@ -288,7 +289,7 @@ class KilangOleokimiaController extends Controller
             'e104_b12' => $data['e104_b12'],
             'e104_b13' => $data['e104_b13'],
 
-            // 'e101_b15' => $data['e104_b15'],
+            // 'e104_b15' => $data['e104_b15'],
         ]);
         // return $data;
         // dd($data);
@@ -379,7 +380,7 @@ class KilangOleokimiaController extends Controller
             'e104_b12' => ['required', 'string'],
             'e104_b13' => ['required', 'string'],
 
-            // 'e101_b15' => ['required', 'string'],
+            // 'e104_b15' => ['required', 'string'],
         ]);
     }
 
@@ -401,7 +402,7 @@ class KilangOleokimiaController extends Controller
             'e104_b12' => $data['e104_b12'],
             'e104_b13' => $data['e104_b13'],
 
-            // 'e101_b15' => $data['e104_b15'],
+            // 'e104_b15' => $data['e104_b15'],
         ]);
         // return $data;
         // dd($data);
@@ -532,7 +533,7 @@ class KilangOleokimiaController extends Controller
     protected function store_bahagian_iii(array $data)
     {
         $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
-        // dd($e101_reg->e101_reg);
+        // dd($e104_reg->e104_reg);
         return E104C::create([
             'e104_reg' => $e104_reg->e104_reg,
             'e104_c3' => $data['e104_c3'],
@@ -626,7 +627,7 @@ class KilangOleokimiaController extends Controller
     protected function store_bahagian_iv(array $data)
     {
         $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
-        // dd($e101_reg->e101_reg);
+        // dd($e104_reg->e104_reg);
         return E104D::create([
             'e104_reg' => $e104_reg->e104_reg,
             'e104_d3' => '1',
@@ -645,13 +646,13 @@ class KilangOleokimiaController extends Controller
 
     public function oleo_edit_bahagian_iv(Request $request, $id)
     {
-        // $produk = Produk::where('prodname', $request->e101_e4)->first();
-        // $negara = Negara::where('namanegara', $request->e101_e9)->first();
+        // $produk = Produk::where('prodname', $request->e104_e4)->first();
+        // $negara = Negara::where('namanegara', $request->e104_e9)->first();
 
 
         // dd($request->all());
         $penyata = E104D::findOrFail($id);
-        // $penyata->e101_e4 = $produk->prodid;
+        // $penyata->e104_e4 = $produk->prodid;
         $penyata->e104_d5 = $request->e104_d5;
         $penyata->e104_d6 = $request->e104_d6;
         $penyata->e104_d7 = $request->e104_d7;
@@ -670,22 +671,66 @@ class KilangOleokimiaController extends Controller
     public function oleo_paparpenyata()
     {
 
-        // $breadcrumbs    = [
-        //     ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-        //     ['link' => route('oleo.paparpenyata'), 'name' => "Penyata Bulanan"],
-        // ];
+        $breadcrumbs    = [
+            ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('oleo.paparpenyata'), 'name' => "Penyata Bulanan"],
+        ];
 
-        // $kembali = route('oleo.bahagianvi');
+        $kembali = route('oleo.bahagianiv');
 
-        // $returnArr = [
-        //     'breadcrumbs' => $breadcrumbs,
-        //     'kembali'     => $kembali,
-        // ];
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
         $layout = 'layouts.koleo';
 
+        $user = User::first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+
+        $pelesen2 = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
 
 
-        return view('users.KilangOleokimia.oleo-papar-penyata', compact('layout'));
+        $penyataia = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 01);
+        })->get();
+        // dd($penyatai);
+
+        $penyataib = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 02);
+        })->get();
+        // dd($penyataii);
+
+        $penyataic = E104Init::where('e104_nl', auth()->user()->username)->first();
+        // dd($penyataiii);
+
+        $penyataii = E104C::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->where('e104_c3', 1)->get();
+        // dd($penyataiva);
+
+        $penyataiii = E104C::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->where('e104_c3', 2)->get();
+        // dd($penyataivb);
+
+        $penyataiv = E104D::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->where('e104_d3', 1)->get();
+        // dd($penyatava);
+
+        // dd($penyatavb);
+
+
+
+
+
+
+        return view('users.KilangOleokimia.oleo-papar-penyata', compact(
+            'layout',
+            'returnArr',
+            'user',
+            'pelesen',
+            'penyataia',
+            'penyataib',
+            'penyataic',
+            'penyataii',
+            'penyataiii',
+            'penyataiv',
+        ));
     }
 
     public function oleo_email()

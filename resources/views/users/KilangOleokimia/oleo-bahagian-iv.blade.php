@@ -173,7 +173,7 @@
 
                                         <div class="row form-group">
 
-                                            <div class="row form-group" style="margin-left: 45%;">
+                                            <div class="row form-group" style="margin-left: 40%;">
                                                 <div class="text-right col-md-12 mb-4 ">
                                                     <button type="submit" class="btn btn-primary ">Tambah</button>
                                                 </div>
