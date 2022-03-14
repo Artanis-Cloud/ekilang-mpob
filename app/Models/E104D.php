@@ -18,6 +18,8 @@ class E104D extends Model
      *
      */
     protected $table = 'e104_d'; //penyata bulanan terkini - kilang oleokimia
+    protected $primaryKey = 'e104_d1';
+    public $timestamps = false;
 
     protected $fillable = [
         'e104_d1',
@@ -48,4 +50,16 @@ class E104D extends Model
 
     ];
 
+    public function e104init(){
+        return $this->hasOne(E104Init::class,'e104_reg', 'e104_reg');
+    }
+
+    public function produk(){
+        return $this->hasOne(Produk::class,'prodid','e104_d4');
+    }
+
+    public function negara()
+    {
+        return $this->hasOne(Negara::class, 'kodnegara', 'e104_d9');
+    }
 }

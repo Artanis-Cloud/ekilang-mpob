@@ -73,369 +73,366 @@
                                                 <hr>
 
                                                 <div class="container center mt-4">
-                                                    <div class="row">
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                            Nama Produk</label>
-                                                        <div class="col-md-6">
-                                                            <select class="form-select" id="produk"
-                                                                name="e104_b4" style="width: 50%">
-                                                                <option selected hidden disabled>Sila Pilih</option>
-                                                                @foreach ($produk as $data)
-                                                                    <option value="{{ $data->prodid }}">
-                                                                        {{ $data->prodname }} -   {{ $data->prodid }}
-                                                                    </option>
-                                                                @endforeach
 
-                                                            </select>
+                                                    <div class="row">
+                                                        <div class="col-md-2">
+                                                            <span class="required">Nama Produk</span>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <select class="form-select" id="produk"
+                                                            name="e104_b4" style="width: 50%">
+                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                            @foreach ($produk as $data)
+                                                                <option value="{{ $data->prodid }}">
+                                                                    {{ $data->prodname }} -   {{ $data->prodid }}
+                                                                </option>
+                                                            @endforeach
+
+                                                        </select>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="row mt-4">
+                                                        <div class="col-md-2">
+                                                            <span class="required">Stok Awal di Premis</span>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" name='e104_b5'
+                                                                style="width:50%" id="e104_b5" required
+                                                                title="Sila isikan butiran ini.">
+                                                            {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <span class="required">Jualan/Edaran dalam Negeri</span>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" name='e104_b10'
+                                                                style="width:50%" id="e104_b10" required
+                                                                title="Sila isikan butiran ini.">
+                                                            {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="row mt-4">
+                                                        <div class="col-md-2">
+                                                            <span class="required">Stok Awal di Pusat Simpanan</span>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" name='e104_b6'
+                                                                style="width:50%" id="e104_b6" required
+                                                                title="Sila isikan butiran ini.">
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <span class="required">Eksport</span>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" name='e104_b11'
+                                                                style="width:50%" id="e104_b11" required
+                                                                title="Sila isikan butiran ini.">
+                                                            {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
                                                         </div>
                                                     </div>
-                                                    <div class="row" >
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                            Stok Awal Di Premis</label>
-                                                        <div class="col-md-6">
-                                                            <input type="text" class="form-control" name='e104_b5' style="margin-left:42%; width:40%"
-                                                                id="e104_b5" required title="Sila isikan butiran ini.">
+
+                                                    <div class="row mt-4">
+                                                        <div class="col-md-2">
+                                                            <span class="required">Belian/Penerimaan</span>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" name='e104_b7'
+                                                                style="width:50%" id="e104_b7" required
+                                                                title="Sila isikan butiran ini.">
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <span class="required">Stok Akhir di Premis</span>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" name='e104_b12'
+                                                                style="width:50%" id="e104_b12" required
+                                                                title="Sila isikan butiran ini.">
                                                             {{-- @error('alamat_kilang_1')
-                                                                <div class="alert alert-danger">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror --}}
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                            Stok Awal Di Pusat Simpanan</label>
-                                                        <div class="col-md-6">
-                                                            <input type="text" class="form-control" name='e104_b6' style="margin-left:42%; width:40%"
-                                                                id="e104_b6" required title="Sila isikan butiran ini.">
+
+                                                    <div class="row mt-4">
+                                                        <div class="col-md-2">
+                                                            <span class="required">Import</span>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" name='e104_b8'
+                                                                style="width:50%" id="e104_b8" required
+                                                                title="Sila isikan butiran ini." readonly>
+                                                        </div>
+
+                                                        <div class="col-md-2">
+                                                            <span class="required">Stok Akhir di Pusat Simpanan</span>
+                                                        </div>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" name='e104_b13'
+                                                                style="width:50%" id="e104_b13" required
+                                                                title="Sila isikan butiran ini.">
                                                             {{-- @error('alamat_kilang_1')
-                                                                <div class="alert alert-danger">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror --}}
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
                                                         </div>
                                                     </div>
-                                                    <div class="row">
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                            Belian / Penerimaan</label>
-                                                            <div class="col-md-6">
-                                                                <input type="text" class="form-control" name='e104_b7' style="margin-left:42%; width:40%"
-                                                                    id="e104_b7" required title="Sila isikan butiran ini.">
-                                                                {{-- @error('alamat_kilang_1')
-                                                                    <div class="alert alert-danger">
-                                                                        <strong>{{ $message }}</strong>
-                                                                    </div>
-                                                                @enderror --}}
-                                                            </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                            Import</label>
-                                                            <div class="col-md-6">
-                                                                <input type="text" class="form-control" name='e104_b8' style="margin-left:42%; width:40%"
-                                                                    id="e104_b8" required title="Sila isikan butiran ini." readonly>
-                                                                {{-- @error('alamat_kilang_1')
-                                                                    <div class="alert alert-danger">
-                                                                        <strong>{{ $message }}</strong>
-                                                                    </div>
-                                                                @enderror --}}
-                                                            </div>
-                                                    </div>
-                                                    <div class="row" >
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                        Jumlah Yang Diproses</label>
-                                                        <div class="col-md-6">
-                                                            <input type="text" class="form-control" name='e104_b9' style="margin-left:42%; width:40%"
-                                                                id="e104_b9" required title="Sila isikan butiran ini.">
-                                                            {{-- @error('alamat_kilang_1')
-                                                                <div class="alert alert-danger">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror --}}
+
+                                                    <div class="row mt-4">
+                                                        <div class="col-md-2">
+                                                            <span class="required">Jumlah Yang Diproses</span>
                                                         </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                        Jualan / Edaran Dalam Negeri</label>
-                                                        <div class="col-md-6">
-                                                            <input type="text" class="form-control" name='e104_b10' style="margin-left:42%; width:40%"
-                                                                id="e104_b10" required title="Sila isikan butiran ini.">
-                                                            {{-- @error('alamat_kilang_1')
-                                                                <div class="alert alert-danger">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror --}}
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control" name='e104_b9'
+                                                                style="width:50%" id="e104_b9" required
+                                                                title="Sila isikan butiran ini.">
                                                         </div>
+
+
                                                     </div>
-                                                    <div class="row">
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                        Eksport</label>
-                                                        <div class="col-md-6">
-                                                            <input type="text" class="form-control" name='e104_b11' style="margin-left:42%; width:40%"
-                                                                id="e104_b11" required title="Sila isikan butiran ini.">
-                                                            {{-- @error('alamat_kilang_1')
-                                                                <div class="alert alert-danger">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror --}}
-                                                            </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                        Stok Akhir Di Premis</label>
-                                                        <div class="col-md-6">
-                                                            <input type="text" class="form-control" name='e104_b12' style="margin-left:42%; width:40%"
-                                                                id="e104_b12" required title="Sila isikan butiran ini.">
-                                                            {{-- @error('alamat_kilang_1')
-                                                                <div class="alert alert-danger">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror --}}
-                                                            </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                        Stok Akhir Di Pusat Simpanan</label>
-                                                        <div class="col-md-6">
-                                                            <input type="text" class="form-control" name='e104_b13' style="margin-left:42%; width:40%"
-                                                                id="e104_b13" required title="Sila isikan butiran ini.">
-                                                            {{-- @error('alamat_kilang_1')
-                                                                <div class="alert alert-danger">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror --}}
-                                                            </div>
-                                                    </div>
+
+
+
+
                                                 </div>
                                                 <br>
 
                                                 <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                                    <div class="text-right col-md-10 mb-7 ">
-                                                        <button type="submit" class="btn btn-primary "
-                                                            style="float: right" >Simpan</button>
-                                                    </div>
-
-                                                </div>
-                                                <br>
-                                                <br>
-                                            </form>
-                                                <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-                                                <hr>
-                                                <section class="section">
-                                                    <div class="card">
-
-                                                        <div class="card-body">
-                                                            <table class='table table-striped' id="table1">
-                                                                <thead>
-                                                                    <tr style="text-align: center">
-                                                                        <th>Nama Produk</th>
-                                                                        <th>Stok Awal Di Premis</th>
-                                                                        <th>Stok Awal Di Pusat Simpanan</th>
-                                                                        <th>Belian / Penerimaan</th>
-                                                                        <th>Import</th>
-                                                                        <th>Jumlah Yang Diproses</th>
-                                                                        <th>Jualan / Edaran Dalam Negeri</th>
-                                                                        <th>Eksport</th>
-                                                                        <th>Stok Akhir Di Premis</th>
-                                                                        <th>Stok Akhir Di Pusat Simpanan</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    @foreach ($penyata as $data)
-                                                                        <tr style="text-align: right">
-
-                                                                            <td  style="text-align: left">
-                                                                                {{ $data->produk->prodname }}
-                                                                                {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
-                                                                                        <span>{{ $produk->prodname }}</span>
-                                                                                    @endif --}}
-
-                                                                            </td>
-                                                                            <td>
-                                                                                {{ $data->produk->prodid }}
-                                                                                {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
-                                                                                        <span>{{ $produk->prodname }}</span>
-                                                                                    @endif --}}
-
-                                                                            </td>
-                                                                            <td>{{ $data->e104_b5 }}</td>
-                                                                            <td>{{ $data->e104_b6 }}</td>
-                                                                            <td>{{ $data->e104_b7 }}</td>
-                                                                            <td>{{ $data->e104_b8 }}</td>
-                                                                            <td>{{ $data->e104_b9 }}</td>
-                                                                            <td>{{ $data->e104_b10 }}</td>
-                                                                            <td>{{ $data->e104_b11 }}</td>
-                                                                            <td>{{ $data->e104_b12 }}</td>
-                                                                            <td>{{ $data->e104_b13 }}</td>
-                                                                            {{-- <td>{{ $data->e104_b14 }}</td> --}}
-                                                                            <td>
-                                                                                <div class="icon" style="text-align: center">
-                                                                                    <a href="#" type="button" data-bs-toggle="modal"
-                                                                                        data-bs-target="#modal{{ $data->e104_b1 }}">
-                                                                                        <i class="fas fa-edit fa-lg" style="color: #228c1c">
-                                                                                        </i>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <div class="icon" style="text-align: center">
-                                                                                    <a href="#" type="button">
-                                                                                        <i class="fa fa-trash-o"
-                                                                                            style="color: #228c1c;font-size:18px"></i>
-                                                                                    </a>
-                                                                                </div>
-
-                                                                            </td>
-                                                                            {{-- <td>{{ $data->e101_b15 }}</td> --}}
-
-
-                                                                        </tr>
-
-                                                                        <div class="col-md-6 col-12">
-
-                                                                            <!--scrolling content Modal -->
-                                                                            <div class="modal fade" id="modal{{ $data->e104_b1 }}"
-                                                                                tabindex="-1" role="dialog"
-                                                                                aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                                                                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                                                    <div class="modal-content">
-                                                                                        <div class="modal-header">
-                                                                                            <h5 class="modal-title"
-                                                                                                id="exampleModalScrollableTitle">
-                                                                                                Kemaskini Maklumat Produk</h5>
-                                                                                            <button type="button" class="close"
-                                                                                                data-bs-dismiss="modal" aria-label="Close">
-                                                                                                <i data-feather="x"></i>
-                                                                                            </button>
-                                                                                        </div>
-                                                                                        <div class="modal-body">
-                                                                                            <form
-                                                                                                action="{{ route('oleo.edit.bahagian.ia', [$data->e104_b1]) }}"
-                                                                                                method="post">
-                                                                                                @csrf
-                                                                                                <div class="modal-body">
-                                                                                                    <label>Nama Produk </label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" name='e104_b4'
-                                                                                                            class="form-control"
-                                                                                                            value="{{ $data->produk->prodname }}"
-                                                                                                            readonly>
-                                                                                                    </div>
-                                                                                                    <label>Stok Awal Di Premis </label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" name='e104_b5'
-                                                                                                            class="form-control"
-                                                                                                            value="{{ $data->e104_b5 }}">
-                                                                                                    </div>
-                                                                                                    <label>Stok Awal Di Pusat Simpanan </label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" name='e104_b6'
-                                                                                                            class="form-control"
-                                                                                                            value="{{ $data->e104_b6 }}">
-                                                                                                    </div>
-                                                                                                    <label>Belian / Penerimaan </label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" name='e104_b7'
-                                                                                                            class="form-control"
-                                                                                                            value="{{ $data->e104_b7 }}">
-                                                                                                    </div>
-                                                                                                    {{-- <label>Import </label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="password" placeholder="Password"
-                                                                                                            class="form-control">
-                                                                                                    </div> --}}
-                                                                                                    <label>Import </label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" name='e104_b8'
-                                                                                                            class="form-control"
-                                                                                                            value="{{ $data->e104_b8 }}">
-                                                                                                    </div>
-                                                                                                    <label>Jumlah yang Diproses</label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" name='e104_b9'
-                                                                                                            class="form-control"
-                                                                                                            value="{{ $data->e104_b9 }}">
-                                                                                                    </div>
-                                                                                                    <label>Jualan / Edaran Dalam Negeri </label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" name='e104_b10'
-                                                                                                            class="form-control"
-                                                                                                            value="{{ $data->e104_b10 }}">
-                                                                                                    </div>
-                                                                                                    <label>Eksport </label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" name='e104_b11'
-                                                                                                            class="form-control"
-                                                                                                            value="{{ $data->e104_b11 }}">
-                                                                                                    </div>
-                                                                                                    <label>Stok Akhir Di Premis </label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" name='e104_b12'
-                                                                                                            class="form-control"
-                                                                                                            value="{{ $data->e104_b12 }}">
-                                                                                                    </div>
-                                                                                                    <label>Stok Akhir Di Pusat Simpanan </label>
-                                                                                                    <div class="form-group">
-                                                                                                        <input type="text" name='e104_b13'
-                                                                                                            class="form-control"
-                                                                                                            value="{{ $data->e104_b13 }}">
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                {{-- <div class="modal-footer">
-                                                                                                    <button type="button" class="btn btn-light-secondary"
-                                                                                                        data-bs-dismiss="modal">
-                                                                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                                                                        <span class="d-none d-sm-block">Batal</span>
-                                                                                                    </button>
-                                                                                                    <button type="button" class="btn btn-primary ml-1"
-                                                                                                        data-bs-dismiss="modal">
-                                                                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                                        <span class="d-none d-sm-block">Kemaskini</span>
-                                                                                                    </button>
-                                                                                                </div> --}}
-
-
-                                                                                        </div>
-
-
-                                                                                        <div class="modal-footer">
-                                                                                            <button type="button" class="btn btn-light-secondary"
-                                                                                                data-bs-dismiss="modal">
-                                                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                                                <span class="d-none d-sm-block">Batal</span>
-                                                                                            </button>
-                                                                                            <button type="submit" class="btn btn-primary ml-1">
-                                                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                                <span class="d-none d-sm-block">Kemaskini</span>
-                                                                                            </button>
-                                                                                        </div>
-                                                                                        </form>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
-                                                                        </div>
-
-                                                                    @endforeach
-                                                                </tbody>
-                                                            </table>
-
+                                                    <div class="row form-group"  style="margin-left: 45%;">
+                                                        <div class="text-right col-md-12 mb-4 ">
+                                                            <button type="submit" class="btn btn-primary ">Tambah</button>
                                                         </div>
                                                     </div>
 
-                                                </section>
+                                                </div>
+                                            </form>
+
+                                            <hr>
+                                            <br>
+                                            <br>
+                                            <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Isirung Sawit</h5>
+
+                                            <section class="section">
+                                                <div class="card">
+
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered mb-0" style="font-size: 13px">
+                                                            <thead style="text-align: center">
+                                                                <tr>
+                                                                    <th>Nama Produk</th>
+                                                                    <th>Kod Produk</th>
+                                                                    <th>Stok Awal Di Premis</th>
+                                                                    <th>Stok Awal Di Pusat Simpanan</th>
+                                                                    <th>Belian / Penerimaan</th>
+                                                                    {{-- <th>Import</th> --}}
+                                                                    <th>Jumlah yang Diproses</th>
+                                                                    <th>Jualan / Edaran Dalam Negeri</th>
+                                                                    <th>Eksport</th>
+                                                                    <th>Stok Akhir Di Premis</th>
+                                                                    <th>Stok Akhir Di Pusat Simpanan</th>
+                                                                    <th>Kemaskini</th>
+                                                                    <th>Hapus?</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach ($penyata as $data)
+                                                                    <tr style="text-align: right">
+
+                                                                        <td  style="text-align: left">
+                                                                            {{ $data->produk->prodname }}
+                                                                            {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
+                                                                                    <span>{{ $produk->prodname }}</span>
+                                                                                @endif --}}
+
+                                                                        </td>
+                                                                        <td>
+                                                                            {{ $data->produk->prodid }}
+                                                                            {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
+                                                                                    <span>{{ $produk->prodname }}</span>
+                                                                                @endif --}}
+
+                                                                        </td>
+                                                                        <td>{{ $data->e104_b5 }}</td>
+                                                                        <td>{{ $data->e104_b6 }}</td>
+                                                                        <td>{{ $data->e104_b7 }}</td>
+                                                                        <td>{{ $data->e104_b9 }}</td>
+                                                                        <td>{{ $data->e104_b10 }}</td>
+                                                                        <td>{{ $data->e104_b11 }}</td>
+                                                                        <td>{{ $data->e104_b12 }}</td>
+                                                                        <td>{{ $data->e104_b13 }}</td>
+                                                                        <td>
+                                                                            <div class="icon" style="text-align: center">
+                                                                                <a href="#" type="button" data-bs-toggle="modal"
+                                                                                    data-bs-target="#modal{{ $data->e104_b1 }}">
+                                                                                    <i class="fas fa-edit fa-lg" style="color: #228c1c">
+                                                                                    </i>
+                                                                                </a>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td>
+                                                                            <div class="icon" style="text-align: center">
+                                                                                <a href="#" type="button">
+                                                                                    <i class="fa fa-trash-o"
+                                                                                        style="color: #228c1c;font-size:18px"></i>
+                                                                                </a>
+                                                                            </div>
+
+                                                                        </td>
+                                                                        {{-- <td>{{ $data->e101_b15 }}</td> --}}
+
+
+                                                                    </tr>
+
+                                                                    <div class="col-md-6 col-12">
+
+                                                                        <!--scrolling content Modal -->
+                                                                        <div class="modal fade" id="modal{{ $data->e104_b1 }}"
+                                                                            tabindex="-1" role="dialog"
+                                                                            aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                                            <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                                                <div class="modal-content">
+                                                                                    <div class="modal-header">
+                                                                                        <h5 class="modal-title"
+                                                                                            id="exampleModalScrollableTitle">
+                                                                                            Kemaskini Maklumat Produk</h5>
+                                                                                        <button type="button" class="close"
+                                                                                            data-bs-dismiss="modal" aria-label="Close">
+                                                                                            <i data-feather="x"></i>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    <div class="modal-body">
+                                                                                        <form
+                                                                                            action="{{ route('oleo.edit.bahagian.ib', [$data->e104_b1]) }}"
+                                                                                            method="post">
+                                                                                            @csrf
+                                                                                            <div class="modal-body">
+                                                                                                <label>Nama Produk </label>
+                                                                                                <div class="form-group">
+                                                                                                    <input type="text" name='e104_b4'
+                                                                                                        class="form-control"
+                                                                                                        value="{{ $data->produk->prodname }}"
+                                                                                                        readonly>
+                                                                                                </div>
+                                                                                                <label>Stok Awal Di Premis </label>
+                                                                                                <div class="form-group">
+                                                                                                    <input type="text" name='e104_b5'
+                                                                                                        class="form-control"
+                                                                                                        value="{{ $data->e104_b5 }}">
+                                                                                                </div>
+                                                                                                <label>Stok Awal Di Pusat Simpanan </label>
+                                                                                                <div class="form-group">
+                                                                                                    <input type="text" name='e104_b6'
+                                                                                                        class="form-control"
+                                                                                                        value="{{ $data->e104_b6 }}">
+                                                                                                </div>
+                                                                                                <label>Belian / Penerimaan </label>
+                                                                                                <div class="form-group">
+                                                                                                    <input type="text" name='e104_b7'
+                                                                                                        class="form-control"
+                                                                                                        value="{{ $data->e104_b7 }}">
+                                                                                                </div>
+                                                                                                {{-- <label>Import </label>
+                                                                                                <div class="form-group">
+                                                                                                    <input type="password" placeholder="Password"
+                                                                                                        class="form-control">
+                                                                                                </div> --}}
+
+                                                                                                <label>Jumlah yang Diproses</label>
+                                                                                                <div class="form-group">
+                                                                                                    <input type="text" name='e104_b9'
+                                                                                                        class="form-control"
+                                                                                                        value="{{ $data->e104_b9 }}">
+                                                                                                </div>
+                                                                                                <label>Jualan / Edaran Dalam Negeri </label>
+                                                                                                <div class="form-group">
+                                                                                                    <input type="text" name='e104_b10'
+                                                                                                        class="form-control"
+                                                                                                        value="{{ $data->e104_b10 }}">
+                                                                                                </div>
+                                                                                                <label>Eksport </label>
+                                                                                                <div class="form-group">
+                                                                                                    <input type="text" name='e104_b11'
+                                                                                                        class="form-control"
+                                                                                                        value="{{ $data->e104_b11 }}">
+                                                                                                </div>
+                                                                                                <label>Stok Akhir Di Premis </label>
+                                                                                                <div class="form-group">
+                                                                                                    <input type="text" name='e104_b12'
+                                                                                                        class="form-control"
+                                                                                                        value="{{ $data->e104_b12 }}">
+                                                                                                </div>
+                                                                                                <label>Stok Akhir Di Pusat Simpanan </label>
+                                                                                                <div class="form-group">
+                                                                                                    <input type="text" name='e104_b13'
+                                                                                                        class="form-control"
+                                                                                                        value="{{ $data->e104_b13 }}">
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            {{-- <div class="modal-footer">
+                                                                                                <button type="button" class="btn btn-light-secondary"
+                                                                                                    data-bs-dismiss="modal">
+                                                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                                    <span class="d-none d-sm-block">Batal</span>
+                                                                                                </button>
+                                                                                                <button type="button" class="btn btn-primary ml-1"
+                                                                                                    data-bs-dismiss="modal">
+                                                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                                    <span class="d-none d-sm-block">Kemaskini</span>
+                                                                                                </button>
+                                                                                            </div> --}}
+
+
+                                                                                    </div>
+
+
+                                                                                    <div class="modal-footer">
+                                                                                        <button type="button" class="btn btn-light-secondary"
+                                                                                            data-bs-dismiss="modal">
+                                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                            <span class="d-none d-sm-block">Batal</span>
+                                                                                        </button>
+                                                                                        <button type="submit" class="btn btn-primary ml-1">
+                                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                            <span class="d-none d-sm-block">Kemaskini</span>
+                                                                                        </button>
+                                                                                    </div>
+                                                                                    </form>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+                                                                    </div>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+
+                                            </section>
+
 
                                             </div>
 
@@ -465,7 +462,7 @@
                                                 </div>
 
                                                 <!-- Vertically Centered modal Modal -->
-                                                {{-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                                         role="document">
@@ -489,14 +486,15 @@
                                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                                     </button>
-                                                                    <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                                                    <a href="{{ route('oleo.bahagianic') }}" type="button"
+                                                                        class="btn btn-primary ml-1">
                                                                         <i class="bx bx-check d-block d-sm-none"></i>
                                                                         <span class="d-none d-sm-block">Ya</span>
-                                                                    </button>
+                                                                    </a>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -509,42 +507,8 @@
                     </div>
 
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-
-
-
-                {{-- </div>
-                                                                    </div> --}}
-
-                {{-- </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                {{-- </div>
-
-                    </div> --}}
-
-
-
-                <br>
-                <br>
-
-
+            </div>
+        </div>
 
 
     </section><!-- End Hero -->

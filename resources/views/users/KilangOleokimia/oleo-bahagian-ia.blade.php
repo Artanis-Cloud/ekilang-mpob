@@ -529,43 +529,8 @@
                     </div>
 
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-
-
-
-                {{-- </div>
-                                                                    </div> --}}
-
-                {{-- </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                {{-- </div>
-
-                    </div> --}}
-
-
-
-                <br>
-                <br>
-
-
-
+            </div>
+        </div>
 
     </section><!-- End Hero -->
 
