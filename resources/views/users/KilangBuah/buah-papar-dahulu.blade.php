@@ -819,7 +819,7 @@
                                                     </td>
                                                     <td width="158" align="center">
                                                         <font size="3">
-                                                            <b>{{ ($penyata->e91_ai1 ?? 0) +($penyata->e91_ai2 ?? 0) +($penyata->e91_ai3 ?? 0) +($penyata->e91_ai4 ?? 0) +($penyata->e91_ai4 ?? 0) + ($penyata->e91_ai5 ?? 0) + ($penyata->e91_ai6 ?? 0) }}</b>
+                                                            <b>{{ ($penyata->e91_ai1 ?? 0) +($penyata->e91_ai2 ?? 0) +($penyata->e91_ai3 ?? 0) +($penyata->e91_ai4 ?? 0) + ($penyata->e91_ai5 ?? 0) + ($penyata->e91_ai6 ?? 0) }}</b>
                                                         </font>
                                                     </td>
                                                 </tr>
@@ -914,7 +914,7 @@
                                                     </td>
                                                     <td width="158" align="center">
                                                         <font size="3">
-                                                            <b>{{ ($penyata->e91_aj1 ?? 0) +($penyata->e91_aj2 ?? 0) +($penyata->e91_aj3 ?? 0) +($penyata->e91_aj4 ?? 0) +($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj6 ?? 0) + ($penyata->e91_aj7 ?? 0) + ($penyata->e91_aj8 ?? 0) }}</b>
+                                                            <b>{{ ($penyata->e91_aj1 ?? 0) +($penyata->e91_aj2 ?? 0) +($penyata->e91_aj3 ?? 0) +($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj6 ?? 0) + ($penyata->e91_aj7 ?? 0) + ($penyata->e91_aj8 ?? 0) }}</b>
                                                     </td>
                                                 </tr>
                                             </tbody>

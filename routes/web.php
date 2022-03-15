@@ -333,6 +333,15 @@ Route::middleware('auth')->group(function () {
         Route::get('pusatsimpan/penyata-dahulu', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_penyatadahulu'])->name('pusatsimpan.penyatadahulu');
         Route::post('pusatsimpan/penyata-dahulu/process', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_penyata_dahulu_process'])->name('pusatsimpan.penyata.dahulu.process');
     });
+
+    Route::group(['middleware' => ['kilang-biodiesel']], function () {
+        
+
+    });
+
+
+
+
 });
 
 
@@ -373,6 +382,4 @@ Route::get('biodiesel/email', [App\Http\Controllers\Users\KilangBiodieselControl
 Route::get('biodiesel/prestasi-oer', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_prestasioer'])->name('bio.prestasioer');
 Route::get('biodiesel/penyata-dahulu', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_penyatadahulu'])->name('bio.penyatadahulu');
 
-Route::group(['middleware' => ['kilang-biodiesel']], function () {
 
-});

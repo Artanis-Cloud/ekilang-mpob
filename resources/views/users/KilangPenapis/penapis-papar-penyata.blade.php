@@ -370,34 +370,34 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ $totalib5 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ $totalib6 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ $totalib7 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ $totalib8 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ $totalib9 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ $totalib10 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ $totalib11 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ $totalib12 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ $totalib13 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ $totalib14 }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -496,34 +496,34 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>915.81</b></font>
+                                                            <font size="2"><b>{{ $totaliib5 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ $totaliib6 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>22,864.86</b></font>
+                                                            <font size="2"><b>{{ $totaliib7 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ $totaliib8 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ $totaliib9 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>23,196.75</b></font>
+                                                            <font size="2"><b>{{ $totaliib10 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ $totaliib11 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ $totaliib12 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>583.92</b></font>
+                                                            <font size="2"><b>{{ $totaliib13 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ $totaliib14 }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -622,22 +622,22 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>432.00</b></font>
+                                                            <font size="2"><b>{{ $totalivac5 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>342.00</b></font>
+                                                            <font size="2"><b>{{ $totalivac6 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>452.00</b></font>
+                                                            <font size="2"><b>{{ $totalivac7 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>23.00</b></font>
+                                                            <font size="2"><b>{{ $totalivac8 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>565.00</b></font>
+                                                            <font size="2"><b>{{ $totalivac9 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>454.00</b></font>
+                                                            <font size="2"><b>{{ $totalivac10 }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -714,22 +714,22 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>4.00</b></font>
+                                                            <font size="2"><b>{{ $totalivbc5 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>34.00</b></font>
+                                                            <font size="2"><b>{{ $totalivbc6 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>45.00</b></font>
+                                                            <font size="2"><b>{{ $totalivbc7 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>23.00</b></font>
+                                                            <font size="2"><b>{{ $totalivbc8 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>5.00</b></font>
+                                                            <font size="2"><b>{{ $totalivbc9 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>4.00</b></font>
+                                                            <font size="2"><b>{{ $totalivbc10 }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -784,16 +784,16 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>12.00</b></font>
+                                                            <font size="2"><b>{{ $totalvad5 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>2.00</b></font>
+                                                            <font size="2"><b>{{ $totalvad6 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>3.00</b></font>
+                                                            <font size="2"><b>{{ $totalvad7 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>4.00</b></font>
+                                                            <font size="2"><b>{{ $totalvad8 }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -846,16 +846,16 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>4,720.14</b></font>
+                                                            <font size="2"><b>{{ $totalvbd5 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>67.94</b></font>
+                                                            <font size="2"><b>{{ $totalvbd6 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ $totalvbd7 }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ $totalvbd8 }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -920,6 +920,40 @@
                                                         </td>
                                                     </tr>
                                                     @endforeach
+                                                </tbody>
+                                            </table>
+                                            <p><b>
+                                                    <font color="#0000FF">BAHAGIAN VII :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        IMPORT PRODUK SAWIT</font>
+                                                </b></p>
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="14%" align="center"><b>
+                                                                <font size="2">Produk Minyak Sawit</font>
+                                                            </b></td>
+                                                        <td width="7%" align="center"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="15%" align="center"><b>
+                                                                <font size="2">Nombor Borang Kastam 1</font>
+                                                            </b></td>
+                                                        <td width="12%" align="center"><b>
+                                                                <font size="2">Tarikh Eksport</font>
+                                                            </b></td>
+                                                        <td width="10%" align="center"><b>
+                                                                <font size="2">Kuantiti<br> (Tan Metrik)</font><b></b>
+                                                            </b></td>
+                                                        <td width="11%" align="center"><b>
+                                                                <font size="2">Nilai (RM)</font>
+                                                            </b></td>
+                                                        <td width="6%" align="center"><b>
+                                                                <font size="2">Kod Negara</font>
+                                                            </b></td>
+                                                        <td width="15%" align="center"><b>
+                                                                <font size="2">Destinasi Negara</font>
+                                                            </b></td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                             <p><b>
