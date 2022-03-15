@@ -317,7 +317,7 @@
                                                                 <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                                             </b></td>
                                                     </tr>
-                                                    @foreach ($penyataia as $data)
+                                                    @foreach ($ia as $data)
                                                         <tr>
                                                             <td align="left">
                                                                 <font size="2">{{ $data->produk->prodname }}</font>
@@ -435,7 +435,7 @@
                                                                 <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                                             </b></td>
                                                     </tr>
-                                                    @foreach ($penyataib as $data)
+                                                    @foreach ($ib as $data)
                                                         <tr>
                                                             <td align="left">
                                                                 <font size="2">{{ $data->produk->prodname }}</font>
@@ -552,7 +552,7 @@
                                                                 <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                                             </b></td>
                                                     </tr>
-                                                    @foreach ($penyataic as $data)
+                                                    @foreach ($ic as $data)
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2">{{ $data->produk->prodname }}</font>
@@ -636,11 +636,11 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                        <td width="40%"><b>{{ $penyataii->e104_a5 }} Hari</b></td>
+                                                        <td width="40%"><b>{{ $ii->e104_a5 }} Hari</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="60%">Kadar Penggunaan Kapasiti Sebulan</td>
-                                                        <td width="40%"><b>{{ $penyataii->e104_a6 }} %</b></td>
+                                                        <td width="40%"><b>{{ $ii->e104_a6 }} %</b></td>
                                                     </tr>
 
                                                 </tbody>
@@ -677,7 +677,7 @@
                                                                 <font size="2">Stok Akhir</font>
                                                             </b></td>
                                                     </tr>
-                                                    @foreach ($penyataiii as $data)
+                                                    @foreach ($iii as $data)
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2">{{ $data->produk->prodname }}</font>
@@ -764,7 +764,7 @@
                                                             <font size="2">Destinasi Negara</font>
                                                         </b></td>
                                                     </tr>
-                                                    @foreach ($penyataiv as $data)
+                                                    @foreach ($iv as $data)
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2">{{  $data->produk->prodname }}</font>
@@ -820,15 +820,15 @@
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                             <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
                                                 <input type="text" id="e104_sdate" class="form-control" size="50"
-                                                    name='e104_sdate' value="{{ $pelesen2->e104_sdate ?? '-' }}" readonly>
+                                                    name='e104_sdate' value="{{ $pelesen->e104_sdate ?? '-' }}" readonly>
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 <input type="text" id="e_npg" class="form-control" size="50" name='e_npg'
-                                                    value="{{ $pelesen2->e104_npg }}">
+                                                    value="{{ $pelesen->e104_npg }}">
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
                                                 <input type="text" id="e_jpg" class="form-control" size="50" name='e_jpg'
-                                                    value="{{ $pelesen2->e104_jpg }}">
+                                                    value="{{ $pelesen->e104_jpg }}">
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 

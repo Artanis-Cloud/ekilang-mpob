@@ -7,6 +7,10 @@ use App\Models\E104B;
 use App\Models\E104C;
 use App\Models\E104D;
 use App\Models\E104Init;
+use App\Models\H104B;
+use App\Models\H104C;
+use App\Models\H104D;
+use App\Models\H104Init;
 use App\Models\Negara;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
@@ -182,11 +186,11 @@ class KilangOleokimiaController extends Controller
         // dd($data);
     }
 
-    // public function destroy(E101B $penyata)
+    // public function destroy(E104B $penyata)
     // {
     //     $penyata->delete();
 
-    //     return redirect()->route('penapis.bahagiani')
+    //     return redirect()->route('oleo.bahagiani')
     //                     ->with('success','Product deleted successfully');
     // }
 
@@ -295,11 +299,11 @@ class KilangOleokimiaController extends Controller
         // dd($data);
     }
 
-    // public function destroy(E101B $penyata)
+    // public function destroy(E104B $penyata)
     // {
     //     $penyata->delete();
 
-    //     return redirect()->route('penapis.bahagiani')
+    //     return redirect()->route('oleo.bahagiani')
     //                     ->with('success','Product deleted successfully');
     // }
 
@@ -408,11 +412,11 @@ class KilangOleokimiaController extends Controller
         // dd($data);
     }
 
-    // public function destroy(E101B $penyata)
+    // public function destroy(E104B $penyata)
     // {
     //     $penyata->delete();
 
-    //     return redirect()->route('penapis.bahagiani')
+    //     return redirect()->route('oleo.bahagiani')
     //                     ->with('success','Product deleted successfully');
     // }
 
@@ -687,8 +691,8 @@ class KilangOleokimiaController extends Controller
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
-        $pelesen2 = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
-
+        $pelesen2 = E104Init::where('e104_nl', auth()->user()->username)->first();
+        // dd($pelesen2);
 
         $penyataia = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 01);
@@ -700,16 +704,20 @@ class KilangOleokimiaController extends Controller
         })->get();
         // dd($penyataii);
 
-        $penyataic = E104Init::where('e104_nl', auth()->user()->username)->first();
+        $penyataic = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', '08');
+        })->get();
         // dd($penyataiii);
 
-        $penyataii = E104C::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->where('e104_c3', 1)->get();
+        $penyataii = E104Init::where('e104_nl', auth()->user()->username)->first();
         // dd($penyataiva);
 
-        $penyataiii = E104C::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->where('e104_c3', 2)->get();
-        // dd($penyataivb);
+        $penyataiii = E104C::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 02);
+        })->get();
+        // dd($penyataiii);
 
-        $penyataiv = E104D::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->where('e104_d3', 1)->get();
+        $penyataiv = E104D::with('e104init', 'produk', 'negara')->where('e104_reg', $pelesen2->e104_reg)->where('e104_d3', 1)->get();
         // dd($penyatava);
 
         // dd($penyatavb);
@@ -724,6 +732,7 @@ class KilangOleokimiaController extends Controller
             'returnArr',
             'user',
             'pelesen',
+            'pelesen2',
             'penyataia',
             'penyataib',
             'penyataic',
@@ -731,6 +740,86 @@ class KilangOleokimiaController extends Controller
             'penyataiii',
             'penyataiv',
         ));
+    }
+
+
+    public function oleo_penyatadahulu()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('oleo.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
+        ];
+
+        $kembali = route('oleo.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.koleo';
+
+
+
+        return view('users.KilangOleokimia.oleo-penyata-dahulu', compact('returnArr', 'layout'));
+    }
+
+
+    public function oleo_penyata_dahulu_process(Request $request)
+    {
+        // dd($request->all());
+
+        $user = User::first();
+        // dd($user);
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // dd($pelesen);
+
+
+        $users = H104Init::where('e104_nl', auth()->user()->username)
+            ->where('e104_thn', $request->tahun)
+            ->where('e104_bln', $request->bulan)->first();
+        // dd($users);
+
+        $ia = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', '01');
+        })->get();
+        // dd($i);
+
+        $ib = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', '02');
+        })->get();
+
+        $ic= H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', '08');
+        })->get();
+
+        $ii = H104Init::where('e104_nl', auth()->user()->username)->first();
+        // dd($iii);
+        // dd($iv);
+
+        $iii = H104C::with('h104init', 'produk')->where('e104_nobatch', $user->e104_nobatch)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', '02');
+        })->get();
+        // dd($iii);
+
+        $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $users->e104_nobatch)->where('e104_d3', '2')->get();
+        // $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();
+
+        $breadcrumbs    = [
+            ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('oleo.penyatadahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
+        ];
+
+        $kembali = route('oleo.penyatadahulu');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.koleo';
+
+        return view('users.KilangOleokimia.oleo-papar-dahulu', compact('returnArr', 'layout', 'user', 'pelesen', 'users', 'ia', 'ib', 'ic', 'ii', 'iii', 'iv'));
     }
 
     public function oleo_email()
@@ -775,26 +864,7 @@ class KilangOleokimiaController extends Controller
         return view('users.KilangOleokimia.oleo-prestasi-oer', compact('returnArr', 'layout'));
     }
 
-    public function oleo_penyatadahulu()
-    {
 
-        $breadcrumbs    = [
-            ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('oleo.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
-        ];
-
-        $kembali = route('oleo.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.koleo';
-
-
-
-        return view('users.KilangOleokimia.oleo-penyata-dahulu', compact('returnArr', 'layout'));
-    }
 
 
 

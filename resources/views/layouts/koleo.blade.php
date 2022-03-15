@@ -337,7 +337,7 @@
                         <p style="font-size:14px; color:white">Developed by Artanis Cloud</a></p>
                     </div>
                 </div>
-            </footer> --}} 
+            </footer> --}}
 
         </div>
     </div>

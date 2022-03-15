@@ -17,6 +17,8 @@ class H104D extends Model
      *
      */
     protected $table = 'h104_d'; //penyata arkib - kilang oleokimia
+    protected $primaryKey = 'e104_d1';
+    public $timestamps = false;
 
     protected $fillable = [
         'e104_d1',
@@ -46,4 +48,15 @@ class H104D extends Model
         'mpobq_nilai_2',
 
     ];
+
+    public function h104init()
+    {
+
+        return $this->hasMany(H104Init::class, 'e104_nobatch', 'e104_nobatch');
+    }
+
+    public function produk()
+    {
+        return $this->hasMany(Produk::class, 'prodid', 'e104_d4');
+    }
 }
