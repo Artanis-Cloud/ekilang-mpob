@@ -16,10 +16,10 @@ class KilangBiodiesel
      */
     public function handle(Request $request, Closure $next)
     {
-        if (auth()->user()->category == 'BO') {
+        if (auth()->user()->category == 'PLBIO') {
             return $next($request);
         }
 
         return redirect()->back()->with('error', 'Anda tidak dibenarkan masuk.');
     }    }
-}
+

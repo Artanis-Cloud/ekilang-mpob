@@ -63,7 +63,7 @@ class DataMigrationController extends Controller
 
         $loginmills = DB::connection('mysql2')->select("SELECT * FROM  login_mill");
 
-        // dd($users);
+        // dd($loginmills);
 
         // foreach ($users as $user) {
         //     // dd($user );
@@ -77,6 +77,7 @@ class DataMigrationController extends Controller
             // dd($kilang[0]);
 
             $password = Hash::make($loginmill->password);
+            // dd($password);
 
             $user = User::create([
                 'name' => $kilang[0]->e_np ?? '-',
@@ -107,7 +108,8 @@ class DataMigrationController extends Controller
 
         foreach ($kilangs as $kilang) {
             // $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
-            // $e_asdaerah = DB::connection('mysql2')->select("SELECT kod_daerah FROM  daerah where e_nl = $kilang->e");
+            // $e_asdaerah = DB::connection('mysql2')->select("SELECT kod_daerah FROM  daerah where namadaerah = $kilang->e_asdaerah");
+            // dd($e_asdaerah);
 
 
             // $password = Hash::make($reg_pelesen->e_pwd);
