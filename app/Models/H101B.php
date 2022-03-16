@@ -41,11 +41,11 @@ class H101B extends Model
     public function h101init()
     {
 
-        return $this->hasMany(H101Init::class, 'e101_nobatch', 'e101_nobatch');
+        return $this->hasOne(H101Init::class, 'e101_nobatch', 'e101_nobatch');
     }
 
     public function produk()
     {
-        return $this->hasMany(Produk::class, 'prodid', 'e101_b4');
+        return $this->hasOne(Produk::class, 'prodid', 'e101_b4');
     }
 }
