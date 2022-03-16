@@ -586,8 +586,8 @@
                                                     </tr>
                                                     @foreach ($iii as $data)
                                                     <tr>
-                                                        <td>{{ $data->kodsl[0]->catname }}</td>
-                                                        <td>{{ $data->prodcat2[0]->catname }}</td>
+                                                        <td>{{ $data->kodsl->catname }}</td>
+                                                        <td>{{ $data->prodcat2->catname }}</td>
                                                         <td style="text-align: center">{{ $data->e102_b6 }}</td>
                                                     </tr>
                                                     @endforeach
@@ -625,8 +625,8 @@
                                                     </tr>
                                                     @foreach ($iv as $data)
                                                     <tr>
-                                                        <td>{{ $data->kodsl[0]->catname }}</td>
-                                                        <td>{{ $data->prodcat2[0]->catname }}</td>
+                                                        <td>{{ $data->kodsl->catname }}</td>
+                                                        <td>{{ $data->prodcat2->catname }}</td>
                                                         <td style="text-align: center">{{ $data->e102_b6 }}</td>
                                                     </tr>
                                                     @endforeach
@@ -663,8 +663,8 @@
                                                     </tr>
                                                     @foreach ($v as $data)
                                                     <tr>
-                                                        <td>{{ $data->kodsl[0]->catname }}</td>
-                                                        <td>{{ $data->prodcat2[0]->catname }}</td>
+                                                        <td>{{ $data->kodsl->catname }}</td>
+                                                        <td>{{ $data->prodcat2->catname }}</td>
                                                         <td style="text-align: center">{{ $data->e102_b6 }}</td>
                                                     </tr>
                                                     @endforeach
@@ -715,14 +715,14 @@
                                                     </tr>
                                                     @foreach ($vi as $data)
                                                     <tr>
-                                                        <td>{{ $data->produk[0]->prodname }}</td>
+                                                        <td>{{ $data->produk->prodname }}</td>
                                                         <td>{{ $data->e102_c4 }}</td>
                                                         <td>{{ $data->e102_c5 }}</td>
                                                         <td>{{ $data->e102_c6 }}</td>
                                                         <td>{{ $data->e102_c7 }}</td>
                                                         <td>{{ $data->e102_c8 }}</td>
                                                         <td>{{ $data->e102_c9 }}</td>
-                                                        <td>{{ $data->negara[0]->namanegara }}</td>
+                                                        <td>{{ $data->negara->namanegara }}</td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
@@ -761,14 +761,14 @@
                                                     </tr>
                                                     @foreach ($vi as $data)
                                                     <tr>
-                                                        <td>{{ $data->produk[0]->prodname }}</td>
+                                                        <td>{{ $data->produk->prodname }}</td>
                                                         <td>{{ $data->e102_c4 }}</td>
                                                         <td>{{ $data->e102_c5 }}</td>
                                                         <td>{{ $data->e102_c6 }}</td>
                                                         <td>{{ $data->e102_c7 }}</td>
                                                         <td>{{ $data->e102_c8 }}</td>
                                                         <td>{{ $data->e102_c9 }}</td>
-                                                        <td>{{ $data->negara[0]->namanegara }}</td>
+                                                        <td>{{ $data->negara->namanegara }}</td>
                                                     </tr>
                                                     @endforeach
                                                 </tbody>

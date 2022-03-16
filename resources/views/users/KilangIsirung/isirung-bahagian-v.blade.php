@@ -296,7 +296,7 @@
                                                             <td></td>
                                                             <td><b>JUMLAH</b></td>
                                                             {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                            <td style="text-align: right"><b>{{ $data->e102_b6 }}</b></td>
+                                                            <td style="text-align: right"><b>{{ $total }}</b></td>
                                                             <td colspan="2"></td>
                                                             {{-- <td></td> --}}
 

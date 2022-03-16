@@ -52,16 +52,16 @@ class H102c extends Model
     public function h102init()
     {
 
-        return $this->hasMany(H102Init::class, 'e102_nobatch', 'e102_nobatch');
+        return $this->hasOne(H102Init::class, 'e102_nobatch', 'e102_nobatch');
     }
     public function produk()
     {
 
-        return $this->hasMany(Produk::class, 'prodid', 'e102_c4');
+        return $this->hasOne(Produk::class, 'prodid', 'e102_c4');
     }
     public function negara()
     {
 
-        return $this->hasMany(Negara::class, 'kodnegara', 'e102_c9');
+        return $this->hasOne(Negara::class, 'kodnegara', 'e102_c9');
     }
 }

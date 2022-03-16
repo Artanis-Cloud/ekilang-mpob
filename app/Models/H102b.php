@@ -34,16 +34,16 @@ class H102b extends Model
     public function h102init()
     {
 
-        return $this->hasMany(H102Init::class, 'e102_nobatch', 'e102_nobatch');
+        return $this->hasOne(H102Init::class, 'e102_nobatch', 'e102_nobatch');
     }
     public function kodsl()
     {
 
-        return $this->hasMany(KodSl::class, 'catid', 'e102_b4');
+        return $this->hasOne(KodSl::class, 'catid', 'e102_b4');
     }
     public function prodcat2()
     {
 
-        return $this->hasMany(ProdCat2::class, 'catid', 'e102_b5');
+        return $this->hasOne(ProdCat2::class, 'catid', 'e102_b5');
     }
 }
