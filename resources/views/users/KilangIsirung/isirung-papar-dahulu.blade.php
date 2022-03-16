@@ -588,7 +588,7 @@
                                                     <tr>
                                                         <td>{{ $data->kodsl[0]->catname }}</td>
                                                         <td>{{ $data->prodcat2[0]->catname }}</td>
-                                                        <td>{{ $data->e102_b6 }}</td>
+                                                        <td style="text-align: center">{{ $data->e102_b6 }}</td>
                                                     </tr>
                                                     @endforeach
                                                     <tr>
@@ -599,7 +599,7 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>100.05</b></font>
+                                                            <font size="2"><b>{{ $totaliii }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -627,7 +627,7 @@
                                                     <tr>
                                                         <td>{{ $data->kodsl[0]->catname }}</td>
                                                         <td>{{ $data->prodcat2[0]->catname }}</td>
-                                                        <td>{{ $data->e102_b6 }}</td>
+                                                        <td style="text-align: center">{{ $data->e102_b6 }}</td>
                                                     </tr>
                                                     @endforeach
                                                     <tr>
@@ -638,7 +638,7 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>100.05</b></font>
+                                                            <font size="2"><b>{{ $totaliv }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -665,7 +665,7 @@
                                                     <tr>
                                                         <td>{{ $data->kodsl[0]->catname }}</td>
                                                         <td>{{ $data->prodcat2[0]->catname }}</td>
-                                                        <td>{{ $data->e102_b6 }}</td>
+                                                        <td style="text-align: center">{{ $data->e102_b6 }}</td>
                                                     </tr>
                                                     @endforeach
                                                     <tr>
@@ -676,7 +676,7 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>100.05</b></font>
+                                                            <font size="2"><b>{{ $totalv }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>

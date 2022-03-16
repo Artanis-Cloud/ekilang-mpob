@@ -62,6 +62,9 @@ class LoginController extends Controller
             case 'PL111':
                 return '/pusatsimpan/dashboard';
                 break;
+            case 'PLBIO':
+                return '/biodiesel/dashboard';
+                break;
 
             default:
                 return '/admin/dashboard';

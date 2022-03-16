@@ -386,8 +386,7 @@
                         </div>
                         <div class="text-right col-md-7 mb-4 ">
                             <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                data-bs-target="#next">Simpan &
-                                Seterusnya</button>
+                                data-bs-target="#next">Papar Penyata</button>
                         </div>
 
                     </div>

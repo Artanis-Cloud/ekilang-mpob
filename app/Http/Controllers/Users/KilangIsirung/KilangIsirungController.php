@@ -715,10 +715,16 @@ class KilangIsirungController extends Controller
 
         $penyataiii = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '51')->get();
         // dd($penyataiii);
+        $totaliii = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3','51')->sum('e102_b6');
+        // dd($totaliii);
 
         $penyataiv = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '04')->get();
 
+        $totaliv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3','04')->sum('e102_b6');
+
         $penyatav = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '33')->get();
+
+        $totalv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3','33')->sum('e102_b6');
 
         $penyatavi = E102c::with('e102init','produk','negara')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
         // dd($penyatavi);
@@ -731,9 +737,9 @@ class KilangIsirungController extends Controller
             'pelesen',
             'penyatai',
             'penyataii',
-            'penyataiii',
-            'penyataiv',
-            'penyatav',
+            'penyataiii', 'totaliii',
+            'penyataiv', 'totaliv',
+            'penyatav', 'totalv',
             'penyatavi',
 
 
@@ -842,18 +848,21 @@ class KilangIsirungController extends Controller
         $i = H102Init::where('e102_nobatch', $users->e102_nobatch)->first();
         // dd($i);
 
-
-
-
-
         $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->get();
         // dd($iii);
 
+        $totaliii = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3','51')->sum('e102_b6');
+
+
         $iv = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '04')->get();
         // dd($iv);
+        $totaliv = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3','04')->sum('e102_b6');
+
 
         $v = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '33')->get();
         // dd($v);
+        $totalv = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3','33')->sum('e102_b6');
+
 
         $vi = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '1')->get();
         // dd($vi);
@@ -889,9 +898,9 @@ class KilangIsirungController extends Controller
             'pelesen',
             'users',
             'i',
-            'iii',
-            'iv',
-            'v',
+            'iii', 'totaliii',
+            'iv', 'totaliv',
+            'v', 'totalv',
             'vi',
             'vii',
         ));
