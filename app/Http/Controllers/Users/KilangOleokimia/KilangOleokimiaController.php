@@ -7,6 +7,7 @@ use App\Models\E104B;
 use App\Models\E104C;
 use App\Models\E104D;
 use App\Models\E104Init;
+use App\Models\Ekmessage;
 use App\Models\H104B;
 use App\Models\H104C;
 use App\Models\H104D;
@@ -797,12 +798,11 @@ class KilangOleokimiaController extends Controller
         // dd($iii);
         // dd($iv);
 
-        $iii = H104C::with('h104init', 'produk')->where('e104_nobatch', $user->e104_nobatch)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', '02');
-        })->get();
+        $iii = H104C::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)
+        ->get();
         // dd($iii);
 
-        $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $users->e104_nobatch)->where('e104_d3', '2')->get();
+        $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $users->e104_nobatch)->where('e104_d3', '1')->get();
         // $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();
 
         $breadcrumbs    = [
@@ -843,103 +843,44 @@ class KilangOleokimiaController extends Controller
         return view('users.KilangOleokimia.oleo-email', compact('returnArr', 'layout'));
     }
 
-    public function oleo_prestasioer()
+    public function oleo_send_email_proses (Request $request)
     {
-
-        $breadcrumbs    = [
-            ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('oleo.prestasioer'), 'name' => "Prestasi OER  "],
-        ];
-
-        $kembali = route('oleo.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.koleo';
+        // dd($request->all());
+        $this->validation_send_email($request->all())->validate();
+        $this->store_send_email($request->all());
 
 
-
-        return view('users.KilangOleokimia.oleo-prestasi-oer', compact('returnArr', 'layout'));
+        return redirect()->back()->with('success', 'Emel sudah dihantar');
     }
 
-
-
-
-
-
-
-
-    public function index_form()
+    protected function validation_send_email(array $data)
     {
-        return view('users.form');
+        return Validator::make($data, [
+            // 'Id' => ['required', 'string'],
+            'TypeOfEmail' => ['required', 'string'],
+            'FromEmail' => ['required', 'string'],
+            'Subject' => ['required', 'string'],
+            'Message' => ['required', 'string'],
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    protected function store_send_email(array $data)
     {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        // $user = User::where('e_nl', auth()->user()->username)->first();
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+        return Ekmessage::create([
+            // 'Id' => $data['Id'],
+            'Date' => date("Y-m-d H:i:s"),
+            'FromName' => auth()->user()->name,
+            'FromLicense' => auth()->user()->username,
+            'TypeOfEmail' => $data['TypeOfEmail'],
+            'FromEmail' => $data['FromEmail'],
+            'Category' => auth()->user()->category,
+            'Subject' => $data['Subject'],
+            'Message' => $data['Message'],
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        ]);
     }
 
 }

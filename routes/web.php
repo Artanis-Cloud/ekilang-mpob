@@ -308,7 +308,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('oleokimia/papar-penyata', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_paparpenyata'])->name('oleo.paparpenyata');
         Route::get('oleokimia/email', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_email'])->name('oleo.email');
-        Route::get('oleokimia/prestasi-oer', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_prestasioer'])->name('oleo.prestasioer');
+        Route::post('oleokimia/send-email', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_send_email_proses'])->name('oleo.send.email.proses');
+
         Route::get('oleokimia/penyata-dahulu', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_penyatadahulu'])->name('oleo.penyatadahulu');
         Route::post('oleokimia/penyata-dahulu/process', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_penyata_dahulu_process'])->name('oleo.penyata.dahulu.process');
 
@@ -337,7 +338,7 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::group(['middleware' => ['kilang-biodiesel']], function () {
-        
+
 
     });
 

@@ -15,7 +15,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-5 mb-4 row">
+            <div class="mt-3 mb-4 row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -65,7 +65,7 @@
 
                                                 <div class="mb-4 text-center">
                                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                                    <h3 style="color: rgb(39, 80, 71); ">Bahagian Ic</h3>
+                                                    <h3 style="color: rgb(39, 80, 71); ">Bahagian I(c)</h3>
                                                     <h5 style="color: rgb(39, 80, 71)">Minyak-minyak Lain
                                                     </h5>
                                                     {{-- <p>Maklumat Kilang</p> --}}

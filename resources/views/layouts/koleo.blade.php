@@ -123,7 +123,7 @@
                                     <a href="{{ route('oleo.bahagiania') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian Ia</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian I(a)</span>
                                     </a>
                                 </li>
 
@@ -131,7 +131,7 @@
                                     <a href="{{ route('oleo.bahagianib') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian Ib</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian I(b)</span>
                                     </a>
                                 </li>
 
@@ -139,7 +139,7 @@
                                     <a href="{{ route('oleo.bahagianic') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian Ic</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian I(c)</span>
                                     </a>
                                 </li>
 
@@ -232,7 +232,8 @@
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
-                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;"> {{ auth()->user()->name }} </b>
+                        style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;">
+                        {{ auth()->user()->name }} </b>
                 </span>
 
 
@@ -252,7 +253,7 @@
                         </li>
 
 
-                        <li class="dropdown nav-icon">
+                        {{-- <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="mt-2">
@@ -275,7 +276,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> --}}
                         {{-- <li class="dropdown nav-icon me-2">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
