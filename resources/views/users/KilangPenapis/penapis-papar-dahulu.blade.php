@@ -322,7 +322,7 @@
                                                     @foreach ($i as $data)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $data->e101_b4 }}</font>
+                                                                <font size="2">{{ $data->produk->prodname }}</font>
                                                             </td>
                                                             <td align="center">
                                                                 <font size="2">{{ $data->e101_b4 }}</font>
@@ -449,7 +449,7 @@
                                                     @foreach ($ii as $data)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $data->e101_b4 }}</font>
+                                                                <font size="2">{{ $data->produk->prodname }}</font>
                                                             </td>
                                                             <td align="center">
                                                                 <font size="2">{{ $data->e101_b4 }}</font>
@@ -585,10 +585,10 @@
                                                                 <font size="2">Stok Akhir</font>
                                                             </b></td>
                                                     </tr>
-                                                    @foreach ($iv as $data)
+                                                    @foreach ($iva as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->e101_c4 }}</font>
+                                                            <font size="2">{{ $data->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ $data->e101_c4 }}</font>
@@ -677,35 +677,40 @@
                                                                 <font size="2">Stok Akhir</font>
                                                             </b></td>
                                                     </tr>
+                                                    @foreach ($ivb as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">CBS</font>
+                                                            <font size="2">{{ $data->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">44</font>
+                                                            <font size="2">{{ $data->e101_c4 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">4.00</font>
+                                                            <font size="2">{{ $data->e101_c5 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">34.00</font>
+                                                            <font size="2">{{ $data->e101_c6 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">45.00</font>
+                                                            <font size="2">{{ $data->e101_c7 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">23.00</font>
+                                                            <font size="2">{{ $data->e101_c8 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">5.00</font>
+                                                            <font size="2">{{ $data->e101_c9 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">4.00</font>
+                                                            <font size="2">{{ $data->e101_c10 }}</font>
                                                         </td>
                                                     </tr>
+                                                    @endforeach
                                                     <tr>
                                                         <td align="center">
                                                             <font size="2"><b>JUMLAH</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>{{ $totalivbc5 }}</b></font>
@@ -757,7 +762,7 @@
                                                     @foreach ($va as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->e101_d4 }}</font>
+                                                            <font size="2">{{ $data->prodcat->catname }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ $data->e101_d5 }}</font>
@@ -820,7 +825,7 @@
                                                     @foreach ($vb as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->e101_d4 }}</font>
+                                                            <font size="2">{{ $data->prodcat->catname }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ $data->e101_d5 }}</font>

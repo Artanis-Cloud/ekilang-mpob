@@ -1156,9 +1156,9 @@ class KilangPenapisController extends Controller
 
         $iii = H101Init::where('e101_nl', auth()->user()->username)->first();
         // dd($iii);
-        $iv = H101C::with('h101init', 'produk')->where('e101_nobatch', $user->e101_nobatch)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', '04');
-        })->get();
+        $iva = H101C::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->where('e101_c3','1')->get();
+
+        $ivb = H101C::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->where('e101_c3','2')->get();
         // dd($iv);
 
         $totalivac5 = DB::table("h101_c")->where('e101_nobatch', $users->e101_nobatch)->where('e101_c3','1')->sum('e101_c5');
@@ -1187,7 +1187,7 @@ class KilangPenapisController extends Controller
         $totalivbc10 = DB::table("h101_c")->where('e101_nobatch', $users->e101_nobatch)->where('e101_c3','2')->sum('e101_c10');
         //   dd($totalivac5);
 
-        $va = H101D::with('h101init')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', '1')->get();
+        $va = H101D::with('h101init','prodcat')->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '1')->get();
         // dd($va);
 
         $totalvad5 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3','1')->sum('e101_d5');
@@ -1196,7 +1196,7 @@ class KilangPenapisController extends Controller
         $totalvad8 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3','1')->sum('e101_d8');
 
 
-        $vb = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $user->e101_nobatch)->where('e101_d3', '2')->get();
+        $vb = H101D::with('h101init', 'prodcat')->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3', '2')->get();
         $totalvbd5 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3','2')->sum('e101_d5');
         $totalvbd6 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3','2')->sum('e101_d6');
         $totalvbd7 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3','2')->sum('e101_d7');
@@ -1226,7 +1226,7 @@ class KilangPenapisController extends Controller
             'i',
             'ii',
             'iii',
-            'iv',
+            'iva', 'ivb',
             'va',
             'vb',
             'totalib5', 'totaliib5', 'totalivac5', 'totalivbc5', 'totalvad5', 'totalvbd5',
