@@ -78,7 +78,7 @@
                                                     <select class="form-select" id="e102_b4"
                                                             style=" width:50%" name="e102_b4">
                                                             <option selected hidden disabled>Sila Pilih</option>
-                                                            @foreach ($prodcat2 as $data)
+                                                            @foreach ($kodsl as $data)
                                                                 <option value="{{ $data->catid }}">
                                                                     {{ $data->catname }}
                                                                 </option>
@@ -99,9 +99,9 @@
                                                             style=" width:50%" name='e102_b5'>
                                                             <option selected hidden disabled>Sila Pilih</option>
 
-                                                            <option value="1">Kilang Buah</option>
-                                                            <option value="5">Peniaga</option>
-                                                            <option value="7">Lain-lain</option>
+                                                            <option value="1">KILANG BUAH</option>
+                                                            <option value="5">PENIAGA</option>
+                                                            <option value="7">LAIN-LAIN</option>
 
                                                         </select>
                                                     {{-- @error('alamat_kilang_1')
@@ -291,7 +291,7 @@
                                                     <td></td>
                                                     <td><b>JUMLAH</b></td>
                                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                    <td style="text-align: right"><b>{{ $data->e102_b6 }}</b></td>
+                                                    <td style="text-align: right"><b>{{ $total }}</b></td>
                                                     <td colspan="2"></td>
                                                     {{-- <td></td> --}}
 
@@ -324,14 +324,14 @@
                         </div>
                         <div class="text-right col-md-7 mb-4 ">
                             <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                data-bs-target="#exampleModalCenter">Simpan &
+                                data-bs-target="#next">Simpan &
                                 Seterusnya</button>
                         </div>
 
                     </div>
 
                     <!-- Vertically Centered modal Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    <div class="modal fade" id="next" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                             role="document">

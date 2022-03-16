@@ -342,6 +342,23 @@ Route::middleware('auth')->group(function () {
         Route::get('biodiesel/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'biodiesel_dashboard'])->name('bio.dashboard');
         Route::get('biodiesel/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_maklumatasaspelesen'])->name('bio.maklumatasaspelesen');
         Route::post('biodiesel/update-maklumat-asas-pelesen/{Id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_update_maklumat_asas_pelesen'])->name('bio.update.maklumat.asas.pelesen');
+        Route::get('biodiesel/tukar-password', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_tukarpassword'])->name('bio.tukarpassword');
+
+        Route::get('biodiesel/bahagian-ia', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagiania'])->name('bio.bahagiania');
+        Route::post('biodiesel/add-bahagian-ia', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_ia'])->name('bio.add.bahagian.ia');
+        Route::post('biodiesel/edit-bahagian-ia/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_ia'])->name('bio.edit.bahagian.ia');
+
+        Route::get('biodiesel/bahagian-ib', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianib'])->name('bio.bahagianib');
+        Route::post('biodiesel/add-bahagian-ib', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_ib'])->name('bio.add.bahagian.ib');
+
+        Route::get('biodiesel/bahagian-ic', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianic'])->name('bio.bahagianic');
+        Route::get('biodiesel/bahagian-ii', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianii'])->name('bio.bahagianii');
+        Route::get('biodiesel/bahagian-iii', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiii'])->name('bio.bahagianiii');
+        Route::get('biodiesel/bahagian-iv', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiv'])->name('bio.bahagianiv');
+        Route::get('biodiesel/papar-penyata', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_paparpenyata'])->name('bio.paparpenyata');
+        Route::get('biodiesel/email', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_email'])->name('bio.email');
+        Route::get('biodiesel/prestasi-oer', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_prestasioer'])->name('bio.prestasioer');
+        Route::get('biodiesel/penyata-dahulu', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_penyatadahulu'])->name('bio.penyatadahulu');
     });
 });
 
@@ -365,20 +382,20 @@ Route::get('/trylogin', [App\Http\Controllers\Users\KilangBuah\KilangBuahControl
 // Route::get('biodiesel/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_maklumatasaspelesen'])->name('bio.maklumatasaspelesen');
 // Route::post('biodiesel/update-maklumat-asas-pelesen/{Id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_update_maklumat_asas_pelesen'])->name('bio.update.maklumat.asas.pelesen');
 
-Route::get('biodiesel/tukar-password', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_tukarpassword'])->name('bio.tukarpassword');
+// Route::get('biodiesel/tukar-password', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_tukarpassword'])->name('bio.tukarpassword');
 
-Route::get('biodiesel/bahagian-ia', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagiania'])->name('bio.bahagiania');
-Route::post('biodiesel/add-bahagian-ia', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_ia'])->name('bio.add.bahagian.ia');
-Route::post('biodiesel/edit-bahagian-ia/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_ia'])->name('bio.edit.bahagian.ia');
+// Route::get('biodiesel/bahagian-ia', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagiania'])->name('bio.bahagiania');
+// Route::post('biodiesel/add-bahagian-ia', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_ia'])->name('bio.add.bahagian.ia');
+// Route::post('biodiesel/edit-bahagian-ia/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_ia'])->name('bio.edit.bahagian.ia');
 
-Route::get('biodiesel/bahagian-ib', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianib'])->name('bio.bahagianib');
-Route::post('biodiesel/add-bahagian-ib', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_ib'])->name('bio.add.bahagian.ib');
+// Route::get('biodiesel/bahagian-ib', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianib'])->name('bio.bahagianib');
+// Route::post('biodiesel/add-bahagian-ib', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_ib'])->name('bio.add.bahagian.ib');
 
-Route::get('biodiesel/bahagian-ic', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianic'])->name('bio.bahagianic');
-Route::get('biodiesel/bahagian-ii', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianii'])->name('bio.bahagianii');
-Route::get('biodiesel/bahagian-iii', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiii'])->name('bio.bahagianiii');
-Route::get('biodiesel/bahagian-iv', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiv'])->name('bio.bahagianiv');
-Route::get('biodiesel/papar-penyata', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_paparpenyata'])->name('bio.paparpenyata');
-Route::get('biodiesel/email', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_email'])->name('bio.email');
-Route::get('biodiesel/prestasi-oer', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_prestasioer'])->name('bio.prestasioer');
-Route::get('biodiesel/penyata-dahulu', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_penyatadahulu'])->name('bio.penyatadahulu');
+// Route::get('biodiesel/bahagian-ic', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianic'])->name('bio.bahagianic');
+// Route::get('biodiesel/bahagian-ii', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianii'])->name('bio.bahagianii');
+// Route::get('biodiesel/bahagian-iii', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiii'])->name('bio.bahagianiii');
+// Route::get('biodiesel/bahagian-iv', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiv'])->name('bio.bahagianiv');
+// Route::get('biodiesel/papar-penyata', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_paparpenyata'])->name('bio.paparpenyata');
+// Route::get('biodiesel/email', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_email'])->name('bio.email');
+// Route::get('biodiesel/prestasi-oer', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_prestasioer'])->name('bio.prestasioer');
+// Route::get('biodiesel/penyata-dahulu', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_penyatadahulu'])->name('bio.penyatadahulu');

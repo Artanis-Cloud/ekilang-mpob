@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Daerah;
+use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\RegPelesen;
 use App\Models\RegUser;
@@ -117,35 +119,65 @@ class DataMigrationController extends Controller
             // $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
             // $e_asdaerah = DB::connection('mysql2')->select("SELECT kod_daerah FROM  daerah where namadaerah = $kilang->e_asdaerah");
             // dd($e_asdaerah);
+            $daerah = Daerah::where('nama_daerah', $kilang->e_asdaerah)->first();
 
 
-            // $password = Hash::make($reg_pelesen->e_pwd);
+            $user = Pelesen::where('e_nl', $kilang->e_nl)->first();
+            if(!$user){
+                $user = Pelesen::create([
+                    'e_nl' => $kilang->e_nl ?? '-',
+                    'e_np' => $kilang->e_np ?? '-',
+                    'e_ap1' => $kilang->e_ap1 ?? '-',
+                    'e_ap2' => $kilang->e_ap2 ?? '-',
+                    'e_ap3' => $kilang->e_ap3 ?? '-',
+                    'e_as1' => $kilang->e_as1 ?? '-',
+                    'e_as2' => $kilang->e_as2 ?? '-',
+                    'e_as3' => $kilang->e_as3 ?? '-',
+                    'e_notel' =>  $kilang->e_notel ?? '-',
+                    'e_nofax' =>  $kilang->e_nofax ?? '-',
+                    'e_email' =>  $kilang->e_email ?? '-',
+                    'e_npg' =>  $kilang->e_npg ?? '-',
+                    'e_jpg' =>  $kilang->e_jpg ?? '-',
+                    'kodpgw' =>  $kilang->kodpgw ?? '-',
+                    'nosiri' =>  $kilang->nosiri ?? '-',
+                    'e_npgtg' =>  $kilang->e_npgtg ?? '-',
+                    'e_jpgtg' =>  $kilang->e_jpgtg ?? '-',
+                    'e_asnegeri' =>  $kilang->e_asnegeri ?? '-',
+                    'e_asdaerah' =>  $daerah->kod_daerah ?? '-',
+                    'e_negeri' =>  $kilang->e_apnegeri ?? '-',
+                    'e_daerah' =>  $daerah->kod_daerah ?? '-',
+                    'e_syktinduk' =>  $kilang->e_sykt_induk ?? '-',
+                    'e_status' =>  $kilang->e_status ?? '-',
+                ]);
+            }else{
 
-            $user = Pelesen::create([
-                'e_nl' => $kilang->e_nl ?? '-',
-                'e_np' => $kilang->e_np ?? '-',
-                'e_ap1' => $kilang->e_ap1 ?? '-',
-                'e_ap2' => $kilang->e_ap2 ?? '-',
-                'e_ap3' => $kilang->e_ap3 ?? '-',
-                'e_as1' => $kilang->e_as1 ?? '-',
-                'e_as2' => $kilang->e_as2 ?? '-',
-                'e_as3' => $kilang->e_as3 ?? '-',
-                'e_notel' =>  $kilang->e_notel ?? '-',
-                'e_nofax' =>  $kilang->e_nofax ?? '-',
-                'e_email' =>  $kilang->e_email ?? '-',
-                'e_npg' =>  $kilang->e_npg ?? '-',
-                'e_jpg' =>  $kilang->e_jpg ?? '-',
-                'kodpgw' =>  $kilang->kodpgw ?? '-',
-                'nosiri' =>  $kilang->nosiri ?? '-',
-                'e_npgtg' =>  $kilang->e_npgtg ?? '-',
-                'e_jpgtg' =>  $kilang->e_jpgtg ?? '-',
-                'e_asnegeri' =>  $kilang->e_asnegeri ?? '-',
-                'e_asdaerah' =>  $kilang->e_asdaerah ?? '-',
-                'e_apnegeri' =>  $kilang->e_negeri ?? '-',
-                'e_apdaerah' =>  $kilang->e_daerah ?? '-',
-                'e_syktinduk' =>  $kilang->e_sykt_induk ?? '-',
-                'e_status' =>  $kilang->e_status ?? '-',
-            ]);
+                    $user->e_nl = $kilang->e_nl ?? '-';
+                    $user->e_np = $kilang->e_np ?? '-';
+                    $user->e_ap1 = $kilang->e_ap1 ?? '-';
+                    $user->e_ap2 = $kilang->e_ap2 ?? '-';
+                    $user->e_ap3 = $kilang->e_ap3 ?? '-';
+                    $user->e_as1 = $kilang->e_as1 ?? '-';
+                    $user->e_as2 = $kilang->e_as2 ?? '-';
+                    $user->e_as3 = $kilang->e_as3 ?? '-';
+                    $user->e_notel = $kilang->e_notel ?? '-';
+                    $user->e_nofax = $kilang->e_nofax ?? '-';
+                    $user->e_email = $kilang->e_email ?? '-';
+                    $user->e_npg = $kilang->e_npg ?? '-';
+                    $user->e_jpg = $kilang->e_jpg ?? '-';
+                    $user->kodpgw = $kilang->kodpgw ?? '-';
+                    $user->nosiri = $kilang->nosiri ?? '-';
+                    $user->e_npgtg = $kilang->e_npgtg ?? '-';
+                    $user->e_jpgtg = $kilang->e_jpgtg ?? '-';
+                    $user->e_asnegeri = $kilang->e_asnegeri ?? '-';
+                    $user->e_asdaerah = $daerah->kod_daerah ?? '-';
+                    $user->e_negeri = $kilang->e_apnegeri ?? '-';
+                    $user->e_daerah = $daerah->kod_daerah ?? '-';
+                    $user->e_syktinduk = $kilang->e_sykt_induk ?? '-';
+                    $user->e_status = $kilang->e_status ?? '-';
+
+                $user->save();
+            }
+
         }
     }
 }

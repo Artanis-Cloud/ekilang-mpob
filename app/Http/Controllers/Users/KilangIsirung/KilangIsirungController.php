@@ -276,7 +276,7 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
 
-        $prodcat = KodSl::get();
+        $kodsl = KodSl::get();
         // dd($prodcat);
 
         $prodcat2 = ProdCat2::get();
@@ -289,12 +289,13 @@ class KilangIsirungController extends Controller
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', 51)->get();
+        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->get();
         // dd($penyata);
 
+        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3','51')->sum('e102_b6');
 
 
-        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'prodcat', 'prodcat2', 'penyata', 'user', 'produk'));
+        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'kodsl', 'prodcat2', 'penyata', 'user', 'produk','total'));
     }
 
 
@@ -388,12 +389,13 @@ class KilangIsirungController extends Controller
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', 04)->get();
+        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->get();
         // dd($penyata);
 
+        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3','04')->sum('e102_b6');
 
 
-        return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user'));
+        return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user','total'));
     }
 
 
@@ -484,12 +486,13 @@ class KilangIsirungController extends Controller
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', 33)->get();
+        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->get();
         // dd($penyata);
 
+        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3','33')->sum('e102_b6');
 
 
-        return view('users.KilangIsirung.isirung-bahagian-v', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user'));
+        return view('users.KilangIsirung.isirung-bahagian-v', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user','total'));
     }
 
 
