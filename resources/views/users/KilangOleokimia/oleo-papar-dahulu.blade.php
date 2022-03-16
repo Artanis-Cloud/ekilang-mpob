@@ -820,15 +820,15 @@
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                             <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
                                                 <input type="text" id="e104_sdate" class="form-control" size="50"
-                                                    name='e104_sdate' value="{{ $pelesen->e104_sdate ?? '-' }}" readonly>
+                                                    name='e104_sdate' value="{{ $users->e104_sdate ?? '-' }}" readonly>
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 <input type="text" id="e_npg" class="form-control" size="50" name='e_npg'
-                                                    value="{{ $pelesen->e104_npg }}">
+                                                    value="{{ $users->e104_npg }}">
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
                                                 <input type="text" id="e_jpg" class="form-control" size="50" name='e_jpg'
-                                                    value="{{ $pelesen->e104_jpg }}">
+                                                    value="{{ $users->e104_jpg }}">
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
