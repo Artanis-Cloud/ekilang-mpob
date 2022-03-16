@@ -63,12 +63,6 @@ class DataMigrationController extends Controller
 
         $loginmills = DB::connection('mysql2')->select("SELECT * FROM  login_mill");
 
-        // dd($loginmills);
-
-        // foreach ($users as $user) {
-        //     // dd($user );
-        // }
-
 
 
         foreach ($loginmills as $loginmill) {
@@ -78,19 +72,32 @@ class DataMigrationController extends Controller
 
             $password = Hash::make($loginmill->password);
             // dd($password);
+            $user = User::where('username', $loginmill->lesen)->first();
+            if(!$user){
+                $user = User::create([
+                    'name' => $kilang[0]->e_np ?? '-',
+                    'name' => $kilang[0]->e_email ?? '-',
+                    'password' => $password,
+                    'username' => $loginmill->lesen ?? '-',
+                    'category' => 'PLBIO',
+                    'kod_pegawai' => $kilang[0]->kodpgw ?? '-',
+                    'no_siri' => $kilang[0]->nosiri ?? '-',
+                    'status' =>  $kilang[0]->e_status ?? '-',
+                    // 'stock' =>  $reg_pelesen->e_stock ?? '-',
+                    // 'directory' =>  $reg_pelesen->directory ?? '-',
+                ]);
+            }else{
 
-            $user = User::create([
-                'name' => $kilang[0]->e_np ?? '-',
-                'email' => $kilang[0]->e_email ?? '-',
-                'password' => $password,
-                'username' => $loginmill->lesen ?? '-',
-                'category' => 'BO',
-                'kod_pegawai' => $kilang[0]->kodpgw ?? '-',
-                'no_siri' => $kilang[0]->nosiri ?? '-',
-                'status' =>  $kilang[0]->e_status ?? '-',
-                // 'stock' =>  $reg_pelesen->e_stock ?? '-',
-                // 'directory' =>  $reg_pelesen->directory ?? '-',
-            ]);
+                $user->name = $kilang[0]->e_np ?? '-';
+                $user->email = $kilang[0]->e_email ?? '-';
+                $user->username = $loginmill->lesen ?? '-';
+                $user->category = 'PLBIO';
+                $user->kod_pegawai = $kilang[0]->kodpgw ?? '-';
+                $user->no_siri = $kilang[0]->nosiri ?? '-';
+                $user->status = $kilang[0]->e_status ?? '-';
+                $user->save();
+            }
+
         }
     }
 

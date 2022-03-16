@@ -263,7 +263,7 @@
 
                         </li>
 
-                        <li class="dropdown nav-icon">
+                        {{-- <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="mt-2">
@@ -286,7 +286,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> --}}
                         {{-- <li class="dropdown nav-icon me-2">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">

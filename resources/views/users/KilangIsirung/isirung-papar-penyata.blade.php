@@ -18,11 +18,11 @@
 
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
+                            <div class="align-self-center" style="margin-left: 2%; margin-bottom:-2%">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
                                     style="color:white; background-color:#25877bd1">Kembali</a>
                             </div>
-                            <div class="col-7 align-self-center">
+                            <div class="align-self-center" style="margin-left: -1%">
                                 <div class="d-flex align-items-center justify-content-end">
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
@@ -592,7 +592,7 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td  align="center">
-                                                            <font size="2"><b>135.00</b></font>
+                                                            <font size="2"><b>{{ $totaliii }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -636,7 +636,7 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td  align="center">
-                                                            <font size="2"><b>125.00</b></font>
+                                                            <font size="2"><b>{{ $totaliv }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -679,7 +679,7 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td  align="center">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ $totalv }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
