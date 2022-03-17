@@ -128,10 +128,29 @@ class KilangPenapisController extends Controller
             return $query->where('prodcat', '=', 01);
         })->get();
         // dd($penyata);
+        $total = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','1')->sum('e101_b5');
+
+        $total2 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','1')->sum('e101_b6');
+
+        $total3 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','1')->sum('e101_b7');
+
+        $total4 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','1')->sum('e101_b8');
+
+        $total5 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','1')->sum('e101_b9');
+
+        $total6 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','1')->sum('e101_b10');
+
+        $total7 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','1')->sum('e101_b11');
+
+        $total8 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','1')->sum('e101_b12');
+
+        $total9 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','1')->sum('e101_b13');
+
+        $total10 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','1')->sum('e101_b14');
 
 
-
-        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout', 'produk', 'penyata', 'user'));
+        return view('users.KilangPenapis.penapis-bahagian-i', compact('returnArr', 'layout', 'produk', 'penyata', 'user',
+                    'total', 'total2', 'total3', 'total4', 'total5', 'total6', 'total7', 'total8', 'total9', 'total10'));
     }
 
 
@@ -258,11 +277,31 @@ class KilangPenapisController extends Controller
             return $query->where('prodcat', '=', 02);
         })->get();
 
-        // dd($b);
-        // dd($b->produk);
+        $total = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','2')->sum('e101_b5');
+
+        $total2 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','2')->sum('e101_b6');
+
+        $total3 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','2')->sum('e101_b7');
+
+        $total4 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','2')->sum('e101_b8');
+
+        $total5 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','2')->sum('e101_b9');
+
+        $total6 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','2')->sum('e101_b10');
+
+        $total7 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','2')->sum('e101_b11');
+
+        $total8 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','2')->sum('e101_b12');
+
+        $total9 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','2')->sum('e101_b13');
+
+        $total10 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3','2')->sum('e101_b14');
 
 
-        return view('users.KilangPenapis.penapis-bahagian-ii', compact('returnArr', 'layout', 'produk', 'b'));
+
+
+        return view('users.KilangPenapis.penapis-bahagian-ii', compact('returnArr', 'layout', 'produk', 'b',
+        'total', 'total2', 'total3', 'total4', 'total5', 'total6', 'total7', 'total8', 'total9', 'total10'));
     }
 
 
@@ -415,9 +454,23 @@ class KilangPenapisController extends Controller
         //         return $query->where('prodcat', '=', 04);
         //     })->get();
         $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 1)->get();
+
+        $total = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','1')->sum('e101_c5');
+
+        $total2 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','1')->sum('e101_c6');
+
+        $total3 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','1')->sum('e101_c7');
+
+        $total4 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','1')->sum('e101_c8');
+
+        $total5 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','1')->sum('e101_c9');
+
+        $total6 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','1')->sum('e101_c10');
+
         // dd($penyata);
 
-        return view('users.KilangPenapis.penapis-bahagian-iva', compact('returnArr', 'layout', 'produk', 'user', 'penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-iva', compact('returnArr', 'layout', 'produk', 'user', 'penyata',
+        'total', 'total2', 'total3', 'total4', 'total5', 'total6'));
     }
 
 
@@ -517,9 +570,22 @@ class KilangPenapisController extends Controller
 
 
         $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 2)->get();
+
+        $total = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','2')->sum('e101_c5');
+
+        $total2 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','2')->sum('e101_c6');
+
+        $total3 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','2')->sum('e101_c7');
+
+        $total4 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','2')->sum('e101_c8');
+
+        $total5 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','2')->sum('e101_c9');
+
+        $total6 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3','2')->sum('e101_c10');
         // dd($penyata);
 
-        return view('users.KilangPenapis.penapis-bahagian-ivb', compact('returnArr', 'layout', 'produk', 'user', 'penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-ivb', compact('returnArr', 'layout', 'produk', 'user', 'penyata',
+        'total', 'total2', 'total3', 'total4', 'total5', 'total6'));
     }
 
 
@@ -618,6 +684,14 @@ class KilangPenapisController extends Controller
 
 
         $penyata = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->get();
+
+        $total = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->sum('e101_d5');
+
+        $total2 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->sum('e101_d6');
+
+        $total3 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->sum('e101_d7');
+
+        $total4 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->sum('e101_d8');
         // dd($penyata);
 
         // $kodsl = KodSl::all();
@@ -626,7 +700,8 @@ class KilangPenapisController extends Controller
         // dd($selectedKod);
 
 
-        return view('users.KilangPenapis.penapis-bahagian-v', compact('returnArr', 'layout', 'user', 'penyata'));
+        return view('users.KilangPenapis.penapis-bahagian-v', compact('returnArr', 'layout', 'user', 'penyata',
+        'total', 'total2', 'total3', 'total4'));
     }
 
 
