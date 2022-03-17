@@ -89,7 +89,7 @@
                                                         class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
                                                         Jumlah Hari Kilang Beroperasi Sebulan </label>
                                                     <div class="col-md-6">
-                                                        <input type="text" class="form-control" name='e104_a5' style="margin-left:42%; width:40%"
+                                                        <input type="text" class="form-control" name='e104_a5' style="margin-left:42%; width:40%; text-align:right"
                                                             onkeypress="return isNumberKey(event)" id="e104_a5" required
                                                             title="Sila isikan butiran ini." value="{{ $penyata->e104_a5 }}">
                                                         {{-- @error('alamat_kilang_1')
@@ -107,7 +107,7 @@
                                                         class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
                                                         Kadar Penggunaan Kapasiti Sebulan	</label>
                                                     <div class="col-md-6">
-                                                        <input type="text" class="form-control" name='e104_a6' style="margin-left:42%; width:40%"
+                                                        <input type="text" class="form-control" name='e104_a6' style="margin-left:42%; width:40%; text-align:right"
                                                             onkeypress="return isNumberKey(event)" id="e104_a6"
                                                             required title="Sila isikan butiran ini." value="{{ $penyata->e104_a6 }}">
                                                         {{-- @error('alamat_kilang_1')

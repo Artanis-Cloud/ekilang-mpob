@@ -215,11 +215,11 @@
                                                     <tr style="text-align: right">
                                                         <td style="text-align: left">{{ $data->produk->prodname }}</td>
                                                         <td style="text-align: left">{{ $data->produk->prodid }}</td>
-                                                        <td>{{ $data->e104_c4 }}</td>
-                                                        <td>{{ $data->e104_c5 }}</td>
-                                                        <td>{{ $data->e104_c6 }}</td>
-                                                        <td>{{ $data->e104_c7 }}</td>
-                                                        <td>{{ $data->e104_c8 }}</td>
+                                                        <td>{{ number_format($data->e104_c4 ??  0,2) }}</td>
+                                                        <td>{{ number_format($data->e104_c5 ??  0,2) }}</td>
+                                                        <td>{{ number_format($data->e104_c6 ??  0,2) }}</td>
+                                                        <td>{{ number_format($data->e104_c7 ??  0,2) }}</td>
+                                                        <td>{{ number_format($data->e104_c8 ??  0,2) }}</td>
                                                         <td>
                                                             <div class="icon" style="text-align: center">
                                                                 <a href="#" type="button" data-bs-toggle="modal"
@@ -363,7 +363,7 @@
                         </div>
                         <div class="text-right col-md-7 mb-4 ">
                             <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                data-bs-target="#exampleModalCenter">Papar Penyata</button>
+                                data-bs-target="#exampleModalCenter">Simpan & Seterusnya</button>
                         </div>
 
                     </div>
@@ -383,7 +383,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <p>
-                                        Anda pasti mahu memapar penyata?
+                                        Anda pasti mahu menyimpan maklumat ini?
                                     </p>
                                 </div>
                                 <div class="modal-footer">

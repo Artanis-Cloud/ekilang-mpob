@@ -212,10 +212,10 @@
 
                                                     <td style="text-align: left">{{ $data->kodsl[0]->catname }}</td>
                                                     <td style="text-align: left">{{ $data->prodcat[0]->catname }}</td>
-                                                    <td>{{ $data->e101_d5 }}</td>
-                                                    <td>{{ $data->e101_d6 }}</td>
-                                                    <td>{{ $data->e101_d7 }}</td>
-                                                    <td>{{ $data->e101_d8 }}</td>
+                                                    <td>{{ number_format($data->e101_d5 ??  0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_d6 ??  0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_d7 ??  0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_d8 ??  0,2) }}</td>
                                                     <td>
                                                         <div class="icon" style="text-align: center">
                                                             <a href="#" type="button" data-bs-toggle="modal"

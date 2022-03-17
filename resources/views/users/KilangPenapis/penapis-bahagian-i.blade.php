@@ -302,16 +302,16 @@
                                                         {{-- @endif --}}
 
                                                     </td>
-                                                    <td>{{ $data->e101_b5 }}</td>
-                                                    <td>{{ $data->e101_b6 }}</td>
-                                                    <td>{{ $data->e101_b7 }}</td>
-                                                    <td>{{ $data->e101_b8 }}</td>
-                                                    <td>{{ $data->e101_b9 }}</td>
-                                                    <td>{{ $data->e101_b10 }}</td>
-                                                    <td>{{ $data->e101_b11 }}</td>
-                                                    <td>{{ $data->e101_b12 }}</td>
-                                                    <td>{{ $data->e101_b13 }}</td>
-                                                    <td>{{ $data->e101_b14 }}</td>
+                                                    <td>{{ number_format($data->e101_b5 ?? 0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_b6 ?? 0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_b7 ?? 0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_b8 ?? 0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_b9 ?? 0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_b10 ?? 0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_b11 ?? 0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_b12 ?? 0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_b13 ?? 0,2) }}</td>
+                                                    <td>{{ number_format($data->e101_b14 ?? 0,2) }}</td>
                                                     <td>
                                                         <div class="icon" style="text-align: center">
                                                             <a href="#" type="button" data-bs-toggle="modal"

@@ -235,12 +235,12 @@
                                                 <tr style="text-align: right">
                                                 <td  style="text-align: left">{{ $data->produk[0]->prodname  }}</td>
                                                 <td>{{ $data->produk[0]->prodid  }}</td>
-                                                <td>{{ $data->e101_c5 }}</td>
-                                                <td>{{ $data->e101_c6 }}</td>
-                                                <td>{{ $data->e101_c7 }}</td>
-                                                <td>{{ $data->e101_c8 }}</td>
-                                                <td>{{ $data->e101_c9 }}</td>
-                                                <td>{{ $data->e101_c10 }}</td>
+                                                <td>{{ number_format($data->e101_c5 ??  0,2) }}</td>
+                                                <td>{{ number_format($data->e101_c6 ??  0,2) }}</td>
+                                                <td>{{ number_format($data->e101_c7 ??  0,2) }}</td>
+                                                <td>{{ number_format($data->e101_c8 ??  0,2) }}</td>
+                                                <td>{{ number_format($data->e101_c9 ??  0,2) }}</td>
+                                                <td>{{ number_format($data->e101_c10 ??  0,2) }}</td>
                                                 <td>
                                                     <div class="icon" style="text-align: center">
                                                         <a href="#"

@@ -228,9 +228,9 @@
                                                         <td style="text-align: left">{{ $data->produk->prodname }}</td>
                                                         <td style="text-align: left">{{ $data->produk->prodid }}</td>
                                                         <td>{{ $data->e104_d5 }}</td>
-                                                        <td>{{ $data->e104_d6 }}</td>
-                                                        <td>{{ $data->e104_d7 }}</td>
-                                                        <td>{{ $data->e104_d8 }}</td>
+                                                        <td>{{ $data->e104_d6  }}</td>
+                                                        <td>{{ number_format($data->e104_d7 ??  0,2) }}</td>
+                                                        <td>{{ number_format($data->e104_d8 ??  0,2) }}</td>
                                                         <td>{{ $data->negara->namanegara }}</td>
                                                         <td>
                                                             <div class="icon" style="text-align: center">
