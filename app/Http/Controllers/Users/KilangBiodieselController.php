@@ -8,6 +8,7 @@ use App\Models\E104Init;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use DB;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -37,8 +38,9 @@ class KilangBiodieselController extends Controller
         $layout = 'layouts.kbio';
 
         // $pelesen = E91Init::get();
-        // $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
+        $pelesen2 = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan");
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
 
 
@@ -47,7 +49,7 @@ class KilangBiodieselController extends Controller
 
 
 
-        return view('users.KilangBiodiesel.bio-maklumat-asas-pelesen', compact('returnArr', 'layout'));
+        return view('users.KilangBiodiesel.bio-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
     }
 
     // public function bio_update_maklumat_asas_pelesen(Request $request, $id)
@@ -113,15 +115,16 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
-        // $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
+        $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
+        $user = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan");
 
 
         $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
 
 
-        // $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
-        //     return $query->where('prodcat', '=', 01);
-        // })->get();
+        $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 01);
+        })->get();
         // dd($penyata);
         return view('users.KilangBiodiesel.bio-bahagian-ia', compact('returnArr', 'layout','produk'));
     }
