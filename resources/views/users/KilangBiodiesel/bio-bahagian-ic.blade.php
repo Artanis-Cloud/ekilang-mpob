@@ -60,7 +60,7 @@
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-                                    <form action="{{ route('bio.add.bahagian.ic') }}" method="post">
+                                    {{-- <form action="{{ route('bio.add.bahagian.ic') }}" method="post"> --}}
                                         @csrf
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}

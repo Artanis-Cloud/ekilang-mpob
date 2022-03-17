@@ -235,11 +235,11 @@ class KilangBiodieselController extends Controller
 
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
 
-        $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 02);
-        })->get();
+        // $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->whereHas('produk', function ($query) {
+        //     return $query->where('prodcat', '=', 02);
+        // })->get();
 
-        return view('users.KilangBiodiesel.bio-bahagian-ib', compact('returnArr', 'layout', 'produk', 'penyata', 'user'));
+        return view('users.KilangBiodiesel.bio-bahagian-ib', compact('returnArr', 'layout', 'produk', 'user'));
     }
 
     // public function bio_add_bahagian_ib(Request $request)
