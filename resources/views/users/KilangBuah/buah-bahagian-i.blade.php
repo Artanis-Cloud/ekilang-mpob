@@ -146,7 +146,7 @@
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e91_ab1' id="number"
                                                                                 style="text-align: center"
-                                                                                onkeypress="return isNumberKey(event)"
+                                                                                onkeypress="return fun_AllowOnlyAmountAndDot(this.id);""
                                                                                 value="{{ $penyata->e91_ab1 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
@@ -405,6 +405,77 @@
     </script>
 
 
+<script type="text/javascript">
+    function fun_AllowOnlyAmountAndDot(txt) {
+
+        if (event.keyCode > 47 && event.keyCode < 58 || event.keyCode == 46) {
+            var txtbx = document.getElementById(txt);
+            var amount = document.getElementById(txt).value;
+            var present = 0;
+            var count = 0;
+
+
+
+            if (amount.indexOf(".", present) || amount.indexOf(".", present + 1)); {
+                // alert('0');
+            }
+
+            /*if(amount.length==2)
+            {
+              if(event.keyCode != 46)
+              return false;
+            }*/
+            do {
+                present = amount.indexOf(".", present);
+                if (present != -1) {
+                    count++;
+                    present++;
+                }
+            }
+            while (present != -1);
+            if (present == -1 && amount.length == 0 && event.keyCode == 46) {
+                event.keyCode = 0;
+                //alert("Wrong position of decimal point not  allowed !!");
+                return false;
+            }
+
+            if (count >= 1 && event.keyCode == 46) {
+
+                event.keyCode = 0;
+                //alert("Only one decimal point is allowed !!");
+                return false;
+            }
+            if (count == 1) {
+                var lastdigits = amount.substring(amount.indexOf(".") + 1, amount.length);
+                if (lastdigits.length >= 2) {
+                    //alert("Two decimal places only allowed");
+                    event.keyCode = 0;
+                    return false;
+                }
+            }
+            return true;
+        } else {
+            event.keyCode = 0;
+            //alert("Only Numbers with dot allowed !!");
+            return false;
+        }
+
+    }
+</script>
+
+    {{-- <script>
+        function addCommas(nStr) {
+            nStr += '';
+            x = nStr.split('.');
+            x1 = x[0];
+            x2 = x.length > 1 ? '.' + x[1] : '';
+            var rgx = /(\d+)(\d{3})/;
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + ',' + '$2');
+            }
+            return x1 + x2;
+        }
+    </script> --}}
 
         {{-- // function setTwoNumberDecimal(event) {
     // this.value = parseFloat(this.value).toFixed(2);

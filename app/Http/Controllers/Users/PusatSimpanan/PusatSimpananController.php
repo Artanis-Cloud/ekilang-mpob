@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Users\PusatSimpanan;
 use App\Http\Controllers\Controller;
 use App\Models\E07Btranshipment;
 use App\Models\E07Init;
+use App\Models\Ekmessage;
 use App\Models\H07Btranshipment;
 use App\Models\H07Init;
 use Illuminate\Http\Request;
@@ -284,25 +285,45 @@ class PusatSimpananController extends Controller
         return view('users.PusatSimpanan.pusatsimpan-email', compact('returnArr', 'layout'));
     }
 
-    public function pusatsimpan_prestasioer()
+
+    public function pusatsimpan_send_email_proses (Request $request)
+    {
+        // dd($request->all());
+        $this->validation_send_email($request->all())->validate();
+        $this->store_send_email($request->all());
+
+
+        return redirect()->back()->with('success', 'Emel sudah dihantar');
+    }
+
+    protected function validation_send_email(array $data)
+    {
+        return Validator::make($data, [
+            // 'Id' => ['required', 'string'],
+            'TypeOfEmail' => ['required', 'string'],
+            'FromEmail' => ['required', 'string'],
+            'Subject' => ['required', 'string'],
+            'Message' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_send_email(array $data)
     {
 
-        $breadcrumbs    = [
-            ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('pusatsimpan.prestasioer'), 'name' => "Prestasi OER  "],
-        ];
+        // $user = User::where('e_nl', auth()->user()->username)->first();
 
-        $kembali = route('pusatsimpan.dashboard');
+        return Ekmessage::create([
+            // 'Id' => $data['Id'],
+            'Date' => date("Y-m-d H:i:s"),
+            'FromName' => auth()->user()->name,
+            'FromLicense' => auth()->user()->username,
+            'TypeOfEmail' => $data['TypeOfEmail'],
+            'FromEmail' => $data['FromEmail'],
+            'Category' => auth()->user()->category,
+            'Subject' => $data['Subject'],
+            'Message' => $data['Message'],
 
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.psimpan';
-
-
-
-        return view('users.PusatSimpanan.pusatsimpan-prestasi-oer', compact('returnArr', 'layout'));
+        ]);
     }
 
     public function pusatsimpan_penyatadahulu()
