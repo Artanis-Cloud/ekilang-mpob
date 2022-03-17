@@ -36,4 +36,11 @@ class EBioB extends Model
         'ebio_b13',
 
     ];
+    public function ebioinit(){
+        return $this->hasOne(EBioInit::class,'ebio_reg', 'ebio_reg');
+    }
+
+    public function produk(){
+        return $this->hasOne(Produk::class,'prodid','ebio_b4');
+    }
 }

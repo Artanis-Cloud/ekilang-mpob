@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Models\E104B;
 use App\Models\E104Init;
+use App\Models\EBioB;
+use App\Models\EBioInit;
 use App\Models\Hari;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
@@ -121,16 +123,18 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
-        $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
-        $user = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan");
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        // $user = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan");
 
 
         $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
 
-
+        $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 01);
+        })->get();
 
         // dd($penyata);
-        return view('users.KilangBiodiesel.bio-bahagian-ia', compact('returnArr', 'layout', 'produk'));
+        return view('users.KilangBiodiesel.bio-bahagian-ia', compact('returnArr', 'layout', 'produk','penyata'));
     }
 
     public function bio_add_bahagian_ia(Request $request)
@@ -146,76 +150,68 @@ class KilangBiodieselController extends Controller
     {
         return Validator::make($data, [
 
-            'kod_produk' => ['required', 'string'],
-            'e104_b5' => ['required', 'string'],
-            'e104_b6' => ['required', 'string'],
-            'e104_b7' => ['required', 'string'],
-            // 'e104_b8' => ['required', 'string'],
-            'e104_b9' => ['required', 'string'],
-            'e104_b10' => ['required', 'string'],
-            'e104_b11' => ['required', 'string'],
-            'e104_b12' => ['required', 'string'],
-            'e104_b13' => ['required', 'string'],
+            'ebio_b4' => ['required', 'string'],
+            'ebio_b5' => ['required', 'string'],
+            'ebio_b6' => ['required', 'string'],
+            'ebio_b7' => ['required', 'string'],
+            'ebio_b8' => ['required', 'string'],
+            'ebio_b9' => ['required', 'string'],
+            'ebio_b10' => ['required', 'string'],
+            'ebio_b11' => ['required', 'string'],
+            'ebio_b12' => ['required', 'string'],
+            // 'ebio_b13' => ['required', 'string'],
 
-            // 'e101_b15' => ['required', 'string'],
+            // 'e104_b15' => ['required', 'string'],
         ]);
     }
 
-    // protected function store_bahagian_ia(array $data)
-    // {
-    //     $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
-    //     // dd($e104_reg);
-    //     return E104B::create([
-    //         'e104_reg' => $e104_reg->e104_reg,
-    //         'e104_b3' => '1',
-    //         'e104_b4' => $data['e104_b4'],
-    //         'e104_b5' => $data['e104_b5'],
-    //         'e104_b6' => $data['e104_b6'],
-    //         'e104_b7' => $data['e104_b7'],
-    //         // 'e104_b8' => $data['e104_b8'],
-    //         'e104_b9' => $data['e104_b9'],
-    //         'e104_b10' => $data['e104_b10'],
-    //         'e104_b11' => $data['e104_b11'],
-    //         'e104_b12' => $data['e104_b12'],
-    //         'e104_b13' => $data['e104_b13'],
+    protected function store_bahagian_ia(array $data)
+    {
+        $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        // dd($e104_reg);
+        return EBioB::create([
+            'ebio_reg' => $ebio_reg->ebio_reg,
+            'ebio_b3' => '1',
+            'ebio_b4' => $data['ebio_b4'],
+            'ebio_b5' => $data['ebio_b5'],
+            'ebio_b6' => $data['ebio_b6'],
+            'ebio_b7' => $data['ebio_b7'],
+            'ebio_b8' => $data['ebio_b8'],
+            'ebio_b9' => $data['ebio_b9'],
+            'ebio_b10' => $data['ebio_b10'],
+            'ebio_b11' => $data['ebio_b11'],
+            'ebio_b12' => $data['ebio_b12'],
+            // 'ebio_b13' => $data['ebio_b13'],
 
-    //         // 'e101_b15' => $data['e104_b15'],
-    //     ]);
-    //     // return $data;
-    //     // dd($data);
-    // }
+            // 'e101_b15' => $data['e104_b15'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
 
-    // public function destroy(E101B $penyata)
-    // {
-    //     $penyata->delete();
+    public function bio_edit_bahagian_ia(Request $request, $id)
+    {
 
-    //     return redirect()->route('penapis.bahagiani')
-    //                     ->with('success','Product deleted successfully');
-    // }
+        $produk = Produk::where('prodname', $request->ebio_b4)->first();
 
-
-    // public function bio_edit_bahagian_ia(Request $request, $id)
-    // {
-
-    //     $produk = Produk::where('prodname', $request->e104_b4)->first();
-
-    //     // dd($request->all());
-    //     $penyata = E104B::findOrFail($id);
-    //     $penyata->e104_b4 = $produk->prodid;
-    //     $penyata->e104_b5 = $request->e104_b5;
-    //     $penyata->e104_b6 = $request->e104_b6;
-    //     $penyata->e104_b7 = $request->e104_b7;
-    //     $penyata->e104_b9 = $request->e104_b9;
-    //     $penyata->e104_b10 = $request->e104_b10;
-    //     $penyata->e104_b11 = $request->e104_b11;
-    //     $penyata->e104_b12 = $request->e104_b12;
-    //     $penyata->e104_b13 = $request->e104_b13;
-    //     $penyata->save();
+        // dd($request->all());
+        $penyata = EBioB::findOrFail($id);
+        $penyata->ebio_b4 = $produk->prodid;
+        $penyata->ebio_b5 = $request->ebio_b5;
+        $penyata->ebio_b6 = $request->ebio_b6;
+        $penyata->ebio_b7 = $request->ebio_b7;
+        $penyata->ebio_b8 = $request->ebio_b8;
+        $penyata->ebio_b9 = $request->ebio_b9;
+        $penyata->ebio_b10 = $request->ebio_b10;
+        $penyata->ebio_b11 = $request->ebio_b11;
+        $penyata->ebio_b12 = $request->ebio_b12;
+        // $penyata->ebio_b13 = $request->ebio_b13;
+        $penyata->save();
 
 
-    //     return redirect()->route('bio.bahagiania')
-    //         ->with('success', 'Maklumat telah disimpan');
-    // }
+        return redirect()->route('bio.bahagiania')
+            ->with('success', 'Maklumat telah disimpan');
+    }
 
 
     public function bio_bahagianib()
@@ -234,69 +230,66 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
-        $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+
 
 
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
 
-        // $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->whereHas('produk', function ($query) {
-        //     return $query->where('prodcat', '=', 02);
-        // })->get();
-
-        return view('users.KilangBiodiesel.bio-bahagian-ib', compact('returnArr', 'layout', 'produk', 'user'));
+        $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3','2')->get();
+// dd($penyata);
+        return view('users.KilangBiodiesel.bio-bahagian-ib', compact('returnArr', 'layout', 'produk', 'user','penyata'));
     }
 
-    // public function bio_add_bahagian_ib(Request $request)
-    // {
-    //     // dd($request->all());
-    //     $this->validation_bahagian_ib($request->all())->validate();
-    //     $this->store_bahagian_ib($request->all());
+    public function bio_add_bahagian_ib(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_ib($request->all())->validate();
+        $this->store_bahagian_ib($request->all());
 
-    //     return redirect()->route('bio.bahagianib')->with('success', 'Maklumat sudah ditambah');
-    // }
+        return redirect()->route('bio.bahagianib')->with('success', 'Maklumat sudah ditambah');
+    }
 
-    // protected function validation_bahagian_ib(array $data)
-    // {
-    //     return Validator::make($data, [
+    protected function validation_bahagian_ib(array $data)
+    {
+        return Validator::make($data, [
 
-    //         'e104_b4' => ['required', 'string'],
-    //         'e104_b5' => ['required', 'string'],
-    //         'e104_b6' => ['required', 'string'],
-    //         'e104_b7' => ['required', 'string'],
-    //         // 'e104_b8' => ['required', 'string'],
-    //         'e104_b9' => ['required', 'string'],
-    //         'e104_b10' => ['required', 'string'],
-    //         'e104_b11' => ['required', 'string'],
-    //         'e104_b12' => ['required', 'string'],
-    //         'e104_b13' => ['required', 'string'],
+            'ebio_b4' => ['required', 'string'],
+            'ebio_b5' => ['required', 'string'],
+            'ebio_b6' => ['required', 'string'],
+            'ebio_b7' => ['required', 'string'],
+            'ebio_b8' => ['required', 'string'],
+            'ebio_b9' => ['required', 'string'],
+            'ebio_b10' => ['required', 'string'],
+            'ebio_b11' => ['required', 'string'],
+            'ebio_b12' => ['required', 'string'],
 
-    //         // 'e101_b15' => ['required', 'string'],
-    //     ]);
-    // }
+            // 'e101_b15' => ['required', 'string'],
+        ]);
+    }
 
-    // protected function store_bahagian_ib(array $data)
-    // {
-    //     $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
-    //     // dd($e104_reg);
-    //     return E104B::create([
-    //         'e104_reg' => $e104_reg->e104_reg,
-    //         'e104_b3' => '2',
-    //         'e104_b4' => $data['e104_b4'],
-    //         'e104_b5' => $data['e104_b5'],
-    //         'e104_b6' => $data['e104_b6'],
-    //         'e104_b7' => $data['e104_b7'],
-    //         // 'e104_b8' => $data['e104_b8'],
-    //         'e104_b9' => $data['e104_b9'],
-    //         'e104_b10' => $data['e104_b10'],
-    //         'e104_b11' => $data['e104_b11'],
-    //         'e104_b12' => $data['e104_b12'],
-    //         'e104_b13' => $data['e104_b13'],
+    protected function store_bahagian_ib(array $data)
+    {
+        $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        // dd($ebio_reg);
+        return EBioB::create([
+            'ebio_reg' => $ebio_reg->ebio_reg,
+            'ebio_b3' => '2',
+            'ebio_b4' => $data['ebio_b4'],
+            'ebio_b5' => $data['ebio_b5'],
+            'ebio_b6' => $data['ebio_b6'],
+            'ebio_b7' => $data['ebio_b7'],
+            'ebio_b8' => $data['ebio_b8'],
+            'ebio_b9' => $data['ebio_b9'],
+            'ebio_b10' => $data['ebio_b10'],
+            'ebio_b11' => $data['ebio_b11'],
+            'ebio_b12' => $data['ebio_b12'],
 
-    //         // 'e101_b15' => $data['e104_b15'],
-    //     ]);
-    //     // return $data;
-    //     // dd($data);
-    // }
+            // 'e101_b15' => $data['e104_b15'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
 
     // public function destroy(E101B $penyata)
     // {
@@ -307,28 +300,28 @@ class KilangBiodieselController extends Controller
     // }
 
 
-    // public function bio_edit_bahagian_ib(Request $request, $id)
-    // {
+    public function bio_edit_bahagian_ib(Request $request, $id)
+    {
 
-    //     $produk = Produk::where('prodname', $request->e104_b4)->first();
+        $produk = Produk::where('prodname', $request->ebio_b4)->first();
 
-    //     // dd($request->all());
-    //     $penyata = E104B::findOrFail($id);
-    //     $penyata->e104_b4 = $produk->prodid;
-    //     $penyata->e104_b5 = $request->e104_b5;
-    //     $penyata->e104_b6 = $request->e104_b6;
-    //     $penyata->e104_b7 = $request->e104_b7;
-    //     $penyata->e104_b9 = $request->e104_b9;
-    //     $penyata->e104_b10 = $request->e104_b10;
-    //     $penyata->e104_b11 = $request->e104_b11;
-    //     $penyata->e104_b12 = $request->e104_b12;
-    //     $penyata->e104_b13 = $request->e104_b13;
-    //     $penyata->save();
+        // dd($request->all());
+        $penyata = EBioB::findOrFail($id);
+        $penyata->ebio_b4 = $produk->prodid;
+        $penyata->ebio_b5 = $request->ebio_b5;
+        $penyata->ebio_b6 = $request->ebio_b6;
+        $penyata->ebio_b7 = $request->ebio_b7;
+        $penyata->ebio_b8 = $request->ebio_b8;
+        $penyata->ebio_b9 = $request->ebio_b9;
+        $penyata->ebio_b10 = $request->ebio_b10;
+        $penyata->ebio_b11 = $request->ebio_b11;
+        $penyata->ebio_b12 = $request->ebio_b12;
+        $penyata->save();
 
 
-    //     return redirect()->route('bio.bahagianib')
-    //         ->with('success', 'Maklumat telah disimpan');
-    // }
+        return redirect()->route('bio.bahagianib')
+            ->with('success', 'Maklumat telah disimpan');
+    }
 
 
     public function bio_bahagianic()
@@ -347,9 +340,97 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
 
 
-        return view('users.KilangBiodiesel.bio-bahagian-ic', compact('returnArr', 'layout'));
+        $produk = Produk::where('prodcat', '08')->orderBy('prodname')->get();
+
+
+        $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3','3')->get();
+
+        return view('users.KilangBiodiesel.bio-bahagian-ic', compact('returnArr', 'layout','user','produk','penyata'));
+    }
+
+    public function bio_add_bahagian_ic(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_ic($request->all())->validate();
+        $this->store_bahagian_ic($request->all());
+
+        return redirect()->route('bio.bahagianic')->with('success', 'Maklumat sudah ditambah');
+    }
+
+    protected function validation_bahagian_ic(array $data)
+    {
+        return Validator::make($data, [
+
+            'ebio_b4' => ['required', 'string'],
+            'ebio_b5' => ['required', 'string'],
+            'ebio_b6' => ['required', 'string'],
+            'ebio_b7' => ['required', 'string'],
+            'ebio_b8' => ['required', 'string'],
+            'ebio_b9' => ['required', 'string'],
+            'ebio_b10' => ['required', 'string'],
+            'ebio_b11' => ['required', 'string'],
+            'ebio_b12' => ['required', 'string'],
+
+            // 'e101_b15' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_bahagian_ic(array $data)
+    {
+        $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        // dd($ebio_reg);
+        return EBioB::create([
+            'ebio_reg' => $ebio_reg->ebio_reg,
+            'ebio_b3' => '3',
+            'ebio_b4' => $data['ebio_b4'],
+            'ebio_b5' => $data['ebio_b5'],
+            'ebio_b6' => $data['ebio_b6'],
+            'ebio_b7' => $data['ebio_b7'],
+            'ebio_b8' => $data['ebio_b8'],
+            'ebio_b9' => $data['ebio_b9'],
+            'ebio_b10' => $data['ebio_b10'],
+            'ebio_b11' => $data['ebio_b11'],
+            'ebio_b12' => $data['ebio_b12'],
+
+            // 'e101_b15' => $data['e104_b15'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
+
+    // public function destroy(E101B $penyata)
+    // {
+    //     $penyata->delete();
+
+    //     return redirect()->route('penapis.bahagiani')
+    //                     ->with('success','Product deleted successfully');
+    // }
+
+
+    public function bio_edit_bahagian_ic(Request $request, $id)
+    {
+
+        $produk = Produk::where('prodname', $request->ebio_b4)->first();
+
+        // dd($request->all());
+        $penyata = EBioB::findOrFail($id);
+        $penyata->ebio_b4 = $produk->prodid;
+        $penyata->ebio_b5 = $request->ebio_b5;
+        $penyata->ebio_b6 = $request->ebio_b6;
+        $penyata->ebio_b7 = $request->ebio_b7;
+        $penyata->ebio_b8 = $request->ebio_b8;
+        $penyata->ebio_b9 = $request->ebio_b9;
+        $penyata->ebio_b10 = $request->ebio_b10;
+        $penyata->ebio_b11 = $request->ebio_b11;
+        $penyata->ebio_b12 = $request->ebio_b12;
+        $penyata->save();
+
+
+        return redirect()->route('bio.bahagianic')
+            ->with('success', 'Maklumat telah disimpan');
     }
 
     public function bio_bahagianii()
