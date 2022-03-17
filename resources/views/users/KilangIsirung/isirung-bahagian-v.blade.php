@@ -170,7 +170,7 @@
                                                         <tr>
                                                             <td>{{ $data->kodsl->catname ?? '' }}</td>
                                                             <td>{{ $data->prodcat2->catname ?? ''}}</td>
-                                                            <td style="text-align: right">{{ $data->e102_b6 }}</td>
+                                                            <td style="text-align: right">{{ number_format($data->e102_b6 ??  0,2) }}</td>
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
                                                                     <a href="#"
@@ -296,7 +296,7 @@
                                                             <td></td>
                                                             <td><b>JUMLAH</b></td>
                                                             {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                            <td style="text-align: right"><b>{{ $total }}</b></td>
+                                                            <td style="text-align: right"><b>{{ number_format($total ??  0,2) }}</b></td>
                                                             <td colspan="2"></td>
                                                             {{-- <td></td> --}}
 

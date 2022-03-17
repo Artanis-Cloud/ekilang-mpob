@@ -118,25 +118,25 @@
                                                                             <input type="text" size="10" name='e91_aa1'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_aa1 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_aa1 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e91_aa2'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_aa2 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_aa2 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e91_aa3'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_aa3 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_aa3 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e91_aa4'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_aa4 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_aa4 ?? 0 }}">
                                                                         </td>
 
                                                                     </tr>
@@ -147,25 +147,25 @@
                                                                             <input type="text" size="10" name='e91_ab1' id="number"
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ab1 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ab1 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ab2'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ab2 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ab2 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ab3'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ab3 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ab3 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ab4'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ab4 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ab4 ?? 0 }}">
                                                                         </td>
 
                                                                     </tr>
@@ -176,7 +176,7 @@
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ac1'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ac1 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ac1 ?? 0 }}">
                                                                         </td>
                                                                         <td
                                                                             style="text-align:center; background-color:#808080b8">
@@ -207,19 +207,19 @@
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ad1'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ad1 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ad1 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ad2'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ad2 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ad2 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ad3'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ad3 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ad3 ?? 0 }}">
                                                                         </td>
 
                                                                     </tr>
@@ -230,25 +230,25 @@
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ae1'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ae1 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ae1 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ae2'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ae2 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ae2 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ae3'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ae3 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ae3 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ae4'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ae4 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ae4 ?? 0 }}">
                                                                         </td>
 
                                                                     </tr>
@@ -280,27 +280,27 @@
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ag1'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ag1 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ag1 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ag2'
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ag2 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ag2 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ag3'
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 onchange="setTwoNumberDecimal"
-                                                                                value="{{ number_format($penyata->e91_ag3 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ag3 ?? 0 }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ag4'
                                                                                 onchange="setTwoNumberDecimal"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ number_format($penyata->e91_ag4 ?? 0,2) }}">
+                                                                                value="{{ $penyata->e91_ag4 ?? 0 }}">
                                                                         </td>
 
                                                                     </tr>
@@ -396,86 +396,15 @@
 
 @section('javascript')
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    {{-- <script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function() {
             $(".floatNumberField").change(function() {
                 $(this).val(parseFloat($(this).val()).toFixed(2));
             });
         });
-    </script> --}}
+    </script>
 
 
-<script type="text/javascript">
-    function fun_AllowOnlyAmountAndDot(txt) {
-
-        if (event.keyCode > 47 && event.keyCode < 58 || event.keyCode == 46) {
-            var txtbx = document.getElementById(txt);
-            var amount = document.getElementById(txt).value;
-            var present = 0;
-            var count = 0;
-
-
-
-            if (amount.indexOf(".", present) || amount.indexOf(".", present + 1)); {
-                // alert('0');
-            }
-
-            /*if(amount.length==2)
-            {
-              if(event.keyCode != 46)
-              return false;
-            }*/
-            do {
-                present = amount.indexOf(".", present);
-                if (present != -1) {
-                    count++;
-                    present++;
-                }
-            }
-            while (present != -1);
-            if (present == -1 && amount.length == 0 && event.keyCode == 46) {
-                event.keyCode = 0;
-                //alert("Wrong position of decimal point not  allowed !!");
-                return false;
-            }
-
-            if (count >= 1 && event.keyCode == 46) {
-
-                event.keyCode = 0;
-                //alert("Only one decimal point is allowed !!");
-                return false;
-            }
-            if (count == 1) {
-                var lastdigits = amount.substring(amount.indexOf(".") + 1, amount.length);
-                if (lastdigits.length >= 2) {
-                    //alert("Two decimal places only allowed");
-                    event.keyCode = 0;
-                    return false;
-                }
-            }
-            return true;
-        } else {
-            event.keyCode = 0;
-            //alert("Only Numbers with dot allowed !!");
-            return false;
-        }
-
-    }
-</script>
-
-    {{-- <script>
-        function addCommas(nStr) {
-            nStr += '';
-            x = nStr.split('.');
-            x1 = x[0];
-            x2 = x.length > 1 ? '.' + x[1] : '';
-            var rgx = /(\d+)(\d{3})/;
-            while (rgx.test(x1)) {
-                x1 = x1.replace(rgx, '$1' + ',' + '$2');
-            }
-            return x1 + x2;
-        }
-    </script> --}}
 
         {{-- // function setTwoNumberDecimal(event) {
     // this.value = parseFloat(this.value).toFixed(2);

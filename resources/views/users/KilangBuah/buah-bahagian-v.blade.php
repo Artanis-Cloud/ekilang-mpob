@@ -146,7 +146,7 @@
                                                                             <b>Jumlah Bahagian I (PK)</b>
                                                                         </td>
                                                                         <td style="text-align:center;">
-                                                                            <b><span>{{ $penyata->e91_ae3 }}</span></b>
+                                                                            <b><span>{{ number_format($penyata->e91_ae3 ?? 0,2)  }}</span></b>
                                                                         </td>
 
                                                                     </tr>

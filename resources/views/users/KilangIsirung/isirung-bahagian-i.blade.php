@@ -401,11 +401,11 @@
 
                                                 <div class="col-md-12">
                                                     <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                                        data-bs-target="#exampleModalCenter">
+                                                        data-bs-target="#next">
                                                         Simpan & Seterusnya
                                                     </button>
                                                     <!-- Vertically Centered modal Modal -->
-                                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                                    <div class="modal fade" id="next" tabindex="-1"
                                                         role="dialog" aria-labelledby="exampleModalCenterTitle"
                                                         aria-hidden="true">
                                                         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"

@@ -201,7 +201,7 @@
                                                                             <b>Jumlah Bahagian I (CPO)</b>
                                                                         </td>
                                                                         <td style="text-align:center;">
-                                                                            <b><span>{{ $penyata->e91_ae2 }}</span></b>
+                                                                            <b><span>{{ number_format($penyata->e91_ae2 ?? 0,2) }}</span></b>
                                                                         </td>
 
                                                                     </tr>
