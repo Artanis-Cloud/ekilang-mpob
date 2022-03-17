@@ -15,7 +15,7 @@
                 </div>
             </div> --}}
 
-            <div class="mt-3 mb-2 row">
+            <div class=" mt-3  row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -431,7 +431,7 @@
                                                                         <tr>
                                                                             <td colspan="2" style=""><button
                                                                                     class="btn btn-primary" type="reset"
-                                                                                    style="background-color: transparent; color:#275047; float:right">Padam</button>
+                                                                                    style="background-color: transparent; color:#275047; float:right;">Padam</button>
                                                                             </td>
                                                                             {{-- <button class="btn btn-primary">Padam</button> --}}
                                                                         </tr>
@@ -556,7 +556,7 @@
                     </div>
 
                 </div>
-            </div><br><br>
+            </div><br><br><br><br><br><br><br><br>
 
 
 

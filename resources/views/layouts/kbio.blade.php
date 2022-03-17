@@ -242,7 +242,7 @@
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
                     style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;">
-                    {{-- {{ auth()->user()->name }}  --}}
+                    {{ auth()->user()->name }}
                 </b>
                 </span>
 
@@ -263,7 +263,7 @@
                         </li>
 
 
-                        <li class="dropdown nav-icon">
+                        {{-- <li class="dropdown nav-icon">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="mt-2">
@@ -286,7 +286,7 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li> --}}
                         {{-- <li class="dropdown nav-icon me-2">
                             <a href="#" data-bs-toggle="dropdown"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -309,7 +309,7 @@
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
                                 </div> --}}
                                 <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">
-                                    {{-- {{ auth()->user()->username }} --}}
+                                    {{ auth()->user()->username }}
                                 </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -318,13 +318,13 @@
                                 {{-- <a class="dropdown-item active" href="#"><i data-feather="mail"></i> Messages</a> --}}
                                 <a class="dropdown-item" href="#"><i class="fa fa-gear"></i>&nbsp Tetapan</a>
                                 <div class="dropdown-divider"></div>
-                                {{-- <a class="dropdown-item" href="#"
+                                <a class="dropdown-item" href="#"
                                     onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                     <i class="fa fa-sign-out m-r-5 m-l-5"></i> Log Keluar</a>
                                 <form id="logoutform" action="{{ route('logout') }}" method="POST"
                                     style="display: none;">
                                     {{ csrf_field() }}
-                                </form> --}}
+                                </form>
                             </div>
                         </li>
                     </ul>

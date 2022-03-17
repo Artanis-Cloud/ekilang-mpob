@@ -149,7 +149,7 @@
 
                                     <div class="text-right col-md-12  ">
                                         <button type="button" class="btn btn-primary " data-toggle="modal"
-                                            style="float: right" data-target="#confirmation">Papar Data 3 Tahun</button>
+                                            style="float: right" data-target="#confirmation">Papar Data</button>
                                     </div>
 
                                 </div>

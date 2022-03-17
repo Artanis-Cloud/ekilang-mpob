@@ -116,7 +116,7 @@
                                                                             Stok Awal Di Premis</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e91_aa1'
-                                                                                style="text-align: center" 
+                                                                                style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_aa1 ?? 0 }}">
                                                                         </td>
@@ -144,7 +144,7 @@
                                                                         <td class="text-bold-500">B.
                                                                             Pembelian / Penerimaan</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="10" name='e91_ab1'
+                                                                            <input type="text" size="10" name='e91_ab1' id="number"
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ $penyata->e91_ab1 ?? 0 }}">
@@ -404,19 +404,7 @@
         });
     </script>
 
-    {{-- <script>
-        function addCommas(nStr) {
-            nStr += '';
-            x = nStr.split('.');
-            x1 = x[0];
-            x2 = x.length > 1 ? '.' + x[1] : '';
-            var rgx = /(\d+)(\d{3})/;
-            while (rgx.test(x1)) {
-                x1 = x1.replace(rgx, '$1' + ',' + '$2');
-            }
-            return x1 + x2;
-        }
-    </script> --}}
+
 
         {{-- // function setTwoNumberDecimal(event) {
     // this.value = parseFloat(this.value).toFixed(2);
