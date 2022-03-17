@@ -93,7 +93,7 @@
                                                     Alamat Premis Berlesen</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_ap1" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                            name="e_ap2" value="{{ $pelesen->e_ap1  ?? '-'}}">
+                                                            name="e_ap2" value="{{ $pelesen2->alamat_premis  ?? '-'}}">
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>

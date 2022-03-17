@@ -64,7 +64,8 @@
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-
+                                    <form action="{{ route('bio.add.bahagian.ii') }}" method="post">
+                                        @csrf
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian II</h3>
@@ -75,21 +76,20 @@
 
 
 
-                                    <div class=" mt-2" style="text-align: right">
+                                    {{-- <div class=" mt-2" style="text-align: right">
                                         <a href="{{ asset('manual/kilangisirung/2.pdf') }}" target="_blank"
                                             style="text-align:right"><i><u>Panduan
                                                     Mengisi Maklumat Bahagian II</u></i></a>
-                                    </div>
-                                    <form>
-                                        @csrf
+                                    </div> --}}
+
                                         <div class="container center mt-3">
                                             <div class="row">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
                                                     Jumlah Hari Kilang Beroperasi Sebulan </label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='jam_pengilangan' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="jam_pengilangan" required
+                                                    <input type="text" class="form-control" name='hari_operasi' style="margin-left:42%; width:40%"
+                                                        onkeypress="return isNumberKey(event)" id="hari_operasi" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -106,8 +106,8 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
                                                     Kadar Penggunaan Kapasiti Sebulan	</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='kadar_perahan_mksm' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="kadar_perahan_mksm"
+                                                    <input type="text" class="form-control" name='kapasiti' style="margin-left:42%; width:40%"
+                                                        onkeypress="return isNumberKey(event)" id="kapasiti"
                                                         required title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -120,7 +120,7 @@
 
                                         </div>
 
-                                    </form>
+
                                     <div class="row form-group" style="padding-top: 10px; ">
 
                                         <br>
@@ -130,14 +130,14 @@
                                         </div>
                                         <div class="text-right col-md-5 mb-4 ">
                                             <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right;" data-bs-target="#exampleModalCenter">Simpan &
+                                                style="float: right;" data-bs-target="#next">Simpan &
                                                 Seterusnya</button>
                                         </div>
 
                                     </div>
 
                                     <!-- Vertically Centered modal Modal -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                    <div class="modal fade" id="next" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                             role="document">
@@ -161,8 +161,7 @@
                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                     </button>
-                                                    <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
+                                                    <button type="submit" class="btn btn-primary ml-1">
                                                         <i class="bx bx-check d-block d-sm-none"></i>
                                                         <span class="d-none d-sm-block">Ya</span>
                                                     </button>
@@ -170,6 +169,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                             <br>
@@ -179,7 +179,18 @@
                     </div>
 
                 </div>
+                <br>
             </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
 
 
 

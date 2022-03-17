@@ -5,12 +5,16 @@ namespace App\Http\Controllers\Users;
 use App\Http\Controllers\Controller;
 use App\Models\E104B;
 use App\Models\E104Init;
+use App\Models\Hari;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\User;
+use Carbon\Carbon;
 use DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-
+use Symfony\Component\Console\Input\Input;
 
 class KilangBiodieselController extends Controller
 {
@@ -40,7 +44,9 @@ class KilangBiodieselController extends Controller
         // $pelesen = E91Init::get();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
-        $pelesen2 = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan");
+        $pelesen2 = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan
+                                                        WHERE no_lesen = $pelesen->e_nl ");
+        dd($pelesen2);
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
 
 
@@ -122,11 +128,9 @@ class KilangBiodieselController extends Controller
         $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
 
 
-        $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 01);
-        })->get();
+
         // dd($penyata);
-        return view('users.KilangBiodiesel.bio-bahagian-ia', compact('returnArr', 'layout','produk'));
+        return view('users.KilangBiodiesel.bio-bahagian-ia', compact('returnArr', 'layout', 'produk'));
     }
 
     // public function bio_add_bahagian_ia(Request $request)
@@ -364,9 +368,71 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
+        $penyata = Hari::where('lesen', auth()->user()->username)->first();
 
 
-        return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout'));
+        return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout','penyata'));
+    }
+
+    public function bio_add_bahagian_ii(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_ii($request->all())->validate();
+        $this->store_bahagian_ii($request->all());
+
+        return redirect()->route('bio.bahagianiii')->with('success', 'Maklumat sudah ditambah');
+    }
+
+    protected function validation_bahagian_ii(array $data)
+    {
+        return Validator::make($data, [
+            'hari_operasi' => ['required', 'string'],
+            'kapasiti' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_bahagian_ii(array $data)
+    {
+        $pelesen = User::where('username', auth()->user()->username)->first('username');
+
+        // dd($e101_reg->e101_reg);
+        return Hari::create([
+            'lesen' => $pelesen->username,
+            'tahun' => date("Y"),
+            'bulan' => date("m"),
+            'hari_operasi' => $data['hari_operasi'],
+            'kapasiti' => $data['kapasiti'],
+
+        ]);
+
+
+
+
+
+        // return $data;
+        // dd($data);
+    }
+
+
+
+    public function bio_edit_bahagian_ii(Request $request, $id)
+    {
+        // $produk = Produk::where('prodname', $request->e07bt_produk)->first();
+        // dd($produk);
+        // $prodcat2 = ProdCat2::where('catname', $request->e101_b5)->first();
+
+        $pelesen = User::where('username', auth()->user()->username)->first('username');
+
+        // dd($request->all());
+        $penyata = Hari::findOrFail($id);
+        $penyata->lesen = $pelesen->username;
+        $penyata->hari_operasi = $request->hari_operasi;
+        $penyata->kapasiti = $request->kapasiti;
+        $penyata->save();
+
+
+        return redirect()->route('bio.bahagianiii')
+            ->with('success', 'Maklumat telah disimpan');
     }
 
 
@@ -554,5 +620,4 @@ class KilangBiodieselController extends Controller
     {
         //
     }
-
 }
