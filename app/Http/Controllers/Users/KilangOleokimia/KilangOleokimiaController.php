@@ -17,6 +17,7 @@ use App\Models\Pelesen;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\User;
+use DB;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -131,8 +132,29 @@ class KilangOleokimiaController extends Controller
         $penyata = E104B::with('e104init', 'produk')->where('e104_reg', $user->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 01);
         })->get();
+
+        $total = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','1')->sum('e104_b5');
+
+        $total2 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','1')->sum('e104_b6');
+
+        $total3 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','1')->sum('e104_b7');
+
+        $total4 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','1')->sum('e104_b8');
+
+        $total5 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','1')->sum('e104_b9');
+
+        $total6 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','1')->sum('e104_b10');
+
+        $total7 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','1')->sum('e104_b11');
+
+        $total8 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','1')->sum('e104_b12');
+
+        $total9 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','1')->sum('e104_b13');
+
+
         // dd($penyata);
-        return view('users.KilangOleokimia.oleo-bahagian-ia', compact('returnArr', 'layout','produk', 'penyata', 'user'));
+        return view('users.KilangOleokimia.oleo-bahagian-ia', compact('returnArr', 'layout','produk', 'penyata', 'user',
+        'total', 'total2', 'total3', 'total4', 'total5', 'total6', 'total7', 'total8', 'total9'));
     }
 
     public function oleo_add_bahagian_ia(Request $request)
@@ -245,7 +267,26 @@ class KilangOleokimiaController extends Controller
             return $query->where('prodcat', '=', 02);
         })->get();
 
-        return view('users.KilangOleokimia.oleo-bahagian-ib', compact('returnArr', 'layout', 'produk', 'penyata', 'user'));
+        $total = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->sum('e104_b5');
+
+        $total2 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->sum('e104_b6');
+
+        $total3 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->sum('e104_b7');
+
+        $total4 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->sum('e104_b8');
+
+        $total5 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->sum('e104_b9');
+
+        $total6 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->sum('e104_b10');
+
+        $total7 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->sum('e104_b11');
+
+        $total8 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->sum('e104_b12');
+
+        $total9 = DB::table("e104_b")->where('e104_reg', $user->e104_reg)->where('e104_b3','2')->sum('e104_b13');
+
+        return view('users.KilangOleokimia.oleo-bahagian-ib', compact('returnArr', 'layout', 'produk', 'penyata', 'user',
+        'total', 'total2', 'total3', 'total4', 'total5', 'total6', 'total7', 'total8', 'total9'));
     }
 
     public function oleo_add_bahagian_ib(Request $request)

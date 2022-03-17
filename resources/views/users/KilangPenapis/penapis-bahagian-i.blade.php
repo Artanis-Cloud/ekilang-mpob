@@ -89,6 +89,19 @@
 
                                                     </select>
                                                 </div>
+                                                <div class="col-md-2">
+                                                    <span class="required">Digunakan Untuk Proses Selanjutnya:</span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input type="text" class="form-control" name='e101_b10'style="width: 50%"
+                                                        id="e101_b10" required
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
                                             </div>
 
 
@@ -464,6 +477,25 @@
 
                                                 </div>
                                             @endforeach
+                                            <tr>
+                                                <td></td>
+                                                <td><b>JUMLAH</b></td>
+                                                {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                <td style="text-align: right"><b>{{ number_format($total ??  0,2) }}</b></td>
+                                                <td style="text-align: right"><b>{{ number_format($total2 ??  0,2) }}</b></td>
+                                                <td style="text-align: right"><b>{{ number_format($total3 ??  0,2) }}</b></td>
+                                                <td style="text-align: right"><b>{{ number_format($total4 ??  0,2) }}</b></td>
+                                                <td style="text-align: right"><b>{{ number_format($total5 ??  0,2) }}</b></td>
+                                                <td style="text-align: right"><b>{{ number_format($total6 ??  0,2) }}</b></td>
+                                                <td style="text-align: right"><b>{{ number_format($total7 ??  0,2) }}</b></td>
+                                                <td style="text-align: right"><b>{{ number_format($total8 ??  0,2) }}</b></td>
+                                                <td style="text-align: right"><b>{{ number_format($total9 ??  0,2) }}</b></td>
+                                                <td style="text-align: right"><b>{{ number_format($total10 ??  0,2) }}</b></td>
+
+                                                <td colspan="2"></td>
+                                                {{-- <td></td> --}}
+
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
