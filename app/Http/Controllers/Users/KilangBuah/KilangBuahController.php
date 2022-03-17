@@ -148,7 +148,7 @@ class KilangBuahController extends Controller
         $penyata->e91_aa2 = $request->e91_aa2;
         $penyata->e91_aa3 = $request->e91_aa3;
         $penyata->e91_aa4 = $request->e91_aa4;
-        $penyata->e91_ab1 = (float)$request->e91_ab1;
+        $penyata->e91_ab1 = $request->e91_ab1;
         $penyata->e91_ab2 = $request->e91_ab2;
         $penyata->e91_ab3 = $request->e91_ab3;
         $penyata->e91_ab4 = $request->e91_ab4;

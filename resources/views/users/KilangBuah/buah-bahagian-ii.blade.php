@@ -279,7 +279,8 @@
                                                                         <tr>
                                                                             <td colspan="2" style=""><button
                                                                                     class="btn btn-primary" type="reset"
-                                                                                    style="background-color: transparent; color:#275047; float:right">Padam</button>
+                                                                                    style="background-color: transparent; color:#275047; float:right;
+                                                                                     margin-right:40px"">Padam</button>
                                                                             </td>
                                                                             {{-- <button class="btn btn-primary">Padam</button> --}}
                                                                         </tr>
@@ -431,7 +432,8 @@
                                                                         <tr>
                                                                             <td colspan="2" style=""><button
                                                                                     class="btn btn-primary" type="reset"
-                                                                                    style="background-color: transparent; color:#275047; float:right;">Padam</button>
+                                                                                    style="background-color: transparent; color:#275047; float:right;
+                                                                                    margin-right:60px">Padam</button>
                                                                             </td>
                                                                             {{-- <button class="btn btn-primary">Padam</button> --}}
                                                                         </tr>
