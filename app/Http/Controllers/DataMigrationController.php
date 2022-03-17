@@ -120,11 +120,23 @@ class DataMigrationController extends Controller
             // $e_asdaerah = DB::connection('mysql2')->select("SELECT kod_daerah FROM  daerah where namadaerah = $kilang->e_asdaerah");
             // dd($e_asdaerah);
             $daerah = Daerah::where('nama_daerah', $kilang->e_asdaerah)->first();
+            $negeri = Negeri::where('nama_negeri', $kilang->e_asnegeri)->first();
 
-
+            $count = Pelesen::count();
+            // dd($count);
             $user = Pelesen::where('e_nl', $kilang->e_nl)->first();
+            if($kilang->e_asnegeri == '-Negeri-'){
+                $kilang->e_asnegeri = null;
+            }
+            if($kilang->e_apnegeri == '-Negeri-'){
+                $kilang->e_apnegeri = null;
+            }
+            // if($kilang->e_nl == '616115025000'){
+            //     dd($kilang);
+            // }
             if(!$user){
                 $user = Pelesen::create([
+                    'e_id' => $count++,
                     'e_nl' => $kilang->e_nl ?? '-',
                     'e_np' => $kilang->e_np ?? '-',
                     'e_ap1' => $kilang->e_ap1 ?? '-',
@@ -142,9 +154,9 @@ class DataMigrationController extends Controller
                     'nosiri' =>  $kilang->nosiri ?? '-',
                     'e_npgtg' =>  $kilang->e_npgtg ?? '-',
                     'e_jpgtg' =>  $kilang->e_jpgtg ?? '-',
-                    'e_asnegeri' =>  $kilang->e_asnegeri ?? '-',
+                    'e_asnegeri' =>  $negeri->kod_negeri ?? '-',
                     'e_asdaerah' =>  $daerah->kod_daerah ?? '-',
-                    'e_negeri' =>  $kilang->e_apnegeri ?? '-',
+                    'e_negeri' =>  $negeri->kod_negeri ?? '-',
                     'e_daerah' =>  $daerah->kod_daerah ?? '-',
                     'e_syktinduk' =>  $kilang->e_sykt_induk ?? '-',
                     'e_status' =>  $kilang->e_status ?? '-',
@@ -168,9 +180,9 @@ class DataMigrationController extends Controller
                     $user->nosiri = $kilang->nosiri ?? '-';
                     $user->e_npgtg = $kilang->e_npgtg ?? '-';
                     $user->e_jpgtg = $kilang->e_jpgtg ?? '-';
-                    $user->e_asnegeri = $kilang->e_asnegeri ?? '-';
+                    $user->e_asnegeri = $negeri->kod_negeri ?? '-';
                     $user->e_asdaerah = $daerah->kod_daerah ?? '-';
-                    $user->e_negeri = $kilang->e_apnegeri ?? '-';
+                    $user->e_negeri = $negeri->kod_negeri ?? '-';
                     $user->e_daerah = $daerah->kod_daerah ?? '-';
                     $user->e_syktinduk = $kilang->e_sykt_induk ?? '-';
                     $user->e_status = $kilang->e_status ?? '-';
