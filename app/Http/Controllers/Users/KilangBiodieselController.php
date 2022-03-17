@@ -133,33 +133,33 @@ class KilangBiodieselController extends Controller
         return view('users.KilangBiodiesel.bio-bahagian-ia', compact('returnArr', 'layout', 'produk'));
     }
 
-    // public function bio_add_bahagian_ia(Request $request)
-    // {
-    //     // dd($request->all());
-    //     $this->validation_bahagian_ia($request->all())->validate();
-    //     $this->store_bahagian_ia($request->all());
+    public function bio_add_bahagian_ia(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_bahagian_ia($request->all())->validate();
+        $this->store_bahagian_ia($request->all());
 
-    //     return redirect()->route('bio.bahagiania')->with('success', 'Maklumat sudah ditambah');
-    // }
+        return redirect()->route('bio.bahagiania')->with('success', 'Maklumat sudah ditambah');
+    }
 
-    // protected function validation_bahagian_ia(array $data)
-    // {
-    //     return Validator::make($data, [
+    protected function validation_bahagian_ia(array $data)
+    {
+        return Validator::make($data, [
 
-    //         'e104_b4' => ['required', 'string'],
-    //         'e104_b5' => ['required', 'string'],
-    //         'e104_b6' => ['required', 'string'],
-    //         'e104_b7' => ['required', 'string'],
-    //         // 'e104_b8' => ['required', 'string'],
-    //         'e104_b9' => ['required', 'string'],
-    //         'e104_b10' => ['required', 'string'],
-    //         'e104_b11' => ['required', 'string'],
-    //         'e104_b12' => ['required', 'string'],
-    //         'e104_b13' => ['required', 'string'],
+            'kod_produk' => ['required', 'string'],
+            'e104_b5' => ['required', 'string'],
+            'e104_b6' => ['required', 'string'],
+            'e104_b7' => ['required', 'string'],
+            // 'e104_b8' => ['required', 'string'],
+            'e104_b9' => ['required', 'string'],
+            'e104_b10' => ['required', 'string'],
+            'e104_b11' => ['required', 'string'],
+            'e104_b12' => ['required', 'string'],
+            'e104_b13' => ['required', 'string'],
 
-    //         // 'e101_b15' => ['required', 'string'],
-    //     ]);
-    // }
+            // 'e101_b15' => ['required', 'string'],
+        ]);
+    }
 
     // protected function store_bahagian_ia(array $data)
     // {
