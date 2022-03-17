@@ -365,6 +365,9 @@ Route::middleware('auth')->group(function () {
         Route::post('biodiesel/edit-bahagian-ii/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_ii'])->name('bio.edit.bahagian.ii');
 
         Route::get('biodiesel/bahagian-iii', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiii'])->name('bio.bahagianiii');
+        Route::post('biodiesel/add-bahagian-iii', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_iii'])->name('bio.add.bahagian.iii');
+        Route::post('biodiesel/edit-bahagian-iii/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_iii'])->name('bio.edit.bahagian.iii');
+
         Route::get('biodiesel/bahagian-iv', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiv'])->name('bio.bahagianiv');
         Route::get('biodiesel/papar-penyata', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_paparpenyata'])->name('bio.paparpenyata');
         Route::get('biodiesel/email', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_email'])->name('bio.email');
