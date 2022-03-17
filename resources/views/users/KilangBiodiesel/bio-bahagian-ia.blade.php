@@ -60,8 +60,15 @@
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-                                    <form action="{{ route('bio.add.bahagian.ia') }}" method="post">
-                                        @csrf
+                                    {{-- @if (!$penyata)
+                                        <form action="{{ route('bio.add.bahagian.ia') }}" method="post">
+                                            @csrf
+                                    @else
+                                        <form action="{{ route('bio.edit.bahagian.ia', [$penyata->id]) }}"
+                                                method="post">
+                                            @csrf
+                                    @endif --}}
+
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                             <h3 style="color: rgb(39, 80, 71); ">Bahagian I (a)</h3>
@@ -78,7 +85,7 @@
                                                     <span class="required">Nama Produk</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <select class="form-select" id="e104_b4" name="e104_b4"
+                                                    <select class="form-select" id="kod_produk" name="kod_produk"
                                                         style="width: 50%">
                                                         <option selected hidden disabled>Sila Pilih</option>
                                                         @foreach ($produk as $data)

@@ -1,8 +1,6 @@
 @extends($layout)
 
 @section('content')
-
-
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
 
@@ -64,12 +62,22 @@
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-                                    <form action="{{ route('bio.add.bahagian.ii') }}" method="post">
-                                        @csrf
+                                    @if (!$penyata)
+                                        <form action="{{ route('bio.add.bahagian.ii') }}" method="post">
+                                            @csrf
+                                    @else
+                                        <form action="{{ route('bio.edit.bahagian.ii', [$penyata->lesen]) }}"
+                                                method="post">
+                                            @csrf
+                                    @endif
+
+
+
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian II</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Hari Beroperasi dan Kadar Penggunaan Kapasiti</h5>
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Hari Beroperasi dan Kadar
+                                            Penggunaan Kapasiti</h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
@@ -82,43 +90,45 @@
                                                     Mengisi Maklumat Bahagian II</u></i></a>
                                     </div> --}}
 
-                                        <div class="container center mt-3">
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
-                                                    Jumlah Hari Kilang Beroperasi Sebulan </label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='hari_operasi' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="hari_operasi" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
+                                    <div class="container center mt-3">
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
+                                                Jumlah Hari Kilang Beroperasi Sebulan </label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='hari_operasi'
+                                                    style="margin-left:42%; width:40%"
+                                                    onkeypress="return isNumberKey(event)" id="hari_operasi" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
-                                                </div>
-                                                <div>
-
-                                                </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
-                                                    Kadar Penggunaan Kapasiti Sebulan	</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='kapasiti' style="margin-left:42%; width:40%"
-                                                        onkeypress="return isNumberKey(event)" id="kapasiti"
-                                                        required title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
+                                            <div>
+
                                             </div>
-
-
                                         </div>
+                                        <div class="row">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
+                                                Kadar Penggunaan Kapasiti Sebulan </label>
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-control" name='kapasiti'
+                                                    style="margin-left:42%; width:40%"
+                                                    onkeypress="return isNumberKey(event)" id="kapasiti" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                            </div>
+                                        </div>
+
+
+                                    </div>
 
 
                                     <div class="row form-group" style="padding-top: 10px; ">
@@ -251,5 +261,4 @@
             }
         }
     </script>
-
 @endsection

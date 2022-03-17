@@ -99,7 +99,7 @@
                                                 Sila Pilih Tahun</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect">
+                                                    <select class="form-select" id="basicSelect" name="tahun">
                                                         <option selected hidden disabled>Sila Pilih Tahun</option>
                                                         <option>2004</option>
                                                         <option>2005</option>

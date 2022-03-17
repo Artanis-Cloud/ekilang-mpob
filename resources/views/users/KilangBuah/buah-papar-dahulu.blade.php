@@ -562,14 +562,11 @@
                                                         <td width="92" align="center">
                                                             <font size="3">&#10004; &nbsp;</font>
                                                         </td>
-                                                    @elseif ($penyata->e91_ah5 == NULL)
+                                                    @elseif ($penyata->e91_ah5 == null)
                                                         <td width="92" align="center">
                                                             <font size="3"> &nbsp;</font>
                                                         </td>
-                                                    @elseif ($penyata->e91_ah5 == '')
-                                                        <td width="92" align="center">
-                                                            <font size="3"> &nbsp;</font>
-                                                        </td>
+
                                                     @endif
 
                                                     <td width="201" align="left">
