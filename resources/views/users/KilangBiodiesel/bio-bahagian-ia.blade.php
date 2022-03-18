@@ -329,7 +329,7 @@
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <form
-                                                                                    action="{{ route('oleo.edit.bahagian.ia', [$data->ebio_b1]) }}"
+                                                                                    action="{{ route('bio.edit.bahagian.ia', [$data->ebio_b1]) }}"
                                                                                     method="post">
                                                                                     @csrf
                                                                                     <div class="modal-body">
@@ -479,14 +479,14 @@
                                     </div>
                                     <div class="text-right col-md-7 mb-4 ">
                                         <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
+                                            style="float: right" data-bs-target="#next">Simpan &
                                             Seterusnya</button>
                                     </div>
 
                                 </div>
 
                                 <!-- Vertically Centered modal Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="next" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                         role="document">
@@ -510,10 +510,12 @@
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                 </button>
-                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Ya</span>
-                                                </button>
+                                                <a href="{{ route('bio.bahagianib') }}" type="button"
+                                                class="btn btn-primary ml-1">
+
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Ya</span>
+                                            </a>
                                             </div>
                                         </div>
                                     </div>

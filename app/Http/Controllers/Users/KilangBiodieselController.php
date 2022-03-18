@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\E104B;
 use App\Models\E104Init;
 use App\Models\EBioB;
+use App\Models\EBioC;
 use App\Models\EBioInit;
 use App\Models\Hari;
 use App\Models\Pelesen;
@@ -524,9 +525,13 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
 
+        $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
 
-        return view('users.KilangBiodiesel.bio-bahagian-iii', compact('returnArr', 'layout'));
+        $penyata = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
+
+        return view('users.KilangBiodiesel.bio-bahagian-iii', compact('returnArr', 'layout','user','produk','penyata'));
     }
     public function bio_add_bahagian_iii(Request $request)
     {
@@ -541,15 +546,15 @@ class KilangBiodieselController extends Controller
     {
         return Validator::make($data, [
 
-            'ebio_b4' => ['required', 'string'],
-            'ebio_b5' => ['required', 'string'],
-            'ebio_b6' => ['required', 'string'],
-            'ebio_b7' => ['required', 'string'],
-            'ebio_b8' => ['required', 'string'],
-            'ebio_b9' => ['required', 'string'],
-            'ebio_b10' => ['required', 'string'],
-            'ebio_b11' => ['required', 'string'],
-            'ebio_b12' => ['required', 'string'],
+            'ebio_c4' => ['required', 'string'],
+            'ebio_c5' => ['required', 'string'],
+            'ebio_c6' => ['required', 'string'],
+            'ebio_c7' => ['required', 'string'],
+            'ebio_c8' => ['required', 'string'],
+            'ebio_c9' => ['required', 'string'],
+            'ebio_c10' => ['required', 'string'],
+            'ebio_c11' => ['required', 'string'],
+            // 'ebio_c12' => ['required', 'string'],
 
             // 'e101_b15' => ['required', 'string'],
         ]);
@@ -559,18 +564,18 @@ class KilangBiodieselController extends Controller
     {
         $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
         // dd($ebio_reg);
-        return EBioB::create([
+        return EBioC::create([
             'ebio_reg' => $ebio_reg->ebio_reg,
-            'ebio_b3' => '3',
-            'ebio_b4' => $data['ebio_b4'],
-            'ebio_b5' => $data['ebio_b5'],
-            'ebio_b6' => $data['ebio_b6'],
-            'ebio_b7' => $data['ebio_b7'],
-            'ebio_b8' => $data['ebio_b8'],
-            'ebio_b9' => $data['ebio_b9'],
-            'ebio_b10' => $data['ebio_b10'],
-            'ebio_b11' => $data['ebio_b11'],
-            'ebio_b12' => $data['ebio_b12'],
+            'ebio_c3' => $data['ebio_c3'],
+            'ebio_c4' => $data['ebio_c4'],
+            'ebio_c5' => $data['ebio_c5'],
+            'ebio_c6' => $data['ebio_c6'],
+            'ebio_c7' => $data['ebio_c7'],
+            'ebio_c8' => $data['ebio_c8'],
+            'ebio_c9' => $data['ebio_c9'],
+            'ebio_c10' => $data['ebio_c10'],
+            'ebio_c11' => $data['ebio_c11'],
+            // 'ebio_c12' => $data['ebio_b12'],
 
             // 'e101_b15' => $data['e104_b15'],
         ]);
@@ -581,19 +586,20 @@ class KilangBiodieselController extends Controller
     public function bio_edit_bahagian_iii(Request $request, $id)
     {
 
-        $produk = Produk::where('prodname', $request->ebio_b4)->first();
+        $produk = Produk::where('prodname', $request->ebio_c3)->first();
 
         // dd($request->all());
-        $penyata = EBioB::findOrFail($id);
-        $penyata->ebio_b4 = $produk->prodid;
-        $penyata->ebio_b5 = $request->ebio_b5;
-        $penyata->ebio_b6 = $request->ebio_b6;
-        $penyata->ebio_b7 = $request->ebio_b7;
-        $penyata->ebio_b8 = $request->ebio_b8;
-        $penyata->ebio_b9 = $request->ebio_b9;
-        $penyata->ebio_b10 = $request->ebio_b10;
-        $penyata->ebio_b11 = $request->ebio_b11;
-        $penyata->ebio_b12 = $request->ebio_b12;
+        $penyata = EBioC::findOrFail($id);
+        $penyata->ebio_c3 = $produk->prodid;
+        $penyata->ebio_c4 = $request->ebio_c4;
+        $penyata->ebio_c5 = $request->ebio_c5;
+        $penyata->ebio_c6 = $request->ebio_c6;
+        $penyata->ebio_c7 = $request->ebio_c7;
+        $penyata->ebio_c8 = $request->ebio_c8;
+        $penyata->ebio_c9 = $request->ebio_c9;
+        $penyata->ebio_c10 = $request->ebio_c10;
+        $penyata->ebio_c11 = $request->ebio_c11;
+        // $penyata->ebio_c12 = $request->ebio_c12;
         $penyata->save();
 
 
@@ -628,22 +634,22 @@ class KilangBiodieselController extends Controller
     public function bio_paparpenyata()
     {
 
-        // $breadcrumbs    = [
-        //     ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-        //     ['link' => route('oleo.paparpenyata'), 'name' => "Penyata Bulanan"],
-        // ];
+        $breadcrumbs    = [
+            ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('oleo.paparpenyata'), 'name' => "Penyata Bulanan"],
+        ];
 
-        // $kembali = route('oleo.bahagianvi');
+        $kembali = route('bio.bahagianiii');
 
-        // $returnArr = [
-        //     'breadcrumbs' => $breadcrumbs,
-        //     'kembali'     => $kembali,
-        // ];
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
         $layout = 'layouts.kbio';
 
 
 
-        return view('users.KilangBiodiesel.bio-papar-penyata', compact('layout'));
+        return view('users.KilangBiodiesel.bio-papar-penyata', compact('layout','returnArr'));
     }
 
     public function bio_email()
@@ -688,6 +694,28 @@ class KilangBiodieselController extends Controller
 
         return view('users.KilangBiodiesel.bio-penyata-dahulu', compact('returnArr', 'layout'));
     }
+
+    public function try()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('bio.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
+        ];
+
+        $kembali = route('bio.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kbio';
+
+
+
+        return view('users.KilangBiodiesel.try', compact('returnArr', 'layout'));
+    }
+
 
 
 

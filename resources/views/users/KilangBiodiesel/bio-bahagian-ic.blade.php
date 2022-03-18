@@ -276,8 +276,7 @@
                                                                 <td>
                                                                     <div class="icon" style="text-align: center">
                                                                         <a href="#" type="button" data-bs-toggle="modal"
-                                                                            data-bs-target="#modal{{ $data->ebio_b1 }}"
-                                                                            >
+                                                                            data-bs-target="#modal{{ $data->ebio_b1 }}">
                                                                             <i class="fas fa-edit fa-lg"
                                                                                 style="color: #228c1c">
                                                                             </i>
@@ -302,8 +301,7 @@
 
                                                                 <!--scrolling content Modal -->
                                                                 <div class="modal fade"
-                                                                    id="modal{{ $data->ebio_b1 }}"
-                                                                    tabindex="-1"
+                                                                    id="modal{{ $data->ebio_b1 }}" tabindex="-1"
                                                                     role="dialog"
                                                                     aria-labelledby="exampleModalScrollableTitle"
                                                                     aria-hidden="true">
@@ -339,8 +337,7 @@
                                                                                             <input type="text"
                                                                                                 name='ebio_b5'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->ebio_b5 }}"
-                                                                                                >
+                                                                                                value="{{ $data->ebio_b5 }}">
                                                                                         </div>
                                                                                         <label>Belian / Terimaan
                                                                                         </label>
@@ -348,37 +345,35 @@
                                                                                             <input type="text"
                                                                                                 name='ebio_b6'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->ebio_b6 }}"
-                                                                                                >
+                                                                                                value="{{ $data->ebio_b6 }}">
                                                                                         </div>
                                                                                         <label>Pengeluaran </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b7'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->ebio_b7 }}"
-                                                                                                >
+                                                                                                value="{{ $data->ebio_b7 }}">
                                                                                         </div>
                                                                                         {{-- <label>Import </label>
                                                                                                 <div class="form-group">
                                                                                                     <input type="password" placeholder="Password"
                                                                                                         class="form-control">
                                                                                                 </div> --}}
-                                                                                        <label>Digunakan Untuk Proses Selanjutnya </label>
+                                                                                        <label>Digunakan Untuk Proses
+                                                                                            Selanjutnya </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b8'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->ebio_b8 }}"
-                                                                                                >
+                                                                                                value="{{ $data->ebio_b8 }}">
                                                                                         </div>
-                                                                                        <label>Jualan / Edaran Tempatan</label>
+                                                                                        <label>Jualan / Edaran
+                                                                                            Tempatan</label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b9'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->ebio_b9 }}"
-                                                                                                >
+                                                                                                value="{{ $data->ebio_b9 }}">
                                                                                         </div>
                                                                                         <label>Eksport
                                                                                         </label>
@@ -386,24 +381,21 @@
                                                                                             <input type="text"
                                                                                                 name='ebio_b10'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->ebio_b10 }}"
-                                                                                                >
+                                                                                                value="{{ $data->ebio_b10 }}">
                                                                                         </div>
                                                                                         <label>Stok Akhir Di Lapor </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b11'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->ebio_b11 }}"
-                                                                                                >
+                                                                                                value="{{ $data->ebio_b11 }}">
                                                                                         </div>
                                                                                         <label>Stok Akhir Di Premis </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b12'
                                                                                                 class="form-control"
-                                                                                                value="{{ $data->ebio_b12 }}"
-                                                                                                >
+                                                                                                value="{{ $data->ebio_b12 }}">
                                                                                         </div>
 
                                                                                     </div>
@@ -471,14 +463,14 @@
                                     </div>
                                     <div class="text-right col-md-7 mb-4 ">
                                         <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
+                                            style="float: right" data-bs-target="#next">Simpan &
                                             Seterusnya</button>
                                     </div>
 
                                 </div>
 
                                 <!-- Vertically Centered modal Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="next" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                         role="document">
@@ -502,10 +494,12 @@
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                 </button>
-                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                                <a href="{{ route('bio.bahagianii') }}" type="button"
+                                                    class="btn btn-primary ml-1">
+
                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Ya</span>
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>

@@ -29,6 +29,19 @@ class EBioC extends Model
         'ebio_c6',
         'ebio_c7',
         'ebio_c8',
+        'ebio_c9',
+        'ebio_c10',
+        'ebio_c11',
+        'ebio_c12',
+        // 'ebio_c13',
 
     ];
+
+    public function ebioinit(){
+        return $this->hasOne(EBioInit::class,'ebio_reg', 'ebio_reg');
+    }
+
+    public function produk(){
+        return $this->hasOne(Produk::class,'prodid','ebio_c3');
+    }
 }
