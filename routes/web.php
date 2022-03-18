@@ -373,6 +373,7 @@ Route::middleware('auth')->group(function () {
         Route::get('biodiesel/email', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_email'])->name('bio.email');
         Route::get('biodiesel/prestasi-oer', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_prestasioer'])->name('bio.prestasioer');
         Route::get('biodiesel/penyata-dahulu', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_penyatadahulu'])->name('bio.penyatadahulu');
+        Route::get('biodiesel/try', [App\Http\Controllers\Users\KilangBiodieselController::class, 'try'])->name('try');
     });
 });
 

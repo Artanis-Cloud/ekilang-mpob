@@ -60,7 +60,7 @@
                             <div class="row">
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-                                    {{-- <form action="{{ route('bio.add.bahagian.iii') }}" method="post"> --}}
+                                    <form action="{{ route('bio.add.bahagian.iii') }}" method="post">
                                         @csrf
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -78,14 +78,14 @@
                                                     <span class="required">Nama Produk</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <select class="form-select" id="e104_b4" name="e104_b4"
+                                                    <select class="form-select" id="ebio_c3" name="ebio_c3"
                                                         style="width: 50%">
                                                         <option selected hidden disabled>Sila Pilih</option>
-                                                        {{-- @foreach ($produk as $data)
+                                                        @foreach ($produk as $data)
                                                             <option value="{{ $data->prodid }}">
                                                                 {{ $data->prodname }} - {{ $data->prodid }}
                                                             </option>
-                                                        @endforeach --}}
+                                                        @endforeach
 
                                                     </select>
 
@@ -98,8 +98,8 @@
                                                     <span class="required">Stok Awal di Premis</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e104_b5'
-                                                        style="width:50%" id="e104_b5" required
+                                                    <input type="text" class="form-control" name='ebio_c4'
+                                                        style="width:50%" id="ebio_c4" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -111,8 +111,8 @@
                                                     <span class="required">Jualan / Edaran Tempatan</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e104_b10'
-                                                        style="width:50%" id="e104_b10" required
+                                                    <input type="text" class="form-control" name='ebio_c8'
+                                                        style="width:50%" id="ebio_c8" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -128,8 +128,8 @@
                                                     <span class="required">Belian / Terimaan</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e104_b6'
-                                                        style="width:50%" id="e104_b6" required
+                                                    <input type="text" class="form-control" name='ebio_c5'
+                                                        style="width:50%" id="ebio_c5" required
                                                         title="Sila isikan butiran ini.">
                                                 </div>
 
@@ -137,8 +137,8 @@
                                                     <span class="required">Eksport </span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e104_b11'
-                                                        style="width:50%" id="e104_b11" required
+                                                    <input type="text" class="form-control" name='ebio_c9'
+                                                        style="width:50%" id="ebio_c9" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -153,8 +153,8 @@
                                                     <span class="required">Pengeluaran</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e104_b7'
-                                                        style="width:50%" id="e104_b7" required
+                                                    <input type="text" class="form-control" name='ebio_c6'
+                                                        style="width:50%" id="ebio_c6" required
                                                         title="Sila isikan butiran ini.">
                                                 </div>
 
@@ -162,8 +162,8 @@
                                                     <span class="required">Stok Akhir di Lapor</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e104_b12'
-                                                        style="width:50%" id="e104_b12" required
+                                                    <input type="text" class="form-control" name='ebio_c10'
+                                                        style="width:50%" id="ebio_c10" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -178,15 +178,15 @@
                                                     <span class="required">Digunakan Untuk Proses Selanjutnya</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e104_b8'
-                                                        style="width:50%" id="e104_b8">
+                                                    <input type="text" class="form-control" name='ebio_c7'
+                                                        style="width:50%" id="ebio_c7">
                                                 </div>
                                                 <div class="col-md-2">
                                                     <span class="required">Stok Akhir di Premis</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='e104_b12'
-                                                        style="width:50%" id="e104_b12" required
+                                                    <input type="text" class="form-control" name='ebio_c11'
+                                                        style="width:50%" id="ebio_c11" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -246,37 +246,37 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        {{-- @foreach ($penyata as $data) --}}
+                                                        @foreach ($penyata as $data)
                                                             <tr style="text-align: right">
 
                                                                 <td style="text-align: left">
-                                                                    {{-- {{ $data->produk->prodname }} --}}
+                                                                    {{ $data->produk->prodname }}
                                                                     {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
                                                                                     <span>{{ $produk->prodname }}</span>
                                                                                 @endif --}}
 
                                                                 </td>
                                                                 <td>
-                                                                    {{-- {{ $data->produk->prodid }} --}}
+                                                                    {{ $data->produk->prodid }}
                                                                     {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
                                                                                     <span>{{ $produk->prodname }}</span>
                                                                                 @endif --}}
 
                                                                 </td>
-                                                                {{-- <td>{{ $data->e104_b5 }}</td>
-                                                                <td>{{ $data->e104_b6 }}</td>
-                                                                <td>{{ $data->e104_b7 }}</td>
-                                                                <td>{{ $data->e101_b8 }}</td>
-                                                                <td>{{ $data->e104_b9 }}</td>
-                                                                <td>{{ $data->e104_b10 }}</td>
-                                                                <td>{{ $data->e104_b11 }}</td>
-                                                                <td>{{ $data->e104_b12 }}</td>
-                                                                <td>{{ $data->e104_b13 }}</td> --}}
+                                                                <td>{{ $data->ebio_c4 }}</td>
+                                                                <td>{{ $data->ebio_c5 }}</td>
+                                                                <td>{{ $data->ebio_c6 }}</td>
+                                                                <td>{{ $data->ebio_c7 }}</td>
+                                                                <td>{{ $data->ebio_c8 }}</td>
+                                                                <td>{{ $data->ebio_c9 }}</td>
+                                                                <td>{{ $data->ebio_c10 }}</td>
+                                                                <td>{{ $data->ebio_c11 }}</td>
+                                                                {{-- <td>{{ $data->e104_b13 }}</td> --}}
                                                                 {{-- <td>{{ $data->e104_b14 }}</td> --}}
                                                                 <td>
                                                                     <div class="icon" style="text-align: center">
                                                                         <a href="#" type="button" data-bs-toggle="modal"
-                                                                            {{-- data-bs-target="#modal{{ $data->e104_b1 }}" --}}
+                                                                            data-bs-target="#modal{{ $data->ebio_c1 }}"
                                                                             >
                                                                             <i class="fas fa-edit fa-lg"
                                                                                 style="color: #228c1c">
@@ -302,7 +302,7 @@
 
                                                                 <!--scrolling content Modal -->
                                                                 <div class="modal fade"
-                                                                    {{-- id="modal{{ $data->e104_b1 }}"  --}}
+                                                                    id="modal{{ $data->ebio_c1 }}"
                                                                     tabindex="-1"
                                                                     role="dialog"
                                                                     aria-labelledby="exampleModalScrollableTitle"
@@ -322,41 +322,41 @@
                                                                             </div>
                                                                             <div class="modal-body">
                                                                                 <form
-                                                                                    {{-- action="{{ route('oleo.edit.bahagian.ia', [$data->e104_b1]) }}" --}}
+                                                                                    action="{{ route('bio.edit.bahagian.iii', [$data->ebio_c1]) }}"
                                                                                     method="post">
                                                                                     @csrf
                                                                                     <div class="modal-body">
                                                                                         <label>Nama Produk </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
-                                                                                                name='e104_b4'
+                                                                                                name='ebio_c3'
                                                                                                 class="form-control"
-                                                                                                {{-- value="{{ $data->produk->prodname }}" --}}
+                                                                                                value="{{ $data->produk->prodname }}"
                                                                                                 readonly>
                                                                                         </div>
                                                                                         <label>Stok Awal Di Premis </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
-                                                                                                name='e104_b5'
+                                                                                                name='ebio_c4'
                                                                                                 class="form-control"
-                                                                                                {{-- value="{{ $data->e104_b5 }}" --}}
+                                                                                                value="{{ $data->ebio_c4 }}"
                                                                                                 >
                                                                                         </div>
                                                                                         <label>Belian / Terimaan
                                                                                         </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
-                                                                                                name='e104_b6'
+                                                                                                name='ebio_c5'
                                                                                                 class="form-control"
-                                                                                                {{-- value="{{ $data->e104_b6 }}" --}}
+                                                                                                value="{{ $data->ebio_c5 }}"
                                                                                                 >
                                                                                         </div>
                                                                                         <label>Pengeluaran </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
-                                                                                                name='e104_b7'
+                                                                                                name='ebio_c6'
                                                                                                 class="form-control"
-                                                                                                {{-- value="{{ $data->e104_b7 }}" --}}
+                                                                                                value="{{ $data->ebio_c6 }}"
                                                                                                 >
                                                                                         </div>
                                                                                         {{-- <label>Import </label>
@@ -367,42 +367,42 @@
                                                                                         <label>Digunakan Untuk Proses Selanjutnya </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
-                                                                                                name='e104_b8'
+                                                                                                name='ebio_c7'
                                                                                                 class="form-control"
-                                                                                                {{-- value="{{ $data->e104_b8 }}" --}}
+                                                                                                value="{{ $data->ebio_c7 }}"
                                                                                                 >
                                                                                         </div>
                                                                                         <label>Jualan / Edaran Tempatan</label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
-                                                                                                name='e104_b9'
+                                                                                                name='ebio_c8'
                                                                                                 class="form-control"
-                                                                                                {{-- value="{{ $data->e104_b9 }}" --}}
+                                                                                                value="{{ $data->ebio_c8 }}"
                                                                                                 >
                                                                                         </div>
                                                                                         <label>Eksport
                                                                                         </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
-                                                                                                name='e104_b10'
+                                                                                                name='ebio_c9'
                                                                                                 class="form-control"
-                                                                                                {{-- value="{{ $data->e104_b10 }}" --}}
+                                                                                                value="{{ $data->ebio_c9 }}"
                                                                                                 >
                                                                                         </div>
                                                                                         <label>Stok Akhir Di Lapor </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
-                                                                                                name='e104_b11'
+                                                                                                name='ebio_c10'
                                                                                                 class="form-control"
-                                                                                                {{-- value="{{ $data->e104_b11 }}" --}}
+                                                                                                value="{{ $data->ebio_c10 }}"
                                                                                                 >
                                                                                         </div>
                                                                                         <label>Stok Akhir Di Premis </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
-                                                                                                name='e104_b12'
+                                                                                                name='ebio_c11'
                                                                                                 class="form-control"
-                                                                                                {{-- value="{{ $data->e104_b12 }}" --}}
+                                                                                                value="{{ $data->ebio_c11 }}"
                                                                                                 >
                                                                                         </div>
                                                                                         <label>Stok Akhir Di Pusat Simpanan
@@ -449,7 +449,7 @@
                                                                 </div>
 
                                                             </div>
-                                                        {{-- @endforeach --}}
+                                                        @endforeach
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -473,14 +473,13 @@
                                     </div>
                                     <div class="text-right col-md-7 mb-4 ">
                                         <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
-                                            Seterusnya</button>
+                                            style="float: right" data-bs-target="#next">Hantar Penyata</button>
                                     </div>
 
                                 </div>
 
                                 <!-- Vertically Centered modal Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="next" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                         role="document">
@@ -504,10 +503,12 @@
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                 </button>
-                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Ya</span>
-                                                </button>
+                                                <a href="{{ route('bio.paparpenyata') }}" type="button"
+                                                class="btn btn-primary ml-1">
+
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Ya</span>
+                                            </a>
                                             </div>
                                         </div>
                                     </div>

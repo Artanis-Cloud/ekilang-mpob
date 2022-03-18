@@ -23,6 +23,10 @@ class CreateEBioCSTable extends Migration
             $table->string('ebio_c6')->nullable();
             $table->string('ebio_c7')->nullable();
             $table->string('ebio_c8')->nullable();
+            $table->string('ebio_c9')->nullable();
+            $table->string('ebio_c10')->nullable();
+            $table->string('ebio_c11')->nullable();
+            // $table->string('ebio_c8')->nullable();
             $table->timestamps();
         });
     }
