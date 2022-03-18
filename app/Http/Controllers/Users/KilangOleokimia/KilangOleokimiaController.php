@@ -664,7 +664,7 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
-        $produk = Produk::where('prodcat', ['03', '06', '08'])->orderBy('prodname')->get();
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08'])->orderBy('prodname')->get();
         // dd($produk);
 
         $negara = Negara::get();
@@ -673,10 +673,16 @@ class KilangOleokimiaController extends Controller
 
 
         $penyata = E104D::with('e104init', 'produk', 'negara')->where('e104_reg', $user->e104_reg)->where('e104_d3', 1)->get();
+
+        $total = DB::table("e104_d")->where('e104_reg', $user->e104_reg)->where('e104_d3','1')->sum('e104_d7');
+
+        $total2 = DB::table("e104_d")->where('e104_reg', $user->e104_reg)->where('e104_d3','1')->sum('e104_d8');
+
         // dd($penyata);
 
 
-        return view('users.KilangOleokimia.oleo-bahagian-iv', compact('returnArr', 'layout', 'produk', 'negara', 'penyata'));
+        return view('users.KilangOleokimia.oleo-bahagian-iv', compact('returnArr', 'layout', 'produk', 'negara', 'penyata',
+        'total', 'total2'));
     }
 
 
@@ -771,27 +777,102 @@ class KilangOleokimiaController extends Controller
         $penyataia = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 01);
         })->get();
+
+        $total = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','1')->sum('e104_b5');
+
+        $total2 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','1')->sum('e104_b6');
+
+        $total3 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','1')->sum('e104_b7');
+
+        $total4 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','1')->sum('e104_b8');
+
+        $total5 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','1')->sum('e104_b9');
+
+        $total6 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','1')->sum('e104_b10');
+
+        $total7 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','1')->sum('e104_b11');
+
+        $total8 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','1')->sum('e104_b12');
+
+        $total9 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','1')->sum('e104_b13');
+
         // dd($penyatai);
 
         $penyataib = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', 02);
         })->get();
+
+        $totalib = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','2')->sum('e104_b5');
+
+        $totalib2 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','2')->sum('e104_b6');
+
+        $totalib3 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','2')->sum('e104_b7');
+
+        $totalib4 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','2')->sum('e104_b8');
+
+        $totalib5 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','2')->sum('e104_b9');
+
+        $totalib6 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','2')->sum('e104_b10');
+
+        $totalib7 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','2')->sum('e104_b11');
+
+        $totalib8 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','2')->sum('e104_b12');
+
+        $totalib9 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','2')->sum('e104_b13');
+
         // dd($penyataii);
+
 
         $penyataic = E104B::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', '08');
         })->get();
+
+        $totalic = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','3')->sum('e104_b5');
+
+        $totalic2 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','3')->sum('e104_b6');
+
+        $totalic3 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','3')->sum('e104_b7');
+
+        $totalic4 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','3')->sum('e104_b8');
+
+        $totalic5 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','3')->sum('e104_b9');
+
+        $totalic6 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','3')->sum('e104_b10');
+
+        $totalic7 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','3')->sum('e104_b11');
+
+        $totalic8 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','3')->sum('e104_b12');
+
+        $totalic9 = DB::table("e104_b")->where('e104_reg', $pelesen2->e104_reg)->where('e104_b3','3')->sum('e104_b13');
+
         // dd($penyataiii);
+
 
         $penyataii = E104Init::where('e104_nl', auth()->user()->username)->first();
         // dd($penyataiva);
 
+
         $penyataiii = E104C::with('e104init', 'produk')->where('e104_reg', $pelesen2->e104_reg)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 02);
+            return $query->whereIn('prodcat',  ['03', '06', '08']);
         })->get();
+
+        $totaliii = DB::table("e104_c")->where('e104_reg', $pelesen2->e104_reg)->sum('e104_c4');
+
+        $totaliii2 = DB::table("e104_c")->where('e104_reg', $pelesen2->e104_reg)->sum('e104_c5');
+
+        $totaliii3 = DB::table("e104_c")->where('e104_reg', $pelesen2->e104_reg)->sum('e104_c6');
+
+        $totaliii4 = DB::table("e104_c")->where('e104_reg', $pelesen2->e104_reg)->sum('e104_c7');
+
+        $totaliii5 = DB::table("e104_c")->where('e104_reg', $pelesen2->e104_reg)->sum('e104_c8');
         // dd($penyataiii);
 
+
         $penyataiv = E104D::with('e104init', 'produk', 'negara')->where('e104_reg', $pelesen2->e104_reg)->where('e104_d3', 1)->get();
+
+        $totaliv = DB::table("e104_d")->where('e104_reg', $pelesen2->e104_reg)->where('e104_d3','1')->sum('e104_d7');
+
+        $totaliv2 = DB::table("e104_d")->where('e104_reg', $pelesen2->e104_reg)->where('e104_d3','1')->sum('e104_d8');
         // dd($penyatava);
 
         // dd($penyatavb);
@@ -813,6 +894,12 @@ class KilangOleokimiaController extends Controller
             'penyataii',
             'penyataiii',
             'penyataiv',
+            'total','total2','total3','total4','total5','total6','total7','total8','total9',
+            'totalib','totalib2','totalib3','totalib4','totalib5','totalib6','totalib7','totalib8','totalib9',
+            'totalic','totalic2','totalic3','totalic4','totalic5','totalic6','totalic7','totalic8','totalic9',
+            'totaliii','totaliii2','totaliii3','totaliii4','totaliii5',
+            'totaliv','totaliv2',
+
         ));
     }
 

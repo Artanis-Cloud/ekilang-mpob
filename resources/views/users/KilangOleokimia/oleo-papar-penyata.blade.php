@@ -363,31 +363,31 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ number_format($total ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ number_format($total2 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ number_format($total3 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ number_format($total4 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ number_format($total5 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ number_format($total6 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ number_format($total7 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ number_format($total8 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b></b></font>
+                                                            <font size="2"><b>{{ number_format($total9 ??  0,2) }}</b></font>
                                                         </td>
 
                                                     </tr>
@@ -481,31 +481,31 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>915.81</b></font>
+                                                            <font size="2"><b>{{ number_format($totalib ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalib2 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>22,864.86</b></font>
+                                                            <font size="2"><b>{{ number_format($totalib3 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalib4 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalib5 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>23,196.75</b></font>
+                                                            <font size="2"><b>{{ number_format($totalib6 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalib7 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalib8 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>583.92</b></font>
+                                                            <font size="2"><b>{{ number_format($totalib9 ??  0,2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -597,31 +597,31 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>432.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalic ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>342.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalic2 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>452.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalic3 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>23.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalic4 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>565.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalic5 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>454.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalic6 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>23.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalic7 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>565.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalic8 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>454.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totalic9 ??  0,2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                     </tr>
@@ -685,7 +685,7 @@
                                                         <td align="center">
                                                             <font size="2">{{ $data->e104_c3 }}</font>
                                                         </td>
-                                                        <td align="center">
+                                                        <td align="right">
                                                             <font size="2">{{ number_format($data->e104_c4 ??  0,2) }}</font>
                                                         </td>
                                                         <td align="right">
@@ -710,19 +710,19 @@
                                                             <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>4.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totaliii ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>34.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totaliii2 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>45.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totaliii3 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>23.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totaliii4 ??  0,2) }}</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>5.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totaliii5 ??  0,2) }}</b></font>
                                                         </td>
 
                                                     </tr>
@@ -797,16 +797,19 @@
                                                             <font size="2"><b>JUMLAH</b></font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>12.00</b></font>
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>2.00</b></font>
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>3.00</b></font>
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>4.00</b></font>
+                                                            <font size="2"><b>{{ number_format($totaliv ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliv2 ??  0,2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
