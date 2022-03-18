@@ -247,7 +247,7 @@
                                                                     <th>Stok Awal Di Premis</th>
                                                                     <th>Stok Awal Di Pusat Simpanan</th>
                                                                     <th>Belian / Penerimaan</th>
-                                                                    {{-- <th>Import</th> --}}
+                                                                    <th>Import</th>
                                                                     <th>Jumlah yang Diproses</th>
                                                                     <th>Jualan / Edaran Dalam Negeri</th>
                                                                     <th>Eksport</th>
@@ -278,6 +278,7 @@
                                                                         <td>{{ number_format($data->e104_b5 ??  0,2) }}</td>
                                                                         <td>{{ number_format($data->e104_b6 ??  0,2) }}</td>
                                                                         <td>{{ number_format($data->e104_b7 ??  0,2) }}</td>
+                                                                        <td>{{ number_format($data->e104_b8 ??  0,2) }}</td>
                                                                         <td>{{ number_format($data->e104_b9 ??  0,2) }}</td>
                                                                         <td>{{ number_format($data->e104_b10 ??  0,2) }}</td>
                                                                         <td>{{ number_format($data->e104_b11 ??  0,2) }}</td>
@@ -426,6 +427,24 @@
 
                                                                     </div>
                                                                 @endforeach
+                                                                <tr>
+                                                                    <td></td>
+                                                                    <td><b>JUMLAH</b></td>
+                                                                    {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                                    <td style="text-align: right"><b>{{ number_format($total ??  0,2) }}</b></td>
+                                                                    <td style="text-align: right"><b>{{ number_format($total2 ??  0,2) }}</b></td>
+                                                                    <td style="text-align: right"><b>{{ number_format($total3 ??  0,2) }}</b></td>
+                                                                    <td style="text-align: right"><b>{{ number_format($total4 ??  0,2) }}</b></td>
+                                                                    <td style="text-align: right"><b>{{ number_format($total5 ??  0,2) }}</b></td>
+                                                                    <td style="text-align: right"><b>{{ number_format($total6 ??  0,2) }}</b></td>
+                                                                    <td style="text-align: right"><b>{{ number_format($total7 ??  0,2) }}</b></td>
+                                                                    <td style="text-align: right"><b>{{ number_format($total8 ??  0,2) }}</b></td>
+                                                                    <td style="text-align: right"><b>{{ number_format($total9 ??  0,2) }}</b></td>
+
+                                                                    <td colspan="2"></td>
+                                                                    {{-- <td></td> --}}
+
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
