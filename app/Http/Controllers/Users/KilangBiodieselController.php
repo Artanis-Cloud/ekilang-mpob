@@ -129,14 +129,19 @@ class KilangBiodieselController extends Controller
         // $user = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan");
 
 
-        $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
+        $produk = Produk::where('prodcat', '01')->orderBy('prodname')->get();
 
-        $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 01);
-        })->get();
+        if ($user) {
+            $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', '01');
+            })->get();
+        } else {
+            $penyata = [];
+        }
+
 
         // dd($penyata);
-        return view('users.KilangBiodiesel.bio-bahagian-ia', compact('returnArr', 'layout', 'produk','penyata'));
+        return view('users.KilangBiodiesel.bio-bahagian-ia', compact('returnArr', 'layout', 'produk', 'penyata'));
     }
 
     public function bio_add_bahagian_ia(Request $request)
@@ -237,10 +242,13 @@ class KilangBiodieselController extends Controller
 
 
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
-
-        $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3','2')->get();
-// dd($penyata);
-        return view('users.KilangBiodiesel.bio-bahagian-ib', compact('returnArr', 'layout', 'produk', 'user','penyata'));
+        if ($user) {
+            $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->get();
+        } else {
+            $penyata = [];
+        }
+        // dd($penyata);
+        return view('users.KilangBiodiesel.bio-bahagian-ib', compact('returnArr', 'layout', 'produk', 'user', 'penyata'));
     }
 
     public function bio_add_bahagian_ib(Request $request)
@@ -347,10 +355,13 @@ class KilangBiodieselController extends Controller
 
         $produk = Produk::where('prodcat', '08')->orderBy('prodname')->get();
 
+        if ($user) {
+            $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
+        } else {
+            $penyata = [];
+        }
 
-        $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3','3')->get();
-
-        return view('users.KilangBiodiesel.bio-bahagian-ic', compact('returnArr', 'layout','user','produk','penyata'));
+        return view('users.KilangBiodiesel.bio-bahagian-ic', compact('returnArr', 'layout', 'user', 'produk', 'penyata'));
     }
 
     public function bio_add_bahagian_ic(Request $request)
@@ -445,7 +456,7 @@ class KilangBiodieselController extends Controller
         $penyata = Hari::where('lesen', auth()->user()->username)->first();
 
 
-        return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout','penyata'));
+        return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout', 'penyata'));
     }
 
     public function bio_add_bahagian_ii(Request $request)
@@ -529,11 +540,15 @@ class KilangBiodieselController extends Controller
         $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
 
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
+        if ($user) {
+            $penyata = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
+        } else {
+            $penyata = [];
+        }
 
-        $penyata = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
-
-        return view('users.KilangBiodiesel.bio-bahagian-iii', compact('returnArr', 'layout','user','produk','penyata'));
+        return view('users.KilangBiodiesel.bio-bahagian-iii', compact('returnArr', 'layout', 'user', 'produk', 'penyata'));
     }
+
     public function bio_add_bahagian_iii(Request $request)
     {
         // dd($request->all());
@@ -648,9 +663,42 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // dd($pelesen);
+
+        $pelesen2 = ProfileBulanan::where('no_lesen', $pelesen->e_nl)->where('bulan', '8')->where('tahun', '2012')->first();
+
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first();
+        // dd($user);
+
+        $ia = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', '01');
+        })->get();
 
 
-        return view('users.KilangBiodiesel.bio-papar-penyata', compact('layout','returnArr'));
+        $ib = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->get();
+        // dd($ii);
+
+        $ic = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
+        // dd($ic);
+
+        $ii = Hari::where('lesen', auth()->user()->username)->first();
+
+        $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
+
+        return view('users.KilangBiodiesel.bio-papar-penyata', compact(
+            'layout',
+            'returnArr',
+            'pelesen',
+            'pelesen2',
+            'user',
+            'ia',
+            'ib',
+            'ic',
+            'ii',
+            'iii'
+
+        ));
     }
 
     public function bio_email()
