@@ -251,14 +251,14 @@
 
                                                                 <td style="text-align: left">{{ $data->produk->prodname }}</td>
                                                                 <td>{{ $data->produk->prodid }}</td>
-                                                                <td>{{ $data->ebio_c4 }}</td>
-                                                                <td>{{ $data->ebio_c5 }}</td>
-                                                                <td>{{ $data->ebio_c6 }}</td>
-                                                                <td>{{ $data->ebio_c7 }}</td>
-                                                                <td>{{ $data->ebio_c8 }}</td>
-                                                                <td>{{ $data->ebio_c9 }}</td>
-                                                                <td>{{ $data->ebio_c10 }}</td>
-                                                                <td>{{ $data->ebio_c11 }}</td>
+                                                                <td>{{ number_format($data->ebio_c4 ??  0,2) }}</td>
+                                                                <td>{{ number_format($data->ebio_c5 ??  0,2) }}</td>
+                                                                <td>{{ number_format($data->ebio_c6 ??  0,2) }}</td>
+                                                                <td>{{ number_format($data->ebio_c7 ??  0,2) }}</td>
+                                                                <td>{{ number_format($data->ebio_c8 ??  0,2) }}</td>
+                                                                <td>{{ number_format($data->ebio_c9 ??  0,2) }}</td>
+                                                                <td>{{ number_format($data->ebio_c10 ??  0,2) }}</td>
+                                                                <td>{{ number_format($data->ebio_c11 ??  0,2) }}</td>
                                                                 {{-- <td>{{ $data->e104_b13 }}</td> --}}
                                                                 {{-- <td>{{ $data->e104_b14 }}</td> --}}
                                                                 <td>
@@ -438,6 +438,25 @@
 
                                                             </div>
                                                         @endforeach
+                                                        <tr>
+
+                                                            <td colspan="2"><b>JUMLAH</b></td>
+                                                            {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                            <td style="text-align: right"><b>{{ number_format($totaliiic4 ??  0,2) }}</b></td>
+                                                            <td style="text-align: right"><b>{{ number_format($totaliiic5 ??  0,2) }}</b></td>
+                                                            <td style="text-align: right"><b>{{ number_format($totaliiic6 ??  0,2) }}</b></td>
+                                                            <td style="text-align: right"><b>{{ number_format($totaliiic7 ??  0,2) }}</b></td>
+                                                            <td style="text-align: right"><b>{{ number_format($totaliiic8 ??  0,2) }}</b></td>
+                                                            <td style="text-align: right"><b>{{ number_format($totaliiic9 ??  0,2) }}</b></td>
+                                                            <td style="text-align: right"><b>{{ number_format($totaliiic10 ??  0,2) }}</b></td>
+                                                            <td style="text-align: right"><b>{{ number_format($totaliiic11 ??  0,2) }}</b></td>
+                                                            {{-- <td style="text-align: right"><b>{{ number_format($totaliab5 ??  0,2) }}</b></td>
+                                                            <td style="text-align: right"><b>{{ number_format($totaliab5 ??  0,2) }}</b></td> --}}
+
+                                                            <td colspan="2"></td>
+                                                            {{-- <td></td> --}}
+
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                             </div>
