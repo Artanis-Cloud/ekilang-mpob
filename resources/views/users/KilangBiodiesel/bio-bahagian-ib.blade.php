@@ -251,19 +251,9 @@
                                                             <tr style="text-align: right">
 
                                                                 <td style="text-align: left">
-                                                                    {{ $data->produk->prodname }}
-                                                                    {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
-                                                                                    <span>{{ $produk->prodname }}</span>
-                                                                                @endif --}}
-
-                                                                </td>
+                                                                    {{ $data->produk->prodname }}</td>
                                                                 <td>
-                                                                    {{ $data->produk->prodid }}
-                                                                    {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
-                                                                                    <span>{{ $produk->prodname }}</span>
-                                                                                @endif --}}
-
-                                                                </td>
+                                                                    {{ $data->produk->prodid }}</td>
                                                                 <td>{{ $data->ebio_b5 }}</td>
                                                                 <td>{{ $data->bio_b6 }}</td>
                                                                 <td>{{ $data->ebio_b7 }}</td>

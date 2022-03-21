@@ -97,7 +97,7 @@
                                                     </font>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4<br>
 
                                                     BULAN :&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
-                                                
+
                                                 </b><br>
 
                                             </p>
@@ -113,7 +113,7 @@
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman">500408225000</font>
+                                                                <font face="Times New Roman">{{ auth()->user()->username }}</font>
                                                             </b></td>
 
                                                     </tr>
@@ -125,7 +125,7 @@
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman">IFFCO (MALAYSIA) SDN. BHD.
+                                                                <font face="Times New Roman">{{ auth()->user()->name }}
                                                                 </font>
                                                             </b></td>
 
@@ -150,7 +150,7 @@
 
                                                         <td width="35%">Nombor Lesen</td>
 
-                                                        <td width="65%"><b>500408225000</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->no_lesen }}</b></td>
 
                                                     </tr>
 
@@ -158,7 +158,7 @@
 
                                                         <td width="35%">Nama Premis</td>
 
-                                                        <td width="65%"><b>IFFCO (MALAYSIA) SDN. BHD.</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->n_premis }}</b></td>
 
                                                     </tr>
 
@@ -166,7 +166,7 @@
 
                                                         <td width="35%">Alamat Premis Berlesen</td>
 
-                                                        <td width="65%"><b>PLO 406, JALAN EMAS</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->alamat_premis }}</b></td>
 
                                                     </tr>
 
@@ -174,7 +174,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>KAW. PERINDUSTRIAN PASIR GUDANG,</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->daerah_premis }}, &nbsp; {{ $pelesen2->poskod_premis }}  </b></td>
 
                                                     </tr>
 
@@ -182,7 +182,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>81700 PASIR GUDANG, JOHOR</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->negeri_premis }}</b></td>
 
                                                     </tr>
 
@@ -190,7 +190,7 @@
 
                                                         <td width="35%">Alamat Surat Menyurat</td>
 
-                                                        <td width="65%"><b>PLO 406, JALAN EMAS</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->alamat_surat }}</b></td>
 
                                                     </tr>
 
@@ -198,7 +198,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>KAW. PERINDUSTRIAN PASIR GUDANG,</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->daerah }}  {{ $pelesen2->poskod }} </b></td>
 
                                                     </tr>
 
@@ -206,7 +206,7 @@
 
                                                         <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>81700 PASIR GUDANG, JOHOR</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->negeri }}</b></td>
 
                                                     </tr>
 
@@ -214,10 +214,10 @@
 
                                                         <td width="35%">No Telefon</td>
 
-                                                        <td width="65%"><b>07-2543188 - ext 130/220</b>
+                                                        <td width="65%"><b>{{ $pelesen2->no_tel }}</b>
 
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No
-                                                            Fax&nbsp;&nbsp;&nbsp; <b>07-2543288</b></td>
+                                                            Fax&nbsp;&nbsp;&nbsp; <b>{{ $pelesen2->no_faks }}</b></td>
 
                                                     </tr>
 
@@ -225,7 +225,7 @@
 
                                                         <td width="35%">Alamat e-mail </td>
 
-                                                        <td width="65%"><b>zbahmad@iffco.com</b></td>
+                                                        <td width="65%"><b></b></td>
 
                                                     </tr>
 
@@ -233,7 +233,7 @@
 
                                                         <td width="35%">Nama Pegawai Melapor</td>
 
-                                                        <td width="65%"><b>ZAKI BIN AHMAD</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->n_pgw_m }}</b></td>
 
                                                     </tr>
 
@@ -241,7 +241,7 @@
 
                                                         <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                        <td width="65%"><b>PRODUCTION PLANING SUPERVISOR</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->j_pgw_m }}</b></td>
 
                                                     </tr>
 
@@ -249,7 +249,7 @@
 
                                                         <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b>ABD RASHID BIN YAHYA</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->n_pgw_b }}</b></td>
 
                                                     </tr>
 
@@ -257,7 +257,7 @@
 
                                                         <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b>SUPPLY CHAIN MANAGER</b></td>
+                                                        <td width="65%"><b>{{ $pelesen2->j_pgw_b }}</b></td>
 
                                                     </tr>
 
@@ -265,14 +265,14 @@
                                             </table>
 <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN Ia :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                    <font color="#0000FF">BAHAGIAN I(a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         MINYAK SAWIT</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr>
                                                         <td width="13%" align="center"><b>
-                                                                <font size="2">Jenis Minyak </font>
+                                                                <font size="2">Nama Produk </font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Kod Produk</font>
@@ -281,65 +281,62 @@
                                                                 <font size="2">Stok Awal Di Premis</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Awal Di Pusat Simpanan</font>
+                                                                <font size="2">Belian / Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Belian / Penerimaan</font>
+                                                                <font size="2">Pengeluaran</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Import</font>
+                                                                <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Jumlah Yang DiProses</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                                <font size="2">Jualan / Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Premis</font>
+                                                                <font size="2">Stok Akhir Di Lapor</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Pusat Simpanan</font>
+                                                                <font size="2">Stok Akhir Di Premis</font>
                                                             </b></td>
                                                     </tr>
+                                                    @foreach ($ia as $data)
+
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">RBDPS</font>
+                                                            <font size="2">{{ $data->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">27</font>
+                                                            <font size="2">{{ $data->produk->prodid }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b5 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b6 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">6,025.31</font>
+                                                            <font size="2">{{ $data->ebio_b7 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b8 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b9 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">98.41</font>
+                                                            <font size="2">{{ $data->ebio_b10 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b11 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b12 }}</font>
                                                         </td>
                                                     </tr>
+                                                    @endforeach
                                                     <tr>
                                                         <td align="center">
                                                             <font size="2"><b>JUMLAH</b></font>
@@ -371,21 +368,18 @@
                                                         <td align="right">
                                                             <font size="2"><b>0.00</b></font>
                                                         </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN Ib :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN I(b) :&nbsp;&nbsp;&nbsp;&nbsp;
                                                         PRODUK MINYAK ISIRONG SAWIT</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr>
                                                         <td width="13%" align="center"><b>
-                                                                <font size="2">Jenis Minyak </font>
+                                                                <font size="2">Nama Produk </font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Kod Produk</font>
@@ -394,100 +388,63 @@
                                                                 <font size="2">Stok Awal Di Premis</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Awal Di Pusat Simpanan</font>
+                                                                <font size="2">Belian / Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Belian / Penerimaan</font>
+                                                                <font size="2">Pengeluaran</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Import</font>
+                                                                <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Jumlah Yang DiProses</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                                <font size="2">Jualan / Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Premis</font>
+                                                                <font size="2">Stok Akhir Di Lapor</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Pusat Simpanan</font>
+                                                                <font size="2">Stok Akhir Di Premis</font>
                                                             </b></td>
                                                     </tr>
+                                                    @foreach ($ib as $data)
+
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">CPKL</font>
+                                                            <font size="2">{{ $data->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">06</font>
+                                                            <font size="2">{{ $data->produk->prodid }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b5 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b6 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">766.13</font>
+                                                            <font size="2">{{ $data->ebio_b7 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b8 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b9 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">98.41</font>
+                                                            <font size="2">{{ $data->ebio_b10 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b11 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_b12 }}</font>
                                                         </td>
                                                     </tr>
-                                                    <tr>
-                                                        <td align="left">
-                                                            <font size="2">CPKO</font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2">04</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">0.00</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">0.00</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">663.89</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">0.00</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">0.00</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">98.41</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">0.00</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">0.00</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">0.00</font>
-                                                        </td>
-                                                    </tr>
+                                                    @endforeach
+
                                                     <tr>
                                                         <td align="center">
                                                             <font size="2"><b>JUMLAH</b></font>
@@ -519,21 +476,18 @@
                                                         <td align="right">
                                                             <font size="2"><b>0.00</b></font>
                                                         </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN Ic :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN I(c) :&nbsp;&nbsp;&nbsp;&nbsp;
                                                         LAIN-LAIN MINYAK SAWIT</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr>
                                                         <td width="13%" align="center"><b>
-                                                                <font size="2">Jenis Minyak </font>
+                                                                <font size="2">Nama Produk </font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Kod Produk</font>
@@ -542,65 +496,62 @@
                                                                 <font size="2">Stok Awal Di Premis</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Awal Di Pusat Simpanan</font>
+                                                                <font size="2">Belian / Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Belian / Penerimaan</font>
+                                                                <font size="2">Pengeluaran</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Import</font>
+                                                                <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Jumlah Yang DiProses</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                                <font size="2">Jualan / Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Premis</font>
+                                                                <font size="2">Stok Akhir Di Lapor</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Pusat Simpanan</font>
+                                                                <font size="2">Stok Akhir Di Premis</font>
                                                             </b></td>
                                                     </tr>
+                                                    @foreach ($ic as $data)
+
                                                     <tr>
-                                                        <td align="center">
-                                                            <font size="2"><b>JUMLAH</b></font>
+                                                        <td align="left">
+                                                            <font size="2">{{ $data->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2"><b>-</b></font>
+                                                            <font size="2">{{ $data->produk->prodid }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2">{{ $data->ebio_b5 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2">{{ $data->ebio_b6 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2">{{ $data->ebio_b7 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2">{{ $data->ebio_b8 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2">{{ $data->ebio_b9 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2">{{ $data->ebio_b10 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2">{{ $data->ebio_b11 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>0.00</b></font>
+                                                            <font size="2">{{ $data->ebio_b12 }}</font>
                                                         </td>
                                                     </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                             <p><b>
@@ -611,11 +562,11 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                                        <td width="62%"><b>30 Hari</b></td>
+                                                        <td width="62%"><b>{{ $ii->hari_operasi }}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="60%">Kadar Penggunaan Kapasiti Sebulan</td>
-                                                        <td width="62%"><b>100.00 %</b></td>
+                                                        <td width="62%"><b>{{ $ii->kapasiti }} %</b></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -629,50 +580,71 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="13%" align="center"><b>
-                                                                <font size="2">Jenis Minyak </font>
+                                                                <font size="2">Nama Produk </font>
                                                             </b></td>
-                                                        <td width="10%" align="center"><b>
+                                                        <td width="8%" align="center"><b>
                                                                 <font size="2">Kod Produk</font>
                                                             </b></td>
-                                                        <td width="10%" align="center"><b>
-                                                                <font size="2">Belian / Penerimaan</font>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Awal Di Premis</font>
                                                             </b></td>
-                                                        <td width="10%" align="center"><b>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Belian / Terimaan</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
                                                                 <font size="2">Pengeluaran</font>
                                                             </b></td>
-                                                        <td width="10%" align="center"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
-                                                        <td width="10%" align="center"><b>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Jualan / Edaran Tempatan</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
-                                                        <td width="10%" align="center"><b>
-                                                                <font size="2">Stok Akhir</font>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Akhir Di Lapor</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Akhir Di Premis</font>
                                                             </b></td>
                                                     </tr>
+                                                    @foreach ($iii as $data)
+
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">PA</font>
+                                                            <font size="2">{{ $data->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
-                                                            <font size="2">37</font>
+                                                            <font size="2">{{ $data->produk->prodid }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">433.01</font>
+                                                            <font size="2">{{ $data->ebio_c4 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_c5 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_c6 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">0.00</font>
+                                                            <font size="2">{{ $data->ebio_c7 }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">121.49</font>
+                                                            <font size="2">{{ $data->ebio_c8 }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ $data->ebio_c9 }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ $data->ebio_c10 }}</font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2">{{ $data->ebio_c11 }}</font>
                                                         </td>
                                                     </tr>
+                                                    @endforeach
                                                     <tr>
                                                         <td align="center">
                                                             <font size="2"><b>JUMLAH</b></font>
@@ -731,32 +703,6 @@
                                                             </b></td>
                                                     </tr>
 
-                                                    <tr>
-                                                        <td align="left">
-                                                            <font size="2">FA</font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2">83</font>
-                                                        </td>
-                                                        <td align="left">
-                                                            <font size="2">J33211004932</font>
-                                                        </td>
-                                                        <td align="left">
-                                                            <font size="2">11-11-2021</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">300.00</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">5,000.00</font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2">S11</font>
-                                                        </td>
-                                                        <td align="left">
-                                                            <font size="2">SRI LANKA</font>
-                                                        </td>
-                                                    </tr>
 
                                                 </tbody>
                                             </table>
@@ -799,7 +745,7 @@
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                         <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
                                             <input type="email" id="email-id-column" class="form-control" size="50"
-                                                name="email-id-column" readonly>
+                                                name="email-id-column" value="{{ $user->ebio_sdate }}" readonly>
                                         </p>
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                             <input type="email" id="email-id-column" class="form-control" size="50"
