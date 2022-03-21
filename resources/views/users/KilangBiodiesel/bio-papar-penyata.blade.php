@@ -96,8 +96,8 @@
 
                                                     </font>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4<br>
 
-                                                    BULAN :&nbsp;&nbsp; 11&nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
-                                                    2021
+                                                    BULAN :&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
+                                                
                                                 </b><br>
 
                                             </p>
