@@ -12,6 +12,7 @@ use App\Models\Hari;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\ProfileBulanan;
 use App\Models\User;
 use Carbon\Carbon;
 use DB;
@@ -44,12 +45,12 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
-        // $pelesen = E91Init::get();
+        // $pelesen = E91Init::get();dasfsds
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // dd($pelesen);
 
-        $pelesen2 = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan
-                                                        WHERE no_lesen = $pelesen->e_nl ");
-        dd($pelesen2);
+        $pelesen2 = ProfileBulanan::where('no_lesen', $pelesen->e_nl)->where('bulan', '8')->where('tahun', '2012')->first();
+        // dd($pelesen2->alamat_premis);
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
 
 
@@ -58,7 +59,7 @@ class KilangBiodieselController extends Controller
 
 
 
-        return view('users.KilangBiodiesel.bio-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
+        return view('users.KilangBiodiesel.bio-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'pelesen2'));
     }
 
     // public function bio_update_maklumat_asas_pelesen(Request $request, $id)

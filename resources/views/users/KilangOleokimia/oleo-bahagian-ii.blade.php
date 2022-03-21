@@ -76,13 +76,13 @@
 
 
 
-                                        <div class=" mt-2" style="text-align: right">
+                                        {{-- <div class=" mt-2" style="text-align: right">
                                             <a href="{{ asset('manual/kilangisirung/2.pdf') }}" target="_blank"
                                                 style="text-align:right"><i><u>Panduan
                                                         Mengisi Maklumat Bahagian II</u></i></a>
-                                        </div>
-                                        <form>
-                                            @csrf
+                                        </div> --}}
+                                        {{-- <form>
+                                            @csrf --}}
                                             <div class="container center mt-3">
                                                 <div class="row">
                                                     <label for="fname"
