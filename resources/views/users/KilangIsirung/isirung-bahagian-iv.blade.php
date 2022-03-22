@@ -309,6 +309,19 @@
                                                     {{-- <td></td> --}}
 
                                                 </tr>
+                                                <tr style="background-color: #1526224a">
+                                                    <td class="text-bold-500" colspan="2" style="text-align:center;">
+                                                        <b>Jumlah Bahagian I (CPKO)</b>
+                                                    </td>
+                                                    <td style="text-align:right;">
+                                                        <span><b>{{ number_format($penyatai->e102_ag2 ?? 0, 2) }}</b></span>
+
+                                                        <input type="hidden" id="jumlah" name="jumlah"
+                                                            value="{{ number_format($penyatai->e102_ag2 ?? 0, 2) }}">
+                                                    </td>
+                                                    <td colspan="2"></td>
+
+                                                </tr>
 
                                                 <br>
 
