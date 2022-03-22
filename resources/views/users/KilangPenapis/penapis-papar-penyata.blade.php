@@ -541,12 +541,12 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="60%">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
-                                                        <td width="40%"><b>{{ $penyataiii->e101_a2 }} %</b></td>
+                                                        <td width="40%"><b>{{ number_format($penyataiii->e101_a2 ??  0,2) }} %</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="60%">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
                                                         </td>
-                                                        <td width="40%"><b>{{ $penyataiii->e101_a3 }} %</b></td>
+                                                        <td width="40%"><b>{{ number_format($penyataiii->e101_a3 ??  0,2) }} %</b></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
