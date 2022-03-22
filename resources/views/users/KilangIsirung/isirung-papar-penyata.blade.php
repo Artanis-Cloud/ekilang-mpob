@@ -534,22 +534,22 @@
                                                     <tr>
                                                         <td width="378">i.&nbsp;&nbsp; Kadar Perahan Minyak Isirong Sawit
                                                             Mentah (CPKO)&nbsp;</td>
-                                                        <td width="116">: {{ $penyataii->e102_al1 ?? 0 }} % </td>
+                                                        <td width="116">: {{ number_format($penyataii->e102_al1 ?? 0,2) }} % </td>
                                                     </tr>
                                                     <tr>
                                                         <td width="378">ii.&nbsp; Kadar Perolehan Dedak Isirong (PKC)&nbsp;
                                                         </td>
-                                                        <td width="116">: {{ $penyataii->e102_al2 ?? 0 }} %</td>
+                                                        <td width="116">: {{ number_format($penyataii->e102_al2 ?? 0,2) }} %</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="378">iii. Jumlah Jam Pengilangan Isirong (PK)</td>
-                                                        <td width="116">: {{ $penyataii->e102_al3 ?? 0 }} </td>
+                                                        <td width="116">: {{ number_format($penyataii->e102_al3 ?? 0,2) }} </td>
                                                     </tr>
                                                     <tr>
                                                         <td width="378">iv. Kadar Penggunaan Kapasiti Sebulan
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                         </td>
-                                                        <td width="116">: {{ $penyataii->e102_al4 ?? 0 }} % </td>
+                                                        <td width="116">: {{ number_format($penyataii->e102_al4 ?? 0,2) }} % </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -715,7 +715,7 @@
                                                                 <font size="2">Destinasi Negara</font>
                                                             </b></td>
                                                     </tr>
-                                                    @foreach ($penyatavi as $data)
+                                                    {{-- @foreach ($penyatavi as $data)
                                                     <tr>
                                                         <td align="left">
                                                             <font size="2">{{ $data->produk->prodname ?? '' }}</font>
@@ -742,7 +742,7 @@
                                                             <font size="2">{{ $data->negara->namanegara ?? '' }}</font>
                                                         </td>
                                                     </tr>
-                                                    @endforeach
+                                                    @endforeach --}}
                                                 </tbody>
                                             </table>
                                             {{-- <p><b>

@@ -540,12 +540,12 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="60%">Kadar Penggunaan Kapasiti (Refining) Sebulan</td>
-                                                        <td width="40%"><b>{{ $iii->e101_a6 }} %</b></td>
+                                                        <td width="40%"><b>{{ number_format($iii->e101_a6 ??  0,2) }} %</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td width="60%">Kadar Penggunaan Kapasiti (Fractionation) Sebulan
                                                         </td>
-                                                        <td width="40%"><b>{{ $iii->e101_a7 }} %</b></td>
+                                                        <td width="40%"><b>{{ number_format($iii->e101_a7 ??  0,2) }} %</b></td>
                                                     </tr>
                                                 </tbody>
                                             </table>

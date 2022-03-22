@@ -92,7 +92,7 @@
                                                     style="margin-left:42%; width:40%; text-align: right"
                                                     onkeypress="return isNumberKey(event)" id="kadar_perahan" required
                                                     title="Sila isikan butiran ini."
-                                                    value="{{ $penyata->e102_al1 ?? 0 }}">
+                                                    value="{{ number_format($penyata->e102_al1 ??  0,2) }}">
                                                         {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -112,7 +112,7 @@
                                                     style="margin-left:42%; width:40%; text-align: right"
                                                     onkeypress="return isNumberKey(event)" id="kadar_perolehan" required
                                                     title="Sila isikan butiran ini."
-                                                    value="{{ $penyata->e102_al2 ?? 0 }}">
+                                                    value="{{ number_format($penyata->e102_al2 ??  0,2) }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -129,7 +129,7 @@
                                                     style="margin-left:42%; width:40%; text-align: right"
                                                     onkeypress="return isNumberKey(event)" id="jumlah_jam" required
                                                     title="Sila isikan butiran ini."
-                                                    value="{{ $penyata->e102_al3 ?? 0 }}">
+                                                    value="{{ number_format($penyata->e102_al3 ??  0,2) }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -146,7 +146,7 @@
                                                     style="margin-left:42%; width:40%; text-align: right"
                                                     onkeypress="return isNumberKey(event)" id="kadar_penggunaan" required
                                                     title="Sila isikan butiran ini."
-                                                    value="{{ $penyata->e102_al4 ?? 0 }}">
+                                                    value="{{ number_format($penyata->e102_al4 ??  0,2) }}">
                                                     {{-- <p style="margin-left:42%;"><i>(1% Kadar Perahan)</i></p> --}}
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">

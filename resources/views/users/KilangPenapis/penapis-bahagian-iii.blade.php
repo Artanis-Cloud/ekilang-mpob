@@ -93,7 +93,7 @@
                                                 <div class="col-md-2">
                                                     <input type="text" class="form-control" style="margin-left:150%; text-align:right"
                                                         name='e101_a2' id="nombor_borang_kastam" required
-                                                        title="Sila isikan butiran ini." value="{{ $penyata->e101_a2 }}">
+                                                        title="Sila isikan butiran ini." value="{{ number_format($penyata->e101_a2 ?? 0,2) }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -109,7 +109,7 @@
                                                     <input type="text" class="form-control" style="margin-left:150%; text-align:right"
                                                         name='e101_a3' id="kuantiti" onkeypress="return isNumberKey(event)"
                                                         required title="Sila isikan butiran ini."
-                                                        value="{{ $penyata->e101_a3 }}">
+                                                        value="{{ number_format($penyata->e101_a3 ?? 0,2) }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>

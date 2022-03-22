@@ -546,21 +546,21 @@
                                                         <td width="378">i.&nbsp;&nbsp; Kadar Perahan Minyak Isirung Sawit
                                                             Mentah (CPKO)&nbsp;
                                                         </td>
-                                                        <td width="116">: {{ $i->e102_al1 ?? 0 }} % </td>
+                                                        <td width="116">: {{ number_format($i->e102_al1 ?? 0,2) }} % </td>
                                                     </tr>
                                                     <tr>
                                                         <td width="378">ii.&nbsp; Kadar Perolehan Dedak Isirung (PKC)&nbsp;
                                                         </td>
-                                                        <td width="116">: {{ $i->e102_al2 ?? 0 }} %</td>
+                                                        <td width="116">: {{ number_format($i->e102_al2 ?? 0,2) }} %</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="378">iii. Jumlah Jam Pengilangan Isirung (PK)</td>
-                                                        <td width="116">: {{ $i->e102_al3 ?? 0 }} </td>
+                                                        <td width="116">: {{ number_format($i->e102_al3 ?? 0,2) }} </td>
                                                     </tr>
                                                     <tr>
                                                         <td width="378">iv. Kadar Penggunaan Kapasiti Sebulan
                                                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                                                        <td width="116">: {{ $i->e102_al4 ?? 0 }} % </td>
+                                                        <td width="116">: {{ number_format($i->e102_al4 ?? 0,2) }} % </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
