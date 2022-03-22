@@ -69,16 +69,11 @@
 
                     <img src="http://ekilang-mpob.test/mpob.png" style="float:left; margin-right:10%;margin-top:-10%;
                  width:50px; height:50px">
-                    {{-- <strong>E-Kilang</strong><br />
-                    <span>description</span> --}}
 
                     <h6 style="text-align:left; margin-left:15%; margin-top:-2%; color: rgb(29, 28, 24)">
                         <b>
                             e-Kilang</b>
                     </h6>
-                    {{-- <img src="{{ asset('theme/images/logo.svg') }}" alt="" srcset=""> --}}
-                    {{-- <img src="{{ asset('/mpob.png') }}" style="width:80px; height:80px"> --}}
-                    {{-- <img src="{{ asset('/mspo.png') }}" style="width:80px; height:90px"> --}}
 
                 </div>
                 <br>
@@ -295,13 +290,13 @@
                             <ul class="submenu " style="margin-left:-5%">
                                 <li>
                                     {{-- @foreach ($collection as $object) --}}
-                                        {{-- {{ $object->title }} --}}
+                                    {{-- {{ $object->title }} --}}
 
-                                        <a href="{{ route('admin.akaun.pentadbir', [$user->id]) }}">
-                                            <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
-                                            {{-- <i data-feather="user" width="20"></i> --}}
-                                            <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
-                                        </a>
+                                    <a href="{{ route('admin.akaun.pentadbir', [$user->id]) }}">
+                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
+                                        {{-- <i data-feather="user" width="20"></i> --}}
+                                        <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
+                                    </a>
                                     {{-- @endforeach --}}
                                 </li>
 
@@ -329,12 +324,6 @@
             </div>
         </div>
 
-
-
-
-
-
-
         <div id="main">
 
 
@@ -348,7 +337,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-            
+
 
                 <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
@@ -700,12 +689,7 @@
                                     <h4>Peratusan Penghantaran Penyata Bulanan</h4>
                                 </div>
                                 <div class="card-body">
-                                    {{-- <div id="radialBars"></div> --}}
                                     <div id="piechart" style="margin-left:-25%"></div>
-                                    {{-- <div class="text-center mb-5">
-                                <h6>From last month</h6>
-                                <h1 class='text-green'>+$2,134</h1>
-                            </div> --}}
                                 </div>
                             </div>
                             <div class="card widget-todo" style="margin-top: 5%" align="center">
@@ -814,39 +798,10 @@
     </div>
 
 
-
-
-
-
-
-
-
-
     </main><!-- End #main -->
 
-    <!-- ======= Footer ======= -->
-    {{-- <footer>
-                <div class="footer text-muted">
-                    <div style="text-align: center">
-                        <p style="font-size:10px">Developed by Artanis Cloud</a></p>
-                    </div>
-                </div>
-            </footer> --}}
-
-
-
-    {{-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
-
-    <!-- Vendor JS Files -->
-    {{-- <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script> --}}
 
 
     <script href="{{ asset('theme/kilangstyles/vendor/purecounter/purecounter.js') }}"" rel=" stylesheet"></script>
@@ -912,45 +867,6 @@
             chart.draw(data, options);
         }
     </script>
-
-    {{-- <script>
-            window.addEventListener("load", function() {
-                $.ajax({
-                    url: "{{ route('graph_dashboard.default') }}",
-                    method: "get",
-                    dataType: "JSON",
-                    success: function(data) {
-                        drawChart(data.query_now);
-                    }
-                });
-            });
-
-
-        $(document).ready(function() {
-            $('#bar').change(function() {
-                var shuttle = $(this).val();
-                if (shuttle != '') {
-                    load_data(shuttle);
-                }
-            });
-        });
-
-        function load_data(shuttle) {
-            $.ajax({
-                url: "{{ route('graph_dashboard') }}",
-                method: "POST",
-                data: {
-                    _token: "{{ csrf_token() }}",
-                    shuttle_type: shuttle,
-                },
-                dataType: "JSON",
-                success: function(data) {
-                    console.log(data.query_now);
-                    drawChart(data.query_now);
-                }
-            });
-        }
-        </script> --}}
 
 
 </body>

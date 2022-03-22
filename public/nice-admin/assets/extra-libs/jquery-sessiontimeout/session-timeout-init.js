@@ -1,0 +1,2 @@
+var SessionTimeout = function() { var i = function() { $.sessionTimeout({ title: "Session Timeout Notification", message: "Sesi Anda akan Berakhir.", redirUrl: "authentication-lockscreen.html", logoutUrl: "authentication-login1.html", warnAfter: 5e3, redirAfter: 2e4, ignoreUserActivity: !0, countdownMessage: "Sesi akan tamat dalam masa {timer} saat.", countdownBar: !0 }) }; return { init: function() { i() } } }();
+jQuery(function() { SessionTimeout.init() });
