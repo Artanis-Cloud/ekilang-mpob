@@ -8,6 +8,7 @@ use App\Models\E104Init;
 use App\Models\EBioB;
 use App\Models\EBioC;
 use App\Models\EBioInit;
+use App\Models\Ekmessage;
 use App\Models\Hari;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
@@ -801,6 +802,46 @@ class KilangBiodieselController extends Controller
 
 
         return view('users.KilangBiodiesel.bio-email', compact('returnArr', 'layout'));
+    }
+
+    public function bio_send_email_proses (Request $request)
+    {
+        // dd($request->all());
+        $this->validation_send_email($request->all())->validate();
+        $this->store_send_email($request->all());
+
+
+        return redirect()->back()->with('success', 'Emel sudah dihantar');
+    }
+
+    protected function validation_send_email(array $data)
+    {
+        return Validator::make($data, [
+            // 'Id' => ['required', 'string'],
+            'TypeOfEmail' => ['required', 'string'],
+            'FromEmail' => ['required', 'string'],
+            'Subject' => ['required', 'string'],
+            'Message' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_send_email(array $data)
+    {
+
+        // $user = User::where('e_nl', auth()->user()->username)->first();
+
+        return Ekmessage::create([
+            // 'Id' => $data['Id'],
+            'Date' => date("Y-m-d H:i:s"),
+            'FromName' => auth()->user()->name,
+            'FromLicense' => auth()->user()->username,
+            'TypeOfEmail' => $data['TypeOfEmail'],
+            'FromEmail' => $data['FromEmail'],
+            'Category' => auth()->user()->category,
+            'Subject' => $data['Subject'],
+            'Message' => $data['Message'],
+
+        ]);
     }
 
 

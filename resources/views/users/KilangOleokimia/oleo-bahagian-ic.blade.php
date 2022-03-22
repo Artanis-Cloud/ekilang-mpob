@@ -268,7 +268,7 @@
                                                                                 @endif --}}
 
                                                                         </td>
-                                                                        <td>
+                                                                        <td style="text-align: center">
                                                                             {{ $data->produk->prodid }}
                                                                             {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
                                                                                     <span>{{ $produk->prodname }}</span>
@@ -428,8 +428,8 @@
                                                                     </div>
                                                                 @endforeach
                                                                 <tr>
-                                                                    <td></td>
-                                                                    <td><b>JUMLAH</b></td>
+
+                                                                    <td colspan="2"><b>JUMLAH</b></td>
                                                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                                                     <td style="text-align: right"><b>{{ number_format($total ??  0,2) }}</b></td>
                                                                     <td style="text-align: right"><b>{{ number_format($total2 ??  0,2) }}</b></td>

@@ -70,12 +70,28 @@
                                             {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                                <div class="col-12" style="margin-right: 20%; margin-top:-4%">
-                                                    <b style="margin-left: 85%">MPOB(EL) RF 4</b>
 
-                                                    <b style="margin-left: 85%">MPOB(EL) PX 4-RF </b>
-                                                    <b style="margin-left: 85%">MPOB(EL) PM 4-RF </b>
 
+                                                <div align="right">
+                                                    <table border="0" width="25%">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>
+                                                                    <p align="left"><b>MPOB(EL) RF 4</b></p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <p align="left"><b>MPOB(EL) PX 4-RF </b></p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <p align="left"><b>MPOB(EL) PM 4-RF</b></p>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
 
                                             {{-- <div align="right">
@@ -104,8 +120,8 @@
 
                                                     </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
 
-                                                    BULAN :&nbsp;&nbsp;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
+                                                    BULAN :&nbsp;&nbsp;{{ $bulan }}
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                                                 </b><br>
 
                                             </p>
@@ -849,9 +865,10 @@
                                                         style="float: left">Sebelumnya</a>
                                                 </div>
                                                 <div class="text-right col-md-7 mb-4 ">
-                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                        style="float: right"
+                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
                                                         data-bs-target="#exampleModalCenter">Hantar</button>
+                                                    <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
+                                                        onclick="myPrint('myfrm')" value="print">Cetak</button>
                                                 </div>
 
                                             </div>
