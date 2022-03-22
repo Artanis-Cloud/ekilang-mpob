@@ -38,4 +38,10 @@ class TetapanAkaunController extends Controller
         return view('admin.tetapan-akaun.akaun-pentadbir', compact('returnArr', 'layout','user'));
     }
 
+    public function sessionTimeout()
+    {
+        auth()->logout();
+        return redirect()->route('login')->with('error', 'Session Ends');
+    }
+
 }
