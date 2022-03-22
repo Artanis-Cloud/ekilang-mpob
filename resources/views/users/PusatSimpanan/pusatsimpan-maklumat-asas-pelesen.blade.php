@@ -271,13 +271,13 @@
                                                 </div> --}}
                                                 <div class="text-right col-md-12 mb-4 ">
                                                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                        style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
+                                                        style="float: right" data-bs-target="#next">Simpan</button>
                                                 </div>
 
 
                                             </div>
 
-                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                            <div class="modal fade" id="next" tabindex="-1"
                                                 role="dialog" aria-labelledby="exampleModalCenterTitle"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"

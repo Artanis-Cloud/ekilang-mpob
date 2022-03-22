@@ -165,19 +165,19 @@
                                                                             <input type="text" size="10" name='e102_ac1'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e102_ac1 ?? 0 }}">
+                                                                                value="{{ ($penyata->e102_ac1 ?? 0) + ($penyata->e102_ad1 ?? 0 ) }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e102_ac2'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e102_ac2 ?? 0 }}">
+                                                                                value="{{ ($penyata->e102_ac2 ?? 0) + ($penyata->e102_ad2 ?? 0 ) }}">
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e102_ac3'
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e102_ac3 ?? 0 }}">
+                                                                                value="{{ ($penyata->e102_ac3 ?? 0) + ($penyata->e102_ad3 ?? 0 ) }}">
                                                                         </td>
 
 
@@ -185,23 +185,14 @@
                                                                 <tr>
                                                                     <td class="text-bold-500">D.
                                                                         Import</td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" name='e102_ad1'
-                                                                                style="text-align: center"
-                                                                                onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e102_ad1 ?? 0 }}">
+                                                                        <td  style="text-align:center; background-color:#808080b8">
+
                                                                         </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" name='e102_ad2'
-                                                                                style="text-align: center"
-                                                                                onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e102_ad2 ?? 0 }}">
+                                                                        <td  style="text-align:center; background-color:#808080b8">
+
                                                                         </td>
-                                                                        <td style="text-align:center;">
-                                                                            <input type="text" size="10" name='e102_ad3'
-                                                                                style="text-align: center"
-                                                                                onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e102_ad3 ?? 0 }}">
+                                                                        <td  style="text-align:center; background-color:#808080b8">
+
                                                                         </td>
 
 

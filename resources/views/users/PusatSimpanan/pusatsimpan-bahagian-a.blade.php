@@ -130,7 +130,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
                                                     Import</label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e07bt_import'
@@ -147,7 +147,8 @@
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Edaran Dalam Negeri &nbsp;<i class="fa fa-exclamation-circle"
-                                                        style="color: red" title="Jumlah Edaran Dalam Negeri adalah termasuk jumlah Eksport."></i></label>
+                                                        style="color: red"
+                                                        title="Jumlah Edaran Dalam Negeri adalah termasuk jumlah Eksport."></i></label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e07bt_edaran'
                                                         id="e07bt_edaran" style="width:50%"
@@ -162,7 +163,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
                                                     Eksport</label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e07bt_eksport'
@@ -246,15 +247,23 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($penyata as $data)
-                                                                <tr>
-                                                                    <td>{{ $data->produk->prodname }}</td>
-                                                                    <td>{{ $data->e07bt_stokawal }}</td>
-                                                                    <td>{{ $data->e07bt_terima }}</td>
-                                                                    <td>{{ $data->e07bt_import }}</td>
-                                                                    <td>{{ $data->e07bt_edaran }}</td>
-                                                                    <td>{{ $data->e07bt_eksport }}</td>
-                                                                    <td>{{ $data->e07bt_pelarasan }}</td>
-                                                                    <td>{{ $data->e07bt_stokakhir }}</td>
+                                                                <tr style="text-align: right">
+                                                                    <td style="text-align: left">
+                                                                        {{ $data->produk->prodname }}</td>
+                                                                    <td>{{ number_format($data->e07bt_stokawal ?? 0, 2) }}
+                                                                    </td>
+                                                                    <td>{{ number_format($data->e07bt_terima ?? 0, 2) }}
+                                                                    </td>
+                                                                    <td>{{ number_format($data->e07bt_import ?? 0, 2) }}
+                                                                    </td>
+                                                                    <td>{{ number_format($data->e07bt_edaran ?? 0, 2) }}
+                                                                    </td>
+                                                                    <td>{{ number_format($data->e07bt_eksport ?? 0, 2) }}
+                                                                    </td>
+                                                                    <td>{{ number_format($data->e07bt_pelarasan ?? 0, 2) }}
+                                                                    </td>
+                                                                    <td>{{ number_format($data->e07bt_stokakhir ?? 0, 2) }}
+                                                                    </td>
                                                                     <td>
                                                                         <div class="icon"
                                                                             style="text-align: center">
@@ -349,7 +358,8 @@
                                                                                                 <input type="text"
                                                                                                     name='e07bt_eksport'
                                                                                                     class="form-control"
-                                                                                                    value="{{ $data->e07bt_eksport }}">
+                                                                                                    value="{{ $data->e07bt_eksport }}"
+                                                                                                    readonly>
                                                                                             </div>
                                                                                             <label>Pelarasan (+/-) </label>
                                                                                             <div class="form-group">
@@ -427,14 +437,13 @@
                                     </div>
                                     <div class="text-right col-md-7 mb-4 ">
                                         <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
-                                            Seterusnya</button>
+                                            style="float: right" data-bs-target="#next">Hantar</button>
                                     </div>
 
                                 </div>
 
                                 <!-- Vertically Centered modal Modal -->
-                                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                <div class="modal fade" id="next" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                         role="document">
@@ -458,10 +467,12 @@
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                 </button>
-                                                <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                <a href="{{ route('pusatsimpan.paparpenyata') }}" type="button"
+                                                    class="btn btn-primary ml-1">
+
                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Ya</span>
-                                                </button>
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
