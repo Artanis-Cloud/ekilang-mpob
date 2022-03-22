@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Daerah;
 use App\Models\Negeri;
 use App\Models\Pelesen;
+use App\Models\ProfileBulanan;
 use App\Models\RegPelesen;
 use App\Models\RegUser;
 use App\Models\User;
@@ -186,6 +187,96 @@ class DataMigrationController extends Controller
                     $user->e_daerah = $daerah->kod_daerah ?? '-';
                     $user->e_syktinduk = $kilang->e_sykt_induk ?? '-';
                     $user->e_status = $kilang->e_status ?? '-';
+
+                $user->save();
+            }
+
+        }
+    }
+
+    public function transfer_profilebulanans_to_pelesen()
+    {
+        // $reg_pelesens = RegPelesen::get(); // login
+
+        $profilebulanans = ProfileBulanan::get();
+
+        foreach ($profilebulanans as $profilebulanan) {
+            // $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
+            // $e_asdaerah = DB::connection('mysql2')->select("SELECT kod_daerah FROM  daerah where namadaerah = $kilang->e_asdaerah");
+            // dd($e_asdaerah);
+
+
+            $count = Pelesen::count();
+            // dd($count);
+
+            $daerah = Daerah::where('nama_daerah', $profilebulanan->daerah)->first();
+            $negeri = Negeri::where('nama_negeri', $profilebulanan->negeri)->first();
+
+            $daerah2 = Daerah::where('nama_daerah', $profilebulanan->daerah_premis)->first();
+            $negeri2 = Negeri::where('nama_negeri', $profilebulanan->negeri_premis)->first();
+
+            $user = Pelesen::where('e_nl', $profilebulanan->no_lesen)->first();
+            if($profilebulanan->negeri_premis == '-Negeri-'){
+                $profilebulanan->negeri_premis = null;
+            }
+            if($profilebulanan->negeri == '-Negeri-'){
+                $profilebulanan->negeri = null;
+            }
+            // if($kilang->e_nl == '616115025000'){
+            //     dd($kilang);
+            // }
+            if(!$user){
+                $user = Pelesen::create([
+                    'e_id' => $count++,
+                    'e_nl' => $profilebulanan->no_lesen ?? '-',
+                    'e_np' => $profilebulanan->n_premis ?? '-',
+                    'e_ap1' => $profilebulanan->alamat_premis ?? '-',
+                    'e_ap2' => $profilebulanan->daerah_premis ?? '-',
+                    'e_ap3' => $profilebulanan->negeri_premis ?? '-',
+                    'e_as1' => $profilebulanan->alamat_surat ?? '-',
+                    'e_as2' => $profilebulanan->daerah ?? '-',
+                    'e_as3' => $profilebulanan->negeri ?? '-',
+                    'e_notel' =>  $profilebulanan->no_tel ?? '-',
+                    'e_nofax' =>  $profilebulanan->no_faks ?? '-',
+                    'e_email' =>  '',
+                    'e_npg' =>  $profilebulanan->n_pgw_m ?? '-',
+                    'e_jpg' =>  $profilebulanan->j_pgw_m ?? '-',
+                    'kodpgw' =>  '',
+                    'nosiri' =>  '',
+                    'e_npgtg' =>  $profilebulanan->n_pgw_b ?? '-',
+                    'e_jpgtg' =>  $profilebulanan->j_pgw_b ?? '-',
+                    'e_asnegeri' =>  $negeri2->kod_negeri ?? '-',
+                    'e_asdaerah' =>  $daerah2->kod_daerah ?? '-',
+                    'e_negeri' =>  $negeri->kod_negeri ?? '-',
+                    'e_daerah' =>  $daerah->kod_daerah ?? '-',
+                    'e_syktinduk' =>  $profilebulanan->srkt_induk ?? '-',
+                    'e_status' => '',
+                ]);
+            }else{
+
+                    $user->e_nl = $profilebulanan->no_lesen ?? '-';
+                    $user->e_np = $profilebulanan->n_premis ?? '-';
+                    $user->e_ap1 = $profilebulanan->alamat_premis ?? '-';
+                    $user->e_ap2 = $profilebulanan->daerah_premis ?? '-';
+                    $user->e_ap3 = $profilebulanan->negeri_premis ?? '-';
+                    $user->e_as1 = $profilebulanan->alamat_surat ?? '-';
+                    $user->e_as2 = $profilebulanan->daerah ?? '-';
+                    $user->e_as3 = $profilebulanan->negeri ?? '-';
+                    $user->e_notel = $profilebulanan->no_tel ?? '-';
+                    $user->e_nofax = $profilebulanan->no_faks ?? '-';
+                    $user->e_email = '';
+                    $user->e_npg = $profilebulanan->n_pgw_m ?? '-';
+                    $user->e_jpg = $profilebulanan->j_pgw_m ?? '-';
+                    $user->kodpgw = '';
+                    $user->nosiri = '';
+                    $user->e_npgtg = $profilebulanan->n_pgw_b ?? '-';
+                    $user->e_jpgtg = $profilebulanan->j_pgw_b ?? '-';
+                    $user->e_asnegeri = $negeri2->kod_negeri ?? '-';
+                    $user->e_asdaerah = $daerah2->kod_daerah ?? '-';
+                    $user->e_negeri = $negeri->kod_negeri ?? '-';
+                    $user->e_daerah = $daerah->kod_daerah ?? '-';
+                    $user->e_syktinduk = $profilebulanan->srkt_induk ?? '-';
+                    $user->e_status = '';
 
                 $user->save();
             }

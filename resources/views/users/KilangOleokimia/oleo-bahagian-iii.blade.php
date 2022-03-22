@@ -197,7 +197,7 @@
                                     <div class="table-responsive">
                                         <table class="table table-bordered mb-0"  style="font-size: 13px">
                                             <thead>
-                                                <tr>
+                                                <tr style="text-align: center">
                                                     <th>Nama Produk</th>
                                                     <th>Kod Produk</th>
                                                     <th>Belian/Penerimaan</th>
@@ -214,7 +214,7 @@
                                                 @foreach ($penyata as $data)
                                                     <tr style="text-align: right">
                                                         <td style="text-align: left">{{ $data->produk->prodname }}</td>
-                                                        <td style="text-align: left">{{ $data->produk->prodid }}</td>
+                                                        <td style="text-align: center">{{ $data->produk->prodid }}</td>
                                                         <td>{{ number_format($data->e104_c4 ??  0,2) }}</td>
                                                         <td>{{ number_format($data->e104_c5 ??  0,2) }}</td>
                                                         <td>{{ number_format($data->e104_c6 ??  0,2) }}</td>
@@ -330,8 +330,8 @@
                                                         </div>
                                                 @endforeach
                                                 <tr>
-                                                    <td></td>
-                                                    <td><b>JUMLAH</b></td>
+
+                                                    <td colspan="2"><b>JUMLAH</b></td>
                                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                                     <td style="text-align: right"><b>{{ number_format($total ??  0,2) }}</b></td>
                                                     <td style="text-align: right"><b>{{ number_format($total2 ??  0,2) }}</b></td>
@@ -377,7 +377,7 @@
                         </div>
                         <div class="text-right col-md-7 mb-4 ">
                             <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                data-bs-target="#exampleModalCenter">Simpan & Seterusnya</button>
+                                data-bs-target="#exampleModalCenter">Hantar</button>
                         </div>
 
                     </div>
@@ -405,7 +405,7 @@
                                         <i class="bx bx-x d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                     </button>
-                                    <a href="{{ route('oleo.bahagianiv') }}" type="button"
+                                    <a href="{{ route('oleo.paparpenyata') }}" type="button"
                                         class="btn btn-primary ml-1">
 
                                         <i class="bx bx-check d-block d-sm-none"></i>

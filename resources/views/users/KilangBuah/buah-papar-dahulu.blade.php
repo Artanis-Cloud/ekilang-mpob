@@ -83,12 +83,23 @@
                                                     </tbody>
                                                 </table>
                                             </div> --}}
-                                            <div class="col-12" style="margin-right: 20%; margin-top:-4%">
-                                                <b style="margin-left: 83%">MPOB(EL) MF 4</b>
-
-                                                <b style="margin-left: 83%">MPOB(EL) PX 4-MF </b>
-
+                                            <div align="right">
+                                                <table border="0" width="25%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="left"><b>MPOB(EL) PX 4-MF </b></p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
+                                           
                                             <br>
                                         <p align="center">
                                             <img border="0" src="{{ asset('/mpob.png') }}"  width="128"
@@ -1021,11 +1032,11 @@
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                                <p>Tarikh Penghantaran&nbsp;&nbsp;&nbsp; {{ $penyata->e91_sdate ?? '' }}</p>
-                                                <p>Nama Pegawai Melapor&nbsp;&nbsp; <b>{{ $pelesen->e_npg }}</b>
+                                                <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{ $penyata->e91_sdate ?? '' }}</p>
+                                                <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e_npg }}</b>
                                                 </p>
-                                                <p>Jawatan Pegawai Melapor&nbsp;&nbsp; <b>{{ $pelesen->e_jpg }}</b></p>
-                                                <p>No Telefon Kilang&nbsp;&nbsp; <b>{{ $pelesen->e_notel }}</b>
+                                                <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e_jpg }}</b></p>
+                                                <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $pelesen->e_notel }}</b>
                                                 </p>
 
 
