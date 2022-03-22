@@ -485,7 +485,7 @@
                                                         <font size="3">i.&nbsp;&nbsp; Jumlah Jam Pengilangan&nbsp;</font>
                                                     </td>
                                                     <td width="100">
-                                                        <font size="3">: {{ $penyata->e91_ah1 ?? 0 }}</font>
+                                                        <font size="3">: {{ number_format($penyata->e91_ah1 ?? 0,2) }}</font>
                                                     </td>
                                                 </tr>
 
@@ -495,7 +495,7 @@
                                                             diperolehi&nbsp;</font>
                                                     </td>
                                                     <td width="200">
-                                                        <font size="3">: {{ $penyata->e91_ah2 ?? 0 }} %</font>
+                                                        <font size="3">: {{ number_format($penyata->e91_ah2 ?? 0,2) }} %</font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -503,7 +503,7 @@
                                                         <font size="3">iii. Kadar Perolehan Isirung (KER)</font>
                                                     </td>
                                                     <td width="200">
-                                                        <font size="3">: {{ $penyata->e91_ah3 ?? 0 }} %</font>
+                                                        <font size="3">: {{ number_format($penyata->e91_ah3 ?? 0,2) }} %</font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -513,7 +513,7 @@
                                                         </font>
                                                     </td>
                                                     <td width="70">
-                                                        <font size="3">: {{ $penyata->e91_ah4 ?? 0 }}</font>
+                                                        <font size="3">: {{ number_format($penyata->e91_ah4 ?? 0,2) }}</font>
                                                     </td>
                                                 </tr>
                                                 <tr>

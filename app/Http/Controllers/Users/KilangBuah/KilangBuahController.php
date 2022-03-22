@@ -203,7 +203,7 @@ class KilangBuahController extends Controller
         $penyata->e91_ah2 = $request->e91_ah2;
         $penyata->e91_ah3 = $request->e91_ah3;
         $penyata->e91_ah4 = $request->e91_ah4;
-        $penyata->e91_ah5 = $request->e91_ah5 ?? 'N';
+        $penyata->e91_ah5 = $request->e91_ah5;
         $penyata->e91_ah6 = $request->e91_ah6 ;
         $penyata->e91_ah7 = $request->e91_ah7 ;
         $penyata->e91_ah8 = $request->e91_ah8 ;
@@ -248,7 +248,13 @@ class KilangBuahController extends Controller
         return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata'));
     }
 
+    // protected function validation_bahagian_iii(array $data)
+    // {
+    //     return Validator::make($data, [
 
+    //         'total' => 'required|same:e91_ab1',
+    //     ]);
+    // }
     public function buah_update_bahagian_iii(Request $request, $id)
     {
 
