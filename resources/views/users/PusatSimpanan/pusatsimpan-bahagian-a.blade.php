@@ -270,17 +270,16 @@
                                                                             <a href="#" type="button" data-bs-toggle="modal"
                                                                                 data-bs-target="#modal{{ $data->e07bt_id }}">
                                                                                 <i class="fas fa-edit fa-lg"
-                                                                                    style="color: #228c1c">
+                                                                                    style="color: #ffc107">
                                                                                 </i>
                                                                             </a>
                                                                         </div>
                                                                     </td>
                                                                     <td>
-                                                                        <div class="icon"
-                                                                            style="text-align: center">
-                                                                            <a href="#" type="button">
-                                                                                <i class="fa fa-trash-o"
-                                                                                    style="color: #228c1c;font-size:18px"></i>
+                                                                        <div class="icon" style="text-align: center">
+                                                                            <a href="#"
+                                                                                type="button" >
+                                                                                <i class="fa fa-trash-o" style="color: #dc3545;font-size:18px"></i>
                                                                             </a>
                                                                         </div>
 

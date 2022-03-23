@@ -172,13 +172,17 @@
                                                     <td>{{ $data->kodsl->catname ?? '' }}</td>
                                                     <td>{{ $data->prodcat2->catname ?? '' }}</td>
                                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                    <td style="text-align: right">
-                                                        {{ number_format($data->e102_b6 ?? 0, 2) }}</td>
+                                                    <td style="text-align: right"  onchange="validation_jumlah()">
+                                                        {{ number_format($data->e102_b6 ?? 0, 2) }}
+                                                        <input type="hidden" id="e102_b6i" name="e102_b6i"
+                                                        onchange="return validation_jum()"
+                                                        value="{{ $data->e102_b6 }}">
+                                                    </td>
                                                     <td>
                                                         <div class="icon" style="text-align: center">
                                                             <a href="#" type="button" data-bs-toggle="modal"
                                                                 data-bs-target="#modal{{ $data->e102_b1 }}">
-                                                                <i class="fas fa-edit fa-lg" style="color: #228c1c">
+                                                                <i class="fas fa-edit fa-lg" style="color: #ffc107">
                                                                 </i>
                                                             </a>
                                                         </div>
@@ -187,7 +191,7 @@
                                                         <div class="icon" style="text-align: center">
                                                             <a href="{{ route('isirung.bahagianiii.delete',[$data->e102_b1]) }}" type="button">
                                                                 <i class="fa fa-trash-o"
-                                                                    style="color: #228c1c;font-size:18px"></i>
+                                                                    style="color: #dc3545;font-size:18px"></i>
                                                             </a>
                                                         </div>
 
@@ -263,7 +267,7 @@
                                                                                 <input type="text" name='e102_b6'
                                                                                     class="form-control" id='e102_b6'
                                                                                     value="{{ old('e102_b6') ?? $data->e102_b6 }}"
-                                                                                    onchange="validation_jumlah()">
+                                                                                   >
                                                                             </div>
                                                                         </div>
 
@@ -424,7 +428,7 @@
     </script>
     <script>
         function validation_jumlah() {
-            var e102_b6 = $("#e102_b6").val();
+            var e102_b6i = $("#e102_b6i").val();
             var total = $("#total").val();
             var jumlah = $("#jumlah").val();
             var jumlah_input = 0;

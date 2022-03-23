@@ -40,11 +40,11 @@ class H104B extends Model
     public function h104init()
     {
 
-        return $this->hasMany(H104Init::class, 'e104_nobatch', 'e104_nobatch');
+        return $this->hasOne(H104Init::class, 'e104_nobatch', 'e104_nobatch');
     }
 
     public function produk()
     {
-        return $this->hasMany(Produk::class, 'prodid', 'e104_b4');
+        return $this->hasOne(Produk::class, 'prodid', 'e104_b4');
     }
 }

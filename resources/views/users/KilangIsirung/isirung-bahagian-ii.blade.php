@@ -75,11 +75,11 @@
 
 
 
-                                    <div class=" mt-2" style="text-align: right">
+                                    {{-- <div class=" mt-2" style="text-align: right">
                                         <a href="{{ asset('manual/kilangisirung/2.pdf') }}" target="_blank"
                                             style="text-align:right"><i><u>Panduan
                                                     Mengisi Maklumat Bahagian II</u></i></a>
-                                    </div>
+                                    </div> --}}
                                     <form action="{{ route('isirung.update.bahagian.ii', [$penyata->e102_reg]) }}" method="post">
                                         @csrf
                                         <div class="container center mt-3">

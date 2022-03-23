@@ -65,12 +65,28 @@
                                     <div class="pl-3">
 
                                         <body>
-                                            <div class="col-12" style="margin-right: 20%;margin-top:-4%">
-                                                <b style="margin-left: 85%">MPOB(EL) CF 4</b>
+                                           
 
-                                                <b style="margin-left: 85%">MPOB(EL) PM 4-CF </b>
-                                                <b style="margin-left: 85%">MPOB(EL) PX 4-CF </b>
-
+                                            <div align="right">
+                                                <table border="0" width="25%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="left"><b>MPOB(EL) CF 4</b></p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="left"><b>MPOB(EL) PM 4-CF </b></p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="left"><b>MPOB(EL) PX 4-CF</b></p>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                             <br>
                                             <div align="center">

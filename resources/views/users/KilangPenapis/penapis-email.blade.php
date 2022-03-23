@@ -259,6 +259,17 @@
 
     </script>
 
+<script>
+    var uploadField = document.getElementById("file");
+
+    uploadField.onchange = function() {
+        if (this.files[0].size > 3145728) {
+            alert("Saiz fail melebihi 3MB!");
+            this.value = "";
+        };
+    };
+</script>
+
 
     </main><!-- End #main -->
 
