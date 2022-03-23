@@ -2,8 +2,6 @@
 
 @section('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative" data-aos-delay="100">
@@ -76,7 +74,7 @@
                                     <div class="row" id="table-bordered">
                                         <div class="col-12 mt-2" style="margin-bottom: -2%">
                                             <form action="{{ route('buah.update.bahagian.iii', [$penyata->e91_reg]) }}"
-                                                method="post">
+                                                method="post" onsubmit="return validation_jum();" onload="validation_jumlah()">
                                                 @csrf
                                                 <div class="card">
 
@@ -101,9 +99,10 @@
                                                                             <input type="text" class="calc"
                                                                                 id="e91_ai1" name='e91_ai1' size="15"
                                                                                 style="text-align: center"
-                                                                                onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e91_ai1 ?? 0 }}"
-                                                                                {{-- onchange="return validation_jumlah()" --}}>
+                                                                                onkeypress="return isNumberKey(event);"
+                                                                                onchange="validation_jumlah()"
+                                                                                value="{{ old('e91_ai1') ?? $penyata->e91_ai1 ?? 0 }}"
+                                                                                onchange="validation_jumlah()">
                                                                         </td>
 
 
@@ -115,8 +114,9 @@
                                                                                 id="e91_ai2" name='e91_ai2' size="15"
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e91_ai2 ?? 0 }}"
-                                                                                {{-- onchange="return validation_jumlah()" --}}>
+                                                                                onchange="validation_jumlah()"
+                                                                                value="{{ old('e91_ai2') ?? $penyata->e91_ai2 ?? 0 }}"
+                                                                                onchange="validation_jumlah()">
                                                                         </td>
 
 
@@ -125,11 +125,12 @@
                                                                         <td class="text-bold-500">3. Peniaga Buah</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" class="calc"
+                                                                                id='e91_ai3'
                                                                                 name='e91_ai3' size="15"
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e91_ai3 ?? 0 }}"
-                                                                                {{-- onchange="return validation_jumlah()" --}}>
+                                                                                value="{{ old('e91_ai3') ?? $penyata->e91_ai3 ?? 0 }}"
+                                                                                onchange="validation_jumlah()">
                                                                         </td>
 
 
@@ -138,11 +139,12 @@
                                                                         <td class="text-bold-500">4. Pekebun Kecil</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" class="calc"
+                                                                                id='e91_ai4'
                                                                                 name='e91_ai4' size="15"
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e91_ai4 ?? 0 }}"
-                                                                                {{-- onchange="return validation_jumlah()" --}}>
+                                                                                value="{{ old('e91_ai4') ?? $penyata->e91_ai4 ?? 0 }}"
+                                                                                onchange="validation_jumlah()">
                                                                         </td>
 
 
@@ -151,11 +153,11 @@
                                                                         <td class="text-bold-500">5. Kilang Buah Lain</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" class="calc"
-                                                                                name='e91_ai5' size="15" id="text1"
+                                                                                name='e91_ai5' id='e91_ai5' size="15" id="text1"
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e91_ai5 ?? 0 }}"
-                                                                                {{-- onchange="return validation_jumlah()" --}}>
+                                                                                value="{{ old('e91_ai5') ?? $penyata->e91_ai5 ?? 0 }}"
+                                                                                onchange="validation_jumlah()">
                                                                         </td>
 
 
@@ -164,11 +166,11 @@
                                                                         <td class="text-bold-500">6. Lain-Lain</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" class="calc"
-                                                                                name='e91_ai6' size="15" id="text2"
+                                                                                name='e91_ai6' id='e91_ai6' size="15" id="text2"
                                                                                 style="text-align: center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e91_ai6 ?? 0 }}"
-                                                                                {{-- onchange="return validation_jumlah()" --}}>
+                                                                                value="{{ old('e91_ai6') ?? $penyata->e91_ai6 ?? 0 }}"
+                                                                                onchange="validation_jumlah()">
                                                                         </td>
 
 
@@ -179,25 +181,10 @@
                                                                             <b>Jumlah</b>
                                                                         </td>
                                                                         <td style="text-align:center;">
-                                                                            <b><span id="total" name="total" onchange="return validation_jum()">
-                                                                                    {{ number_format(
-                                                                                        ($penyata->e91_ai1 ?? 0) +
-                                                                                            ($penyata->e91_ai2 ?? 0) +
-                                                                                            ($penyata->e91_ai3 ?? 0) +
-                                                                                            ($penyata->e91_ai4 ?? 0) +
-                                                                                            ($penyata->e91_ai5 ?? 0) +
-                                                                                            ($penyata->e91_ai6 ?? 0) ?? 0,2) }}</span></b>
-                                                                            {{-- <input type="hidden" id="total" name="total"
-                                                                                 onchange="return validation_jum()"
-                                                                                value="{{ number_format(
-                                                                                    ($penyata->e91_ai1 ?? 0) +
-                                                                                        ($penyata->e91_ai2 ?? 0) +
-                                                                                        ($penyata->e91_ai3 ?? 0) +
-                                                                                        ($penyata->e91_ai4 ?? 0) +
-                                                                                        ($penyata->e91_ai5 ?? 0) +
-                                                                                        ($penyata->e91_ai6 ?? 0) ??0,2,) }}" > --}}
-
-
+                                                                            <b><span id="total" name="total">
+                                                                                {{ number_format($jumlah ,2) }}
+                                                                                </span>
+                                                                            </b>
                                                                         </td>
 
                                                                     </tr>
@@ -211,7 +198,7 @@
 
                                                                             <input type="hidden" id="jumlah" name="jumlah"
                                                                                 onchange="return validation_jum()"
-                                                                                value="{{ number_format($penyata->e91_ab1 ?? 0, 2) }}">
+                                                                                value="{{ $penyata->e91_ab1 }}">
 
                                                                     </tr>
                                                                 </tbody>
@@ -248,7 +235,7 @@
                                                 id="go">Simpan &
                                                 Seterusnya</button>
                                         </div>
-                                     
+
 
                                     </div>
 
@@ -318,34 +305,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
-    {{-- <script type="text/javascript">
-        $(document).ready(function() {
-            $('.calc').change(function() {
-                var total = 0;
-                $('.calc').each(function() {
-                    if ($(this).val() != '') {
-                        total += parseInt($(this).val());
-                    }
-                });
-                $('#total').html(total);
-            });
-        });
-    </script> --}}
-
-    {{-- <script type="text/javascript" language="JavaScript">
-        var firstInput = document.getElementById("first").value;
-        var secondInput = document.getElementById("second").value;
-
-        if (firstInput === secondInput) {
-            // do something here if inputs are same
-        } else if (firstInput > secondInput) {
-            // do something if the first input is greater than the second
-        } else {
-            // do something if the first input is less than the second
-        }
-    </script> --}}
-    {{-- <script>
-        function validation_jumlah(){
+    <script>
+        function validation_jumlah() {
             var e91_ai1 = $("#e91_ai1").val();
             var e91_ai2 = $("#e91_ai2").val();
             var e91_ai3 = $("#e91_ai3").val();
@@ -354,55 +315,12 @@
             var e91_ai6 = $("#e91_ai6").val();
 
             var jumlah = $("#jumlah").val();
+            var jumlah_input = 0;
 
-            var jumlah_input = e91_ai1 + e91_ai2 + e91_ai3 + e91_ai4 + e91_ai5 + e91_ai6;
+            jumlah_input = parseFloat(Number(e91_ai1)) + parseFloat(Number(e91_ai2)) +
+            parseFloat(Number(e91_ai3)) + parseFloat(Number(e91_ai4)) + parseFloat(Number(e91_ai5)) + parseFloat(Number(e91_ai6));
 
-            if(jumlah == jumlah_input){
-                console.log("nilai sama");
-                // alert("This is an alert message box.");
-            }else{
-                console.log("nilai x sama");
-                // alert("This is an alert messagedvdfvfgvg box.");
-
-            }
-
+            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
         }
-    </script> --}}
-    <script>
-        function validation_jum()
-
-
-        $('#go').click(function() {
-            var total = $("#total").val();
-
-            var jumlah = $("#jumlah").val();
-
-            // var jumlah_input = total;
-
-            if (jumlah == total) {
-                // console.log("nilai sama");
-                // alert("Nilai Sama");
-                $('#exampleModalCenter').modal('hide');
-            } else {
-                // console.log("nilai x sama");
-                // alert("Jumlah Tidak Sama!");
-                $('#exampleModalCenter').modal('show');
-
-
-            }
-
-        })
-        };
     </script>
-
-
-    {{-- <script>
-        $('#go').click(function() {
-            var test1 = $('#test').val();
-
-            if (test1 === "") {
-                $('#myModal').modal('show');
-            }
-        });
-    </script> --}}
 @endsection
