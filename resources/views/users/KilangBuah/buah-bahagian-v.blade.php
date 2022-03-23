@@ -97,10 +97,11 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">1. Kilang Isirung</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15"
+                                                                            <input type="text" size="15" id='e91_ak1'
                                                                                 class="calc" name='e91_ak1' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e91_ak1 ?? 0 }}">
+                                                                                value="{{ old('e91_ak1') ?? $penyata->e91_ak1 ?? 0 }}"
+                                                                                onchange="validation_jumlah()">
                                                                         </td>
 
 
@@ -108,10 +109,11 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">2. Kilang Peniaga</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15"
+                                                                            <input type="text" size="15" id='e91_ak2'
                                                                                 class="calc" name='e91_ak2' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e91_ak2 ?? 0 }}">
+                                                                                value="{{ old('e91_ak2') ?? $penyata->e91_ak2 ?? 0 }}"
+                                                                                onchange="validation_jumlah()">
                                                                         </td>
 
 
@@ -119,10 +121,11 @@
                                                                     <tr>
                                                                         <td class="text-bold-500">3. Lain-Lain</td>
                                                                         <td style="text-align:center;">
-                                                                            <input type="text" size="15"
+                                                                            <input type="text" size="15" id='e91_ak3'
                                                                                 class="calc" name='e91_ak3' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ $penyata->e91_ak3 ?? 0 }}">
+                                                                                value="{{ old('e91_ak3') ?? $penyata->e91_ak3 ?? 0 }}"
+                                                                                onchange="validation_jumlah()">
                                                                         </td>
 
 
@@ -135,8 +138,11 @@
                                                                             <b>Jumlah</b>
                                                                         </td>
                                                                         <td style="text-align:center;">
-                                                                            <b><span id="total">{{ ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) }}</span></b>
-
+                                                                            {{-- <b><span id="total">{{ ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) }}</span></b> --}}
+                                                                            <b><span id="total" name="total">
+                                                                                {{ old('total') ?? number_format($jumlah, 2) }}
+                                                                            </span>
+                                                                        </b>
                                                                         </td>
 
                                                                     </tr>
@@ -147,6 +153,10 @@
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <b><span>{{ number_format($penyata->e91_ae3 ?? 0,2)  }}</span></b>
+                                                                            <input type="hidden" id="jumlah" name="jumlah"
+                                                                            onchange="return validation_jum()"
+                                                                            value="{{ $penyata->e91_ae3 }}">
+
                                                                         </td>
 
                                                                     </tr>
@@ -264,7 +274,7 @@
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         $(document).ready(function() {
             $('.calc').change(function() {
                 var total = 0;
@@ -276,6 +286,21 @@
                 $('#total').html(total);
             });
         });
+    </script> --}}
+    <script>
+        function validation_jumlah() {
+            var e91_ak1 = $("#e91_ak1").val();
+            var e91_ak2 = $("#e91_ak2").val();
+            var e91_ak3 = $("#e91_ak3").val();
+
+            var jumlah = $("#jumlah").val();
+            var jumlah_input = 0;
+
+            jumlah_input = parseFloat(Number(e91_ak1)) + parseFloat(Number(e91_ak2)) +
+                parseFloat(Number(e91_ak3));
+            console.log(jumlah_input.toFixed(2));
+            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+        }
     </script>
 
     </body>
