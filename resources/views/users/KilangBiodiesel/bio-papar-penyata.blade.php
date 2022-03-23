@@ -96,7 +96,7 @@
 
                                                     </font>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4<br>
 
-                                                    BULAN :&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
+                                                    BULAN :&nbsp;&nbsp;0{{ $bulan }} &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
 
                                                 </b><br>
 
