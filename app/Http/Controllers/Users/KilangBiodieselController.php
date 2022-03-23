@@ -705,6 +705,9 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
 
@@ -782,6 +785,7 @@ class KilangBiodieselController extends Controller
             'totalicb7','totalicb8','totalicb9','totalicb10','totalicb11','totalicb12',
             'totaliiic4',
             'totaliiic5','totaliiic6','totaliiic7','totaliiic8','totaliiic9','totaliiic10','totaliiic11',
+            'bulan', 'tahun'
         ));
     }
 
