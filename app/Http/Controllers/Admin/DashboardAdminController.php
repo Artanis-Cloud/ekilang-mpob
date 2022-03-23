@@ -22,7 +22,7 @@ class DashboardAdminController extends Controller
 
     public function admin_dashboard2()
     {
-        return view('layouts.main');
+        return view('admin.dashboard.main');
     }
 
     public function index_form()
