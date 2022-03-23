@@ -7,7 +7,7 @@
 
 
 <div class="container">
-    <div class="card">
+    {{-- <div class="card" style="height: 100%; width:70%"> --}}
         <div class="form">
             <div class="left-side">
                 <div class="signup-form s_form">
@@ -19,79 +19,20 @@
                         <li></li>
                     </ul>
                     <div class="main active">
-                        <div class="top-div">
-                            <p>Basic Details</p>
-                        </div>
-                        <div class="input-text"> <input type="text" placeholder="First name" id="user_name" require> </div>
-                        <div class="input-text"> <input type="text" placeholder="Last name"> </div>
-                        <div class="input-text"> <input type="text" placeholder="Village/Town/City" require> </div>
-                        <div class="input-text"> <input type="text" placeholder="State" require> </div>
-                        <div class="input-text"> <input type="text" placeholder="Country" require> </div>
-                        <div class="buttons"> <button class="next_button">Next</button> </div>
+
                     </div>
                     <div class="main">
-                        <div class="top-div">
-                            <p>Log in to continue</p>
-                        </div>
-                        <div class="input-text"> <input type="text" placeholder="Father's name" require> </div>
-                        <div class="input-text"> <input type="text" placeholder="Mother's name" require> </div>
-                        <div class="input-text"> <input type="text" placeholder="Contact No" require> </div>
-                        <div class="input-text"> <select require>
-                                <option>Select Category</option>
-                                <option>General</option>
-                                <option>OBC</option>
-                                <option>SC</option>
-                                <option>ST</option>
-                                <option>PWD</option>
-                                <option>EWS</option>
-                                <option>Other</option>
-                            </select> </div>
-                        <div class="input-text"> <select>
-                                <option>Educational Qualification</option>
-                                <option>10th</option>
-                                <option>12th</option>
-                                <option>Graduation</option>
-                                <option>Post Graduation</option>
-                                <option>Doctarate</option>
-                                <option>Other</option>
-                            </select> </div>
-                        <div class="buttons"> <button class="previous_button">Previous</button> <button class="next_button">Next</button> </div>
+
+
                     </div>
                     <div class="main ">
-                        <div class="top-div">
-                            <p>Log in to continue</p>
-                        </div>
-                        <div class="input-text"> <input type="text" placeholder="Enter your class 12th percentage." require> </div>
-                        <div class="input-text"> <input type="text" placeholder="Enter your school name"> </div>
-                        <div class="input-text"> <input type="text" placeholder="Enter your graduation percentage" require> </div>
-                        <div class="input-text"> <input type="text" placeholder="Enter your institution/college/university name"> </div>
-                        <div class="input-text"> <select>
-                                <option>Any extra-curricular activity</option>
-                                <option>Yes</option>
-                                <option>No</option>
-                            </select> </div>
-                        <div class="buttons"> <button class="previous_button">Previous</button> <button class="next_button">Next</button> </div>
+
+
                     </div>
                     <div class="main ">
-                        <div class="top-div">
-                            <p>Log in to continue</p>
-                        </div>
-                        <div class="input-text"> <input type="text" placeholder="Enter your E-mail address" require> </div>
-                        <div class="input-text"> <input type="password" placeholder="Enter your password" require> </div>
-                        <div class="input-text"> <input type="password" placeholder="Confirm Password" require> </div>
-                        <div class="buttons final_button"> <button class="previous_button">Previous</button> <button class="submit_button">Submit</button> </div>
+
                     </div>
-                    <div class="main">
-                        <div class="top-div">
-                            <h2>Welcome Back</h2>
-                            <p>Log in to continue</p>
-                        </div> <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
-                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /> </svg>
-                        <div class="check_box">
-                            <p>Congratulations Mr./Mrs <span id="shown_name"></span> you have successfully registered.</p>
-                        </div>
-                    </div>
+
                 </div>
                 <div class="signin-form s_form d-none">
                     <div class="main_signin active">
@@ -132,7 +73,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    {{-- </div> --}}
 </div>
 
 <script>

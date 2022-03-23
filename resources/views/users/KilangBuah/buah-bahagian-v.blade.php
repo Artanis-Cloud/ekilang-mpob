@@ -73,7 +73,7 @@
 
 
                                     <form action="{{ route('buah.update.bahagian.v', [$penyata->e91_reg]) }}"
-                                        method="post">
+                                        method="post"  onsubmit="return validation_jum();" onload="validation_jumlah()">
                                         @csrf
                                         <div class="row" id="table-bordered">
                                             <div class="col-12 mt-2" style="margin-bottom: -2%">
