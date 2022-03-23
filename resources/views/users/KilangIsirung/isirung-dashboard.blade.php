@@ -360,7 +360,7 @@
                     <div class="row justify-content-center" style="margin-top: -4%">
                         <div class="col-xl-12 col-lg-8">
 
-                            <h1 style="font-size:15px; margin-left:5%; margin-bottom:-2%">PENYATA BULANAN KILANG OLEOKIMIA</h1>
+                            <h1 style="font-size:15px; margin-left:5%; margin-bottom:-2%">PENYATA BULANAN KILANG ISIRUNG</h1>
                         </div>
                     </div>
                     <div class="container center mt-4">

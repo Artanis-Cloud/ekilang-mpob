@@ -185,7 +185,7 @@
                                                     </td>
                                                     <td>
                                                         <div class="icon" style="text-align: center">
-                                                            <a href="#" type="button">
+                                                            <a href="{{ route('isirung.bahagianiii.delete',[$data->e102_b1]) }}" type="button">
                                                                 <i class="fa fa-trash-o"
                                                                     style="color: #228c1c;font-size:18px"></i>
                                                             </a>
@@ -261,8 +261,9 @@
                                                                             <label>Kuantiti </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e102_b6'
-                                                                                    class="form-control"
-                                                                                    value="{{ $data->e102_b6 }}">
+                                                                                    class="form-control" id='e102_b6'
+                                                                                    value="{{ old('e102_b6') ?? $data->e102_b6 }}"
+                                                                                    onchange="validation_jumlah()">
                                                                             </div>
                                                                         </div>
 
@@ -287,100 +288,98 @@
 
                                                 </div>
                                             @endforeach
-                                            <tr>
+                                            <form action="{{ route('isirung.bahagianiii.process') }}" method="post">
+                                                @csrf
+                                                <tr>
 
-                                                <td colspan="2"><b>JUMLAH</b></td>
-                                                {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                <td style="text-align: right"><b>{{ number_format($total ?? 0, 2) }}</b>
-                                                </td>
-                                                <td colspan="2"></td>
-                                                {{-- <td></td> --}}
+                                                    <td colspan="2"><b>JUMLAH</b></td>
+                                                    {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                    <td style="text-align: right"><b><span name='total' id='total'>
+                                                                {{ number_format($total, 2) }}</span></b>
+                                                        <input type="hidden" name="total" value="{{ $total }}">
+                                                    </td>
+                                                    <td colspan="2"></td>
+                                                    {{-- <td></td> --}}
 
-                                            </tr>
-                                            <tr style="background-color: #1526224a">
-                                                <td class="text-bold-500" colspan="2" style="text-align:center;">
-                                                    <b>Jumlah Bahagian I (PK)</b>
-                                                </td>
-                                                <td style="text-align:right;">
-                                                    <span><b>{{ number_format($penyatai->e102_ac1 ?? 0, 2) }}</b></span>
+                                                </tr>
+                                                <tr style="background-color: #1526224a">
+                                                    <td class="text-bold-500" colspan="2" style="text-align:center;">
+                                                        <b>Jumlah Bahagian I (PK)</b>
+                                                    </td>
+                                                    <td style="text-align:right;">
+                                                        <span><b>{{ number_format($penyatai->e102_ac1 ?? 0, 2) }}</b></span>
 
-                                                    <input type="hidden" id="jumlah" name="jumlah"
-                                                        value="{{ number_format($penyatai->e102_ac1 ?? 0, 2) }}">
-                                                </td>
-                                                <td colspan="2"></td>
+                                                        <input type="hidden" id="jumlah" name="jumlah"
+                                                            value="{{ $penyatai->e102_ac1 }}">
+                                                    </td>
+                                                    <td colspan="2"></td>
 
-                                            </tr>
-
-
-                                            <br>
-
-                                        </tbody>
-
-                                    </table>
-                                </div>
-
-                                {{-- </div> --}}
-                            </div>
-
-                        </section>
-
-                    </div>
+                                                </tr>
 
 
+                                                <br>
+
+                                                        </tbody>
+
+                                                    </table>
+                                                </div>
+
+                                                {{-- </div> --}}
+                                            </div>
+
+                                        </section>
+
+                                    </div>
 
 
-                    <div class="row form-group" style="padding-top: 10px; ">
 
 
-                        <div class="text-left col-md-5">
-                            <a href="{{ route('isirung.bahagianii') }}" class="btn btn-primary"
-                                style="float: left">Sebelumnya</a>
-                        </div>
-                        <div class="text-right col-md-7 mb-4 ">
-                            <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                data-bs-target="#next">Simpan &
-                                Seterusnya</button>
-                        </div>
+                                    <div class="row form-group" style="padding-top: 10px; ">
 
-                    </div>
 
-                    <!-- Vertically Centered modal Modal -->
-                    <div class="modal fade" id="next" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                            role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                        PENGESAHAN</h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                        <i data-feather="x"></i>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>
-                                        Anda pasti mahu menyimpan maklumat ini?
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                    </button>
-                                    <a href="{{ route('isirung.bahagianiv') }}" type="button"
-                                        class="btn btn-primary ml-1">
+                                        <div class="text-left col-md-5">
+                                            <a href="{{ route('isirung.bahagianii') }}" class="btn btn-primary"
+                                                style="float: left">Sebelumnya</a>
+                                        </div>
+                                        <div class="text-right col-md-7 mb-4 ">
+                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
+                                                data-bs-target="#next">Simpan &
+                                                Seterusnya</button>
+                                        </div>
 
-                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Ya</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                                    </div>
+
+                                    <!-- Vertically Centered modal Modal -->
+                                    <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                            role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                        PENGESAHAN</h5>
+                                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                                        <i data-feather="x"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                        Anda pasti mahu menyimpan maklumat ini?
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                    </button>
+                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                        <button type="submit" class="btn btn-primary ml-1">Ya</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </form>
                 </div>
-
-                </form>
-
             </div>
 
 
@@ -423,7 +422,18 @@
             });
         });
     </script>
+    <script>
+        function validation_jumlah() {
+            var e102_b6 = $("#e102_b6").val();
+            var total = $("#total").val();
+            var jumlah = $("#jumlah").val();
+            var jumlah_input = 0;
 
+            jumlah_input = parseFloat(Number(total));
+
+            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script>
 
 
 

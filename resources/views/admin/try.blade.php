@@ -6,70 +6,56 @@
 </head>
 
 
-<div class="container">
-    {{-- <div class="card" style="height: 100%; width:70%"> --}}
+<div class="container" style="background-image: url('theme/images/background/pusat-simpanan.png');">
+    <div class="card">
         <div class="form">
             <div class="left-side">
-                <div class="signup-form s_form">
-                    <div class="logo"> <img src="https://imgur.com/R9PWQyL.png"> </div>
-                    <ul class="steps">
-                        <li class="li-active"></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                    <div class="main active">
-
+                <div class="main_signin active">
+                    <br>
+                    <br>
+                    <div class="top-div"> <img src="{{ asset('theme/images/favicon.png') }}" style="margin-left:40%">
+                        <h2 style="text-align: center"><b>e-Kilang</b></h2>
+                        <h></h>
                     </div>
-                    <div class="main">
-
-
+                    <div class="sign_in">
+                        <h3 style="font-size: 12px">Log Masuk</h3>
                     </div>
-                    <div class="main ">
-
-
-                    </div>
-                    <div class="main ">
-
-                    </div>
-
+                    <div class="input-text"> <input type="text" placeholder="No. Lesen" id="user_signin_name" require> </div>
+                    <div class="input-text"> <input type="text" placeholder="Kata Laluan" require> </div>
+                    <div class="buttons sign_button"> <button class="signin_submit_button">Log Masuk</button> </div>
                 </div>
-                <div class="signin-form s_form d-none">
-                    <div class="main_signin active">
-                        <div class="top-div"> <img src="https://imgur.com/R9PWQyL.png">
-                            <h2>Welcome Back</h2>
-                            <p>Log in to continue</p>
-                        </div>
-                        <div class="sign_in">
-                            <h3>Sign In</h3>
-                        </div>
-                        <div class="input-text"> <input type="text" placeholder="Username" id="user_signin_name" require> </div>
-                        <div class="input-text"> <input type="text" placeholder="E-mail" require> </div>
-                        <div class="input-text"> <input type="password" placeholder="Password" require> </div>
-                        <div class="buttons sign_button"> <button class="signin_submit_button">Submit</button> </div>
-                    </div>
-                    <div class="main_signin">
-                        <div class="top-div"> <img src="https://imgur.com/R9PWQyL.png">
-                            <h2>Welcome Back</h2>
-                            <p>Log in to continue</p>
-                        </div> <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
-                            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
-                            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" /> </svg>
-                        <div class="check_box">
-                            <p>Congratulations1 Mr./Mrs <span id="shown_signin_name"></span> you have successfully loggedin.</p>
-                        </div>
-                    </div>
-                </div>
+
             </div>
             <div class="right-side">
-                <div class="cover-image"> <img class="right_img " src="https://imgur.com/a9M8BXO.jpg"> <img class="right_img d-none" src="https://imgur.com/jUSvhqu.jpg"> </div>
-                <div class="header">
-                    <p class="account">Already have an account?</p>
-                    <p class="account d-none">Don't have an account?</p> <button class="sign-in-up-toggle">Sign in</button>
-                </div>
+                <div class="cover-image"> <img class="right_img " src="{{ asset('theme/images/background/buah-sawit.jpg') }}"> </div>
+
                 <div class="right_text">
-                    <h2>Donec Facilisis Tortor<br> Ut Augue Lacinia,<br>At Vivera</h2>
-                    <p>Lorem Ipsum is simply dummy text of<br> the printing and typesetting industry.<br> Lorem Ipsum has been the industry's standard<br> dummy text ever since the 1500s, when an<br> unknown printer took a galley of type<br> and scrambled it to make a type specimen book.</p>
+                    <p class="card-text" style="font-size: 12px; margin-bottom:-50px; margin-right:20px">
+                        <span style="font-size:15px" >Sebarang pertanyaan sila hubungi :</span><br><br>
+                        Penyata Bulanan Kilang Buah - MPOB (EL) MF4 - Pn. Nor Syaida (Emel:
+                        nor.syaida@mpob.gov.my atau Tel :
+                        03-7802 2917)<br><br>
+                       Penyata Bulanan Kilang Buah - MPOB (EL) MF4 - En. Rominizam (Emel:
+                        rominizam@mpob.gov.my atau Tel :
+                        03-7802 2918)<br><br>
+                       Penyata Bulanan Kilang Penapis - MPOB (EL) RF4 - Pn. Aziana (Emel:
+                        aziana.misnan@mpob.gov.my atau Tel :
+                        03-7802 2955)<br><br>
+                       Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4 - Pn. Aziana (Emel:
+                        aziana.misnan@mpob.gov.my atau Tel :
+                        03-7802 2955)<br><br>
+                       Penyata Bulanan Kilang Isirong - MPOB (EL) CF4 - Pn. Nor Baayah (Emel
+                        abby@mpob.gov.my atau Tel : 03-7802
+                        2865)<br><br>
+                       Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4 - Pn. Nor Baayah (Emel
+                        abby@mpob.gov.my atau Tel : 03-7802
+                        2865)<br><br>
+                       No Faks bagi Penyata Bulanan : 03-7803 2323 / 03-7803 1399<br>
+                        <br><mark><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA
+                                MINGGUAN) melalui sistem
+                                ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu
+                                (ISNIN).<br></mark><br>
+                    </p>
                 </div>
             </div>
         </div>
