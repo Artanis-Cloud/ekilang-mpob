@@ -19,6 +19,7 @@ Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginFor
 Route::get('/login-new', [App\Http\Controllers\Auth\LoginController::class, 'login_new'])->name('pelesen.login.new');
 Route::get('admin/dashboard/test', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard2'])->name('admin.dashboard2');
 
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/session/timeout',[App\Http\Controllers\Admin\TetapanAkaunController::class, 'sessionTimeout'])->name('session.timeout');

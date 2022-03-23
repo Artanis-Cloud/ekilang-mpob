@@ -346,7 +346,7 @@
                                 <div class="card" style="margin-right:5%; margin-left:6%">
                                     <div class="card-header" style="margin-bottom: -1%">
                                         <h2 class='pl-3 card-heading'
-                                            style="font-size: 18px; margin-bottom:-1%; margin-left:6%">Pengumuman
+                                            style="font-size: 18px; margin-bottom:-1%; margin-left:6%; color:rgba(47, 112, 88, 0.726)">Pengumuman
                                         </h2>
                                     </div>
                                     <hr>
@@ -433,25 +433,22 @@
                                     <div class="card" >
                                         <div class="card-header " style="margin-bottom:-2%">
                                             <h2 class='pl-3 card-heading'
-                                                style="font-size: 18px; margin-bottom:-1%;">Peringatan
+                                                style="font-size: 18px; margin-bottom:-1%; color:rgba(47, 112, 88, 0.726) ">Peringatan
                                             </h2>
                                         </div>
                                         <hr>
 
                                         <div class="card-body">
                                             <div class=" text-center">
-                                                <h6 style=" text-align:left; text-align: justify;
-                                                                    text-justify: inter-word;">Adalah menjadi kesalahan
-                                                    dibawah syarat-syarat
-                                                    dan
-                                                    sekatan
-                                                    lesen
-                                                    yang terkandung di bawah
+                                                <p style=" text-align: justify; color:black">
+                                                    Adalah menjadi kesalahan
+                                                    dibawah syarat-syarat dan sekatan
+                                                    lesen  yang terkandung di bawah
                                                     Peraturan 21(1), Peraturan-peraturan Lembaga Minyak Sawit
-                                                    Malaysia(Pelesenan) 2005, jika
-                                                    gagal/lewat menyerahkan Penyata Bulanan tidak lewat dari 7hb. bagi bulan
+                                                    Malaysia(Pelesenan) 2005, jika gagal/lewat
+                                                    menyerahkan Penyata Bulanan tidak lewat dari 7hb. bagi bulan
                                                     berikutnya dan apabila
-                                                    disabitkan boleh dikenakan denda.</h6>
+                                                    disabitkan boleh dikenakan denda.</p>
                                                 {{-- <h1 class='text-green'>+$2,134</h1> --}}
                                             </div>
 
@@ -462,14 +459,14 @@
                                     <div class="card" style="margin-top:20px">
                                         <div class="card-header" style="margin-bottom:-2%">
                                             <h2 class='pl-3 card-heading'
-                                                style="font-size: 18px; margin-bottom:-1%">Penafian
+                                                style="font-size: 18px; margin-bottom:-1%; color:rgba(47, 112, 88, 0.726)">Penafian
                                             </h2>
                                         </div>
                                         <hr>
                                         <div class="card-body">
                                             <div class="text-center">
-                                                <h6 style=" text-align:left; text-align: justify;
-                                                                    text-justify: inter-word;">Kerajaan Malaysia dan
+                                                <p style=" text-align: justify; color:black">
+                                                    Kerajaan Malaysia dan
                                                     Lembaga Minyak Sawit
                                                     Malaysia
                                                     (MPOB)
@@ -480,7 +477,7 @@
                                                     yang dirujuk di dalam
                                                     laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun
                                                     syarikat yang disyorkan oleh
-                                                    Lembaga Minyak Sawit Malaysia (MPOB).</h6>
+                                                    Lembaga Minyak Sawit Malaysia (MPOB).</p>
                                                 {{-- <h1 class='text-green'>+$2,134</h1> --}}
                                             </div>
 
