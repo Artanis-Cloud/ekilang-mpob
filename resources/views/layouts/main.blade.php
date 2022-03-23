@@ -23,6 +23,11 @@
 
     <!-- Custom CSS -->
     <link href="{{ asset('nice-admin/dist/css/style.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}" rel=" stylesheet"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}"> --}}
+
+
+
     <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
 
 

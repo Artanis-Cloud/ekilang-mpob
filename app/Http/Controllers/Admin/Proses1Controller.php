@@ -51,7 +51,7 @@ class Proses1Controller extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.main';
+        $layout = 'layouts.admin';
 
         return view('admin.proses1.1daftarpelesen', compact('returnArr', 'layout', 'negeri'));
     }
@@ -173,7 +173,7 @@ class Proses1Controller extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.main';
+        $layout = 'layouts.admin';
 
 
 

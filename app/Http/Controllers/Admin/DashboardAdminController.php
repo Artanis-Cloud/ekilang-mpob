@@ -16,8 +16,8 @@ class DashboardAdminController extends Controller
     public function admin_dashboard()
     {
         $user = User::first();
-        return view('layouts.main', compact('user'));
-        // return view('admin.admin-dashboard2', compact('user'));
+        // return view('layouts.main', compact('user'));
+        return view('admin.admin-dashboard2', compact('user'));
     }
 
     public function admin_dashboard2()
