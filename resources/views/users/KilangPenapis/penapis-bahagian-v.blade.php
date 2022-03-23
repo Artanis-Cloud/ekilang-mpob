@@ -71,7 +71,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <span class="required">Sendiri / Luar:</span>
+                                                    <span class="required">Sendiri / Luar</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <select class="form-select" id="e101_d3"
@@ -100,7 +100,7 @@
 
                                             <div class="row mt-4">
                                                 <div class="col-md-2">
-                                                    <span class="required">Belian/Penerimaan dari:</span>
+                                                    <span class="required">Belian/Penerimaan dari</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <select class="form-select" id="e101_d4"
@@ -117,7 +117,7 @@
                                                 </div>
 
                                                 <div class="col-md-2">
-                                                    <span class="required">CPKO:</span>
+                                                    <span class="required">CPKO</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_d7'style="width: 50%"
@@ -135,7 +135,7 @@
 
                                             <div class="row mt-4">
                                                 <div class="col-md-2">
-                                                    <span class="required">CPO:</span>
+                                                    <span class="required">CPO</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_d5' style="width: 50%"
@@ -148,7 +148,7 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <span class="required">PPKO:</span>
+                                                    <span class="required">PPKO</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_d8' style="width: 50%"

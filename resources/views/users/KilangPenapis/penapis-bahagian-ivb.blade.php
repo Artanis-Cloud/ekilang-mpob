@@ -73,7 +73,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-2">
-                                                    <span class="required">Nama Produk:</span>
+                                                    <span class="required">Nama Produk</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <select class="form-select" id="produk"
@@ -92,7 +92,7 @@
 
                                             <div class="row mt-4">
                                                 <div class="col-md-2">
-                                                    <span class="required">Stok Awal Diproses:</span>
+                                                    <span class="required">Stok Awal Diproses</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_c5'style="width: 50%"
@@ -105,7 +105,7 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <span class="required">Jualan / Edaran Dalam Negeri:</span>
+                                                    <span class="required">Jualan / Edaran Dalam Negeri</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_c8'style="width: 50%"
@@ -123,7 +123,7 @@
 
                                             <div class="row mt-4">
                                                 <div class="col-md-2">
-                                                    <span class="required">Belian/Penerimaan:</span>
+                                                    <span class="required">Belian/Penerimaan</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_c6' style="width: 50%"
@@ -136,7 +136,7 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-2">
-                                                    <span class="required">Eksport:</span>
+                                                    <span class="required">Eksport</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_c9' style="width: 50%"
@@ -154,7 +154,7 @@
 
                                             <div class="row mt-4">
                                                 <div class="col-md-2">
-                                                    <span class="required">Pengeluaran:</span>
+                                                    <span class="required">Pengeluaran</span>
                                                 </div>
                                                 <div class="col-md-4">
                                                     <input type="text" class="form-control" name='e101_c7' style="width: 50%"
