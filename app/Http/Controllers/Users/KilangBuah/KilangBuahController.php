@@ -370,14 +370,25 @@ class KilangBuahController extends Controller
 
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
 
+        $jumlah = ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0);
 
-        return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata'));
+        return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata','jumlah'));
     }
 
 
     public function buah_update_bahagian_v(Request $request, $id)
     {
         // dd($request->all());
+        $calculate = floatval($request->e91_ak1) + floatval($request->e91_ak2) + floatval($request->e91_ak3);
+
+        $total = floatval($request->jumlah);
+
+        if($calculate != $request->jumlah)
+        {
+             return redirect()->back()->withInput()
+             ->with('error', 'Jumlah Tidak Sama!');
+        }
+
         $penyata = E91Init::findOrFail($id);
         $penyata->e91_ak1 = $request->e91_ak1;
         $penyata->e91_ak2 = $request->e91_ak2;

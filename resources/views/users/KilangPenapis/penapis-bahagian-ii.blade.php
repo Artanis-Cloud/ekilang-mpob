@@ -318,7 +318,7 @@
                                                         <div class="icon" style="text-align: center">
                                                             <a href="#" type="button" data-bs-toggle="modal"
                                                                 data-bs-target="#modal{{ $data->e101_b1 }}">
-                                                                <i class="fas fa-edit fa-lg" style="color: #228c1c">
+                                                                <i class="fas fa-edit fa-lg" style="color: #ffc107">
                                                                 </i>
                                                             </a>
                                                         </div>
@@ -327,7 +327,7 @@
                                                         <div class="icon" style="text-align: center">
                                                             <a href="#" type="button">
                                                                 <i class="fa fa-trash-o"
-                                                                    style="color: #228c1c;font-size:18px"></i>
+                                                                    style="color: #dc3545;font-size:18px"></i>
                                                             </a>
                                                         </div>
 
