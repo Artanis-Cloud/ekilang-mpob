@@ -11,8 +11,9 @@
     <meta name="author" content="Luke AC">
 
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="192x192"
-        href="https://static.wixstatic.com/media/b5595d_a0700e28a9854a13aea9f507cbdc554b%7Emv2.png/v1/fill/w_32%2Ch_32%2Clg_1%2Cusm_0.66_1.00_0.01/b5595d_a0700e28a9854a13aea9f507cbdc554b%7Emv2.png">
+    <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
+    <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Custom CSS -->
@@ -62,22 +63,20 @@
                     <!-- Logo -->
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
-                        <a href="{{ url('/') }}" class="logo">
+                        <a href="javascript:void(0)" class="logo">
                             <!-- Logo icon -->
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                                 <!-- Light Logo icon -->
-                                <img src="http://ekilang-mpob.test/mpob.png"
-                                    style="float:left; margin-right:10%;margin-top:30%; width:60px; height:60px"
-                                    alt="homepage" class="light-logo" />
+                                <img src="{{ asset('mpob.png') }}" alt="homepage" class="light-logo"
+                                    style="padding-top:10px;height:90%; width:40%">
                             </b>
                             <!--End Logo icon -->
                             <!-- Logo text -->
                             <span class="logo-text">
-                                <h4 class="page-title">
-                                    <b>
-                                        e-Kilang</b>
-                                </h4>
+                                <!-- Light Logo text -->
+                                <img src="{{ asset('mpob.png') }}" alt="homepage" class="light-logo"
+                                    style="padding-top:10px;height:90%; width:40%">
                             </span>
                         </a>
                         <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)"
@@ -108,8 +107,16 @@
                         <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
                             style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
                             <b style="margin-left:10%;">
-                                Admin </b>
+                                {{ ucfirst(auth()->user()->category) }} | </b>
                         </span>
+                        <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                            style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                        <div class="time text-right">
+                            <span class="hms"></span>
+                            <span class="ampm"></span>
+                            <span class="date"></span>
+                        </div>
+                    </span>
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -162,6 +169,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="{{ asset('user_icon.png') }}" alt="user" class="rounded-circle" width="40">
                                 <span class="m-l-5 font-medium d-none d-sm-inline-block">{{ auth()->user()->name }}<i
                                         class="mdi mdi-chevron-down"></i></span>
                             </a>
@@ -216,7 +224,7 @@
                     <ul id="sidebarnav">
                         <li class="nav-small-cap">
                             <i class="mdi mdi-dots-horizontal"></i>
-                            <span class="hide-menu"> MENU PENYELENGGARAAN </span>
+                            <span class="hide-menu font-weight-bold"> MENU PENYELENGGARAAN </span>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -380,7 +388,9 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false"
                                 onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                                <i class="mdi mdi-directions" style="color:rgb(54, 51, 41) "></i> Log Keluar </a>
+                                <i class="mdi mdi-directions" style="color:rgb(54, 51, 41) "></i>
+                                <span class="hide-menu"> Log Keluar</span>
+                            </a>
                             <form id="logoutform" action="{{ route('logout') }}" method="POST"
                                 style="display: none;">
                                 @csrf
@@ -468,11 +478,14 @@
     <script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
     <script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
     <!--Timer Idle Javascript -->
-    <script src="{{ asset('nice-admin/assets/extra-libs/jquery-sessiontimeout/jquery.sessionTimeout.min.js') }}"></script>
+    <script src="{{ asset('nice-admin/assets/extra-libs/jquery-sessiontimeout/jquery.sessionTimeout.min.js') }}">
+    </script>
     {{-- <script src="{{ asset('assets/extra-libs/jquery-sessiontimeout/session-timeout-init.js') }}"></script> --}}
     <!--TouchSpin Javascript -->
-    <script src="{{ asset('nice-admin/assets/libs/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}"></script>
+    <script src="{{ asset('nice-admin/assets/libs/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}">
+    </script>
 
+    {{-- notification --}}
     <script>
         @if (Session::has('success'))
             toastr.success( '{{ session('success') }}', 'Success', { "progressBar": true });
@@ -480,12 +493,12 @@
             toastr.error( '{{ session('error') }}', 'Error', { "progressBar": true });
         @endif
     </script>
+
+    {{-- session timeout --}}
     <script>
         var SessionTimeout = function() {
-            // var session = (10 * 3000)
-            // var sessionRedir = (10 * 3000) + 30000 //plus 30 seconds after warn
-            var session = (5000)
-            var sessionRedir = (5000) + 30000 //plus 30 seconds after warn
+            var session = (10 * 300000)
+            var sessionRedir = (10 * 300000) + 30000 //plus 30 seconds after warn
 
             var i = function() {
                 $.sessionTimeout({
@@ -513,7 +526,72 @@
         });
     </script>
 
+    {{-- clock --}}
+    <script type="text/javascript">
+        function updateTime() {
+            var dateInfo = new Date();
+
+            /* time */
+            var hr,
+                _min = (dateInfo.getMinutes() < 10) ? "0" + dateInfo.getMinutes() : dateInfo.getMinutes(),
+                sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
+                ampm = (dateInfo.getHours() >= 12) ? "PM" : "AM";
+
+            if (dateInfo.getHours() == 0) {
+                hr = 12;
+            } else if (dateInfo.getHours() > 12) {
+                hr = dateInfo.getHours() - 12;
+            } else {
+                hr = dateInfo.getHours();
+            }
+
+            var currentTime = hr + ":" + _min + ":" + sec;
+
+            // print time
+            document.getElementsByClassName("hms")[0].innerHTML = currentTime;
+            document.getElementsByClassName("ampm")[0].innerHTML = ampm;
+
+            /* date */
+            var dow = [
+                    "Ahad",
+                    "Isnin",
+                    "Selasa",
+                    "Rabu",
+                    "Khamis",
+                    "Jumaat",
+                    "Sabtu"
+                ],
+                month = [
+                    "Januari",
+                    "Februari",
+                    "Mac",
+                    "April",
+                    "Mei",
+                    "Jun",
+                    "Julai",
+                    "Ogos",
+                    "September",
+                    "Oktober",
+                    "November",
+                    "Desember"
+                ],
+                day = dateInfo.getDate();
+
+            // store date
+            var currentDate = dow[dateInfo.getDay()] + ", " + day + " " + month[dateInfo.getMonth()] + " " + dateInfo.getFullYear();
+
+            document.getElementsByClassName("date")[0].innerHTML = currentDate;
+        };
+
+        // print time and date once, then update them every second
+        updateTime();
+        setInterval(function() {
+            updateTime()
+        }, 1000);
+    </script>
+
     @yield('scripts')
+
 </body>
 
 </html>
