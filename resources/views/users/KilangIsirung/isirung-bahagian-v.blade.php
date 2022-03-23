@@ -183,7 +183,7 @@
                                                             </td>
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
-                                                                    <a href="#"
+                                                                    <a href="{{ route('isirung.bahagianv.delete',[$data->e102_b1]) }}"
                                                                         type="button" >
                                                                         <i class="fa fa-trash-o" style="color: #228c1c;font-size:18px"></i>
                                                                     </a>

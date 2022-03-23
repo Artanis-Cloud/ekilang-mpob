@@ -335,13 +335,31 @@ class KilangIsirungController extends Controller
         // dd($data);
     }
 
-    // public function destroy(E101B $penyata)
-    // {
-    //     $penyata->delete();
+    public function destroyiii($id)
+    {
+        $penyata = E102b::findOrFail($id);
+        $penyata->delete();
 
-    //     return redirect()->route('penapis.bahagiani')
-    //                     ->with('success','Product deleted successfully');
-    // }
+        return redirect()->route('isirung.bahagianiii')
+                        ->with('success','Produk Dihapuskan');
+    }
+
+    public function validation(Request $request){
+        // dd($request->all());
+
+        $e102_b6 = floatval($request->e102_b6);
+
+        $total = floatval($request->jumlah);
+
+        if($e102_b6 != $request->jumlah)
+        {
+             return redirect()->back()->withInput()
+             ->with('error', 'Jumlah Tidak Sama!');
+        }else{
+             return redirect()->route('isirung.bahagianiii')
+            ->with('success', 'Maklumat telah disimpan');
+        }
+    }
 
 
     public function isirung_edit_bahagian_iii(Request $request, $id)
@@ -350,7 +368,16 @@ class KilangIsirungController extends Controller
         // $prodcat2 = ProdCat2::where('catname', $request->e101_b5)->first();
 
 
-        // dd($request->all());
+
+        $e102_b6 = floatval($request->e102_b6);
+
+       $total = floatval($request->jumlah);
+
+       if($e102_b6 != $request->jumlah)
+       {
+            return redirect()->back()->withInput()
+            ->with('error', 'Jumlah Tidak Sama!');
+       }
         $penyata = E102b::findOrFail($id);
         $penyata->e102_b4 = $request->e102_b4;
         $penyata->e102_b5 = $request->e102_b5;
@@ -438,19 +465,44 @@ class KilangIsirungController extends Controller
         // dd($data);
     }
 
-    // public function destroy(E101B $penyata)
-    // {
-    //     $penyata->delete();
+    public function destroyiv($id)
+    {
+        $penyata = E102b::findOrFail($id);
+        $penyata->delete();
 
-    //     return redirect()->route('penapis.bahagiani')
-    //                     ->with('success','Product deleted successfully');
-    // }
+        return redirect()->route('isirung.bahagianiv')
+                        ->with('success','Produk Dihapuskan');
+    }
 
+    public function validationiv(Request $request){
+        // dd($request->all());
+
+        $e102_b6 = floatval($request->e102_b6);
+
+        $total = floatval($request->jumlah);
+
+        if($e102_b6 != $request->jumlah)
+        {
+             return redirect()->back()->withInput()
+             ->with('error', 'Jumlah Tidak Sama!');
+        }else{
+             return redirect()->route('isirung.bahagianiii')
+            ->with('success', 'Maklumat telah disimpan');
+        }
+    }
 
     public function isirung_edit_bahagian_iv(Request $request, $id)
     {
 
+        $e102_b6 = floatval($request->e102_b6);
 
+        $total = floatval($request->jumlah);
+
+        if($e102_b6 != $request->jumlah)
+        {
+             return redirect()->back()->withInput()
+             ->with('error', 'Jumlah Tidak Sama!');
+        }
         // dd($request->all());
         $penyata = E102b::findOrFail($id);
         $penyata->e102_b4 = $request->e102_b4;
@@ -538,13 +590,14 @@ class KilangIsirungController extends Controller
         // dd($data);
     }
 
-    // public function destroy(E101B $penyata)
-    // {
-    //     $penyata->delete();
+    public function destroyv($id)
+    {
+        $penyata = E102b::findOrFail($id);
+        $penyata->delete();
 
-    //     return redirect()->route('penapis.bahagiani')
-    //                     ->with('success','Product deleted successfully');
-    // }
+        return redirect()->route('isirung.bahagianv')
+                        ->with('success','Produk Dihapuskan');
+    }
 
 
     public function isirung_edit_bahagian_v(Request $request, $id)

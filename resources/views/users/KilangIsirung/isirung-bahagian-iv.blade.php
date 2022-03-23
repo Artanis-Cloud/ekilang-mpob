@@ -182,8 +182,9 @@
                                                             </div>
                                                         </td>
                                                         <td>
+                                                           
                                                             <div class="icon" style="text-align: center">
-                                                                <a href="#" type="button">
+                                                                <a href="{{ route('isirung.bahagianiv.delete',[$data->e102_b1]) }}" type="button">
                                                                     <i class="fa fa-trash-o"
                                                                         style="color: #228c1c;font-size:18px"></i>
                                                                 </a>
@@ -300,6 +301,8 @@
 
                                                     </div>
                                                 @endforeach
+                                                <form action="{{ route('isirung.bahagianiii.process') }}" method="post">
+                                                    @csrf
                                                 <tr>
 
                                                     <td colspan="2"><b>JUMLAH</b></td>
@@ -378,15 +381,13 @@
                                         <i class="bx bx-x d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                     </button>
-                                    <a href="{{ route('isirung.bahagianv') }}" type="button"
-                                        class="btn btn-primary ml-1">
-
                                         <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Ya</span>
-                                    </a>
+                                        <button type="submit" class="btn btn-primary ml-1">Ya</button>
                                 </div>
                             </div>
                         </div>
+                    </form>
+
                     </div>
                 </div>
                 <br>
@@ -434,6 +435,18 @@
                 $('#total').html(total);
             });
         });
+    </script>
+    <script>
+            function validation_jumlah() {
+                var e102_b6 = $("#e102_b6").val();
+                var total = $("#total").val();
+                var jumlah = $("#jumlah").val();
+                var jumlah_input = 0;
+
+                jumlah_input = parseFloat(Number(total));
+
+                document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+            }
     </script>
 
 
