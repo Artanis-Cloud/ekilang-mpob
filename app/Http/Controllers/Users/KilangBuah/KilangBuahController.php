@@ -243,9 +243,15 @@ class KilangBuahController extends Controller
 
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
         // dd($penyata);
+        $jumlah = ($penyata->e91_ai1 ?? 0) +
+            ($penyata->e91_ai2 ?? 0) +
+            ($penyata->e91_ai3 ?? 0) +
+            ($penyata->e91_ai4 ?? 0) +
+            ($penyata->e91_ai5 ?? 0) +
+            ($penyata->e91_ai6 ?? 0);
 
 
-        return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata'));
+        return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata' , 'jumlah'));
     }
 
     // protected function validation_bahagian_iii(array $data)
@@ -258,7 +264,17 @@ class KilangBuahController extends Controller
     public function buah_update_bahagian_iii(Request $request, $id)
     {
 
-       // dd($request->all());
+    //    dd($request->all());
+       $calculate = floatval($request->e91_ai1) + floatval($request->e91_ai2) + floatval($request->e91_ai3) +
+       floatval($request->e91_ai4) + floatval($request->e91_ai5) + floatval($request->e91_ai6);
+
+       $total = floatval($request->jumlah);
+
+       if($calculate != $request->jumlah)
+       {
+            return redirect()->back()->withInput()
+            ->with('error', 'Jumlah Tidak Sama!');
+       }
        $penyata = E91Init::findOrFail($id);
        $penyata->e91_ai1 = $request->e91_ai1;
        $penyata->e91_ai2 = $request->e91_ai2;
