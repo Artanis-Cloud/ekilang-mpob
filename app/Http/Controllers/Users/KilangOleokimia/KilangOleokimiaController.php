@@ -768,6 +768,10 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
+        $bulan = date("m") - 01;
+
+        $tahun = date("Y");
+
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
@@ -899,6 +903,7 @@ class KilangOleokimiaController extends Controller
             'totalic','totalic2','totalic3','totalic4','totalic5','totalic6','totalic7','totalic8','totalic9',
             'totaliii','totaliii2','totaliii3','totaliii4','totaliii5',
             'totaliv','totaliv2',
+            'bulan','tahun',
 
         ));
     }

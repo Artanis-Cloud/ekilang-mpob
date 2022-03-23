@@ -344,7 +344,8 @@ a:hover {
   width: 100%;
   /* height: 100vh; */
   position: relative;
-  background: url("../../images/background/buah-sawit.jpg") top center;
+  background-image: url("theme/images/background/landing3.jpg") top center;;
+  /* background: url("theme/images/background/landing3.jpg") top center; */
   background-size: cover;
   position: relative;
 }

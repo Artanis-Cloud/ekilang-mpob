@@ -24,6 +24,11 @@
 
     <!-- Custom CSS -->
     <link href="{{ asset('nice-admin/dist/css/style.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('theme/kilangstyles/css/adminstyle.css') }}" rel=" stylesheet"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('theme/css/bootstrap.css') }}"> --}}
+
+
+
     <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
 
 
@@ -496,6 +501,7 @@
 
     {{-- session timeout --}}
     <script>
+
         var SessionTimeout = function() {
             var session = (10 * 300000)
             var sessionRedir = (10 * 300000) + 30000 //plus 30 seconds after warn
@@ -524,7 +530,7 @@
         jQuery(function() {
             SessionTimeout.init()
         });
-    </script>
+    </script> --}}
 
     {{-- clock --}}
     <script type="text/javascript">

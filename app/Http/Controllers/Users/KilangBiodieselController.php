@@ -8,6 +8,7 @@ use App\Models\E104Init;
 use App\Models\EBioB;
 use App\Models\EBioC;
 use App\Models\EBioInit;
+use App\Models\Ekmessage;
 use App\Models\Hari;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
@@ -62,31 +63,33 @@ class KilangBiodieselController extends Controller
         return view('users.KilangBiodiesel.bio-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'pelesen2'));
     }
 
-    // public function bio_update_maklumat_asas_pelesen(Request $request, $id)
-    // {
-    //     // dd($request->all());
-    //     $penyata = Pelesen::findOrFail($id);
-    //     $penyata->e_ap1 = $request->e_ap1;
-    //     $penyata->e_ap2 = $request->e_ap2;
-    //     $penyata->e_ap3 = $request->e_ap3;
-    //     $penyata->e_as1 = $request->e_as1;
-    //     $penyata->e_as2 = $request->e_as2;
-    //     $penyata->e_as3 = $request->e_as3;
-    //     $penyata->e_notel = $request->e_notel;
-    //     $penyata->e_nofax = $request->e_nofax;
-    //     $penyata->e_email = $request->e_email;
-    //     $penyata->e_npg = $request->e_npg;
-    //     $penyata->e_jpg = $request->e_jpg;
-    //     // $penyata->e_notelpg = $request->e_notelpg;
-    //     $penyata->e_npgtg = $request->e_npgtg;
-    //     $penyata->e_jpgtg = $request->e_jpgtg;
-    //     $penyata->e_email_pengurus = $request->e_email_pengurus;
-    //     $penyata->save();
+    public function bio_update_maklumat_asas_pelesen(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = Pelesen::findOrFail($id);
+        $penyata->e_nlkppk = $request->e_nlkppk;
+        $penyata->e_ap1 = $request->e_ap1;
+        $penyata->e_ap2 = $request->e_ap2;
+        $penyata->e_ap3 = $request->e_ap3;
+        $penyata->e_as1 = $request->e_as1;
+        $penyata->e_as2 = $request->e_as2;
+        $penyata->e_as3 = $request->e_as3;
+        $penyata->e_notel = $request->e_notel;
+        $penyata->e_nofax = $request->e_nofax;
+        $penyata->e_email = $request->e_email;
+        $penyata->e_npg = $request->e_npg;
+        $penyata->e_jpg = $request->e_jpg;
+        $penyata->e_notel_pg = $request->e_notel_pg;
+        $penyata->e_email_pg = $request->e_email_pg;
+        $penyata->e_npgtg = $request->e_npgtg;
+        $penyata->e_jpgtg = $request->e_jpgtg;
+        $penyata->e_email_pengurus = $request->e_email_pengurus;
+        $penyata->save();
 
 
-    //     return redirect()->route('bio.maklumatasaspelesen')
-    //         ->with('success', 'Maklumat telah dikemaskini');
-    // }
+        return redirect()->route('bio.maklumatasaspelesen')
+            ->with('success', 'Maklumat telah dikemaskini');
+    }
 
     public function bio_tukarpassword()
     {
@@ -801,6 +804,46 @@ class KilangBiodieselController extends Controller
 
 
         return view('users.KilangBiodiesel.bio-email', compact('returnArr', 'layout'));
+    }
+
+    public function bio_send_email_proses (Request $request)
+    {
+        // dd($request->all());
+        $this->validation_send_email($request->all())->validate();
+        $this->store_send_email($request->all());
+
+
+        return redirect()->back()->with('success', 'Emel sudah dihantar');
+    }
+
+    protected function validation_send_email(array $data)
+    {
+        return Validator::make($data, [
+            // 'Id' => ['required', 'string'],
+            'TypeOfEmail' => ['required', 'string'],
+            'FromEmail' => ['required', 'string'],
+            'Subject' => ['required', 'string'],
+            'Message' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_send_email(array $data)
+    {
+
+        // $user = User::where('e_nl', auth()->user()->username)->first();
+
+        return Ekmessage::create([
+            // 'Id' => $data['Id'],
+            'Date' => date("Y-m-d H:i:s"),
+            'FromName' => auth()->user()->name,
+            'FromLicense' => auth()->user()->username,
+            'TypeOfEmail' => $data['TypeOfEmail'],
+            'FromEmail' => $data['FromEmail'],
+            'Category' => auth()->user()->category,
+            'Subject' => $data['Subject'],
+            'Message' => $data['Message'],
+
+        ]);
     }
 
 

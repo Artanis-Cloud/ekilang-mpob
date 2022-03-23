@@ -283,7 +283,7 @@ class KilangIsirungController extends Controller
 
         // $produk = ProdCat2::where('catid', [1, 5, 6, 7])->orderBy('catid')->get();
         // dd($produk);
-        $produk= Prodcat2::select('catid','catname')->where('catid', [1, 5, 6, 7])->orderBy('catid')->get();
+        $produk = Prodcat2::select('catid', 'catname')->where('catid', [1, 5, 6, 7])->orderBy('catid')->get();
         // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
         $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
         // dd($user);
@@ -291,11 +291,13 @@ class KilangIsirungController extends Controller
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
         $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->get();
         // dd($penyata);
+        $penyatai = E102Init::where('e102_nl', auth()->user()->username)->first();
 
-        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3','51')->sum('e102_b6');
+
+        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->sum('e102_b6');
 
 
-        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'kodsl', 'prodcat2', 'penyata', 'user', 'produk','total'));
+        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'kodsl', 'prodcat2', 'penyata', 'user', 'produk', 'total','penyatai'));
     }
 
 
@@ -392,10 +394,13 @@ class KilangIsirungController extends Controller
         $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->get();
         // dd($penyata);
 
-        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3','04')->sum('e102_b6');
+        $penyatai = E102Init::where('e102_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user','total'));
+        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->sum('e102_b6');
+
+
+        return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user', 'total','penyatai'));
     }
 
 
@@ -489,10 +494,13 @@ class KilangIsirungController extends Controller
         $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->get();
         // dd($penyata);
 
-        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3','33')->sum('e102_b6');
+        $penyatai = E102Init::where('e102_nl', auth()->user()->username)->first();
 
 
-        return view('users.KilangIsirung.isirung-bahagian-v', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user','total'));
+        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->sum('e102_b6');
+
+
+        return view('users.KilangIsirung.isirung-bahagian-v', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user', 'total','penyatai'));
     }
 
 
@@ -718,18 +726,18 @@ class KilangIsirungController extends Controller
 
         $penyataiii = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '51')->get();
         // dd($penyataiii);
-        $totaliii = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3','51')->sum('e102_b6');
+        $totaliii = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '51')->sum('e102_b6');
         // dd($totaliii);
 
         $penyataiv = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '04')->get();
 
-        $totaliv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3','04')->sum('e102_b6');
+        $totaliv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '04')->sum('e102_b6');
 
         $penyatav = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '33')->get();
 
-        $totalv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3','33')->sum('e102_b6');
+        $totalv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '33')->sum('e102_b6');
 
-        $penyatavi = E102c::with('e102init','produk','negara')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
+        $penyatavi = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
         // dd($penyatavi);
 
 
@@ -740,9 +748,12 @@ class KilangIsirungController extends Controller
             'pelesen',
             'penyatai',
             'penyataii',
-            'penyataiii', 'totaliii',
-            'penyataiv', 'totaliv',
-            'penyatav', 'totalv',
+            'penyataiii',
+            'totaliii',
+            'penyataiv',
+            'totaliv',
+            'penyatav',
+            'totalv',
             'penyatavi',
 
 
@@ -771,7 +782,7 @@ class KilangIsirungController extends Controller
     }
 
 
-    public function isirung_send_email_proses (Request $request)
+    public function isirung_send_email_proses(Request $request)
     {
         // dd($request->all());
         $this->validation_send_email($request->all())->validate();
@@ -846,31 +857,65 @@ class KilangIsirungController extends Controller
         $users = H102Init::where('e102_nl', auth()->user()->username)
             ->where('e102_thn', $request->tahun)
             ->where('e102_bln', $request->bulan)->first();
-        // dd($users->e102_nobatch);
+        // dd($users);
 
-        $i = H102Init::where('e102_nobatch', $users->e102_nobatch)->first();
+        // $i = H102Init::where('e102_nobatch', $users->e102_nobatch)->first();
         // dd($i);
+        if ($users) {
+            $i = H102Init::where('e102_nobatch', $users->e102_nobatch)->first();
+            $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->get();
+            // dd($iii);
 
-        $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->get();
-        // dd($iii);
-
-        $totaliii = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3','51')->sum('e102_b6');
-
-
-        $iv = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '04')->get();
-        // dd($iv);
-        $totaliv = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3','04')->sum('e102_b6');
+            $totaliii = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->sum('e102_b6');
 
 
-        $v = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '33')->get();
-        // dd($v);
-        $totalv = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3','33')->sum('e102_b6');
+            $iv = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '04')->get();
+            // dd($iv);
+            $totaliv = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '04')->sum('e102_b6');
 
 
-        $vi = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '1')->get();
-        // dd($vi);
+            $v = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '33')->get();
+            // dd($v);
+            $totalv = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '33')->sum('e102_b6');
 
-        $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();
+
+            $vi = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '1')->get();
+            // dd($vi);
+
+            $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();
+        } else {
+            $i = [];
+            $iii = [];
+            $totaliii = [];
+            $iv = [];
+            $totaliv = [];
+            $v = [];
+            $totalv = [];
+            $vi = [];
+            $vii = [];
+        }
+
+
+        // $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->get();
+        // // dd($iii);
+
+        // $totaliii = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->sum('e102_b6');
+
+
+        // $iv = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '04')->get();
+        // // dd($iv);
+        // $totaliv = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '04')->sum('e102_b6');
+
+
+        // $v = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '33')->get();
+        // // dd($v);
+        // $totalv = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '33')->sum('e102_b6');
+
+
+        // $vi = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '1')->get();
+        // // dd($vi);
+
+        // $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();
         // dd($vii);
 
 
@@ -901,9 +946,12 @@ class KilangIsirungController extends Controller
             'pelesen',
             'users',
             'i',
-            'iii', 'totaliii',
-            'iv', 'totaliv',
-            'v', 'totalv',
+            'iii',
+            'totaliii',
+            'iv',
+            'totaliv',
+            'v',
+            'totalv',
             'vi',
             'vii',
         ));

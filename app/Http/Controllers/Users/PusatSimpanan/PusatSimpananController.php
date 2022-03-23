@@ -146,9 +146,7 @@ class PusatSimpananController extends Controller
             'e07bt_produk' => ['required', 'string'],
             'e07bt_stokawal' => ['required', 'string'],
             'e07bt_terima' => ['required', 'string'],
-            'e07bt_import' => ['required', 'string'],
             'e07bt_edaran' => ['required', 'string'],
-            'e07bt_eksport' => ['required', 'string'],
             'e07bt_pelarasan' => ['required', 'string'],
             'e07bt_stokakhir' => ['required', 'string'],
         ]);
@@ -163,9 +161,9 @@ class PusatSimpananController extends Controller
             'e07bt_produk' => $data['e07bt_produk'],
             'e07bt_stokawal' => $data['e07bt_stokawal'],
             'e07bt_terima' => $data['e07bt_terima'],
-            'e07bt_import' => $data['e07bt_import'],
+            'e07bt_import' => '0',
             'e07bt_edaran' => $data['e07bt_edaran'],
-            'e07bt_eksport' => $data['e07bt_eksport'],
+            'e07bt_eksport' => '0',
             'e07bt_pelarasan' => $data['e07bt_pelarasan'],
             'e07bt_stokakhir' => $data['e07bt_stokakhir'],
         ]);

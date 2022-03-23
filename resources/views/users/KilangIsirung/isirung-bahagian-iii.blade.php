@@ -75,16 +75,16 @@
                                                     <span class="required">Belian/Penerimaan:</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <select class="form-select" id="e102_b4"
-                                                            style=" width:50%" name="e102_b4">
-                                                            <option selected hidden disabled>Sila Pilih</option>
-                                                            @foreach ($kodsl as $data)
-                                                                <option value="{{ $data->catid }}">
-                                                                    {{ $data->catname }}
-                                                                </option>
-                                                            @endforeach
+                                                    <select class="form-select" id="e102_b4" style=" width:50%"
+                                                        name="e102_b4">
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        @foreach ($kodsl as $data)
+                                                            <option value="{{ $data->catid }}">
+                                                                {{ $data->catname }}
+                                                            </option>
+                                                        @endforeach
 
-                                                        </select>
+                                                    </select>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -95,15 +95,15 @@
                                                     <span class="required"> Dari:</span>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <select class="form-select" id="e102_b5"
-                                                            style=" width:50%" name='e102_b5'>
-                                                            <option selected hidden disabled>Sila Pilih</option>
+                                                    <select class="form-select" id="e102_b5" style=" width:50%"
+                                                        name='e102_b5'>
+                                                        <option selected hidden disabled>Sila Pilih</option>
 
-                                                            <option value="1">KILANG BUAH</option>
-                                                            <option value="5">PENIAGA</option>
-                                                            <option value="7">LAIN-LAIN</option>
+                                                        <option value="1">KILANG BUAH</option>
+                                                        <option value="5">PENIAGA</option>
+                                                        <option value="7">LAIN-LAIN</option>
 
-                                                        </select>
+                                                    </select>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -128,7 +128,7 @@
                                         </div>
 
 
-                                        <div class="row form-group" >
+                                        <div class="row form-group">
 
 
 
@@ -139,171 +139,185 @@
                                             </div>
 
                                         </div>
-                                    <input type="hidden" name="hidDelete" id="hidDelete" value="" />
+                                        <input type="hidden" name="hidDelete" id="hidDelete" value="" />
 
                         </form>
 
                         <hr>
                         <br>
                         <br>
-                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Belian/Penerimaan Bekalan Isirung Sawit -
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Belian/Penerimaan Bekalan Isirung
+                            Sawit -
                             (PK) (51)</h5>
                         <section class="section">
                             <div class="card">
 
                                 {{-- <div class="card-body"> --}}
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered mb-0" style="font-size: 13px">
-                                            <thead>
-                                                <tr style="text-align: center">
-                                                    <th>Belian/Penerimaan</th>
-                                                    <th>Dari</th>
-                                                    <th>Kuantiti</th>
-                                                    <th>Kemaskini</th>
-                                                    <th>Hapus?</th>
+                                <div class="table-responsive">
+                                    <table class="table table-bordered mb-0" style="font-size: 13px">
+                                        <thead>
+                                            <tr style="text-align: center">
+                                                <th>Belian/Penerimaan</th>
+                                                <th>Dari</th>
+                                                <th>Kuantiti</th>
+                                                <th>Kemaskini</th>
+                                                <th>Hapus?</th>
 
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($penyata as $data)
+                                                <tr>
+                                                    <td>{{ $data->kodsl->catname ?? '' }}</td>
+                                                    <td>{{ $data->prodcat2->catname ?? '' }}</td>
+                                                    {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                    <td style="text-align: right">
+                                                        {{ number_format($data->e102_b6 ?? 0, 2) }}</td>
+                                                    <td>
+                                                        <div class="icon" style="text-align: center">
+                                                            <a href="#" type="button" data-bs-toggle="modal"
+                                                                data-bs-target="#modal{{ $data->e102_b1 }}">
+                                                                <i class="fas fa-edit fa-lg" style="color: #228c1c">
+                                                                </i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="icon" style="text-align: center">
+                                                            <a href="#" type="button">
+                                                                <i class="fa fa-trash-o"
+                                                                    style="color: #228c1c;font-size:18px"></i>
+                                                            </a>
+                                                        </div>
+
+                                                    </td>
 
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($penyata as $data)
-                                                    <tr>
-                                                        <td>{{ $data->kodsl->catname ?? '' }}</td>
-                                                        <td>{{ $data->prodcat2->catname ?? '' }}</td>
-                                                        {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                        <td style="text-align: right">{{ number_format($data->e102_b6 ??  0,2) }}</td>
-                                                        <td>
-                                                            <div class="icon" style="text-align: center">
-                                                                <a href="#" type="button" data-bs-toggle="modal"
-                                                                    data-bs-target="#modal{{ $data->e102_b1 }}">
-                                                                    <i class="fas fa-edit fa-lg" style="color: #228c1c">
-                                                                    </i>
-                                                                </a>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="icon" style="text-align: center">
-                                                                <a href="#" type="button">
-                                                                    <i class="fa fa-trash-o"
-                                                                        style="color: #228c1c;font-size:18px"></i>
-                                                                </a>
-                                                            </div>
+                                                <div class="col-md-6 col-12">
 
-                                                        </td>
+                                                    <!--scrolling content Modal -->
+                                                    <div class="modal fade" id="modal{{ $data->e102_b1 }}"
+                                                        tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="exampleModalScrollableTitle">
+                                                                        Kemaskini Maklumat Produk</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('isirung.edit.bahagian.iii', [$data->e102_b1]) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <label>Belian/Penerimaan </label>
+                                                                            <div class="form-group">
+                                                                                <fieldset class="form-group">
+                                                                                    <select class="form-select"
+                                                                                        id="e102_b4" name="e102_b4">
+                                                                                        <option hidden
+                                                                                            value="{{ $data->e102_b4 }}">
+                                                                                            {{ $data->kodsl->catname ?? '' }}
+                                                                                        </option>
+                                                                                        <option value="1"> SENDIRI
+                                                                                        </option>
+                                                                                        <option value="2"> LUAR
+                                                                                        </option>
 
-                                                    </tr>
-                                                    <div class="col-md-6 col-12">
-
-                                                        <!--scrolling content Modal -->
-                                                        <div class="modal fade" id="modal{{ $data->e102_b1 }}"
-                                                            tabindex="-1" role="dialog"
-                                                            aria-labelledby="exampleModalScrollableTitle"
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-scrollable"
-                                                                role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title"
-                                                                            id="exampleModalScrollableTitle">
-                                                                            Kemaskini Maklumat Produk</h5>
-                                                                        <button type="button" class="close"
-                                                                            data-bs-dismiss="modal" aria-label="Close">
-                                                                            <i data-feather="x"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <form
-                                                                            action="{{ route('isirung.edit.bahagian.iii', [$data->e102_b1]) }}"
-                                                                            method="post">
-                                                                            @csrf
-                                                                            <div class="modal-body">
-                                                                                <label>Belian/Penerimaan </label>
-                                                                                <div class="form-group">
-                                                                                    <fieldset class="form-group">
-                                                                                        <select class="form-select"
-                                                                                            id="e102_b4" name="e102_b4">
-                                                                                            <option hidden
-                                                                                                value="{{ $data->e102_b4 }}">
-                                                                                                {{ $data->kodsl->catname ?? '' }}
-                                                                                            </option>
-                                                                                            <option value="1"> SENDIRI
-                                                                                            </option>
-                                                                                            <option value="2"> LUAR
-                                                                                            </option>
-
-                                                                                        </select>
-                                                                                    </fieldset>
-                                                                                    {{-- <input type="text" name='e101_d3'
+                                                                                    </select>
+                                                                                </fieldset>
+                                                                                {{-- <input type="text" name='e101_d3'
                                                                                                 class="form-control"
                                                                                                 value="{{ $data->kodsl[0]->catname }}"
                                                                                                 readonly> --}}
 
-                                                                                </div>
-                                                                                <label>Dari </label>
-                                                                                <div class="form-group">
-                                                                                    <fieldset class="form-group">
-                                                                                        <select class="form-select"
-                                                                                            id="e102_b5" name="e102_b5">
-                                                                                            <option selected hidden
-                                                                                                value="{{ $data->prodcat2->catid ?? '' }}">{{ $data->prodcat2->catname ?? ''}}
-                                                                                            </option>
-                                                                                            <option value="1">KILANG BUAH
-                                                                                            </option>
-                                                                                            <option value="5">PENIAGA
-                                                                                            </option>
-                                                                                            <option value="7">LAIN-LAIN
-                                                                                            </option>
-                                                                                        </select>
-                                                                                    </fieldset>
-
-                                                                                </div>
-                                                                                <label>Kuantiti </label>
-                                                                                <div class="form-group">
-                                                                                    <input type="text" name='e102_b6'
-                                                                                        class="form-control"
-                                                                                        value="{{ $data->e102_b6 }}">
-                                                                                </div>
                                                                             </div>
+                                                                            <label>Dari </label>
+                                                                            <div class="form-group">
+                                                                                <fieldset class="form-group">
+                                                                                    <select class="form-select"
+                                                                                        id="e102_b5" name="e102_b5">
+                                                                                        <option selected hidden
+                                                                                            value="{{ $data->prodcat2->catid ?? '' }}">
+                                                                                            {{ $data->prodcat2->catname ?? '' }}
+                                                                                        </option>
+                                                                                        <option value="1">KILANG BUAH
+                                                                                        </option>
+                                                                                        <option value="5">PENIAGA
+                                                                                        </option>
+                                                                                        <option value="7">LAIN-LAIN
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </fieldset>
+
+                                                                            </div>
+                                                                            <label>Kuantiti </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e102_b6'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->e102_b6 }}">
+                                                                            </div>
+                                                                        </div>
 
 
-                                                                    </div>
-
-                                                                    <div class="modal-footer">
-                                                                        <button type="button"
-                                                                            class="btn btn-light-secondary"
-                                                                            data-bs-dismiss="modal">
-                                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                                            <span class="d-none d-sm-block">Batal</span>
-                                                                        </button>
-                                                                        <button type="submit" class="btn btn-primary ml-1">
-                                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                                            <span class="d-none d-sm-block">Kemaskini</span>
-                                                                        </button>
-                                                                    </div>
-                                                                    </form>
                                                                 </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
                                                             </div>
                                                         </div>
-
                                                     </div>
-                                                @endforeach
-                                                <tr>
 
-                                                    <td colspan="2"><b>JUMLAH</b></td>
-                                                    {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                    <td style="text-align: right"><b>{{ number_format($total ??  0,2) }}</b></td>
-                                                    <td colspan="2"></td>
-                                                    {{-- <td></td> --}}
+                                                </div>
+                                            @endforeach
+                                            <tr>
 
-                                                </tr>
+                                                <td colspan="2"><b>JUMLAH</b></td>
+                                                {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                <td style="text-align: right"><b>{{ number_format($total ?? 0, 2) }}</b>
+                                                </td>
+                                                <td colspan="2"></td>
+                                                {{-- <td></td> --}}
+
+                                            </tr>
+                                            <tr style="background-color: #1526224a">
+                                                <td class="text-bold-500" colspan="2" style="text-align:center;">
+                                                    <b>Jumlah Bahagian I (PK)</b>
+                                                </td>
+                                                <td style="text-align:right;">
+                                                    <span><b>{{ number_format($penyatai->e102_ac1 ?? 0, 2) }}</b></span>
+
+                                                    <input type="hidden" id="jumlah" name="jumlah"
+                                                        value="{{ number_format($penyatai->e102_ac1 ?? 0, 2) }}">
+                                                </td>
+                                                <td colspan="2"></td>
+
+                                            </tr>
 
 
-                                                <br>
+                                            <br>
 
-                                            </tbody>
+                                        </tbody>
 
-                                        </table>
-                                    </div>
+                                    </table>
+                                </div>
 
                                 {{-- </div> --}}
                             </div>
@@ -364,12 +378,11 @@
                         </div>
                     </div>
                 </div>
-                <br>
+
                 </form>
 
             </div>
 
-            <br>
 
         </div>
         </div>
