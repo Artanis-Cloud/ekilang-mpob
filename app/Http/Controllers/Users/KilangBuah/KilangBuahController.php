@@ -438,6 +438,10 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        $bulan = date("m") - 1;
+
+        $tahun = date("Y");
+
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
@@ -455,7 +459,7 @@ class KilangBuahController extends Controller
 
 
 
-        return view('users.KilangBuah.buah-papar-penyata', compact('layout','returnArr','user', 'pelesen','penyata','totaliii'));
+        return view('users.KilangBuah.buah-papar-penyata', compact('layout','returnArr','user', 'pelesen','penyata','totaliii','bulan','tahun'));
     }
 
     public function buah_email()

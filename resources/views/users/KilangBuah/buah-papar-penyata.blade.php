@@ -50,6 +50,7 @@
                             </div>
                         </div>
                     </div>
+                    <form method="get" action="" id="myfrm">
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -69,11 +70,22 @@
                                         {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                        <div class="col-12" style="margin-right: 20%; margin-top:-4%">
-                                            <b style="margin-left: 83%">MPOB(EL) MF 4</b>
+                                        <div align="right">
+                                            <table border="0" width="25%">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <p align="left"><b>MPOB(EL) MF 4</b></p>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <p align="left"><b>MPOB(EL) PX 4-M </b></p>
+                                                        </td>
+                                                    </tr>
 
-                                            <b style="margin-left: 83%">MPOB(EL) PX 4-MF </b>
-
+                                                </tbody>
+                                            </table>
                                         </div>
 <br>
                                         <p align="center">
@@ -86,7 +98,7 @@
 
                                                 </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
-                                                BULAN :&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
+                                                BULAN :&nbsp;&nbsp;0{{ $bulan }} &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                                             </b><br>
 
                                         </p>
@@ -1019,6 +1031,7 @@
                                             <input type="text" id="e_notel" class="form-control" size="50" name="e_notel"
                                                 value="{{ $pelesen->e_notel }}">
                                         </p>
+                                    </form>
 
                                         <h1 style="page-break-before:always"></h1>
 
@@ -1026,13 +1039,14 @@
 
 
                                             <div class="text-left col-md-5">
-                                                <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
+                                                <a href="{{ route('penapis.bahagianvi') }}" class="btn btn-primary"
                                                     style="float: left">Sebelumnya</a>
                                             </div>
                                             <div class="text-right col-md-7 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                    style="float: right"
+                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
                                                     data-bs-target="#exampleModalCenter">Hantar</button>
+                                                <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
+                                                    onclick="myPrint('myfrm')" value="print">Cetak</button>
                                             </div>
 
                                         </div>
@@ -1178,6 +1192,16 @@
             });
         });
     </script>
+
+<script>
+    function myPrint(myfrm) {
+        var printdata = document.getElementById(myfrm);
+        newwin = window.open("");
+        newwin.document.write(printdata.outerHTML);
+        newwin.print();
+        newwin.close();
+    }
+</script>
 
     </body>
 

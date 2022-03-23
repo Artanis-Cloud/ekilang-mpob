@@ -67,12 +67,27 @@
 
 
                                         <body>
-                                            <div class="col-12" style="margin-right: 20%; margin-top:-4%">
-                                                <b style="margin-left: 85%">MPOB(EL) RF 4</b>
+                                            <div align="right">
+                                                <table border="0" width="25%">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="left"><b>MPOB(EL) RF 4</b></p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="left"><b>MPOB(EL) PX 4-RF </b></p>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="left"><b>MPOB(EL) PM 4-RF </b></p>
+                                                            </td>
+                                                        </tr>
 
-                                                <b style="margin-left: 85%">MPOB(EL) PX 4-RF </b>
-                                                <b style="margin-left: 85%">MPOB(EL) PM 4-RF </b>
-
+                                                    </tbody>
+                                                </table>
                                             </div>
                                             {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}

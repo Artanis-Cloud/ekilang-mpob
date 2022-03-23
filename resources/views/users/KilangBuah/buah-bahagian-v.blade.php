@@ -140,7 +140,7 @@
                                                                         <td style="text-align:center;">
                                                                             {{-- <b><span id="total">{{ ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) }}</span></b> --}}
                                                                             <b><span id="total" name="total">
-                                                                                {{ old('total') ?? number_format($jumlah, 2) }}
+                                                                                {{ number_format(old('total') ?? $jumlah, 2) }}
                                                                             </span>
                                                                         </b>
                                                                         </td>

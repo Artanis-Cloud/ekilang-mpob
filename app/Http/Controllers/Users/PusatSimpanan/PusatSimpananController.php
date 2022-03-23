@@ -247,6 +247,10 @@ class PusatSimpananController extends Controller
         ];
         $layout = 'layouts.psimpan';
 
+        $bulan = date("m") - 1;
+
+        $tahun = date("Y");
+
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
         $user = E07Init::where('e07_nl', auth()->user()->username)->first();
@@ -259,7 +263,7 @@ class PusatSimpananController extends Controller
 
 
 
-        return view('users.PusatSimpanan.pusatsimpan-papar-penyata', compact('layout','returnArr','user','penyata','pelesen'));
+        return view('users.PusatSimpanan.pusatsimpan-papar-penyata', compact('layout','returnArr','user','penyata','pelesen','tahun','bulan'));
     }
 
     public function pusatsimpan_email()

@@ -914,6 +914,9 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $bulan = date("m") - 1;
+
+        $tahun = date("Y");
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
@@ -1084,6 +1087,7 @@ class KilangPenapisController extends Controller
             'totalib12', 'totaliib12',
             'totalib13', 'totaliib13',
             'totalib14', 'totaliib14',
+            'bulan','tahun'
         ));
     }
 

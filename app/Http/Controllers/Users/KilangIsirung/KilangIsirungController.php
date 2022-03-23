@@ -356,7 +356,7 @@ class KilangIsirungController extends Controller
              return redirect()->back()->withInput()
              ->with('error', 'Jumlah Tidak Sama!');
         }else{
-             return redirect()->route('isirung.bahagianiii')
+             return redirect()->route('isirung.bahagianiv')
             ->with('success', 'Maklumat telah disimpan');
         }
     }
@@ -369,15 +369,15 @@ class KilangIsirungController extends Controller
 
 
 
-        $e102_b6 = floatval($request->e102_b6);
+    //     $e102_b6 = floatval($request->e102_b6);
 
-       $total = floatval($request->jumlah);
+    //    $total = floatval($request->jumlah);
 
-       if($e102_b6 != $request->jumlah)
-       {
-            return redirect()->back()->withInput()
-            ->with('error', 'Jumlah Tidak Sama!');
-       }
+    //    if($e102_b6 != $request->jumlah)
+    //    {
+    //         return redirect()->back()->withInput()
+    //         ->with('error', 'Jumlah Tidak Sama!');
+    //    }
         $penyata = E102b::findOrFail($id);
         $penyata->e102_b4 = $request->e102_b4;
         $penyata->e102_b5 = $request->e102_b5;
@@ -769,6 +769,9 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
@@ -808,6 +811,8 @@ class KilangIsirungController extends Controller
             'penyatav',
             'totalv',
             'penyatavi',
+            'bulan',
+            'tahun'
 
 
         ));
