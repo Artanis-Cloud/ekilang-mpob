@@ -480,7 +480,7 @@
             toastr.error( '{{ session('error') }}', 'Error', { "progressBar": true });
         @endif
     </script>
-    <script>
+    {{-- <script>
         var SessionTimeout = function() {
             // var session = (10 * 3000)
             // var sessionRedir = (10 * 3000) + 30000 //plus 30 seconds after warn
@@ -511,7 +511,7 @@
         jQuery(function() {
             SessionTimeout.init()
         });
-    </script>
+    </script> --}}
 
     @yield('scripts')
 </body>
