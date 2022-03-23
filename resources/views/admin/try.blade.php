@@ -27,7 +27,9 @@
 
             </div>
             <div class="right-side">
-                <div class="cover-image"> <img class="right_img " src="{{ asset('theme/images/background/buah-sawit.jpg') }}"> </div>
+                <div class="cover-image"> <img class="right_img "
+                 style=" background: linear-gradient(to right, #ff9900 0%, #ff6600 100%);">
+                </div>
 
                 <div class="right_text">
                     <p class="card-text" style="font-size: 12px; margin-bottom:-50px; margin-right:20px">
