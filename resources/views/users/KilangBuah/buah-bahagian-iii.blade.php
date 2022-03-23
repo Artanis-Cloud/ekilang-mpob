@@ -182,7 +182,7 @@
                                                                         </td>
                                                                         <td style="text-align:center;">
                                                                             <b><span id="total" name="total">
-                                                                                {{ number_format($jumlah ,2) }}
+                                                                                {{ old('total') ?? number_format($jumlah ,2) }}
                                                                                 </span>
                                                                             </b>
                                                                         </td>
@@ -293,8 +293,6 @@
 
 
     </main><!-- End #main -->
-
-
 
 
 

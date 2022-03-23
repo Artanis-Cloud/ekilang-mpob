@@ -308,8 +308,11 @@ class KilangBuahController extends Controller
 
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
 
+        $jumlah = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
+        ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj6 ?? 0) +
+        ($penyata->e91_aj7 ?? 0) + ($penyata->e91_aj8 ?? 0);
 
-        return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata'));
+        return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah'));
     }
 
 
@@ -317,6 +320,20 @@ class KilangBuahController extends Controller
     public function buah_update_bahagian_iv(Request $request, $id)
     {
         // dd($request->all());
+
+        $calculate = floatval($request->e91_aj1) + floatval($request->e91_aj2) + floatval($request->e91_aj3) +
+        floatval($request->e91_aj4) + floatval($request->e91_aj5) + floatval($request->e91_aj6) + floatval($request->e91_aj7)
+        + floatval($request->e91_aj8);
+
+        $total = floatval($request->jumlah);
+
+        if($calculate != $request->jumlah)
+        {
+             return redirect()->back()->withInput()
+             ->with('error', 'Jumlah Tidak Sama!');
+        }
+
+
         $penyata = E91Init::findOrFail($id);
         $penyata->e91_aj1 = $request->e91_aj1;
         $penyata->e91_aj2 = $request->e91_aj2;
