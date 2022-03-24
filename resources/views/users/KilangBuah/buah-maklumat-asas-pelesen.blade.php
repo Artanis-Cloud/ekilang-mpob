@@ -2,8 +2,6 @@
 
 @section('content')
 
-
-
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center ">
         <div class="container position-relative"  data-aos-delay="100">
@@ -79,8 +77,8 @@
                                                     Alamat Premis Berlesen</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_ap1" class="form-control" placeholder="Alamat Premis Berlesen 1"
-                                                                name="e_ap1" value="{{ $pelesen->e_ap1 }}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_ap1" value="{{ $pelesen->e_ap1 }}" required>
+                                                    {{-- @error('e_ap1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
@@ -125,7 +123,7 @@
                                                     No. Telefon (Pejabat / Kilang)</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_notel" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
-                                                                name="e_notel" value="{{ $pelesen->e_notel }}">
+                                                                name="e_notel" value="{{ $pelesen->e_notel }}" required>
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -139,7 +137,7 @@
                                                     No. Faks</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
-                                                                name="e_nofax" value="{{ $pelesen->e_nofax }}">
+                                                                name="e_nofax" value="{{ $pelesen->e_nofax }}" required>
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -336,6 +334,34 @@
                                                 <div class="col-md-6">
                                                     <input type="text" id="" class="form-control"
                                                         placeholder="Kapasiti Tangki Simpanan" name="">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Bilangan Tangki</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="" class="form-control"
+                                                        placeholder="CPO" name="">
+                                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Kapasiti Tangki Simpanan (Tan)</label>
+                                                <div class="col-md-6">
+                                                    <input type="text" id="" class="form-control"
+                                                        placeholder="CPO" name="">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>

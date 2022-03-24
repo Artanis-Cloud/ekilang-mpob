@@ -838,7 +838,7 @@
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                             <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                                <input type="text" id="e104_sdate" class="form-control" size="50"
+                                                <input type="date" id="e104_sdate" class="form-control" size="50"
                                                     name='e104_sdate' value="{{ $pelesen2->e104_sdate ?? '-' }}" readonly>
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;

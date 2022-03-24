@@ -122,7 +122,7 @@
                                                     No. Telefon (Pejabat / Kilang)</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_notel" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
-                                                                name="e_notel" value="{{ $pelesen->e_notel }}">
+                                                                name="e_notel" value="{{ $pelesen->e_notel }}" required>
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -136,7 +136,7 @@
                                                     No. Faks</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
-                                                                name="e_nofax" value="{{ $pelesen->e_nofax }}">
+                                                                name="e_nofax" value="{{ $pelesen->e_nofax }}" required>
                                                     {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -269,13 +269,13 @@
                                             </div> --}}
                                             <div class="text-right col-md-12 mb-4 ">
                                                 <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                    style="float: right" data-bs-target="#exampleModalCenter">Simpan</button>
+                                                    style="float: right" data-bs-target="#next">Simpan</button>
                                             </div>
 
                                         </div>
 
                                         <!-- Vertically Centered modal Modal -->
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1"
+                                        <div class="modal fade" id="next" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalCenterTitle"
                                             aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
