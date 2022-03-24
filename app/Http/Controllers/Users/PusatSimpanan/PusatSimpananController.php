@@ -204,6 +204,16 @@ class PusatSimpananController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
+    public function pusatsimpan_delete_bahagian_a($id)
+    {
+        $penyata = E07Btranshipment::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('pusatsimpan.bahagiana')
+        ->with('success','Produk Dihapuskan');
+    }
+
 
 
     public function pusatsimpan_bahagianb()

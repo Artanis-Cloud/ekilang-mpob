@@ -78,7 +78,7 @@
                                                 Alamat Premis Berlesen</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="e_ap1" class="form-control" placeholder="Alamat Premis Berlesen 1"
-                                                            name="e_ap1" value="{{ $pelesen->e_ap1 }}">
+                                                            name="e_ap1" value="{{ $pelesen->e_ap1 }}" required>
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -138,8 +138,8 @@
                                                 No. Faks</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
-                                                            name="e_nofax" value="{{ $pelesen->e_nofax }}">
-                                                {{-- @error('alamat_kilang_1')
+                                                            name="e_nofax" value="{{ $pelesen->e_nofax }}" required>
+                                                {{-- @error('e_nofax')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
