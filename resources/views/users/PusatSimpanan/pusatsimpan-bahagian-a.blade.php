@@ -277,7 +277,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <div class="icon" style="text-align: center">
-                                                                            <a href="#"
+                                                                            <a href="{{ route('pusatsimpan.delete.bahagiana',[ $data->e07bt_id]) }}"
                                                                                 type="button" >
                                                                                 <i class="fa fa-trash-o" style="color: #dc3545;font-size:18px"></i>
                                                                             </a>

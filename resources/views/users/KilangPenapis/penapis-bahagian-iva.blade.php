@@ -253,7 +253,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="icon" style="text-align: center">
-                                                        <a href="#" type="button">
+                                                        <a href="{{ route('penapis.delete.bahagianiva',[$data->e101_c1]) }}" type="button">
                                                             <i class="fa fa-trash-o"
                                                                 style="color: #dc3545;font-size:18px"></i>
                                                         </a>

@@ -241,6 +241,16 @@ class KilangOleokimiaController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
+    public function oleo_delete_bahagian_ia($id)
+    {
+        $penyata = E104B::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('oleo.bahagiania')
+        ->with('success','Produk Dihapuskan');
+    }
+
 
     public function oleo_bahagianib()
     {
@@ -374,6 +384,18 @@ class KilangOleokimiaController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
+    public function oleo_delete_bahagian_ib($id)
+    {
+        $penyata = E104B::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('oleo.bahagianib')
+        ->with('success','Produk Dihapuskan');
+    }
+
+
+
 
     public function oleo_bahagianic()
     {
@@ -505,6 +527,17 @@ class KilangOleokimiaController extends Controller
         return redirect()->route('oleo.bahagianic')
             ->with('success', 'Maklumat telah disimpan');
     }
+
+    public function oleo_delete_bahagian_ic($id)
+    {
+        $penyata = E104B::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('oleo.bahagianic')
+        ->with('success','Produk Dihapuskan');
+    }
+
 
 
     public function oleo_bahagianii()
@@ -647,6 +680,18 @@ class KilangOleokimiaController extends Controller
         return redirect()->route('oleo.bahagianiii')
             ->with('success', 'Maklumat telah disimpan');
     }
+
+    public function oleo_delete_bahagian_iii($id)
+    {
+        $penyata = E104B::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('oleo.bahagianiii')
+        ->with('success','Produk Dihapuskan');
+    }
+
+
 
     public function oleo_bahagianiv()
     {

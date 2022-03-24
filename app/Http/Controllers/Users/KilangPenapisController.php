@@ -246,6 +246,8 @@ class KilangPenapisController extends Controller
         // dd($penyata);
 
         $penyata->delete();
+        return redirect()->route('penapis.bahagiani')
+        ->with('success','Produk Dihapuskan');
     }
 
 
@@ -388,6 +390,16 @@ class KilangPenapisController extends Controller
 
         return redirect()->route('penapis.bahagianii')
             ->with('success', 'Maklumat telah disimpan');
+    }
+
+    public function penapis_delete_bahagian_ii($id)
+    {
+        $penyata = E101B::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('penapis.bahagianii')
+        ->with('success','Produk Dihapuskan');
     }
 
 
@@ -543,6 +555,16 @@ class KilangPenapisController extends Controller
 
         return redirect()->route('penapis.bahagianiva')
             ->with('success', 'Maklumat telah disimpan');
+    }
+
+    public function penapis_delete_bahagian_iva($id)
+    {
+        $penyata = E101C::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('penapis.bahagianiva')
+        ->with('success','Produk Dihapuskan');
     }
 
 
@@ -704,6 +726,17 @@ class KilangPenapisController extends Controller
         'total', 'total2', 'total3', 'total4'));
     }
 
+    public function penapis_delete_bahagian_ivb($id)
+    {
+        $penyata = E101C::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('penapis.bahagianivb')
+        ->with('success','Produk Dihapuskan');
+    }
+
+
 
 
     public function penapis_add_bahagian_v(Request $request)
@@ -773,7 +806,15 @@ class KilangPenapisController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
+    public function penapis_delete_bahagian_v($id)
+    {
+        $penyata = E101D::findOrFail($id);
+        // dd($penyata);
 
+        $penyata->delete();
+        return redirect()->route('penapis.bahagianv')
+        ->with('success','Produk Dihapuskan');
+    }
     // public function penapis_bahagianvb()
     // {
 
