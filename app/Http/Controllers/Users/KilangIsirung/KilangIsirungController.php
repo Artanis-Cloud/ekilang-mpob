@@ -494,15 +494,15 @@ class KilangIsirungController extends Controller
     public function isirung_edit_bahagian_iv(Request $request, $id)
     {
 
-        $e102_b6 = floatval($request->e102_b6);
+        // $e102_b6 = floatval($request->e102_b6);
 
-        $total = floatval($request->jumlah);
+        // $total = floatval($request->jumlah);
 
-        if($e102_b6 != $request->jumlah)
-        {
-             return redirect()->back()->withInput()
-             ->with('error', 'Jumlah Tidak Sama!');
-        }
+        // if($e102_b6 != $request->jumlah)
+        // {
+        //      return redirect()->back()->withInput()
+        //      ->with('error', 'Jumlah Tidak Sama!');
+        // }
         // dd($request->all());
         $penyata = E102b::findOrFail($id);
         $penyata->e102_b4 = $request->e102_b4;

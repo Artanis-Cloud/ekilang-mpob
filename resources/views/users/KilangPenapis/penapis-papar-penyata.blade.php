@@ -69,7 +69,7 @@
                                             {{-- <p align="left">
                                                 PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
 
-                                                
+
                                                 <div align="right">
                                                     <table border="0" width="25%">
                                                         <tbody>
@@ -119,7 +119,20 @@
 
                                                     </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
 
-                                                    BULAN :&nbsp;&nbsp;0{{ $bulan }}
+                                                    BULAN :&nbsp;&nbsp;
+                                                    @if($bulan == 1) Januari
+                                                    @elseif($bulan == 2) Februari
+                                                    @elseif($bulan == 3) Mac
+                                                    @elseif($bulan == 4) April
+                                                    @elseif($bulan == 5) Mei
+                                                    @elseif($bulan == 6) Jun
+                                                    @elseif($bulan == 7) Julai
+                                                    @elseif($bulan == 8) Ogos
+                                                    @elseif($bulan == 9) September
+                                                    @elseif($bulan == 10) Oktober
+                                                    @elseif($bulan == 11) November
+                                                    @elseif($bulan == 12) Disember
+                                                    @endif
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                                                 </b><br>
 
@@ -1010,7 +1023,7 @@
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                             <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                                <input type="text" id="e91_sdate" class="form-control" size="50"
+                                                <input type="date" id="e91_sdate" class="form-control" size="50"
                                                     name='e91_sdate' value="{{ $penyataiii->e101_sdate ?? '' }}" readonly>
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
