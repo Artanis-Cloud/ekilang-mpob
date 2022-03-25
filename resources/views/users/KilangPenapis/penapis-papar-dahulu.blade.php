@@ -16,11 +16,11 @@
             <div class="mt-3 mb-4 row">
                 <div class="col-md-12">
 
-                    <div class="page-breadcrumb" style="padding: 0px">
+                    <div class="page-breadcrumb" style="padding: 0px" >
                         <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
+                            <div class="col-5 align-self-center" >
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" 
+                                    style="color:white; background-color:#25877bd1; margin-left: 5%;">Kembali</a>
                             </div>
                             <div class="col-7 align-self-center">
                                 <div class="d-flex align-items-center justify-content-end">
@@ -117,13 +117,26 @@
 
                                                     </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
 
-                                                    BULAN :&nbsp;&nbsp;{{ $users->e101_bln }}
+                                                    BULAN :&nbsp;&nbsp;
+                                                    @if($users->e101_bln == 1)
+                                                    Januari
+                                                    @elseif($users->e101_bln == 2) Februari
+                                                    @elseif($users->e101_bln == 3) Mac
+                                                    @elseif($users->e101_bln == 4) April
+                                                    @elseif($users->e101_bln == 5) Mei
+                                                    @elseif($users->e101_bln == 6) Jun
+                                                    @elseif($users->e101_bln == 7) Julai
+                                                    @elseif($users->e101_bln == 8) Ogos
+                                                    @elseif($users->e101_bln == 9) September
+                                                    @elseif($users->e101_bln == 10) Oktober
+                                                    @elseif($users->e101_bln == 11) November
+                                                    @elseif($users->e101_bln == 12) Disember
+                                                    @endif
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $users->e101_thn }}
                                                 </b><br>
 
                                             </p>
                                             <hr>
-
                                             <table border="0" width="100%" cellspacing="0">
 
                                                 <tbody>
@@ -168,21 +181,7 @@
                                             <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
-                                                    <tr>
 
-                                                        <td width="35%">Nombor Lesen</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Nama Premis</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
-
-                                                    </tr>
 
                                                     <tr>
 

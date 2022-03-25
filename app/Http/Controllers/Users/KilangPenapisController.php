@@ -1185,7 +1185,7 @@ class KilangPenapisController extends Controller
         // dd($user);
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
-
+        
 
         $users = H101Init::where('e101_nl', auth()->user()->username)
             ->where('e101_thn', $request->tahun)

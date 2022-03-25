@@ -20,7 +20,7 @@
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
+                                    style="color:white; background-color:#25877bd1; margin-left: 5%;"">Kembali</a>
                             </div>
                             <div class="col-7 align-self-center">
                                 <div class="d-flex align-items-center justify-content-end">
@@ -92,7 +92,19 @@
 
                                                     </font>PENYATA BULANAN PUSAT SIMPANAN - MPOB (EL) KS 4<br>
 
-                                                    BULAN :&nbsp;&nbsp;0{{ $bulan }} &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                                                    BULAN :&nbsp;&nbsp; @if($bulan == 1) Januari
+                                                    @elseif($bulan == 2) Februari
+                                                    @elseif($bulan == 3) Mac
+                                                    @elseif($bulan == 4) April
+                                                    @elseif($bulan == 5) Mei
+                                                    @elseif($bulan == 6) Jun
+                                                    @elseif($bulan == 7) Julai
+                                                    @elseif($bulan == 8) Ogos
+                                                    @elseif($bulan == 9) September
+                                                    @elseif($bulan == 10) Oktober
+                                                    @elseif($bulan == 11) November
+                                                    @elseif($bulan == 12) Disember
+                                                    @endif &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                                                 </b><br>
 
                                             </p>
@@ -142,21 +154,7 @@
                                             <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
-                                                    <tr>
 
-                                                        <td width="35%">Nombor Lesen</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Nama Premis</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
-
-                                                    </tr>
 
                                                     <tr>
 
@@ -425,7 +423,7 @@
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                             <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                                <input type="text" id="e91_sdate" class="form-control" size="50"
+                                                <input type="date" id="e91_sdate" class="form-control" size="50"
                                                     name='e102_sdate' value="{{ $user->e07_sdate }}" readonly>
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;

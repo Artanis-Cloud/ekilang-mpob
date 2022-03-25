@@ -65,7 +65,7 @@
                                     <div class="pl-3">
 
                                         <body>
-                                           
+
 
                                             <div align="right">
                                                 <table border="0" width="25%">
@@ -130,7 +130,21 @@
 
                                                     </font>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4<br>
 
-                                                    BULAN :&nbsp;&nbsp;{{ $users->e102_bln }}
+                                                    BULAN :&nbsp;&nbsp;
+                                                    @if($users->e102_bln == 1)
+                                                    Januari
+                                                    @elseif($users->e102_bln == 2) Februari
+                                                    @elseif($users->e102_bln == 3) Mac
+                                                    @elseif($users->e102_bln == 4) April
+                                                    @elseif($users->e102_bln == 5) Mei
+                                                    @elseif($users->e102_bln == 6) Jun
+                                                    @elseif($users->e102_bln == 7) Julai
+                                                    @elseif($users->e102_bln == 8) Ogos
+                                                    @elseif($users->e102_bln == 9) September
+                                                    @elseif($users->e102_bln == 10) Oktober
+                                                    @elseif($users->e102_bln == 11) November
+                                                    @elseif($users->e102_bln == 12) Disember
+                                                    @endif
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $users->e102_thn }}
                                                 </b><br>
 
@@ -181,21 +195,7 @@
                                             <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
-                                                    <tr>
-
-                                                        <td width="35%">Nombor Lesen</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Nama Premis</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
-
-                                                    </tr>
+                                                   
 
                                                     <tr>
 

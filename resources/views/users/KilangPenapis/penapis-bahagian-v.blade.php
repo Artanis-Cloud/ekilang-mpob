@@ -70,10 +70,10 @@
                                         <div class="container center mt-4">
 
                                             <div class="row">
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">Sendiri / Luar</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <select class="form-select" id="e101_d3"
                                                         name="e101_d3" style="width: 50%">
                                                         <option selected hidden disabled>Sila Pilih</option>
@@ -82,10 +82,10 @@
                                                     </select>
                                                 </div>
 
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">PPO:</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_d6' style="width: 50%"
                                                         id="e101_d6" required
                                                         title="Sila isikan butiran ini.">
@@ -98,11 +98,11 @@
                                             </div>
 
 
-                                            <div class="row mt-4">
-                                                <div class="col-md-2">
+                                            <div class="row mt-3">
+                                                <div class="col-md-3">
                                                     <span class="required">Belian/Penerimaan dari</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <select class="form-select" id="e101_d4"
                                                             style="width:50%" name="e101_d4">
                                                             <option selected hidden disabled>Sila Pilih</option>
@@ -116,10 +116,10 @@
                                                         </select>
                                                 </div>
 
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">CPKO</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_d7'style="width: 50%"
                                                         id="e101_d7" required
                                                         title="Sila isikan butiran ini.">
@@ -133,11 +133,11 @@
 
 
 
-                                            <div class="row mt-4">
-                                                <div class="col-md-2">
+                                            <div class="row mt-3">
+                                                <div class="col-md-3">
                                                     <span class="required">CPO</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_d5' style="width: 50%"
                                                         id="e101_d5" required
                                                         title="Sila isikan butiran ini.">
@@ -147,10 +147,10 @@
                                                     </div>
                                                 @enderror --}}
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">PPKO</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_d8' style="width: 50%"
                                                         id="e101_d8" required
                                                         title="Sila isikan butiran ini.">
@@ -174,8 +174,8 @@
 
 
 
-                                            <div class="row form-group" style="margin-left: 45%;">
-                                                <div class="text-right col-md-12 mb-4 ">
+                                            <div class="row form-group" >
+                                                <div class="text-right col-md-12 mb-4 " style="margin-left: 45%;">
                                                     <button type="submit" class="btn btn-primary ">Tambah</button>
                                                 </div>
                                             </div>
@@ -227,7 +227,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="icon" style="text-align: center">
-                                                            <a href="{{ route('penapis.delete.bahagianv',[$data->e101_d1]) }}" type="button">
+                                                            <a href="{{ route('penapis.delete.bahagianv',[$data->e101_d1]) }}" type="button"
+                                                                data-bs-toggle="modal"  data-bs-target="#next2">
                                                                 <i class="fa fa-trash-o"
                                                                     style="color: #dc3545;font-size:18px"></i>
                                                             </a>
@@ -437,6 +438,41 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="modal fade" id="next2" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                            role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                        PENGESAHAN</h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Anda pasti mahu menghapus maklumat ini?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                    </button>
+                                    <a href="{{ route('penapis.delete.bahagianv',[$data->e101_d1]) }}" type="button"
+                                        class="btn btn-primary ml-1">
+
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Ya</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <br>
                 </form>

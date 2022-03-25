@@ -18,9 +18,9 @@
 
                     <div class="page-breadcrumb" style="padding: 0px">
                         <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
+                            <div class="col-5 align-self-center"  >
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
+                                    style="color:white; background-color:#25877bd1; margin-left: 5%;">Kembali</a>
                             </div>
                             <div class="col-7 align-self-center">
                                 <div class="d-flex align-items-center justify-content-end">
@@ -74,7 +74,20 @@
 
                                                        </font>PENYATA BULANAN PUSAT SIMPANAN - MPOB (EL) KS 4<br>
 
-                                                       BULAN :&nbsp;&nbsp; {{ $user->e07_bln }}&nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp; {{ $user->e07_thn }}</b><br>
+                                                       BULAN :&nbsp;&nbsp; @if($user->e07_bln == 1)
+                                                       Januari
+                                                       @elseif($user->e07_bln == 2) Februari
+                                                       @elseif($user->e07_bln == 3) Mac
+                                                       @elseif($user->e07_bln == 4) April
+                                                       @elseif($user->e07_bln == 5) Mei
+                                                       @elseif($user->e07_bln == 6) Jun
+                                                       @elseif($user->e07_bln == 7) Julai
+                                                       @elseif($user->e07_bln == 8) Ogos
+                                                       @elseif($user->e07_bln == 9) September
+                                                       @elseif($user->e07_bln == 10) Oktober
+                                                       @elseif($user->e07_bln == 11) November
+                                                       @elseif($user->e07_bln == 12) Disember
+                                                       @endif&nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp; {{ $user->e07_thn }}</b><br>
 
                                                        </p><hr>
 
