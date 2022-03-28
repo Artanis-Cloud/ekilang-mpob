@@ -120,7 +120,20 @@
 
                                                     </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
 
-                                                    BULAN :&nbsp;&nbsp;{{ $bulan }}
+                                                    BULAN :&nbsp;&nbsp;
+                                                    @if($bulan == 1) Januari
+                                                    @elseif($bulan == 2) Februari
+                                                    @elseif($bulan == 3) Mac
+                                                    @elseif($bulan == 4) April
+                                                    @elseif($bulan == 5) Mei
+                                                    @elseif($bulan == 6) Jun
+                                                    @elseif($bulan == 7) Julai
+                                                    @elseif($bulan == 8) Ogos
+                                                    @elseif($bulan == 9) September
+                                                    @elseif($bulan == 10) Oktober
+                                                    @elseif($bulan == 11) November
+                                                    @elseif($bulan == 12) Disember
+                                                    @endif
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                                                 </b><br>
 
@@ -171,21 +184,7 @@
                                             <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
-                                                    <tr>
 
-                                                        <td width="35%">Nombor Lesen</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Nama Premis</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
-
-                                                    </tr>
 
                                                     <tr>
 
@@ -291,7 +290,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN I(a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                                    <font color="#0000FF">BAHAGIAN 1(a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                                         SAWIT</font>
                                                 </b> </p>
                                             <table border="1" class="table table-bordered" width="100%"
@@ -410,7 +409,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN I(b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                    <font color="#0000FF">BAHAGIAN 1(b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                          MINYAK ISIRUNG SAWIT</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -528,7 +527,7 @@
                                             </table>
 
                                             <p><b>
-                                                <font color="#0000FF">BAHAGIAN I(c) :&nbsp;&nbsp;&nbsp;&nbsp; Minyak-Minyak Lain</font>
+                                                <font color="#0000FF">BAHAGIAN 1(c) :&nbsp;&nbsp;&nbsp;&nbsp; Minyak-Minyak Lain</font>
                                             </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
@@ -645,7 +644,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN II :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     </font>
                                                 </b> </p>
                                             <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -665,7 +664,7 @@
 
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN III :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA</font>
+                                                    <font color="#0000FF">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered" style="padding: 0.2rem 0.3rem">
@@ -746,7 +745,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN IV :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
+                                                    <font color="#0000FF">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
 
                                                     </font>
                                                 </b></p>
