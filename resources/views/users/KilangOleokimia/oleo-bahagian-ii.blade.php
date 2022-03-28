@@ -68,7 +68,7 @@
 
                                         <div class="text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian II</h3>
+                                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h3>
                                             <h5 style="color: rgb(39, 80, 71); font-size:14px">Hari Beroperasi dan Kadar Penggunaan Kapasiti</h5>
                                             {{-- <p>Maklumat Kilang</p> --}}
                                         </div>
@@ -105,7 +105,7 @@
                                                 <div class="row">
                                                     <label for="fname"
                                                         class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
-                                                        Kadar Penggunaan Kapasiti Sebulan	</label>
+                                                        Kadar Penggunaan Kapasiti Sebulan (%)	</label>
                                                     <div class="col-md-6">
                                                         <input type="text" class="form-control" name='e104_a6' style="margin-left:42%; width:40%; text-align:right"
                                                             onkeypress="return isNumberKey(event)" id="e104_a6"

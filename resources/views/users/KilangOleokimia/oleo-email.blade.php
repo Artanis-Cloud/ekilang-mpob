@@ -67,12 +67,16 @@
                                     @csrf
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Emel Pertanyaan / Pindaan /
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Emel Pertanyaan / Pindaan /
                                             Cadangan </h3>
                                         {{-- <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
                                         </h5> --}}
                                         {{-- <p>Maklumat Kilang</p> --}}
+
+                                        <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan dalam bentuk PDF, WORD dan EXCEL sahaja</i>
+
                                     </div>
+
                                     <hr>
 
 

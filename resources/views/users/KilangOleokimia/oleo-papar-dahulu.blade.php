@@ -104,8 +104,21 @@
 
                                                     </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
 
-                                                    BULAN :&nbsp;&nbsp;
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
+                                                    BULAN :&nbsp;&nbsp; @if($users->e104_bln == 1)
+                                                    Januari
+                                                    @elseif($users->e104_bln == 2) Februari
+                                                    @elseif($users->e104_bln == 3) Mac
+                                                    @elseif($users->e104_bln == 4) April
+                                                    @elseif($users->e104_bln == 5) Mei
+                                                    @elseif($users->e104_bln == 6) Jun
+                                                    @elseif($users->e104_bln == 7) Julai
+                                                    @elseif($users->e104_bln == 8) Ogos
+                                                    @elseif($users->e104_bln == 9) September
+                                                    @elseif($users->e104_bln == 10) Oktober
+                                                    @elseif($users->e104_bln == 11) November
+                                                    @elseif($users->e104_bln == 12) Disember
+                                                    @endif
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $users->e104_thn }}
                                                 </b><br>
 
                                             </p>
@@ -155,21 +168,7 @@
                                             <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
-                                                    <tr>
-
-                                                        <td width="35%">Nombor Lesen</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Nama Premis</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
-
-                                                    </tr>
+                                                   
 
                                                     <tr>
 
@@ -822,7 +821,7 @@
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                             <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                                <input type="text" id="e104_sdate" class="form-control" size="50"
+                                                <input type="date" id="e104_sdate" class="form-control" size="50"
                                                     name='e104_sdate' value="{{ $users->e104_sdate ?? '-' }}" readonly>
                                             </p>
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;

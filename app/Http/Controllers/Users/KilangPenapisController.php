@@ -159,8 +159,13 @@ class KilangPenapisController extends Controller
     public function penapis_add_bahagian_i(Request $request)
     {
         // dd($request->all());
+        $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
+
+        $e101_produk = E101B::where('e101_reg', $user->e101_reg)->where('e101_b4',$request->e101_b4)->get();
+        // dd($e101_produk);
+
         $this->validation_bahagian_i($request->all())->validate();
-        $this->store_bahagian_i($request->all());
+        $this->store_bahagian_i($request->all(),$e101_produk);
 
         return redirect()->route('penapis.bahagiani')->with('success', 'Maklumat sudah ditambah');
     }
@@ -183,10 +188,19 @@ class KilangPenapisController extends Controller
         ]);
     }
 
-    protected function store_bahagian_i(array $data)
+    protected function store_bahagian_i(array $data,$e101_produk)
     {
         $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // dd($e101_reg->e101_reg);
+
+
+
+        // dd($e101_produk);
+        if ($e101_produk <= 1) {
+            return redirect()->back()->with("error", "Setiap kilang boleh mendaftar terhad kepada dua pengguna aktif sahaja.");
+        }
+
+
         return E101B::create([
             'e101_reg' => $e101_reg->e101_reg,
             'e101_b3' => '1',
@@ -1185,7 +1199,7 @@ class KilangPenapisController extends Controller
         // dd($user);
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
-        
+
 
         $users = H101Init::where('e101_nl', auth()->user()->username)
             ->where('e101_thn', $request->tahun)

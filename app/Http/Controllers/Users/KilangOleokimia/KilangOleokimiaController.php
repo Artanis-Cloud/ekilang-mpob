@@ -683,7 +683,7 @@ class KilangOleokimiaController extends Controller
 
     public function oleo_delete_bahagian_iii($id)
     {
-        $penyata = E104B::findOrFail($id);
+        $penyata = E104C::findOrFail($id);
         // dd($penyata);
 
         $penyata->delete();

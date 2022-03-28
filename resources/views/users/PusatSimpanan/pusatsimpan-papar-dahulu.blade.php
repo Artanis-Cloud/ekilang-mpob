@@ -274,8 +274,7 @@
                                             <td align="right"><font size="2"><b>88,811.34</b></font></td>
                                             </tr>
                                             </tbody></table>
-                                            <p><b><font color="#0000FF">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KE
-                                            LUARAN MINYAK SAWIT - AKTIVITI PERALIHAN (TRANSHIPMENT)</font></b> </p>
+                                            <p><b><font color="#0000FF">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KELUARAN MINYAK SAWIT - AKTIVITI PERALIHAN (TRANSHIPMENT)</font></b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                             <tbody><tr>
                                             <td width="8%" align="center"><b><font size="2">Nama Produk</font></b></td>
