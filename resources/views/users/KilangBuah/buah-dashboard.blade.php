@@ -125,7 +125,7 @@
                                     <a href="{{ route('buah.bahagiani') }}">
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian I</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian 1</span>
                                     </a>
                                 </li>
 
@@ -133,7 +133,7 @@
                                     <a href="{{ route('buah.bahagianii') }}">
                                         <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layout" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian II</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian 2</span>
                                     </a>
                                 </li>
 
@@ -141,7 +141,7 @@
                                     <a href="{{ route('buah.bahagianiii') }}">
                                         <i class="fas fa-industry" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layers" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian III</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian 3</span>
                                     </a>
                                 </li>
 
@@ -149,7 +149,7 @@
                                     <a href="{{ route('buah.bahagianiv') }}">
                                         <i class="fas fa-flask" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="grid" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian IV</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian 4</span>
                                     </a>
                                 </li>
 
@@ -157,7 +157,7 @@
                                     <a href="{{ route('buah.bahagianv') }}">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian V</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian 5</span>
                                     </a>
                                 </li>
                                 <li>
@@ -165,7 +165,7 @@
                                         data-bs-target="#exampleModalCenter">
                                         <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                        <span style="color: rgb(0, 0, 0); ">Bahagian VI</span>
+                                        <span style="color: rgb(0, 0, 0); ">Bahagian 6</span>
                                     </a>
                                 </li>
                                 <li>

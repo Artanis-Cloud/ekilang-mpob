@@ -63,7 +63,7 @@
 
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian III</h3>
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 3</h3>
                                         <h5 style="color: rgb(39, 80, 71) ; font-size:14px">Belian / Penerimaan Bekalan Buah
                                             Kelapa Sawit
                                             (FFB) (52)</h5>

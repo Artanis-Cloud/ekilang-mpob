@@ -77,17 +77,17 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>
-                                                                    <p align="left"><b>MPOB(EL) RF 4</b></p>
+                                                                    <p align="left"><b>MPOB(EL) CM 4</b></p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <p align="left"><b>MPOB(EL) PX 4-RF </b></p>
+                                                                    <p align="left"><b>MPOB(EL) PX 4-CM </b></p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <p align="left"><b>MPOB(EL) PM 4-RF</b></p>
+                                                                    <p align="left"><b>MPOB(EL) PM 4-CM</b></p>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
@@ -114,11 +114,11 @@
                                                     height="100">
                                             </p>
 
-                                            <title>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4</title>
+                                            <title>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4</title>
                                             <p align="center"><b>
                                                     <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
-                                                    </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
+                                                    </font>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4<br>
 
                                                     BULAN :&nbsp;&nbsp;
                                                     @if($bulan == 1) Januari
