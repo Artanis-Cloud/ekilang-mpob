@@ -38,17 +38,17 @@ class E101D extends Model
     public function e101init()
     {
 
-        return $this->hasMany(E101Init::class, 'e101_reg', 'e101_reg');
+        return $this->hasOne(E101Init::class, 'e101_reg', 'e101_reg');
     }
 
     public function prodcat()
     {
-        return $this->hasMany(ProdCat::class, 'catid', 'e101_d4');
+        return $this->hasOne(ProdCat::class, 'catid', 'e101_d4');
     }
 
     public function kodsl()
     {
-        return $this->hasMany(KodSl::class, 'catid', 'e101_d3');
+        return $this->hasOne(KodSl::class, 'catid', 'e101_d3');
     }
 
 }

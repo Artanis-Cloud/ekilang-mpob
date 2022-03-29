@@ -233,8 +233,8 @@
                                         <tbody>
                                             @foreach ($penyata as $data)
                                                 <tr style="text-align: right">
-                                                <td  style="text-align: left">{{ $data->produk[0]->prodname  }}</td>
-                                                <td>{{ $data->produk[0]->prodid  }}</td>
+                                                <td  style="text-align: left">{{ $data->produk->prodname  }}</td>
+                                                <td>{{ $data->produk->prodid  }}</td>
                                                 <td>{{ number_format($data->e101_c5 ??  0,2) }}</td>
                                                 <td>{{ number_format($data->e101_c6 ??  0,2) }}</td>
                                                 <td>{{ number_format($data->e101_c7 ??  0,2) }}</td>
@@ -253,8 +253,8 @@
                                                 </td>
                                                 <td>
                                                     <div class="icon" style="text-align: center">
-                                                        <a href="{{ route('penapis.delete.bahagianiva',[$data->e101_c1]) }}" type="button"
-                                                            data-bs-toggle="modal"  data-bs-target="#next2">
+                                                        <a href="#" type="button"
+                                                            data-bs-toggle="modal"  data-bs-target="#next2{{ $data->e101_c1 }}">
                                                             <i class="fa fa-trash-o"
                                                                 style="color: #dc3545;font-size:18px"></i>
                                                         </a>
@@ -289,7 +289,7 @@
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_c4'
                                                                                 class="form-control"
-                                                                                value="{{ $data->produk[0]->prodname }}" readonly>
+                                                                                value="{{ $data->produk->prodname }}" readonly>
                                                                         </div>
                                                                         <label>Stok Awal </label>
                                                                         <div class="form-group">
@@ -361,6 +361,40 @@
 
                                             </div>
 
+
+                                            <div class="modal fade" id="next2{{ $data->e101_c1 }}" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                    role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                PENGESAHAN</h5>
+                                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>
+                                                                Anda pasti mahu menghapus maklumat ini?
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                            </button>
+                                                            <a href="{{ route('penapis.delete.bahagianiva',[$data->e101_c1]) }}" type="button"
+                                                                class="btn btn-primary ml-1">
+
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Ya</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         @endforeach
                                         <tr>
 
@@ -449,39 +483,7 @@
                         </div>
                     </div>
 
-                    <div class="modal fade" id="next2" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                            role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                        PENGESAHAN</h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                        aria-label="Close">
-                                        <i data-feather="x"></i>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>
-                                        Anda pasti mahu menghapus maklumat ini?
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                    </button>
-                                    <a href="{{ route('penapis.delete.bahagianiva',[$data->e101_c1]) }}" type="button"
-                                        class="btn btn-primary ml-1">
 
-                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Ya</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
                 <br>
                 </form>

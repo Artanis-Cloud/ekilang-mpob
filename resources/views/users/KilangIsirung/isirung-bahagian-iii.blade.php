@@ -190,7 +190,7 @@
                                                     <td>
                                                         <div class="icon" style="text-align: center">
                                                             <a href="#" type="button"
-                                                                data-bs-toggle="modal"  data-bs-target="#next2">
+                                                                data-bs-toggle="modal"  data-bs-target="#next2{{ $data->e102_b1 }}">
                                                                 <i class="fa fa-trash-o"
                                                                     style="color: #dc3545;font-size:18px"></i>
                                                             </a>
@@ -292,6 +292,214 @@
                                                     </div>
 
                                                 </div>
+
+                                                <div class="modal fade" id="next2{{ $data->e102_b1 }}" tabindex="-1" role="dialog"
+                                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                        role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                    PENGESAHAN</h5>
+                                                                <button type="button" class="close" data-bs-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <i data-feather="x"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>
+                                                                    Anda pasti mahu menghapus maklumat ini?
+                                                                </p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                                </button>
+                                                                <a href="{{ route('isirung.bahagianiii.delete',[$data->e102_b1]) }}" type="button"
+                                                                    class="btn btn-primary ml-1">
+
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Ya</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                            <tr>
+
+                                                <td colspan="2"><b>JUMLAH</b></td>
+                                                {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                <td style="text-align: right"><b><span name='total' id='total'>
+                                                            {{ number_format($total, 2) }}</span></b>
+                                                    <input type="hidden" name="total" value="{{ $total }}">
+                                                </td>
+                                                <td colspan="2"></td>
+                                                {{-- <td></td> --}}
+
+                                            </tr>
+
+                                            <tr><td><br></td></tr>
+                                            @foreach ($penyata2 as $data)
+                                                <tr>
+                                                    <td>{{ $data->kodsl->catname ?? '' }}</td>
+                                                    <td>{{ $data->prodcat2->catname ?? '' }}</td>
+                                                    {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                    <td style="text-align: right"  onchange="validation_jumlah()">
+                                                        {{ number_format($data->e102_b6 ?? 0, 2) }}
+                                                        <input type="hidden" id="e102_b6i" name="e102_b6i"
+                                                        onchange="return validation_jum()"
+                                                        value="{{ $data->e102_b6 }}">
+                                                    </td>
+                                                    <td>
+                                                        <div class="icon" style="text-align: center">
+                                                            <a href="#" type="button" data-bs-toggle="modal"
+                                                                data-bs-target="#modal{{ $data->e102_b1 }}">
+                                                                <i class="fas fa-edit fa-lg" style="color: #ffc107">
+                                                                </i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="icon" style="text-align: center">
+                                                            <a href="#" type="button"
+                                                                data-bs-toggle="modal"  data-bs-target="#next2{{ $data->e102_b1 }}">
+                                                                <i class="fa fa-trash-o"
+                                                                    style="color: #dc3545;font-size:18px"></i>
+                                                            </a>
+                                                        </div>
+
+                                                    </td>
+
+                                                </tr>
+                                                <div class="col-md-6 col-12">
+
+                                                    <!--scrolling content Modal -->
+                                                    <div class="modal fade" id="modal{{ $data->e102_b1 }}"
+                                                        tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="exampleModalScrollableTitle">
+                                                                        Kemaskini Maklumat Produk</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('isirung.edit.bahagian.iii', [$data->e102_b1]) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <label>Belian/Penerimaan </label>
+                                                                            <div class="form-group">
+                                                                                <fieldset class="form-group">
+                                                                                    <select class="form-select"
+                                                                                        id="e102_b4" name="e102_b4">
+                                                                                        <option hidden
+                                                                                            value="{{ $data->e102_b4 }}">
+                                                                                            {{ $data->kodsl->catname ?? '' }}
+                                                                                        </option>
+                                                                                        <option value="1"> SENDIRI
+                                                                                        </option>
+                                                                                        <option value="2"> LUAR
+                                                                                        </option>
+
+                                                                                    </select>
+                                                                                </fieldset>
+                                                                                {{-- <input type="text" name='e101_d3'
+                                                                                                class="form-control"
+                                                                                                value="{{ $data->kodsl[0]->catname }}"
+                                                                                                readonly> --}}
+
+                                                                            </div>
+                                                                            <label>Dari </label>
+                                                                            <div class="form-group">
+                                                                                <fieldset class="form-group">
+                                                                                    <select class="form-select"
+                                                                                        id="e102_b5" name="e102_b5">
+                                                                                        <option selected hidden
+                                                                                            value="{{ $data->prodcat2->catid ?? '' }}">
+                                                                                            {{ $data->prodcat2->catname ?? '' }}
+                                                                                        </option>
+                                                                                        <option value="1">KILANG BUAH
+                                                                                        </option>
+                                                                                        <option value="5">PENIAGA
+                                                                                        </option>
+                                                                                        <option value="7">LAIN-LAIN
+                                                                                        </option>
+                                                                                    </select>
+                                                                                </fieldset>
+
+                                                                            </div>
+                                                                            <label>Kuantiti </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='e102_b6'
+                                                                                    class="form-control" id='e102_b6'
+                                                                                    value="{{ old('e102_b6') ?? $data->e102_b6 }}"
+                                                                                >
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                </div>
+
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-bs-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="modal fade" id="next2{{ $data->e102_b1 }}" tabindex="-1" role="dialog"
+                                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                        role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                    PENGESAHAN</h5>
+                                                                <button type="button" class="close" data-bs-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <i data-feather="x"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>
+                                                                    Anda pasti mahu menghapus maklumat ini?
+                                                                </p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                                </button>
+                                                                <a href="{{ route('isirung.bahagianiii.delete',[$data->e102_b1]) }}" type="button"
+                                                                    class="btn btn-primary ml-1">
+
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Ya</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             @endforeach
                                             <form action="{{ route('isirung.bahagianiii.process') }}" method="post">
                                                 @csrf
@@ -299,9 +507,21 @@
 
                                                     <td colspan="2"><b>JUMLAH</b></td>
                                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                    <td style="text-align: right"><b><span name='total' id='total'>
-                                                                {{ number_format($total, 2) }}</span></b>
-                                                        <input type="hidden" name="total" value="{{ $total }}">
+                                                    <td style="text-align: right"><b><span name='total2' id='total2'>
+                                                                {{ number_format($total2, 2) }}</span></b>
+                                                        <input type="hidden" name="total" value="{{ $total2 }}">
+                                                    </td>
+                                                    <td colspan="2"></td>
+                                                    {{-- <td></td> --}}
+
+                                                </tr>
+                                                <tr>
+
+                                                    <td colspan="2"><b>JUMLAH</b></td>
+                                                    {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                    <td style="text-align: right"><b><span name='total3' id='total3'>
+                                                                {{ number_format($total3, 2) }}</span></b>
+                                                        <input type="hidden" name="total" value="{{ $total3 }}">
                                                     </td>
                                                     <td colspan="2"></td>
                                                     {{-- <td></td> --}}
@@ -383,39 +603,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal fade" id="next2" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menghapus maklumat ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <a href="{{ route('isirung.bahagianiii.delete',[$data->e102_b1]) }}" type="button"
-                                                        class="btn btn-primary ml-1">
 
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     </form>
 
 

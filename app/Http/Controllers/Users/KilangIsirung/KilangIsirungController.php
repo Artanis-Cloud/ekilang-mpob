@@ -289,15 +289,20 @@ class KilangIsirungController extends Controller
         // dd($user);
 
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->get();
+        $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->get();
+        $penyata2 = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->get();
+
         // dd($penyata);
         $penyatai = E102Init::where('e102_nl', auth()->user()->username)->first();
 
 
-        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->sum('e102_b6');
+        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
+        $total2 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
 
+        $total3 = $total+$total2;
 
-        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'kodsl', 'prodcat2', 'penyata', 'user', 'produk', 'total','penyatai'));
+        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'kodsl', 'prodcat2', 'penyata', 'penyata2',
+         'user', 'produk', 'total','penyatai' , 'total2', 'total3'));
     }
 
 

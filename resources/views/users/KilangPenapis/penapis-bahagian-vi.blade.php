@@ -226,7 +226,7 @@
                                                 @foreach ($penyata as $data)
                                                     <tr style="text-align: right">
                                                         <td style="text-align: left">{{ $data->produk[0]->prodname }}</td>
-                                                        <td>{{ $data->produk[0]->prodid }}</td>
+                                                        <td>{{ $data->produk->prodid }}</td>
                                                         <td>{{ $data->e101_e5 }}</td>
                                                         <td>{{ $data->e101_e6 }}</td>
                                                         <td>{{ $data->e101_e7 }}</td>

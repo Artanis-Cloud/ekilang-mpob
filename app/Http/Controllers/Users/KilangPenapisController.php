@@ -161,7 +161,11 @@ class KilangPenapisController extends Controller
         // dd($request->all());
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
-        $e101_produk = E101B::where('e101_reg', $user->e101_reg)->where('e101_b4',$request->e101_b4)->get();
+        // $e101_produk = E101B::where('e101_reg', $user->e101_reg)->where('e101_b4',$request->e101_b4)->get();
+        $e101_produk = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
+            return $query->where('prodcat', '=', 01);
+        })->count();
+
         // dd($e101_produk);
 
         $this->validation_bahagian_i($request->all())->validate();
@@ -697,6 +701,16 @@ class KilangPenapisController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
+    public function penapis_delete_bahagian_ivb($id)
+    {
+        $penyata = E101C::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('penapis.bahagianivb')
+        ->with('success','Produk Dihapuskan');
+    }
+
 
     public function penapis_bahagianv()
     {
@@ -719,15 +733,23 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
 
-        $penyata = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->get();
+        // $penyata = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->get();
+        $penyata = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->get();
+        $penyata2 = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->get();
 
-        $total = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->sum('e101_d5');
+        // $penyata2 = KodSl::where('catid', 1)->get();
+        // $penyatava = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->get();
 
-        $total2 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->sum('e101_d6');
+        $totala = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d5');
+        $totala2 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d6');
+        $totala3 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d7');
+        $totala4 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d8');
 
-        $total3 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->sum('e101_d7');
 
-        $total4 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->sum('e101_d8');
+        $totalb = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d5');
+        $totalb2 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d6');
+        $totalb3 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d7');
+        $totalb4 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d8');
         // dd($penyata);
 
         // $kodsl = KodSl::all();
@@ -736,19 +758,11 @@ class KilangPenapisController extends Controller
         // dd($selectedKod);
 
 
-        return view('users.KilangPenapis.penapis-bahagian-v', compact('returnArr', 'layout', 'user', 'penyata',
-        'total', 'total2', 'total3', 'total4'));
+        return view('users.KilangPenapis.penapis-bahagian-v', compact('returnArr', 'layout', 'user', 'penyata', 'penyata2',
+        'totala', 'totala2', 'totala3', 'totala4' ,'totalb', 'totalb2', 'totalb3', 'totalb4'));
     }
 
-    public function penapis_delete_bahagian_ivb($id)
-    {
-        $penyata = E101C::findOrFail($id);
-        // dd($penyata);
 
-        $penyata->delete();
-        return redirect()->route('penapis.bahagianivb')
-        ->with('success','Produk Dihapuskan');
-    }
 
 
 

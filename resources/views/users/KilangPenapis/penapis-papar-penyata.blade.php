@@ -352,7 +352,7 @@
                                                     @foreach ($penyatai as $data)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $data->produk[0]->prodname }}</font>
+                                                                <font size="2">{{ $data->produk->prodname }}</font>
                                                             </td>
                                                             <td align="center">
                                                                 <font size="2">{{ $data->e101_b4 }}</font>
@@ -478,7 +478,7 @@
                                                     @foreach ($penyataii as $data)
                                                         <tr>
                                                             <td align="left">
-                                                                <font size="2">{{ $data->produk[0]->prodname }}</font>
+                                                                <font size="2">{{ $data->produk->prodname }}</font>
                                                             </td>
                                                             <td align="center">
                                                                 <font size="2">{{ $data->e101_b4 }}</font>
@@ -617,7 +617,7 @@
                                                     @foreach ($penyataiva as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->produk[0]->prodname }}</font>
+                                                            <font size="2">{{ $data->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ $data->e101_c4 }}</font>
@@ -709,7 +709,7 @@
                                                     @foreach ($penyataivb as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->produk[0]->prodname }}</font>
+                                                            <font size="2">{{ $data->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ $data->e101_c4 }}</font>
@@ -791,7 +791,7 @@
                                                     @foreach ($penyatava as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->prodcat[0]->catname}}</font>
+                                                            <font size="2">{{ $data->prodcat->catname}}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ number_format($data->e101_d5 ??  0,2) }}</font>
@@ -853,7 +853,7 @@
                                                     @foreach ($penyatavb as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->prodcat[0]->catname }}</font>
+                                                            <font size="2">{{ $data->prodcat->catname }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ number_format($data->e101_d5 ??  0,2) }}</font>
@@ -923,7 +923,7 @@
                                                     @foreach ($penyatavii as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->produk[0]->prodname }}</font>
+                                                            <font size="2">{{ $data->produk->prodname }}</font>
                                                         </td>
                                                         <td align="center">
                                                             <font size="2">{{ $data->e101_e4 }}</font>
