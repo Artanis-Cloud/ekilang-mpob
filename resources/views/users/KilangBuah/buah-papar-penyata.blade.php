@@ -98,7 +98,21 @@
 
                                                 </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
-                                                BULAN :&nbsp;&nbsp;0{{ $bulan }} &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                                                BULAN :&nbsp;&nbsp;
+                                                @if($bulan == 1) JANUARI
+                                                    @elseif($bulan == 2) FEBRUARI
+                                                    @elseif($bulan == 3) MAC
+                                                    @elseif($bulan == 4) APRIL
+                                                    @elseif($bulan == 5) MEI
+                                                    @elseif($bulan == 6) JUN
+                                                    @elseif($bulan == 7) JULAI
+                                                    @elseif($bulan == 8) OGOS
+                                                    @elseif($bulan == 9) SEPTEMBER
+                                                    @elseif($bulan == 10) OKTOBER
+                                                    @elseif($bulan == 11) NOVEMBER
+                                                    @elseif($bulan == 12) DISEMBER
+                                                    @endif
+                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
                                             </b><br>
 
                                         </p>
