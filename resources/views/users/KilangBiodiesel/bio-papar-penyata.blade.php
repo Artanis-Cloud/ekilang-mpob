@@ -96,7 +96,21 @@
 
                                                     </font>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4<br>
 
-                                                    BULAN :&nbsp;&nbsp;0{{ $bulan }} &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
+                                                    BULAN :&nbsp;&nbsp;
+                                                    @if($bulan == 1) JANUARI
+                                                    @elseif($bulan == 2) FEBRUARI
+                                                    @elseif($bulan == 3) MAC
+                                                    @elseif($bulan == 4) APRIL
+                                                    @elseif($bulan == 5) MEI
+                                                    @elseif($bulan == 6) JUN
+                                                    @elseif($bulan == 7) JULAI
+                                                    @elseif($bulan == 8) OGOS
+                                                    @elseif($bulan == 9) SEPTEMBER
+                                                    @elseif($bulan == 10) OKTOBER
+                                                    @elseif($bulan == 11) NOVEMBER
+                                                    @elseif($bulan == 12) DISEMBER
+                                                    @endif
+                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $tahun }}
 
                                                 </b><br>
 
@@ -784,10 +798,7 @@
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                        <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                            <input type="email" id="email-id-column" class="form-control" size="50"
-                                                name="email-id-column" value="{{ $user->ebio_sdate }}" readonly>
-                                        </p>
+                                       
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                             <input type="email" id="email-id-column" class="form-control" size="50"
                                                 name="email-id-column">

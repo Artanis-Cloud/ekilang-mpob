@@ -149,21 +149,45 @@ class KilangBiodieselController extends Controller
         $totaliab9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b9');
         $totaliab10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b10');
         $totaliab11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b11');
-        $totaliab12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b12');
+        // $totaliab12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b12');
         // dd($totalia);
 
         // dd($penyata);
-        return view('users.KilangBiodiesel.bio-bahagian-ia', compact('returnArr', 'layout', 'produk', 'penyata', 'totaliab5',
-        'totaliab6', 'totaliab7', 'totaliab8', 'totaliab9', 'totaliab10', 'totaliab11', 'totaliab12'));
+        return view('users.KilangBiodiesel.bio-bahagian-ia', compact(
+            'returnArr',
+            'layout',
+            'produk',
+            'penyata',
+            'totaliab5',
+            'totaliab6',
+            'totaliab7',
+            'totaliab8',
+            'totaliab9',
+            'totaliab10',
+            'totaliab11'
+        ));
     }
 
     public function bio_add_bahagian_ia(Request $request)
     {
-        // dd($request->all());
-        $this->validation_bahagian_ia($request->all())->validate();
-        $this->store_bahagian_ia($request->all());
+        $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first();
 
-        return redirect()->route('bio.bahagiania')->with('success', 'Maklumat sudah ditambah');
+        $penyata = EBioB::where('ebio_reg', $ebio_reg->ebio_reg)
+            ->where('ebio_b3', '1')
+            ->where('ebio_b4', $request->ebio_b4)
+            // ->where('e102_b5', $request->e102_b5)
+            ->first();
+        // dd($penyata);
+        // dd($request->all());
+        if ($penyata) {
+            return redirect()->route('bio.bahagiania')->with('error', 'Maklumat sudah tersedia');
+        } else {
+            // dd($request->all());
+            $this->validation_bahagian_ia($request->all())->validate();
+            $this->store_bahagian_ia($request->all());
+
+            return redirect()->route('bio.bahagiania')->with('success', 'Maklumat sudah ditambah');
+        }
     }
 
     protected function validation_bahagian_ia(array $data)
@@ -178,7 +202,7 @@ class KilangBiodieselController extends Controller
             'ebio_b9' => ['required', 'string'],
             'ebio_b10' => ['required', 'string'],
             'ebio_b11' => ['required', 'string'],
-            'ebio_b12' => ['required', 'string'],
+            // 'ebio_b12' => ['required', 'string'],
             // 'ebio_b13' => ['required', 'string'],
 
             // 'e104_b15' => ['required', 'string'],
@@ -200,7 +224,7 @@ class KilangBiodieselController extends Controller
             'ebio_b9' => $data['ebio_b9'],
             'ebio_b10' => $data['ebio_b10'],
             'ebio_b11' => $data['ebio_b11'],
-            'ebio_b12' => $data['ebio_b12'],
+            // 'ebio_b12' => $data['ebio_b12'],
             // 'ebio_b13' => $data['ebio_b13'],
 
             // 'e101_b15' => $data['e104_b15'],
@@ -224,7 +248,7 @@ class KilangBiodieselController extends Controller
         $penyata->ebio_b9 = $request->ebio_b9;
         $penyata->ebio_b10 = $request->ebio_b10;
         $penyata->ebio_b11 = $request->ebio_b11;
-        $penyata->ebio_b12 = $request->ebio_b12;
+        // $penyata->ebio_b12 = $request->ebio_b12;
         // $penyata->ebio_b13 = $request->ebio_b13;
         $penyata->save();
 
@@ -268,19 +292,44 @@ class KilangBiodieselController extends Controller
         $totalibb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b9');
         $totalibb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b10');
         $totalibb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b11');
-        $totalibb12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b12');
+        // $totalibb12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b12');
         // dd($penyata);
-        return view('users.KilangBiodiesel.bio-bahagian-ib', compact('returnArr', 'layout', 'produk', 'user', 'penyata', 'totalibb5',
-        'totalibb6', 'totalibb7', 'totalibb8', 'totalibb9', 'totalibb10', 'totalibb11', 'totalibb12',));
+        return view('users.KilangBiodiesel.bio-bahagian-ib', compact(
+            'returnArr',
+            'layout',
+            'produk',
+            'user',
+            'penyata',
+            'totalibb5',
+            'totalibb6',
+            'totalibb7',
+            'totalibb8',
+            'totalibb9',
+            'totalibb10',
+            'totalibb11',
+        ));
     }
 
     public function bio_add_bahagian_ib(Request $request)
     {
-        // dd($request->all());
-        $this->validation_bahagian_ib($request->all())->validate();
-        $this->store_bahagian_ib($request->all());
+        $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first();
 
-        return redirect()->route('bio.bahagianib')->with('success', 'Maklumat sudah ditambah');
+        $penyata = EBioB::where('ebio_reg', $ebio_reg->ebio_reg)
+            ->where('ebio_b3', '2')
+            ->where('ebio_b4', $request->ebio_b4)
+            // ->where('e102_b5', $request->e102_b5)
+            ->first();
+        // dd($penyata);
+        // dd($request->all());
+        if ($penyata) {
+            return redirect()->route('bio.bahagianib')->with('error', 'Maklumat sudah tersedia');
+        } else {
+            // dd($request->all());
+            $this->validation_bahagian_ib($request->all())->validate();
+            $this->store_bahagian_ib($request->all());
+
+            return redirect()->route('bio.bahagianib')->with('success', 'Maklumat sudah ditambah');
+        }
     }
 
     protected function validation_bahagian_ib(array $data)
@@ -295,7 +344,7 @@ class KilangBiodieselController extends Controller
             'ebio_b9' => ['required', 'string'],
             'ebio_b10' => ['required', 'string'],
             'ebio_b11' => ['required', 'string'],
-            'ebio_b12' => ['required', 'string'],
+            // 'ebio_b12' => ['required', 'string'],
 
             // 'e101_b15' => ['required', 'string'],
         ]);
@@ -316,7 +365,7 @@ class KilangBiodieselController extends Controller
             'ebio_b9' => $data['ebio_b9'],
             'ebio_b10' => $data['ebio_b10'],
             'ebio_b11' => $data['ebio_b11'],
-            'ebio_b12' => $data['ebio_b12'],
+            // 'ebio_b12' => $data['ebio_b12'],
 
             // 'e101_b15' => $data['e104_b15'],
         ]);
@@ -348,7 +397,7 @@ class KilangBiodieselController extends Controller
         $penyata->ebio_b9 = $request->ebio_b9;
         $penyata->ebio_b10 = $request->ebio_b10;
         $penyata->ebio_b11 = $request->ebio_b11;
-        $penyata->ebio_b12 = $request->ebio_b12;
+        // $penyata->ebio_b12 = $request->ebio_b12;
         $penyata->save();
 
 
@@ -390,19 +439,44 @@ class KilangBiodieselController extends Controller
         $totalicb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b9');
         $totalicb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b10');
         $totalicb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b11');
-        $totalicb12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b12');
+        // $totalicb12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b12');
 
-        return view('users.KilangBiodiesel.bio-bahagian-ic', compact('returnArr', 'layout', 'user', 'produk', 'penyata','totalicb5','totalicb6',
-        'totalicb7','totalicb8','totalicb9','totalicb10','totalicb11','totalicb12'));
+        return view('users.KilangBiodiesel.bio-bahagian-ic', compact(
+            'returnArr',
+            'layout',
+            'user',
+            'produk',
+            'penyata',
+            'totalicb5',
+            'totalicb6',
+            'totalicb7',
+            'totalicb8',
+            'totalicb9',
+            'totalicb10',
+            'totalicb11'
+        ));
     }
 
     public function bio_add_bahagian_ic(Request $request)
     {
-        // dd($request->all());
-        $this->validation_bahagian_ic($request->all())->validate();
-        $this->store_bahagian_ic($request->all());
+        $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first();
 
-        return redirect()->route('bio.bahagianic')->with('success', 'Maklumat sudah ditambah');
+        $penyata = EBioB::where('ebio_reg', $ebio_reg->ebio_reg)
+            ->where('ebio_b3', '3')
+            ->where('ebio_b4', $request->ebio_b4)
+            // ->where('e102_b5', $request->e102_b5)
+            ->first();
+        // dd($penyata);
+        // dd($request->all());
+        if ($penyata) {
+            return redirect()->route('bio.bahagianic')->with('error', 'Maklumat sudah tersedia');
+        } else {
+            // dd($request->all());
+            $this->validation_bahagian_ic($request->all())->validate();
+            $this->store_bahagian_ic($request->all());
+
+            return redirect()->route('bio.bahagianic')->with('success', 'Maklumat sudah ditambah');
+        }
     }
 
     protected function validation_bahagian_ic(array $data)
@@ -417,7 +491,7 @@ class KilangBiodieselController extends Controller
             'ebio_b9' => ['required', 'string'],
             'ebio_b10' => ['required', 'string'],
             'ebio_b11' => ['required', 'string'],
-            'ebio_b12' => ['required', 'string'],
+            // 'ebio_b12' => ['required', 'string'],
 
             // 'e101_b15' => ['required', 'string'],
         ]);
@@ -438,7 +512,7 @@ class KilangBiodieselController extends Controller
             'ebio_b9' => $data['ebio_b9'],
             'ebio_b10' => $data['ebio_b10'],
             'ebio_b11' => $data['ebio_b11'],
-            'ebio_b12' => $data['ebio_b12'],
+            // 'ebio_b12' => $data['ebio_b12'],
 
             // 'e101_b15' => $data['e104_b15'],
         ]);
@@ -461,7 +535,7 @@ class KilangBiodieselController extends Controller
         $penyata->ebio_b9 = $request->ebio_b9;
         $penyata->ebio_b10 = $request->ebio_b10;
         $penyata->ebio_b11 = $request->ebio_b11;
-        $penyata->ebio_b12 = $request->ebio_b12;
+        // $penyata->ebio_b12 = $request->ebio_b12;
         $penyata->save();
 
 
@@ -585,19 +659,42 @@ class KilangBiodieselController extends Controller
         $totaliiic8 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c8');
         $totaliiic9 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c9');
         $totaliiic10 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c10');
-        $totaliiic11 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c11');
 
-        return view('users.KilangBiodiesel.bio-bahagian-iii', compact('returnArr', 'layout', 'user', 'produk', 'penyata','totaliiic4',
-        'totaliiic5','totaliiic6','totaliiic7','totaliiic8','totaliiic9','totaliiic10','totaliiic11',));
+        return view('users.KilangBiodiesel.bio-bahagian-iii', compact(
+            'returnArr',
+            'layout',
+            'user',
+            'produk',
+            'penyata',
+            'totaliiic4',
+            'totaliiic5',
+            'totaliiic6',
+            'totaliiic7',
+            'totaliiic8',
+            'totaliiic9',
+            'totaliiic10',
+        ));
     }
 
     public function bio_add_bahagian_iii(Request $request)
     {
-        // dd($request->all());
-        $this->validation_bahagian_iii($request->all())->validate();
-        $this->store_bahagian_iii($request->all());
+        $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first();
 
-        return redirect()->route('bio.bahagianiii')->with('success', 'Maklumat sudah ditambah');
+        $penyata = EBioC::where('ebio_reg', $ebio_reg->ebio_reg)
+            ->where('ebio_c3', $request->ebio_c3)
+            // ->where('e102_b5', $request->e102_b5)
+            ->first();
+        // dd($penyata);
+        // dd($request->all());
+        if ($penyata) {
+            return redirect()->route('bio.bahagianiii')->with('error', 'Maklumat sudah tersedia');
+        } else {
+            // dd($request->all());
+            $this->validation_bahagian_iii($request->all())->validate();
+            $this->store_bahagian_iii($request->all());
+
+            return redirect()->route('bio.bahagianiii')->with('success', 'Maklumat sudah ditambah');
+        }
     }
 
     protected function validation_bahagian_iii(array $data)
@@ -611,7 +708,6 @@ class KilangBiodieselController extends Controller
             'ebio_c8' => ['required', 'string'],
             'ebio_c9' => ['required', 'string'],
             'ebio_c10' => ['required', 'string'],
-            'ebio_c11' => ['required', 'string'],
             // 'ebio_c12' => ['required', 'string'],
 
             // 'e101_b15' => ['required', 'string'],
@@ -632,7 +728,6 @@ class KilangBiodieselController extends Controller
             'ebio_c8' => $data['ebio_c8'],
             'ebio_c9' => $data['ebio_c9'],
             'ebio_c10' => $data['ebio_c10'],
-            'ebio_c11' => $data['ebio_c11'],
             // 'ebio_c12' => $data['ebio_b12'],
 
             // 'e101_b15' => $data['e104_b15'],
@@ -656,7 +751,6 @@ class KilangBiodieselController extends Controller
         $penyata->ebio_c8 = $request->ebio_c8;
         $penyata->ebio_c9 = $request->ebio_c9;
         $penyata->ebio_c10 = $request->ebio_c10;
-        $penyata->ebio_c11 = $request->ebio_c11;
         // $penyata->ebio_c12 = $request->ebio_c12;
         $penyata->save();
 
@@ -777,15 +871,41 @@ class KilangBiodieselController extends Controller
             'ib',
             'ic',
             'ii',
-            'iii',  'totaliab5',
-            'totaliab6', 'totaliab7', 'totaliab8', 'totaliab9', 'totaliab10', 'totaliab11', 'totaliab12',
+            'iii',
+            'totaliab5',
+            'totaliab6',
+            'totaliab7',
+            'totaliab8',
+            'totaliab9',
+            'totaliab10',
+            'totaliab11',
+            'totaliab12',
             'totalibb5',
-            'totalibb6', 'totalibb7', 'totalibb8', 'totalibb9', 'totalibb10', 'totalibb11', 'totalibb12',
-            'totalicb5','totalicb6',
-            'totalicb7','totalicb8','totalicb9','totalicb10','totalicb11','totalicb12',
+            'totalibb6',
+            'totalibb7',
+            'totalibb8',
+            'totalibb9',
+            'totalibb10',
+            'totalibb11',
+            'totalibb12',
+            'totalicb5',
+            'totalicb6',
+            'totalicb7',
+            'totalicb8',
+            'totalicb9',
+            'totalicb10',
+            'totalicb11',
+            'totalicb12',
             'totaliiic4',
-            'totaliiic5','totaliiic6','totaliiic7','totaliiic8','totaliiic9','totaliiic10','totaliiic11',
-            'bulan', 'tahun'
+            'totaliiic5',
+            'totaliiic6',
+            'totaliiic7',
+            'totaliiic8',
+            'totaliiic9',
+            'totaliiic10',
+            'totaliiic11',
+            'bulan',
+            'tahun'
         ));
     }
 
@@ -810,7 +930,7 @@ class KilangBiodieselController extends Controller
         return view('users.KilangBiodiesel.bio-email', compact('returnArr', 'layout'));
     }
 
-    public function bio_send_email_proses (Request $request)
+    public function bio_send_email_proses(Request $request)
     {
         // dd($request->all());
         $this->validation_send_email($request->all())->validate();

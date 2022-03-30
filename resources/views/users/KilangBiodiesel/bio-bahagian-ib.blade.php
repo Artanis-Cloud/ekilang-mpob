@@ -74,10 +74,10 @@
                                         <div class="container center mt-4">
 
                                             <div class="row">
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">Nama Produk</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <select class="form-select" id="ebio_b4" name="ebio_b4"
                                                         style="width: 50%">
                                                         <option selected hidden disabled>Sila Pilih</option>
@@ -90,14 +90,22 @@
                                                     </select>
 
                                                 </div>
+                                                <div class="col-md-3">
+                                                    <span class="required">Digunakan Untuk Proses Selanjutnya</span>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input type="text" class="form-control" name='ebio_b8'
+                                                        style="width:50%" id="ebio_b8">
+                                                </div>
+
 
                                             </div>
 
                                             <div class="row mt-4">
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">Stok Awal di Premis</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b5'
                                                         style="width:50%" id="ebio_b5" required
                                                         title="Sila isikan butiran ini.">
@@ -107,10 +115,10 @@
                                                     </div>
                                                 @enderror --}}
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">Jualan / Edaran Tempatan</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b9'
                                                         style="width:50%" id="ebio_b9" required
                                                         title="Sila isikan butiran ini.">
@@ -124,19 +132,19 @@
                                             </div>
 
                                             <div class="row mt-4">
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">Belian / Terimaan</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b6'
                                                         style="width:50%" id="ebio_b6" required
                                                         title="Sila isikan butiran ini.">
                                                 </div>
 
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">Eksport </span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b10'
                                                         style="width:50%" id="ebio_b10" required
                                                         title="Sila isikan butiran ini.">
@@ -149,19 +157,19 @@
                                             </div>
 
                                             <div class="row mt-4">
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">Pengeluaran</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b7'
                                                         style="width:50%" id="ebio_b7" required
                                                         title="Sila isikan butiran ini.">
                                                 </div>
 
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <span class="required">Stok Akhir di Lapor</span>
                                                 </div>
-                                                <div class="col-md-4">
+                                                <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b11'
                                                         style="width:50%" id="ebio_b11" required
                                                         title="Sila isikan butiran ini.">
@@ -173,30 +181,6 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row mt-4">
-                                                <div class="col-md-2">
-                                                    <span class="required">Digunakan Untuk Proses Selanjutnya</span>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='ebio_b8'
-                                                        style="width:50%" id="ebio_b8">
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <span class="required">Stok Akhir di Premis</span>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <input type="text" class="form-control" name='ebio_b12'
-                                                        style="width:50%" id="ebio_b12" required
-                                                        title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                                </div>
-
-
-                                            </div>
 
 
 
@@ -241,7 +225,6 @@
                                                             <th>Jualan / Edaran Tempatan</th>
                                                             <th>Eksport</th>
                                                             <th>Stok Akhir Di Lapor</th>
-                                                            <th>Stok Akhir Di Premis</th>
                                                             <th>Kemaskini</th>
                                                             <th>Hapus?</th>
                                                         </tr>
@@ -261,7 +244,6 @@
                                                                 <td>{{ number_format($data->ebio_b9 ??  0,2) }}</td>
                                                                 <td>{{ number_format($data->ebio_b10 ??  0,2) }}</td>
                                                                 <td>{{ number_format($data->ebio_b11 ??  0,2) }}</td>
-                                                                <td>{{ number_format($data->ebio_b12 ??  0,2) }}</td>
                                                                 {{-- <td>{{ $data->ebio_b13 }}</td> --}}
                                                                 {{-- <td>{{ $data->e104_b14 }}</td> --}}
                                                                 <td>
@@ -269,7 +251,7 @@
                                                                         <a href="#" type="button" data-bs-toggle="modal"
                                                                             data-bs-target="#modal{{ $data->ebio_b1 }}">
                                                                             <i class="fas fa-edit fa-lg"
-                                                                                style="color: #228c1c">
+                                                                                style="color: #ffc107">
                                                                             </i>
                                                                         </a>
                                                                     </div>
@@ -278,7 +260,7 @@
                                                                     <div class="icon" style="text-align: center">
                                                                         <a href="#" type="button">
                                                                             <i class="fa fa-trash-o"
-                                                                                style="color: #228c1c;font-size:18px"></i>
+                                                                                style="color: #dc3545;font-size:18px"></i>
                                                                         </a>
                                                                     </div>
 
@@ -381,13 +363,7 @@
                                                                                                 class="form-control"
                                                                                                 value="{{ $data->ebio_b11 }}">
                                                                                         </div>
-                                                                                        <label>Stok Akhir Di Premis </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ebio_b12'
-                                                                                                class="form-control"
-                                                                                                value="{{ $data->ebio_b12 }}">
-                                                                                        </div>
+
 
 
                                                                                     </div>
@@ -443,7 +419,6 @@
                                                             <td style="text-align: right"><b>{{ number_format($totalibb9 ??  0,2) }}</b></td>
                                                             <td style="text-align: right"><b>{{ number_format($totalibb10 ??  0,2) }}</b></td>
                                                             <td style="text-align: right"><b>{{ number_format($totalibb11 ??  0,2) }}</b></td>
-                                                            <td style="text-align: right"><b>{{ number_format($totalibb12 ??  0,2) }}</b></td>
                                                             {{-- <td style="text-align: right"><b>{{ number_format($totaliab5 ??  0,2) }}</b></td>
                                                             <td style="text-align: right"><b>{{ number_format($totaliab5 ??  0,2) }}</b></td> --}}
 

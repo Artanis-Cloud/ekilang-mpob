@@ -72,7 +72,6 @@
 
                                         <div class="container center mt-4">
 
-
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <span class="required">Nama Produk</span>
@@ -511,7 +510,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                
+
                                             @endforeach
                                             <tr>
                                                 <td></td>
