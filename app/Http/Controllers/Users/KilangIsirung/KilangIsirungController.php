@@ -415,48 +415,7 @@ class KilangIsirungController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
-    // public function bahagian_iii(Request $request, $id, array $data)
-    // {
-    //     // $reg_pelesens = RegPelesen::get(); // login
-    //     $this->validation_bahagian_iii($request->all())->validate();
-
-    //     // $profilebulanans = ProfileBulanan::get();
-    //     $penyatas = E102b::findOrFail($id);
-    //     foreach ($penyatas as $penyata) {
-    // $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
-    // $e_asdaerah = DB::connection('mysql2')->select("SELECT kod_daerah FROM  daerah where namadaerah = $kilang->e_asdaerah");
-    // dd($e_asdaerah);
-
-
-    // $count = Pelesen::count();
-    // dd($count);
-
-    // $product = E102b::where('e_nl', $profilebulanan->no_lesen)->first();
-
-    // if($kilang->e_nl == '616115025000'){
-    //     dd($kilang);
-    // }
-    //     $e102_reg = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
-
-
-    //     if (!$penyata) {
-    //         $penyata = E102b::create([
-    //             'e102_b2' => $e102_reg->e102_reg,
-    //             'e102_b3' => '51',
-    //             'e102_b4' => $data['e102_b4'],
-    //             'e102_b5' => $data['e102_b5'],
-    //             'e102_b6' => $data['e102_b6'],
-    //         ]);
-    //     } else {
-
-    //         $penyata->e102_b4 = $request->e102_b4;
-    //         $penyata->e102_b5 = $request->e102_b5;
-    //         $penyata->e102_b6 = $request->e102_b6;
-    //         $penyata->save();
-    //     }
-    //     return redirect()->route('isirung.bahagianiii')
-    //         ->with('success', 'Maklumat telah disimpan');
-    // }
+ 
 
 
 

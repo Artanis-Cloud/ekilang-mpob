@@ -322,6 +322,179 @@
                                             @enderror --}}
                                             </div>
                                         </div>
+
+                                        <div class="row mt-3" style="text-align: center; font-size: 12px">
+                                            <div class="col-md-4">
+                                                <span ></span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span></span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span>CPO</span>
+                                            </div>
+
+                                            <div class="col-md-1">
+                                                <span>PPO</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span >CPKO</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span>PPKO</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span >OTHERS</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span >JUMLAH</span>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-4">
+                                                <span class="required">Bilangan Tangki</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span></span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b5'
+                                                    style="width:100%" id="e104_b5" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b10'
+                                                    style="width:100%" id="e104_b10" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b10'
+                                                    style="width:100%" id="e104_b10"  required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b10'
+                                                    style="width:100%" id="e104_b10"  required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b10'
+                                                    style="width:100%" id="e104_b10" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b10'
+                                                    style="width:100%" id="e104_b10"  required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-4">
+                                                <span class="required">Kapasiti Tangki Simpanan (Tan)</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span></span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b5'
+                                                    style="width:100%" id="e104_b5" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+
+
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b10'
+                                                    style="width:100%" id="e104_b10"  required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b10'
+                                                    style="width:100%" id="e104_b10" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b10'
+                                                    style="width:100%" id="e104_b10"  required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b10'
+                                                    style="width:100%" id="e104_b10"  required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='e104_b10'
+                                                    style="width:100%" id="e104_b10" required
+                                                    title="Sila isikan butiran ini.">
+                                                {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                            </div><br><br>
+                                            <i style="width: 90%">Nota: Sekiranya kilang/pelesen tiada tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
+                                                bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                            </i>
+
+
+                                        </div>
                                     </div>
 
 
