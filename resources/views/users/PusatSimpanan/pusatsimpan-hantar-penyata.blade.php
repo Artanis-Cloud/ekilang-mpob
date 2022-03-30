@@ -424,23 +424,13 @@
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                            {{-- <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                                <input type="date" id="e91_sdate" class="form-control" size="50"
-                                                    name='e102_sdate' value="{{ $user->e07_sdate }}" readonly>
-                                            </p> --}}
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_npg" class="form-control" size="50"
-                                                    name='e102_npg' value="{{ $user->e07_npg }}">
-                                            </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_jpg" class="form-control" size="50"
-                                                    name='e102_jpg' value="{{ $user->e07_jpg }}">
-                                            </p>
-                                            <p>No Telefon Kilang: &nbsp;&nbsp;
+                                                    <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b> {{ $user->e07_sdate ?? '' }} </b></p>
+                                                    <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $user->e07_npg }}</b>
+                                                    </p>
+                                                    <p>Jawatan Pegawai Melapor:&nbsp;&nbsp;<b> {{ $user->e07_jpg }}</b></p>
+                                                    <p>No Telefon Kilang:&nbsp;&nbsp;<b> {{ $pelesen->e_notel }}</b>
+                                                    </p>
 
-                                                <input type="text" id="e_notel" class="form-control" size="50"
-                                                    name="e102_notel" value="">
-                                            </p>
 
                     </form>
 
@@ -450,13 +440,9 @@
                     <div class="row form-group" style="padding-top: 10px; ">
 
 
-                        <div class="text-left col-md-5">
-                            <a href="{{ route('pusatsimpan.bahagiana') }}" class="btn btn-primary"
-                                style="float: left">Sebelumnya</a>
-                        </div>
+
                         <div class="text-right col-md-7 mb-4 ">
-                            <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                data-bs-target="#exampleModalCenter">Hantar</button>
+                         
                             <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
                                 onclick="myPrint('myfrm')" value="print">Cetak</button>
                         </div>

@@ -1022,23 +1022,13 @@
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                            {{-- <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                                <input type="date" id="e91_sdate" class="form-control" size="50"
-                                                    name='e91_sdate' value="{{ $penyataiii->e101_sdate ?? '' }}" readonly>
-                                            </p> --}}
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_npg" class="form-control" size="50" name='e_npg'
-                                                    value="{{ $penyataiii->e101_npg }}">
-                                            </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_jpg" class="form-control" size="50" name='e_jpg'
-                                                    value="{{ $penyataiii->e101_jpg }}">
-                                            </p>
-                                            <p>No Telefon Kilang: &nbsp;&nbsp;
+                                                    <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{$penyataiii->e101_sdate ?? '' }} </p>
+                                                    <p>Nama Pegawai Melapor:&nbsp;&nbsp; {{ $penyataiii->e101_npg  }}
+                                                    </p>
+                                                    <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; {{ $penyataiii->e101_jpg }}</p>
+                                                    <p>No Telefon Kilang:&nbsp;&nbsp; {{ $pelesen->e_notel }}
+                                                    </p>
 
-                                                <input type="text" id="e_notel" class="form-control" size="50"
-                                                    name="e_notel" value="">
-                                            </p>
                                         </form>
 
                                             <h1 style="page-break-before:always"></h1>
@@ -1046,13 +1036,9 @@
                                             <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                                <div class="text-left col-md-5">
-                                                    <a href="{{ route('penapis.bahagianv') }}" class="btn btn-primary"
-                                                        style="float: left">Sebelumnya</a>
-                                                </div>
+
                                                 <div class="text-right col-md-7 mb-4 ">
-                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                                        data-bs-target="#exampleModalCenter">Hantar</button>
+                                                    
                                                     <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
                                                         onclick="myPrint('myfrm')" value="print">Cetak</button>
                                                 </div>

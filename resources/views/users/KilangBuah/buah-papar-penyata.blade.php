@@ -1028,10 +1028,7 @@
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                        <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                            <input type="date" id="e91_sdate" class="form-control" size="50"
-                                                name='e91_sdate' value="{{ $penyata->e91_sdate ?? '' }}" readonly>
-                                        </p>
+                                       
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                             <input type="text" id="e_npg" class="form-control" size="50" name='e_npg'
                                                 value="{{ $pelesen->e_npg }}">
