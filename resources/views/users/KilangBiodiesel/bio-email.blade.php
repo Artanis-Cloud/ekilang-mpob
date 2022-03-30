@@ -155,7 +155,7 @@
                                                 </label>
                                             <div class="col-md-6">
                                                 <div class="form-file">
-                                                    <input type="file" class="form-file-input" id="file">
+                                                    <input type="file" class="form-file-input" id="file" accept=".jpg,.png,.pdf">
                                                     <label class="form-file-label" for="file">
 
                                                     </label>
@@ -263,7 +263,7 @@
     var uploadField = document.getElementById("file");
 
     uploadField.onchange = function() {
-        if (this.files[0].size > 3145728) {
+        if (this.files[0].size > 3145728)
             alert("Saiz fail melebihi 3MB!");
             this.value = "";
         };
