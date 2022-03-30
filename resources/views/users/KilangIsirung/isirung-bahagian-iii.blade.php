@@ -521,7 +521,7 @@
                                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                                     <td style="text-align: right"><b><span name='total3' id='total3'>
                                                                 {{ number_format($total3, 2) }}</span></b>
-                                                        <input type="hidden" name="total" value="{{ $total3 }}">
+                                                        <input type="hidden" id='total3' name="total3" value="{{ $total3 }}">
                                                     </td>
                                                     <td colspan="2"></td>
                                                     {{-- <td></td> --}}
@@ -654,14 +654,15 @@
     </script>
     <script>
         function validation_jumlah() {
-            var e102_b6i = $("#e102_b6i").val();
-            var total = $("#total").val();
+            var total3 = $("#total3").val();
+            // var jumlah = $("#total").val();
             var jumlah = $("#jumlah").val();
             var jumlah_input = 0;
 
-            jumlah_input = parseFloat(Number(total));
+            jumlah_input = parseFloat(Number(total3));
 
-            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+            // document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+            document.getElementById('jumlah').innerHTML = jumlah_input.toFixed(2);
         }
     </script>
 

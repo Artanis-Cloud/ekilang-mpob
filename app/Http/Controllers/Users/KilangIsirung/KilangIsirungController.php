@@ -306,7 +306,6 @@ class KilangIsirungController extends Controller
     }
 
 
-
     public function isirung_add_bahagian_iii(Request $request)
     {
         // dd($request->all());
@@ -352,11 +351,11 @@ class KilangIsirungController extends Controller
     public function validation(Request $request){
         // dd($request->all());
 
-        $e102_b6 = floatval($request->e102_b6);
+        $total3 = floatval($request->total3);
 
-        $total = floatval($request->jumlah);
+        $jumlah = floatval($request->jumlah);
 
-        if($e102_b6 != $request->jumlah)
+        if($total3 != $request->jumlah)
         {
              return redirect()->back()->withInput()
              ->with('error', 'Jumlah Tidak Sama!');
