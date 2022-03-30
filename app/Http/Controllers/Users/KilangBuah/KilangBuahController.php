@@ -462,6 +462,46 @@ class KilangBuahController extends Controller
         return view('users.KilangBuah.buah-papar-penyata', compact('layout','returnArr','user', 'pelesen','penyata','totaliii','bulan','tahun'));
     }
 
+    public function buah_hantar_penyata()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('buah.paparpenyata'), 'name' => "Penyata Bulanan"],
+        ];
+
+        $kembali = route('buah.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kbuah';
+
+        $bulan = date("m") - 1;
+
+        $tahun = date("Y");
+
+        $user = User::first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+
+        $totaliii = DB::table("e91_init")
+                        ->where('e91_nl', auth()->user()->username)
+                        ->sum('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6');
+
+        // $totaliii = DB::SUM('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6')
+        //                         FROM e91_init;
+
+                            // dd($totaliii);
+
+        // $ekat = DB::select("SELECT * FROM reg_pelesen");
+
+
+
+        return view('users.KilangBuah.buah-hantar-penyata', compact('layout','returnArr','user', 'pelesen','penyata','totaliii','bulan','tahun'));
+    }
+
     public function buah_email()
     {
 

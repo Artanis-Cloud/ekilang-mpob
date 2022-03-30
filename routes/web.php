@@ -173,6 +173,7 @@ Route::middleware('auth')->group(function () {
         Route::get('buah/bahagian-vi', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianvi'])->name('buah.bahagianvi');
 
         Route::get('buah/papar-penyata', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_paparpenyata'])->name('buah.paparpenyata');
+        Route::get('buah/hantar-penyata', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_hantar_penyata'])->name('buah.hantar.penyata');
 
         Route::get('buah/email', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_email'])->name('buah.email');
         Route::post('buah/send-email', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_send_email_proses'])->name('buah.send.email.proses');
@@ -231,6 +232,7 @@ Route::middleware('auth')->group(function () {
         Route::post('penapis/edit-bahagian-vi/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_vi'])->name('penapis.edit.bahagian.vi');
 
         Route::get('penapis/papar-penyata', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_paparpenyata'])->name('penapis.paparpenyata');
+        Route::get('penapis/hantar-penyata', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_hantar_penyata'])->name('penapis.hantar.penyata');
 
         Route::get('penapis/email', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_email'])->name('penapis.email');
         Route::post('penapis/send-email', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_send_email_proses'])->name('penapis.send.email.proses');
@@ -278,6 +280,7 @@ Route::middleware('auth')->group(function () {
 
         // Route::get('isirung/bahagian-vii', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagianvii'])->name('isirung.bahagianvii');
         Route::get('isirung/papar-penyata', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_paparpenyata'])->name('isirung.paparpenyata');
+        Route::get('isirung/hantar-penyata', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_hantar_penyata'])->name('isirung.hantar.penyata');
 
         Route::get('isirung/email', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_email'])->name('isirung.email');
         Route::post('isirung/send-email', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_send_email_proses'])->name('isirung.send.email.proses');
@@ -324,6 +327,8 @@ Route::middleware('auth')->group(function () {
         Route::post('oleokimia/edit-bahagian-iv/{Id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_edit_bahagian_iv'])->name('oleo.edit.bahagian.iv');
 
         Route::get('oleokimia/papar-penyata', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_paparpenyata'])->name('oleo.paparpenyata');
+        Route::get('oleokimia/hantar-penyata', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_hantar_penyata'])->name('oleo.hantar.penyata');
+
         Route::get('oleokimia/email', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_email'])->name('oleo.email');
         Route::post('oleokimia/send-email', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_send_email_proses'])->name('oleo.send.email.proses');
 
@@ -348,6 +353,7 @@ Route::middleware('auth')->group(function () {
         Route::get('pusatsimpan/bahagian-b', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_bahagianb'])->name('pusatsimpan.bahagianb');
 
         Route::get('pusatsimpan/papar-penyata', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_paparpenyata'])->name('pusatsimpan.paparpenyata');
+        Route::get('pusatsimpan/hantar-penyata', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_hantar_penyata'])->name('pusatsimpan.hantar.penyata');
 
         Route::get('pusatsimpan/email', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_email'])->name('pusatsimpan.email');
         Route::post('pusatsimpan/send-email', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_send_email_proses'])->name('pusatsimpan.send.email.proses');
@@ -388,7 +394,9 @@ Route::middleware('auth')->group(function () {
         Route::post('biodiesel/edit-bahagian-iii/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_iii'])->name('bio.edit.bahagian.iii');
 
         Route::get('biodiesel/bahagian-iv', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiv'])->name('bio.bahagianiv');
+
         Route::get('biodiesel/papar-penyata', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_paparpenyata'])->name('bio.paparpenyata');
+        Route::get('biodiesel/hantar-penyata', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_hantar_penyata'])->name('bio.hantar.penyata');
 
         Route::get('biodiesel/email', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_email'])->name('bio.email');
         Route::post('biodiesel/send-email', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_send_email_proses'])->name('bio.send.email.proses');

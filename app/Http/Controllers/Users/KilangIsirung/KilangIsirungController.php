@@ -888,6 +888,72 @@ class KilangIsirungController extends Controller
         ));
     }
 
+
+    public function isirung_hantar_penyata()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('isirung.paparpenyata'), 'name' => "Penyata Bulanan"],
+        ];
+
+        $kembali = route('isirung.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.kisirung';
+
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
+        $user = User::first();
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+
+        $penyatai = E102Init::where('e102_nl', auth()->user()->username)->first();
+        // dd($penyatai);
+
+        $penyataii = E102Init::where('e102_nl', auth()->user()->username)->first();
+
+        $penyataiii = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '51')->get();
+        // dd($penyataiii);
+        $totaliii = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '51')->sum('e102_b6');
+        // dd($totaliii);
+
+        $penyataiv = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '04')->get();
+
+        $totaliv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '04')->sum('e102_b6');
+
+        $penyatav = E102b::with('e102init')->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '33')->get();
+
+        $totalv = DB::table("e102b")->where('e102_b2', $penyataii->e102_reg)->where('e102_b3', '33')->sum('e102_b6');
+
+        $penyatavi = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
+        // dd($penyatavi);
+
+
+        return view('users.KilangIsirung.isirung-hantar-penyata', compact(
+            'layout',
+            'returnArr',
+            'user',
+            'pelesen',
+            'penyatai',
+            'penyataii',
+            'penyataiii',
+            'totaliii',
+            'penyataiv',
+            'totaliv',
+            'penyatav',
+            'totalv',
+            'penyatavi',
+            'bulan',
+            'tahun'
+
+
+        ));
+    }
+
     public function isirung_email()
     {
 
