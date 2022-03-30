@@ -299,20 +299,44 @@ class KilangIsirungController extends Controller
         $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
         $total2 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
 
-        $total3 = $total+$total2;
+        $total3 = $total + $total2;
 
-        return view('users.KilangIsirung.isirung-bahagian-iii', compact('returnArr', 'layout', 'kodsl', 'prodcat2', 'penyata', 'penyata2',
-         'user', 'produk', 'total','penyatai' , 'total2', 'total3'));
+        return view('users.KilangIsirung.isirung-bahagian-iii', compact(
+            'returnArr',
+            'layout',
+            'kodsl',
+            'prodcat2',
+            'penyata',
+            'penyata2',
+            'user',
+            'produk',
+            'total',
+            'penyatai',
+            'total2',
+            'total3'
+        ));
     }
 
 
     public function isirung_add_bahagian_iii(Request $request)
     {
-        // dd($request->all());
-        $this->validation_bahagian_iii($request->all())->validate();
-        $this->store_bahagian_iii($request->all());
+        $e102_reg = E102Init::where('e102_nl', auth()->user()->username)->first();
 
-        return redirect()->route('isirung.bahagianiii')->with('success', 'Maklumat sudah ditambah');
+        $penyata = E102b::where('e102_b2', $e102_reg->e102_reg)
+        ->where('e102_b3', '51')
+        ->where('e102_b4', $request->e102_b4)
+        ->where('e102_b5', $request->e102_b5)
+        ->first();
+        // dd($penyata);
+        // dd($request->all());
+        if ($penyata) {
+            return redirect()->route('isirung.bahagianiii')->with('error', 'Maklumat sudah tersedia');
+        } else {
+            $this->validation_bahagian_iii($request->all())->validate();
+            $this->store_bahagian_iii($request->all());
+
+            return redirect()->route('isirung.bahagianiii')->with('success', 'Maklumat sudah ditambah');
+        }
     }
 
     protected function validation_bahagian_iii(array $data)
@@ -321,20 +345,31 @@ class KilangIsirungController extends Controller
             'e102_b4' => ['required', 'string'],
             'e102_b5' => ['required', 'string'],
             'e102_b6' => ['required', 'string'],
+
         ]);
     }
 
     protected function store_bahagian_iii(array $data)
     {
         $e102_reg = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
-        // dd($e101_reg->e101_reg);
+        // $penyata = E102b::where('e102_b2', $e102_reg)->where('e102_b3', '51')->where('e102_b4', $request->e102_b4)
+        // ->where('e102_b5', $request->e102_b5)->first();
+        // dd($penyata);
+        // $count = E102b::count();
+
+        // if (!$penyata) {
         return E102b::create([
+            // 'e102_b1' => $count++,
+
             'e102_b2' => $e102_reg->e102_reg,
             'e102_b3' => '51',
             'e102_b4' => $data['e102_b4'],
             'e102_b5' => $data['e102_b5'],
             'e102_b6' => $data['e102_b6'],
         ]);
+        // } else {
+        //     return redirect()->route('isirung.bahagianiii')->with('error', 'Maklumat sudah tersedia');
+        // }
         // return $data;
         // dd($data);
     }
@@ -345,43 +380,30 @@ class KilangIsirungController extends Controller
         $penyata->delete();
 
         return redirect()->route('isirung.bahagianiii')
-                        ->with('success','Produk Dihapuskan');
+            ->with('success', 'Produk Dihapuskan');
     }
 
-    public function validation(Request $request){
+    public function validation(Request $request)
+    {
         // dd($request->all());
 
         $total3 = floatval($request->total3);
 
         $jumlah = floatval($request->jumlah);
 
-        if($total3 != $request->jumlah)
-        {
-             return redirect()->back()->withInput()
-             ->with('error', 'Jumlah Tidak Sama!');
-        }else{
-             return redirect()->route('isirung.bahagianiv')
-            ->with('success', 'Maklumat telah disimpan');
+        if ($total3 != $request->jumlah) {
+            return redirect()->back()->withInput()
+                ->with('error', 'Jumlah Tidak Sama!');
+        } else {
+            return redirect()->route('isirung.bahagianiv')
+                ->with('success', 'Maklumat telah disimpan');
         }
     }
 
 
     public function isirung_edit_bahagian_iii(Request $request, $id)
     {
-        // $kodsl = KodSl::where('catname', $request->e101_b4)->first();
-        // $prodcat2 = ProdCat2::where('catname', $request->e101_b5)->first();
 
-
-
-    //     $e102_b6 = floatval($request->e102_b6);
-
-    //    $total = floatval($request->jumlah);
-
-    //    if($e102_b6 != $request->jumlah)
-    //    {
-    //         return redirect()->back()->withInput()
-    //         ->with('error', 'Jumlah Tidak Sama!');
-    //    }
         $penyata = E102b::findOrFail($id);
         $penyata->e102_b4 = $request->e102_b4;
         $penyata->e102_b5 = $request->e102_b5;
@@ -392,6 +414,50 @@ class KilangIsirungController extends Controller
         return redirect()->route('isirung.bahagianiii')
             ->with('success', 'Maklumat telah disimpan');
     }
+
+    // public function bahagian_iii(Request $request, $id, array $data)
+    // {
+    //     // $reg_pelesens = RegPelesen::get(); // login
+    //     $this->validation_bahagian_iii($request->all())->validate();
+
+    //     // $profilebulanans = ProfileBulanan::get();
+    //     $penyatas = E102b::findOrFail($id);
+    //     foreach ($penyatas as $penyata) {
+    // $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
+    // $e_asdaerah = DB::connection('mysql2')->select("SELECT kod_daerah FROM  daerah where namadaerah = $kilang->e_asdaerah");
+    // dd($e_asdaerah);
+
+
+    // $count = Pelesen::count();
+    // dd($count);
+
+    // $product = E102b::where('e_nl', $profilebulanan->no_lesen)->first();
+
+    // if($kilang->e_nl == '616115025000'){
+    //     dd($kilang);
+    // }
+    //     $e102_reg = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+
+
+    //     if (!$penyata) {
+    //         $penyata = E102b::create([
+    //             'e102_b2' => $e102_reg->e102_reg,
+    //             'e102_b3' => '51',
+    //             'e102_b4' => $data['e102_b4'],
+    //             'e102_b5' => $data['e102_b5'],
+    //             'e102_b6' => $data['e102_b6'],
+    //         ]);
+    //     } else {
+
+    //         $penyata->e102_b4 = $request->e102_b4;
+    //         $penyata->e102_b5 = $request->e102_b5;
+    //         $penyata->e102_b6 = $request->e102_b6;
+    //         $penyata->save();
+    //     }
+    //     return redirect()->route('isirung.bahagianiii')
+    //         ->with('success', 'Maklumat telah disimpan');
+    // }
+
 
 
 
@@ -431,7 +497,7 @@ class KilangIsirungController extends Controller
         $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->sum('e102_b6');
 
 
-        return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user', 'total','penyatai'));
+        return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user', 'total', 'penyatai'));
     }
 
 
@@ -475,23 +541,23 @@ class KilangIsirungController extends Controller
         $penyata->delete();
 
         return redirect()->route('isirung.bahagianiv')
-                        ->with('success','Produk Dihapuskan');
+            ->with('success', 'Produk Dihapuskan');
     }
 
-    public function validationiv(Request $request){
+    public function validationiv(Request $request)
+    {
         // dd($request->all());
 
         $e102_b6 = floatval($request->e102_b6);
 
         $total = floatval($request->jumlah);
 
-        if($e102_b6 != $request->jumlah)
-        {
-             return redirect()->back()->withInput()
-             ->with('error', 'Jumlah Tidak Sama!');
-        }else{
-             return redirect()->route('isirung.bahagianiii')
-            ->with('success', 'Maklumat telah disimpan');
+        if ($e102_b6 != $request->jumlah) {
+            return redirect()->back()->withInput()
+                ->with('error', 'Jumlah Tidak Sama!');
+        } else {
+            return redirect()->route('isirung.bahagianiii')
+                ->with('success', 'Maklumat telah disimpan');
         }
     }
 
@@ -556,7 +622,7 @@ class KilangIsirungController extends Controller
         $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->sum('e102_b6');
 
 
-        return view('users.KilangIsirung.isirung-bahagian-v', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user', 'total','penyatai'));
+        return view('users.KilangIsirung.isirung-bahagian-v', compact('returnArr', 'layout', 'prodcat', 'penyata', 'user', 'total', 'penyatai'));
     }
 
 
@@ -600,7 +666,7 @@ class KilangIsirungController extends Controller
         $penyata->delete();
 
         return redirect()->route('isirung.bahagianv')
-                        ->with('success','Produk Dihapuskan');
+            ->with('success', 'Produk Dihapuskan');
     }
 
 
