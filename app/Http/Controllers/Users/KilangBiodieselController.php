@@ -832,7 +832,6 @@ class KilangBiodieselController extends Controller
         $totaliab9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b9');
         $totaliab10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b10');
         $totaliab11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b11');
-        $totaliab12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b12');
 
         $totalibb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b5');
         $totalibb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b6');
@@ -841,7 +840,6 @@ class KilangBiodieselController extends Controller
         $totalibb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b9');
         $totalibb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b10');
         $totalibb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b11');
-        $totalibb12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b12');
 
         $totalicb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b5');
         $totalicb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b6');
@@ -850,7 +848,6 @@ class KilangBiodieselController extends Controller
         $totalicb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b9');
         $totalicb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b10');
         $totalicb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b11');
-        $totalicb12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b12');
 
         $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
         $totaliiic5 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c5');
@@ -859,7 +856,6 @@ class KilangBiodieselController extends Controller
         $totaliiic8 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c8');
         $totaliiic9 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c9');
         $totaliiic10 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c10');
-        $totaliiic11 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c11');
 
         return view('users.KilangBiodiesel.bio-papar-penyata', compact(
             'layout',
@@ -879,7 +875,6 @@ class KilangBiodieselController extends Controller
             'totaliab9',
             'totaliab10',
             'totaliab11',
-            'totaliab12',
             'totalibb5',
             'totalibb6',
             'totalibb7',
@@ -887,7 +882,6 @@ class KilangBiodieselController extends Controller
             'totalibb9',
             'totalibb10',
             'totalibb11',
-            'totalibb12',
             'totalicb5',
             'totalicb6',
             'totalicb7',
@@ -895,7 +889,6 @@ class KilangBiodieselController extends Controller
             'totalicb9',
             'totalicb10',
             'totalicb11',
-            'totalicb12',
             'totaliiic4',
             'totaliiic5',
             'totaliiic6',
@@ -903,7 +896,6 @@ class KilangBiodieselController extends Controller
             'totaliiic8',
             'totaliiic9',
             'totaliiic10',
-            'totaliiic11',
             'bulan',
             'tahun'
         ));
@@ -986,6 +978,7 @@ class KilangBiodieselController extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.kbio';
+
 
 
 

@@ -90,11 +90,11 @@
                                                 <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
 
                                             </p>
-                                            <title>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4</title>
+                                            <title>PENYATA BULANAN KILANG OLEOKIMIA- MPOB (EL) CM 4</title>
                                             <p align="center"><b>
                                                     <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
-                                                    </font>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4<br>
+                                                    </font>PENYATA BULANAN KILANG OLEOKIMIA (BIODIESEL)  - MPOB (EL) CM 4<br>
 
                                                     BULAN :&nbsp;&nbsp;
                                                     @if($bulan == 1) JANUARI
@@ -310,10 +310,7 @@
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Lapor</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Premis</font>
+                                                                <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
                                                     </tr>
                                                     @foreach ($ia as $data)
@@ -346,9 +343,6 @@
                                                         <td align="right">
                                                             <font size="2">{{ number_format($data->ebio_b11 ??  0,2) }}</font>
                                                         </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format($data->ebio_b12 ??  0,2) }}</font>
-                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                     <tr>
@@ -378,9 +372,6 @@
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>{{ number_format($totaliab11 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($totaliab12 ??  0,2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -417,10 +408,7 @@
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Lapor</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Premis</font>
+                                                                <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
                                                     </tr>
                                                     @foreach ($ib as $data)
@@ -453,9 +441,6 @@
                                                         <td align="right">
                                                             <font size="2">{{ number_format($data->ebio_b11 ??  0,2) }}</font>
                                                         </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format($data->ebio_b12 ??  0,2) }}</font>
-                                                        </td>
                                                     </tr>
                                                     @endforeach
 
@@ -486,9 +471,6 @@
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>{{ number_format($totalibb11 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($totalibb12 ??  0,2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -525,10 +507,7 @@
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Lapor</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Premis</font>
+                                                                <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
                                                     </tr>
                                                     @foreach ($ic as $data)
@@ -561,9 +540,6 @@
                                                         <td align="right">
                                                             <font size="2">{{ number_format($data->ebio_b11 ??  0,2) }}</font>
                                                         </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format($data->ebio_b12 ??  0,2) }}</font>
-                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                     <tr>
@@ -593,9 +569,6 @@
                                                         </td>
                                                         <td align="right">
                                                             <font size="2"><b>{{ number_format($totalicb11 ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($totalicb12 ??  0,2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -650,10 +623,7 @@
                                                                 <font size="2">Eksport</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Lapor</font>
-                                                            </b></td>
-                                                        <td width="8%" align="center"><b>
-                                                                <font size="2">Stok Akhir Di Premis</font>
+                                                                <font size="2">Stok Akhir Dilapor</font>
                                                             </b></td>
                                                     </tr>
                                                     @foreach ($iii as $data)
@@ -686,9 +656,6 @@
                                                         <td align="right">
                                                             <font size="2">{{ number_format($data->ebio_c10 ??  0,2) }}</font>
                                                         </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format($data->ebio_c11 ??  0,2) }}</font>
-                                                        </td>
                                                     </tr>
                                                     @endforeach
                                                     <tr>
@@ -719,15 +686,12 @@
                                                         <td align="right">
                                                             <font size="2"><b>{{ number_format($totaliiic10 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($totaliiic11 ??  0,2) }}</b></font>
-                                                        </td>
                                                     </tr>
                                                 </tbody>
                                             </table>
                                             <p><b>
                                                     <font color="#0000FF">BAHAGIAN IV :&nbsp;&nbsp;&nbsp;&nbsp; EKSPORT
-                                                        PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT</font>
+                                                        PRODUK BIODIESEL DAN LAIN-LAIN PRODUK SAWIT</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
@@ -798,7 +762,7 @@
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                       
+
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                             <input type="email" id="email-id-column" class="form-control" size="50"
                                                 name="email-id-column">

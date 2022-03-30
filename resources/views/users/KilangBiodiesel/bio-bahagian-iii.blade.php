@@ -166,7 +166,7 @@
                                                 </div>
 
                                                 <div class="col-md-3">
-                                                    <span class="required">Stok Akhir di Lapor</span>
+                                                    <span class="required">Stok Akhir Dilapor</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_c10'
@@ -222,7 +222,7 @@
                                                             <th>Digunakan Untuk Proses Selanjutnya</th>
                                                             <th>Jualan / Edaran Tempatan</th>
                                                             <th>Eksport</th>
-                                                            <th>Stok Akhir Di Lapor</th>
+                                                            <th>Stok Akhir Dilapor</th>
                                                             <th>Kemaskini</th>
                                                             <th>Hapus?</th>
                                                         </tr>
@@ -358,7 +358,7 @@
                                                                                                 value="{{ $data->ebio_c9 }}"
                                                                                                 >
                                                                                         </div>
-                                                                                        <label>Stok Akhir Di Lapor </label>
+                                                                                        <label>Stok Akhir Dilapor </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_c10'
