@@ -73,7 +73,7 @@
                                         </h5> --}}
                                         {{-- <p>Maklumat Kilang</p> --}}
 
-                                        <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan dalam bentuk PDF, WORD dan EXCEL sahaja</i>
+
 
                                     </div>
 
@@ -141,9 +141,9 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kandungan</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='Message'
+                                                    <textarea type="text" class="form-control" name='Message'
                                                         id="Subject" required title="Sila isikan butiran ini.">
-
+                                                    </textarea>
                                                 </div>
                                                 {{-- <div class="col-md-6" >
                                                     <div id="snow" oninput="add_message()">
@@ -161,10 +161,14 @@
                                                 <div class="form-file">
                                                     <input type="file" class="form-file-input" id="file">
                                                     <label class="form-file-label" for="file">
-
+                                                        <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan dalam bentuk PDF, WORD, EXCEL, JPG dan PNG sahaja</i>
                                                     </label>
                                                 </div>
-
+                                                @if($errors->has('file'))
+                                                <div class="error" style="color: rgb(255, 0, 0)">
+                                                  {{$errors->first('file')}}
+                                                </div>
+                                            @endif
                                             </div>
                                         </div>
                                     </div>

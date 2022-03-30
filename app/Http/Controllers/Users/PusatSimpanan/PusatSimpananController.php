@@ -13,6 +13,7 @@ use App\Models\Pelesen;
 use App\Models\Produk;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
+use DB;
 
 
 class PusatSimpananController extends Controller
@@ -125,19 +126,36 @@ class PusatSimpananController extends Controller
 
         $produks = Produk::select('prodid', 'prodname')->where('prodcat', '!=', '07')->orderBy('prodname')->get();
         // dd($penyata);
+        $total = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokawal');
+        $total2 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_terima');
+        $total3 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_edaran');
+        $total4 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_pelarasan');
+        $total5 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokakhir');
 
 
 
-        return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact('returnArr', 'layout','user','penyata','produks'));
+
+
+        return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact('returnArr', 'layout','user','penyata','produks',
+        'total','total2','total3','total4','total5'));
     }
 
     public function pusatsimpan_add_bahagian_a(Request $request)
     {
         // dd($request->all());
+        $user = E07Init::where('e07_nl', auth()->user()->username)->first('e07_reg');
+
+        $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->where('e07bt_stokawal', $request->e07bt_stokawal)->first();
+        if ($penyata) {
+            return redirect()->back()->with("error", "Produk telah Tersedia");
+        }
+        else{
+
         $this->validation_bahagian_a($request->all())->validate();
         $this->store_bahagian_a($request->all());
 
         return redirect()->route('pusatsimpan.bahagiana')->with('success', 'Maklumat sudah ditambah');
+        }
     }
 
     protected function validation_bahagian_a(array $data)
@@ -161,9 +179,9 @@ class PusatSimpananController extends Controller
             'e07bt_produk' => $data['e07bt_produk'],
             'e07bt_stokawal' => $data['e07bt_stokawal'],
             'e07bt_terima' => $data['e07bt_terima'],
-            'e07bt_import' => '0',
+            // 'e07bt_import' => '0',
             'e07bt_edaran' => $data['e07bt_edaran'],
-            'e07bt_eksport' => '0',
+            // 'e07bt_eksport' => '0',
             'e07bt_pelarasan' => $data['e07bt_pelarasan'],
             'e07bt_stokakhir' => $data['e07bt_stokakhir'],
         ]);
@@ -269,11 +287,16 @@ class PusatSimpananController extends Controller
             return $query->where('prodcat', '!=', '07');
         })->get();
         // dd($penyata);
+        $total = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokawal');
+        $total2 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_terima');
+        $total3 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_edaran');
+        $total4 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_pelarasan');
+        $total5 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokakhir');
 
 
 
-
-        return view('users.PusatSimpanan.pusatsimpan-papar-penyata', compact('layout','returnArr','user','penyata','pelesen','tahun','bulan'));
+        return view('users.PusatSimpanan.pusatsimpan-papar-penyata', compact('layout','returnArr','user','penyata','pelesen','tahun','bulan',
+        'total', 'total2', 'total3', 'total4', 'total5'));
     }
 
 
@@ -416,7 +439,11 @@ class PusatSimpananController extends Controller
             return $query->where('prodcat', '!=', '07');
         })->get();
         // dd($penyata);
-
+        $total = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_stokawal');
+        $total2 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_terima');
+        $total3 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_edaran');
+        $total4 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_pelarasan');
+        $total5 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_stokakhir');
 
 
         $breadcrumbs    = [
@@ -439,6 +466,11 @@ class PusatSimpananController extends Controller
             'user',
             'pelesen',
             'penyata',
+            'total',
+            'total2',
+            'total3',
+            'total4',
+            'total5'
         ));
     }
 

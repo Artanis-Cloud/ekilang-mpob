@@ -143,8 +143,8 @@
                                                     <span class="required">Pelarasan(+/-)</span>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type="text" class="form-control" name='"e07bt_pelarasan'style="width: 50%"
-                                                        id=""e07bt_pelarasan" required
+                                                    <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 50%"
+                                                        id="e07bt_pelarasan" required
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -442,6 +442,26 @@
                                                                 </div>
 
                                                             @endforeach
+                                                            <tr>
+
+                                                                <td colspan="1"><b>JUMLAH</b></td>
+                                                                {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                                <td style="text-align: right"><b>{{ number_format($total ??  0,2) }}</b></td>
+                                                                <td style="text-align: right"><b>{{ number_format($total2 ??  0,2) }}</b></td>
+                                                                <td style="text-align: right"><b>0</b></td>
+                                                                <td style="text-align: right"><b>{{ number_format($total3 ??  0,2) }}</b></td>
+                                                                <td style="text-align: right"><b>0</b></td>
+                                                                <td style="text-align: right"><b>{{ number_format($total4 ??  0,2) }}</b></td>
+                                                                <td style="text-align: right"><b>{{ number_format($total5 ??  0,2) }}</b></td>
+
+                                                                {{-- <td style="text-align: right"><b>{{ number_format($totalb2 ??  0,2) }}</b></td>
+                                                                <td style="text-align: right"><b>{{ number_format($totalb3 ??  0,2) }}</b></td>
+                                                                <td style="text-align: right"><b>{{ number_format($totalb4 ??  0,2) }}</b></td> --}}
+
+                                                                <td colspan="2"></td>
+                                                                {{-- <td></td> --}}
+
+                                                            </tr>
 
                                                             <br>
 
