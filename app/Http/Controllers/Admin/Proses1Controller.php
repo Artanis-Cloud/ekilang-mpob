@@ -158,7 +158,7 @@ class Proses1Controller extends Controller
 
     public function admin_papar_maklumat($e_id, Pelesen $pelesen)
     {
-
+        // dd($e_id);
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen Buah"],
@@ -188,8 +188,43 @@ class Proses1Controller extends Controller
         // return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
     }
 
+    public function admin_papar_maklumat_batal($e_id, Pelesen $pelesen)
+    {
+        // dd($e_id);
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenbatalbuah'), 'name' => "Senarai Pelesen Buah Dibatalkan"],
+            ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        // $nid = Ekmessage::where ('MsgID', $request->id)->first('MsgID');
+
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+
+        $pelesen = Pelesen::find($e_id);
+        // dd($pelesen);
+        // $pengumuman = \DB::table('pengumuman')->get();
+        // dd($id);
+
+        return view('admin.proses1.papar-maklumat-batal', compact('returnArr', 'layout', 'pelesen','negeri'));
+
+        // return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
+    }
+
     public function admin_senaraipelesenbuah()
     {
+        //test data
+        // $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->where('e_id', 677)->get();
+
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
         // dd($users);
         // $pelesen = Pelesen::get();

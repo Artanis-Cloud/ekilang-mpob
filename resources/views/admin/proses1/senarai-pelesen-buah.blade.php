@@ -139,7 +139,8 @@
                                                                 <tr>
                                                                     <td>{{ $loop->iteration }}</td>
                                                                     <td style="text-align:left">
-                                                                        <a href="{{ route('admin.papar.maklumat', [$data->e_id]) }}" ><u> {{ $data->e_nl }}</u></a>
+                                                                        {{-- {{ $data->e_id }} --}}
+                                                                        <a href="{{ route('admin.papar.maklumat', $data->e_id) }}" ><u> {{ $data->e_nl }}</u></a>
                                                                        </td>
                                                                     <td>{{ $data->pelesen->e_np ?? '-'}}</td>
                                                                     <td>{{ $data->pelesen->e_email ?? '-'}}</td>
