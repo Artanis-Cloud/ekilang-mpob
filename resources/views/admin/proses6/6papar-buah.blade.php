@@ -97,7 +97,7 @@
                                             <p align="center"><b>
                                                     <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
                                                     </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
-                                                    BULAN :&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
+                                                    BULAN :&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $penyata->e91_thn}}
                                                 </b><br>
                                             </p>
                                             <hr>
@@ -109,7 +109,7 @@
                                                             <font face="Times New Roman">Nombor Lesen</font>
                                                         </td>
                                                         <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman"></font>
+                                                                <font face="Times New Roman">{{ $penyata->e91_nl}}</font>
                                                             </b></td>
                                                     </tr>
 
@@ -120,7 +120,7 @@
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman"></font>
+                                                                <font face="Times New Roman">{{ $penyata->name}}</font>
                                                             </b></td>
 
                                                     </tr>
@@ -144,7 +144,7 @@
 
                                                         <td width="35%">Nombor Lesen</td>
 
-                                                        <td width="65%"><b></b></td>
+                                                        <td width="65%"><b>{{ $penyata->e91_nl}}</b></td>
 
                                                     </tr>
 
@@ -252,7 +252,7 @@
 
                                                         <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b></b></td>
+                                                        <td width="65%"><b>{{ $penyata->e91_npg}}</b></td>
 
                                                     </tr>
 

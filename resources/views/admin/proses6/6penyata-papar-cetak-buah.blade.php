@@ -1,8 +1,6 @@
 @extends($layout)
 
 @section('content')
-
-
     <style>
         /* Style the tab */
         .tab {
@@ -84,22 +82,22 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                             @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                            @if (!$loop->last)
-                                                <li class="breadcrumb-item">
-                                                    <a href="{{ $breadcrumb['link'] }}"
-                                                        style="color: rgb(64, 69, 68) !important;"
-                                                        onMouseOver="this.style.color='#25877b'"
-                                                        onMouseOut="this.style.color='grey'">
+                                                @if (!$loop->last)
+                                                    <li class="breadcrumb-item">
+                                                        <a href="{{ $breadcrumb['link'] }}"
+                                                            style="color: rgb(64, 69, 68) !important;"
+                                                            onMouseOver="this.style.color='#25877b'"
+                                                            onMouseOut="this.style.color='grey'">
+                                                            {{ $breadcrumb['name'] }}
+                                                        </a>
+                                                    </li>
+                                                @else
+                                                    <li class="breadcrumb-item active" aria-current="page"
+                                                        style="color: #25877b  !important; margin-right: 100px;">
                                                         {{ $breadcrumb['name'] }}
-                                                    </a>
-                                                </li>
-                                            @else
-                                                <li class="breadcrumb-item active" aria-current="page"
-                                                    style="color: #25877b  !important; margin-right: 100px;">
-                                                    {{ $breadcrumb['name'] }}
-                                                </li>
-                                            @endif
-                                        @endforeach
+                                                    </li>
+                                                @endif
+                                            @endforeach
 
                                         </ol>
                                     </nav>
@@ -173,7 +171,8 @@
                                                         </div> --}}
 
 
-
+                                                {{-- <form action="{{ route('admin.6papar.buah') }}" method="get"> --}}
+                                                    @csrf
                                                     <table class='table' id="table1">
                                                         <thead>
                                                             <tr>
@@ -187,7 +186,7 @@
                                                                 <th>Kod Pegawai
                                                                 </th>
                                                                 {{-- <th>No. Pegawai
-                                                                </th> --}}
+                                                                    </th> --}}
                                                                 <th>Email Pegawai
                                                                 </th>
                                                                 <th>No. Siri
@@ -206,7 +205,7 @@
                                                                         x
                                                                     </td>
 
-                                                                    <td>{{ $data->e_nl ?? '-' }}</td>
+                                                                    <td><a href="{{ route('admin.6papar.buah', [$data->e91_reg]) }}" ><u> {{ $data->e_nl }}</u></a></td>
                                                                     <td>{{ $data->e_np ?? '-' }}</td>
                                                                     <td>{{ $data->kodpgw }}</td>
 
@@ -216,80 +215,84 @@
                                                                     <td>{{ $data->sdate }}</td>
 
                                                                 </tr>
-
                                                             @endforeach
                                                         </tbody>
                                                     </table>
 
 
-                                                                    {{-- <div class="row" style="padding-top: 35px; float:right">
+                                                    {{-- <div class="row" style="padding-top: 35px; float:right">
 
-                                                                    <div class="col-md-12">
-                                                                        <button type="button" class="btn  btn-primary"
-                                                                            data-toggle="modal" data-target="#confirmation">Simpan &
-                                                                            Seterusnya</button>
-                                                                    </div>
+                                                                        <div class="col-md-12">
+                                                                            <button type="button" class="btn  btn-primary"
+                                                                                data-toggle="modal" data-target="#confirmation">Simpan &
+                                                                                Seterusnya</button>
+                                                                        </div>
 
-                                                                </div> --}}
+                                                                    </div> --}}
 
 
-                                                        <div class="text-left col-md-8">
-                                                            <button type="submit" class="btn btn-primary ">Papar</button>
+                                                    <div class="text-left col-md-8">
+                                                        <button type="submit" class="btn btn-primary ">Papar</button>
 
-                                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                                data-bs-target="#exampleModalCenter">
+                                                        <button type="button" class="btn btn-primary "
+                                                            data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
 
-                                                                <a href="{{ route('admin.6papar.buah') }}">
+                                                            <a href="{{ route('admin.6papar.buah', [$data->e_nl]) }}">
                                                                 Cetak
-                                                                </a>
-                                                            </button>
+                                                            </a>
+                                                        </button>
 
-                                                        </div>
+                                                    </div>
 
-                                                        <div class="row" style=" float:right">
+                                                    <div class="row" style=" float:right">
 
-                                                            <div class="col-md-12">
+                                                        <div class="col-md-12">
 
 
-                                                                <!-- Vertically Centered modal Modal -->
-                                                                <div class="modal fade" id="exampleModalCenter" tabindex="-1"
-                                                                    role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                                                    aria-hidden="true">
-                                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                                        role="document">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                                    PENGESAHAN</h5>
-                                                                                <button type="button" class="close"
-                                                                                    data-bs-dismiss="modal" aria-label="Close">
-                                                                                    <i data-feather="x"></i>
-                                                                                </button>
-                                                                            </div>
-                                                                            <div class="modal-body">
-                                                                                <p>
-                                                                                    Anda pasti mahu cetak maklumat ini?
-                                                                                </p>
-                                                                            </div>
-                                                                            <div class="modal-footer">
-                                                                                <button type="button" class="btn btn-light-secondary"
-                                                                                    data-bs-dismiss="modal">
-                                                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                                                    <span class="d-none d-sm-block"
-                                                                                        style="color:#275047">Tidak</span>
-                                                                                </button>
-                                                                                <button type="button" class="btn btn-primary ml-1"
-                                                                                    data-bs-dismiss="modal">
-                                                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                    <span class="d-none d-sm-block">Ya</span>
-                                                                                </button>
-                                                                            </div>
+                                                            <!-- Vertically Centered modal Modal -->
+                                                            <div class="modal fade" id="exampleModalCenter"
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="exampleModalCenterTitle"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                                    role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <h5 class="modal-title"
+                                                                                id="exampleModalCenterTitle">
+                                                                                PENGESAHAN</h5>
+                                                                            <button type="button" class="close"
+                                                                                data-bs-dismiss="modal" aria-label="Close">
+                                                                                <i data-feather="x"></i>
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p>
+                                                                                Anda pasti mahu cetak maklumat ini?
+                                                                            </p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button"
+                                                                                class="btn btn-light-secondary"
+                                                                                data-bs-dismiss="modal">
+                                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                <span class="d-none d-sm-block"
+                                                                                    style="color:#275047">Tidak</span>
+                                                                            </button>
+                                                                            <button type="button"
+                                                                                class="btn btn-primary ml-1"
+                                                                                data-bs-dismiss="modal">
+                                                                                <i
+                                                                                    class="bx bx-check d-block d-sm-none"></i>
+                                                                                <span class="d-none d-sm-block">Ya</span>
+                                                                            </button>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-
+                                                    </div>
+                                                </form>
                                             </div>
                                         </section>
 
@@ -350,6 +353,4 @@
     {{-- </body>
 
     </html> --}}
-
-
 @endsection

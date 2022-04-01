@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
+use App\Models\E91Init;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
 use App\Models\Negeri;
@@ -18,7 +19,7 @@ class Proses6Controller extends Controller
     public function admin_6penyatapaparcetakbuah()
     {
 
-        $users = DB::select("SELECT e.e91_flagcetak, p.e_nl, p.e_np, e.e91_flg, p.e_email,
+        $users = DB::select("SELECT e.e91_flagcetak, p.e_nl, p.e_np, e.e91_flg, p.e_email, e.e91_reg,
         k.kodpgw, k.nosiri, date_format(e91_sdate,'%d-%m-%Y') as sdate
         FROM pelesen p, e91_init e, reg_pelesen k
         WHERE p.e_nl = e.e91_nl
@@ -26,6 +27,7 @@ class Proses6Controller extends Controller
         and p.e_nl = k.e_nl
         and k.e_kat = 'PL91'
         order by k.kodpgw, k.nosiri");
+
 
 
         $breadcrumbs    = [
@@ -44,6 +46,25 @@ class Proses6Controller extends Controller
 
 
         return view('admin.proses6.6penyata-papar-cetak-buah', compact('returnArr', 'layout', 'users'));
+    }
+
+    public function show_admin_6penyatapaparcetakbuah($e91_reg, E91Init $penyata)
+    {
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+        ];
+
+
+       $penyata = E91Init::find($e91_reg);
+        // dd($penyata);
+        $kembali = route('admin.dashboard');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+        return view('admin.proses6.6papar-buah',compact('penyata','returnArr' ,'layout'));
     }
 
     public function admin_6penyatapaparcetakpenapis()
@@ -202,10 +223,18 @@ class Proses6Controller extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.admin';
+        $users = DB::select("SELECT e.e91_flagcetak, p.e_nl, p.e_np, e.e91_flg,  e.e91_nl, p.e_email,
+        k.kodpgw, k.nosiri, date_format(e91_sdate,'%d-%m-%Y') as sdate
+        FROM pelesen p, e91_init e, reg_pelesen k
+        WHERE p.e_nl = e.e91_nl
+        and e.e91_flg in ('2','3')
+        and p.e_nl = k.e_nl
+        and k.e_kat = 'PL91'
+        order by k.kodpgw, k.nosiri");
 
 
 
-        return view('admin.proses6.6papar-buah', compact('returnArr', 'layout'));
+        return view('admin.proses6.6papar-buah', compact('returnArr', 'layout', 'users'));
     }
 
 }
