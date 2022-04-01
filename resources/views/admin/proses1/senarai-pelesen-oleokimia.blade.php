@@ -111,7 +111,7 @@
                                             <table class='table' id="table1">
                                                 <thead>
                                                     <tr>
-                                                        <th>No</th>
+                                                        <th>Bil</th>
                                                         <th>No. Lesen<br>
                                                         </th>
                                                         <th>Nama Premis
@@ -138,7 +138,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
-                                                            <td style="text-align:left">{{ $data->e_nl }}</td>
+                                                            <td><a href="{{ route('admin.papar.maklumat', $data->e_id) }}" ><u> {{ $data->e_nl }}</u></a></td>
                                                             <td>{{ $data->pelesen->e_np ?? '-' }}</td>
                                                             <td>{{ $data->pelesen->e_email ?? '-' }}</td>
                                                             <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
