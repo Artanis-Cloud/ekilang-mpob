@@ -156,10 +156,43 @@ class Proses1Controller extends Controller
         ]);
     }
 
+    public function admin_papar_maklumat($e_id, Pelesen $pelesen)
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen Buah"],
+            ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        // $nid = Ekmessage::where ('MsgID', $request->id)->first('MsgID');
+
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+
+        $pelesen = Pelesen::find($e_id);
+        // dd($pelesen);
+        // $pengumuman = \DB::table('pengumuman')->get();
+        // dd($id);
+
+        return view('admin.proses1.papar-maklumat', compact('returnArr', 'layout', 'pelesen','negeri'));
+
+        // return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
+    }
+
     public function admin_senaraipelesenbuah()
     {
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
-
+        // dd($users);
+        // $pelesen = Pelesen::get();
 
 
         $breadcrumbs    = [

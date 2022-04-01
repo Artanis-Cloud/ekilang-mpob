@@ -413,6 +413,7 @@
         @elseif ($message = Session::get('error'))
             toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
         @endif
+        console.log('toastr')
     </script>
 
     <script>
