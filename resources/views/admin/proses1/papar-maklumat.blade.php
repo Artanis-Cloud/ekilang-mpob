@@ -54,11 +54,11 @@
                                 <div class="pl-3">
 
                                     <div class=" text-center">
-                                        <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Daftar Pelesen Baru</h4>
+                                        <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h4>
                                     </div>
                                     <hr>
-                                    <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post">
-                                        @csrf
+                                    {{-- <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post">
+                                        @csrf --}}
                                         <div class="container center mt-5">
 
                                             <div class="row" style="margin-top:-2%">
@@ -69,12 +69,12 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect" name="jenis_kilang">
                                                             <option selected hidden disabled>Sila Pilih Kilang</option>
-                                                            <option>Kilang Buah</option>
-                                                            <option>Kilang Penapis</option>
-                                                            <option>Kilang Isirung</option>
-                                                            <option>Kilang Oleokimia</option>
-                                                            <option>Pusat Simpanan</option>
-                                                            <option>Kilang Biodiesel</option>
+                                                            <option value="PL91">Kilang Buah</option>
+                                                            <option value="PL101">Kilang Penapis</option>
+                                                            <option value="PL102">Kilang Isirung</option>
+                                                            <option value="PL104">Kilang Oleokimia</option>
+                                                            <option value="PL111">Pusat Simpanan</option>
+                                                            <option value="PLBIO">Kilang Biodiesel</option>
                                                         </select>
                                                     </fieldset>
                                                     {{-- @error('alamat_kilang_1')
@@ -92,9 +92,9 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect"
                                                             name="status_ekilang">
-                                                            <option selected hidden disabled>Sila Pilih</option>
-                                                            <option>Aktif</option>
-                                                            <option>Tidak Aktif</option>
+                                                            <option selected hidden disabled>Aktif</option>
+                                                            <option value="1">Aktif</option>
+                                                            <option value="2">Tidak Aktif</option>
                                                         </select>
                                                     </fieldset>
                                                     {{-- @error('alamat_kilang_1')
@@ -113,9 +113,9 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect"
                                                             name="status_emingguan">
-                                                            <option selected hidden disabled>Sila Pilih</option>
-                                                            <option>Aktif</option>
-                                                            <option>Tidak Aktif</option>
+                                                            <option selected hidden disabled>Aktif</option>
+                                                            <option value="1">Aktif</option>
+                                                            <option value="2">Tidak Aktif</option>
                                                         </select>
                                                     </fieldset>
                                                     {{-- @error('alamat_kilang_1')
@@ -134,9 +134,9 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect"
                                                             name="status_direktori">
-                                                            <option selected hidden disabled>Sila Pilih</option>
-                                                            <option>Ya</option>
-                                                            <option>Tidak</option>
+                                                            <option selected hidden disabled>Ya</option>
+                                                            <option value="Y">Ya</option>
+                                                            <option value="N">Tidak</option>
                                                         </select>
                                                     </fieldset>
                                                     {{-- @error('alamat_kilang_1')
@@ -153,21 +153,21 @@
                                                     Kod Negeri </label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" id="basicSelect" name="kod_negeri">
-                                                            <option selected hidden disabled>Sila Pilih</option>
-                                                            <option>JJ</option>
-                                                            <option>KB</option>
-                                                            <option>KK</option>
-                                                            <option>MM</option>
-                                                            <option>NS</option>
-                                                            <option>PH</option>
-                                                            <option>PK</option>
-                                                            <option>PP</option>
-                                                            <option>SA</option>
-                                                            <option>SS</option>
-                                                            <option>SW</option>
-                                                            <option>TT</option>
-                                                            <option>WP</option>
+                                                        <select class="form-select" id="basicSelect" name="kodpgw">
+                                                            <option selected hidden disabled>{{ $pelesen->kodpgw }}</option>
+                                                            <option value="JJ">JJ</option>
+                                                            <option value="KB">KB</option>
+                                                            <option value="KK">KK</option>
+                                                            <option value="MM">MM</option>
+                                                            <option value="NS">NS</option>
+                                                            <option value="PH">PH</option>
+                                                            <option value="PK">PK</option>
+                                                            <option value="PP">PP</option>
+                                                            <option value="SA">SA</option>
+                                                            <option value="SS">SS</option>
+                                                            <option value="SW">SW</option>
+                                                            <option value="TT">TT</option>
+                                                            <option value="WP">WP</option>
                                                         </select>
                                                     </fieldset>
                                                     {{-- @error('alamat_kilang_1')
@@ -183,9 +183,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Nombor Siri</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="nombor_siri" class="form-control"
-                                                        placeholder="Nombor Siri" name="nombor_siri"
-                                                        value="{{ old('nombor_siri') }}">
+                                                    <input type="text" id="nosiri" class="form-control"
+                                                        placeholder="Nombor Siri" name="nosiri"
+                                                        value="{{ $pelesen->nosiri ?? '' }}">
                                                     @error('nombor_siri')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -199,9 +199,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Nombor Lesen</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="nombor_lesen" class="form-control"
-                                                        placeholder="Nombor Lesen" name="nombor_lesen"
-                                                        value="{{ old('nombor_siri') }}">
+                                                    <input type="text" id="e_nl" class="form-control"
+                                                        placeholder="Nombor Lesen" name="e_nl"
+                                                        value="{{ $pelesen->e_nl }}">
                                                     @error('nombor_lesen')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
@@ -215,8 +215,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Nama Premis</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="nama_premis" class="form-control"
-                                                        placeholder="Nama Premis" name="nama_premis">
+                                                    <input type="text" id="e_np" class="form-control"
+                                                        placeholder="Nama Premis" name="e_np"
+                                                        value="{{ $pelesen->e_np }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -231,8 +232,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label align-items-center">
                                                     Alamat Premis Berlesen</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="alamat_premis_1" class="form-control"
-                                                        placeholder="Alamat Premis 1" name="alamat_premis_1">
+                                                    <input type="text" id="e_ap1" class="form-control"
+                                                        placeholder="Alamat Premis 1" name="e_ap1"
+                                                        value="{{ $pelesen->e_ap1 }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -240,12 +242,14 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%">
-                                                    <input type="text" id="alamat_premis_2" class="form-control"
-                                                        placeholder="Alamat Premis 2" name="alamat_premis_2">
+                                                    <input type="text" id="e_ap2" class="form-control"
+                                                        placeholder="Alamat Premis 2" name="e_ap2"
+                                                        value="{{ $pelesen->e_ap2 }}">
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%">
-                                                    <input type="text" id="alamat_premis_3" class="form-control"
-                                                        placeholder="Alamat Premis 3" name="alamat_premis_3">
+                                                    <input type="text" id="e_ap3" class="form-control"
+                                                        placeholder="Alamat Premis 3" name="e_ap3"
+                                                        value="{{ $pelesen->e_ap3 }}">
                                                 </div>
                                             </div>
 
@@ -254,8 +258,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Alamat Surat Menyurat</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="alamat_surat_1" class="form-control"
-                                                        placeholder="Alamat Surat Menyurat 1" name="alamat_surat_1">
+                                                    <input type="text" id="e_as1" class="form-control"
+                                                        placeholder="Alamat Surat Menyurat 1" name="e_as1"
+                                                        value="{{ $pelesen->e_as1 }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -263,12 +268,14 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%">
-                                                    <input type="text" id="alamat_surat_2" class="form-control"
-                                                        placeholder="Alamat Surat Menyurat 2" name="alamat_surat_2">
+                                                    <input type="text" id="e_as2" class="form-control"
+                                                        placeholder="Alamat Surat Menyurat 2" name="e_as2"
+                                                        value="{{ $pelesen->e_as2 }}">
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 41.6%">
-                                                    <input type="text" id="alamat_surat_3" class="form-control"
-                                                        placeholder="Alamat Surat Menyurat 3" name="alamat_surat_3">
+                                                    <input type="text" id="e_as3" class="form-control"
+                                                        placeholder="Alamat Surat Menyurat 3" name="e_as3"
+                                                        value="{{ $pelesen->e_as3 }}">
                                                 </div>
                                             </div>
 
@@ -277,8 +284,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     No. Telefon Kilang</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="no_tel_kilang" class="form-control"
-                                                        placeholder="No. Telefon Kilang" name="no_tel_kilang">
+                                                    <input type="text" id="e_notel" class="form-control"
+                                                        placeholder="No. Telefon Kilang" name="e_notel"
+                                                        value="{{ $pelesen->e_notel }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -291,8 +299,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     No. Faks Kilang</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="no_faks_kilang" class="form-control"
-                                                        placeholder="No. Faks Kilang" name="no_faks_kilang">
+                                                    <input type="text" id="e_nofax" class="form-control"
+                                                        placeholder="No. Faks Kilang" name="e_nofax"
+                                                        value="{{ $pelesen->nofax ?? ''}}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -305,8 +314,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Alamat Emel Kilang</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="emel_kilang" class="form-control"
-                                                        placeholder="Alamat Emel Kilang" name="emel_kilang">
+                                                    <input type="text" id="e_email" class="form-control"
+                                                        placeholder="Alamat Emel Kilang" name="e_email"
+                                                        value="{{ $pelesen->e_email }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -320,8 +330,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Nama Pegawai Melapor</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="nama_pegawai_lapor" class="form-control"
-                                                        placeholder="Nama Pegawai Melapor" name="nama_pegawai_lapor">
+                                                    <input type="text" id="e_npg" class="form-control"
+                                                        placeholder="Nama Pegawai Melapor" name="e_npg"
+                                                        value="{{ $pelesen->e_npg }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -334,8 +345,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Jawatan Pegawai Melapor</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="jawatan_pegawai_lapor" class="form-control"
-                                                        placeholder="Jawatan Pegawai Melapor" name="jawatan_pegawai_lapor">
+                                                    <input type="text" id="e_jpg" class="form-control"
+                                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg"
+                                                        value="{{ $pelesen->e_jpg }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -348,8 +360,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     No. Telefon Pegawai Melapor</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="email-id-column" class="form-control"
-                                                        placeholder="No. Telefon Pegawai Melapor" name="email-id-column">
+                                                    <input type="text" id="e_notel_pg" class="form-control"
+                                                        placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
+                                                        value="{{ $pelesen->e_notel_pg }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -363,8 +376,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Nama Pegawai Bertanggungjawab</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="enama_pegawai_jawab" class="form-control"
-                                                        placeholder="Nama Pegawai Bertanggungjawab" name="nama_pegawai_jawab">
+                                                    <input type="text" id="e_npgtg" class="form-control"
+                                                        placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
+                                                        value="{{ $pelesen->e_npgtg }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -377,9 +391,10 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Jawatan Pegawai Bertanggungjawab</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="jawatan_pegawai_jawab" class="form-control"
+                                                    <input type="text" id="e_jpgtg" class="form-control"
                                                         placeholder="Jawatan Pegawai Bertanggungjawab"
-                                                        name="jawatan_pegawai_jawab">
+                                                        name="e_jpgtg"
+                                                        value="{{ $pelesen->e_jpgtg }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -393,8 +408,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Alamat Emel Pengurus</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="emel_pengurus" class="form-control"
-                                                        placeholder="Alamat Emel Pengurus" name="eemel_pengurus">
+                                                    <input type="text" id="e_email_pengurus" class="form-control"
+                                                        placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
+                                                        value="{{ $pelesen->e_email_pengurus }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -475,8 +491,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Syarikat Induk</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="syarikat_induk" class="form-control"
-                                                        placeholder="Syarikat Induk" name="syarikat_induk">
+                                                    <input type="text" id="e_syktinduk" class="form-control"
+                                                        placeholder="Syarikat Induk" name="e_syktinduk"
+                                                        value="{{ $pelesen->e_syktinduk }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -489,8 +506,9 @@
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Tahun Mula Beroperasi</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="tahun_operasi" class="form-control"
-                                                        placeholder="Tahun Mula Beroperasi" name="tahun_operasi">
+                                                    <input type="text" id="e_year" class="form-control"
+                                                        placeholder="Tahun Mula Beroperasi" name="e_year"
+                                                        value="{{ $pelesen->e_year }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -504,10 +522,17 @@
                                                     Kumpulan </label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" id="basicSelect" name="kumpulan">
-                                                            <option selected hidden disabled>Sila Pilih</option>
-                                                            <option>Kerajaan</option>
-                                                            <option>Swasta</option>
+                                                        <select class="form-select" id="basicSelect" name="e_group">
+                                                            @if ($pelesen->e_group = 'GOV')
+
+                                                                <option selected hidden disabled value="KERAJAAN">Kerajaan</option>
+                                                        @elseif ($pelesen->e_group = 'IND')
+                                                                <option selected hidden disabled value="SWASTA">Swasta</option>
+
+                                                            @endif
+
+                                                            <option value="KERAJAAN">Kerajaan</option>
+                                                            <option value="SWASTA">Swasta</option>
                                                         </select>
                                                     </fieldset>
                                                     {{-- @error('alamat_kilang_1')
@@ -586,7 +611,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </form>
+                                    {{-- </form> --}}
                                 </div>
                             </div>
                         </div>

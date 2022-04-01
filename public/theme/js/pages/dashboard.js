@@ -413,14 +413,14 @@ var myBar = new Chart(ctxBar, {
             backgroundColor: [chartColors.red, chartColors.green, chartColors.orange, chartColors.yellow, chartColors.purple, chartColors.blue, chartColors.turqoise],
             data:
 
-              [
-                50,
+              [ 50,
                 50,
                 30,
                 40,
                 35,
                 55,
                 15,
+
               ]
         }]
     },
