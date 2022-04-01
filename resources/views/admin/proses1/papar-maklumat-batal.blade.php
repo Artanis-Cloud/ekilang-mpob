@@ -92,12 +92,8 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect"
                                                             name="status_ekilang">
-                                                            @if ($pelesen)
 
-                                                            @else
-
-                                                            @endif
-                                                            <option selected hidden disabled>Aktif</option>
+                                                            <option selected hidden disabled>Tidak Aktif</option>
                                                             <option value="1">Aktif</option>
                                                             <option value="2">Tidak Aktif</option>
                                                         </select>
@@ -118,7 +114,7 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect"
                                                             name="status_emingguan">
-                                                            <option selected hidden disabled>Aktif</option>
+                                                            <option selected hidden disabled> Tidak Aktif</option>
                                                             <option value="1">Aktif</option>
                                                             <option value="2">Tidak Aktif</option>
                                                         </select>
@@ -139,7 +135,7 @@
                                                     <fieldset class="form-group">
                                                         <select class="form-select" id="basicSelect"
                                                             name="status_direktori">
-                                                            <option selected hidden disabled>Ya</option>
+                                                            <option selected hidden disabled>Tidak</option>
                                                             <option value="Y">Ya</option>
                                                             <option value="N">Tidak</option>
                                                         </select>
