@@ -80,46 +80,47 @@
                                             {{-- <div class="card-header">
                                                 Simple Datatable
                                             </div> --}}
+                                            <form action="{{ route('admin.9papar-terdahulu-buah.form') }}" method="post">
+                                                @csrf
+                                                <table class='table ' id="table1">
+                                                    <thead>
+                                                        <tr class="text-center">
+                                                            <th>Papar</th>
+                                                            <th>No Lesen</th>
+                                                            <th>Nama Premis</th>
+                                                            <th>Kod Pegawai</th>
+                                                            <th>No Siri</th>
+                                                            <th>Tarikh Submit</th>
 
-                                            <table class='table ' id="table1">
-                                                <thead>
-                                                    <tr class="text-center">
-                                                        <th>Papar</th>
-                                                        <th>No Lesen</th>
-                                                        <th>Nama Premis</th>
-                                                        <th>Kod Pegawai</th>
-                                                        <th>No Siri</th>
-                                                        <th>Tarikh Submit</th>
-
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-
-                                                    @foreach ($users as $data)
-
-                                                    <tr>
-                                                        <td><input type="checkbox">&nbspYa</td>
-                                                        <td>{{ $data->e_nl }}</td>
-                                                        <td>{{ $data->e_np }}</td>
-                                                        <td>{{ $data->kodpgw }}</td>
-                                                        <td>{{ $data->nosiri }}</td>
-                                                        <td>{{ $data->sdate }}</td>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
 
 
-                                                    </tr>
-                                                     @endforeach
+                                                        @foreach ($users as $data)
 
-                                                </tbody>
-                                            </table>
+                                                        <tr>
+                                                            <td><input name="papar_ya[]" type="checkbox" value="{{ $data->e91_nobatch }}">&nbspYa</td>
+                                                            <td>{{ $data->e_nl }}</td>
+                                                            <td>{{ $data->e_np }}</td>
+                                                            <td>{{ $data->kodpgw }}</td>
+                                                            <td>{{ $data->nosiri }}</td>
+                                                            <td>{{ $data->sdate }}</td>
+
+
+                                                        </tr>
+                                                        @endforeach
+
+                                                    </tbody>
+                                                </table>
 
                                         </div>
                                     </section>
                                     <div class="text-left col-md-8">
-                                        <button type="button" class="btn btn-primary " >Papar</button>
+                                        <button type="submit" class="btn btn-primary " >Papar</button>
 
                                         <button type="button" class="btn btn-primary " >Cetak</button>
-
+</form>
                                     </div>
 
 

@@ -202,7 +202,7 @@ class Proses9Controller extends Controller
         $bulan = H91Init::where('tahun', $request->e91_bln);
 
 
-            $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, date_format(e91_sdate,'%d-%m-%Y') as sdate
+            $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, e.e91_nobatch,  date_format(e91_sdate,'%d-%m-%Y') as sdate
                         FROM pelesen p, h91_init e, reg_pelesen k
                         WHERE e.e91_thn = '$request->tahun'
                         and e.e91_bln = '$request->bulan'
@@ -228,6 +228,38 @@ class Proses9Controller extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.proses9.9papar', compact('returnArr', 'layout', 'tahun', 'bulan', 'users'));
+    }
+
+    public function process_admin_9penyataterdahulu_buah_form(Request $request)
+    {
+        // dd($request->all());
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+        ];
+
+        $kembali = route('admin.9penyataterdahulu');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+
+        $tahun = H91Init::where('tahun', $request->e91_thn);
+        $bulan = H91Init::where('tahun', $request->e91_bln);
+        foreach ($request->papar_ya as $key => $e91_nobatch) {
+            $pelesens[$key] = (object)[];
+            $penyata = H91Init::find($e91_nobatch)->where('e91_bln', $bulan)->where('e91_thn', $tahun);
+            $pelesens[$key] = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
+        }
+        $layout = 'layouts.admin';
+
+        // dd($pelesens);
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses9.9papar-terdahulu-buah-multi',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesens', 'penyata' ));
+
     }
 
     public function admin_9penyataterdahulu_penapis_process(Request $request)

@@ -156,54 +156,56 @@
                                                         {{-- <div class="card-header">
                                                             Simple Datatable
                                                         </div> --}}
+                                                        <form action="{{ route('admin.6papar.penapis.form') }}" method="post">
+                                                            @csrf
+                                                            <table class='table table-striped' id="table1" >
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>Papar?</th>
+                                                                        <th>Sudah Cetak?<br>
+                                                                        </th>
+                                                                        <th>No. Lesen<br>
+                                                                        </th>
+                                                                        <th>Nama Premis
+                                                                        </th>
+                                                                        <th>Kod Pegawai
+                                                                        </th>
+                                                                        {{-- <th>No. Pegawai
+                                                                        </th> --}}
+                                                                        <th>Email Pegawai
+                                                                        </th>
+                                                                        <th>No. Siri
+                                                                        </th>
+                                                                        <th>Tarikh Submit
+                                                                        </th>
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    @foreach ($users as $data)
+                                                                    <tr>
+                                                                        <td>
+                                                                            <input name="papar_ya[]" type="checkbox" value="{{ $data->e101_reg }}">&nbspYa
 
-                                                        <table class='table table-striped' id="table1" >
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>Papar?</th>
-                                                                    <th>Sudah Cetak?<br>
-                                                                    </th>
-                                                                    <th>No. Lesen<br>
-                                                                    </th>
-                                                                    <th>Nama Premis
-                                                                    </th>
-                                                                    <th>Kod Pegawai
-                                                                    </th>
-                                                                    {{-- <th>No. Pegawai
-                                                                    </th> --}}
-                                                                    <th>Email Pegawai
-                                                                    </th>
-                                                                    <th>No. Siri
-                                                                    </th>
-                                                                    <th>Tarikh Submit
-                                                                    </th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                @foreach ($users as $data)
-                                                                <tr>
-                                                                    <td>
-                                                                        <input type="checkbox">&nbspYa
-                                                                    </td>
-                                                                    <td>
-                                                                        x
-                                                                    </td>
+                                                                        </td>
+                                                                        <td>
+                                                                            x
+                                                                        </td>
 
-                                                                    <td>{{ $data->e_nl ?? '-' }}</td>
-                                                                    <td>{{ $data->e_np ?? '-' }}</td>
-                                                                    <td>{{ $data->kodpgw }}</td>
+                                                                        <td>{{ $data->e_nl ?? '-' }}</td>
+                                                                        <td>{{ $data->e_np ?? '-' }}</td>
+                                                                        <td>{{ $data->kodpgw }}</td>
 
-                                                                    <td>{{ $data->e_email ?? '-' }}</td>
-                                                                    <td>{{ $data->nosiri }}</td>
+                                                                        <td>{{ $data->e_email ?? '-' }}</td>
+                                                                        <td>{{ $data->nosiri }}</td>
 
-                                                                    <td>{{ $data->sdate }}</td>
+                                                                        <td>{{ $data->sdate }}</td>
 
-                                                                </tr>
+                                                                    </tr>
 
-                                                            @endforeach
-                                                            </tbody>
-                                                        </table>
-
+                                                                @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </form>
                                                     </div>
                                                 </section>
 

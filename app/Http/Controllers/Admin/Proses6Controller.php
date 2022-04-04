@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Daerah;
+use App\Models\E101Init;
 use App\Models\E91Init;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
@@ -76,7 +77,7 @@ class Proses6Controller extends Controller
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses6.6papar-buah-multi',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesens', ));
+        return view('admin.proses6.6papar-buah-multi',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesens', 'penyata' ));
 
     }
 
@@ -101,7 +102,7 @@ class Proses6Controller extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.admin';
-        return view('admin.proses6.6papar-buah',compact('penyata','returnArr' ,'layout', 'tahun', 'bulan', 'pelesen', ));
+        return view('admin.proses6.6papar-buah',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesen','penyata' ));
     }
 
     public function admin_6penyatapaparcetakpenapis()
@@ -132,6 +133,61 @@ class Proses6Controller extends Controller
 
 
         return view('admin.proses6.6penyata-papar-cetak-penapis', compact('returnArr', 'layout', 'users'));
+    }
+
+    public function process_admin_6penyatapaparcetakpenapis_form(Request $request)
+    {
+        // dd($request->all());
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+        ];
+
+        $kembali = route('admin.dashboard');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+        foreach ($request->papar_ya as $key => $e101_reg) {
+            $pelesens[$key] = (object)[];
+            $penyata = E101Init::find($e101_reg);
+            $pelesens[$key] = Pelesen::where('e_nl', $penyata-> e101_nl)->first();
+        }
+        $layout = 'layouts.admin';
+
+        // dd($pelesens);
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses6.6papar-buah-multi',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesens', 'penyata' ));
+
+    }
+
+    public function show_admin_6penyatapaparcetakpenapis($e101_reg , E101Init $penyata )
+    {
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+        ];
+
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
+        // $data = DB::table('pelesen')->get();
+        $penyata = E101Init::find($e101_reg);
+        $pelesen = Pelesen::where('e_nl', $penyata-> e101_nl)->first();
+
+        // dd($penyata);
+        $kembali = route('admin.dashboard');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+        return view('admin.proses6.6papar-buah',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesen','penyata' ));
     }
 
     public function admin_6penyatapaparcetakisirung()
