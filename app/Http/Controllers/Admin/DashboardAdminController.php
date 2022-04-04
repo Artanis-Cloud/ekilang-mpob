@@ -17,12 +17,17 @@ class DashboardAdminController extends Controller
     {
         $user = User::first();
         // return view('layouts.main', compact('user'));
-        return view('admin.admin-dashboard2', compact('user'));
+        return view('admin.admin-dashboard', compact('user'));
     }
 
     public function admin_dashboard2()
     {
         return view('admin.dashboard.main');
+    }
+
+    public function admin_dashboard3()
+    {
+        return view('layouts.main');
     }
 
     public function index_form()
