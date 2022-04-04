@@ -72,7 +72,7 @@
 
 
                                     <form action="{{ route('buah.update.bahagian.iv', [$penyata->e91_reg]) }}"
-                                        method="post"  onsubmit="return validation_jum();" onload="validation_jumlah()">
+                                        method="post" onsubmit="return validation_jum();" onload="validation_jumlah()">
                                         @csrf
                                         <div class="row" id="table-bordered">
                                             <div class="col-12 mt-2" style="margin-bottom: -2%">
@@ -98,10 +98,10 @@
                                                                         <td class="text-bold-500">1. Kilang Buah</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
-                                                                                class="calc" name='e91_aj1' id='e91_aj1'
-                                                                                style="text-align:center"
+                                                                                class="calc" name='e91_aj1'
+                                                                                id='e91_aj1' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ old('e91_aj1') ?? $penyata->e91_aj1 ?? 0 }}"
+                                                                                value="{{ old('e91_aj1') ?? ($penyata->e91_aj1 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
                                                                         </td>
 
@@ -111,10 +111,10 @@
                                                                         <td class="text-bold-500">2. Kilang Penapis</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
-                                                                                class="calc" name='e91_aj2' id='e91_aj2'
-                                                                                style="text-align:center"
+                                                                                class="calc" name='e91_aj2'
+                                                                                id='e91_aj2' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ old('e91_aj2') ?? $penyata->e91_aj2 ?? 0 }}"
+                                                                                value="{{ old('e91_aj2') ?? ($penyata->e91_aj2 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
                                                                         </td>
 
@@ -124,10 +124,10 @@
                                                                         <td class="text-bold-500">3. Kilang Oleokimia</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
-                                                                                class="calc" name='e91_aj3' id='e91_aj3'
-                                                                                style="text-align:center"
+                                                                                class="calc" name='e91_aj3'
+                                                                                id='e91_aj3' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ old('e91_aj3') ?? $penyata->e91_aj3 ?? 0 }}"
+                                                                                value="{{ old('e91_aj3') ?? ($penyata->e91_aj3 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
                                                                         </td>
 
@@ -137,10 +137,10 @@
                                                                         <td class="text-bold-500">4. Peniaga</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
-                                                                                class="calc" name='e91_aj4' id='e91_aj4'
-                                                                                style="text-align:center"
+                                                                                class="calc" name='e91_aj4'
+                                                                                id='e91_aj4' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ old('e91_aj4') ?? $penyata->e91_aj4 ?? 0 }}"
+                                                                                value="{{ old('e91_aj4') ?? ($penyata->e91_aj4 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
                                                                         </td>
 
@@ -150,10 +150,10 @@
                                                                         <td class="text-bold-500">5. Pusat Simpanan</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
-                                                                                class="calc" name='e91_aj5' id='e91_aj5'
-                                                                                style="text-align:center"
+                                                                                class="calc" name='e91_aj5'
+                                                                                id='e91_aj5' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ old('e91_aj5') ?? $penyata->e91_aj5 ?? 0 }}"
+                                                                                value="{{ old('e91_aj5') ?? ($penyata->e91_aj5 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
                                                                         </td>
 
@@ -163,10 +163,10 @@
                                                                         <td class="text-bold-500">6. Eksport</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
-                                                                                class="calc" name='e91_aj6' id='e91_aj6'
-                                                                                style="text-align:center"
+                                                                                class="calc" name='e91_aj6'
+                                                                                id='e91_aj6' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ old('e91_aj6') ?? $penyata->e91_aj6 ?? 0 }}"
+                                                                                value="{{ old('e91_aj6') ?? ($penyata->e91_aj6 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
                                                                         </td>
 
@@ -176,10 +176,10 @@
                                                                         <td class="text-bold-500">7. Transit</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
-                                                                                class="calc" name='e91_aj7' id='e91_aj7'
-                                                                                style="text-align:center"
+                                                                                class="calc" name='e91_aj7'
+                                                                                id='e91_aj7' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ old('e91_aj7') ?? $penyata->e91_aj7 ?? 0 }}"
+                                                                                value="{{ old('e91_aj7') ?? ($penyata->e91_aj7 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
                                                                         </td>
 
@@ -189,10 +189,10 @@
                                                                         <td class="text-bold-500">8. Lain-Lain</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
-                                                                                class="calc" name='e91_aj8' id='e91_aj8'
-                                                                                style="text-align:center"
+                                                                                class="calc" name='e91_aj8'
+                                                                                id='e91_aj8' style="text-align:center"
                                                                                 onkeypress="return isNumberKey(event)"
-                                                                                value="{{ old('e91_aj8') ?? $penyata->e91_aj8 ?? 0 }}"
+                                                                                value="{{ old('e91_aj8') ?? ($penyata->e91_aj8 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
                                                                         </td>
 
@@ -354,6 +354,8 @@
             class="bi bi-arrow-up-short"></i></a>
 
 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
     <script>
