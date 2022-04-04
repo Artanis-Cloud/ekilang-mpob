@@ -81,7 +81,7 @@
                                 </div>
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-                                    <form action="{{ route('admin.9penyataterdahulu.process') }}" method="post">
+                                    <form action="{{ route('admin.9penyataterdahulu.penapis.process') }}" method="post">
                                         @csrf
                                         <div class=" text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -197,10 +197,9 @@
 
                                         <div class="row form-group" style="padding-top: 10px; ">
                                             <div class="text-right col-md-12 mb-2 ">
-                                                {{-- <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                    style="float: right"
-                                                    data-bs-target="#exampleModalCenter">Porting</button> --}}
-                                                <button type="submit">YA</button>
+                                                <button type="submit" class="btn btn-primary "
+                                                    style="float: right">Papar</button>
+                                                {{-- <button type="submit">YA</button> --}}
                                             </div>
                                         </div>
                                         <div class="row" style=" float:right">
@@ -235,8 +234,7 @@
                                                                     <span class="d-none d-sm-block"
                                                                         style="color:#275047">Tidak</span>
                                                                 </button>
-                                                                <button type="submit" class="btn btn-primary ml-1"
-                                                                    data-bs-dismiss="modal">
+                                                                <button type="submit" class="btn btn-primary ml-1">
                                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Ya</span>
                                                                 </button>

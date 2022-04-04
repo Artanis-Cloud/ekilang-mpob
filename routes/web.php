@@ -110,7 +110,13 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/9-penyata-terdahulu-oleokimia', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahuluoleokimia'])->name('admin.9penyataterdahuluoleokimia');
         Route::get('admin/9-penyata-terdahulu-simpanan', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulusimpanan'])->name('admin.9penyataterdahulusimpanan');
         Route::get('admin/9-penyata-terdahulu-biodiesel', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulubiodiesel'])->name('admin.9penyataterdahulubiodiesel');
-        Route::post('admin/9-penyata-terdahulu/process', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulu_process'])->name('admin.9penyataterdahulu.process');
+
+        Route::post('admin/9-penyata-terdahulu-buah/process', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulu_process'])->name('admin.9penyataterdahulu.process');
+        Route::post('admin/9-penyata-terdahulu-penapis/process', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulu_penapis_process'])->name('admin.9penyataterdahulu.penapis.process');
+        Route::post('admin/9-penyata-terdahulu-isirung/process', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulu_isirung_process'])->name('admin.9penyataterdahulu.isirung.process');
+        Route::post('admin/9-penyata-terdahulu-oleokimia/process', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulu_oleokimia_process'])->name('admin.9penyataterdahulu.oleokimia.process');
+        Route::post('admin/9-penyata-terdahulu-psimpanan/process', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9penyataterdahulu_psimpanan_process'])->name('admin.9penyataterdahulu.psimpanan.process');
+
         Route::get('admin/9-penyata-terdahulu-papar/process', [App\Http\Controllers\Admin\Proses9Controller::class, 'admin_9papar_process'])->name('admin.9papar.process');
 
         Route::get('admin/10-port-data-to-dq', [App\Http\Controllers\Admin\Proses10Controller::class, 'admin_10portdatatodq'])->name('admin.10portdatatodq');

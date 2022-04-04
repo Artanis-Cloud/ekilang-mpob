@@ -76,7 +76,7 @@
                                 </div>
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-                                    <form action="{{ route('admin.9penyataterdahulu.process') }}" method="post">
+                                    <form action="{{ route('admin.9penyataterdahulu.psimpanan.process') }}" method="post">
                                         @csrf
                                         <div class=" text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
