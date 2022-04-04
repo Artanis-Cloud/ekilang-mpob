@@ -1067,7 +1067,7 @@
 
 
                                                     <div class="text-left col-md-5">
-                                                        <a href="{{ route('admin.6penyatapaparcetaksimpanan') }}" class="btn btn-primary"
+                                                        <a href="{{ route('admin.9penyataterdahulu') }}" class="btn btn-primary"
                                                             style="float: left">Sebelumnya</a>
                                                     </div>
 
