@@ -171,7 +171,7 @@
                                                         </div> --}}
 
 
-                                                {{-- <form action="{{ route('admin.6papar.buah') }}" method="get"> --}}
+                                                <form action="{{ route('admin.6papar.buah.form') }}" method="post">
                                                     @csrf
                                                     <table class='table' id="table1">
                                                         <thead>
@@ -199,7 +199,7 @@
                                                             @foreach ($users as $data)
                                                                 <tr>
                                                                     <td>
-                                                                        <input type="checkbox">&nbspYa
+                                                                        <input name="papar_ya[]" type="checkbox" value="{{ $data->e91_reg }}">&nbspYa
                                                                     </td>
                                                                     <td>
                                                                         x
@@ -234,13 +234,7 @@
                                                     <div class="text-left col-md-8">
                                                         <button type="submit" class="btn btn-primary ">Papar</button>
 
-                                                        <button type="button" class="btn btn-primary "
-                                                            data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
 
-                                                            <a href="{{ route('admin.6papar.buah', [$data->e_nl]) }}">
-                                                                Cetak
-                                                            </a>
-                                                        </button>
 
                                                     </div>
 
@@ -250,7 +244,7 @@
 
 
                                                             <!-- Vertically Centered modal Modal -->
-                                                            <div class="modal fade" id="exampleModalCenter"
+                                                            {{-- <div class="modal fade" id="exampleModalCenter"
                                                                 tabindex="-1" role="dialog"
                                                                 aria-labelledby="exampleModalCenterTitle"
                                                                 aria-hidden="true">
@@ -288,7 +282,7 @@
                                                                             </button>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </div> --}}
                                                             </div>
                                                         </div>
                                                     </div>
