@@ -48,15 +48,52 @@ class Proses6Controller extends Controller
         return view('admin.proses6.6penyata-papar-cetak-buah', compact('returnArr', 'layout', 'users'));
     }
 
-    public function show_admin_6penyatapaparcetakbuah($e91_reg, E91Init $penyata)
+
+    public function process_admin_6penyatapaparcetakbuah_form(Request $request)
+    {
+        // dd($request->all());
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+        ];
+
+        $kembali = route('admin.dashboard');
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+        foreach ($request->papar_ya as $key => $e91_reg) {
+            $pelesens[$key] = (object)[];
+            $penyata = E91Init::find($e91_reg);
+            $pelesens[$key] = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
+        }
+        $layout = 'layouts.admin';
+
+        // dd($pelesens);
+        // $data = DB::table('pelesen')->get();
+        return view('admin.proses6.6papar-buah-multi',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesens', ));
+
+    }
+
+    public function show_admin_6penyatapaparcetakbuah($e91_reg , E91Init $penyata )
     {
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
         ];
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
 
-       $penyata = E91Init::find($e91_reg);
+        // $data = DB::table('pelesen')->get();
+        $penyata = E91Init::find($e91_reg);
+        $pelesen = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
+
         // dd($penyata);
         $kembali = route('admin.dashboard');
         $returnArr = [
@@ -64,7 +101,7 @@ class Proses6Controller extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.admin';
-        return view('admin.proses6.6papar-buah',compact('penyata','returnArr' ,'layout'));
+        return view('admin.proses6.6papar-buah',compact('penyata','returnArr' ,'layout', 'tahun', 'bulan', 'pelesen', ));
     }
 
     public function admin_6penyatapaparcetakpenapis()

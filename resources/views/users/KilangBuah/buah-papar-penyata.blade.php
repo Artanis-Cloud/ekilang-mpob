@@ -161,22 +161,7 @@
                                         <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                             <tbody>
-                                                <tr>
-
-                                                    <td width="35%">Nombor Lesen</td>
-
-                                                    <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
-
-                                                </tr>
-
-                                                <tr>
-
-                                                    <td width="35%">Nama Premis</td>
-
-                                                    <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
-
-                                                </tr>
-
+                                               
                                                 <tr>
 
                                                     <td width="35%">Alamat Premis Berlesen</td>
@@ -1028,7 +1013,7 @@
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                       
+
                                         <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                             <input type="text" id="e_npg" class="form-control" size="50" name='e_npg'
                                                 value="{{ $pelesen->e_npg }}">
