@@ -779,54 +779,7 @@
                                                             <font size="2">Destinasi Negara</font>
                                                         </b></td>
                                                     </tr>
-                                                    @foreach ($penyataiv as $data)
-                                                    <tr>
-                                                        <td align="left">
-                                                            <font size="2">{{  $data->produk->prodname }}</font>
-                                                        </td>
-                                                        <td align="left">
-                                                            <font size="2">{{ $data->produk->prodid }}</font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2">{{ $data->e104_d5 }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ $data->e104_d6 }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format($data->e104_d7 ??  0,2) }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format($data->e104_d8 ??  0,2) }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ $data->e104_d9 }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{$data->negara->namanegara}}</font>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                    <tr>
-                                                        <td align="center">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($totaliv ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($totaliv2 ??  0,2) }}</b></font>
-                                                        </td>
-                                                    </tr>
+
                                                 </tbody>
                                             </table>
                                             <p><b>
@@ -861,12 +814,12 @@
 
 
                                                 <div class="text-left col-md-5">
-                                                    <a href="{{ route('penapis.bahagianvi') }}" class="btn btn-primary"
+                                                    <a href="{{ route('oleo.bahagianiii') }}" class="btn btn-primary"
                                                         style="float: left">Sebelumnya</a>
                                                 </div>
                                                 <div class="text-right col-md-7 mb-4 ">
                                                     <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                                        data-bs-target="#exampleModalCenter">Hantar</button>
+                                                        data-bs-target="#next">Hantar</button>
                                                     <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
                                                         onclick="myPrint('myfrm')" value="print">Cetak</button>
                                                 </div>
@@ -874,7 +827,7 @@
                                             </div>
 
                                             <!-- Vertically Centered modal Modal -->
-                                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                            <div class="modal fade" id="next" tabindex="-1" role="dialog"
                                                 aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                                     role="document">
@@ -899,11 +852,12 @@
                                                                 <span class="d-none d-sm-block"
                                                                     style="color:#275047">Tidak</span>
                                                             </button>
-                                                            <button type="button" class="btn btn-primary ml-1"
-                                                                data-bs-dismiss="modal">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Hantar</span>
-                                                            </button>
+                                                            <a href="{{ route('oleo.hantar.penyata') }}" type="button"
+                                                            class="btn btn-primary ml-1">
+
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Hantar</span>
+                                                        </a>
                                                         </div>
                                                     </div>
                                                 </div>
