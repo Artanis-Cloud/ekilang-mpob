@@ -63,7 +63,7 @@
                                     <div class="text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 5</h3>
-                                        <h5 style="color: rgb(39, 80, 71); font-size:14px">Edaran / Jualan Isirung Sawit
+                                        <h5 style="color: rgb(39, 80, 71); font-size:14px"> Jualan / Edaran Isirung Sawit
                                             (PK) Dalam Negeri
                                             (51)
                                         </h5>
@@ -107,7 +107,7 @@
 
                                                                     </tr>
                                                                     <tr>
-                                                                        <td class="text-bold-500">2. Kilang Peniaga</td>
+                                                                        <td class="text-bold-500">2. Peniaga</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15" id='e91_ak2'
                                                                                 class="calc" name='e91_ak2' style="text-align:center"

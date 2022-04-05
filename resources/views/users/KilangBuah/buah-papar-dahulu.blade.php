@@ -99,7 +99,7 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                           
+
                                             <br>
                                         <p align="center">
                                             <img border="0" src="{{ asset('/mpob.png') }}"  width="128"
@@ -111,8 +111,34 @@
 
                                                 </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
 
-                                                BULAN : {{ $penyata->e91_bln ?? '' }} &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;TAHUN : {{ $penyata->e91_thn ?? ''}} &nbsp;&nbsp;
+                                                BULAN :  &nbsp;&nbsp;@if ($penyata->e91_bln == 1)
+                                                        JANUARI
+                                                    @elseif($penyata->e91_bln  == 2)
+                                                        FEBRUARI
+                                                    @elseif($penyata->e91_bln == 3)
+                                                        MAC
+                                                    @elseif($penyata->e91_bln == 4)
+                                                        APRIL
+                                                    @elseif($penyata->e91_bln == 5)
+                                                        MEI
+                                                    @elseif($penyata->e91_bln == 6)
+                                                        JUN
+                                                    @elseif($penyata->e91_bln == 7)
+                                                        JULAI
+                                                    @elseif($penyata->e91_bln == 8)
+                                                        OGOS
+                                                    @elseif($penyata->e91_bln == 9)
+                                                        SEPTEMBER
+                                                    @elseif($penyata->e91_bln == 10)
+                                                        OKTOBER
+                                                    @elseif($penyata->e91_bln == 11)
+                                                        NOVEMBER
+                                                    @elseif($penyata->e91_bln == 12)
+                                                        DISEMBER
+                                                    @endif &nbsp;&nbsp;&nbsp;&nbsp;TAHUN : {{ $penyata->e91_thn ?? ''}} &nbsp;&nbsp;
                                             </b><br>
+
+
 
                                         </p>
                                         <hr>
@@ -160,21 +186,6 @@
                                         <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                             <tbody>
-                                                <tr>
-
-                                                    <td width="35%">Nombor Lesen</td>
-
-                                                    <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
-
-                                                </tr>
-
-                                                <tr>
-
-                                                    <td width="35%">Nama Premis</td>
-
-                                                    <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
-
-                                                </tr>
 
                                                 <tr>
 
@@ -230,7 +241,7 @@
 
                                                     <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
                                                         <b>{{ $pelesen->e_nofax }}</b>
                                                     </td>
 
@@ -238,7 +249,7 @@
 
                                                 <tr>
 
-                                                    <td width="35%">Alamat e-mail </td>
+                                                    <td width="35%">Alamat emel </td>
 
                                                     <td width="65%"><b>{{ $pelesen->e_email }}</b></td>
 
@@ -345,7 +356,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td width="220">
-                                                        <font size="3">B. Pembelian/Penerimaan</font>
+                                                        <font size="3">B. Pembelian/Terimaan</font>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
@@ -406,7 +417,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td width="220">
-                                                        <font size="3">E. Penjualan/Pengedaran Tempatan</font>
+                                                        <font size="3">E. Jualan/Edaran Tempatan</font>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
@@ -760,7 +771,7 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/PENERIMAAN BEKALAN BUAH
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/TERIMAAN BEKALAN BUAH
                                                     KELAPA SAWIT (FFB) (52)</b>
                                             </font>
                                         </p>
@@ -842,7 +853,7 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN IV : EDARAN/JUALAN MINYAK SAWIT
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN IV : JUALAN/EDARAN MINYAK SAWIT
                                                     MENTAH (CPO) (01) </b></font>
                                         </p>
 
@@ -939,7 +950,7 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN V : EDARAN / JUALAN ISIRUNG SAWIT
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN V : JUALAN/EDARAN  ISIRUNG SAWIT
                                                     (PK) DALAM NEGERI
                                                     (51)</b></font>
                                         </p>

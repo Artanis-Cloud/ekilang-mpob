@@ -183,21 +183,6 @@
                                             <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
-                                                    <tr>
-
-                                                        <td width="35%">Nombor Lesen</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Nama Premis</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
-
-                                                    </tr>
 
                                                     <tr>
 
@@ -253,7 +238,7 @@
 
                                                         <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
                                                             <b>{{ $pelesen->e_nofax }}</b>
                                                         </td>
 
@@ -337,7 +322,7 @@
                                                                 <b></b>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font><b></b>
+                                                                <font size="2">Jualan / Edaran Tempatan</font><b></b>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Eksport</font><b></b>
@@ -451,7 +436,7 @@
                                                                 <font size="2">Stok Awal Di Pusat Simpanan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Belian / Penerimaan</font>
+                                                                <font size="2">Belian / Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Import</font>
@@ -463,7 +448,7 @@
                                                                 <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                                <font size="2">Jualan / Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Eksport</font>
@@ -599,13 +584,13 @@
                                                                 <font size="2">Stok Awal</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
-                                                                <font size="2">Belian / Penerimaan</font>
+                                                                <font size="2">Belian / Terimaan</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
                                                                 <font size="2">Pengeluaran</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                                <font size="2">Jualan / Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
                                                                 <font size="2">Eksport</font>
@@ -691,13 +676,13 @@
                                                                 <font size="2">Stok Awal</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
-                                                                <font size="2">Belian / Penerimaan</font>
+                                                                <font size="2">Belian / Terimaan</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
                                                                 <font size="2">Pengeluaran</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                                <font size="2">Jualan / Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
                                                                 <font size="2">Eksport</font>
@@ -765,7 +750,7 @@
 
                                             <p><b>
                                                     <font color="#0000FF">BAHAGIAN V (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
-                                                        PENERIMAAN BEKALAN PRODUK SAWIT -
+                                                        TERIMAAN BEKALAN PRODUK SAWIT -
                                                         SENDIRI</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -773,7 +758,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="15%" align="center"><b>
-                                                                <font size="2">Belian/Penerimaan Dari</font>
+                                                                <font size="2">Belian/Terimaan Dari</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">CPO</font>
@@ -828,14 +813,14 @@
                                             </table>
                                             <p><b>
                                                     <font color="#0000FF">BAHAGIAN V (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
-                                                        PENERIMAAN BEKALAN PRODUK SAWIT -
+                                                        TERIMAAN BEKALAN PRODUK SAWIT -
                                                         LUAR</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr>
                                                         <td width="15%" align="center"><b>
-                                                                <font size="2">Belian/Penerimaan Dari</font>
+                                                                <font size="2">Belian/Terimaan Dari</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">CPO</font>

@@ -92,7 +92,7 @@
 
                                             <div class="row mt-3">
                                                 <div class="col-md-3">
-                                                    <span class="required">Stok Awal Diproses</span>
+                                                    <span class="required">Stok Awal Di Premis</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_c5'style="width: 50%"
@@ -105,7 +105,7 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <span class="required">Jualan / Edaran Dalam Negeri</span>
+                                                    <span class="required">Jualan / Edaran Tempatan</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_c8'style="width: 50%"
@@ -123,7 +123,7 @@
 
                                             <div class="row mt-3">
                                                 <div class="col-md-3">
-                                                    <span class="required">Belian/Penerimaan</span>
+                                                    <span class="required">Belian/Terimaan</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_c6' style="width: 50%"
@@ -167,7 +167,7 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <span class="required">Stok Akhir</span>
+                                                    <span class="required">Stok Akhir Di Premis</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_c10' style="width: 50%"
@@ -215,12 +215,12 @@
                                             <tr style="text-align: center">
                                                 <th>Nama Produk</th>
                                                 <th>Kod Produk</th>
-                                                <th>Stok Awal</th>
-                                                <th>Belian / Penerimaan</th>
+                                                <th>Stok Awal Di Premis</th>
+                                                <th>Belian / Terimaan</th>
                                                 <th>Pengeluaran</th>
-                                                <th>Jualan / Edaran Dalam Negeri</th>
+                                                <th>Jualan / Edaran Tempatan</th>
                                                 <th>Eksport</th>
-                                                <th>Stok Akhir</th>
+                                                <th>Stok Akhir Di Proses</th>
                                                 <th>Kemaskini</th>
                                                 <th>Hapus?</th>
 

@@ -76,7 +76,7 @@
 
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <span class="required">Nama Produk</span>
+                                                            <span class="required">Nama Produk dan Kod</span>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <select class="form-select" id="produk"
@@ -109,7 +109,7 @@
                                                         @enderror --}}
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <span class="required">Jualan/Edaran dalam Negeri</span>
+                                                            <span class="required">Jualan/Edaran Tempatan</span>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <input type="text" class="form-control" name='e104_b10'
@@ -151,7 +151,7 @@
 
                                                     <div class="row mt-3">
                                                         <div class="col-md-3">
-                                                            <span class="required">Belian/Penerimaan</span>
+                                                            <span class="required">Belian/Terimaan</span>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <input type="text" class="form-control" name='e104_b7'
@@ -176,7 +176,7 @@
 
                                                     <div class="row mt-3">
                                                         <div class="col-md-3">
-                                                            <span class="required">Import</span>
+                                                            <span>Import</span>
                                                         </div>
                                                         <div class="col-md-3">
                                                             <input type="text" class="form-control" name='e104_b8'
@@ -189,7 +189,7 @@
                                                         </div>
                                                         <div class="col-md-3">
                                                             <input type="text" class="form-control" name='e104_b13'
-                                                                style="width:50%" id="e104_b13" required
+                                                                style="width:50%" id="e104_b13" 
                                                                 title="Sila isikan butiran ini.">
                                                             {{-- @error('alamat_kilang_1')
                                                             <div class="alert alert-danger">
@@ -246,10 +246,10 @@
                                                                     <th>Kod Produk</th>
                                                                     <th>Stok Awal Di Premis</th>
                                                                     <th>Stok Awal Di Pusat Simpanan</th>
-                                                                    <th>Belian / Penerimaan</th>
+                                                                    <th>Belian / Terimaan</th>
                                                                     <th>Import</th>
                                                                     <th>Jumlah yang Diproses</th>
-                                                                    <th>Jualan / Edaran Dalam Negeri</th>
+                                                                    <th>Jualan / Edaran Tempatan</th>
                                                                     <th>Eksport</th>
                                                                     <th>Stok Akhir Di Premis</th>
                                                                     <th>Stok Akhir Di Pusat Simpanan</th>
@@ -350,7 +350,7 @@
                                                                                                         class="form-control"
                                                                                                         value="{{ $data->e104_b6 }}">
                                                                                                 </div>
-                                                                                                <label>Belian / Penerimaan </label>
+                                                                                                <label>Belian / Terimaan </label>
                                                                                                 <div class="form-group">
                                                                                                     <input type="text" name='e104_b7'
                                                                                                         class="form-control"
@@ -368,7 +368,7 @@
                                                                                                         class="form-control"
                                                                                                         value="{{ $data->e104_b9 }}">
                                                                                                 </div>
-                                                                                                <label>Jualan / Edaran Dalam Negeri </label>
+                                                                                                <label>Jualan / Edaran Tempatan </label>
                                                                                                 <div class="form-group">
                                                                                                     <input type="text" name='e104_b10'
                                                                                                         class="form-control"

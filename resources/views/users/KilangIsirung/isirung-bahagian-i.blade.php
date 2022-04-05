@@ -66,8 +66,7 @@
                                 <div class=" text-center">
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                     <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian I</h3>
-                                    <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Belian, Proses, Pengeluaran,
-                                        Jualan/Edaran, Stok Akhir <br>(Berdasarkan dalam premis kilang sahaja)</h5>
+                                    <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Imbangan</h5>
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>
@@ -129,7 +128,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">B.
-                                                                        Stok Awal Di Pusat Simpanan</td>
+                                                                        Stok Awal Di Pusat Simpanan / Gudang</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e102_ab1'
                                                                                 style="text-align: center"
@@ -153,9 +152,9 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">C.
-                                                                        Pembelian / Penerimaan &nbsp; <i class="fa fa-exclamation-circle"
+                                                                        Pembelian / Terimaan &nbsp; <i class="fa fa-exclamation-circle"
                                                                         style="color: red"
-                                                                        title="Jumlah Pembelian/Penerimaan Dalam Negeri adalah termasuk jumlah Import."></i></td>
+                                                                        title="Jumlah Pembelian/Terimaan Dalam Negeri adalah termasuk jumlah Import."></i></td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e102_ac1'
                                                                                 style="text-align: center"

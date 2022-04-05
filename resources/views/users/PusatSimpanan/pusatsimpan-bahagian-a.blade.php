@@ -73,7 +73,7 @@
                                         <div class="container center mt-4">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <span class="required">Nama Produk Sawit</span>
+                                                    <span class="required">Nama Produk Sawit dan Kod</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <select class="form-select" id="produk"
@@ -94,7 +94,7 @@
 
                                             <div class="row mt-3">
                                                 <div class="col-md-3">
-                                                    <span class="required">Stok Awal Di Premis</span>
+                                                    <span class="required">Stok Awal</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e07bt_stokawal'style="width: 50%"
@@ -107,11 +107,11 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <span class="required">Eksport</span>
+                                                    <span">Eksport</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e07bt_eksport'style="width: 50%"
-                                                        id="e07bt_eksport" required
+                                                        id="e07bt_eksport"
                                                         title="Sila isikan butiran ini." readonly>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -126,7 +126,7 @@
 
                                                 <label for="fname"
                                                     class="text-right col-sm-3 control-label col-form-label required align-items-center">
-                                                    Penerimaan Dalam Negeri &nbsp;<i class="fa fa-exclamation-circle"
+                                                    Terimaan Dalam Negeri &nbsp;<i class="fa fa-exclamation-circle"
                                                         style="color: red"
                                                         title="Jumlah Penerimaan Dalam Negeri adalah termasuk jumlah Import."></i></label>
                                                 <div class="col-md-3">
@@ -157,11 +157,11 @@
 
                                             <div class="row mt-3">
                                                 <div class="col-md-3">
-                                                    <span class="required">Import</span>
+                                                    <span>Import</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e07bt_import'style="width: 50%"
-                                                        id="e07bt_import" required
+                                                        id="e07bt_import"
                                                         title="Sila isikan butiran ini." readonly>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -191,7 +191,7 @@
                                             <div class="row mt-3">
                                                 <label for="fname"
                                                     class="text-right col-sm-3 control-label col-form-label required align-items-center">
-                                                    Edaran Dalam Negeri &nbsp;<i class="fa fa-exclamation-circle"
+                                                    Edaran Tempatan &nbsp;<i class="fa fa-exclamation-circle"
                                                         style="color: red"
                                                     title="Jumlah Edaran Dalam Negeri adalah termasuk jumlah Eksport."></i></label>
                                                 <div class="col-md-3">
@@ -239,9 +239,9 @@
                                                             <tr style="text-align: center">
                                                                 <th>Nama Produk Sawit</th>
                                                                 <th>Stok Awal</th>
-                                                                <th>Penerimaan Dalam Negeri</th>
+                                                                <th>Terimaan Dalam Negeri</th>
                                                                 <th>Import</th>
-                                                                <th>Edaran Dalam Negeri</th>
+                                                                <th>Edaran Tempatan</th>
                                                                 <th>Eksport</th>
                                                                 <th>Pelarasan (+/-)</th>
                                                                 <th>Stok Akhir</th>

@@ -66,7 +66,7 @@
                                     <div class="mb-4 text-center">
                                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                         <h3 style="color: rgb(39, 80, 71);">Bahagian V</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Edaran/Jualan Dedak Isirung Sawit - (PKC) (33)
+                                        <h5 style="color: rgb(39, 80, 71)">Jualan / Edaran Dedak Isirung Sawit - (PKC) (33)
                                             </h5>
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
@@ -74,7 +74,7 @@
                                     <div class="container center mt-3">
                                         <div class="row mt-3">
                                             <div class="col-md-3">
-                                                <span class="required">Edaran/Jualan:</span>
+                                                <span class="required">Jualan / Edaran:</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <select class="form-select" id="e102_b4"
@@ -146,7 +146,7 @@
                                 <hr>
                                 <br>
                                 <br>
-                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Edaran/Jualan Dedak Isirung Sawit - (PKC) (33)</h5>
+                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Jualan / Edaran Dedak Isirung Sawit - (PKC) (33)</h5>
 
                                     <section class="section">
                                         <div class="card">
@@ -156,7 +156,7 @@
                                                     <table class="table table-bordered mb-0">
                                                     <thead>
                                                         <tr style="text-align: center">
-                                                            <th>Edaran/Jualan</th>
+                                                            <th>Jualan / Edaran</th>
                                                             <th>Ke</th>
                                                             <th>Kuantiti</th>
                                                             <th>Kemaskini</th>
