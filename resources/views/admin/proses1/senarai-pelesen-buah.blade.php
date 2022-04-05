@@ -61,7 +61,7 @@
                                     Oleokimia</a>
                                 <a class="dropdown-item" href="{{ route('admin.senaraipelesensimpanan') }}">Pusat
                                     Simpanan</a>
-                                <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">E-Biodiesel</a>
+                                <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">Kilang Biodiesel</a>
                             </div>
                         </div>
                     </div>

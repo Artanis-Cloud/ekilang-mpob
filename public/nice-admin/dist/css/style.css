@@ -2053,12 +2053,12 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #7460ee;
-  border-color: #7460ee; }
+  background-color: #265960;
+  border-color: #265960; }
   .btn-primary:hover {
     color: #fff;
-    background-color: #563dea;
-    border-color: #4c32e9; }
+    background-color: rgba(35, 86, 93, 0.7);
+    border-color: rgba(35, 86, 93, 0.7); }
   .btn-primary:focus, .btn-primary.focus {
     box-shadow: 0 0 0 0.2rem rgba(116, 96, 238, 0.5); }
   .btn-primary.disabled, .btn-primary:disabled {
