@@ -258,6 +258,19 @@ class KilangBiodieselController extends Controller
     }
 
 
+    public function bio_delete_bahagian_ia($id)
+    {
+        $penyata = EBioB::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('bio.bahagiania')
+        ->with('success','Produk Dihapuskan');
+    }
+
+
+
+
     public function bio_bahagianib()
     {
 
@@ -406,6 +419,17 @@ class KilangBiodieselController extends Controller
     }
 
 
+    public function bio_delete_bahagian_ib($id)
+    {
+        $penyata = EBioB::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('bio.bahagianib')
+        ->with('success','Produk Dihapuskan');
+    }
+
+
     public function bio_bahagianic()
     {
 
@@ -543,6 +567,17 @@ class KilangBiodieselController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
+
+    public function bio_delete_bahagian_ic($id)
+    {
+        $penyata = EBioB::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('bio.bahagianic')
+        ->with('success','Produk Dihapuskan');
+    }
+
     public function bio_bahagianii()
     {
 
@@ -626,6 +661,16 @@ class KilangBiodieselController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
+
+    public function bio_delete_bahagian_ii($id)
+    {
+        $penyata = Hari::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('bio.bahagianii')
+        ->with('success','Produk Dihapuskan');
+    }
 
     public function bio_bahagianiii()
     {
@@ -757,6 +802,17 @@ class KilangBiodieselController extends Controller
 
         return redirect()->route('bio.bahagianiii')
             ->with('success', 'Maklumat telah disimpan');
+    }
+
+
+    public function bio_delete_bahagian_iii($id)
+    {
+        $penyata = EBioC::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('bio.bahagianiii')
+        ->with('success','Produk Dihapuskan');
     }
 
     public function bio_bahagianiv()
