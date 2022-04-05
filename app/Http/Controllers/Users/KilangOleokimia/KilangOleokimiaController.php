@@ -159,11 +159,24 @@ class KilangOleokimiaController extends Controller
 
     public function oleo_add_bahagian_ia(Request $request)
     {
+        $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first();
+
+        $penyata = E104B::where('e104_reg', $e104_reg->e104_reg)
+            ->where('e104_b3', '1')
+            ->where('e104_b4', $request->e104_b4)
+            ->first();
+        // dd($penyata);
         // dd($request->all());
+        if ($penyata) {
+            return redirect()->route('oleo.bahagiania')->with('error', 'Maklumat sudah tersedia');
+        } else {
+            // dd($request->all());
         $this->validation_bahagian_ia($request->all())->validate();
         $this->store_bahagian_ia($request->all());
 
         return redirect()->route('oleo.bahagiania')->with('success', 'Maklumat sudah ditambah');
+        }
+
     }
 
     protected function validation_bahagian_ia(array $data)
@@ -302,11 +315,23 @@ class KilangOleokimiaController extends Controller
 
     public function oleo_add_bahagian_ib(Request $request)
     {
+        $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first();
+
+        $penyata = E104B::where('e104_reg', $e104_reg->e104_reg)
+            ->where('e104_b3', '2')
+            ->where('e104_b4', $request->e104_b4)
+            ->first();
+        // dd($penyata);
+        // dd($request->all());
+        if ($penyata) {
+            return redirect()->route('oleo.bahagianib')->with('error', 'Maklumat sudah tersedia');
+        } else {
         // dd($request->all());
         $this->validation_bahagian_ib($request->all())->validate();
         $this->store_bahagian_ib($request->all());
 
         return redirect()->route('oleo.bahagianib')->with('success', 'Maklumat sudah ditambah');
+        }
     }
 
     protected function validation_bahagian_ib(array $data)
@@ -446,11 +471,23 @@ class KilangOleokimiaController extends Controller
 
     public function oleo_add_bahagian_ic(Request $request)
     {
+        $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first();
+
+        $penyata = E104B::where('e104_reg', $e104_reg->e104_reg)
+            ->where('e104_b3', '3')
+            ->where('e104_b4', $request->e104_b4)
+            ->first();
+        // dd($penyata);
+        // dd($request->all());
+        if ($penyata) {
+            return redirect()->route('oleo.bahagianic')->with('error', 'Maklumat sudah tersedia');
+        } else {
         // dd($request->all());
         $this->validation_bahagian_ic($request->all())->validate();
         $this->store_bahagian_ic($request->all());
 
         return redirect()->route('oleo.bahagianic')->with('success', 'Maklumat sudah ditambah');
+        }
     }
 
     protected function validation_bahagian_ic(array $data)
@@ -622,11 +659,22 @@ class KilangOleokimiaController extends Controller
     }
     public function oleo_add_bahagian_iii(Request $request)
     {
+        $e104_reg = E104Init::where('e104_nl', auth()->user()->username)->first();
+
+        $penyata = E104C::where('e104_reg', $e104_reg->e104_reg)
+            ->where('e104_c3', $request->e104_c3)
+            ->first();
+        // dd($penyata);
+        // dd($request->all());
+        if ($penyata) {
+            return redirect()->route('oleo.bahagianiii')->with('error', 'Maklumat sudah tersedia');
+        } else {
         // dd($request->all());
         $this->validation_bahagian_iii($request->all())->validate();
         $this->store_bahagian_iii($request->all());
 
         return redirect()->route('oleo.bahagianiii')->with('success', 'Maklumat sudah ditambah');
+        }
     }
 
     protected function validation_bahagian_iii(array $data)

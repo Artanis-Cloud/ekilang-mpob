@@ -779,54 +779,7 @@
                                                             <font size="2">Destinasi Negara</font>
                                                         </b></td>
                                                     </tr>
-                                                    @foreach ($penyataiv as $data)
-                                                    <tr>
-                                                        <td align="left">
-                                                            <font size="2">{{  $data->produk->prodname }}</font>
-                                                        </td>
-                                                        <td align="left">
-                                                            <font size="2">{{ $data->produk->prodid }}</font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2">{{ $data->e104_d5 }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ $data->e104_d6 }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format($data->e104_d7 ??  0,2) }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ number_format($data->e104_d8 ??  0,2) }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{ $data->e104_d9 }}</font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2">{{$data->negara->namanegara}}</font>
-                                                        </td>
-                                                    </tr>
-                                                    @endforeach
-                                                    <tr>
-                                                        <td align="center">
-                                                            <font size="2"><b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td align="center">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>-</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($totaliv ??  0,2) }}</b></font>
-                                                        </td>
-                                                        <td align="right">
-                                                            <font size="2"><b>{{ number_format($totaliv2 ??  0,2) }}</b></font>
-                                                        </td>
-                                                    </tr>
+                                                    
                                                 </tbody>
                                             </table>
                                             <p><b>

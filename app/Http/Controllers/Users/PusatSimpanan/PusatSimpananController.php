@@ -145,7 +145,7 @@ class PusatSimpananController extends Controller
         // dd($request->all());
         $user = E07Init::where('e07_nl', auth()->user()->username)->first('e07_reg');
 
-        $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->where('e07bt_stokawal', $request->e07bt_stokawal)->first();
+        $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->where('e07bt_produk', $request->e07bt_produk)->first();
         if ($penyata) {
             return redirect()->back()->with("error", "Produk telah Tersedia");
         }
