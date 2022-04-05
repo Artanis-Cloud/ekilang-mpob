@@ -181,13 +181,13 @@
                         </li>
 
 
-                        <a  href="{{ route('buah.prestasioer') }}" class='sidebar-link'>
+                        <a href="{{ route('buah.prestasioer') }}" class='sidebar-link'>
                             <i data-feather="#" width="20" style="margin-left:-10px; "></i>
                             <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
                             <span><b>Prestasi OER</b></span>
                         </a>
 
-                        <a  href="{{ route('buah.penyatadahulu') }}" class='sidebar-link'>
+                        <a href="{{ route('buah.penyatadahulu') }}" class='sidebar-link'>
                             <i data-feather="#" width="20" style="margin-left:-10px; "></i>
                             <i class="fas fa-book-open" style="color:rgb(54, 51, 41) "></i>
                             <span><b>Papar Penyata Bulanan Terdahulu</b></span>
@@ -241,7 +241,8 @@
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
-                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;"> {{ auth()->user()->name }}</b>
+                        style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;">
+                        {{ auth()->user()->name }}</b>
                 </span>
 
 
@@ -329,32 +330,32 @@
 
 
             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                            PERINGATAN</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <i data-feather="x"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            Anda tidak dibenarkan mengisi maklumat bahagian ini
-                        </p>
-                    </div>
-                    <div class="modal-footer">
+                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                    role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                PERINGATAN</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <i data-feather="x"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Anda tidak dibenarkan mengisi maklumat bahagian ini
+                            </p>
+                        </div>
+                        <div class="modal-footer">
 
-                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Tutup</span>
-                        </button>
+                            <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Tutup</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
 
             <!-- ======= Hero Section ======= -->
@@ -364,7 +365,8 @@
                     <div class="row justify-content-center" style="margin-top: -4%">
                         <div class="col-xl-12 col-lg-8">
 
-                            <h1 style="font-size:15px; margin-left:5%; margin-bottom:-2%">PENYATA BULANAN KILANG BUAH</h1>
+                            <h1 style="font-size:15px; margin-left:5%; margin-bottom:-2%">PENYATA BULANAN KILANG BUAH
+                            </h1>
                         </div>
                     </div>
                     <div class="container center mt-4">
@@ -373,7 +375,8 @@
                                 <div class="card" style="margin-right:5%; margin-left:6%">
                                     <div class="card-header" style="margin-bottom: -1%">
                                         <h2 class='pl-3 card-heading'
-                                            style="font-size: 18px; margin-bottom:-1%; margin-left:6%; color:rgba(47, 112, 88, 0.726)">Pengumuman
+                                            style="font-size: 18px; margin-bottom:-1%; margin-left:6%; color:rgba(47, 112, 88, 0.726)">
+                                            Pengumuman
                                         </h2>
                                     </div>
                                     <hr>
@@ -383,22 +386,27 @@
                                             <div class="pl-3">
 
                                                 <ul>
-                                                    <li style="text-align: justify">Berkuatkuasa 1 Mac 2021, <b> ses minyak
+                                                    <li style="text-align: justify">Berkuatkuasa 1 Mac 2021, <b> ses
+                                                            minyak
                                                             sawit mentah yang
                                                             perlu dibayar di bawah
-                                                            Perintah Lembaga Minyak Sawit Malaysia (Ses) pindaan 2021 adalah
+                                                            Perintah Lembaga Minyak Sawit Malaysia (Ses) pindaan 2021
+                                                            adalah
                                                             sebanyak <span style="color:blue">RM16.00</span>
-                                                            (Ringgit Malaysia : Enam Belas Sahaja) atas tiap-tiap tan metrik
+                                                            (Ringgit Malaysia : Enam Belas Sahaja) atas tiap-tiap tan
+                                                            metrik
                                                             atau sebahagian
                                                             daripada suatu tan metrik minyak sawit mentah yang
                                                             dikeluarkan.</b> Ses perlu
                                                         dibayar
                                                         kepada Lembaga tidak lewat dari hari terakhir setiap bulan dalam
                                                         satu tahun kalendar
-                                                        atas minyak sawit mentah yang dikeluarkan olehnya dalam bulan yang
+                                                        atas minyak sawit mentah yang dikeluarkan olehnya dalam bulan
+                                                        yang
                                                         sebelumnya.
                                                         <span style="color:blue"><b>Pembayaran ses
-                                                                perlu melalui akaun bank CIMB Islamik Malaysia dengan nombor
+                                                                perlu melalui akaun bank CIMB Islamik Malaysia dengan
+                                                                nombor
                                                                 virtual akaun
                                                                 seperti
                                                                 berikut :</b></span><br>
@@ -415,14 +423,16 @@
 
                                                                     Nombor Virtual Akaun : 98-997-333-000-XXX *
                                                                     <br>(3 digit terakhir adalah sama seperti
-                                                                    nombor Virtual Akaun yang digunapakai bagi bayaran Ses
+                                                                    nombor Virtual Akaun yang digunapakai bagi bayaran
+                                                                    Ses
                                                                     sebelum ini)</b>
                                                                 <br>
                                                                 <br>
 
                                                         </div>
 
-                                                        <br> Jika terdapat sebarang pertanyaan atau kemusykilan berkenaan
+                                                        <br> Jika terdapat sebarang pertanyaan atau kemusykilan
+                                                        berkenaan
                                                         bayaran ses, sila
                                                         hubungi
                                                         pegawai MPOB iaitu <b>Puan Nurul Asyikin (03-87694811)
@@ -438,7 +448,8 @@
                                                                 sini</b></a><br>
                                                     </li>
                                                     <br>
-                                                    <li style="text-align: justify"> Penguatkuasaan Perintah Lembaga Minyak
+                                                    <li style="text-align: justify"> Penguatkuasaan Perintah Lembaga
+                                                        Minyak
                                                         Sawit Malaysia (Ses) (Pindaan) 2021 Ke Atas
                                                         Pemegang Lesen Kategori Kilang Oleokimia Kelapa Sawit (MF) dan
                                                         Kilang
@@ -457,10 +468,11 @@
 
                             <div class="col-md-4">
                                 <div class="row">
-                                    <div class="card" >
+                                    <div class="card">
                                         <div class="card-header " style="margin-bottom:-2%">
                                             <h2 class='pl-3 card-heading'
-                                                style="font-size: 18px; margin-bottom:-1%; color:rgba(47, 112, 88, 0.726) ">Peringatan
+                                                style="font-size: 18px; margin-bottom:-1%; color:rgba(47, 112, 88, 0.726) ">
+                                                Peringatan
                                             </h2>
                                         </div>
                                         <hr>
@@ -470,7 +482,7 @@
                                                 <p style=" text-align: justify; color:black">
                                                     Adalah menjadi kesalahan
                                                     dibawah syarat-syarat dan sekatan
-                                                    lesen  yang terkandung di bawah
+                                                    lesen yang terkandung di bawah
                                                     Peraturan 21(1), Peraturan-peraturan Lembaga Minyak Sawit
                                                     Malaysia(Pelesenan) 2005, jika gagal/lewat
                                                     menyerahkan Penyata Bulanan tidak lewat dari 7hb. bagi bulan
@@ -486,7 +498,8 @@
                                     <div class="card" style="margin-top:20px">
                                         <div class="card-header" style="margin-bottom:-2%">
                                             <h2 class='pl-3 card-heading'
-                                                style="font-size: 18px; margin-bottom:-1%; color:rgba(47, 112, 88, 0.726)">Penafian
+                                                style="font-size: 18px; margin-bottom:-1%; color:rgba(47, 112, 88, 0.726)">
+                                                Penafian
                                             </h2>
                                         </div>
                                         <hr>
@@ -500,7 +513,8 @@
                                                     adalah
                                                     tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang
                                                     disebabkan oleh penggunaan
-                                                    mana-mana maklumat yang diperolehi dari laman web ini .Syarikat-syarikat
+                                                    mana-mana maklumat yang diperolehi dari laman web ini
+                                                    .Syarikat-syarikat
                                                     yang dirujuk di dalam
                                                     laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun
                                                     syarikat yang disyorkan oleh
@@ -564,8 +578,12 @@
             <script href="{{ asset('theme/kilangstyles/js/main.js') }}"" rel=" stylesheet"></script>
 
             <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+            </script>
 
-            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"/></script>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+            </script>
 
             <!-- Toastr -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"

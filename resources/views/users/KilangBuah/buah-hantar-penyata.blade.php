@@ -1057,7 +1057,7 @@
                                                         </td>
                                                         <td width="158" align="center">
                                                             <font size="3">
-                                                                <b>{{number_format(($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) ?? 0, 2) }}</b>
+                                                                <b>{{ number_format(($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) ?? 0, 2) }}</b>
                                                             </font>
                                                         </td>
                                                     </tr>
@@ -1103,12 +1103,13 @@
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
-                                                    <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{ $penyata->e91_sdate ?? '' }} </p>
-                                                    <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e91_npg }}</b>
-                                                    </p>
-                                                    <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e91_jpg }}</b></p>
-                                                    <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $pelesen->e_notel }}</b>
-                                                    </p>
+                                            <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{ $penyata->e91_sdate ?? '' }}
+                                            </p>
+                                            <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e91_npg }}</b>
+                                            </p>
+                                            <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e91_jpg }}</b></p>
+                                            <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $pelesen->e_notel }}</b>
+                                            </p>
 
                     </form>
 
@@ -1246,7 +1247,9 @@
     {{-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+    </script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
     <script type="text/javascript">
