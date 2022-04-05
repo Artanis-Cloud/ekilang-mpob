@@ -1042,7 +1042,7 @@
                                                         </td>
                                                         <td width="158" align="center">
                                                             <font size="3">
-                                                                <b>{{                                                                 <b>number_format(($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) ?? 0, 2) }}</b>
+                                                                <b>                                                              <b>number_format(($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) ?? 0, 2) }}</b>
                                                             </font>
                                                         </td>
                                                     </tr>
