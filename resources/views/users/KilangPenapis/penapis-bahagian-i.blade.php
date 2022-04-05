@@ -74,7 +74,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <span class="required">Nama Produk</span>
+                                                    <span class="required">Nama Produk dan Kod </span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <select class="form-select" id="produk"
@@ -137,7 +137,7 @@
                                                 @enderror --}}
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <span class="required">Jualan / Edaran Dalam Negeri</span>
+                                                    <span class="required">Jualan / Edaran Tempatan</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b11'style="width: 50%"
@@ -154,7 +154,7 @@
 
                                             <div class="row mt-3">
                                                 <div class="col-md-3">
-                                                    <span class="required"> Belian / Penerimaan</span>
+                                                    <span class="required"> Belian / Terimaan</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b7'style="width: 50%"
@@ -184,11 +184,11 @@
 
                                             <div class="row mt-3">
                                                 <div class="col-md-3">
-                                                    <span class="required">Import</span>
+                                                    <span>Import</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b8'style="width: 50%"
-                                                        id="e101_b8" required
+                                                        id="e101_b8"
                                                         title="Sila isikan butiran ini." readonly>
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -280,11 +280,11 @@
                                                 <th>Kod Produk</th>
                                                 <th>Stok Awal Di Premis</th>
                                                 <th>Stok Awal Di Pusat Simpanan</th>
-                                                <th>Belian / Penerimaan</th>
+                                                <th>Belian / Terimaan</th>
                                                 <th>Import</th>
                                                 <th>Pengeluaran</th>
                                                 <th>Digunakan Untuk Proses Selanjutnya</th>
-                                                <th>Jualan / Edaran Dalam Negeri</th>
+                                                <th>Jualan / Edaran Tempatan</th>
                                                 <th>Eksport</th>
                                                 <th>Stok Akhir Di Premis</th>
                                                 <th>Stok Akhir Di Pusat Simpanan</th>
@@ -513,8 +513,8 @@
 
                                             @endforeach
                                             <tr>
-                                                <td></td>
-                                                <td><b>JUMLAH</b></td>
+
+                                                <td colspan="2"><b>JUMLAH</b></td>
                                                 {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                                 <td style="text-align: right"><b>{{ number_format($total ??  0,2) }}</b></td>
                                                 <td style="text-align: right"><b>{{ number_format($total2 ??  0,2) }}</b></td>

@@ -19,7 +19,7 @@
                     <div class="page-breadcrumb" style="padding: 0px" >
                         <div class="pb-2 row">
                             <div class="col-5 align-self-center" >
-                                <a href="{{ $returnArr['kembali'] }}" class="btn" 
+                                <a href="{{ $returnArr['kembali'] }}" class="btn"
                                     style="color:white; background-color:#25877bd1; margin-left: 5%;">Kembali</a>
                             </div>
                             <div class="col-7 align-self-center">
@@ -118,19 +118,30 @@
                                                     </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
 
                                                     BULAN :&nbsp;&nbsp;
-                                                    @if($users->e101_bln == 1)
-                                                    Januari
-                                                    @elseif($users->e101_bln == 2) Februari
-                                                    @elseif($users->e101_bln == 3) Mac
-                                                    @elseif($users->e101_bln == 4) April
-                                                    @elseif($users->e101_bln == 5) Mei
-                                                    @elseif($users->e101_bln == 6) Jun
-                                                    @elseif($users->e101_bln == 7) Julai
-                                                    @elseif($users->e101_bln == 8) Ogos
-                                                    @elseif($users->e101_bln == 9) September
-                                                    @elseif($users->e101_bln == 10) Oktober
-                                                    @elseif($users->e101_bln == 11) November
-                                                    @elseif($users->e101_bln == 12) Disember
+                                                    @if ($users->e101_bln == 1)
+                                                        JANUARI
+                                                    @elseif($users->e101_bln  == 2)
+                                                        FEBRUARI
+                                                    @elseif($users->e101_bln == 3)
+                                                        MAC
+                                                    @elseif($users->e101_bln == 4)
+                                                        APRIL
+                                                    @elseif($users->e101_bln == 5)
+                                                        MEI
+                                                    @elseif($users->e101_bln == 6)
+                                                        JUN
+                                                    @elseif($users->e101_bln == 7)
+                                                        JULAI
+                                                    @elseif($users->e101_bln == 8)
+                                                        OGOS
+                                                    @elseif($users->e101_bln == 9)
+                                                        SEPTEMBER
+                                                    @elseif($users->e101_bln == 10)
+                                                        OKTOBER
+                                                    @elseif($users->e101_bln == 11)
+                                                        NOVEMBER
+                                                    @elseif($users->e101_bln == 12)
+                                                        DISEMBER
                                                     @endif
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $users->e101_thn }}
                                                 </b><br>

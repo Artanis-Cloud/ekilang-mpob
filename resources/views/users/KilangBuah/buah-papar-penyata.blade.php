@@ -229,7 +229,7 @@
 
                                                         <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
                                                             <b>{{ $pelesen->e_nofax }}</b>
                                                         </td>
 
@@ -237,7 +237,7 @@
 
                                                     <tr>
 
-                                                        <td width="35%">Alamat e-mail </td>
+                                                        <td width="35%">Alamat emel </td>
 
                                                         <td width="65%"><b>{{ $pelesen->e_email }}</b></td>
 
@@ -350,7 +350,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="220">
-                                                            <font size="3">B. Pembelian/Penerimaan</font>
+                                                            <font size="3">B. Pembelian/Terimaan</font>
                                                         </td>
                                                         <td width="120">
                                                             <p align="center">
@@ -526,7 +526,7 @@
 
                                                     <tr>
                                                         <td width="380">
-                                                            <font size="3">ii.&nbsp; Kadar Perahan MKSM (OER) yang
+                                                            <font size="3">ii.&nbsp; Kadar Perahan MSM (OER) yang
                                                                 diperolehi&nbsp;</font>
                                                         </td>
                                                         <td width="100">
@@ -783,7 +783,7 @@
 
 
                                             <p align="left">
-                                                <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/PENERIMAAN BEKALAN
+                                                <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/TERIMAAN BEKALAN
                                                         BUAH
                                                         KELAPA SAWIT (FFB) (52)</b>
                                                 </font>
@@ -879,7 +879,7 @@
 
 
                                             <p align="left">
-                                                <font size="3" color="#0000FF"><b>BAHAGIAN IV : EDARAN/JUALAN MINYAK SAWIT
+                                                <font size="3" color="#0000FF"><b>BAHAGIAN IV : JUALAN/EDARAN MINYAK SAWIT
                                                         MENTAH (CPO) (01) </b></font>
                                             </p>
 
@@ -889,7 +889,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td align="center" width="168">
-                                                            <font size="3"><b>Pembeli/Penerima</b></font>
+                                                            <font size="3"><b>Pembeli/Terimaan</b></font>
                                                         </td>
                                                         <td align="center" width="158">
                                                             <font size="3"><b>Kuantiti (Tan Metrik)</b></font>
@@ -992,7 +992,7 @@
 
 
                                             <p align="left">
-                                                <font size="3" color="#0000FF"><b>BAHAGIAN V : EDARAN / JUALAN ISIRUNG SAWIT
+                                                <font size="3" color="#0000FF"><b>BAHAGIAN V : JUALAN/EDARAN ISIRUNG SAWIT
                                                         (PK) DALAM NEGERI
                                                         (51)</b></font>
                                             </p>
@@ -1042,7 +1042,7 @@
                                                         </td>
                                                         <td width="158" align="center">
                                                             <font size="3">
-                                                                <b>                                                              <b>number_format(($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) ?? 0, 2) }}</b>
+                                                                <b><b>{{  number_format(($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) ?? 0, 2) }}</b>
                                                             </font>
                                                         </td>
                                                     </tr>

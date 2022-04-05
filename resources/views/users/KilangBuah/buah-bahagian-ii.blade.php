@@ -104,7 +104,7 @@
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
                                                     Kadar
-                                                    Perahan MKSM (OER) Yang Diperolehi</label>
+                                                    Perahan MSM (OER) Yang Diperolehi</label>
                                                 <div class="col-md-6">
                                                     <input type="text" class="form-control" name='e91_ah2'
                                                         style="margin-left:42%; width:40%; text-align:right"

@@ -142,7 +142,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="text-bold-500">B.
-                                                                            Pembelian / Penerimaan</td>
+                                                                            Pembelian / Terimaan</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e91_ab1' id="number"
                                                                                 style="text-align: center"
@@ -225,7 +225,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="text-bold-500">E.
-                                                                            Penjualan / Pengedaran Tempatan</td>
+                                                                            Jualan / Edaran Tempatan</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10"
                                                                                 style="text-align: center" name='e91_ae1'
@@ -254,7 +254,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td class="text-bold-500">F.
-                                                                            Eksport Terus Dari Premis</td>
+                                                                            Eksport</td>
                                                                         <td
                                                                             style="text-align:center; background-color:#808080b8">
                                                                             {{-- <input type="text"size="10" style="text-align: center" disabled> --}}

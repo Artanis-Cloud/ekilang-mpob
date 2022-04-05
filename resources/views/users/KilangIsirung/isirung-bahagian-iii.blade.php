@@ -63,7 +63,7 @@
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                             <h3 style="color: rgb(39, 80, 71);">Bahagian III</h3>
-                                            <h5 style="color: rgb(39, 80, 71)">Belian/Penerimaan Bekalan Isirung Sawit -
+                                            <h5 style="color: rgb(39, 80, 71)">Belian/Terimaan Bekalan Isirung Sawit -
                                                 (PK) (51)
                                             </h5>
                                             {{-- <p>Maklumat Kilang</p> --}}
@@ -72,7 +72,7 @@
                                         <div class="container center mt-4">
                                             <div class="row mt-3">
                                                 <div class="col-md-3">
-                                                    <span class="required">Belian/Penerimaan:</span>
+                                                    <span class="required">Belian/Terimaan:</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <select class="form-select" id="e102_b4" style=" width:50%"
@@ -146,7 +146,7 @@
                         <hr>
                         <br>
                         <br>
-                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Belian/Penerimaan Bekalan Isirung
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Belian/Terimaan Bekalan Isirung
                             Sawit -
                             (PK) (51)</h5>
                         <section class="section">
@@ -157,7 +157,7 @@
                                     <table class="table table-bordered mb-0" style="font-size: 13px">
                                         <thead>
                                             <tr style="text-align: center">
-                                                <th>Belian/Penerimaan</th>
+                                                <th>Belian/Terimaan</th>
                                                 <th>Dari</th>
                                                 <th>Kuantiti</th>
                                                 <th>Kemaskini</th>
@@ -222,7 +222,7 @@
                                                                         method="post">
                                                                         @csrf
                                                                         <div class="modal-body">
-                                                                            <label>Belian/Penerimaan </label>
+                                                                            <label>Belian/Terimaan </label>
                                                                             <div class="form-group">
                                                                                 <fieldset class="form-group">
                                                                                     <select class="form-select"
@@ -396,7 +396,7 @@
                                                                         method="post">
                                                                         @csrf
                                                                         <div class="modal-body">
-                                                                            <label>Belian/Penerimaan </label>
+                                                                            <label>Belian/Terimaan </label>
                                                                             <div class="form-group">
                                                                                 <fieldset class="form-group">
                                                                                     <select class="form-select"

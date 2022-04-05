@@ -74,20 +74,32 @@
 
                                                        </font>PENYATA BULANAN PUSAT SIMPANAN - MPOB (EL) KS 4<br>
 
-                                                       BULAN :&nbsp;&nbsp; @if($user->e07_bln == 1)
-                                                       Januari
-                                                       @elseif($user->e07_bln == 2) Februari
-                                                       @elseif($user->e07_bln == 3) Mac
-                                                       @elseif($user->e07_bln == 4) April
-                                                       @elseif($user->e07_bln == 5) Mei
-                                                       @elseif($user->e07_bln == 6) Jun
-                                                       @elseif($user->e07_bln == 7) Julai
-                                                       @elseif($user->e07_bln == 8) Ogos
-                                                       @elseif($user->e07_bln == 9) September
-                                                       @elseif($user->e07_bln == 10) Oktober
-                                                       @elseif($user->e07_bln == 11) November
-                                                       @elseif($user->e07_bln == 12) Disember
-                                                       @endif&nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp; {{ $user->e07_thn }}</b><br>
+                                                       BULAN :&nbsp;&nbsp; @if ($user->e07_bln == 1)
+                                                       JANUARI
+                                                   @elseif($user->e07_bln  == 2)
+                                                       FEBRUARI
+                                                   @elseif($user->e07_bln == 3)
+                                                       MAC
+                                                   @elseif($user->e07_bln == 4)
+                                                       APRIL
+                                                   @elseif($user->e07_bln == 5)
+                                                       MEI
+                                                   @elseif($user->e07_bln == 6)
+                                                       JUN
+                                                   @elseif($user->e07_bln == 7)
+                                                       JULAI
+                                                   @elseif($user->e07_bln == 8)
+                                                       OGOS
+                                                   @elseif($user->e07_bln == 9)
+                                                       SEPTEMBER
+                                                   @elseif($user->e07_bln == 10)
+                                                       OKTOBER
+                                                   @elseif($user->e07_bln == 11)
+                                                       NOVEMBER
+                                                   @elseif($user->e07_bln == 12)
+                                                       DISEMBER
+                                                   @endif
+                                                   &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp; {{ $user->e07_thn }}</b><br>
 
                                                        </p><hr>
 
@@ -120,21 +132,8 @@
 
                                                   <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
-                                                   <tbody><tr>
+                                                   <tbody>
 
-                                                     <td width="35%">Nombor Lesen</td>
-
-                                                     <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
-
-                                                   </tr>
-
-                                                   <tr>
-
-                                                    <td width="35%">Nama Premis</td>
-
-                                                    <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
-
-                                                   </tr>
 
                                                    <tr>
 
@@ -190,13 +189,13 @@
 
                                                     <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp; <b>{{ $pelesen->e_nofax }}</b></td>
+                                                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp; <b>{{ $pelesen->e_nofax }}</b></td>
 
                                                    </tr>
 
                                                    <tr>
 
-                                                    <td width="35%">Alamat e-mail </td>
+                                                    <td width="35%">Alamat emel </td>
 
                                                     <td width="65%"><b>{{ $pelesen->e_email }}</b></td>
 
@@ -242,9 +241,9 @@
                                             <td width="8%" align="center"><b><font size="2">Nama Produk</font></b></td>
                                             <td width="8%" align="center"><b><font size="2">Kod Produk</font></b></td>
                                             <td width="8%" align="center"><b><font size="2">Stok Awal</font></b></td>
-                                            <td width="8%" align="center"><b><font size="2">Penerimaan Dalam Negeri</font></b></td>
+                                            <td width="8%" align="center"><b><font size="2">Terimaan Dalam Negeri</font></b></td>
                                             <td width="8%" align="center"><b><font size="2">Import</font></b></td>
-                                            <td width="8%" align="center"><b><font size="2">Edaran Dalam Negeri</font></b></td>
+                                            <td width="8%" align="center"><b><font size="2">Edaran Tempatan</font></b></td>
                                             <td width="8%" align="center"><b><font size="2">Eksport</font></b></td>
                                             <td width="8%" align="center"><b><font size="2">Pelarasan (+/-)</font></b></td>
                                             <td width="8%" align="center"><b><font size="2">Stok Akhir</font></b></td>

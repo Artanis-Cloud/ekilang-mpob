@@ -353,7 +353,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">C. Belian / Penerimaan</font>
+                                                            <font size="2">C. Belian / Terimaan</font>
                                                         </td>
                                                         <td width="115">
                                                             <p align="center">
@@ -640,7 +640,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN III : BELIAN / PENERIMAAN BEKALAN ISIRONG
+                                                    <font color="#0000FF">BAHAGIAN III : BELIAN / TERIMAAN BEKALAN ISIRONG
                                                         SAWIT (PK) (51)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -648,7 +648,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Belian/Penerimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="11%" align="center"><b>
                                                                 <font size="2">Dari</font>
@@ -688,7 +688,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN IV : EDARAN / JUALAN MINYAK ISIRONG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN IV : JUALAN / EDARAN MINYAK ISIRONG SAWIT
                                                         MENTAH (CPKO) (04)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -696,7 +696,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Edaran/jualan</font>
+                                                                <font size="2">Jualan / Edaran</font>
                                                             </b></td>
                                                         <td width="11%" align="center"><b>
                                                                 <font size="2">Ke</font>
@@ -735,7 +735,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN V : EDARAN / JUALAN DEDAK ISIRONG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN V : JUALAN / EDARAN DEDAK ISIRONG SAWIT
                                                         (PKC) (33)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -743,7 +743,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Edaran/Jualan</font>
+                                                                <font size="2">Jualan / Edaran</font>
                                                             </b></td>
                                                         <td width="11%" align="center"><b>
                                                                 <font size="2">Ke</font>

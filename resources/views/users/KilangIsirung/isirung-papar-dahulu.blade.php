@@ -131,20 +131,31 @@
                                                     </font>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4<br>
 
                                                     BULAN :&nbsp;&nbsp;
-                                                    @if($users->e102_bln == 1)
-                                                    Januari
-                                                    @elseif($users->e102_bln == 2) Februari
-                                                    @elseif($users->e102_bln == 3) Mac
-                                                    @elseif($users->e102_bln == 4) April
-                                                    @elseif($users->e102_bln == 5) Mei
-                                                    @elseif($users->e102_bln == 6) Jun
-                                                    @elseif($users->e102_bln == 7) Julai
-                                                    @elseif($users->e102_bln == 8) Ogos
-                                                    @elseif($users->e102_bln == 9) September
-                                                    @elseif($users->e102_bln == 10) Oktober
-                                                    @elseif($users->e102_bln == 11) November
-                                                    @elseif($users->e102_bln == 12) Disember
-                                                    @endif
+                                                    @if ($users->e102_bln == 1)
+                                                    JANUARI
+                                                @elseif($users->e102_bln  == 2)
+                                                    FEBRUARI
+                                                @elseif($users->e102_bln == 3)
+                                                    MAC
+                                                @elseif($users->e102_bln == 4)
+                                                    APRIL
+                                                @elseif($users->e102_bln == 5)
+                                                    MEI
+                                                @elseif($users->e102_bln == 6)
+                                                    JUN
+                                                @elseif($users->e102_bln == 7)
+                                                    JULAI
+                                                @elseif($users->e102_bln == 8)
+                                                    OGOS
+                                                @elseif($users->e102_bln == 9)
+                                                    SEPTEMBER
+                                                @elseif($users->e102_bln == 10)
+                                                    OKTOBER
+                                                @elseif($users->e102_bln == 11)
+                                                    NOVEMBER
+                                                @elseif($users->e102_bln == 12)
+                                                    DISEMBER
+                                                @endif
                                                     &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $users->e102_thn }}
                                                 </b><br>
 
@@ -195,7 +206,7 @@
                                             <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
-                                                   
+
 
                                                     <tr>
 
@@ -251,7 +262,7 @@
 
                                                         <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
                                                             <b>{{ $pelesen->e_nofax }}</b>
                                                         </td>
 
@@ -259,7 +270,7 @@
 
                                                     <tr>
 
-                                                        <td width="35%">Alamat e-mail </td>
+                                                        <td width="35%">Alamat emel </td>
 
                                                         <td width="65%"><b>{{ $pelesen->e_email }}</b></td>
 
@@ -373,7 +384,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">C. Belian / Penerimaan</font>
+                                                            <font size="2">C. Belian / Terimaan</font>
                                                         </td>
                                                         <td width="115">
                                                             <p align="center">
@@ -582,7 +593,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN III : BELIAN / PENERIMAAN BEKALAN Isirung
+                                                    <font color="#0000FF">BAHAGIAN III : BELIAN/TERIMAAN BEKALAN ISIRUNG
                                                         SAWIT (PK) (51)
                                                     </font>
                                                 </b></p>

@@ -63,7 +63,7 @@
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                             <h3 style="color: rgb(39, 80, 71);">Bahagian 3</h3>
-                                            <h5 style="color: rgb(39, 80, 71)">Eksport Produk Oleokimia Lain-lain Produk Sawit</h5>
+                                            <h5 style="color: rgb(39, 80, 71)">Ringkasan Produk Oleokimia</h5>
                                             {{-- <p>Maklumat Kilang</p> --}}
                                         </div>
                                         <hr>
@@ -71,7 +71,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <span class="required">Nama Produk</span>
+                                                    <span class="required">Nama Produk dan Kod</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <select class="form-select" id="produk"
@@ -87,7 +87,7 @@
                                                 </div>
 
                                                 <div class="col-md-3">
-                                                    <span class="required">Jualan/Edaran Dalam Negeri</span>
+                                                    <span class="required">Jualan/Edaran Tempatan</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e104_c6' style="width: 50%"
@@ -103,7 +103,7 @@
 
                                             <div class="row mt-3">
                                                 <div class="col-md-3">
-                                                    <span class="required">Belian/Penerimaan</span>
+                                                    <span class="required">Belian/Terimaan</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e104_c4'
@@ -200,9 +200,9 @@
                                                 <tr style="text-align: center">
                                                     <th>Nama Produk</th>
                                                     <th>Kod Produk</th>
-                                                    <th>Belian/Penerimaan</th>
+                                                    <th>Belian/Terimaan</th>
                                                     <th>Pengeluaran</th>
-                                                    <th>Jualan/Edaran Dalam Negeri</th>
+                                                    <th>Jualan/Edaran Tempatan</th>
                                                     <th>Eksport</th>
                                                     <th>Stok Akhir</th>
                                                     <th>Kemaskini</th>
@@ -273,7 +273,7 @@
                                                                                         value="{{ $data->produk->prodname }}"
                                                                                         readonly>
                                                                                 </div>
-                                                                                <label>Belian/Penerimaan </label>
+                                                                                <label>Belian/Terimaan </label>
                                                                                 <div class="form-group">
                                                                                     <input type="text" name='e104_c4'
                                                                                         class="form-control"
@@ -285,7 +285,7 @@
                                                                                         class="form-control"
                                                                                         value="{{ $data->e104_c5 }}">
                                                                                 </div>
-                                                                                <label>Jualan/Edaran Dalam Negeri </label>
+                                                                                <label>Jualan/Edaran Tempatan </label>
                                                                                 <div class="form-group">
                                                                                     <input type="text" name='e104_c6'
                                                                                         class="form-control"

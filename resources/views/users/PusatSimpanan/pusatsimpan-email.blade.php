@@ -157,6 +157,9 @@
                                                 <div class="form-file">
                                                     <input type="file" class="form-file-input" id="file">
                                                     <label class="form-file-label" for="file">
+                                                        <label class="form-file-label" for="file">
+                                                            <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan dalam bentuk PDF, WORD, EXCEL, JPG dan PNG sahaja</i>
+                                                        </label>
 
                                                     </label>
                                                 </div>

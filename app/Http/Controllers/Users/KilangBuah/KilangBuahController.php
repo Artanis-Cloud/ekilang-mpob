@@ -309,8 +309,7 @@ class KilangBuahController extends Controller
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
 
         $jumlah = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
-        ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj6 ?? 0) +
-        ($penyata->e91_aj7 ?? 0) + ($penyata->e91_aj8 ?? 0);
+        ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
 
         return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah'));
     }
@@ -322,8 +321,7 @@ class KilangBuahController extends Controller
         // dd($request->all());
 
         $calculate = floatval($request->e91_aj1) + floatval($request->e91_aj2) + floatval($request->e91_aj3) +
-        floatval($request->e91_aj4) + floatval($request->e91_aj5) + floatval($request->e91_aj6) + floatval($request->e91_aj7)
-        + floatval($request->e91_aj8);
+        floatval($request->e91_aj4) + floatval($request->e91_aj5) +  floatval($request->e91_aj8);
 
         $total = floatval($request->jumlah);
 
@@ -340,8 +338,8 @@ class KilangBuahController extends Controller
         $penyata->e91_aj3 = $request->e91_aj3;
         $penyata->e91_aj4 = $request->e91_aj4;
         $penyata->e91_aj5 = $request->e91_aj5;
-        $penyata->e91_aj6 = $request->e91_aj6;
-        $penyata->e91_aj7 = $request->e91_aj7;
+        // $penyata->e91_aj6 = $request->e91_aj6;
+        // $penyata->e91_aj7 = $request->e91_aj7;
         $penyata->e91_aj8 = $request->e91_aj8;
         $penyata->save();
 
@@ -600,6 +598,7 @@ class KilangBuahController extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.kbuah';
+
 
 
 

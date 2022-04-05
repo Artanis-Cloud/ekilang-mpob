@@ -63,7 +63,7 @@
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                             <h3 style="color: rgb(39, 80, 71);">Bahagian V (a) & (b)</h3>
-                                            <h5 style="color: rgb(39, 80, 71)">Belian/Penerimaan Bekalan Produk Sawit</h5>
+                                            <h5 style="color: rgb(39, 80, 71)">Belian/eTrimaan Bekalan Produk Sawit (Sendiri dan Luar)</h5>
                                             {{-- <p>Maklumat Kilang</p> --}}
                                         </div>
                                         <hr>
@@ -100,7 +100,7 @@
 
                                             <div class="row mt-3">
                                                 <div class="col-md-3">
-                                                    <span class="required">Belian/Penerimaan dari</span>
+                                                    <span class="required">Belian/Terimaan Dari</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <select class="form-select" id="e101_d4"
@@ -185,7 +185,7 @@
                         <br>
                         <br>
                         <hr>
-                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Belian/Penerimaan Bekalan Produk Sawit
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Belian/Terimaan Bekalan Produk Sawit
                         </h5>
 
                         <section class="section">
@@ -196,7 +196,7 @@
                                         <thead>
                                             <tr style="text-align: center">
                                                 <th>Sendiri / Luar</th>
-                                                <th>Belian/Penerimaan dari</th>
+                                                <th>Belian/Terimaan dari</th>
                                                 <th>CPO</th>
                                                 <th>PPO</th>
                                                 <th>CPKO</th>
@@ -275,7 +275,7 @@
                                                                                     readonly> --}}
 
                                                                             </div>
-                                                                            <label>Belian/Penerimaan dari </label>
+                                                                            <label>Belian/Terimaan dari </label>
                                                                             <div class="form-group">
                                                                                 <fieldset class="form-group">
                                                                                     <select class="form-select" id="e101_d4" name="e101_d4">
@@ -403,7 +403,7 @@
                                                 {{-- <td></td> --}}
 
                                             </tr>
-                                            <td><br></td>
+                                            {{-- <td><br></td> --}}
                                             @foreach ($penyata2 as $data)
                                             <tr style="text-align: right">
 
@@ -472,7 +472,7 @@
                                                                                 readonly> --}}
 
                                                                         </div>
-                                                                        <label>Belian/Penerimaan dari </label>
+                                                                        <label>Belian/Terimaan dari </label>
                                                                         <div class="form-group">
                                                                             <fieldset class="form-group">
                                                                                 <select class="form-select" id="e101_d4" name="e101_d4">
@@ -600,7 +600,7 @@
                                                 {{-- <td></td> --}}
 
                                             </tr>
-                                            <br>
+
 
                                         </tbody>
 
