@@ -293,6 +293,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('isirung/bahagian-v', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagianv'])->name('isirung.bahagianv');
         Route::post('isirung/add-bahagian-v', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_add_bahagian_v'])->name('isirung.add.bahagian.v');
+        Route::post('isirung/bahagian-v/process', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'validationv'])->name('isirung.bahagianv.process');
         Route::post('isirung/edit-bahagian-v/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_edit_bahagian_v'])->name('isirung.edit.bahagian.v');
         Route::get('isirung/bahagian-v/delete/{id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'destroyv'])->name('isirung.bahagianv.delete');
 

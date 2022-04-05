@@ -517,7 +517,7 @@
                                                 </tr>
                                                 <tr>
 
-                                                    <td colspan="2"><b>JUMLAH</b></td>
+                                                    <td colspan="2"><b>JUMLAH KESELURUHAN</b></td>
                                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                                     <td style="text-align: right"><b><span name='total3' id='total3'>
                                                                 {{ number_format($total3, 2) }}</span></b>
