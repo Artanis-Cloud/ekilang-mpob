@@ -367,15 +367,18 @@
                                                     </div>
                                                 @enderror --}}
                                                 </div><br><br>
+
+
+                                            </div>
+                                            <div class="row">
                                                 <i style="width: 90%">Nota: Sekiranya kilang/pelesen tiada tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
                                                     bilangan dan kapasiti tangki dan lapor dalam kategori Others
                                                 </i>
-
                                             </div>
                                         </div>
 
 
-                                        <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="row form-group" style="margin-top: 7%; ">
 
 
                                             {{-- <div class="text-left col-md-5">

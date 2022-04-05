@@ -76,11 +76,6 @@
 
 
                                 <div class="col-12 mt-3">
-                                    <div class="mb-2" style="text-align: right">
-                                        <a href="{{ asset('manual/kilangbuah/1.pdf') }}" target="_blank"
-                                            style="text-align:right"><i><u>Panduan
-                                                    Mengisi Maklumat Bahagian I</u></i></a>
-                                    </div>
                                     <div class="row" id="table-bordered">
 
                                         <form action="{{route('isirung.update.bahagian.i',[$penyata->e102_reg])}}" method="post">
