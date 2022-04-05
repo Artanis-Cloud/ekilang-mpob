@@ -359,7 +359,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b5'
-                                                    style="width:100%" id="e104_b5" required
+                                                    style="width:100%" id="e104_b5" 
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -370,7 +370,7 @@
 
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10" required
+                                                    style="width:100%" id="e104_b10"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -380,7 +380,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"  required
+                                                    style="width:100%" id="e104_b10"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -390,7 +390,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"  required
+                                                    style="width:100%" id="e104_b10"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -400,7 +400,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10" required
+                                                    style="width:100%" id="e104_b10"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -410,7 +410,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"  required
+                                                    style="width:100%" id="e104_b10"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -429,7 +429,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b5'
-                                                    style="width:100%" id="e104_b5" required
+                                                    style="width:100%" id="e104_b5"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -441,7 +441,7 @@
 
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"  required
+                                                    style="width:100%" id="e104_b10"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -451,7 +451,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10" required
+                                                    style="width:100%" id="e104_b10"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -461,7 +461,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"  required
+                                                    style="width:100%" id="e104_b10"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -471,7 +471,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"  required
+                                                    style="width:100%" id="e104_b10"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -481,7 +481,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10" required
+                                                    style="width:100%" id="e104_b10"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -489,16 +489,19 @@
                                                 </div>
                                             @enderror --}}
                                             </div><br><br>
-                                            <i style="width: 90%">Nota: Sekiranya kilang/pelesen tiada tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
-                                                bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                                            </i>
+                                            <div class="row">
+                                                <i style="width: 90%">Nota: Sekiranya kilang/pelesen tiada tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
+                                                    bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                                </i>
+                                            </div>
+
 
 
                                         </div>
                                     </div>
 
 
-                                    <div class="row form-group" style="padding-top: 10px; ">
+                                    <div class="row form-group" style="margin-top: 7%; ">
 
 
                                         {{-- <div class="text-left col-md-5">
