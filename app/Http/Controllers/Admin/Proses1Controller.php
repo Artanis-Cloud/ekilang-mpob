@@ -430,7 +430,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen E-Biodiesel"],
+            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -573,7 +573,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen E-Biodiesel"],
+            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen Kilang Biodiesel"],
             ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
         ];
 
