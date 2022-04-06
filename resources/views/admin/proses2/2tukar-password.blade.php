@@ -84,6 +84,13 @@
                                             </div>
                                         </div>
 
+                                        <div class="row form-group mt-2" style="padding-top: 10px; ">
+                                            <div class="text-right col-md-12 center">
+                                                <button type="submit" class="btn btn-primary">Tukar Kata Laluan</button>
+                                                {{-- <button type="submit">YA</button> --}}
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
                     </div>
