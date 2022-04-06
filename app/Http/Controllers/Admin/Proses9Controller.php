@@ -145,8 +145,7 @@ class Proses9Controller extends Controller
         // dd($ekat);
         // $users = RegPelesen::with('pelesen')->where('e_kat','PL91')->where('e_status',1)->get();
         // foreach($ekat as $data){
-        if('e_kat' == "PL91")
-        {
+
 
             $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, date_format(e91_sdate,'%d-%m-%Y') as sdate
                         FROM pelesen p, h91_init e, reg_pelesen k
@@ -157,20 +156,7 @@ class Proses9Controller extends Controller
                         and p.e_nl = k.e_nl
                         and k.e_kat = 'PL91'
                         order by k.kodpgw, k.nosiri");
-        }
-        elseif('e_kat' == "PL101")
-        {
-            $users = DB::select("SELECT e.e101_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, date_format(e101_sdate,'%d-%m-%Y') as sdate
-                        FROM pelesen p, h101_init e, reg_pelesen k
-                        WHERE e.e101_thn = '$request->tahun'
-                        and e.e101_bln = '$request->bulan'
-                        and p.e_nl = e.e101_nl
-                        and e.e101_flg = '3'
-                        and p.e_nl = k.e_nl
-                        and k.e_kat = 'PL101'
-                        order by k.kodpgw, k.nosiri");
-        }
-
+       
         // dd($users);
 
         // dd($users[1]);
