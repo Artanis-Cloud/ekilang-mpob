@@ -164,7 +164,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5penyatabelumhantarbio'), 'name' => "Penyata Bulanan Kilang E-Biodiesel"],
+            ['link' => route('admin.5penyatabelumhantarbio'), 'name' => "Penyata Bulanan Kilang Kilang Biodiesel"],
         ];
 
         $kembali = route('admin.dashboard');

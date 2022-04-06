@@ -61,7 +61,7 @@ class Proses1Controller extends Controller
         $this->validation_daftar_pelesen($request->all())->validate();
         $this->store_daftar_pelesen($request->all());
 
-        return redirect()->route('admin.senaraipelesenbuah')->with('success', 'Maklumat Pelesen sudah ditambah');
+        return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
     }
 
     protected function validation_daftar_pelesen(array $data)
@@ -180,7 +180,7 @@ class Proses1Controller extends Controller
         } elseif($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL101'){
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senarai.pelesen.penapis'), 'name' => "Senarai Pelesen Penapis"],
+                ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen Penapis"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
@@ -311,7 +311,8 @@ class Proses1Controller extends Controller
     {
         //test data
         // $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->where('e_id', 677)->get();
-
+        $pelesen = Pelesen::get('e_nl');
+        // dd($pelesen);
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
         // dd($users);
         // $pelesen = Pelesen::get();
