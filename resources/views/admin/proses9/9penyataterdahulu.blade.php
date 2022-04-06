@@ -49,23 +49,24 @@
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="dropdown" style="margin-bottom: 2%">
-                                <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
-                                    type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle"
+                                    style="background-color: rgb(238, 70, 70)" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Kilang Buah
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="{{ route('admin.6penyatapaparcetakpenapis') }}">Kilang
-                                        Penapis</a>
-                                    <a class="dropdown-item" href="{{ route('admin.6penyatapaparcetakisirung') }}">Kilang
-                                        Isirung</a>
-                                    <a class="dropdown-item" href="{{ route('admin.6penyatapaparcetakoleo') }}">Kilang
-                                        Oleokimia</a>
-                                    <a class="dropdown-item" href="{{ route('admin.6penyatapaparcetaksimpanan') }}">Pusat
-                                        Simpanan</a>
-                                    <a class="dropdown-item" href="{{ route('admin.6penyatapaparcetakbio') }}">Kilang
-                                        Biodiesel</a>
+                                    {{-- <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang Buah</a> --}}
+                                    <a class="dropdown-item"
+                                        href="{{ route('admin.9penyataterdahulupenapis') }}">Kilang Penapis</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('admin.9penyataterdahuluisirung') }}">Kilang Isirung</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('admin.9penyataterdahuluoleokimia') }}">Kilang Oleokimia</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('admin.9penyataterdahulusimpanan') }}">Pusat Simpanan</a>
+                                    <a class="dropdown-item"
+                                        href="{{ route('admin.9penyataterdahulubiodiesel') }}">E-Biodiesel</a>
                                 </div>
                             </div>
                         </div>

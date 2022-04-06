@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/kilang-isirung', [App\Http\Controllers\Admin\KilangController::class, 'admin_kilangisirung'])->name('admin.kilangisirung');
         Route::get('admin/kilang-oleokimia', [App\Http\Controllers\Admin\KilangController::class, 'admin_kilangoleokimia'])->name('admin.kilangoleokimia');
         Route::get('admin/pusat-simpanan', [App\Http\Controllers\Admin\KilangController::class, 'admin_pusatsimpanan'])->name('admin.pusatsimpanan');
-        Route::get('admin/e-biodiesel', [App\Http\Controllers\Admin\KilangController::class, 'admin_ebiodiesel'])->name('admin.ebiodiesel');
+        Route::get('admin/biodiesel', [App\Http\Controllers\Admin\KilangController::class, 'admin_ebiodiesel'])->name('admin.ebiodiesel');
 
         Route::get('admin/1-daftarpelesen', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_1daftarpelesen'])->name('admin.1daftarpelesen');
         Route::post('admin/1-daftarpelesen/proses', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_1daftarpelesen_proses'])->name('admin.1daftarpelesen.proses');
@@ -169,27 +169,27 @@ Route::middleware('auth')->group(function () {
         Route::get('buah/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'buah_dashboard'])->name('buah.dashboard');
 
         Route::get('buah/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_maklumatasaspelesen'])->name('buah.maklumatasaspelesen');
-        Route::post('buah/update-maklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_maklumat_asas_pelesen'])->name('buah.update.maklumat.asas.pelesen');
+        Route::post('buah/updatmaklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_maklumat_asas_pelesen'])->name('buah.update.maklumat.asas.pelesen');
 
 
         Route::get('buah/tukar-password', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_tukarpassword'])->name('buah.tukarpassword');
 
         Route::get('buah/bahagian-i', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagiani'])->name('buah.bahagiani');
-        Route::post('buah/update-bahagian-i/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_i'])->name('buah.update.bahagian.i');
+        Route::post('buah/updatbahagian-i/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_i'])->name('buah.update.bahagian.i');
 
         Route::get('buah/bahagian-ii', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianii'])->name('buah.bahagianii');
-        Route::post('buah/update-bahagian-ii/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_ii'])->name('buah.update.bahagian.ii');
+        Route::post('buah/updatbahagian-ii/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_ii'])->name('buah.update.bahagian.ii');
 
 
         Route::get('buah/bahagian-iii', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianiii'])->name('buah.bahagianiii');
-        Route::post('buah/update-bahagian-iii/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_iii'])->name('buah.update.bahagian.iii');
+        Route::post('buah/updatbahagian-iii/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_iii'])->name('buah.update.bahagian.iii');
 
         Route::get('buah/bahagian-iv', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianiv'])->name('buah.bahagianiv');
-        Route::post('buah/update-bahagian-iv/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_iv'])->name('buah.update.bahagian.iv');
+        Route::post('buah/updatbahagian-iv/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_iv'])->name('buah.update.bahagian.iv');
 
 
         Route::get('buah/bahagian-v', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianv'])->name('buah.bahagianv');
-        Route::post('buah/update-bahagian-v/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_v'])->name('buah.update.bahagian.v');
+        Route::post('buah/updatbahagian-v/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_v'])->name('buah.update.bahagian.v');
 
 
         Route::get('buah/bahagian-vi', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianvi'])->name('buah.bahagianvi');
@@ -211,41 +211,41 @@ Route::middleware('auth')->group(function () {
         Route::get('penapis/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'penapis_dashboard'])->name('penapis.dashboard');
 
         Route::get('penapis/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_maklumatasaspelesen'])->name('penapis.maklumatasaspelesen');
-        Route::post('penapis/update-maklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_update_maklumat_asas_pelesen'])->name('penapis.update.maklumat.asas.pelesen');
+        Route::post('penapis/updatmaklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_update_maklumat_asas_pelesen'])->name('penapis.update.maklumat.asas.pelesen');
 
         Route::get('penapis/tukar-password', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_tukarpassword'])->name('penapis.tukarpassword');
 
         Route::get('penapis/bahagian-i', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagiani'])->name('penapis.bahagiani');
         Route::post('penapis/add-bahagian-i', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_i'])->name('penapis.add.bahagian.i');
         Route::post('penapis/edit-bahagian-i/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_i'])->name('penapis.edit.bahagian.i');
-        Route::get('penapis/delete-bahagian-i/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_i'])->name('penapis.delete.bahagiani');
+        Route::get('penapis/deletbahagian-i/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_i'])->name('penapis.delete.bahagiani');
 
 
 
         Route::get('penapis/bahagian-ii', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianii'])->name('penapis.bahagianii');
         Route::post('penapis/add-bahagian-ii', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_ii'])->name('penapis.add.bahagian.ii');
         Route::post('penapis/edit-bahagian-ii/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_ii'])->name('penapis.edit.bahagian.ii');
-        Route::get('penapis/delete-bahagian-ii/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_ii'])->name('penapis.delete.bahagianii');
+        Route::get('penapis/deletbahagian-ii/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_ii'])->name('penapis.delete.bahagianii');
 
         Route::get('penapis/bahagian-iii', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianiii'])->name('penapis.bahagianiii');
-        Route::post('penapis/update-bahagian-iii/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_update_bahagian_iii'])->name('penapis.update.bahagian.iii');
+        Route::post('penapis/updatbahagian-iii/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_update_bahagian_iii'])->name('penapis.update.bahagian.iii');
 
         Route::get('penapis/bahagian-iva', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianiva'])->name('penapis.bahagianiva');
         Route::post('penapis/add-bahagian-iva', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_iva'])->name('penapis.add.bahagian.iva');
         Route::post('penapis/edit-bahagian-iva/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_iva'])->name('penapis.edit.bahagian.iva');
-        Route::get('penapis/delete-bahagian-iva/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_iva'])->name('penapis.delete.bahagianiva');
+        Route::get('penapis/deletbahagian-iva/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_iva'])->name('penapis.delete.bahagianiva');
 
         Route::get('penapis/bahagian-ivb', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianivb'])->name('penapis.bahagianivb');
         Route::post('penapis/add-bahagian-ivb', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_ivb'])->name('penapis.add.bahagian.ivb');
         Route::post('penapis/edit-bahagian-ivb/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_ivb'])->name('penapis.edit.bahagian.ivb');
-        Route::get('penapis/delete-bahagian-ivb/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_ivb'])->name('penapis.delete.bahagianivb');
+        Route::get('penapis/deletbahagian-ivb/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_ivb'])->name('penapis.delete.bahagianivb');
 
 
 
         Route::get('penapis/bahagian-v', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianv'])->name('penapis.bahagianv');
         Route::post('penapis/add-bahagian-v', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_v'])->name('penapis.add.bahagian.v');
         Route::post('penapis/edit-bahagian-v/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_v'])->name('penapis.edit.bahagian.v');
-        Route::get('penapis/delete-bahagian-v/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_v'])->name('penapis.delete.bahagianv');
+        Route::get('penapis/deletbahagian-v/{id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_delete_bahagian_v'])->name('penapis.delete.bahagianv');
 
         // Route::get('penapis/bahagian-vb', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagianvb'])->name('penapis.bahagianvb');'
 
@@ -270,14 +270,14 @@ Route::middleware('auth')->group(function () {
         //Pelesen - Kilang Isirung
         Route::get('isirung/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'isirung_dashboard'])->name('isirung.dashboard');
         Route::get('isirung/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_maklumatasaspelesen'])->name('isirung.maklumatasaspelesen');
-        Route::post('isirung/update-maklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_update_maklumat_asas_pelesen'])->name('isirung.update.maklumat.asas.pelesen');
+        Route::post('isirung/updatmaklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_update_maklumat_asas_pelesen'])->name('isirung.update.maklumat.asas.pelesen');
 
         Route::get('isirung/tukar-password', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_tukarpassword'])->name('isirung.tukarpassword');
         Route::get('isirung/bahagian-i', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagiani'])->name('isirung.bahagiani');
-        Route::post('isirung/update-bahagian-i/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_update_bahagian_i'])->name('isirung.update.bahagian.i');
+        Route::post('isirung/updatbahagian-i/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_update_bahagian_i'])->name('isirung.update.bahagian.i');
 
         Route::get('isirung/bahagian-ii', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagianii'])->name('isirung.bahagianii');
-        Route::post('isirung/update-bahagian-ii/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_update_bahagian_ii'])->name('isirung.update.bahagian.ii');
+        Route::post('isirung/updatbahagian-ii/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_update_bahagian_ii'])->name('isirung.update.bahagian.ii');
 
         Route::get('isirung/bahagian-iii', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagianiii'])->name('isirung.bahagianiii');
         Route::post('isirung/add-bahagian-iii', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_add_bahagian_iii'])->name('isirung.add.bahagian.iii');
@@ -318,32 +318,32 @@ Route::middleware('auth')->group(function () {
         //Pelesen - Kilang Oleokimia
         Route::get('oleokimia/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'oleo_dashboard'])->name('oleo.dashboard');
         Route::get('oleokimia/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_maklumatasaspelesen'])->name('oleo.maklumatasaspelesen');
-        Route::post('oleokimia/update-maklumat-asas-pelesen/{Id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_update_maklumat_asas_pelesen'])->name('oleo.update.maklumat.asas.pelesen');
+        Route::post('oleokimia/updatmaklumat-asas-pelesen/{Id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_update_maklumat_asas_pelesen'])->name('oleo.update.maklumat.asas.pelesen');
 
         Route::get('oleokimia/tukar-password', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_tukarpassword'])->name('oleo.tukarpassword');
 
         Route::get('oleokimia/bahagian-ia', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagiania'])->name('oleo.bahagiania');
         Route::post('oleokimia/add-bahagian-ia', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class,  'oleo_add_bahagian_ia'])->name('oleo.add.bahagian.ia');
         Route::post('oleokimia/edit-bahagian-ia/{Id}', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_edit_bahagian_ia'])->name('oleo.edit.bahagian.ia');
-        Route::get('oleokimia/delete-bahagian-ia/{id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_delete_bahagian_ia'])->name('oleo.delete.bahagiania');
+        Route::get('oleokimia/deletbahagian-ia/{id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_delete_bahagian_ia'])->name('oleo.delete.bahagiania');
 
         Route::get('oleokimia/bahagian-ib', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagianib'])->name('oleo.bahagianib');
         Route::post('oleokimia/add-bahagian-ib', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class,  'oleo_add_bahagian_ib'])->name('oleo.add.bahagian.ib');
         Route::post('oleokimia/edit-bahagian-ib/{Id}', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_edit_bahagian_ib'])->name('oleo.edit.bahagian.ib');
-        Route::get('oleokimia/delete-bahagian-ib/{id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_delete_bahagian_ib'])->name('oleo.delete.bahagianib');
+        Route::get('oleokimia/deletbahagian-ib/{id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_delete_bahagian_ib'])->name('oleo.delete.bahagianib');
 
         Route::get('oleokimia/bahagian-ic', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagianic'])->name('oleo.bahagianic');
         Route::post('oleokimia/add-bahagian-ic', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class,  'oleo_add_bahagian_ic'])->name('oleo.add.bahagian.ic');
         Route::post('oleokimia/edit-bahagian-ic/{Id}', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_edit_bahagian_ic'])->name('oleo.edit.bahagian.ic');
-        Route::get('oleokimia/delete-bahagian-ic/{id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_delete_bahagian_ic'])->name('oleo.delete.bahagianic');
+        Route::get('oleokimia/deletbahagian-ic/{id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_delete_bahagian_ic'])->name('oleo.delete.bahagianic');
 
         Route::get('oleokimia/bahagian-ii', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagianii'])->name('oleo.bahagianii');
-        Route::post('oleokimia/update-bahagian-ii/{Id}', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_update_bahagian_ii'])->name('oleo.update.bahagian.ii');
+        Route::post('oleokimia/updatbahagian-ii/{Id}', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_update_bahagian_ii'])->name('oleo.update.bahagian.ii');
 
         Route::get('oleokimia/bahagian-iii', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagianiii'])->name('oleo.bahagianiii');
         Route::post('oleokimia/add-bahagian-iii', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_add_bahagian_iii'])->name('oleo.add.bahagian.iii');
         Route::post('oleokimia/edit-bahagian-iii/{Id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_edit_bahagian_iii'])->name('oleo.edit.bahagian.iii');
-        Route::get('oleokimia/delete-bahagian-iii/{id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_delete_bahagian_iii'])->name('oleo.delete.bahagianiii');
+        Route::get('oleokimia/deletbahagian-iii/{id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_delete_bahagian_iii'])->name('oleo.delete.bahagianiii');
 
         Route::get('oleokimia/bahagian-iv', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagianiv'])->name('oleo.bahagianiv');
         Route::post('oleokimia/add-bahagian-iv', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_add_bahagian_iv'])->name('oleo.add.bahagian.iv');
@@ -364,14 +364,14 @@ Route::middleware('auth')->group(function () {
         Route::get('pusatsimpan/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'pusatsimpan_dashboard'])->name('pusatsimpan.dashboard');
 
         Route::get('pusatsimpan/maklumat-asas-pelesen', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_maklumatasaspelesen'])->name('pusatsimpan.maklumatasaspelesen');
-        Route::post('pusatsimpan/update-maklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_update_maklumat_asas_pelesen'])->name('pusatsimpan.update.maklumat.asas.pelesen');
+        Route::post('pusatsimpan/updatmaklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_update_maklumat_asas_pelesen'])->name('pusatsimpan.update.maklumat.asas.pelesen');
 
         Route::get('pusatsimpan/tukar-password', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_tukarpassword'])->name('pusatsimpan.tukarpassword');
 
         Route::get('pusatsimpan/bahagian-a', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_bahagiana'])->name('pusatsimpan.bahagiana');
         Route::post('pusatsimpan/add-bahagian-a', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_add_bahagian_a'])->name('pusatsimpan.add.bahagian.a');
         Route::post('pusatsimpan/edit-bahagian-a/{Id}', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_edit_bahagian_a'])->name('pusatsimpan.edit.bahagian.a');
-        Route::get('pusatsimpan/delete-bahagian-a/{id}',  [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_delete_bahagian_a'])->name('pusatsimpan.delete.bahagiana');
+        Route::get('pusatsimpan/deletbahagian-a/{id}',  [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_delete_bahagian_a'])->name('pusatsimpan.delete.bahagiana');
 
         Route::get('pusatsimpan/bahagian-b', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_bahagianb'])->name('pusatsimpan.bahagianb');
 
@@ -392,38 +392,38 @@ Route::middleware('auth')->group(function () {
         Route::get('biodiesel/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'biodiesel_dashboard'])->name('bio.dashboard');
         Route::get('biodiesel/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_maklumatasaspelesen'])->name('bio.maklumatasaspelesen');
 
-        Route::post('biodiesel/update-maklumat-asas-pelesen/{Id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_update_maklumat_asas_pelesen'])->name('bio.update.maklumat.asas.pelesen');
+        Route::post('biodiesel/updatmaklumat-asas-pelesen/{Id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_update_maklumat_asas_pelesen'])->name('bio.update.maklumat.asas.pelesen');
         Route::get('biodiesel/tukar-password', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_tukarpassword'])->name('bio.tukarpassword');
 
         Route::get('biodiesel/bahagian-ia', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagiania'])->name('bio.bahagiania');
         Route::post('biodiesel/add-bahagian-ia', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_ia'])->name('bio.add.bahagian.ia');
         Route::post('biodiesel/edit-bahagian-ia/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_ia'])->name('bio.edit.bahagian.ia');
-        Route::get('biodiesel/delete-bahagian-ia/{id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_delete_bahagian_ia'])->name('bio.delete.bahagian.ia');
+        Route::get('biodiesel/deletbahagian-ia/{id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_delete_bahagian_ia'])->name('bio.delete.bahagian.ia');
 
 
         Route::get('biodiesel/bahagian-ib', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianib'])->name('bio.bahagianib');
         Route::post('biodiesel/add-bahagian-ib', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_ib'])->name('bio.add.bahagian.ib');
         Route::post('biodiesel/edit-bahagian-ib/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_ib'])->name('bio.edit.bahagian.ib');
-        Route::get('biodiesel/delete-bahagian-ib/{id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_delete_bahagian_ib'])->name('bio.delete.bahagian.ib');
+        Route::get('biodiesel/deletbahagian-ib/{id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_delete_bahagian_ib'])->name('bio.delete.bahagian.ib');
 
 
 
         Route::get('biodiesel/bahagian-ic', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianic'])->name('bio.bahagianic');
         Route::post('biodiesel/add-bahagian-ic', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_ic'])->name('bio.add.bahagian.ic');
         Route::post('biodiesel/edit-bahagian-ic/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_ic'])->name('bio.edit.bahagian.ic');
-        Route::get('biodiesel/delete-bahagian-ic/{id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_delete_bahagian_ic'])->name('bio.delete.bahagian.ic');
+        Route::get('biodiesel/deletbahagian-ic/{id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_delete_bahagian_ic'])->name('bio.delete.bahagian.ic');
 
 
         Route::get('biodiesel/bahagian-ii', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianii'])->name('bio.bahagianii');
         Route::post('biodiesel/add-bahagian-ii', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_add_bahagian_ii'])->name('bio.add.bahagian.ii');
         Route::post('biodiesel/edit-bahagian-ii/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_ii'])->name('bio.edit.bahagian.ii');
-        Route::get('biodiesel/delete-bahagian-ii/{id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_delete_bahagian_ii'])->name('bio.delete.bahagian.ii');
+        Route::get('biodiesel/deletbahagian-ii/{id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_delete_bahagian_ii'])->name('bio.delete.bahagian.ii');
 
 
         Route::get('biodiesel/bahagian-iii', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiii'])->name('bio.bahagianiii');
         Route::post('biodiesel/add-bahagian-iii', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_iii'])->name('bio.add.bahagian.iii');
         Route::post('biodiesel/edit-bahagian-iii/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_edit_bahagian_iii'])->name('bio.edit.bahagian.iii');
-        Route::get('biodiesel/delete-bahagian-iii/{id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_delete_bahagian_iii'])->name('bio.delete.bahagian.iii');
+        Route::get('biodiesel/deletbahagian-iii/{id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_delete_bahagian_iii'])->name('bio.delete.bahagian.iii');
 
 
         Route::get('biodiesel/bahagian-iv', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagianiv'])->name('bio.bahagianiv');
@@ -457,7 +457,7 @@ Route::get('/trylogin', [App\Http\Controllers\Users\KilangBuah\KilangBuahControl
 // //Kilang Biodiesel
 // Route::get('biodiesel/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'biodiesel_dashboard'])->name('bio.dashboard');
 // Route::get('biodiesel/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_maklumatasaspelesen'])->name('bio.maklumatasaspelesen');
-// Route::post('biodiesel/update-maklumat-asas-pelesen/{Id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_update_maklumat_asas_pelesen'])->name('bio.update.maklumat.asas.pelesen');
+// Route::post('biodiesel/updatmaklumat-asas-pelesen/{Id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_update_maklumat_asas_pelesen'])->name('bio.update.maklumat.asas.pelesen');
 
 // Route::get('biodiesel/tukar-password', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_tukarpassword'])->name('bio.tukarpassword');
 
