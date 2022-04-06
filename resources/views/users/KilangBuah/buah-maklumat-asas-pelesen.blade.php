@@ -358,33 +358,49 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Bilangan Tangki</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" id="" class="form-control" placeholder="CPO"
-                                                        name="">
+                                            <div class="row mt-3" style="text-align: center; font-size: 12px">
+                                                <div class="col-md-5">
+                                                    <span ></span>
+                                                </div>
+
+
+                                                <div class="col-md-1">
+                                                    <span>CPO</span>
+                                                </div>
+
+                                            </div>
+                                            <div class="row mt-3">
+                                                <div class="col-md-5">
+                                                    <span class="required">Bilangan Tangki</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b5'
+                                                        style="width:100%" id="e104_b5" required
+                                                        title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
                                                 </div>
+
+
                                             </div>
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Kapasiti Tangki Simpanan (Tan)</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" id="" class="form-control" placeholder="CPO"
-                                                        name="">
+                                            <div class="row mt-3">
+                                                <div class="col-md-5">
+                                                    <span class="required">Kapasiti Tangki Simpanan (Tan)</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b5'
+                                                        style="width:100%" id="e104_b5" required
+                                                        title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
                                                 </div><br><br>
+
 
                                             </div>
                                             <div class="row">
