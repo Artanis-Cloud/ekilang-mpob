@@ -56,6 +56,7 @@ class DataMigrationController extends Controller
                 'username' => $reg_user->e_userid ?? '-',
                 'category' => 'admin',
                 'priv' =>  $reg_user->e_priv ?? '-',
+                'role' =>  'admin',
             ]);
         }
     }

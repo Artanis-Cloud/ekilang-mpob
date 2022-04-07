@@ -161,7 +161,7 @@ class Proses1Controller extends Controller
 
         $reg_pelesen = RegPelesen::find($e_id);
         $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
-        // dd($e_id);
+        // dd($pelesen);
 
         if ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL91') {
             $breadcrumbs    = [

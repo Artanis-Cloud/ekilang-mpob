@@ -69,14 +69,9 @@
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Status e-Kilang</label>
                                             <select class="form-control" name="e_status">
-                                                @if ($reg_pelesen->e_status == '1')
-                                                    <option selected hidden disabled value="1">Aktif
-                                                    </option>
-                                                @else
-                                                    <option selected hidden disabled value="2">Tidak Aktif</option>
-                                                @endif
-                                                <option value="1">Aktif</option>
-                                                <option value="2">Tidak Aktif</option>
+
+                                                <option {{ ($reg_pelesen->e_status == '1') ? 'selected' : '' }} value="1">Aktif</option>
+                                                <option {{ ($reg_pelesen->e_status == '2') ? 'selected' : '' }} value="2">Tidak Aktif</option>
                                             </select>
 
                                         </div>
@@ -85,16 +80,8 @@
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Status e-Mingguan</label>
                                             <select class="form-control" name="e_stock">
-                                                @if ($reg_pelesen->e_stock == '1')
-                                                    <option selected hidden disabled value="1">Aktif
-                                                    </option>
-                                                @elseif ($reg_pelesen->e_stock == '2')
-                                                    <option selected hidden disabled value="2">Tidak Aktif</option>
-                                                @else
-                                                    <option selected hidden disabled value=""></option>
-                                                @endif
-                                                <option value="1">Aktif</option>
-                                                <option value="2">Tidak Aktif</option>
+                                                <option {{ ($reg_pelesen->e_stock == '1') ? 'selected' : '' }} value="1">Aktif</option>
+                                                <option {{ ($reg_pelesen->e_stock == '2') ? 'selected' : '' }} value="2">Tidak Aktif</option>
                                             </select>
                                         </div>
                                     </div>
@@ -105,16 +92,8 @@
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Status Direktori</label>
                                             <select class="form-control" name="directory">
-                                                @if ($reg_pelesen->directory == 'Y')
-                                                    <option selected hidden disabled value="Y">Ya
-                                                    </option>
-                                                @elseif ($reg_pelesen->directory == 'N')
-                                                    <option selected hidden disabled value="N">Tidak</option>
-                                                @else
-                                                    <option selected hidden disabled value=""></option>
-                                                @endif
-                                                <option value="Y">Ya</option>
-                                                <option value="N">Tidak</option>
+                                                <option {{ ($reg_pelesen->directory == 'Y') ? 'selected' : '' }} value="Y">Ya</option>
+                                                <option {{ ($reg_pelesen->directory == 'N') ? 'selected' : '' }}value="N">Tidak</option>
                                             </select>
                                         </div>
                                     </div>
@@ -155,7 +134,7 @@
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Nombor Lesen</label>
                                             <input type="text" id="nombor_lesen" class="form-control"
-                                                placeholder="Nombor Lesen" name="e_nl" value="" {{ $pelesen->e_nl }}">
+                                                placeholder="Nombor Lesen" name="e_nl" value="" {{ $pelesen->e_nl ?? '-' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +143,7 @@
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Nama Premis</label>
                                             <input type="text" id="nama_premis" class="form-control"
-                                                placeholder="Nama Premis" name="e_np" value="{{ $pelesen->e_np }}">
+                                                placeholder="Nama Premis" name="e_np" value="{{ $pelesen->e_np ?? '-' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -174,7 +153,7 @@
                                             <label for="inputcom" class="control-label col-form-label">Alamat Premis
                                                 Berlesen</label>
                                             <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}">
+                                                placeholder="Alamat Premis 1" name="e_ap1" value="{{ $pelesen->e_ap1 ?? '-' }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
@@ -183,7 +162,7 @@
                                                 Menyurat</label>
                                             <input type="text" id="alamat_surat_1" class="form-control"
                                                 placeholder="Alamat Surat Menyurat 1" name="e_as1"
-                                                value="{{ $pelesen->e_as1 }}">
+                                                value="{{ $pelesen->e_as1 ?? '-' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -192,7 +171,7 @@
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
                                             <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}">
+                                                placeholder="Alamat Premis 2" name="e_ap2" value="{{ $pelesen->e_ap2 ?? '-' }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
@@ -200,7 +179,7 @@
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
                                             <input type="text" id="alamat_surat_1" class="form-control"
                                                 placeholder="Alamat Surat Menyurat 2" name="e_as2"
-                                                value="{{ $pelesen->e_as2 }}">
+                                                value="{{ $pelesen->e_as2 ?? '-' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -209,7 +188,7 @@
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
                                             <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}">
+                                                placeholder="Alamat Premis 3" name="e_ap3" value="{{ $pelesen->e_ap3 ?? '-' }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
@@ -217,7 +196,7 @@
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
                                             <input type="text" id="alamat_surat_1" class="form-control"
                                                 placeholder="Alamat Surat Menyurat 3" name="e_as3"
-                                                value="{{ $pelesen->e_as3 }}">
+                                                value="{{ $pelesen->e_as3 ?? '-' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -228,7 +207,7 @@
                                                 Kilang</label>
                                             <input type="text" id="no_tel_kilang" class="form-control"
                                                 placeholder="No. Telefon Kilang" name="e_notel"
-                                                value="{{ $pelesen->e_notel }}">
+                                                value="{{ $pelesen->e_notel ?? '-' }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
@@ -248,7 +227,7 @@
                                                 Kilang</label>
                                             <input type="text" id="emel_kilang" class="form-control"
                                                 placeholder="Alamat Emel Kilang" name="e_email"
-                                                value="{{ $pelesen->e_email }}">
+                                                value="{{ $pelesen->e_email ?? '-' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -259,7 +238,7 @@
                                                 Melapor</label>
                                             <input type="text" id="nama_pegawai_lapor" class="form-control"
                                                 placeholder="Nama Pegawai Melapor" name="e_npg"
-                                                value="{{ $pelesen->e_npg }}">
+                                                value="{{ $pelesen->e_npg ?? '-' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -270,7 +249,7 @@
                                                 Melapor</label>
                                             <input type="text" id="jawatan_pegawai_lapor" class="form-control"
                                                 placeholder="Jawatan Pegawai Melapor" name="e_jpg"
-                                                value="{{ $pelesen->e_jpg }}">
+                                                value="{{ $pelesen->e_jpg ?? '-' }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
@@ -279,7 +258,7 @@
                                                 Melapor</label>
                                             <input type="text" id="email-id-column" class="form-control"
                                                 placeholder="No. Telefon Pegawai Melapor" name='e_notel_pg'
-                                                value="{{ $pelesen->e_notel_pg }}">'
+                                                value="{{ $pelesen->e_notel_pg ?? '-' }}">'
                                         </div>
                                     </div>
                                 </div>
@@ -290,7 +269,7 @@
                                                 Bertanggungjawab</label>
                                             <input type="text" id="enama_pegawai_jawab" class="form-control"
                                                 placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                                value="{{ $pelesen->e_npgtg }}">
+                                                value="{{ $pelesen->e_npgtg ?? '-' }}">
                                         </div>
                                     </div>
                                 </div>
@@ -301,7 +280,7 @@
                                                 Bertanggungjawab</label>
                                             <input type="text" id="jawatan_pegawai_jawab" class="form-control"
                                                 placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                                value="{{ $pelesen->e_jpgtg }}">
+                                                value="{{ $pelesen->e_jpgtg ?? '-' }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
@@ -310,7 +289,7 @@
                                                 Pengurus</label>
                                             <input type="text" id="emel_pengurus" class="form-control"
                                                 placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                                value="{{ $pelesen->e_email_pengurus }}">'
+                                                value="{{ $pelesen->e_email_pengurus ?? '-' }}">'
                                         </div>
                                     </div>
                                 </div>
@@ -363,7 +342,7 @@
                                                 Syarikat Induk</label>
                                             <input type="text" id="syarikat_induk" class="form-control"
                                                 placeholder="Syarikat Induk" name="e_syktinduk"
-                                                value="{{ $pelesen->e_syktinduk }}">
+                                                value="{{ $pelesen->e_syktinduk ?? '-' }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
@@ -371,7 +350,7 @@
                                             Tahun Mula Beroperasi</label>
                                         <input type="text" id="tahun_operasi" class="form-control"
                                             placeholder="Tahun Mula Beroperasi" name="e_year"
-                                            value="{{ $pelesen->e_year }}">
+                                            value="{{ $pelesen->e_year ?? '-' }}">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -381,7 +360,7 @@
                                                 Kumpulan</label>
                                             <fieldset class="form-group">
                                                 <select class="form-control" name="e_group">
-                                                    @if ($pelesen->e_group == 'GOV')
+                                                    @if ($pelesen->e_group ?? '-' == 'GOV')
                                                         <option selected hidden disabled value="KERAJAAN">Kerajaan
                                                         </option>
                                                     @else
@@ -399,7 +378,7 @@
                                             POMA</label>
                                         <fieldset class="form-group">
                                             <select class="form-control" name="e_poma">
-                                                @if ($pelesen->e_poma == 'POMA')
+                                                @if ($pelesen->e_poma ?? '-' == 'POMA')
                                                     <option selected hidden disabled value="POMA">Ya
                                                     </option>
                                                 @else
