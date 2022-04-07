@@ -1024,7 +1024,7 @@
                                                 <input type="text" id="e_notel" class="form-control" size="50"
                                                     name="e_notel" value="">
                                             </p>
-                                        </form>
+                                        </body>
 
                                             <h1 style="page-break-before:always"></h1>
 
@@ -1084,6 +1084,9 @@
                                 </div>
                             </div>
                         </div>
+
+
+                    </form>
                 </div>
                 {{-- </form> --}}
             </div>

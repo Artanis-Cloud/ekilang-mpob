@@ -106,8 +106,12 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/6-papar-penapis/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetakpenapis_form'])->name('admin.6papar-penapis-multi');
         Route::post('admin/6-papar-isirung/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetakisirung_form'])->name('admin.6papar.isirung.form');
         Route::get('admin/6-papar-isirung/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetakisirung_form'])->name('admin.6papar-isirung-multi');
+        Route::post('admin/6-papar-oleo/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetakoleo_form'])->name('admin.6papar.oleo.form');
+        Route::get('admin/6-papar-oleo/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetakoleo_form'])->name('admin.6papar-oleo-multi');
+        Route::post('admin/6-papar-simpanan/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetaksimpanan_form'])->name('admin.6papar.simpanan.form');
+        Route::get('admin/6-papar-simpanan/form', [App\Http\Controllers\Admin\Proses6Controller::class, 'process_admin_6penyatapaparcetaksimpanan_form'])->name('admin.6papar-simpanan-multi');
 
-        Route::get('admin/6-papar-buah/{id}', [App\Http\Controllers\Admin\Proses6Controller::class, 'show_admin_6penyatapaparcetakbuah'])->name('admin.6papar.buah');
+        // Route::get('admin/6-papar-buah/{id}', [App\Http\Controllers\Admin\Proses6Controller::class, 'show_admin_6penyatapaparcetakbuah'])->name('admin.6papar.buah');
 
         Route::get('admin/7-porting-maklumat', [App\Http\Controllers\Admin\Proses7Controller::class, 'admin_7portingmaklumat'])->name('admin.7portingmaklumat');
         Route::get('admin/8-port-data', [App\Http\Controllers\Admin\Proses8Controller::class, 'admin_8portdata'])->name('admin.8portdata');

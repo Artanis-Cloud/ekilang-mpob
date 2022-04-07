@@ -430,7 +430,7 @@
                             <td class='text-center col-3'>30%</td>
                         </tr>
                         <tr>
-                            <td class='col-3'>Laravel</td>
+                            <td class='col-3'></td>
                             <td class='col-6'>
                                 <div class="progress progress-danger">
                                     <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="0"

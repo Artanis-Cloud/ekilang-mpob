@@ -93,7 +93,7 @@
 
                                 <section class="section">
                                     <div class="card">
-                                        <form action="#" method="post">
+                                        <form action="{{ route('admin.6papar.simpanan.form') }}" method="post">
                                             @csrf
                                             <div class="table-responsive">
                                                 <table id="example" class="table table-striped table-bordered"
@@ -114,8 +114,8 @@
                                                         @foreach ($users as $data)
                                                             <tr>
                                                                 <td>
-                                                                    {{-- <input name="papar_ya[]" type="checkbox"
-                                                                        value="{{ $data->e91_reg }}">&nbspYa --}}
+                                                                    <input name="papar_ya[]" type="checkbox"
+                                                                        value="{{ $data->e07_reg }}">&nbspYa
                                                                 </td>
                                                                 <td>
                                                                     x
