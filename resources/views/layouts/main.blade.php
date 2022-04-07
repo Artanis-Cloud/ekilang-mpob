@@ -360,7 +360,8 @@
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('admin.panduan') }}" class="sidebar-link">
+                                    {{-- <a href="{{ route('admin.panduan') }}" class="sidebar-link"> --}}
+                                    <a href="{{ asset('manual/admin/panduan2.pdf') }}" target="_blank" class="sidebar-link">
                                         <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
                                         <span class="hide-menu"> Panduan Pengguna </span>
                                     </a>
