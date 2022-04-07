@@ -17,6 +17,8 @@ class E07Init extends Model
      *
      */
     protected $table = 'e07_init'; //penyata bulanan terkini - pusat simpanan (initialize - proses 3)
+    protected $primaryKey = 'e07_reg';
+    public $timestamps = false;
 
     protected $fillable = [
         'e07_reg',

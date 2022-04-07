@@ -107,8 +107,8 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Papar?</th>
-                                                            <th>Sudah Cetak?<br></th>
-                                                            <th>No. Lesen<br></th>
+                                                            <th style="width: 5%">Sudah Cetak?<br></th>
+                                                            <th style="width: 11%">No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
                                                             <th>Email Pegawai</th>

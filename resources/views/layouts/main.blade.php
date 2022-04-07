@@ -14,8 +14,10 @@
     <link href="{{ asset('theme/images/favicon.png') }}" rel="image/x-icon">
     <link href="{{ asset('theme/kilangstyles/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
+    {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
+    <title> e-Kilang</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
     <!-- Custom CSS -->
     <link href="{{ asset('nice-admin/assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('nice-admin/assets/extra-libs/c3/c3.min.css') }}  " rel="stylesheet">
