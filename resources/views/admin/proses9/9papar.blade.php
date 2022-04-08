@@ -49,9 +49,6 @@
 
 
                     <div class="card-body">
-                        <div class="row">
-                        </div>
-                        <div class="row">
                             <div class="pl-3">
 
                                 <div class=" text-center">

@@ -108,11 +108,14 @@
                                             Kategori</label>
                                         <div class="col-md-6">
                                             <fieldset class="form-group">
-                                                <select class="form-control" id="basicSelect" name="category"
+                                                <select class="form-control" id="basicSelect" name="role"
                                                     value={{ old('category') }}>
                                                     <option selected hidden disabled>Sila Pilih</option>
-                                                    <option>Admin</option>
-                                                    <option>Superadmin</option>
+                                                    <option value="admin">Admin</option>
+                                                    <option value="kerani">Kerani</option>
+                                                    <option value="manager">Manager</option>
+                                                    <option value="superadmin">Superadmin</option>
+                                                    <option value="supervisor">Supervisor</option>
                                                 </select>
                                             </fieldset>
                                             @error('category')
