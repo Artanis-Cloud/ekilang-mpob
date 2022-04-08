@@ -73,7 +73,7 @@ class Proses6Controller extends Controller
             ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.6penyatapaparcetakbuah');
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
@@ -86,7 +86,7 @@ class Proses6Controller extends Controller
             $penyata = E91Init::find($e91_reg);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
         }
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
@@ -94,29 +94,29 @@ class Proses6Controller extends Controller
 
     }
 
-    public function show_admin_6penyatapaparcetakbuah($e91_reg , E91Init $penyata )
-    {
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
-        ];
+    // public function show_admin_6penyatapaparcetakbuah($e91_reg , E91Init $penyata )
+    // {
+    //     $breadcrumbs    = [
+    //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+    //         ['link' => route('admin.6penyatapaparcetakbuah'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Buah"],
+    //     ];
 
-        $bulan = date("m") - 1;
-        $tahun = date("Y");
+    //     $bulan = date("m") - 1;
+    //     $tahun = date("Y");
 
-        // $data = DB::table('pelesen')->get();
-        $penyata = E91Init::find($e91_reg);
-        $pelesen = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
+    //     // $data = DB::table('pelesen')->get();
+    //     $penyata = E91Init::find($e91_reg);
+    //     $pelesen = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
 
-        // dd($penyata);
-        $kembali = route('admin.dashboard');
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
-        return view('admin.proses6.6papar-buah',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesen','penyata' ));
-    }
+    //     // dd($penyata);
+    //     $kembali = route('admin.dashboard');
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.admin';
+    //     return view('admin.proses6.6papar-buah',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesen','penyata' ));
+    // }
 
     public function admin_6penyatapaparcetakpenapis()
     {
@@ -158,7 +158,7 @@ class Proses6Controller extends Controller
             ['link' => route('admin.6penyatapaparcetakpenapis'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Penapis"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.6penyatapaparcetakpenapis');
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
@@ -399,7 +399,7 @@ class Proses6Controller extends Controller
             ['link' => route('admin.6penyatapaparcetakisirung'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Isirung"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.6penyatapaparcetakisirung');
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,

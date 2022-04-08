@@ -50,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    <form method="get" action="" id="myfrm">
+
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -86,8 +86,8 @@
 
                                                 </tbody>
                                             </table>
-                                        </div>
-<br>
+                                        </div><br>
+
                                         <p align="center">
                                             <img border="0" src="{{ asset('/mpob.png') }}" width="128"
                                             height="100">
@@ -268,14 +268,14 @@
                                         <br>
 
 
-                                        <p><b>
+                                            <p><b>
                                                 <font size="3" color="#0000FF">BAHAGIAN I : MAKLUMAT BELIAN, PROSES,
                                                     PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
                                                     (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                                             </b> </p>
 
-                                        <table border="1" width="650" bordercolor="#000000" cellspacing="0" cellpadding="0"
-                                            bordercolorlight="#FFFFFF" bordercolordark="#000000"
+                                        <table border="1" width="650" bordercolor="#000000" cellspacing="0"
+                                            cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                             class="table table-bordered">
                                             <tbody>
                                                 <tr>
@@ -291,7 +291,8 @@
                                                     </td>
                                                     <td width="135">
                                                         <p align="center"><b>
-                                                                <font size="3">Minyak Sawit Mentah <br> (CPO) Kod 01</font>
+                                                                <font size="3">Minyak Sawit Mentah <br> (CPO) Kod 01
+                                                                </font>
                                                             </b></p>
                                                     </td>
                                                     <td width="110">
@@ -301,7 +302,8 @@
                                                     </td>
                                                     <td width="120">
                                                         <p align="center"><b>
-                                                                <font size="3">Minyak Keladak <br>(Sludge Oil) Kod 49</font>
+                                                                <font size="3">Minyak Keladak <br>(Sludge Oil) Kod 49
+                                                                </font>
                                                             </b></p>
                                                     </td>
                                                 </tr>
@@ -311,47 +313,55 @@
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
-                                                            <font size="3">{{  number_format($penyata->e91_aa1 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_aa1 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="135">
                                                         <p style="text-align: center">
-                                                            <font size="3">{{  number_format($penyata->e91_aa2 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_aa2 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="110">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_aa3 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_aa3 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_aa4 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_aa4 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td width="220">
-                                                        <font size="3">B. Pembelian/Penerimaan</font>
+                                                        <font size="3">B. Pembelian/Terimaan</font>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ab1 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ab1 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="135">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ab2 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ab2 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="110">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ab3 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ab3 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ab4 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ab4 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -361,7 +371,8 @@
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ac1 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ac1 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="135" bgcolor="#C0C0C0" align="center">&nbsp;</td>
@@ -377,17 +388,20 @@
                                                     </td>
                                                     <td width="135">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ad1 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ad1 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="110">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ad2 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ad2 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ad3 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ad3 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -397,22 +411,26 @@
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ae1 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ae1 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="135">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ae2 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ae2 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="110">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ae3 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ae3 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ae4 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ae4 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -448,22 +466,26 @@
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ag1 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ag1 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="135">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ag2 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ag2 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="110">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ag3 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ag3 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
-                                                            <font size="3">{{ number_format($penyata->e91_ag4 ?? 0,2) }}</font>
+                                                            <font size="3">
+                                                                {{ number_format($penyata->e91_ag4 ?? 0, 2) }}</font>
                                                         </p>
                                                     </td>
                                                 </tr>
@@ -472,7 +494,8 @@
                                         <br>
 
                                         <p><b>
-                                                <font size="3" color="0000FF">BAHAGIAN II : MAKLUMAT JAM PENGILANGAN, KADAR
+                                                <font size="3" color="0000FF">BAHAGIAN II : MAKLUMAT JAM PENGILANGAN,
+                                                    KADAR
                                                     PERAHAN DAN HARGA </font>
                                             </b> </p>
 
@@ -480,20 +503,23 @@
                                             <tbody>
                                                 <tr>
                                                     <td width="380">
-                                                        <font size="3">i.&nbsp;&nbsp; Jumlah Jam Pengilangan&nbsp;</font>
+                                                        <font size="3">i.&nbsp;&nbsp; Jumlah Jam Pengilangan&nbsp;
+                                                        </font>
                                                     </td>
                                                     <td width="70">
-                                                        <font size="3">: {{ number_format($penyata->e91_ah1 ?? 0,2) }}</font>
+                                                        <font size="3">:
+                                                            {{ number_format($penyata->e91_ah1 ?? 0, 2) }}</font>
                                                     </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td width="380">
-                                                        <font size="3">ii.&nbsp; Kadar Perahan MKSM (OER) yang
+                                                        <font size="3">ii.&nbsp; Kadar Perahan MSM (OER) yang
                                                             diperolehi&nbsp;</font>
                                                     </td>
                                                     <td width="100">
-                                                        <font size="3">: {{ number_format($penyata->e91_ah2 ?? 0,2) }}%</font>
+                                                        <font size="3">:
+                                                            {{ number_format($penyata->e91_ah2 ?? 0, 2) }}%</font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -501,7 +527,8 @@
                                                         <font size="3">iii. Kadar Perolehan Isirung (KER)</font>
                                                     </td>
                                                     <td width="100">
-                                                        <font size="3">: {{ number_format($penyata->e91_ah3 ?? 0,2) }}%</font>
+                                                        <font size="3">:
+                                                            {{ number_format($penyata->e91_ah3 ?? 0, 2) }}%</font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -511,12 +538,14 @@
                                                         </font>
                                                     </td>
                                                     <td width="150">
-                                                        <font size="3">:&nbsp;RM {{ number_format($penyata->e91_ah4 ?? 0,2) }}</font>
+                                                        <font size="3">:&nbsp;RM
+                                                            {{ number_format($penyata->e91_ah4 ?? 0, 2) }}</font>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td width="380">
-                                                        <font size="3">&nbsp;&nbsp;&nbsp;&nbsp; (1% Kadar Perahan)</font>
+                                                        <font size="3">&nbsp;&nbsp;&nbsp;&nbsp; (1% Kadar Perahan)
+                                                        </font>
                                                     </td>
                                                     <td width="70">
                                                         <font size="3"></font>
@@ -742,13 +771,14 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/PENERIMAAN BEKALAN BUAH
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/TERIMAAN BEKALAN
+                                                    BUAH
                                                     KELAPA SAWIT (FFB) (52)</b>
                                             </font>
                                         </p>
 
-                                        <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0"
-                                            bordercolorlight="#FFFFFF" bordercolordark="#000000"
+                                        <table border="1" width="342" bordercolor="#000000" cellspacing="0"
+                                            cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                             class="table table-bordered ">
                                             <tbody>
                                                 <tr>
@@ -764,7 +794,8 @@
                                                         <font size="3">1. Estet Sendiri</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_ai1 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_ai1 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -772,7 +803,8 @@
                                                         <font size="3">2. Estet Luar</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_ai ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_ai ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -780,7 +812,8 @@
                                                         <font size="3">3. Peniaga Buah</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_ai3 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_ai3 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -788,7 +821,8 @@
                                                         <font size="3">4. Pekebun Kecil</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_ai4 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_ai4 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -796,7 +830,8 @@
                                                         <font size="3">5. Kilang Buah Lain</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_ai5 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_ai5 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -804,7 +839,8 @@
                                                         <font size="3">6. Lain-lain</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_ai6 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_ai6 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -813,9 +849,16 @@
                                                     </td>
                                                     <td width="158" align="center">
                                                         <font size="3">
-                                                            <b>{{  number_format(($penyata->e91_ai1 ?? 0) +($penyata->e91_ai2 ?? 0)
-                                                             +($penyata->e91_ai3 ?? 0) +($penyata->e91_ai4 ?? 0)
-                                                              +($penyata->e91_ai5 ?? 0) +($penyata->e91_ai6 ?? 0) ?? 0,2) }}</b>
+                                                            <b>{{ number_format(
+                                                                ($penyata->e91_ai1 ?? 0) +
+                                                                    ($penyata->e91_ai2 ?? 0) +
+                                                                    ($penyata->e91_ai3 ?? 0) +
+                                                                    ($penyata->e91_ai4 ?? 0) +
+                                                                    ($penyata->e91_ai5 ?? 0) +
+                                                                    ($penyata->e91_ai6 ?? 0) ??
+                                                                    0,
+                                                                2,
+                                                            ) }}</b>
                                                         </font>
                                                     </td>
                                                 </tr>
@@ -824,17 +867,17 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN IV : EDARAN/JUALAN MINYAK SAWIT
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN IV : JUALAN/EDARAN MINYAK SAWIT
                                                     MENTAH (CPO) (01) </b></font>
                                         </p>
 
-                                        <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0"
-                                            bordercolorlight="#FFFFFF" bordercolordark="#000000"
+                                        <table border="1" width="342" bordercolor="#000000" cellspacing="0"
+                                            cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                             class="table table-bordered">
                                             <tbody>
                                                 <tr>
                                                     <td align="center" width="168">
-                                                        <font size="3"><b>Pembeli/Penerima</b></font>
+                                                        <font size="3"><b>Pembeli/Terimaan</b></font>
                                                     </td>
                                                     <td align="center" width="158">
                                                         <font size="3"><b>Kuantiti (Tan Metrik)</b></font>
@@ -845,7 +888,8 @@
                                                         <font size="3">1. Kilang Buah</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_aj1 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_aj1 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -853,7 +897,8 @@
                                                         <font size="3">2. Kilang Penapis</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_aj2 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_aj2 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -861,7 +906,8 @@
                                                         <font size="3">3. Kilang Oleokimia</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_aj3 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_aj3 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -869,7 +915,8 @@
                                                         <font size="3">4. Peniaga</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_aj4 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_aj4 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -877,7 +924,8 @@
                                                         <font size="3">5. Pusat Simpanan</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_aj5 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_aj5 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -885,7 +933,8 @@
                                                         <font size="3">6. Eksport</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_aj6 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_aj6 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -893,7 +942,8 @@
                                                         <font size="3">7. Transit</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_aj7 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_aj7 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -901,7 +951,8 @@
                                                         <font size="3">8. Lain-lain</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_aj8 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_aj8 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -910,10 +961,18 @@
                                                     </td>
                                                     <td width="158" align="center">
                                                         <font size="3">
-                                                            <b>{{  number_format(($penyata->e91_aj1 ?? 0) +($penyata->e91_aj2 ?? 0)
-                                                             +($penyata->e91_aj3 ?? 0) +($penyata->e91_aj4 ?? 0)
-                                                              +($penyata->e91_aj5 ?? 0) +($penyata->e91_aj6 ?? 0)
-                                                               +($penyata->e91_aj7 ?? 0) +($penyata->e91_aj8 ?? 0) ?? 0,2) }}</b>
+                                                            <b>{{ number_format(
+                                                                ($penyata->e91_aj1 ?? 0) +
+                                                                    ($penyata->e91_aj2 ?? 0) +
+                                                                    ($penyata->e91_aj3 ?? 0) +
+                                                                    ($penyata->e91_aj4 ?? 0) +
+                                                                    ($penyata->e91_aj5 ?? 0) +
+                                                                    ($penyata->e91_aj6 ?? 0) +
+                                                                    ($penyata->e91_aj7 ?? 0) +
+                                                                    ($penyata->e91_aj8 ?? 0) ??
+                                                                    0,
+                                                                2,
+                                                            ) }}</b>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -921,13 +980,13 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN V : EDARAN / JUALAN ISIRUNG SAWIT
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN V : JUALAN/EDARAN ISIRUNG SAWIT
                                                     (PK) DALAM NEGERI
                                                     (51)</b></font>
                                         </p>
 
-                                        <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0"
-                                            bordercolorlight="#FFFFFF" bordercolordark="#000000"
+                                        <table border="1" width="342" bordercolor="#000000" cellspacing="0"
+                                            cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000"
                                             class="table table-bordered">
                                             <tbody>
                                                 <tr>
@@ -943,7 +1002,8 @@
                                                         <font size="3">1. Kilang Isirung</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_ak1 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_ak1 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -951,7 +1011,8 @@
                                                         <font size="3">2. Peniaga</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_ak2 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_ak2 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -959,7 +1020,8 @@
                                                         <font size="3">3. Lain-lain</font>
                                                     </td>
                                                     <td width="158" align="center">
-                                                        <font size="3">{{ number_format($penyata->e91_ak3 ?? 0,2) }}</font>
+                                                        <font size="3">{{ number_format($penyata->e91_ak3 ?? 0, 2) }}
+                                                        </font>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -968,8 +1030,7 @@
                                                     </td>
                                                     <td width="158" align="center">
                                                         <font size="3">
-                                                            <b>{{  number_format(($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0)
-                                                             + ($penyata->e91_ak3 ?? 0) ?? 0,2) }}</b>
+                                                            <b><b>{{  number_format(($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0) ?? 0, 2) }}</b>
                                                         </font>
                                                     </td>
                                                 </tr>
@@ -1025,19 +1086,18 @@
                                         </p>
                                         <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                            <input type="text" id="e_notel" class="form-control" size="50" name="e_notel"
-                                                value="{{ $pelesen->e_notel }}">
+                                            <input type="text" id="e_notel" class="form-control" size="50"
+                                                name="e_notel" value="{{ $pelesen->e_notel }}">
                                         </p>
-                                    </form>
 
                                         <h1 style="page-break-before:always"></h1>
 
                                         <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                            <div class="text-left col-md-5">
-                                                <a href="{{ route('penapis.bahagianvi') }}" class="btn btn-primary"
-                                                    style="float: left">Sebelumnya</a>
+                                            <div class="col-5 align-self-center">
+                                                <a href="{{ $returnArr['kembali'] }}" class="btn"
+                                                    style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
                                             </div>
                                             <div class="text-right col-md-7 mb-4 ">
                                                 <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
@@ -1080,25 +1140,10 @@
                                                             <span class="d-none d-sm-block">Hantar</span>
                                                         </button>
                                                     </div>
-                                                </div>
                                             </div>
                                         </div>
-                                        {{-- <p><a href="adsubmenu.php">Keluar Ke Menu Penyelenggaraan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a href="proses6.php">Proses 6</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            </p> --}}
 
-
-
-
-
-
-
-
-
-
-
-
-
+                                    </body>
 
 
 
@@ -1127,34 +1172,9 @@
 
 
             </div>
-            <br>
-            </form>
+
 
         </div>
-        </div>
-        </div>
-
-
-
-
-        {{-- </div>
-                                                                    </div> --}}
-
-        {{-- </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
