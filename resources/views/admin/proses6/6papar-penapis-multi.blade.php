@@ -1013,26 +1013,28 @@
                                             </body>
 
 
-
-                                                <h1 style="page-break-before:always"></h1>
-
-                                                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                                    <div class="text-left col-md-5">
-                                                        <a href="{{ route('admin.6penyatapaparcetakpenapis') }}" class="btn btn-primary"
-                                                            style="float: left">Sebelumnya</a>
-                                                    </div>
-
-
-                                                </div>
-
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
                         </div>
                     </form>
+
+                    <h1 style="page-break-before:always"></h1>
+
+                    <div class="row form-group" style="padding-top: 10px; ">
+
+
+                        <div class="text-left col-md-5">
+                            <a href="{{ route('admin.6penyatapaparcetakpenapis') }}" class="btn btn-primary"
+                                style="margin-left: 5%">Sebelumnya</a>
+                        </div>
+                        <div class="text-right col-md-7 mb-2 ">
+                            <button type="button" class="btn btn-primary " style="float: right; margin-right:2%"
+                                onclick="myPrint('myfrm')" value="print">Cetak</button>
+                        </div>
+
+                    </div>
                 </div>
 
             </div>

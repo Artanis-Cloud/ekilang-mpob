@@ -47,12 +47,12 @@
             <div class="tab" style="margin-left:2%">
                 {{-- <button class="tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
                 Terkini</button> --}}
-                <a style="color:black; border-radius:unset; font-size:14.4px; background-color:rgba(107, 130, 138, 0.355)"
+                <a style="color:black; border-radius:unset; font-size:14px; background-color:rgb(255, 255, 255)"
                     class="btn btn-work tablinks" onclick="openInit(event, 'All')" id="defaultOpen">Penyata Bulanan
                     Terkini</a>
                 {{-- <button class="tablinks" onclick="openInit(event, 'One')"> --}}
                 <a href="{{ route('admin.5penyatabelumhantarbuah') }}"
-                    style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem;"
+                    style="color:black; border-radius:unset; font-size:14px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks" onclick="openInit(event, 'One')">Penyata Bulanan Belum Hantar</a>
                 {{-- </button> --}}
 

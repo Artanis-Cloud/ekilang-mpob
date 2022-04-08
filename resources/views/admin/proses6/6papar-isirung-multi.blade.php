@@ -30,9 +30,9 @@
                                                 @if (!$loop->last)
                                                     <li class="breadcrumb-item">
                                                         <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
+                                                            style="color: black !important;"
                                                             onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
+                                                            onMouseOut="this.style.color='black'">
                                                             {{ $breadcrumb['name'] }}
                                                         </a>
                                                     </li>
@@ -890,14 +890,13 @@
                                 </div>
 
                         </div>
+                    </form>
                 </div>
 
             </div>
             <br>
-            </form>
 
         </div>
-
 
 
     </section><!-- End Hero -->
@@ -931,15 +930,15 @@
         });
     </script>
 
-<script>
-    function myPrint(myfrm) {
-        var printdata = document.getElementById(myfrm);
-        newwin = window.open("");
-        newwin.document.write(printdata.outerHTML);
-        newwin.print();
-        newwin.close();
-    }
-</script>
+    <script>
+        function myPrint(myfrm) {
+            var printdata = document.getElementById(myfrm);
+            newwin = window.open("");
+            newwin.document.write(printdata.outerHTML);
+            newwin.print();
+            newwin.close();
+        }
+    </script>
 
     </body>
 
