@@ -71,25 +71,25 @@
         <!-- ============================================================== -->
         <!-- End Container fluid  -->
         <!-- ============================================================== -->
-        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
+        <div class="modal fade bs-example-modal-lg" id="PL91" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
+                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Kilang Buah</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
                         <canvas id="myChart2"></canvas>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                        {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                        </button>
-                        <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                        </button> --}}
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
                             <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Ya</span>
+                            <span class="d-none d-sm-block">Tutup</span>
                         </button>
                     </div>
                 </div>
@@ -97,6 +97,145 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
+        <!-- /.modal -->
+        <div class="modal fade bs-example-modal-lg" id="PL101" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Kilang Penapis</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="myChart3"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                        </button> --}}
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <div class="modal fade bs-example-modal-lg" id="PL102" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Kilang Isirung</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="myChart4"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                        </button> --}}
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <div class="modal fade bs-example-modal-lg" id="PL104" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Kilang Oleokimia</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="myChart5"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                        </button> --}}
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <div class="modal fade bs-example-modal-lg" id="PL111" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Pusat Simpanan</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="myChart6"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                        </button> --}}
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <div class="modal fade bs-example-modal-lg" id="PLBIO" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Kilang Biodiesel</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="myChart7"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                        </button> --}}
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+
+    </div>
+    </div>
     </div>
     <!-- ============================================================== -->
     <!-- End Page wrapper  -->
@@ -158,7 +297,17 @@
                     let label = e.chart.data.labels[dataIndex];
                     console.log(label);
                     if (label == 'Kilang Buah') {
-                        $('#myModal').modal('show');
+                        $('#PL91').modal('show');
+                    } else if (label == 'Kilang Penapis') {
+                        $('#PL101').modal('show');
+                    } else if (label == 'Kilang Isirung') {
+                        $('#PL102').modal('show');
+                    } else if (label == 'Kilang Oleokimia') {
+                        $('#PL104').modal('show');
+                    } else if (label == 'Pusat Simpanan') {
+                        $('#PL111').modal('show');
+                    } else if (label == 'Kilang Biodiesel') {
+                        $('#PLBIO').modal('show');
                     }
                 },
                 // now I want to retrieve the label/data using the index, how to?
@@ -202,12 +351,245 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['Kilang Buah', 'Kilang Penapis', 'Kilang Isirung', 'Kilang Oleokimia', 'Pusat Simpanan',
-                    'Kilang Biodiesel'
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
+                datasets: [{
+                    // label: '# of Votes',
+                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 159, 64, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+            }
+
+
+        });
+    </script>
+    <script>
+        const ctx3 = document.getElementById('myChart3');
+        var myChart3 = new Chart(ctx3, {
+            type: 'bar',
+            responsive: false,
+            maintainAspectRatio: false,
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
                 ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: [50, 50, 30, 25, 32, 53],
+                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+            }
+        });
+    </script>
+    <script>
+        const ctx4 = document.getElementById('myChart4');
+        var myChart4 = new Chart(ctx4, {
+            type: 'bar',
+            responsive: false,
+            maintainAspectRatio: false,
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+                ],
+                datasets: [{
+                    // label: '# of Votes',
+                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+            }
+        });
+    </script>
+    <script>
+        const ctx5 = document.getElementById('myChart5');
+        var myChart5 = new Chart(ctx5, {
+            type: 'bar',
+            responsive: false,
+            maintainAspectRatio: false,
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+                ],
+                datasets: [{
+                    // label: '# of Votes',
+                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+            }
+        });
+    </script>
+    <script>
+        const ctx6 = document.getElementById('myChart6');
+        var myChart6 = new Chart(ctx6, {
+            type: 'bar',
+            responsive: false,
+            maintainAspectRatio: false,
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+                ],
+                datasets: [{
+                    // label: '# of Votes',
+                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+            }
+        });
+    </script>
+    <script>
+        const ctx7 = document.getElementById('myChart7');
+        var myChart7 = new Chart(ctx7, {
+            type: 'bar',
+            responsive: false,
+            maintainAspectRatio: false,
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+                ],
+                datasets: [{
+                    // label: '# of Votes',
+                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
