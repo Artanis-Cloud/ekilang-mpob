@@ -93,6 +93,17 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/5-penyata-belum-hantar-simpanan', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantarsimpanan'])->name('admin.5penyatabelumhantarsimpanan');
         Route::get('admin/5-penyata-belum-hantar-bio', [App\Http\Controllers\Admin\Proses5Controller::class, 'admin_5penyatabelumhantarbio'])->name('admin.5penyatabelumhantarbio');
 
+        Route::post('admin/5-papar-belum-buah/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumbuah_form'])->name('admin.5papar.belum.buah.form');
+        Route::get('admin/5-papar-belum-buah/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumbuah_form'])->name('admin.5papar-belum-buah-multi');
+        Route::post('admin/5-papar-belum-penapis/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumpenapis_form'])->name('admin.5papar.belum.penapis.form');
+        Route::get('admin/5-papar-belum-penapis/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumpenapis_form'])->name('admin.5papar-belum-penapis-multi');
+        Route::post('admin/5-papar-belum-isirung/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumisirung_form'])->name('admin.5papar.belum.isirung.form');
+        Route::get('admin/5-papar-belum-isirung/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumisirung_form'])->name('admin.5papar-belum-isirung-multi');
+        Route::post('admin/5-papar-belum-oleo/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumoleo_form'])->name('admin.5papar.belum.oleo.form');
+        Route::get('admin/5-papar-belum-oleo/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumoleo_form'])->name('admin.5papar-belum-oleo-multi');
+        Route::post('admin/5-papar-belum-simpanan/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumsimpanan_form'])->name('admin.5papar.belum.simpanan.form');
+        Route::get('admin/5-papar-belum-simpanan/form', [App\Http\Controllers\Admin\Proses5Controller::class, 'process_admin_5penyatabelumsimpanan_form'])->name('admin.5papar-belum-simpanan-multi');
+
         Route::get('admin/6-penyata-papar-cetak-buah', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakbuah'])->name('admin.6penyatapaparcetakbuah');
         Route::get('admin/6-penyata-papar-cetak-penapis', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakpenapis'])->name('admin.6penyatapaparcetakpenapis');
         Route::get('admin/6-penyata-papar-cetak-isirung', [App\Http\Controllers\Admin\Proses6Controller::class, 'admin_6penyatapaparcetakisirung'])->name('admin.6penyatapaparcetakisirung');

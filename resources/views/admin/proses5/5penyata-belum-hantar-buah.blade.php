@@ -105,7 +105,7 @@
 
                                 <section class="section">
                                     <div class="card">
-                                        <form action="{{ route('admin.6papar.buah.form') }}" method="post">
+                                        <form action="{{ route('admin.5papar.belum.buah.form') }}" method="post">
                                             @csrf
                                             <div class="table-responsive">
                                                 <table id="example" class="table table-striped table-bordered"
@@ -124,7 +124,8 @@
                                                         @foreach ($users as $data)
                                                             <tr>
                                                                 <td>
-                                                                    <input type="checkbox">&nbspYa
+                                                                    <input name="papar_ya[]" type="checkbox"
+                                                                    value="{{ $data->e91_reg }}">&nbspYa
                                                                 </td>
                                                                 {{-- <td>
                                                                 x
