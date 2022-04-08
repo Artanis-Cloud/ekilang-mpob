@@ -898,7 +898,7 @@
 
 
                                             </body>
-                            @endforeach
+
                                             </form>
 
                                                 <h1 style="page-break-before:always"></h1>
@@ -906,10 +906,7 @@
                                                 <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                                    <div class="text-left col-md-5">
-                                                        <a href="{{ route('admin.6penyatapaparcetaksimpanan') }}" class="btn btn-primary"
-                                                            style="float: left">Sebelumnya</a>
-                                                    </div>
+
 
                                                 <td width="201" align="left">
                                                     <font size="3">
@@ -1403,7 +1400,15 @@
 
 
                                 </body>
+                            </div>
+                        </div>
+                    </div>
+               
+                    <br>
+
                 @endforeach
+
+            </div><hr>
         </form>
 
         <h1 style="page-break-before:always"></h1>
