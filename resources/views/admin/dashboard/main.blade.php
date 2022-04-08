@@ -43,7 +43,8 @@
                                     <div>
                                         <p class="font-16 m-b-5">Jumlah Penyata Bulanan Yang Sudah Dihantar</p>
                                         <p class="font-16 m-b-5">Bulan: <b>{{ now()->month }}</b> Tahun:
-                                            <b>{{ now()->year }}</b></p>
+                                            <b>{{ now()->year }}</b>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -70,6 +71,32 @@
         <!-- ============================================================== -->
         <!-- End Container fluid  -->
         <!-- ============================================================== -->
+        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <canvas id="myChart2"></canvas>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                        </button>
+                        <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Ya</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
     </div>
     <!-- ============================================================== -->
     <!-- End Page wrapper  -->
@@ -82,7 +109,7 @@
 
     <script>
         const ctx = document.getElementById('myChart');
-        const myChart = new Chart(ctx, {
+        var myChart = new Chart(ctx, {
             type: 'bar',
             responsive: false,
             maintainAspectRatio: false,
@@ -122,25 +149,21 @@
                     legend: {
                         display: false
                     }
-                }
+                },
+                onClick: (e, activeEls) => {
+                    let datasetIndex = activeEls[0].datasetIndex;
+                    let dataIndex = activeEls[0].index;
+                    let datasetLabel = e.chart.data.datasets[datasetIndex].label;
+                    let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
+                    let label = e.chart.data.labels[dataIndex];
+                    console.log(label);
+                    if (label == 'Kilang Buah') {
+                        $('#myModal').modal('show');
+                    }
+                },
+                // now I want to retrieve the label/data using the index, how to?
             }
         });
-
-        document.getElementById("myChart").onclick = function(evt) {
-            var activePoints = myChart.getElementsAtEventForMode(evt, 'nearest', {
-                intersect: true
-            }, true);
-            var firstPoint = activePoints[0];
-            var label = myChart.data.labels[firstPoint._index];
-
-            alert(label);
-
-            // var label = myChart.data.labels[firstPoint._index];
-            // var value = myChart.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
-            // if (firstPoint !== undefined)
-            //     alert(label + ": " + value);
-
-        };
     </script>
 
     <script>
@@ -168,6 +191,53 @@
                 animation: {
                     animateRotate: true
                 }
+            }
+        });
+    </script>
+
+    <script>
+        const ctx2 = document.getElementById('myChart2');
+        var myChart2 = new Chart(ctx2, {
+            type: 'bar',
+            responsive: false,
+            maintainAspectRatio: false,
+            data: {
+                labels: ['Kilang Buah', 'Kilang Penapis', 'Kilang Isirung', 'Kilang Oleokimia', 'Pusat Simpanan',
+                    'Kilang Biodiesel'
+                ],
+                datasets: [{
+                    // label: '# of Votes',
+                    data: [50, 50, 30, 25, 32, 53],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
             }
         });
     </script>
