@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
@@ -19,7 +18,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                   Halaman Utama
+                                    Halaman Utama
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                             </ol>
@@ -43,7 +42,8 @@
                                 <div class="d-flex no-block align-items-center">
                                     <div>
                                         <p class="font-16 m-b-5">Jumlah Penyata Bulanan Yang Sudah Dihantar</p>
-                                        <p class="font-16 m-b-5">Bulan: <b>{{ now()->month }}</b> Tahun: <b>{{ now()->year }}</b></p>
+                                        <p class="font-16 m-b-5">Bulan: <b>{{ now()->month }}</b> Tahun:
+                                            <b>{{ now()->year }}</b></p>
                                     </div>
                                 </div>
                             </div>
@@ -87,7 +87,9 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['Kilang Buah', 'Kilang Penapis', 'Kilang Isirung', 'Kilang Oleokimia', 'Pusat Simpanan', 'Kilang Biodiesel'],
+                labels: ['Kilang Buah', 'Kilang Penapis', 'Kilang Isirung', 'Kilang Oleokimia', 'Pusat Simpanan',
+                    'Kilang Biodiesel'
+                ],
                 datasets: [{
                     // label: '# of Votes',
                     data: [50, 50, 30, 25, 32, 53],
@@ -117,7 +119,7 @@
                     }
                 },
                 plugins: {
-                    legend : {
+                    legend: {
                         display: false
                     }
                 }
@@ -155,8 +157,9 @@
                 datasets: [{
                     data: [300, 50],
                     backgroundColor: [
-                        'rgb(255, 0, 0, 1)',
                         'rgb(0, 36, 255, 1)',
+                        'rgb(255, 0, 0, 1)',
+
                     ],
                     hoverOffset: 4
                 }]

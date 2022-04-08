@@ -26,7 +26,8 @@ class KonfigurasiController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.pengurusan.pentadbir'), 'name' => "Pengurusan Pentadbir"],
+            ['link' => route('admin.senarai.pentadbir'), 'name' => "Senarai Pentadbir"],
+            ['link' => route('admin.pengurusan.pentadbir'), 'name' => "Daftar Akaun Pentadbir"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -57,7 +58,7 @@ class KonfigurasiController extends Controller
             'name' => ['required', 'string'],
             'email' => ['required', 'string'],
             'username' => ['required', 'string'],
-            'category' => ['required', 'string'],
+            'role' => ['required', 'string'],
 
         ]);
     }
@@ -70,7 +71,8 @@ class KonfigurasiController extends Controller
             'email' => $data['email'],
             'password' => $password,
             'username' => $data['username'],
-            'category' => $data['category'],
+            'category' => 'Admin',
+            'role' => $data['role'],
         ]);
     }
 
@@ -84,6 +86,29 @@ class KonfigurasiController extends Controller
             'e_userid' => $data['username'],
             // 'category' => $data['category'],
         ]);
+    }
+
+
+    public function admin_senarai_pentadbir()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.pengurusan.pentadbir'), 'name' => "Senarai Pentadbir"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        $admin = User::where('category','Admin')->get();
+        // dd($admin);
+
+        return view('admin.konfigurasi.senarai-admin', compact('returnArr', 'layout', 'admin'));
     }
 
 }

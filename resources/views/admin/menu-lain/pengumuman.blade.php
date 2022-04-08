@@ -49,9 +49,6 @@
 
 
                     <div class="card-body">
-                        <div class="row">
-                        </div>
-                        <div class="row">
                             <div class="pl-3">
 
                                 <div class=" text-center">
@@ -81,7 +78,7 @@
                                                     style="width: 100%;">
                                                     <thead>
                                                         <tr>
-                                                            <th>No</th>
+                                                            <th>Bil</th>
                                                             <th>Mesej<br></th>
                                                             <th>Tarikh Mula<br></th>
                                                             <th>Tarikh Akhir</th>
@@ -94,8 +91,8 @@
                                                     <tbody style="word-break: break-word; font-size:12px">
                                                         @foreach($pengumuman as $data)
                                                         <tr>
-                                                            <td>
-                                                                {{$data->Id}}
+                                                            <td class="text-center">
+                                                                {{ $loop->iteration }}
                                                             </td>
                                                             <td >
                                                                 {{$data->Message}}
@@ -106,7 +103,7 @@
                                                             <td>
                                                                 {{$data->End_date}}
                                                             </td>
-                                                            <td >
+                                                            <td class="text-center">
                                                                 {{$data->Icon_new}}
                                                             </td>
                                                             <td >

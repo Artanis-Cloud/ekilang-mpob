@@ -76,18 +76,16 @@
                     <div class="navbar-brand">
                         <a href="javascript:void(0)" class="logo">
                             <!-- Logo icon -->
-                            <b class="logo-icon">
-                                <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
-                                <!-- Light Logo icon -->
+                            {{-- <b class="logo-icon">
                                 <img src="{{ asset('mpob.png') }}" alt="homepage" class="light-logo"
                                     style="padding-top:10px;height:90%; width:40%">
-                            </b>
+                            </b> --}}
                             <!--End Logo icon -->
                             <!-- Logo text -->
                             <span class="logo-text">
                                 <!-- Light Logo text -->
-                                <img src="{{ asset('mpob.png') }}" alt="homepage" class="light-logo"
-                                    style="padding-top:10px;height:90%; width:40%">
+                                <img src="{{ asset('mpob-text.png') }}" alt="homepage" class="light-logo"
+                                    style="padding-top:10px;height:90%; width:70%; margin-left:10%">
                             </span>
                         </a>
                         <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)"
@@ -327,7 +325,7 @@
                             </a>
                             <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                 <li class="sidebar-item">
-                                    <a href="{{ route('admin.pengurusan.pentadbir') }}" class="sidebar-link">
+                                    <a href="{{ route('admin.senarai.pentadbir') }}" class="sidebar-link">
                                         <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
                                         <span class="hide-menu"> Pengurusan Pentadbir </span>
                                     </a>
