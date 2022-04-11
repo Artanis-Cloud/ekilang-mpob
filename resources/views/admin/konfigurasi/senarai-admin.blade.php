@@ -157,11 +157,11 @@
                                                                             <div class="form-group">
                                                                                 <fieldset class="form-group">
                                                                                     <select class="form-control" name="role">
-                                                                                        <option {{ ($data->role == 'admin') ? 'selected' : '' }}>Admin</option>
-                                                                                        <option {{ ($data->role == 'kerani') ? 'selected' : '' }}>Kerani</option>
-                                                                                        <option {{ ($data->role == 'manager') ? 'selected' : '' }}>Manager</option>
-                                                                                        <option {{ ($data->role == 'superadmin') ? 'selected' : '' }}>Superadmin</option>
-                                                                                        <option {{ ($data->role == 'supervisor') ? 'selected' : '' }}>Supervisor</option>
+                                                                                        <option {{ ($data->role == 'Admin') ? 'selected' : '' }}>Admin</option>
+                                                                                        <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option>
+                                                                                        <option {{ ($data->role == 'Manager') ? 'selected' : '' }}>Manager</option>
+                                                                                        <option {{ ($data->role == 'Superadmin') ? 'selected' : '' }}>Superadmin</option>
+                                                                                        <option {{ ($data->role == 'Supervisor') ? 'selected' : '' }}>Supervisor</option>
                                                                                     </select>
                                                                                 </fieldset>
                                                                             </div>

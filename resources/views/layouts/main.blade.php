@@ -281,6 +281,8 @@
                                 </li>
                             </ul>
                         </li>
+                        @if (auth()->user()->role != 'Kerani')
+
 
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -316,6 +318,8 @@
                                 </li>
                             </ul>
                         </li>
+                        @else
+                        @endif
 
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -326,18 +330,13 @@
                             </a>
                             <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                 <li class="sidebar-item">
-                                    @if (auth()->user()->role == 'superadmin')
+                                    @if (auth()->user()->role == 'Superadmin')
 
                                         <a href="{{ route('admin.senarai.pentadbir') }}" class="sidebar-link">
                                             <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Pengurusan Pentadbir </span>
                                         </a>
-
-
                                     @else
-
-                                       
-
                                     @endif
 
                                 </li>
@@ -391,13 +390,13 @@
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('admin.kod.produk') }}" class="sidebar-link">
+                                    <a href="#" class="sidebar-link">
                                         <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
                                         <span class="hide-menu"> Kod & Nama Produk </span>
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('admin.kod.negara') }}" class="sidebar-link">
+                                    <a href="#" class="sidebar-link">
                                         <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
                                         <span class="hide-menu"> Kod & Nama Negara </span>
                                     </a>
@@ -427,34 +426,6 @@
 
             <!-- End Sidebar scroll-->
         </aside>
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                        role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                    PERINGATAN</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal"
-                                    aria-label="Close">
-                                    <i data-feather="x"></i>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    Anda tidak dibenarkan mengisi maklumat bahagian ini
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-
-                                <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Tutup</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
