@@ -245,7 +245,16 @@
 
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <script>
+        function getRandomColor() {
+          var letters = '0123456789ABCDEF';
+          var color = '#';
+          for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        }
+        </script>
     <script>
         const ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
@@ -355,6 +364,20 @@
                 datasets: [{
                     // label: '# of Votes',
                     data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    // backgroundColor: [
+                    //     getRandomColor(),
+                    //     getRandomColor(),
+                    //     getRandomColor(),
+                    //     getRandomColor(),
+                    //     getRandomColor(),
+                    //     getRandomColor(),
+                    //     getRandomColor(),
+                    //     getRandomColor(),
+                    //     getRandomColor(),
+                    //     getRandomColor()],
+
+
+
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',

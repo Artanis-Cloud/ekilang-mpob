@@ -111,11 +111,11 @@
                                                 <select class="form-control" id="basicSelect" name="role"
                                                     value={{ old('category') }}>
                                                     <option selected hidden disabled>Sila Pilih</option>
-                                                    <option value="admin">Admin</option>
-                                                    <option value="kerani">Kerani</option>
-                                                    <option value="manager">Manager</option>
-                                                    <option value="superadmin">Superadmin</option>
-                                                    <option value="supervisor">Supervisor</option>
+                                                    <option value="Admin">Admin</option>
+                                                    <option value="Kerani">Kerani</option>
+                                                    <option value="Manager">Manager</option>
+                                                    <option value="Superadmin">Superadmin</option>
+                                                    <option value="Supervisor">Supervisor</option>
                                                 </select>
                                             </fieldset>
                                             @error('category')
