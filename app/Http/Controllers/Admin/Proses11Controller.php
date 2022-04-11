@@ -19,7 +19,8 @@ class Proses11Controller extends Controller
     public function admin_11emel()
     {
 
-        $listemel = Ekmessage::orderBy('Date')->get();
+        $listemel = Ekmessage::orderBy('Date', 'DESC')->get();
+        // dd($listemel);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
