@@ -2,16 +2,7 @@
 
 @section('content')
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
-
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
+    <div class="page-wrapper">
 
             <div class="mt-3 mb-4 row">
                 <div class="col-md-12">
@@ -30,9 +21,9 @@
                                                 @if (!$loop->last)
                                                     <li class="breadcrumb-item">
                                                         <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
+                                                            style="color: black !important;"
                                                             onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
+                                                            onMouseOut="this.style.color='black'">
                                                             {{ $breadcrumb['name'] }}
                                                         </a>
                                                     </li>
@@ -146,12 +137,11 @@
                                                         <tr>
 
                                                             <td width="25%" height="19">
-                                                                <font face="Times New Roman">Nombor Lesen</font>
+                                                                Nombor Lesen
                                                             </td>
 
                                                             <td width="88%" height="19"><b>
-                                                                    <font face="Times New Roman">
-                                                                        {{ $data->e_nl }}</font>
+                                                                        {{ $data->e_nl }}
                                                                 </b></td>
 
                                                         </tr>
@@ -159,12 +149,11 @@
                                                         <tr>
 
                                                             <td width="25%" height="19">
-                                                                <font face="Times New Roman">Nama Premis </font>
+                                                               Nama Premis
                                                             </td>
 
                                                             <td width="88%" height="19"><b>
-                                                                    <font face="Times New Roman">{{ $data->e_np }}
-                                                                    </font>
+                                                                   {{ $data->e_np }}
                                                                 </b></td>
 
                                                         </tr>
@@ -970,48 +959,10 @@
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                                    <p><b>
-                                                            {{-- <font color="#0000FF">BAHAGIAN VII :&nbsp;&nbsp;&nbsp;&nbsp; IMPORT
-                                                                PRODUK SAWIT</font>
-                                                        </b></p>
-                                                    <table border="1" width="100%" cellspacing="0" cellpadding="0">
-                                                        <tbody>
-                                                            <tr>
-                                                                <td width="14%" align="center"><b>
-                                                                        <font size="2">Produk Minyak Sawit</font>
-                                                                    </b></td>
-                                                                <td width="7%" align="center"><b>
-                                                                        <font size="2">Kod Produk</font>
-                                                                    </b></td>
-                                                                <td width="15%" align="center"><b>
-                                                                        <font size="2">Nombor Borang Kastam 1</font>
-                                                                    </b></td>
-                                                                <td width="12%" align="center"><b>
-                                                                        <font size="2">Tarikh Import</font>
-                                                                    </b></td>
-                                                                <td width="10%" align="center"><b>
-                                                                        <font size="2">Kuantiti<br> (Tan Metrik)</font>
-                                                                    </b></td>
-                                                                <td width="11%" align="center"><b>
-                                                                        <font size="2">Nilai (RM)</font>
-                                                                    </b></td>
-                                                                <td width="6%" align="center"><b>
-                                                                        <font size="2">Kod Negara</font>
-                                                                    </b></td>
-                                                                <td width="15%" align="center"><b>
-                                                                        <font size="2">Negara Sumber Import</font>
-                                                                    </b></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table> --}}
-
 
                                                     <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
-                                                            adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                                    {{-- <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                                        <input type="date" id="e91_sdate" class="form-control" size="50"
-                                                            name='e91_sdate' value="{{ $penyataiii->e101_sdate ?? '' }}" readonly>
-                                                    </p> --}}
+                                                        adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
+
                                                     <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                         {{ $data->e101_npg }}
                                                     </p>
@@ -1023,48 +974,42 @@
                                                         {{ $data->e101_notel }}
                                                     </p>
 
+
                                             </body>
-
-
-
-                                                <h1 style="page-break-before:always"></h1>
-
-                                                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                                    <div class="text-left col-md-5">
-                                                        <a href="{{ route('admin.5penyatabelumhantarpenapis') }}" class="btn btn-primary"
-                                                            style="float: left">Sebelumnya</a>
-                                                    </div>
-
-
-                                                </div>
-
                                         </div>
                                     </div>
                                 </div>
+
+                                <br>
+
                             @endforeach
-                        </div>
+
+                        </div><hr>
                     </form>
+
+
+            </div>
+
+            <h1 style="page-break-before:always"></h1>
+
+            <div class="row form-group" style="padding-top: 10px; margin-left: 2% ">
+
+
+                <div class="text-left col-md-5">
+                    <a href="{{ route('admin.5penyatabelumhantarpenapis') }}" class="btn btn-primary"
+                    >Sebelumnya</a>
+                </div>
+                <div class="text-right col-md-7 mb-2 ">
+                    <button type="button" class="btn btn-primary " style="float: right; "
+                        onclick="myPrint('myfrm')" value="print">Cetak</button>
                 </div>
 
             </div>
-            <br>
-            </form>
 
         </div>
 
 
-
-    </section><!-- End Hero -->
-
-
-
-
-    <!-- ======= Footer ======= -->
-
-
-
+    </div>
 
 
     {{-- <div id="preloader"></div> --}}

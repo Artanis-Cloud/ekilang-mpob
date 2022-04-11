@@ -310,7 +310,7 @@ class Proses6Controller extends Controller
 
 
 
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
@@ -432,7 +432,7 @@ class Proses6Controller extends Controller
             $penyatavi = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
         }
 
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
@@ -485,10 +485,10 @@ class Proses6Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.6penyatapaparcetakpenapis'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Penapis"],
+            ['link' => route('admin.6penyatapaparcetakoleo'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Oleokimia"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.6penyatapaparcetakoleo');
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
@@ -605,7 +605,7 @@ class Proses6Controller extends Controller
 
 
 
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
@@ -663,7 +663,7 @@ class Proses6Controller extends Controller
             ['link' => route('admin.6penyatapaparcetaksimpanan'), 'name' => "Papar & Cetak Penyata Bulanan Pusat Simpanan"],
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.6penyatapaparcetaksimpanan');
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
@@ -688,7 +688,7 @@ class Proses6Controller extends Controller
 
         }
 
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();

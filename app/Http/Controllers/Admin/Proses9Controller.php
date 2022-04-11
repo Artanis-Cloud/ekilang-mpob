@@ -156,7 +156,7 @@ class Proses9Controller extends Controller
                         and p.e_nl = k.e_nl
                         and k.e_kat = 'PL91'
                         order by k.kodpgw, k.nosiri");
-       
+
         // dd($users);
 
         // dd($users[1]);
@@ -184,8 +184,8 @@ class Proses9Controller extends Controller
     {
         //dd($request->all());
 
-        $tahun = H91Init::where('tahun', $request->e91_thn);
-        $bulan = H91Init::where('tahun', $request->e91_bln);
+        $tahun = H91Init::where('e91_thn', $request->tahun);
+        $bulan = H91Init::where('e91_bln', $request->bulan);
 
 
             $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, e.e91_nobatch,  date_format(e91_sdate,'%d-%m-%Y') as sdate
@@ -233,16 +233,17 @@ class Proses9Controller extends Controller
         ];
 
 
-        $tahun = H91Init::where('tahun', $request->e91_thn);
-        $bulan = H91Init::where('tahun', $request->e91_bln);
+        $tahun = H91Init::where('e91_thn', $request->tahun);
+        $bulan = H91Init::where('e91_bln', $request->bulan);
         foreach ($request->papar_ya as $key => $e91_nobatch) {
             $pelesens[$key] = (object)[];
-            $penyata = H91Init::find($e91_nobatch)->where('e91_bln', $bulan)->where('e91_thn', $tahun);
+            $penyata = H91Init::find($e91_nobatch);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
+
         }
         $layout = 'layouts.admin';
 
-        // dd($pelesens);
+        // dd($penyata);
         // $data = DB::table('pelesen')->get();
         return view('admin.proses9.9papar-terdahulu-buah-multi',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesens', 'penyata' ));
 

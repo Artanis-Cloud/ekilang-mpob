@@ -85,7 +85,7 @@
                                 <b>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b> - Pn. Aziana (Emel:
                                 aziana.misnan@mpob.gov.my atau Tel :
                                 03-7802 2955)<br>
-                                <b>Penyata Bulanan Kilang Isirong - MPOB (EL) CF4</b> - Pn. Nor Baayah (Emel
+                                <b>Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b> - Pn. Nor Baayah (Emel
                                 abby@mpob.gov.my atau Tel : 03-7802
                                 2865)<br>
                                 <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b> - Pn. Nor Baayah (Emel
