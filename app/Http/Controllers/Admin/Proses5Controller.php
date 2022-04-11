@@ -82,7 +82,7 @@ class Proses5Controller extends Controller
             $penyata = E91Init::find($e91_reg);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
         }
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
@@ -112,7 +112,7 @@ class Proses5Controller extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
 
 
@@ -281,7 +281,7 @@ class Proses5Controller extends Controller
 
 
 
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
@@ -303,6 +303,8 @@ class Proses5Controller extends Controller
                     'totalib12', 'totaliib12',
                     'totalib13', 'totaliib13',
                     'totalib14', 'totaliib14', ));
+
+        $layout = 'layouts.main';
 
     }
 
@@ -381,7 +383,7 @@ class Proses5Controller extends Controller
             $penyatavi = E102c::with('e102init', 'produk', 'negara')->where('e102_c2', $penyataii->e102_reg)->where('e102_c3', '1')->get();
         }
 
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
@@ -414,7 +416,7 @@ class Proses5Controller extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
 
 
@@ -428,7 +430,7 @@ class Proses5Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.5papar-belum-oleo-multi'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Penapis"],
+            ['link' => route('admin.5papar-belum-oleo-multi'), 'name' => "Papar & Cetak Penyata Bulanan Kilang Oleokimia"],
         ];
 
         $kembali = route('admin.5penyatabelumhantaroleo');
@@ -544,11 +546,13 @@ class Proses5Controller extends Controller
 
             $totaliv2 = DB::table("e104_d")->where('e104_reg',  $penyata->e104_reg)->where('e104_d3','1')->sum('e104_d8');
 
+
         }
 
 
 
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
+
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
@@ -633,7 +637,7 @@ class Proses5Controller extends Controller
 
         }
 
-        $layout = 'layouts.admin';
+        $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();

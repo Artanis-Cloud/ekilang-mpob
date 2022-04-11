@@ -4,55 +4,45 @@
     <!-- ======= Hero Section ======= -->
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
-    <!-- ============================================================== -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
+    <div class="page-wrapper">
 
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
+        <div class="mt-3 mb-4 row">
+            <div class="col-md-12">
 
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
-
-            <div class="mt-3 mb-4 row">
-                <div class="col-md-12">
-
-                    <div class="page-breadcrumb" style="padding: 0px">
-                        <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
-                            </div>
-                            <div class="col-7 align-self-center" style="margin-left:-1%;">
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: black !important;"
-                                                            onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='black'">
-                                                            {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #25877b  !important;">
+                <div class="page-breadcrumb" style="padding: 0px">
+                    <div class="pb-2 row">
+                        <div class="col-5 align-self-center">
+                            <a href="{{ $returnArr['kembali'] }}" class="btn"
+                                style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
+                        </div>
+                        <div class="col-7 align-self-center" style="margin-left:-1%;">
+                            <div class="d-flex align-items-center justify-content-end">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                            @if (!$loop->last)
+                                                <li class="breadcrumb-item">
+                                                    <a href="{{ $breadcrumb['link'] }}"
+                                                        style="color: black !important;"
+                                                        onMouseOver="this.style.color='#25877b'"
+                                                        onMouseOut="this.style.color='black'">
                                                         {{ $breadcrumb['name'] }}
-                                                    </li>
-                                                @endif
-                                            @endforeach
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li class="breadcrumb-item active" aria-current="page"
+                                                    style="color: #25877b  !important;">
+                                                    {{ $breadcrumb['name'] }}
+                                                </li>
+                                            @endif
+                                        @endforeach
 
-                                        </ol>
-                                    </nav>
-                                </div>
+                                    </ol>
+                                </nav>
                             </div>
                         </div>
                     </div>
+                </div>
 
 
                     <form method="get" action="" id="myfrm">
@@ -1114,28 +1104,27 @@
 
                         </div>
                     </form>
-                </div>
-            <h1 style="page-break-before:always"></h1>
 
-            <div class="row form-group" style="padding-top: 10px; ">
+                    <h1 style="page-break-before:always"></h1>
+
+                    <div class="row form-group" style="padding-top: 10px; margin-left: 2% ">
 
 
-                <div class="text-left col-md-5">
-                    <a href="{{ route('admin.6penyatapaparcetakbuah') }}" class="btn btn-primary"
-                        style="margin-left: 5%">Sebelumnya</a>
-                </div>
-                <div class="text-right col-md-7 mb-2 ">
-                    <button type="button" class="btn btn-primary " style="float: right; margin-right:2%"
-                        onclick="myPrint('myfrm')" value="print">Cetak</button>
-                </div>
+                        <div class="text-left col-md-5">
+                            <a href="{{ route('admin.6penyatapaparcetakbuah') }}" class="btn btn-primary"
+                            >Sebelumnya</a>
+                        </div>
+                        <div class="text-right col-md-7 mb-2 ">
+                            <button type="button" class="btn btn-primary " style="float: right; "
+                                onclick="myPrint('myfrm')" value="print">Cetak</button>
+                        </div>
 
+                    </div>
             </div>
 
         </div>
 
-    </section
-
-
+    </div>
 
 
 

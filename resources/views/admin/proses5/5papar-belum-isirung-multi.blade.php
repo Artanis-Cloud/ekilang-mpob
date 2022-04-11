@@ -2,16 +2,7 @@
 
 @section('content')
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
-
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
+    <div class="page-wrapper">
 
             <div class="mt-3 mb-4 row">
                 <div class="col-md-12">
@@ -30,9 +21,9 @@
                                                 @if (!$loop->last)
                                                     <li class="breadcrumb-item">
                                                         <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
+                                                            style="color: black !important;"
                                                             onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
+                                                            onMouseOut="this.style.color='black'">
                                                             {{ $breadcrumb['name'] }}
                                                         </a>
                                                     </li>
@@ -55,9 +46,9 @@
 
                         <div class="card" style="margin-right:2%; margin-left:2%">
                             @foreach ($pelesens as $data)
-                            {{-- @foreach (array_merge($pelesens, $penyata) as $data) --}}
-                            <br><br><hr>
-                            <br>
+
+                                <br><br><hr>
+                                <br>
 
                                 <div class="card-body">
                                     <div class="row">
@@ -75,12 +66,17 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>
-                                                                    <p align="left"><b>MPOB(EL) MF 4</b></p>
+                                                                    <p align="left"><b>MPOB(EL) CF 4</b></p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <p align="left"><b>MPOB(EL) PX 4-M </b></p>
+                                                                    <p align="left"><b>MPOB(EL) PM 4-CF </b></p>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <p align="left"><b>MPOB(EL) PX 4-CF </b></p>
                                                                 </td>
                                                             </tr>
 
@@ -92,11 +88,11 @@
                                                     <img border="0" src="{{ asset('/mpob.png') }}" width="128"
                                                     height="100">
                                                 </p>
-                                                <title>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</title>
-                                                <p align="center"><b>
-                                                        <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
+                                                <title>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4</title>
+                                                    <p align="center"><b>
+                                                    <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
-                                                        </font>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4<br>
+                                                    </font>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4<br>
 
                                                         BULAN :&nbsp;&nbsp;
                                                         @if($bulan == 1) JANUARI
@@ -124,12 +120,11 @@
                                                         <tr>
 
                                                             <td width="25%" height="19">
-                                                                <font face="Times New Roman">Nombor Lesen</font>
+                                                               Nombor Lesen
                                                             </td>
 
                                                             <td width="88%" height="19"><b>
-                                                                    <font face="Times New Roman">{{ $data->e_nl }}
-                                                                    </font>
+                                                                  {{ $data->e_nl }}
                                                                 </b></td>
 
                                                         </tr>
@@ -137,11 +132,11 @@
                                                         <tr>
 
                                                             <td width="25%" height="19">
-                                                                <font face="Times New Roman">Nama Premis </font>
+                                                              Nama Premis
                                                             </td>
 
                                                             <td width="88%" height="19"><b>
-                                                                    <font face="Times New Roman">{{ $data->e_np }}</font>
+                                                                   {{ $data->e_np }}
                                                                 </b></td>
 
                                                         </tr>
@@ -824,87 +819,56 @@
 
 
                                                 <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
-                                                        adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
+                                                    adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
+                                                <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                                    {{ $data->e102_npg }}
+                                                </p>
+                                                <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                                    {{ $data->e102_jpg }}
+                                                </p>
+                                                <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                                <tbody>
-                                                    <tr>
-
-                                                        <td width="25%" height="19">
-                                                            <font face="Times New Roman">Nama Pegawai Melapor:</font>
-                                                        </td>
-
-                                                        <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman">{{ $data->e102_npg }}
-                                                                </font>
-                                                            </b></td>
-
-                                                    </tr><br><br>
-
-                                                    <tr>
-
-                                                        <td width="25%" height="19">
-                                                            <font face="Times New Roman">Jawatan Pegawai Melapor: </font>
-                                                        </td>
-
-                                                        <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman">{{ $data->e102_jpg }}</font>
-                                                            </b></td>
-
-                                                    </tr><br><br>
-
-                                                    <tr>
-
-                                                        <td width="25%" height="19">
-                                                            <font face="Times New Roman">No Telefon Kilang: </font>
-                                                        </td>
-
-                                                        <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman">{{ $data->e102_notel }}</font>
-                                                            </b></td>
-
-                                                    </tr>
-
-                                                </tbody>
+                                                    {{ $data->e102_notel }}
+                                                </p>
 
 
                                             </body>
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <br>
+
                             @endforeach
 
+                        </div><hr>
+                    </form>
 
 
+            </div>
 
-                        </div>
-                        <h1 style="page-break-before:always"></h1>
+            <h1 style="page-break-before:always"></h1>
 
-                        <div class="row form-group">
+            <div class="row form-group" style="padding-top: 10px; margin-left: 2% ">
 
 
-                            <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="margin-left:5%; color:white; background-color:#25877bd1">Sebelumnya</a>
-                            </div>
-                        </div>
+                <div class="text-left col-md-5">
+                    <a href="{{ route('admin.5penyatabelumhantarisirung') }}" class="btn btn-primary"
+                    >Sebelumnya</a>
+                </div>
+                <div class="text-right col-md-7 mb-2 ">
+                    <button type="button" class="btn btn-primary " style="float: right; "
+                        onclick="myPrint('myfrm')" value="print">Cetak</button>
                 </div>
 
             </div>
-            <br>
-            </form>
 
         </div>
 
 
-
-    </section><!-- End Hero -->
-
-
-
-
-    <!-- ======= Footer ======= -->
-
+    </div>
 
 
 

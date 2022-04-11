@@ -18,6 +18,9 @@ class H91Init extends Model
      *
      */
     protected $table = 'h91_init'; //penyata arkib (history) - kilang buah
+    protected $primaryKey = 'e91_nobatch';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'e91_nobatch',
