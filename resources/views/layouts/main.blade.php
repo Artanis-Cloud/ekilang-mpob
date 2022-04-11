@@ -36,7 +36,8 @@
     <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
 
     {{-- Datatable --}}
-    <link href="{{ asset('nice-admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
+    <link href="{{ asset('nice-admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}"
+        rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -120,12 +121,12 @@
                         </span>
                         <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
                             style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
-                        <div class="time text-right">
-                            <span class="hms"></span>
-                            <span class="ampm"></span>
-                            <span class="date"></span>
-                        </div>
-                    </span>
+                            <div class="time text-right">
+                                <span class="hms"></span>
+                                <span class="ampm"></span>
+                                <span class="date"></span>
+                            </div>
+                        </span>
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -325,10 +326,20 @@
                             </a>
                             <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                 <li class="sidebar-item">
-                                    <a href="{{ route('admin.senarai.pentadbir') }}" class="sidebar-link">
-                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Pengurusan Pentadbir </span>
-                                    </a>
+                                    @if (auth()->user()->role == 'superadmin')
+
+                                        <a href="{{ route('admin.senarai.pentadbir') }}" class="sidebar-link">
+                                            <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Pengurusan Pentadbir </span>
+                                        </a>
+
+
+                                    @else
+
+                                       
+
+                                    @endif
+
                                 </li>
                                 <li class="sidebar-item">
                                     <a href="{{ route('admin.pengumuman') }}" class="sidebar-link">
@@ -361,7 +372,8 @@
                                 </li>
                                 <li class="sidebar-item">
                                     {{-- <a href="{{ route('admin.panduan') }}" class="sidebar-link"> --}}
-                                    <a href="{{ asset('manual/admin/panduan2.pdf') }}" target="_blank" class="sidebar-link">
+                                    <a href="{{ asset('manual/admin/panduan2.pdf') }}" target="_blank"
+                                        class="sidebar-link">
                                         <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
                                         <span class="hide-menu"> Panduan Pengguna </span>
                                     </a>
@@ -409,10 +421,40 @@
 
                     </ul>
                 </nav>
+
                 <!-- End Sidebar navigation -->
             </div>
+
             <!-- End Sidebar scroll-->
         </aside>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                        role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                    PERINGATAN</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal"
+                                    aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Anda tidak dibenarkan mengisi maklumat bahagian ini
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+
+                                <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Tutup</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
@@ -509,7 +551,6 @@
 
     {{-- session timeout --}}
     <script>
-
         var SessionTimeout = function() {
             var session = (10 * 300000)
             var sessionRedir = (10 * 300000) + 30000 //plus 30 seconds after warn
@@ -592,7 +633,8 @@
                 day = dateInfo.getDate();
 
             // store date
-            var currentDate = dow[dateInfo.getDay()] + ", " + day + " " + month[dateInfo.getMonth()] + " " + dateInfo.getFullYear();
+            var currentDate = dow[dateInfo.getDay()] + ", " + day + " " + month[dateInfo.getMonth()] + " " + dateInfo
+                .getFullYear();
 
             document.getElementsByClassName("date")[0].innerHTML = currentDate;
         };

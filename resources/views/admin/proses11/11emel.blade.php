@@ -49,9 +49,6 @@
 
 
                     <div class="card-body">
-                        <div class="row">
-                        </div>
-                        <div class="row">
                             <div class="pl-3">
 
                                 <div class=" text-center">
@@ -148,5 +145,17 @@
             });
         });
     </script>
+    <script>
+        function printWindow() {
+            bV = parseInt(navigator.appVersion)
+            if (bV >= 4) window.print()
+        }
 
+        function setPrintedPage(altdoc) {
+            var prt;
+            var prt = document.getElementsByTagName("link")[0];
+            prt.setAttribute("href", altdoc);
+            printWindow();
+        }
+    </script>
 @endsection
