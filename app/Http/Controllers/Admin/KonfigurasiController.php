@@ -111,4 +111,32 @@ class KonfigurasiController extends Controller
         return view('admin.konfigurasi.senarai-admin', compact('returnArr', 'layout', 'admin'));
     }
 
+    public function admin_edit_pentadbir(Request $request, $id)
+    {
+
+
+        // dd($request->all());
+        $penyata = User::findOrFail($id);
+        $penyata->name = $request->name;
+        $penyata->email = $request->email;
+        $penyata->username = $request->username;
+        $penyata->role = $request->role;
+        $penyata->save();
+
+
+
+        return redirect()->route('admin.senarai.pentadbir')
+            ->with('success', 'Maklumat telah disimpan');
+    }
+
+    public function admin_delete_pentadbir($id)
+    {
+        $penyata = User::findOrFail($id);
+        // dd($penyata);
+
+        $penyata->delete();
+        return redirect()->route('admin.senarai.pentadbir')
+        ->with('success','Pentadbir Dihapuskan');
+    }
+
 }
