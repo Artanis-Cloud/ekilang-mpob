@@ -80,6 +80,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/3-daftar-penyata-biodiesel', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3daftarpenyatabiodiesel'])->name('admin.3daftarpenyatabiodiesel');
 
         Route::get('admin/3-daftar-penyata/process', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_initialize'])->name('admin.initialize');
+        Route::get('admin/3-daftar-satu-penyata/process', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_initialize_satu'])->name('admin.initialize.satu');
 
 
         Route::get('admin/4-EKilang-PLEID-buah', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleid'])->name('admin.4ekilangpleid');
