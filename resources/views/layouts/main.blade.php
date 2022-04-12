@@ -197,7 +197,7 @@
                                     </div>
                                 </div>
                                 <div class="profile-dis scrollable">
-                                    <a class="dropdown-item" href="javascript:void(0)">
+                                    <a class="dropdown-item" href="{{ route('admin.akaun.pentadbir') }}">
                                         <i class="ti-settings m-r-5 m-l-5"></i> Akaun Pentadbir </a>
                                     <a class="dropdown-item" href="javascript:void(0)">
                                         <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>

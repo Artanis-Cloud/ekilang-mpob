@@ -79,6 +79,9 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/3-daftar-penyata-pusat-simpanan', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3daftarpenyatasimpanan'])->name('admin.3daftarpenyatasimpanan');
         Route::get('admin/3-daftar-penyata-biodiesel', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3daftarpenyatabiodiesel'])->name('admin.3daftarpenyatabiodiesel');
 
+        Route::get('admin/3-daftar-penyata/process', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_initialize'])->name('admin.initialize');
+
+
         Route::get('admin/4-EKilang-PLEID-buah', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleid'])->name('admin.4ekilangpleid');
         Route::get('admin/4-EKilang-PLEID-penapis', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleidpenapis'])->name('admin.4ekilangpleidpenapis');
         Route::get('admin/4-EKilang-PLEID-isirung', [App\Http\Controllers\Admin\Proses4Controller::class, 'admin_4ekilangpleidisirung'])->name('admin.4ekilangpleidisirung');
