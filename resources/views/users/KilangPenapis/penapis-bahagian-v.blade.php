@@ -63,7 +63,7 @@
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                             <h3 style="color: rgb(39, 80, 71);">Bahagian V (a) & (b)</h3>
-                                            <h5 style="color: rgb(39, 80, 71)">Belian/eTrimaan Bekalan Produk Sawit (Sendiri dan Luar)</h5>
+                                            <h5 style="color: rgb(39, 80, 71)">Belian/Terimaan Bekalan Produk Sawit (Sendiri dan Luar)</h5>
                                             {{-- <p>Maklumat Kilang</p> --}}
                                         </div>
                                         <hr>
@@ -185,7 +185,7 @@
                         <br>
                         <br>
                         <hr>
-                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Belian/Terimaan Bekalan Produk Sawit
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Belian/Terimaan Bekalan Produk Sawit (Sendiri dan Luar)
                         </h5>
 
                         <section class="section">

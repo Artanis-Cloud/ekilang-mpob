@@ -390,7 +390,7 @@
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="#" class="sidebar-link">
+                                    <a href="{{ route('admin.kod.produk' )}}" class="sidebar-link">
                                         <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
                                         <span class="hide-menu"> Kod & Nama Produk </span>
                                     </a>
