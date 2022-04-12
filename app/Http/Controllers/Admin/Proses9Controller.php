@@ -218,7 +218,7 @@ class Proses9Controller extends Controller
 
     public function process_admin_9penyataterdahulu_buah_form(Request $request)
     {
-        // dd($request->all());
+
 
 
         $breadcrumbs    = [
@@ -235,7 +235,8 @@ class Proses9Controller extends Controller
 
         $tahun = H91Init::where('e91_thn', $request->tahun);
         $bulan = H91Init::where('e91_bln', $request->bulan);
-        foreach ($request->papar_ya as $key => $e91_nobatch) {
+        // dd($bulan);
+                foreach ($request->papar_ya as $key => $e91_nobatch) {
             $pelesens[$key] = (object)[];
             $penyata = H91Init::find($e91_nobatch);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
