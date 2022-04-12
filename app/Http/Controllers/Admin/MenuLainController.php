@@ -9,6 +9,7 @@ use App\Models\Ekmessage;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
+use App\Models\Produk;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -422,4 +423,26 @@ class MenuLainController extends Controller
         return json_decode($list_daerah);
         exit;
     }
+
+    public function admin_kod_produk()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.dashboard'), 'name' => "Senarai Kod dan Nama Produk Sawit"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $produk = Produk::orderBy('prodid')->get();
+        $layout = 'layouts.main';
+
+        return view('admin.menu-lain.kod-produk', compact('returnArr', 'layout', 'produk'));
+    }
+
 }
