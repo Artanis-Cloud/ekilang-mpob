@@ -1044,10 +1044,10 @@
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                                 <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{ $penyata->e91_sdate ?? '' }}</p>
-                                                <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e_npg }}</b>
+                                                <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_npg }}</b>
                                                 </p>
-                                                <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e_jpg }}</b></p>
-                                                <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $pelesen->e_notel }}</b>
+                                                <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_jpg }}</b></p>
+                                                <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyata->e91_notel }}</b>
                                                 </p>
 
 

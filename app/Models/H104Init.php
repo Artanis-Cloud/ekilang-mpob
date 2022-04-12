@@ -17,6 +17,7 @@ class H104Init extends Model
      *
      */
     protected $table = 'h104_init'; //penyata arkib - kilang oleokimia
+    protected $primaryKey = 'e104_nobatch';
 
     protected $fillable = [
         'e104_nobatch',
