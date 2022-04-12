@@ -169,7 +169,6 @@ class Proses3Controller extends Controller
         $this->initialize_proses_pl111($request->e_tahun, $request->e_bulan, $request->e_ddate);
         // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
         return redirect()->back()->with('success', 'Penyata telah diinitialize');
-
     }
 
     public function initialize_proses_pl91($e_tahun, $e_bulan, $e_ddate)
@@ -393,5 +392,188 @@ class Proses3Controller extends Controller
                 'e07_flagcetak' => NULL,
             ]);
         }
+    }
+
+    public function admin_initialize_satu(Request $request)
+    {
+        // dd($request->e_tahun);
+        $reg_pelesen = RegPelesen::where('e_nl', $request->e_initlesen)->where('e_status', '1')->first();
+        $count = RegPelesen::count();
+
+        if ($reg_pelesen) {
+            return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
+        }else{
+            $e_nl = $reg_pelesen->e_nl;
+
+            if ($reg_pelesen->e_kat == 'PL91') {
+                $query = E91Init::create([
+                    'e91_reg' => $count + 1,
+                    'e91_nl' => $request->e_initlesen,
+                    'e91_bln' => $request->e_bulan,
+                    'e91_thn' => $request->e_tahun,
+                    'e91_flg' => '1',
+                    'e91_sdate' => NULL,
+                    'e91_ddate' => $request->e_ddate,
+                    'e91_aa1' => NULL,
+                    'e91_aa2' => NULL,
+                    'e91_aa3' => NULL,
+                    'e91_aa4' => NULL,
+                    'e91_ab1' => NULL,
+                    'e91_ab2' => NULL,
+                    'e91_ab3' => NULL,
+                    'e91_ab4' => NULL,
+                    'e91_ac1' => NULL,
+                    'e91_ad1' => NULL,
+                    'e91_ad2' => NULL,
+                    'e91_ad3' => NULL,
+                    'e91_ae1' => NULL,
+                    'e91_ae2' => NULL,
+                    'e91_ae3' => NULL,
+                    'e91_ae4' => NULL,
+                    'e91_af1' => NULL,
+                    'e91_af2' => NULL,
+                    'e91_af3' => NULL,
+                    'e91_ag1' => NULL,
+                    'e91_ag2' => NULL,
+                    'e91_ag3' => NULL,
+                    'e91_ag4' => NULL,
+                    'e91_ah1' => NULL,
+                    'e91_ah2' => NULL,
+                    'e91_ah3' => NULL,
+                    'e91_ah4' => NULL,
+                    'e91_ai1' => NULL,
+                    'e91_ai2' => NULL,
+                    'e91_ai3' => NULL,
+                    'e91_ai4' => NULL,
+                    'e91_ai5' => NULL,
+                    'e91_ai6' => NULL,
+                    'e91_aj1' => NULL,
+                    'e91_aj2' => NULL,
+                    'e91_aj3' => NULL,
+                    'e91_aj4' => NULL,
+                    'e91_aj5' => NULL,
+                    'e91_aj6' => NULL,
+                    'e91_aj7' => NULL,
+                    'e91_aj8' => NULL,
+                    'e91_ak1' => NULL,
+                    'e91_ak2' => NULL,
+                    'e91_ak3' => NULL,
+                    'e91_npg' => NULL,
+                    'e91_jpg' => NULL,
+                    'e91_flagcetak' => NULL,
+                    'e91_ah5' => NULL,
+                    'e91_ah6' => NULL,
+                    'e91_ah7' => NULL,
+                    'e91_ah8' => NULL,
+                    'e91_ah9' => NULL,
+                    'e91_ah10' => NULL,
+                    'e91_ah11' => NULL,
+                    'e91_ah12' => NULL,
+                    'e91_ah13' => NULL,
+                    'e91_ah14' => NULL,
+                    'e91_ah15' => NULL,
+                    'e91_ah16' => NULL,
+                    'e91_ah17' => NULL,
+                    'e91_ah18' => NULL,
+                ]);
+            } elseif ($reg_pelesen->e_kat == 'PL101') {
+                $query = E101Init::create([
+                    'e101_reg' => $count + 1,
+                    'e101_nl' => $request->e_nl,
+                    'e101_bln' => $request->e_bulan,
+                    'e101_thn' => $request->e_tahun,
+                    'e101_flg' => '1',
+                    'e101_sdate' => NULL,
+                    'e101_ddate' => $request->e_ddate,
+                    'e101_a1' => NULL,
+                    'e101_a2' => NULL,
+                    'e101_a3' => NULL,
+                    'e101_npg' => NULL,
+                    'e101_jpg' => NULL,
+                    'e101_flagcetak' => NULL,
+                ]);
+            } elseif ($reg_pelesen->e_kat == 'PL102'){
+                $query = E102Init::create([
+                    'e102_reg' => $count + 1,
+                    'e102_nl' => $request->e_nl,
+                    'e102_bln' => $request->e_bulan,
+                    'e102_thn' => $request->e_tahun,
+                    'e102_flg' => '1',
+                    'e102_sdate' => NULL,
+                    'e102_ddate' => $request->e_ddate,
+                    'e102_aa1' => NULL,
+                    'e102_aa2' => NULL,
+                    'e102_aa3' => NULL,
+                    'e102_ab1' => NULL,
+                    'e102_ab2' => NULL,
+                    'e102_ab3' => NULL,
+                    'e102_ac1' => NULL,
+                    'e102_ac2' => NULL,
+                    'e102_ac3' => NULL,
+                    'e102_ad1' => NULL,
+                    'e102_ad2' => NULL,
+                    'e102_ad3' => NULL,
+                    'e102_ae1' => NULL,
+                    'e102_af2' => NULL,
+                    'e102_af3' => NULL,
+                    'e102_ag1' => NULL,
+                    'e102_ag2' => NULL,
+                    'e102_ag3' => NULL,
+                    'e102_ah1' => NULL,
+                    'e102_ah2' => NULL,
+                    'e102_ah3' => NULL,
+                    'e102_ai1' => NULL,
+                    'e102_ai2' => NULL,
+                    'e102_ai3' => NULL,
+                    'e102_aj1' => NULL,
+                    'e102_aj2' => NULL,
+                    'e102_aj3' => NULL,
+                    'e102_ak1' => NULL,
+                    'e102_ak2' => NULL,
+                    'e102_ak3' => NULL,
+                    'e102_al1' => NULL,
+                    'e102_al2' => NULL,
+                    'e102_al3' => NULL,
+                    'e102_al4' => NULL,
+                    'e102_npg' => NULL,
+                    'e102_jpg' => NULL,
+                    'e102_flagcetak' => NULL,
+                    'e102_ae3' => NULL,
+                ]);
+            }  elseif ($reg_pelesen->e_kat == 'PL104'){
+                $query = E104Init::create([
+                    'e104_reg' => $count + 1,
+                    'e104_nl' => $request->e_nl,
+                    'e104_bln' => $request->e_bulan,
+                    'e104_thn' => $request->e_tahun,
+                    'e104_flg' => '1',
+                    'e104_sdate' => NULL,
+                    'e104_ddate' => $request->e_ddate,
+                    'e104_a5' => NULL,
+                    'e104_a6' => NULL,
+                    'e104_npg' => NULL,
+                    'e104_jpg' => NULL,
+                    'e104_flagcetak' => NULL,
+                ]);
+
+            } elseif ($reg_pelesen->e_kat == 'PL111')
+            {
+                $query = E07Init::create([
+                    'e07_reg' => $count + 1,
+                    'e07_nl' => $e_nl,
+                    'e07_bln' => $request->e_bulan,
+                    'e07_thn' => $request->e_tahun,
+                    'e07_flg' => '1',
+                    'e07_sdate' => NULL,
+                    'e07_ddate' => $request->e_ddate,
+                    'e07_npg' => NULL,
+                    'e07_jpg' => NULL,
+                    'e07_flagcetak' => NULL,
+                ]);
+            }
+        }
+
+        // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
+        return redirect()->back()->with('success', 'Penyata pelesen ini telah diinitialize');
     }
 }
