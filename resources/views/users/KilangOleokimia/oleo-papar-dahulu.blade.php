@@ -74,49 +74,33 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>
-                                                                    <p align="left"><b>MPOB(EL) RF 4</b></p>
+                                                                    <p align="left"><b>MPOB(EL) CM 4</b></p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <p align="left"><b>MPOB(EL) PX 4-RF </b></p>
+                                                                    <p align="left"><b>MPOB(EL) PX 4-CM </b></p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td>
-                                                                    <p align="left"><b>MPOB(EL) PM 4-RF</b></p>
+                                                                    <p align="left"><b>MPOB(EL) PM 4-CM </b></p>
                                                                 </td>
                                                             </tr>
+
                                                         </tbody>
                                                     </table>
-                                                </div>
-                                               
-
-                                            {{-- <div align="right">
-                                                <table border="0" width="25%" id="table1">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>MPOB(EL) PX 4-MF </b></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div> --}}
+                                                </div><br>
 
                                             <p align="center">
                                                 <img border="0" src="{{ asset('/mpob.png') }}" width="128"
-                                                    height="100">
+                                                height="100">
                                             </p>
-
-                                            <title>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4</title>
+                                            <title>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4</title>
                                             <p align="center"><b>
                                                     <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
-                                                    </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
+                                                    </font>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4<br>
 
                                                     BULAN :&nbsp;&nbsp; @if($users->e104_bln == 1)
                                                     Januari

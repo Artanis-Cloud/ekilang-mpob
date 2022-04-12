@@ -16,7 +16,11 @@ class H101Init extends Model
      * @var string
      *
      */
-    protected $table = 'h101_init'; //penyata arkib (history) - kilang penapis
+    protected $table = 'h101_init';
+    protected $primaryKey = 'e101_nobatch';
+    public $timestamps = false;
+
+     //penyata arkib (history) - kilang penapis
 
     protected $fillable = [
         'e101_nobatch',

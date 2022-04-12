@@ -155,6 +155,10 @@
                                             <div class="row mt-3">
                                                 <div class="col-md-3">
                                                     <span class="required"> Belian / Terimaan</span>
+                                                        <i class="fa fa-exclamation-circle"
+                                                            style="color: red"
+                                                            title="Sekiranya ada maklumat import, sila campurkan (+) dengan maklumat Belian/Terimaan.">
+                                                        </i>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b7'style="width: 50%"

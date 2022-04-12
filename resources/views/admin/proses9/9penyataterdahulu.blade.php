@@ -71,7 +71,7 @@
                             </div>
                         </div>
 
-                        <form action="{{ route('admin.9penyataterdahulu.process') }}" method="post">
+                        <form action="{{ route('admin.9penyataterdahulu.process') }}" method="get">
                             @csrf
                                 <div class>
                                     <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:-2%; text-align:center">Papar Penyata Bulanan

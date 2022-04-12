@@ -267,8 +267,8 @@
                                                         </tr>
 
                                                     </tbody>
-                                                </table>
-                                                <br>
+                                                </table><br>
+
 
 
                                                         <p><b>
@@ -1077,7 +1077,7 @@
 
 
                                                     <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
-                                                            adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
+                                                        adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
                                                     <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                         {{ $data->e91_npg }}
@@ -1089,8 +1089,6 @@
 
                                                         {{ $data->e91_notel }}
                                                     </p>
-
-                                                </tbody>
 
 
                                             </body>
@@ -1105,21 +1103,21 @@
                         </div>
                     </form>
 
-                    <h1 style="page-break-before:always"></h1>
+            </div>
+            <h1 style="page-break-before:always"></h1>
 
-                    <div class="row form-group" style="padding-top: 10px; margin-left: 2% ">
+            <div class="row form-group" style="padding-top: 10px; margin-left: 2% ">
 
 
-                        <div class="text-left col-md-5">
-                            <a href="{{ route('admin.6penyatapaparcetakbuah') }}" class="btn btn-primary"
-                            >Sebelumnya</a>
-                        </div>
-                        <div class="text-right col-md-7 mb-2 ">
-                            <button type="button" class="btn btn-primary " style="float: right; "
-                                onclick="myPrint('myfrm')" value="print">Cetak</button>
-                        </div>
+                <div class="text-left col-md-5">
+                    <a href="{{ route('admin.6penyatapaparcetakpenapis') }}" class="btn btn-primary"
+                    >Sebelumnya</a>
+                </div>
+                <div class="text-right col-md-7 mb-2 ">
+                    <button type="button" class="btn btn-primary " style="float: right; "
+                        onclick="myPrint('myfrm')" value="print">Cetak</button>
+                </div>
 
-                    </div>
             </div>
 
         </div>
@@ -1128,36 +1126,37 @@
 
 
 
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('.calc').change(function() {
-                    var total = 0;
-                    $('.calc').each(function() {
-                        if ($(this).val() != '') {
-                            total += parseInt($(this).val());
-                        }
-                    });
-                    $('#total').html(total);
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.calc').change(function() {
+                var total = 0;
+                $('.calc').each(function() {
+                    if ($(this).val() != '') {
+                        total += parseInt($(this).val());
+                    }
                 });
+                $('#total').html(total);
             });
-        </script>
+        });
+    </script>
 
-        <script>
-            function myPrint(myfrm) {
-                var printdata = document.getElementById(myfrm);
-                newwin = window.open("");
-                newwin.document.write(printdata.outerHTML);
-                newwin.print();
-                newwin.close();
-            }
-        </script>
+    <script>
+        function myPrint(myfrm) {
+            var printdata = document.getElementById(myfrm);
+            newwin = window.open("");
+            newwin.document.write(printdata.outerHTML);
+            newwin.print();
+            newwin.close();
+        }
+    </script>
 
-        </body>
+    </body>
 
-        </html>
+    </html>
+
 @endsection

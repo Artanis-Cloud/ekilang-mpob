@@ -89,22 +89,6 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            {{-- <p align="left">
-                                                PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
-                                            {{-- <div align="right">
-                                                <table border="0" width="25%" id="table1">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>MPOB(EL) PX 4-MF </b></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div> --}}
 
                                             <p align="center">
                                                 <img border="0" src="{{ asset('/mpob.png') }}" width="128"
