@@ -31,8 +31,8 @@ class EBioC extends Model
         'ebio_c8',
         'ebio_c9',
         'ebio_c10',
-        'ebio_c11',
-        'ebio_c12',
+        'ebio_sykt',
+        'ebio_jumlah',
         // 'ebio_c13',
 
     ];

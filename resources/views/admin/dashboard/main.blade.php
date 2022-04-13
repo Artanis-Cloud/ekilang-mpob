@@ -247,15 +247,45 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         function getRandomColor() {
-          var letters = '0123456789ABCDEF';
-          var color = '#';
-          for (var i = 0; i < 6; i++) {
-            color += letters[Math.floor(Math.random() * 16)];
-          }
-          return color;
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
         }
-        </script>
+    </script>
+
+    <script type=text/javascript>
+
+    </script>
+
     <script>
+        var Labels = new Array();
+        var Count = new Array();
+        $(document).ready(function() {
+            $.ajax({ //create an ajax request to display.php
+                type: "GET",
+                url: "{{ route('jumlah_penyata_dashboard') }}",
+                success: function(response) {
+                    datas = JSON.parse(response);
+                    Object.keys(datas).forEach(key => {
+                        nama_kilang = datas[key].nama_kilang
+                        Labels.push(nama_kilang);
+                        Count.push(datas[key].count);
+                    });
+                }
+            });
+            console.log(Labels);
+
+        });
+        Labels.push('Kilang Buah');
+        Labels.push('Kilang Penapis');
+        Labels.push('Kilang Isirung');
+        Labels.push('Kilang Oleokimia');
+        Labels.push('Pusat Simpanan');
+        Labels.push('Kilang Biodiesel');
+        console.log(Labels);
         const ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
             type: 'bar',
@@ -265,9 +295,11 @@
                 labels: ['Kilang Buah', 'Kilang Penapis', 'Kilang Isirung', 'Kilang Oleokimia', 'Pusat Simpanan',
                     'Kilang Biodiesel'
                 ],
+                labels: Labels,
                 datasets: [{
                     // label: '# of Votes',
-                    data: [50, 50, 30, 25, 32, 53],
+                    // data: Count,
+                    data: [26, 32, 90, 61, 74, 43],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -428,8 +460,7 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-                ],
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
                 datasets: [{
                     // label: '# of Votes',
                     data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
@@ -473,8 +504,7 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-                ],
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
                 datasets: [{
                     // label: '# of Votes',
                     data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
@@ -518,8 +548,7 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-                ],
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
                 datasets: [{
                     // label: '# of Votes',
                     data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
@@ -563,8 +592,7 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-                ],
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
                 datasets: [{
                     // label: '# of Votes',
                     data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
@@ -608,8 +636,7 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-                ],
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
                 datasets: [{
                     // label: '# of Votes',
                     data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],

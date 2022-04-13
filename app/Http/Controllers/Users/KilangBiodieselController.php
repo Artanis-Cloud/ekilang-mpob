@@ -688,10 +688,11 @@ class KilangBiodieselController extends Controller
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
         if ($user) {
             $penyata = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
+            // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
         } else {
             $penyata = [];
         }
-
+        // dd($penyata_test);
         $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
         $totaliiic5 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c5');
         $totaliiic6 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c6');
@@ -741,6 +742,7 @@ class KilangBiodieselController extends Controller
     {
         return Validator::make($data, [
 
+            'ebio_c3' => ['required', 'string'],
             'ebio_c4' => ['required', 'string'],
             'ebio_c5' => ['required', 'string'],
             'ebio_c6' => ['required', 'string'],

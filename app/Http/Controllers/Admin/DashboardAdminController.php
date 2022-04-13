@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class DashboardAdminController extends Controller
 {
@@ -19,6 +20,7 @@ class DashboardAdminController extends Controller
         // return view('layouts.main', compact('user'));
         // return view('admin.admin-dashboard', compact('user'));
         $admin = auth()->user()->role;
+
         // dd($admin);
         return view('admin.dashboard.main');
 
