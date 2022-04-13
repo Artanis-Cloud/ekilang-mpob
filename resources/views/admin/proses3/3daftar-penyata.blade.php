@@ -269,7 +269,7 @@
                         <div class="container center ">
 
 
-                            <div class="row" style="margin-top:1%">
+                            <div class="row" style="margin-top:-2%">
                                 <label for="fname"
                                     class="text-right col-sm-4 control-label col-form-label required align-items-center">Tahun
                                 </label>

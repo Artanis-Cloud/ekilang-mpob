@@ -398,14 +398,20 @@ class Proses3Controller extends Controller
     {
         // dd($request->e_tahun);
         $reg_pelesen = RegPelesen::where('e_nl', $request->e_initlesen)->where('e_status', '1')->first();
+        // dd($reg_pelesen);
         $count = RegPelesen::count();
+        $e91_init = E91Init::where('e91_nl', $request->e_initlesen)->first();
+        $e101_init = E101Init::where('e101_nl', $request->e_initlesen)->first();
+        $e102_init = E102Init::where('e102_nl', $request->e_initlesen)->first();
+        $e104_init = E104Init::where('e104_nl', $request->e_initlesen)->first();
+        $e07_init = E07Init::where('e07_nl', $request->e_initlesen)->first();
 
-        if ($reg_pelesen) {
-            return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
-        }else{
-            $e_nl = $reg_pelesen->e_nl;
+        if ($reg_pelesen->e_kat == 'PL91') {
+            if ($e91_init) {
+                return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
+            }   else{
+                $e_nl = $reg_pelesen->e_nl;
 
-            if ($reg_pelesen->e_kat == 'PL91') {
                 $query = E91Init::create([
                     'e91_reg' => $count + 1,
                     'e91_nl' => $request->e_initlesen,
@@ -476,10 +482,14 @@ class Proses3Controller extends Controller
                     'e91_ah17' => NULL,
                     'e91_ah18' => NULL,
                 ]);
-            } elseif ($reg_pelesen->e_kat == 'PL101') {
+            }
+         } elseif ($reg_pelesen->e_kat == 'PL101') {
+            if ($e101_init) {
+                return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
+            }   else{
                 $query = E101Init::create([
                     'e101_reg' => $count + 1,
-                    'e101_nl' => $request->e_nl,
+                    'e101_nl' => $request->e_initlesen,
                     'e101_bln' => $request->e_bulan,
                     'e101_thn' => $request->e_tahun,
                     'e101_flg' => '1',
@@ -492,10 +502,15 @@ class Proses3Controller extends Controller
                     'e101_jpg' => NULL,
                     'e101_flagcetak' => NULL,
                 ]);
-            } elseif ($reg_pelesen->e_kat == 'PL102'){
+            }
+        } elseif ($reg_pelesen->e_kat == 'PL102'){
+
+            if ($e102_init) {
+                return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
+            }   else{
                 $query = E102Init::create([
                     'e102_reg' => $count + 1,
-                    'e102_nl' => $request->e_nl,
+                    'e102_nl' => $request->e_initlesen,
                     'e102_bln' => $request->e_bulan,
                     'e102_thn' => $request->e_tahun,
                     'e102_flg' => '1',
@@ -540,10 +555,15 @@ class Proses3Controller extends Controller
                     'e102_flagcetak' => NULL,
                     'e102_ae3' => NULL,
                 ]);
+            }
             }  elseif ($reg_pelesen->e_kat == 'PL104'){
+
+                if ($e104_init) {
+                    return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
+                }   else{
                 $query = E104Init::create([
                     'e104_reg' => $count + 1,
-                    'e104_nl' => $request->e_nl,
+                    'e104_nl' => $request->e_initlesen,
                     'e104_bln' => $request->e_bulan,
                     'e104_thn' => $request->e_tahun,
                     'e104_flg' => '1',
@@ -555,12 +575,16 @@ class Proses3Controller extends Controller
                     'e104_jpg' => NULL,
                     'e104_flagcetak' => NULL,
                 ]);
+            }
 
             } elseif ($reg_pelesen->e_kat == 'PL111')
             {
+                if ($e07_init) {
+                    return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
+                }   else{
                 $query = E07Init::create([
                     'e07_reg' => $count + 1,
-                    'e07_nl' => $e_nl,
+                    'e07_nl' => $request->e_initlesen,
                     'e07_bln' => $request->e_bulan,
                     'e07_thn' => $request->e_tahun,
                     'e07_flg' => '1',
