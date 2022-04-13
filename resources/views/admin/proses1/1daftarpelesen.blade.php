@@ -49,17 +49,20 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-12">
+                                        {{-- @if($errors->any())
+                                        {{ implode('', $errors->all('<div>:message</div>')) }}
+                                        @endif --}}
                                         <label for="fname" class="control-label col-form-label">
                                             Jenis Kilang</label>
                                         <fieldset class="form-group">
-                                            <select class="form-control" name="jenis_kilang">
+                                            <select class="form-control" name="e_kat">
                                                 <option selected hidden disabled>Sila Pilih Kilang</option>
-                                                <option>Kilang Buah</option>
-                                                <option>Kilang Penapis</option>
-                                                <option>Kilang Isirung</option>
-                                                <option>Kilang Oleokimia</option>
-                                                <option>Pusat Simpanan</option>
-                                                <option>Kilang Biodiesel</option>
+                                                <option value="PL91">Kilang Buah</option>
+                                                <option value="PL101">Kilang Penapis</option>
+                                                <option value="PL102">Kilang Isirung</option>
+                                                <option value="PL104">Kilang Oleokimia</option>
+                                                <option value="PL111">Pusat Simpanan</option>
+                                                <option value="PLBIO">Kilang Biodiesel</option>
                                             </select>
                                         </fieldset>
                                     </div>
@@ -69,20 +72,20 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Status e-Kilang</label>
-                                            <select class="form-control" name="status_ekilang">
+                                            <select class="form-control" name="e_status">
                                                 <option selected hidden disabled>Sila Pilih</option>
-                                                <option>Aktif</option>
-                                                <option>Tidak Aktif</option>
+                                                <option value="1">Aktif</option>
+                                                <option value="2">Tidak Aktif</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Status e-Mingguan</label>
-                                            <select class="form-control" name="status_emingguan">
+                                            <select class="form-control" name="e_stock">
                                                 <option selected hidden disabled>Sila Pilih</option>
-                                                <option>Aktif</option>
-                                                <option>Tidak Aktif</option>
+                                                <option value="1">Aktif</option>
+                                                <option value="2">Tidak Aktif</option>
                                             </select>
                                         </div>
                                     </div>
@@ -92,31 +95,31 @@
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Status Direktori</label>
-                                            <select class="form-control" name="status_direktori">
+                                            <select class="form-control" name="directory">
                                                 <option selected hidden disabled>Sila Pilih</option>
-                                                <option>Ya</option>
-                                                <option>Tidak</option>
+                                                <option value="Y">Ya</option>
+                                                <option value="N">Tidak</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Kod Negeri </label>
-                                            <select class="form-control" name="kod_negeri">
+                                            <select class="form-control" name="kodpgw">
                                                 <option selected hidden disabled>Sila Pilih</option>
-                                                <option>JJ</option>
-                                                <option>KB</option>
-                                                <option>KK</option>
-                                                <option>MM</option>
-                                                <option>NS</option>
-                                                <option>PH</option>
-                                                <option>PK</option>
-                                                <option>PP</option>
-                                                <option>SA</option>
-                                                <option>SS</option>
-                                                <option>SW</option>
-                                                <option>TT</option>
-                                                <option>WP</option>
+                                                <option value="JJ">JJ</option>
+                                                <option value="KB">KB</option>
+                                                <option value="KK">KK</option>
+                                                <option value="MM">MM</option>
+                                                <option value="NS">NS</option>
+                                                <option value="PH">PH</option>
+                                                <option value="PK">PK</option>
+                                                <option value="PP">PP</option>
+                                                <option value="SA">SA</option>
+                                                <option value="SS">SS</option>
+                                                <option value="SW">SW</option>
+                                                <option value="TT">TT</option>
+                                                <option value="WP">WP</option>
                                             </select>
                                         </div>
                                     </div>
@@ -127,16 +130,14 @@
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Nombor Siri</label>
                                             <input type="text" id="nombor_siri" class="form-control"
-                                                placeholder="Nombor Siri" name="nombor_siri"
-                                                value="{{ old('nombor_siri') }}">
+                                                placeholder="Nombor Siri" name="nosiri" value="{{ old('nombor_siri') }}">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Nombor Lesen</label>
                                             <input type="text" id="nombor_lesen" class="form-control"
-                                                placeholder="Nombor Lesen" name="nombor_lesen"
-                                                value="{{ old('nombor_lesen') }}">
+                                                placeholder="Nombor Lesen" name="e_nl" value="{{ old('nombor_lesen') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -145,8 +146,7 @@
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Nama Premis</label>
                                             <input type="text" id="nama_premis" class="form-control"
-                                                placeholder="Nama Premis" name="nama_premis"
-                                                value="{{ old('nama_premis') }}">
+                                                placeholder="Nama Premis" name="e_np" value="{{ old('nama_premis') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@
                                             <label for="inputcom" class="control-label col-form-label">Alamat Premis
                                                 Berlesen</label>
                                             <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 1" name="alamat_premis_1"
+                                                placeholder="Alamat Premis 1" name="e_ap1"
                                                 value="{{ old('alamat_premis_1') }}">
                                         </div>
                                     </div>
@@ -165,7 +165,7 @@
                                             <label for="inputcom" class="control-label col-form-label">Alamat Surat
                                                 Menyurat</label>
                                             <input type="text" id="alamat_surat_1" class="form-control"
-                                                placeholder="Alamat Surat Menyurat 1" name="alamat_surat_1"
+                                                placeholder="Alamat Surat Menyurat 1" name="e_as1"
                                                 value="{{ old('alamat_surat_1') }}">
                                         </div>
                                     </div>
@@ -175,7 +175,7 @@
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
                                             <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 2" name="alamat_premis_1"
+                                                placeholder="Alamat Premis 2" name="e_ap2"
                                                 value="{{ old('alamat_premis_1') }}">
                                         </div>
                                     </div>
@@ -183,7 +183,7 @@
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
                                             <input type="text" id="alamat_surat_1" class="form-control"
-                                                placeholder="Alamat Surat Menyurat 2" name="alamat_surat_1"
+                                                placeholder="Alamat Surat Menyurat 2" name="e_as2"
                                                 value="{{ old('alamat_surat_1') }}">
                                         </div>
                                     </div>
@@ -193,7 +193,7 @@
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
                                             <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 3" name="alamat_premis_1"
+                                                placeholder="Alamat Premis 3" name="e_ap3"
                                                 value="{{ old('alamat_premis_1') }}">
                                         </div>
                                     </div>
@@ -201,7 +201,7 @@
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
                                             <input type="text" id="alamat_surat_1" class="form-control"
-                                                placeholder="Alamat Surat Menyurat 3" name="alamat_surat_1"
+                                                placeholder="Alamat Surat Menyurat 3" name="e_as3"
                                                 value="{{ old('alamat_surat_1') }}">
                                         </div>
                                     </div>
@@ -212,7 +212,7 @@
                                             <label for="inputcom" class="control-label col-form-label">No. Telefon
                                                 Kilang</label>
                                             <input type="text" id="no_tel_kilang" class="form-control"
-                                                placeholder="No. Telefon Kilang" name="no_tel_kilang"
+                                                placeholder="No. Telefon Kilang" name="e_notel"
                                                 value="{{ old('no_tel_kilang') }}">
                                         </div>
                                     </div>
@@ -221,7 +221,7 @@
                                             <label for="inputcom" class="control-label col-form-label">No. Faks
                                                 Kilang</label>
                                             <input type="text" id="no_faks_kilang" class="form-control"
-                                                placeholder="No. Faks Kilang" name="no_faks_kilang"
+                                                placeholder="No. Faks Kilang" name="e_nofax"
                                                 value="{{ old('no_faks_kilang') }}">
                                         </div>
                                     </div>
@@ -232,7 +232,7 @@
                                             <label for="inputcom" class="control-label col-form-label">Alamat Emel
                                                 Kilang</label>
                                             <input type="text" id="emel_kilang" class="form-control"
-                                                placeholder="Alamat Emel Kilang" name="emel_kilang"
+                                                placeholder="Alamat Emel Kilang" name="e_email"
                                                 value="{{ old('emel_kilang') }}">
                                         </div>
                                     </div>
@@ -243,7 +243,7 @@
                                             <label for="inputcom" class="control-label col-form-label">Nama Pegawai
                                                 Melapor</label>
                                             <input type="text" id="nama_pegawai_lapor" class="form-control"
-                                                placeholder="Nama Pegawai Melapor" name="nama_pegawai_lapor"
+                                                placeholder="Nama Pegawai Melapor" name="e_npg"
                                                 value="{{ old('nama_pegawai_lapor') }}">
                                         </div>
                                     </div>
@@ -254,7 +254,7 @@
                                             <label for="inputcom" class="control-label col-form-label">Jawatan Pegawai
                                                 Melapor</label>
                                             <input type="text" id="jawatan_pegawai_lapor" class="form-control"
-                                                placeholder="Jawatan Pegawai Melapor" name="jawatan_pegawai_lapor"
+                                                placeholder="Jawatan Pegawai Melapor" name="e_jpg"
                                                 value="{{ old('jawatan_pegawai_lapor') }}">
                                         </div>
                                     </div>
@@ -274,7 +274,7 @@
                                             <label for="inputcom" class="control-label col-form-label">Nama Pegawai
                                                 Bertanggungjawab</label>
                                             <input type="text" id="enama_pegawai_jawab" class="form-control"
-                                                placeholder="Nama Pegawai Bertanggungjawab" name="nama_pegawai_jawab"
+                                                placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
                                                 value="{{ old('nama_pegawai_jawab') }}">
                                         </div>
                                     </div>
@@ -285,7 +285,7 @@
                                             <label for="inputcom" class="control-label col-form-label">Jawatan Pegawai
                                                 Bertanggungjawab</label>
                                             <input type="text" id="jawatan_pegawai_jawab" class="form-control"
-                                                placeholder="Jawatan Pegawai Bertanggungjawab" name="jawatan_pegawai_jawab"
+                                                placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
                                                 value="{{ old('jawatan_pegawai_jawab') }}">
                                         </div>
                                     </div>
@@ -294,7 +294,7 @@
                                             <label for="inputcom" class="control-label col-form-label">Alamat Emel
                                                 Pengurus</label>
                                             <input type="text" id="emel_pengurus" class="form-control"
-                                                placeholder="Alamat Emel Pengurus" name="eemel_pengurus"
+                                                placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
                                                 value="{{ old('eemel_pengurus') }}">'
                                         </div>
                                     </div>
@@ -305,7 +305,7 @@
                                             <label for="inputcom" class="control-label col-form-label">
                                                 Negeri</label>
                                             <fieldset class="form-group">
-                                                <select class="form-control" id="negeri_id"
+                                                <select class="form-control" id="negeri_id" name="e_negeri"
                                                     onchange="ajax_daerah(this);ajax_kawasan(this)">
                                                     <option selected hidden disabled>Sila Pilih</option>
                                                     @foreach ($negeri as $data)
@@ -322,7 +322,7 @@
                                             Daerah</label>
                                         <fieldset class="form-group">
 
-                                            <select class="form-control" id="daerah_id" name='daerah_id'
+                                            <select class="form-control" id="daerah_id" name='e_daerah'
                                                 placeholder="Daerah">
                                                 <option selected hidden disabled>Sila Pilih Negeri Terlebih Dahulu
                                                 </option>
@@ -334,7 +334,7 @@
                                         <label for="inputcom" class="control-label col-form-label">
                                             Kawasan</label>
                                         <fieldset class="form-group">
-                                            <select class="form-control" id="kawasan_id">
+                                            <select class="form-control" id="kawasan_id" name='e_kawasan'>
                                                 <option value="" selected hidden disabled>Sila Pilih
                                                     Daerah Terlebih Dahulu</option>
                                             </select>
@@ -347,14 +347,14 @@
                                             <label for="inputcom" class="control-label col-form-label">
                                                 Syarikat Induk</label>
                                             <input type="text" id="syarikat_induk" class="form-control"
-                                                placeholder="Syarikat Induk" name="syarikat_induk">
+                                                placeholder="Syarikat Induk" name="e_syktinduk">
                                         </div>
                                     </div>
                                     <div class="col-sm-12 col-md-6">
                                         <label for="inputcom" class="control-label col-form-label">
                                             Tahun Mula Beroperasi</label>
                                         <input type="text" id="tahun_operasi" class="form-control"
-                                            placeholder="Tahun Mula Beroperasi" name="tahun_operasi">
+                                            placeholder="Tahun Mula Beroperasi" name="e_year">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -363,10 +363,10 @@
                                             <label for="inputcom" class="control-label col-form-label">
                                                 Kumpulan</label>
                                             <fieldset class="form-group">
-                                                <select class="form-control" name="kumpulan">
+                                                <select class="form-control" name="e_group">
                                                     <option selected hidden disabled>Sila Pilih</option>
-                                                    <option>Kerajaan</option>
-                                                    <option>Swasta</option>
+                                                    <option value="GOV">Kerajaan</option>
+                                                    <option value="IND">Swasta</option>
                                                 </select>
                                             </fieldset>
                                         </div>
@@ -375,10 +375,10 @@
                                         <label for="inputcom" class="control-label col-form-label">
                                             POMA</label>
                                         <fieldset class="form-group">
-                                            <select class="form-control" name="poma">
+                                            <select class="form-control" name="e_poma">
                                                 <option selected hidden disabled>Sila Pilih</option>
-                                                <option>Ya</option>
-                                                <option>Tidak</option>
+                                                <option value="poma">Ya</option>
+                                                <option value="NULL">Tidak</option>
                                             </select>
                                         </fieldset>
                                     </div>
@@ -386,7 +386,7 @@
                                 <div class="row form-group" style="padding-top: 10px; ">
                                     <div class="text-right col-md-12 mb-4 ">
                                         <button type="button" class="btn btn-primary " data-toggle="modal"
-                                            style="float: right" data-target="#myModal">Tambah</button>
+                                            style="float: right;margin-left:44%" data-target="#myModal">Tambah</button>
                                     </div>
                                 </div>
                                 {{-- <div class="row form-group" style="padding-top: 10px; ">
