@@ -184,9 +184,9 @@
                                                     </div>
                                                 @enderror --}}
 
-                                                    <input type="hidden" class="form-control" name='ebio_sykt'
+                                                    <input type="text" class="form-control" name='ebio_sykt'
                                                         style="width:50%" id="myInputHidden1" required>
-                                                    <input type="hidden" class="form-control" name='ebio_jumlah'
+                                                    <input type="text" class="form-control" name='ebio_jumlah'
                                                         style="width:50%" id="myInputHidden2" required>
                                                 </div>
                                             </div>
@@ -225,6 +225,7 @@
                                                 <table class="table table-bordered mb-0" style="font-size: 13px">
                                                     <thead style="text-align: center">
                                                         <tr>
+                                                            <th>Bil</th>
                                                             <th>Nama Produk</th>
                                                             <th>Kod Produk</th>
                                                             <th>Stok Awal Di Premis</th>
@@ -240,9 +241,9 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach ($penyata as $data)
+                                                        @foreach ($penyata as $key => $data)
                                                             <tr style="text-align: right">
-
+                                                                <td class="text-center">{{ $key+1 }}</td>
                                                                 <td style="text-align: left">{{ $data->produk->prodname }}
                                                                 </td>
                                                                 <td>{{ $data->produk->prodid }}</td>
@@ -574,12 +575,12 @@
                                                 <div class="modal-body">
                                                     <label>Nama Syarikat </label>
                                                     <div class="form-group">
-                                                        <input type="text" id="ebio_sykt" name='ebio_sykt'
+                                                        <input type="text" id="ebio_sykt1" name='ebio_sykt1'
                                                             class="form-control" value="">
                                                     </div>
                                                     <label>Jumlah Jualan / Edaran </label>
                                                     <div class="form-group">
-                                                        <input type="text" id="ebio_jumlah" name='ebio_jumlah'
+                                                        <input type="text" id="ebio_jumlah1" name='ebio_jumlah1'
                                                             class="form-control" value="">
                                                     </div>
                                                 </div>
@@ -594,9 +595,9 @@
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Batal</span>
                                                 </button>
-                                                <button type="submit" class="btn btn-primary ml-1" id="btnShow" data-bs-dismiss="modal">
+                                                <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
                                                     <i class=" bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Tambah</span>
+                                                    <span class="d-none d-sm-block" id="btnShow" >Tambah</span>
                                                 </button>
                                             </div>
                                             </form>
@@ -617,34 +618,6 @@
                 <br>
                 <br>
                 <br>
-
-
-
-                {{-- </div>
-                                                                    </div> --}}
-
-                {{-- </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                {{-- </div>
-
-                    </div> --}}
-
-
-
                 <br>
                 <br>
 
@@ -678,8 +651,10 @@
 
     <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
     <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-    <script>
+
+    {{-- <script>
         $(document).ready(function() {
             var table = $('#example').DataTable({
                 "language": {
@@ -706,16 +681,9 @@
             // }
         });
 
-        // document.getElementById("form_type").onchange = function() {
-        //     myFunction()
-        // };
-
-        // function myFunction() {
-        //     console.log('asasa');
-        //     table.clear().draw();
         // }
-    </script>
-    <script>
+    </script> --}}
+    {{-- <script>
         // Get the modal
         var modal = document.getElementById("myModal");
 
@@ -741,7 +709,7 @@
                 modal.style.display = "none";
             }
         }
-    </script>
+    </script> --}}
 
     <script>
         function onlyNumberKey(evt) {
@@ -754,6 +722,7 @@
         }
     </script>
 
+
     <script>
         // function inputHidden() {
         //     var ebio_sykt = $("#ebio_sykt").val();
@@ -764,15 +733,30 @@
         // }
         $(document).ready(function() {
                     $("#btnShow").on('click', function() {
-                        var getTxtValue1 = $("#ebio_sykt").val(); // this gives textbox value
-                        var getTxtValue2 = $("#ebio_jumlah").val(); // this gives textbox value
+                        console.log('nasuk');
+
+                        var getTxtValue1 = $("#ebio_sykt1").val(); // this gives textbox value
+                        var getTxtValue2 = $("#ebio_jumlah1").val(); // this gives textbox value
                         $("#myInputHidden1").val(getTxtValue1); // this will set hidden field value
                         $("#myInputHidden2").val(getTxtValue2); // this will set hidden field value
                         // alert(getTxtValue1);
                         // alert(getTxtValue2);
-
+                        console.log('#btnShow');
                     });
                 })
+
+                // function transferid(){
+                //     // console.log('nasuk');
+
+                //         var getTxtValue1 = $("#ebio_sykt1").val(); // this gives textbox value
+                //         var getTxtValue2 = $("#ebio_jumlah1").val(); // this gives textbox value
+                //         $("#myInputHidden1").val(getTxtValue1); // this will set hidden field value
+                //         $("#myInputHidden2").val(getTxtValue2); // this will set hidden field value
+                //         // alert(getTxtValue1);
+                //         // alert(getTxtValue2);
+                //         // console.log('#btnShow');
+                //         $('#modal').modal('hide');
+                // }
     </script>
     </body>
 
