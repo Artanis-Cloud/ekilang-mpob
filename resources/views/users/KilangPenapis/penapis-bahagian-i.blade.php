@@ -13,6 +13,7 @@
                 </div>
             </div> --}}
 
+
             <div class="mt-3 mb-4 row">
                 <div class="col-md-12">
 
@@ -20,7 +21,7 @@
                         <div class="pb-2 row">
                             <div class=" align-self-center" style="margin-left: 2%; margin-bottom:-2%">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
+                                    style="color:white; background-color:#0a504ad1">Kembali</a>
                             </div>
                             <div class=" align-self-center" style="margin-left: -1%;">
                                 <div class="d-flex align-items-center justify-content-end">
@@ -98,8 +99,8 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b5'style="width: 50%"
-                                                        id="e101_b5" required
-                                                        title="Sila isikan butiran ini.">
+                                                        id="e101_b5" required onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini." >
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -111,7 +112,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b10'style="width: 50%"
-                                                        id="e101_b10" required
+                                                        id="e101_b10" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -128,7 +129,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b6'style="width: 50%"
-                                                        id="e101_b6" required
+                                                        id="e101_b6" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -141,7 +142,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b11'style="width: 50%"
-                                                        id="e101_b11" required
+                                                        id="e101_b11" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -162,7 +163,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b7'style="width: 50%"
-                                                        id="e101_b7" required
+                                                        id="e101_b7" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -175,7 +176,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b12'style="width: 50%"
-                                                        id="e101_b12" required
+                                                        id="e101_b12" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -205,7 +206,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b13'style="width: 50%"
-                                                        id="e101_b13" required
+                                                        id="e101_b13" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -220,7 +221,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b9'style="width: 50%"
-                                                        id="e101_b9" required
+                                                        id="e101_b9" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -233,7 +234,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_b14'style="width: 50%"
-                                                        id="e101_b14" required
+                                                        id="e101_b14" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -382,62 +383,62 @@
                                                                             </div>
                                                                             <label>Stok Awal Di Premis </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b5'
+                                                                                <input type="text" name='e101_b5' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b5') ?? $data->e101_b5 }}">
                                                                             </div>
                                                                             <label>Stok Awal Di Pusat Simpanan </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b6'
+                                                                                <input type="text" name='e101_b6' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e101_b6 }}">
                                                                             </div>
                                                                             <label>Belian / Penerimaan </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b7'
+                                                                                <input type="text" name='e101_b7' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b7') ?? $data->e101_b7 }}">
                                                                             </div>
                                                                             <label>Import </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b8'
+                                                                                <input type="text" name='e101_b8' 
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b8') ?? $data->e101_b8 }}" readonly>
                                                                             </div>
                                                                             <label>Pengeluaran </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b9'
+                                                                                <input type="text" name='e101_b9' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b9') ?? $data->e101_b9 }}">
                                                                             </div>
                                                                             <label>Digunakan Untuk Proses
                                                                                 Selanjutnya</label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b10'
+                                                                                <input type="text" name='e101_b10' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b10') ?? $data->e101_b10 }}">
                                                                             </div>
                                                                             <label>Jualan / Edaran Dalam Negeri </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b11'
+                                                                                <input type="text" name='e101_b11' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b11') ?? $data->e101_b11 }}">
                                                                             </div>
                                                                             <label>Eksport </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b12'
+                                                                                <input type="text" name='e101_b12' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b12') ?? $data->e101_b12 }}">
                                                                             </div>
                                                                             <label>Stok Akhir Di Premis </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b13'
+                                                                                <input type="text" name='e101_b13' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b13') ?? $data->e101_b13 }}">
                                                                             </div>
                                                                             <label>Stok Akhir Di Pusat Simpanan </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b14'
+                                                                                <input type="text" name='e101_b14' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b14') ?? $data->e101_b14 }}">
                                                                             </div>
@@ -756,6 +757,15 @@
         function myDeleteFunction() {
             document.getElementById("cuba").deleteRow(0);
         }
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".floatNumberField").change(function() {
+                $(this).val(parseFloat($(this).val()).toFixed(2));
+            });
+        });
     </script>
 
     </body>

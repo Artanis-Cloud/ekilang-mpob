@@ -253,7 +253,7 @@
 
                                                         <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
                                                             <b>{{ $pelesen->e_nofax }}</b>
                                                         </td>
 
@@ -1038,7 +1038,7 @@
 
 
                                                 <div class="text-right col-md-7 mb-4 ">
-                                                    
+
                                                     <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
                                                         onclick="myPrint('myfrm')" value="print">Cetak</button>
                                                 </div>

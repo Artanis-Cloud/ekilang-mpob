@@ -124,7 +124,8 @@
                                                 No. Telefon (Pejabat / Kilang)</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="e_notel" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
-                                                            name="e_notel" value="{{ $pelesen->e_notel }}">
+                                                            name="e_notel" value="{{ $pelesen->e_notel }}"
+                                                            onkeypress="return isNumberKey(event)">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -194,7 +195,8 @@
                                                 No. Telefon Pegawai Melapor</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="no-tel-pegawai-melapor" class="form-control" placeholder="No. Telefon Pegawai Melapor"
-                                                            name="no-tel-pegawai-melapor" value="">
+                                                            name="no-tel-pegawai-melapor" value=""
+                                                            onkeypress="return isNumberKey(event)">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -300,7 +302,8 @@
                                                 Kapasiti Pemprosesan / Tahun</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="" class="form-control"
-                                                    placeholder="Kapasiti Pemprosesan / Tahun" name="">
+                                                    placeholder="Kapasiti Pemprosesan / Tahun" name=""
+                                                    onkeypress="return isNumberKey(event)">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -314,7 +317,8 @@
                                                 Kapasiti Tangki Simpanan</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="" class="form-control"
-                                                    placeholder="Kapasiti Tangki Simpanan" name="">
+                                                    placeholder="Kapasiti Tangki Simpanan" name=""
+                                                    onkeypress="return isNumberKey(event)">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -359,7 +363,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b5'
-                                                    style="width:100%" id="e104_b5" 
+                                                    style="width:100%" id="e104_b5" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -370,7 +374,7 @@
 
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"
+                                                    style="width:100%" id="e104_b10" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -380,7 +384,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"
+                                                    style="width:100%" id="e104_b10" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -390,7 +394,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"
+                                                    style="width:100%" id="e104_b10" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -400,7 +404,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"
+                                                    style="width:100%" id="e104_b10" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -410,7 +414,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"
+                                                    style="width:100%" id="e104_b10" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -429,7 +433,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b5'
-                                                    style="width:100%" id="e104_b5"
+                                                    style="width:100%" id="e104_b5" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -441,7 +445,7 @@
 
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"
+                                                    style="width:100%" id="e104_b10" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -451,7 +455,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"
+                                                    style="width:100%" id="e104_b10" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -461,7 +465,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"
+                                                    style="width:100%" id="e104_b10" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -471,7 +475,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"
+                                                    style="width:100%" id="e104_b10" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -481,7 +485,7 @@
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b10'
-                                                    style="width:100%" id="e104_b10"
+                                                    style="width:100%" id="e104_b10" onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -659,7 +663,14 @@
             })
     </script>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".floatNumberField").change(function() {
+                $(this).val(parseFloat($(this).val()).toFixed(2));
+            });
+        });
+    </script>
 
     </body>
 

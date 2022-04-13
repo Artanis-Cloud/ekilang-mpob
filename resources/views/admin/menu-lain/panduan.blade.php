@@ -109,7 +109,7 @@
                                                                                 <li>Masukkan alamat premis.</li>
                                                                                 <li>Masukkan alamat surat menyurat.</li>
                                                                                 <li>Masukkan no telefon.</li>
-                                                                                <li>Masukkan no fax.</li>
+                                                                                <li>Masukkan no faks.</li>
                                                                                 <li>Masukkan alamat e-mail bagi pelesen. Alamat e-mail ini akan digunakan
                                                                                 bagi menghantar e-mail kepada pelesen untuk tujuan peringatan atau
                                                                                 sebarang pertanyaan.</li>

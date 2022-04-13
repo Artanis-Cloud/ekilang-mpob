@@ -87,7 +87,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_d6' style="width: 50%"
-                                                        id="e101_d6" required
+                                                        id="e101_d6" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -121,7 +121,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_d7'style="width: 50%"
-                                                        id="e101_d7" required
+                                                        id="e101_d7" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -139,7 +139,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_d5' style="width: 50%"
-                                                        id="e101_d5" required
+                                                        id="e101_d5" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -152,7 +152,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_d8' style="width: 50%"
-                                                        id="e101_d8" required
+                                                        id="e101_d8" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -293,13 +293,13 @@
                                                                             </div>
                                                                             <label>CPO </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_d5'
+                                                                                <input type="text" name='e101_d5' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e101_d5 }}">
                                                                             </div>
                                                                             <label>PPO </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_d6'
+                                                                                <input type="text" name='e101_d6' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e101_d6 }}">
                                                                             </div>
@@ -310,13 +310,13 @@
                                                                         </div> --}}
                                                                             <label>CPKO </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_d7'
+                                                                                <input type="text" name='e101_d7' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e101_d7 }}">
                                                                             </div>
                                                                             <label>PPKO </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_d8'
+                                                                                <input type="text" name='e101_d8' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e101_d8 }}">
                                                                             </div>

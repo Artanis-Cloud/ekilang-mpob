@@ -232,7 +232,7 @@
 
                                                         <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
                                                             <b>{{ $pelesen->e_nofax }}</b>
                                                         </td>
 
