@@ -490,12 +490,12 @@
                                         </fieldset>
                                 </div>
 
-                                <div class="row form-group center-block" style="padding-top: 10px;">
+                                {{-- <div class="row form-group center-block" style="padding-top: 10px;"> --}}
                                     <div class="text-right col-md-12 mb-4 " >
-                                        <button type="button" class="btn btn-primary " data-toggle="modal"
+                                        <button type="button" class="btn btn-primary " style="margin-left:64%" data-toggle="modal"
                                             data-target="#myModal">Tukar No Lesen</button>
                                     </div>
-                                </div>
+                                {{-- </div> --}}
 
                                 <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">

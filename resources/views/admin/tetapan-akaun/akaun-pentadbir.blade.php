@@ -129,9 +129,40 @@
 
                                 <div class="row form-group mt-2" style="padding-top: 10px; ">
                                     <div class="text-right col-md-12 center">
-                                        <button type="submit" class="btn btn-primary">Kemaskini</button>
+                                        <button type="submit" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#myModal">Kemaskini</button>
                                         {{-- <button type="submit">YA</button> --}}
                                     </div>
+                                </div>
+
+                                <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>
+                                                    Anda pasti mahu mengemaskini maklumat ini?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                </button>
+                                                <button type="submit" class="btn btn-primary ml-1">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Ya</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
                                 </div>
 
 
