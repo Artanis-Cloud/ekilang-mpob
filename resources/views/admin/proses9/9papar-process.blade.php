@@ -218,14 +218,14 @@
 
                                                     <td width="65%"><b></b>
 
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
                                                         <b></b></td>
 
                                                 </tr>
 
                                                 <tr>
 
-                                                    <td width="35%">Alamat e-mail </td>
+                                                    <td width="35%">Alamat emel </td>
 
                                                     <td width="65%"><b></b></td>
 

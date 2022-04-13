@@ -119,7 +119,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e102_b6'
-                                                        style="width:50%" id="e102_b6" required
+                                                        style="width:50%" id="e102_b6" required   onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini.">
                                                 </div>
                                             </div>
@@ -265,10 +265,9 @@
                                                                             </div>
                                                                             <label>Kuantiti </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e102_b6'
+                                                                                <input type="text" name='e102_b6' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control" id='e102_b6'
-                                                                                    value="{{ old('e102_b6') ?? $data->e102_b6 }}"
-                                                                                   >
+                                                                                    value="{{ old('e102_b6') ?? $data->e102_b6 }}">
                                                                             </div>
                                                                         </div>
 
@@ -666,7 +665,14 @@
         }
     </script>
 
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".floatNumberField").change(function() {
+                    $(this).val(parseFloat($(this).val()).toFixed(2));
+                });
+            });
+    </script>
 
     </body>
 

@@ -228,7 +228,7 @@
 
                                                     <td width="65%"><b></b>
 
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No faks&nbsp;&nbsp;&nbsp;
                                                         <b></b></td>
 
                                                 </tr>
@@ -979,7 +979,7 @@
                                             </tbody>
                                         </table>
 
-                                   
+
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
                                         <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;

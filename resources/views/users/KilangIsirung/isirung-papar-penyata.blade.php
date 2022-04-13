@@ -212,7 +212,7 @@
 
                                                         <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
                                                             <b>{{ $pelesen->e_nofax }}</b>
                                                         </td>
 
@@ -220,7 +220,7 @@
 
                                                     <tr>
 
-                                                        <td width="35%">Alamat e-mail </td>
+                                                        <td width="35%">Alamat emel </td>
 
                                                         <td width="65%"><b>{{ $pelesen->e_email }}</b></td>
 
@@ -843,10 +843,10 @@
                                                     @endforeach --}}
                                                 </tbody>
                                             </table>
-                                            {{-- <p><b>
+                                            <p><b>
                                                     <font color="#0000FF">BAHAGIAN VII : IMPORT PRODUK SAWIT</font>
                                                 </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0">
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr>
                                                         <td width="14%" align="center"><b>
@@ -875,7 +875,7 @@
                                                             </b></td>
                                                     </tr>
                                                 </tbody>
-                                            </table> --}}
+                                            </table><br><br>
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>

@@ -122,7 +122,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e102_b6'
-                                                    style="width:50%" id="e102_b6" required
+                                                    style="width:50%" id="e102_b6" required onkeypress="return isNumberKey(event)"
                                                     title="Sila isikan butiran ini.">
                                             </div>
                                         </div>
@@ -265,7 +265,7 @@
                                                                                         <label>Kuantiti </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text" name='e102_b6'
-                                                                                                class="form-control" id='e102_b6'
+                                                                                                class="form-control" id='e102_b6' onkeypress="return isNumberKey(event)"
                                                                                                 value="{{ old('e102_b6') ?? $data->e102_b6 }}"
                                                                                                >
                                                                                         </div>

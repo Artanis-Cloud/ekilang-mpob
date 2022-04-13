@@ -212,7 +212,7 @@
 
                                                             <td width="65%"><b>{{ $data->e_notel }}</b>
 
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Fax&nbsp;&nbsp;&nbsp;
+                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
                                                                 <b>{{ $data->e_nofax }}</b>
                                                             </td>
 
@@ -220,7 +220,7 @@
 
                                                         <tr>
 
-                                                            <td width="35%">Alamat e-mail </td>
+                                                            <td width="35%">Alamat emel </td>
 
                                                             <td width="65%"><b>{{ $data->e_email }}</b></td>
 

@@ -77,7 +77,7 @@
                                                     Jumlah Hari Kilang Beroperasi Sebulan</label>
                                                 <div class="col-md-2">
                                                     <input type="text" class="form-control" style="margin-left:150%; text-align:right"
-                                                        name='e101_a1' id="nombor_borang_kastam" required
+                                                        name='e101_a1' id="nombor_borang_kastam" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -92,7 +92,7 @@
                                                     Kadar Penggunaan Kapasiti(Refining) Sebulan</label>
                                                 <div class="col-md-2">
                                                     <input type="text" class="form-control" style="margin-left:150%; text-align:right"
-                                                        name='e101_a2' id="nombor_borang_kastam" required
+                                                        name='e101_a2' id="nombor_borang_kastam" required onkeypress="return isNumberKey(event)"
                                                         title="Sila isikan butiran ini." value="{{ number_format($penyata->e101_a2 ?? 0,2) }}">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -241,6 +241,15 @@
                     }
                 });
                 $('#total').html(total);
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".floatNumberField").change(function() {
+                $(this).val(parseFloat($(this).val()).toFixed(2));
             });
         });
     </script>

@@ -430,7 +430,7 @@ class MenuLainController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.dashboard'), 'name' => "Senarai Kod dan Nama Produk Sawit"],
+            ['link' => route('admin.kod.produk'), 'name' => "Senarai Kod dan Nama Produk Sawit"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -452,7 +452,7 @@ class MenuLainController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.dashboard'), 'name' => "Senarai Kod dan Nama Negara"],
+            ['link' => route('admin.kod.negara'), 'name' => "Senarai Kod dan Nama Negara"],
         ];
 
         $kembali = route('admin.dashboard');

@@ -116,7 +116,7 @@
                                             </tr>
                                             <tr>
                                                 <td>&nbsp</td>
-                                                <td>Fax No.</td>
+                                                <td>Faks No.</td>
                                                 <td>:</td>
                                                 <td>{{ $data->e_nofax }}</td>
                                             </tr>

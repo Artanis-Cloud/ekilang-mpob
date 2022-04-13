@@ -227,7 +227,7 @@
 
                                                         <tr>
 
-                                                            <td width="35%">Alamat e-mail </td>
+                                                            <td width="35%">Alamat Emel </td>
 
                                                             <td width="65%"><b>{{ $data->e_email }}</b></td>
 
