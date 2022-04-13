@@ -144,6 +144,7 @@ class KilangBuahController extends Controller
     {
         // dd($request->all());
         $penyata = E91Init::findOrFail($id);
+        $penyata->e91_flg = '2';
         $penyata->e91_aa1 = $request->e91_aa1;
         $penyata->e91_aa2 = $request->e91_aa2;
         $penyata->e91_aa3 = $request->e91_aa3;
