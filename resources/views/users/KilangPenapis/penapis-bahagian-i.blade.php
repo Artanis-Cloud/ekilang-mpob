@@ -1,4 +1,4 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
     <!-- ======= Hero Section ======= -->
@@ -401,7 +401,7 @@
                                                                             </div>
                                                                             <label>Import </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e101_b8' 
+                                                                                <input type="text" name='e101_b8'
                                                                                     class="form-control"
                                                                                     value="{{ old('e101_b8') ?? $data->e101_b8 }}" readonly>
                                                                             </div>
