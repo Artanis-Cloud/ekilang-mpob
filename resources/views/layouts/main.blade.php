@@ -307,8 +307,25 @@
                                     <a class="dropdown-item" href="#" aria-expanded="false"
                                         onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                         <i class="fa fa-power-off m-r-5 m-l-5"></i> Log Keluar</a>
+                                        <form id="logoutform" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
                                     {{-- <div class="dropdown-divider"></div> --}}
                                 </div>
+{{-- 
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
+                                        aria-expanded="false"
+                                        onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                                        <i class="mdi mdi-directions" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Log Keluar</span>
+                                    </a>
+                                    <form id="logoutform" action="{{ route('logout') }}" method="POST"
+                                        style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li> --}}
                                 {{-- <div class="p-l-30 p-10">
                                     <a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View
                                         Profile</a>
@@ -401,8 +418,7 @@
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a data-toggle="modal" data-target="#tutup"
-                                            class="btn sidebar-link">
+                                        <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
 
                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Bahagian 6 </span>
@@ -410,54 +426,29 @@
                                     </li>
                                     <li class="sidebar-item">
                                         <a href="{{ route('buah.paparpenyata') }}" class="sidebar-link">
-                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Papar & Hantar Penyata Bulanan </span>
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41)"></i>
+                                            <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
 
-
                             <li class="sidebar-item">
-                                {{-- <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                    aria-expanded="false">
-                                    <i class="fas fa-cogs" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Konfigurasi </span>
-                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                {{-- </a>  --}}
-                                {{-- <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%"> --}}
-                                    <li class="sidebar-item">
-                                            <a href="{{ route('buah.prestasioer') }}" class="sidebar-link">
-                                                <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"><b> Prestasi OER </b></span>
-                                            </a>
-
-                                    </li>
-                                    <li class="sidebar-item">
-                                            <a href="{{ route('buah.penyatadahulu') }}" class="sidebar-link">
-                                                <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"><b> Papar Penyata Bulanan Terdahulu </b></span>
-                                            </a>
-
-                                    </li>
-                            </li>
-
-
-
-                            <div class="dropdown-divider"></div>
-
-                            <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                    aria-expanded="false"
-                                    onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                                    <i class="mdi mdi-directions" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu"> Log Keluar</span>
+                                <a href="{{ route('buah.prestasioer') }}" class="sidebar-link">
+                                    <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Prestasi OER </b></span>
                                 </a>
-                                <form id="logoutform" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
+
                             </li>
+                            <li class="sidebar-item">
+                                <a href="{{ route('buah.penyatadahulu') }}" class="sidebar-link">
+                                    <i class="fas fa-leaf" style="color:rgb(54, 51, 41)"></i>
+                                    <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
+                                </a>
+
+                            </li>
+
+
 
                         </ul>
                     </nav>
@@ -468,7 +459,128 @@
                 <!-- End Sidebar scroll-->
             </aside>
         @elseif (auth()->user()->category == 'PL101')
-            <p class="m-b-0">Kilang Penapis</p>
+            <aside class="left-sidebar">
+                <!-- Sidebar scroll-->
+                <div class="scroll-sidebar">
+                    <!-- Sidebar navigation-->
+                    <nav class="sidebar-nav">
+                        <ul id="sidebarnav">
+                            <li class="nav-small-cap">
+                                {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
+                                <span class="hide-menu font-weight-bold"> </span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-edit" style="color:rgb(54, 51, 41)"></i>
+                                    <span class="hide-menu font-weight-bold"> Maklumat Pelesen </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('penapis.maklumatasaspelesen') }}" class="sidebar-link">
+                                            <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Maklumat Asas Pelesen </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('penapis.tukarpassword') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Tukar Kata Laluan </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu font-weight-bold"> Kemasukan Penyata Bulanan</span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('penapis.bahagiani') }}" class="sidebar-link">
+                                            <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian I </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('penapis.bahagianii') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian II </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('penapis.bahagianiii') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian III </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('penapis.bahagianiva') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian IV (a) </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('penapis.bahagianivb') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian IV (b) </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('penapis.bahagianv') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian V </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
+
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian VI </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item ">
+                                        <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
+                                            <i class="fas fa-archive" style="color:rgb(54, 51, 41) "> </i>
+                                            {{-- <i data-feather="file-plus" width="20"></i> --}}
+                                            <span style="color: rgb(78, 73, 57); ">Bahagian VII</span>
+                                        </a>
+
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('penapis.paparpenyata') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41)"></i>
+                                            <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            {{-- <li class="sidebar-item">
+                                <a href="{{ route('buah.prestasioer') }}" class="sidebar-link">
+                                    <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"><b> Prestasi OER </b></span>
+                                </a>
+
+                            </li> --}}
+                            <li class="sidebar-item">
+                                <a href="{{ route('penapis.penyatadahulu') }}" class="sidebar-link">
+                                    <i class="fas fa-leaf" style="color:rgb(54, 51, 41)"></i>
+                                    <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- End Sidebar navigation -->
+                </div>
+
+                <!-- End Sidebar scroll-->
+            </aside>
         @elseif (auth()->user()->category == 'PL102')
             <p class="m-b-0">Kilang Isirung</p>
         @elseif (auth()->user()->category == 'PL104')
