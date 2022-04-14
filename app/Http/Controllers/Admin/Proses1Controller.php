@@ -109,7 +109,12 @@ class Proses1Controller extends Controller
 
     protected function store_daftar_pelesen(array $data)
     {
+
+        // $count = RegPelesen::count();
+
+
         // return RegPelesen::create([
+        //     // 'e_id' => $count++,
         //     'e_nl' => $data['e_nl'],
         //     'e_kat' => $data['e_kat'],
         //     'e_pwd' => '12345',
@@ -119,7 +124,11 @@ class Proses1Controller extends Controller
         //     'e_stock' => $data['e_stock'],
         //     'directory' => $data['directory'],
         // ]);
+
+        $count = Pelesen::count();
+        //
         return Pelesen::create([
+            'e_id' => $count++,
             'e_nl' => $data['e_nl'],
             'e_np' => $data['e_np'],
             'e_ap1' => $data['e_ap1'],
@@ -177,64 +186,63 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-        } elseif($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL91'){
+        } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL91') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senaraipelesenbatalbuah'), 'name' => "Senarai Pelesen Buah Dibatalkan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-        } elseif($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL101'){
+        } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL101') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen Penapis"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-        } elseif($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL101'){
+        } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL101') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senarai.pelesen.batal.penapis'), 'name' => "Senarai Pelesen Penapis Dibatalkan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-
-        } elseif($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL102'){
+        } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL102') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senaraipelesenisirung'), 'name' => "Senarai Pelesen Isirung"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-        } elseif($reg_pelesen->e_kat == 'PL102' && $reg_pelesen->e_status == '2'){
+        } elseif ($reg_pelesen->e_kat == 'PL102' && $reg_pelesen->e_status == '2') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senarai.pelesen.batal.isirung'), 'name' => "Senarai Pelesen Isirung Dibatalkan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-        } elseif($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL104'){
+        } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL104') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen Oleokimia"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-        } elseif($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL104'){
+        } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL104') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senarai.pelesen.batal.oleokimia'), 'name' => "Senarai Pelesen Oleokimia Dibatalkan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-        } elseif($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL111'){
+        } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL111') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen Pusat Simpanan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-        } elseif($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL111'){
+        } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL111') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senarai.pelesen.batal.simpanan'), 'name' => "Senarai Pelesen Pusat Simpanan Dibatalkan"],
