@@ -114,19 +114,106 @@
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
                     <ul class="navbar-nav float-left mr-auto">
-                        <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
-                            style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
-                            <b style="margin-left:10%;">
-                                {{ ucfirst(auth()->user()->category) }} | </b>
-                        </span>
-                        <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
-                            style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
-                            <div class="time text-right">
-                                <span class="hms"></span>
-                                <span class="ampm"></span>
-                                <span class="date"></span>
-                            </div>
-                        </span>
+                        @if (auth()->user()->category == 'PL91')
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <b style="margin-left:10%;">
+                                    Kilang Buah | </b>
+                            </span>
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <div class="time text-right">
+                                    <span class="hms"></span>
+                                    <span class="ampm"></span>
+                                    <span class="date"></span>
+                                </div>
+                            </span>
+                        @elseif (auth()->user()->category == 'PL101')
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <b style="margin-left:10%;">
+                                    Kilang Penapis | </b>
+                            </span>
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <div class="time text-right">
+                                    <span class="hms"></span>
+                                    <span class="ampm"></span>
+                                    <span class="date"></span>
+                                </div>
+                            </span>
+                        @elseif (auth()->user()->category == 'PL102')
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <b style="margin-left:10%;">
+                                    Kilang Isirung | </b>
+                            </span>
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <div class="time text-right">
+                                    <span class="hms"></span>
+                                    <span class="ampm"></span>
+                                    <span class="date"></span>
+                                </div>
+                            </span>
+                        @elseif (auth()->user()->category == 'PL104')
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <b style="margin-left:10%;">
+                                    Kilang Oleokimia | </b>
+                            </span>
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <div class="time text-right">
+                                    <span class="hms"></span>
+                                    <span class="ampm"></span>
+                                    <span class="date"></span>
+                                </div>
+                            </span>
+                        @elseif (auth()->user()->category == 'PL111')
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <b style="margin-left:10%;">
+                                    Pusat Simpanan | </b>
+                            </span>
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <div class="time text-right">
+                                    <span class="hms"></span>
+                                    <span class="ampm"></span>
+                                    <span class="date"></span>
+                                </div>
+                            </span>
+                        @elseif (auth()->user()->category == 'PLBIO')
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <b style="margin-left:10%;">
+                                    Kilang Biodiesel | </b>
+                            </span>
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <div class="time text-right">
+                                    <span class="hms"></span>
+                                    <span class="ampm"></span>
+                                    <span class="date"></span>
+                                </div>
+                            </span>
+                        @elseif (auth()->user()->category == 'admin')
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <b style="margin-left:10%;">
+                                    {{ ucfirst(auth()->user()->role) }} | </b>
+                            </span>
+                            <span class="mx-2 mt-1 mb-0 text-center navbar-brand h1"
+                                style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)">
+                                <div class="time text-right">
+                                    <span class="hms"></span>
+                                    <span class="ampm"></span>
+                                    <span class="date"></span>
+                                </div>
+                            </span>
+                        @endif
+
                     </ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
@@ -193,7 +280,22 @@
                                     <div class="m-l-10">
                                         <h4 class="m-b-0">{{ auth()->user()->name }}</h4>
                                         <p class="m-b-0">{{ auth()->user()->email }}</p>
-                                        <p class="m-b-0">{{ ucfirst(auth()->user()->category) }}</p>
+                                        @if (auth()->user()->category == 'PL91')
+                                            <p class="m-b-0">Kilang Buah</p>
+                                        @elseif (auth()->user()->category == 'PL101')
+                                            <p class="m-b-0">Kilang Penapis</p>
+                                        @elseif (auth()->user()->category == 'PL102')
+                                            <p class="m-b-0">Kilang Isirung</p>
+                                        @elseif (auth()->user()->category == 'PL104')
+                                            <p class="m-b-0">Kilang Oleokimia</p>
+                                        @elseif (auth()->user()->category == 'PL111')
+                                            <p class="m-b-0">Pusat Simpanan</p>
+                                        @elseif (auth()->user()->category == 'PLBIO')
+                                            <p class="m-b-0">Kilang Biodiesel</p>
+                                        @elseif (auth()->user()->category == 'admin')
+                                            <p class="m-b-0">{{ ucfirst(auth()->user()->role) }}</p>
+                                        @endif
+
                                     </div>
                                 </div>
                                 <div class="profile-dis scrollable">
@@ -226,206 +328,382 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        <aside class="left-sidebar">
-            <!-- Sidebar scroll-->
-            <div class="scroll-sidebar">
-                <!-- Sidebar navigation-->
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="nav-small-cap">
-                            <i class="mdi mdi-dots-horizontal"></i>
-                            <span class="hide-menu font-weight-bold"> MENU PENYELENGGARAAN </span>
-                        </li>
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false">
-                                <i class="fas fa-edit" style="color:rgb(54, 51, 41)"></i>
-                                <span class="hide-menu font-weight-bold"> Profil Pelesen </span>
-                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.senaraipelesenbuah') }}" class="sidebar-link">
-                                        <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Daftar Pelesen Baru </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.2tukarpassword') }}" class="sidebar-link">
-                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Tukar Kata Laluan </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false">
-                                <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
-                                <span class="hide-menu font-weight-bold"> Papar Penyata </span>
-                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.6penyatapaparcetakbuah') }}" class="sidebar-link">
-                                        <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Senarai Penyata Bulanan </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.9penyataterdahulu') }}" class="sidebar-link">
-                                        <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Penyata Terdahulu </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        @if (auth()->user()->role != 'Kerani')
-
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false">
-                                <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
-                                <span class="hide-menu font-weight-bold"> Pindahan Data </span>
-                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
-                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> e-Kilang ke PLEID </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
-                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Produk Sawit/Negara </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
-                                        <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Stat Admin/Homepage </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
-                                        <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Dynamic Query </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        @else
-                        @endif
-
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false">
-                                <i class="fas fa-cogs" style="color:rgb(54, 51, 41) "></i>
-                                <span class="hide-menu font-weight-bold"> Konfigurasi </span>
-                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                <li class="sidebar-item">
-                                    @if (auth()->user()->role == 'Superadmin')
-
-                                        <a href="{{ route('admin.senarai.pentadbir') }}" class="sidebar-link">
-                                            <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Pengurusan Pentadbir </span>
+        @if (auth()->user()->category == 'PL91')
+            <aside class="left-sidebar">
+                <!-- Sidebar scroll-->
+                <div class="scroll-sidebar">
+                    <!-- Sidebar navigation-->
+                    <nav class="sidebar-nav">
+                        <ul id="sidebarnav">
+                            <li class="nav-small-cap">
+                                {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
+                                <span class="hide-menu font-weight-bold"> </span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-edit" style="color:rgb(54, 51, 41)"></i>
+                                    <span class="hide-menu font-weight-bold"> Maklumat Pelesen </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('buah.maklumatasaspelesen') }}" class="sidebar-link">
+                                            <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Maklumat Asas Pelesen </span>
                                         </a>
-                                    @else
-                                    @endif
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('buah.tukarpassword') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Tukar Kata Laluan </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.pengumuman') }}" class="sidebar-link">
-                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Pengumuman </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.3daftarpenyata') }}" class="sidebar-link">
-                                        <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Initialize Penyata Baharu </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu font-weight-bold"> Kemasukan Penyata Bulanan</span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('buah.bahagiani') }}" class="sidebar-link">
+                                            <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian 1 </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('buah.bahagianii') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian 2 </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('buah.bahagianiii') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian 3 </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('buah.bahagianiv') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian 4 </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('buah.bahagianv') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian 5 </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a data-toggle="modal" data-target="#tutup"
+                                            class="btn sidebar-link">
 
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                aria-expanded="false">
-                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
-                                <span class="hide-menu font-weight-bold"> Lain - Lain </span>
-                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                            </a>
-                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.direktori') }}" class="sidebar-link">
-                                        <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Direktori </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    {{-- <a href="{{ route('admin.panduan') }}" class="sidebar-link"> --}}
-                                    <a href="{{ asset('manual/admin/panduan2.pdf') }}" target="_blank"
-                                        class="sidebar-link">
-                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Panduan Pengguna </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.11emel') }}" class="sidebar-link">
-                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Emel Pindaan </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.12validation') }}" class="sidebar-link">
-                                        <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Validasi </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{ route('admin.kod.produk' )}}" class="sidebar-link">
-                                        <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Kod & Nama Produk </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="{{  route('admin.kod.negara')}}" class="sidebar-link">
-                                        <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Kod & Nama Negara </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian 6 </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('buah.paparpenyata') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Papar & Hantar Penyata Bulanan </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
 
-                        <div class="dropdown-divider"></div>
 
-                        <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#" aria-expanded="false"
-                                onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                                <i class="mdi mdi-directions" style="color:rgb(54, 51, 41) "></i>
-                                <span class="hide-menu"> Log Keluar</span>
-                            </a>
-                            <form id="logoutform" action="{{ route('logout') }}" method="POST"
-                                style="display: none;">
-                                @csrf
-                            </form>
-                        </li>
+                            <li class="sidebar-item">
+                                {{-- <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-cogs" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu font-weight-bold"> Konfigurasi </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                {{-- </a>  --}}
+                                {{-- <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%"> --}}
+                                    <li class="sidebar-item">
+                                            <a href="{{ route('buah.prestasioer') }}" class="sidebar-link">
+                                                <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"><b> Prestasi OER </b></span>
+                                            </a>
 
-                    </ul>
-                </nav>
+                                    </li>
+                                    <li class="sidebar-item">
+                                            <a href="{{ route('buah.penyatadahulu') }}" class="sidebar-link">
+                                                <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"><b> Papar Penyata Bulanan Terdahulu </b></span>
+                                            </a>
 
-                <!-- End Sidebar navigation -->
+                                    </li>
+                            </li>
+
+
+
+                            <div class="dropdown-divider"></div>
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
+                                    aria-expanded="false"
+                                    onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                                    <i class="mdi mdi-directions" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"> Log Keluar</span>
+                                </a>
+                                <form id="logoutform" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                    <!-- End Sidebar navigation -->
+                </div>
+
+                <!-- End Sidebar scroll-->
+            </aside>
+        @elseif (auth()->user()->category == 'PL101')
+            <p class="m-b-0">Kilang Penapis</p>
+        @elseif (auth()->user()->category == 'PL102')
+            <p class="m-b-0">Kilang Isirung</p>
+        @elseif (auth()->user()->category == 'PL104')
+            <p class="m-b-0">Kilang Oleokimia</p>
+        @elseif (auth()->user()->category == 'PL111')
+            <p class="m-b-0">Pusat Simpanan</p>
+        @elseif (auth()->user()->category == 'PLBIO')
+            <p class="m-b-0">Kilang Biodiesel</p>
+        @elseif (auth()->user()->category == 'admin')
+            <aside class="left-sidebar">
+                <!-- Sidebar scroll-->
+                <div class="scroll-sidebar">
+                    <!-- Sidebar navigation-->
+                    <nav class="sidebar-nav">
+                        <ul id="sidebarnav">
+                            <li class="nav-small-cap">
+                                <i class="mdi mdi-dots-horizontal"></i>
+                                <span class="hide-menu font-weight-bold"> MENU PENYELENGGARAAN </span>
+                            </li>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-edit" style="color:rgb(54, 51, 41)"></i>
+                                    <span class="hide-menu font-weight-bold"> Profil Pelesen </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.senaraipelesenbuah') }}" class="sidebar-link">
+                                            <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Daftar Pelesen Baru </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.2tukarpassword') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Tukar Kata Laluan </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu font-weight-bold"> Papar Penyata </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.6penyatapaparcetakbuah') }}"
+                                            class="sidebar-link">
+                                            <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Senarai Penyata Bulanan </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.9penyataterdahulu') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Penyata Terdahulu </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            @if (auth()->user()->role != 'Admin')
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                        aria-expanded="false">
+                                        <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu font-weight-bold"> Pindahan Data </span>
+                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
+                                                <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> e-Kilang ke PLEID </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
+                                                <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Produk Sawit/Negara </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
+                                                <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Stat Admin/Homepage </span>
+                                            </a>
+                                        </li>
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
+                                                <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Dynamic Query </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            @else
+                            @endif
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-cogs" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu font-weight-bold"> Konfigurasi </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <li class="sidebar-item">
+                                        @if (auth()->user()->role == 'Superadmin')
+                                            <a href="{{ route('admin.senarai.pentadbir') }}" class="sidebar-link">
+                                                <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
+                                                <span class="hide-menu"> Pengurusan Pentadbir </span>
+                                            </a>
+                                        @else
+                                        @endif
+
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.pengumuman') }}" class="sidebar-link">
+                                            <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Pengumuman </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.3daftarpenyata') }}" class="sidebar-link">
+                                            <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Initialize Penyata Baharu </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu font-weight-bold"> Lain - Lain </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.direktori') }}" class="sidebar-link">
+                                            <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Direktori </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        {{-- <a href="{{ route('admin.panduan') }}" class="sidebar-link"> --}}
+                                        <a href="{{ asset('manual/admin/panduan2.pdf') }}" target="_blank"
+                                            class="sidebar-link">
+                                            <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Panduan Pengguna </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.11emel') }}" class="sidebar-link">
+                                            <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Emel Pindaan </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.12validation') }}" class="sidebar-link">
+                                            <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Validasi </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.kod.produk') }}" class="sidebar-link">
+                                            <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Kod & Nama Produk </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.kod.negara') }}" class="sidebar-link">
+                                            <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Kod & Nama Negara </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <div class="dropdown-divider"></div>
+
+                            <li class="sidebar-item">
+                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
+                                    aria-expanded="false"
+                                    onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
+                                    <i class="mdi mdi-directions" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu"> Log Keluar</span>
+                                </a>
+                                <form id="logoutform" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+
+                        </ul>
+                    </nav>
+
+                    <!-- End Sidebar navigation -->
+                </div>
+
+                <!-- End Sidebar scroll-->
+            </aside>
+        @endif
+        <div id="tutup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">PERHATIAN</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Anda tidak dibenarkan akses bahagian ini
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
             </div>
+            <!-- /.modal-dialog -->
+        </div>
 
-            <!-- End Sidebar scroll-->
-        </aside>
+
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->

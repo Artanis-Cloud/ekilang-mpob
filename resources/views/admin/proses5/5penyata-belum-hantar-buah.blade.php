@@ -46,8 +46,8 @@
         <div class="container-fluid">
             <div class="tab" style=" margin-left:2%">
                 <a href="{{ route('admin.6penyatapaparcetakbuah') }}"
-                    style="color:black; border-radius:unset; font-size:14px;"
-                    class="btn btn-work tablinks" onclick="openInit(event, 'All')">Penyata Bulanan
+                    style="color:black; border-radius:unset; font-size:14px;" class="btn btn-work tablinks"
+                    onclick="openInit(event, 'All')">Penyata Bulanan
                     Terkini</a>
                 <a style="color:black;; border-radius:unset; font-size:14px; margin-left:-1%; background-color:rgb(255, 255, 255)"
                     class="btn btn-work tablinks" onclick="openInit(event, 'One')" id="defaultOpen">Penyata Bulanan
@@ -77,8 +77,8 @@
                                         Oleokimia</a>
                                     <a class="dropdown-item"
                                         href="{{ route('admin.5penyatabelumhantarsimpanan') }}">Pusat Simpanan</a>
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.5penyatabelumhantarbio') }}">Kilang Biodiesel</a>
+                                    <a class="dropdown-item" href="{{ route('admin.5penyatabelumhantarbio') }}">Kilang
+                                        Biodiesel</a>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +112,8 @@
                                                     style="width: 100%;">
                                                     <thead>
                                                         <tr>
-                                                            <th>Pilih?</th>
+                                                            {{-- <th>Pilih?</th> --}}
+                                                            <th>Bil.</th>
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
@@ -123,9 +124,12 @@
                                                     <tbody style="word-break: break-word; font-size:12px">
                                                         @foreach ($users as $data)
                                                             <tr>
-                                                                <td>
+                                                                {{-- <td>
                                                                     <input name="papar_ya[]" type="checkbox"
                                                                     value="{{ $data->e91_reg }}">&nbspYa
+                                                                </td> --}}
+                                                                
+                                                                <td>{{ $loop->iteration }}
                                                                 </td>
                                                                 {{-- <td>
                                                                 x
@@ -147,7 +151,7 @@
 
                                                 </table>
                                                 <div class="text-left col-md-8">
-                                                    <button type="submit" class="btn btn-primary ">Emel Peringatan</button>
+                                                    {{-- <button type="submit" class="btn btn-primary ">Emel Peringatan</button> --}}
 
 
 
