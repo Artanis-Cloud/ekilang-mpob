@@ -184,9 +184,9 @@
                                                     </div>
                                                 @enderror --}}
 
-                                                    <input type="text" class="form-control" name='ebio_sykt'
+                                                    <input type="hidden" class="form-control" name='ebio_sykt'
                                                         style="width:50%" id="myInputHidden1" required>
-                                                    <input type="text" class="form-control" name='ebio_jumlah'
+                                                    <input type="hidden" class="form-control" name='ebio_jumlah'
                                                         style="width:50%" id="myInputHidden2" required>
                                                 </div>
                                             </div>
@@ -225,7 +225,7 @@
                                                 <table class="table table-bordered mb-0" style="font-size: 13px">
                                                     <thead style="text-align: center">
                                                         <tr>
-                                                            <th>Bil</th>
+                                                            {{-- <th>Bil</th> --}}
                                                             <th>Nama Produk</th>
                                                             <th>Kod Produk</th>
                                                             <th>Stok Awal Di Premis</th>
@@ -243,7 +243,7 @@
                                                     <tbody>
                                                         @foreach ($penyata as $key => $data)
                                                             <tr style="text-align: right">
-                                                                <td class="text-center">{{ $key+1 }}</td>
+                                                                {{-- <td class="text-center">{{ $key+1 }}</td> --}}
                                                                 <td style="text-align: left">{{ $data->produk->prodname }}
                                                                 </td>
                                                                 <td>{{ $data->produk->prodid }}</td>

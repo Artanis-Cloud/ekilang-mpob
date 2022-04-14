@@ -158,7 +158,7 @@
                                                                                 <fieldset class="form-group">
                                                                                     <select class="form-control" name="role">
                                                                                         <option {{ ($data->role == 'Admin') ? 'selected' : '' }}>Admin</option>
-                                                                                        <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option>
+                                                                                        {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
                                                                                         <option {{ ($data->role == 'Manager') ? 'selected' : '' }}>Manager</option>
                                                                                         <option {{ ($data->role == 'Superadmin') ? 'selected' : '' }}>Superadmin</option>
                                                                                         <option {{ ($data->role == 'Supervisor') ? 'selected' : '' }}>Supervisor</option>
