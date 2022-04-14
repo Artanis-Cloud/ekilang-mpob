@@ -250,7 +250,7 @@
                                                                             <ol type="a">
                                                                                 <li>Memaparkan maklumat penyata bulanan terkini yang telah disubmit atau
                                                                                 diporting seperti nombor lesen, nama premis, kod pegawai, no siri dan
-                                                                                tarikh submit.</li>
+                                                                                tarikh hantar.</li>
                                                                                 <li>Pilih penyata yang hendak dipaparkan dan tekan butang &quot;Papar&quot;. Tekan
                                                                                 butang &quot;Papar Semua&quot; bagi memaparkan semua penyata yang ada di dalam
                                                                                 senarai.</li>
@@ -269,7 +269,7 @@
                                                                             <ol type="a">
                                                                                 <li>Memaparkan maklumat penyata bulanan terkini iaitu nombor lesen, nama
                                                                                 premis, kod pegawai, no siri, status borang iaitu samada masih belum
-                                                                                submit, submit atau porting dan tarikh submit.</li>
+                                                                                submit, submit atau porting dan tarikh hantar.</li>
                                                                               </ol>
                                                                     </td>
 

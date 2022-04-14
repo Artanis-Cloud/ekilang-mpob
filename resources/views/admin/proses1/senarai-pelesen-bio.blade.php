@@ -95,7 +95,7 @@
                                                     <th>Bil.</th>
                                                     <th>No. Lesen</th>
                                                     <th>Nama Premis</th>
-                                                    <th>E-mel</th>
+                                                    <th>Emel</th>
                                                     <th>No. Telefon</th>
                                                     <th>Kod Pegawai</th>
                                                     <th>No. Siri</th>
@@ -170,7 +170,7 @@
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per  ",
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
                     "zeroRecords": "Maaf, tiada rekod.",
                     "info": "",
                     "infoEmpty": "Tidak ada rekod yang tersedia",

@@ -107,7 +107,7 @@
                                                             <th>Kod Pegawai</th>
                                                             <th>Email Pegawai</th>
                                                             <th>No. Siri</th>
-                                                            <th>Tarikh Submit</th>
+                                                            <th>Tarikh Hantar</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody style="word-break: break-word; font-size:12px">
@@ -166,7 +166,7 @@
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per  ",
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
                     "zeroRecords": "Maaf, tiada rekod.",
                     "info": "",
                     "infoEmpty": "Tidak ada rekod yang tersedia",
