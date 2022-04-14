@@ -175,7 +175,7 @@
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per  ",
+                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
                     "zeroRecords": "Maaf, tiada rekod.",
                     "info": "",
                     "infoEmpty": "Tidak ada rekod yang tersedia",

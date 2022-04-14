@@ -313,7 +313,7 @@
                                     </form>
                                     {{-- <div class="dropdown-divider"></div> --}}
                                 </div>
-{{-- 
+{{--
                                 <li class="sidebar-item">
                                     <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
                                         aria-expanded="false"
@@ -1005,6 +1005,15 @@
         setInterval(function() {
             updateTime()
         }, 1000);
+    </script>
+
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode
+            if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+                return false;
+            return true;
+        }
     </script>
 
     @yield('scripts')
