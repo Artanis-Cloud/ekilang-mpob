@@ -1,4 +1,4 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
     <!-- ======= Hero Section ======= -->
@@ -187,7 +187,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e104_b13'
-                                                        style="width:50%" id="e104_b13" 
+                                                        style="width:50%" id="e104_b13"
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
