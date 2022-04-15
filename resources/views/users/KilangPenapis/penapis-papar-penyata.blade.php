@@ -1056,11 +1056,11 @@
                                                                     style="color:#275047">Tidak</span>
                                                             </button>
                                                             <a href="{{ route('penapis.hantar.penyata') }}" type="button"
-                                                            class="btn btn-primary ml-1">
+                                                                class="btn btn-primary ml-1">
 
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Hantar</span>
-                                                        </a>
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Hantar</span>
+                                                            </a>
                                                         </div>
                                                     </div>
                                                 </div>
