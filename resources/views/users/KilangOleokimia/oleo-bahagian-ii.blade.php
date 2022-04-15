@@ -1,22 +1,9 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
 
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
-
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
+    <div class="page-wrapper">
 
             <div class="mt-3 mb-2 row">
                 <div class="col-md-12">
@@ -35,9 +22,9 @@
                                                 @if (!$loop->last)
                                                     <li class="breadcrumb-item">
                                                         <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
+                                                            style="color: black !important;"
                                                             onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
+                                                            onMouseOut="this.style.color='black'">
                                                             {{ $breadcrumb['name'] }}
                                                         </a>
                                                     </li>
@@ -62,7 +49,7 @@
                         <form action="{{ route('oleo.update.bahagian.ii', [$penyata->e104_reg]) }}" method="post">
                             @csrf
                             <div class="card-body">
-                                <div class="row">
+                                {{-- <div class="row"> --}}
                                     {{-- <div class="col-md-4 col-12"> --}}
                                     <div class="pl-3">
 
@@ -121,7 +108,7 @@
 
                                             </div>
 
-                                        </form>
+
                                         <div class="row form-group" style="padding-top: 10px; ">
 
                                             <br>
@@ -130,8 +117,8 @@
                                                     style="float: left">Sebelumnya</a>
                                             </div>
                                             <div class="text-right col-md-5 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                    style="float: right;" data-bs-target="#next">Simpan &
+                                                <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                    style="float: right;" data-target="#next">Simpan &
                                                     Seterusnya</button>
                                             </div>
 
@@ -172,29 +159,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+
                                 <br>
 
                             </div>
-                        </form>
-                    </div><br><br><br><br><br><br><br><br><br><br><br><br>
 
+                    </div><br><br><br><br><br><br><br><br><br><br>
+                </form>
                 </div>
             </div>
 
 
+    </div>
 
-
-        </div>
-
-
-    </section><!-- End Hero -->
-
-
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
 
 
 
