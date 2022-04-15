@@ -189,7 +189,7 @@
                                                         </div>
                                                         <div class="col-md-3">
                                                             <input type="text" class="form-control" name='e104_b13'
-                                                                style="width:50%" id="e104_b13" 
+                                                                style="width:50%" id="e104_b13"
                                                                 title="Sila isikan butiran ini.">
                                                             {{-- @error('alamat_kilang_1')
                                                             <div class="alert alert-danger">
@@ -537,10 +537,10 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-light-secondary"
-                                                                        data-bs-dismiss="modal">
-                                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                                    </button>
+                                                                    data-bs-dismiss="modal">
+                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                                </button>
                                                                     <a href="{{ route('oleo.bahagianii') }}" type="button"
                                                                         class="btn btn-primary ml-1">
                                                                         <i class="bx bx-check d-block d-sm-none"></i>
