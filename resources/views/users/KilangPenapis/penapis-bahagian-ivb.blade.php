@@ -1,55 +1,45 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
+<!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
 
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb mb-3">
+            <div class="row">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title">Kemasukan Penyata Bulanan</h4>
                 </div>
-            </div> --}}
-
-            <div class="mt-3 mb-4 row">
-                <div class="col-md-12">
-
-                    <div class="page-breadcrumb" style="padding: 0px">
-                        <div class="pb-2 row">
-                            <div class="col-5 align-self-center" style="margin-left: 2%; margin-bottom:-2%">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
-                            </div>
-                            <div class=" align-self-center" style="margin-left: -1%;">
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
-                                                            onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
-                                                            {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #25877b  !important;">
-                                                        {{ $breadcrumb['name'] }}
-                                                    </li>
-                                                @endif
-                                            @endforeach
-
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                    @if (!$loop->last)
+                                        <li class="breadcrumb-item">
+                                            <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
+                                                onMouseOver="this.style.color='#25877b'"
+                                                onMouseOut="this.style.color='grey'">
+                                                {{ $breadcrumb['name'] }}
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="breadcrumb-item active" aria-current="page"
+                                            style="color: #25877b  !important;">
+                                            {{ $breadcrumb['name'] }}
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ol>
+                        </nav>
                     </div>
+                </div>
+            </div>
+        </div>
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -69,14 +59,14 @@
                                             {{-- <p>Maklumat Kilang</p> --}}
                                         </div>
                                         <hr>
-                                        <div class="container center mt-4">
+                                        <div class="container center mt-4" style="margin-left:4%">
 
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <span class="required">Nama Produk</span>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <select class="form-select" id="produk"
+                                                    <select class="form-control" id="produk"
                                                         name="e101_c4" style="width: 50%">
                                                         <option selected hidden disabled>Sila Pilih</option>
                                                         @foreach ($produk as $data)
@@ -187,24 +177,21 @@
                                         </div>
 
 
-                                        <div class="row form-group">
+                                            <div class="row form-group" style="margin-top: 5%; ">
 
 
 
-                                            <div class="row form-group">
-                                                <div class="text-right col-md-12 mb-4 " style="margin-left: 45%;">
-                                                    <button type="submit" class="btn btn-primary ">Tambah</button>
+                                                <div class="text-right col-md-6 mb-4 ">
+                                                    <button type="submit" class="btn btn-primary" style="margin-left:96%">Tambah</button>
                                                 </div>
+
                                             </div>
-
-                                        </div>
-
                         </form>
 
                         <hr>
                         <br>
                         <br>
-                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Akhir Berasaskan Minyak Sawit dan Minyak Isirung Sawit - Bahan Bukan Makanan</h5>
+                        <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:-3%">Senarai Produk Akhir Berasaskan Minyak Sawit dan Minyak Isirung Sawit - Bahan Bukan Makanan</h5>
 
                         <section class="section">
                             <div class="card">
@@ -240,8 +227,8 @@
                                                 <td>
                                                     <div class="icon" style="text-align: center">
                                                         <a href="#"
-                                                            type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal{{ $data->e101_c1 }}">
+                                                            type="button" data-toggle="modal"
+                                                            data-target="#modal{{ $data->e101_c1 }}">
                                                             <i class="fas fa-edit fa-lg" style="color: #ffc107">
                                                             </i>
                                                         </a>
@@ -250,8 +237,8 @@
                                                 <td>
                                                     <div class="icon" style="text-align: center">
                                                         <a href="#" type="button"
-                                                            data-bs-toggle="modal"  data-bs-target="#next2{{ $data->e101_c1 }}">
-                                                            <i class="fa fa-trash-o"
+                                                            data-toggle="modal"  data-target="#next2{{ $data->e101_c1 }}">
+                                                            <i class="fa fa-trash"
                                                                 style="color: #dc3545;font-size:18px"></i>
                                                         </a>
                                                     </div>
@@ -342,7 +329,7 @@
 
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-light-secondary"
-                                                                    data-bs-dismiss="modal">
+                                                                    data-dismiss="modal">
                                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block">Batal</span>
                                                                 </button>
@@ -377,7 +364,7 @@
                                                             </p>
                                                         </div>
                                                         <div class="modal-footer">
-                                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                                            <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                                 <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                             </button>
@@ -417,10 +404,6 @@
                                 </div>
                             </div>
 
-                        </section>
-
-                    </div>
-
 
 
 
@@ -438,9 +421,9 @@
                             <a href="{{ route('penapis.bahagianiva') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
                         </div>
-                        <div class="text-right col-md-7 mb-4 ">
-                            <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                data-bs-target="#next">Simpan &
+                        <div class="text-right col-md-7">
+                            <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                                data-target="#next">Simpan &
                                 Seterusnya</button>
                         </div>
 
@@ -455,7 +438,7 @@
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalCenterTitle">
                                         PENGESAHAN</h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <i data-feather="x"></i>
                                     </button>
                                 </div>
@@ -465,7 +448,7 @@
                                     </p>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                    <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                                         <i class="bx bx-x d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                     </button>
@@ -482,16 +465,11 @@
 
 
                 </div>
-                <br>
                 </form>
 
             </div>
-            <br>
 
         </div>
-        </div>
-        </div>
-
 
 
 

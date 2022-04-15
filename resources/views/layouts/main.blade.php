@@ -1226,7 +1226,7 @@
         jQuery(function() {
             SessionTimeout.init()
         });
-    </script> --}}
+    </script>
 
     {{-- clock --}}
     <script type="text/javascript">
