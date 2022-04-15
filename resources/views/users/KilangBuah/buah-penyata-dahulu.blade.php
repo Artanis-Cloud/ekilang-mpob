@@ -1,23 +1,10 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
 
 
-
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
-
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
-            <br>
-            <div class="row">
+    <div class="page-wrapper">
+        <div class=" mt-3  row">
                 <div class="col-md-12">
 
                     <div class="page-breadcrumb" style="padding: 0px">
@@ -34,9 +21,9 @@
                                                 @if (!$loop->last)
                                                     <li class="breadcrumb-item">
                                                         <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
+                                                            style="color: black !important;"
                                                             onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
+                                                            onMouseOut="this.style.color='black'">
                                                             {{ $breadcrumb['name'] }}
                                                         </a>
                                                     </li>
@@ -60,7 +47,7 @@
                         </div> --}}
 
                         <div class="card-body">
-                            <div class="row">
+                            {{-- <div class="row"> --}}
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <form action="{{ route('buah.penyata.dahulu.process') }}" method="post">
@@ -173,16 +160,12 @@
                                     </div>
 
 
-
-
                                     <div class="row form-group" style="padding-top: 20px; ">
 
-
-
-                                            <div class="text-right col-md-12 mb-4 ">
-                                                <button type="submit" class="btn btn-primary " data-toggle="modal"
-                                                    style="float: right" data-target="#confirmation">Papar Penyata</button>
-                                            </div>
+                                        <div class="text-right col-md-12 mb-4 ">
+                                            <button type="submit" class="btn btn-primary " style="margin-right: 48%"
+                                                >Papar Penyata</button>
+                                        </div>
 
                                     </div>
                                     {{-- Hidden Gap - Just Ignore --}}
@@ -217,43 +200,21 @@
                                 <br>
 
 
-                            </div>
-
-
-
-
-                    {{-- </div>
-                                                                    </div> --}}
-
-                    {{-- </section> --}}
-
-
-
-
-
+                            {{-- </div> --}}
+                        </div>
+                    </div>
 
 
                 </div>
 
-            </div> <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            </div>
         </div>
 
 
 
 
 
-    </section><!-- End Hero -->
-
-
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
-
-
-
-
+    </div>
     {{-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>

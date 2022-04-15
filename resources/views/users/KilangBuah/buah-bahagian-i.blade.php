@@ -71,7 +71,7 @@
                                             style="text-align:right"><i><u>Panduan
                                                     Mengisi Maklumat Bahagian I</u></i></a>
                                     </div>
-                                    {{-- <div class="row" id="table-bordered"> --}}
+                                    {{-- <div class="col-12 " id="table-bordered"> --}}
 
                                         <form action="{{ route('buah.update.bahagian.i', [$penyata->e91_reg]) }}"
                                             method="post">
@@ -368,7 +368,7 @@
 
 
 
-                        </div>
+                        {{-- </div> --}}
                     </div>
                 </div><br><br><br>
 

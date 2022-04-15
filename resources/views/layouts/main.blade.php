@@ -256,6 +256,15 @@
                                     </li>
                                 </ul>
                             </div>
+                            <li class="dropdown nav-icon">
+                                <a href="{{ route('buah.email') }}"
+                                    class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                    <div class="mt-3">
+                                        <i class="fa fa-envelope" style="font-size:20px;"></i>
+                                    </div>
+                                </a>
+
+                            </li>
                         </li>
                         <!-- ============================================================== -->
                         <!-- End Comment -->
@@ -264,6 +273,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
+
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img src="{{ asset('user_icon.png') }}" alt="user" class="rounded-circle" width="40">

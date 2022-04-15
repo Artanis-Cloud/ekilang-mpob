@@ -1,56 +1,49 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
     <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
+    <div class="page-wrapper">
 
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
 
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
+        <div class=" mt-3  row">
 
-            <div class="mt-2 mb-4 row">
-                <div class="col-md-12">
+            <div class="col-md-12">
 
-                    <div class="page-breadcrumb" style="padding: 0px">
-                        <div class="pb-2 row">
-                            <div class="align-self-center" style="margin-left: 2%; margin-bottom:-2%">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
-                            </div>
-                            <div class="align-self-center" style="margin-left: -1%;">
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
-                                                            onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
-                                                            {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #25877b  !important;">
+                <div class="page-breadcrumb" style="padding: 0px">
+                    <div class="pb-2 row">
+                        <div class="col-5 align-self-center">
+                            <a href="{{ $returnArr['kembali'] }}" class="btn"
+                                style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
+                        </div>
+                        <div class="col-7 align-self-center" style="margin-left:-1%;">
+                            <div class="d-flex align-items-center justify-content-end">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                            @if (!$loop->last)
+                                                <li class="breadcrumb-item">
+                                                    <a href="{{ $breadcrumb['link'] }}"
+                                                        style="color: black !important;"
+                                                        onMouseOver="this.style.color='#25877b'"
+                                                        onMouseOut="this.style.color='black'">
                                                         {{ $breadcrumb['name'] }}
-                                                    </li>
-                                                @endif
-                                            @endforeach
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li class="breadcrumb-item active" aria-current="page"
+                                                    style="color: #25877b  !important;">
+                                                    {{ $breadcrumb['name'] }}
+                                                </li>
+                                            @endif
+                                        @endforeach
 
-                                        </ol>
-                                    </nav>
-                                </div>
+                                    </ol>
+                                </nav>
                             </div>
                         </div>
                     </div>
-                    <form method="get" action="" id="myfrm">
+                </div>
+                <form method="get" action="" id="myfrm">
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -58,7 +51,7 @@
                         <br>
                         <br>
                         <div class="card-body">
-                            <div class="row">
+                            {{-- <div class="row"> --}}
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
@@ -149,12 +142,11 @@
                                                 <tr>
 
                                                     <td width="25%" height="19">
-                                                        <font face="Times New Roman">Nombor Lesen</font>
+                                                     Nombor Lesen
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                            <font face="Times New Roman">{{ auth()->user()->username }}
-                                                            </font>
+                                                          {{ auth()->user()->username }}
                                                         </b></td>
 
                                                 </tr>
@@ -162,11 +154,11 @@
                                                 <tr>
 
                                                     <td width="25%" height="19">
-                                                        <font face="Times New Roman">Nama Premis </font>
+                                                       Nama Premis
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                            <font face="Times New Roman">{{ auth()->user()->name }}</font>
+                                                           {{ auth()->user()->name }}
                                                         </b></td>
 
                                                 </tr>
@@ -844,7 +836,7 @@
                                                         <font size="3">
                                                             <b>{{ number_format(($penyata->e91_ai1 ?? 0) +($penyata->e91_ai2 ?? 0)
                                                             +($penyata->e91_ai3 ?? 0) +($penyata->e91_ai4 ?? 0) + ($penyata->e91_ai5 ?? 0)
-                                                             + ($penyata->e91_ai6 ?? 0) ?? 0,2) }}</b>
+                                                                + ($penyata->e91_ai6 ?? 0) ?? 0,2) }}</b>
                                                         </font>
                                                     </td>
                                                 </tr>
@@ -940,9 +932,9 @@
                                                     <td width="158" align="center">
                                                         <font size="3">
                                                             <b>{{ number_format(($penyata->e91_aj1 ?? 0) +($penyata->e91_aj2 ?? 0)
-                                                             +($penyata->e91_aj3 ?? 0) +($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0)
-                                                              + ($penyata->e91_aj6 ?? 0) + ($penyata->e91_aj7 ?? 0)
-                                                               + ($penyata->e91_aj8 ?? 0) ?? 0,2) }}</b>
+                                                                +($penyata->e91_aj3 ?? 0) +($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0)
+                                                                + ($penyata->e91_aj6 ?? 0) + ($penyata->e91_aj7 ?? 0)
+                                                                + ($penyata->e91_aj8 ?? 0) ?? 0,2) }}</b>
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -1042,119 +1034,78 @@
 
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
-                                                adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                                <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{ $penyata->e91_sdate ?? '' }}</p>
-                                                <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_npg }}</b>
-                                                </p>
-                                                <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_jpg }}</b></p>
-                                                <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyata->e91_notel }}</b>
-                                                </p>
-
-
-
-
-                                        <h1 style="page-break-before:always"></h1>
-
-                                        <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                            {{-- <div class="text-left col-md-5">
-                                                <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
-                                                    style="float: left">Sebelumnya</a>
-                                            </div> --}}
-                                            <div class="text-right col-md-7 mb-4 ">
-                                                <button type="button" class="btn btn-primary "
-                                                    style="float: right" onclick="myPrint('myfrm')" value="print">Cetak</button>
-                                            </div>
-
-                                        </div>
-
-                                        <!-- Vertically Centered modal Modal -->
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                            PENGESAHAN</h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                            Anda pasti mahu menghantar penyata ini?
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block"
-                                                                style="color:#275047">Tidak</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Hantar</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
+                                        <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{ $penyata->e91_sdate ?? '' }}</p>
+                                        <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_npg }}</b>
+                                        </p>
+                                        <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_jpg }}</b></p>
+                                        <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyata->e91_notel }}</b>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                    </form>
+
+
+                </form>
+
+                    <h1 style="page-break-before:always"></h1>
+
+                    <div class="row form-group" style="padding-top: 10px; ">
+
+                        <div class="text-right col-md-7 mb-4 ">
+                            <button type="button" class="btn btn-primary "
+                                style="float: right" onclick="myPrint('myfrm')" value="print">Cetak</button>
+                        </div>
+
+                    </div>
+
+                                        <!-- Vertically Centered modal Modal -->
+                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                            role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalCenterTitle">
+                                        PENGESAHAN</h5>
+                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                        aria-label="Close">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>
+                                        Anda pasti mahu menghantar penyata ini?
+                                    </p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-light-secondary"
+                                        data-bs-dismiss="modal">
+                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block"
+                                            style="color:#275047">Tidak</span>
+                                    </button>
+                                    <button type="button" class="btn btn-primary ml-1"
+                                        data-bs-dismiss="modal">
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Hantar</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
             </div>
-            <br>
-            {{-- </form> --}}
 
         </div>
-        </div>
-        </div>
+
+    </div>
 
 
 
 
-        {{-- </div>
-                                                                    </div> --}}
-
-        {{-- </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </section><!-- End Hero -->
-
-
-
-
-    <!-- ======= Footer ======= -->
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 

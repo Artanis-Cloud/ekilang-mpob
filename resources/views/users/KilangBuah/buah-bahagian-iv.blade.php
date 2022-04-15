@@ -1,18 +1,8 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
 
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
-
+    <div class="page-wrapper">
             <div class="mt-2 row">
                 <div class="col-md-12">
 
@@ -30,9 +20,9 @@
                                                 @if (!$loop->last)
                                                     <li class="breadcrumb-item">
                                                         <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
+                                                            style="color: black !important;"
                                                             onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
+                                                            onMouseOut="this.style.color='black'">
                                                             {{ $breadcrumb['name'] }}
                                                         </a>
                                                     </li>
@@ -56,7 +46,7 @@
                         </div> --}}
 
                         <div class="card-body">
-                            <div class="row">
+                            {{-- <div class="row"> --}}
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
@@ -74,7 +64,7 @@
                                     <form action="{{ route('buah.update.bahagian.iv', [$penyata->e91_reg]) }}"
                                         method="post" onsubmit="return validation_jum();" onload="validation_jumlah()">
                                         @csrf
-                                        <div class="row" id="table-bordered">
+                                        {{-- <div class="row" id="table-bordered"> --}}
                                             <div class="col-12 mt-2" style="margin-bottom: -2%">
 
                                                 <div class="card">
@@ -331,19 +321,13 @@
 
 
                 </div>
-            </div><br><br>
+            </div>
         </div>
 
 
 
 
-    </section><!-- End Hero -->
-
-
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
+    </div>
 
 
 
