@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="card" style="margin-right:10%; margin-left:10%">
+        <div class="card" style="margin-right:3%; margin-left:3%">
             {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
@@ -390,14 +390,10 @@
 
 
                             <div class="row form-group" style="margin-top: 7%; ">
-
-
-
                                 <div class="text-right col-md-6 mb-4 ">
                                     <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
                                         data-target="#next">Simpan</button>
                                 </div>
-
                             </div>
 
                             <div class="modal fade" id="next" tabindex="-1" role="dialog"
