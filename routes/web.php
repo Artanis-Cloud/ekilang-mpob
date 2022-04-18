@@ -323,7 +323,7 @@ Route::middleware('auth')->group(function () {
         Route::post('isirung/add-bahagian-iv', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_add_bahagian_iv'])->name('isirung.add.bahagian.iv');
         Route::post('isirung/edit-bahagian-iv/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_edit_bahagian_iv'])->name('isirung.edit.bahagian.iv');
         Route::post('isirung/bahagian-iv/process', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'validationiv'])->name('isirung.bahagianiv.process');
-        Route::get('isirung/bahagian-iv/delete/{id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'destroyiv'])->name('isirung.bahagianiv.delete');
+        Route::get('isirung/bahagian-iv/delete/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'destroyiv'])->name('isirung.bahagianiv.delete');
 
         Route::get('isirung/bahagian-v', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagianv'])->name('isirung.bahagianv');
         Route::post('isirung/add-bahagian-v', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_add_bahagian_v'])->name('isirung.add.bahagian.v');

@@ -1,59 +1,49 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
 
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title">Penyata Bulanan Dahulu</h4>
                 </div>
-            </div> --}}
-
-            <div class="mt-3 mb-4 row">
-                <div class="col-md-12">
-
-                    <div class="page-breadcrumb" style="padding: 0px">
-                        <div class="pb-2 row">
-                            <div class="align-self-center" style="margin-left: 2%; margin-bottom:-2%">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
-                            </div>
-                            <div class="align-self-center" style="margin-left: -1%;">
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
-                                                            onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
-                                                            {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #25877b  !important;">
-                                                        {{ $breadcrumb['name'] }}
-                                                    </li>
-                                                @endif
-                                            @endforeach
-
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                    @if (!$loop->last)
+                                        <li class="breadcrumb-item">
+                                            <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
+                                                onMouseOver="this.style.color='#25877b'"
+                                                onMouseOut="this.style.color='grey'">
+                                                {{ $breadcrumb['name'] }}
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="breadcrumb-item active" aria-current="page"
+                                            style="color: #25877b  !important;">
+                                            {{ $breadcrumb['name'] }}
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ol>
+                        </nav>
                     </div>
+                </div>
+            </div>
+        </div>
 
 
                     <form method="get" action="" id="myfrm">
-                        <div class="card" style="margin-right:2%; margin-left:2%">
+                        <div class="card" style="margin-right:2%; margin-left:2%; margin-top:2%">
                             {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
@@ -110,21 +100,7 @@
                                                 <img border="0" src="{{ asset('/mpob.png') }}" width="128"
                                                     height="100">
                                             </p>
-
-
-
-
-
-
-
                                             <title>PENYATA BULANAN KILANG Isirung - MPOB (EL) CF 4</title>
-
-
-
-
-
-
-
                                             <p align="center"><b>
                                                     <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
@@ -167,26 +143,21 @@
                                                 <tbody>
                                                     <tr>
 
-                                                        <td width="25%" height="19">
-                                                            <font face="Times New Roman">Nombor Lesen</font>
+                                                        <td width="25%" height="19">Nombor Lesen
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman">
-                                                                    {{ auth()->user()->username }}</font>
+                                                                    {{ auth()->user()->username }}
                                                             </b></td>
 
                                                     </tr>
 
                                                     <tr>
 
-                                                        <td width="25%" height="19">
-                                                            <font face="Times New Roman">Nama Premis </font>
+                                                        <td width="25%" height="19">Nama Premis
                                                         </td>
 
-                                                        <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman">{{ auth()->user()->name }}
-                                                                </font>
+                                                        <td width="88%" height="19"><b>{{ auth()->user()->name }}
                                                             </b></td>
 
                                                     </tr>
@@ -829,70 +800,11 @@
                                             </div>
 
                                         </div>
-
-                                        <!-- Vertically Centered modal Modal -->
-                                        {{-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                    role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                PENGESAHAN</h5>
-                                                            <button type="button" class="close"
-                                                                data-bs-dismiss="modal" aria-label="Close">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <p>
-                                                                Anda pasti mahu menghantar penyata ini?
-                                                            </p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-light-secondary"
-                                                                data-bs-dismiss="modal">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block"
-                                                                    style="color:#275047">Tidak</span>
-                                                            </button>
-                                                            <button type="button" class="btn btn-primary ml-1"
-                                                                data-bs-dismiss="modal">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Hantar</span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div> --}}
                                     </div>
                                 </div>
                             </div>
                         </div>
-                </div>
                 </form>
-            </div>
-            <br>
-            {{-- </form> --}}
-
-        </div>
-        </div>
-        </div>
-
-
-
-
-        {{-- </div>
-                                                                    </div> --}}
-
-        {{-- </section> --}}
-
-    </section><!-- End Hero -->
-
-
-
-
-    <!-- ======= Footer ======= -->
 
 
 
