@@ -197,37 +197,21 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
-
-
-
                                     </div>
                                 </div>
                                 <br>
 
 
                                 <div class="row form-group">
-
-
                                     <div class="text-left col-md-5">
                                         <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
                                             style="float: left">Sebelumnya</a>
                                     </div>
-                                    {{-- <div class="text-right col-md-7 ">
-                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
-                                            Seterusnya</button>
-                                    </div> --}}
-
                                     <div class="text-right col-md-7 mb-4 ">
                                         <button type="SUBMIT" class="btn btn-primary" style="float: right"
                                             id="go">Simpan &
                                             Seterusnya</button>
                                     </div>
-
-
                                 </div>
 
                                 <!-- Vertically Centered modal Modal -->
@@ -265,17 +249,11 @@
                                     </div>
                                 </div>
                                 </form>
-
-
                             </div>
 
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
         </div>
 
