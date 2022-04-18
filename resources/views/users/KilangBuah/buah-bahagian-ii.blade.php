@@ -71,14 +71,14 @@
                                 <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}"
                                     method="post">
                                     @csrf
-                                    <div class="container center mt-3">
+                                    <div class="container center mt-3" style="margin-left:8%">
                                         <div class="row">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
                                                 Jumlah Jam Pengilangan</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e91_ah1'
-                                                    style="margin-left:42%; width:40%; text-align:right"
+                                                    style=" width:40%; text-align:right"
                                                     onkeypress="return isNumberKey(event)" id="jam_pengilangan" required
                                                     title="Sila isikan butiran ini."
                                                     value="{{ $penyata->e91_ah1 ?? 0 }}">
@@ -89,14 +89,14 @@
                                             @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
                                                 Kadar
                                                 Perahan MSM (OER) Yang Diperolehi</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e91_ah2'
-                                                    style="margin-left:42%; width:40%; text-align:right"
+                                                    style="width:40%; text-align:right"
                                                     onkeypress="return isNumberKey(event)" id="kadar_perahan_mksm"
                                                     required title="Sila isikan butiran ini."
                                                     value="{{ $penyata->e91_ah2 ?? 0 }}">
@@ -107,13 +107,13 @@
                                             @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">iii.
                                                 Kadar Perolehan Isirung (KER)</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e91_ah3'
-                                                    style="margin-left:42%; width:40%; text-align:right"
+                                                    style="width:40%; text-align:right"
                                                     onkeypress="return isNumberKey(event)" id="kadar_perolehan_isirung"
                                                     required title="Sila isikan butiran ini."
                                                     value="{{ $penyata->e91_ah3 ?? 0 }}">
@@ -124,17 +124,17 @@
                                             @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">iv.
                                                 Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e91_ah4'
-                                                    style="margin-left:42%; width:40%; text-align:right"
+                                                    style=" width:40%; text-align:right"
                                                     onkeypress="return isNumberKey(event)" id="harga_purata_buah_sawit"
                                                     placeholder="RM" required title="Sila isikan butiran ini."
                                                     value="{{ $penyata->e91_ah4 ?? 0 }}">
-                                                <p style="margin-left:42%;"><i>(1% Kadar Perahan)</i></p>
+                                                <p><i>(1% Kadar Perahan)</i></p>
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -146,9 +146,9 @@
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">v.
                                                 Prestasi OER</label>
-                                            <div class="col-md-3" style="margin-left:20%; width:22%">
-                                                <fieldset class="form-group">
-                                                    <select name="kadar_oer" class="form-select" id="kadar_oer"
+                                            <div class="col-md-3" >
+                                                <fieldset class="form-group" style=" width: 85%">
+                                                    <select name="kadar_oer" class="form-control" id="kadar_oer"
                                                         onchange="showTable()">
                                                         <option selected hidden disabled>Sila Pilih Prestasi OER</option>
                                                         <option value="Meningkat">Meningkat</option>
@@ -424,7 +424,7 @@
                                                 </div>
 
                                                 <div class="row">
-                                                    <div class="col-12" style="margin-bottom:-5%">
+                                                    <div class="col-12" >
                                                         <div class="form-group">
                                                             <label class="control-label col-form-label"
                                                                 for="lain-sebab">Lain-Lain Sebab OER, Sila Nyatakan
@@ -450,7 +450,7 @@
 
                                     </div>
 
-                                    <div class="row form-group" style="padding-top: 10px; margin-top:5rem ">
+                                    <div class="row form-group" style="padding-top: 10px; margin-top:2rem ">
 
 
                                         <div class="text-left col-md-5">

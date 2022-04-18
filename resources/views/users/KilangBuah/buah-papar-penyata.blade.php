@@ -125,27 +125,21 @@
                                             <tbody>
                                                 <tr>
 
-                                                    <td width="25%" height="19">
-                                                        <font face="Times New Roman">Nombor Lesen</font>
+                                                    <td width="25%" height="19">Nombor Lesen
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                            <font face="Times New Roman">
                                                                 {{ auth()->user()->username }}
-                                                            </font>
                                                         </b></td>
 
                                                 </tr>
 
                                                 <tr>
 
-                                                    <td width="25%" height="19">
-                                                        <font face="Times New Roman">Nama Premis </font>
+                                                    <td width="25%" height="19">Nama Premis
                                                     </td>
 
-                                                    <td width="88%" height="19"><b>
-                                                            <font face="Times New Roman">{{ auth()->user()->name }}
-                                                            </font>
+                                                    <td width="88%" height="19"><b>{{ auth()->user()->name }}
                                                         </b></td>
 
                                                 </tr>
@@ -498,8 +492,7 @@
 
                                         <p><b>
                                                 <font size="3" color="0000FF">BAHAGIAN II : MAKLUMAT JAM PENGILANGAN,
-                                                    KADAR
-                                                    PERAHAN DAN HARGA </font>
+                                                    KADAR PERAHAN DAN HARGA </font>
                                             </b> </p>
 
                                         <table border="0" width="460" cellspacing="0" cellpadding="0">
@@ -564,22 +557,22 @@
                                         <table border="1" width="604" cellspacing="0" cellpadding="0"
                                             class="table table-bordered ">
 
-                                            <tbody style="border: 1px solid black;">
+                                            <tbody>
                                                 <tr style="border: 1px solid black;">
-                                                    <td align="center" width="209" style="border: 1px solid black;"><b>
+                                                    <td align="center" width="209" ><b>
                                                             <font size="3">Sebab-Sebab OER Meningkat</font>
                                                         </b></td>
                                                     <td align="center" width="92">
-                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;)
-                                                                </font></b>
+                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;
+                                                                </font>)</b>
                                                         </font>
                                                     </td>
                                                     <td align="center" width="201"><b>
                                                             <font size="3">Sebab-Sebab OER Menurun</font>
                                                         </b></td>
                                                     <td align="center" width="93">
-                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;)
-                                                                </font></b>
+                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;
+                                                                </font>)</b>
                                                         </font>
                                                     </td>
                                                 </tr>
