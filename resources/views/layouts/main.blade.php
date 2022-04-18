@@ -257,7 +257,17 @@
                                 </ul>
                             </div>
                         </li>
-                        
+                        @if (auth()->user()->category == 'PL91')
+                        <li class="dropdown nav-icon">
+                            <a href="{{ route('buah.email') }}"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="mt-3">
+                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
+                                </div>
+                            </a>
+
+                        </li>
+                        @elseif (auth()->user()->category == 'PL101')
                         <li class="dropdown nav-icon">
                             <a href="{{ route('penapis.email') }}"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
@@ -267,6 +277,62 @@
                             </a>
 
                         </li>
+                        @elseif (auth()->user()->category == 'PL102')
+                        <li class="dropdown nav-icon">
+                            <a href="{{ route('isirung.email') }}"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="mt-3">
+                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
+                                </div>
+                            </a>
+
+                        </li>
+                        @elseif (auth()->user()->category == 'PL104')
+                        <li class="dropdown nav-icon">
+                            <a href="{{ route('oleo.email') }}"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="mt-3">
+                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
+                                </div>
+                            </a>
+
+                        </li>
+                        @elseif (auth()->user()->category == 'PL111')
+                        <li class="dropdown nav-icon">
+                            <a href="{{ route('pusatsimpan.email') }}"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="mt-3">
+                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
+                                </div>
+                            </a>
+
+                        </li>
+                        @elseif (auth()->user()->category == 'PLBIO')
+                        <li class="dropdown nav-icon">
+                            <a href="{{ route('bio.email') }}"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="mt-3">
+                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
+                                </div>
+                            </a>
+
+                        </li>
+                        {{-- @elseif (auth()->user()->category == 'admin')
+                            <p class="m-b-0">{{ ucfirst(auth()->user()->role) }}</p> --}}
+                        @endif
+
+
+
+
+                        {{-- <li class="dropdown nav-icon">
+                            <a href="{{ route('penapis.email') }}"
+                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                                <div class="mt-3">
+                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
+                                </div>
+                            </a>
+
+                        </li> --}}
 
                         <!-- ============================================================== -->
                         <!-- End Comment -->
@@ -314,12 +380,37 @@
                                     @if (auth()->user()->category == 'admin')
                                         <a class="dropdown-item" href="{{ route('admin.akaun.pentadbir') }}">
                                             <i class="ti-settings m-r-5 m-l-5"></i> Akaun Pentadbir </a>
+                                        <a class="dropdown-item" href="{{ route('admin.tukarpassword') }}">
+                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
+                                        <div class="dropdown-divider"></div>
                                     @endif
                                     {{-- <a class="dropdown-item" href="{{ route('admin.akaun.pentadbir') }}"> --}}
                                     {{-- <i class="ti-settings m-r-5 m-l-5"></i> Akaun Pentadbir </a> --}}
-                                    <a class="dropdown-item" href="{{ route('admin.tukarpassword') }}">
-                                        <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
-                                    <div class="dropdown-divider"></div>
+                                    {{-- @if (auth()->user()->category == 'PL91')
+                                        <a class="dropdown-item" href="{{ route('buah.tukarpassword') }}">
+                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
+                                    @elseif (auth()->user()->category == 'PL101')
+                                        <a class="dropdown-item" href="{{ route('penapis.tukarpassword') }}">
+                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
+                                    @elseif (auth()->user()->category == 'PL102')
+                                        <a class="dropdown-item" href="{{ route('isirung.tukarpassword') }}">
+                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
+                                    @elseif (auth()->user()->category == 'PL104')
+                                        <a class="dropdown-item" href="{{ route('oleo.tukarpassword') }}">
+                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
+                                    @elseif (auth()->user()->category == 'PL111')
+                                        <a class="dropdown-item" href="{{ route('pusatsimpan.tukarpassword') }}">
+                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
+                                    @elseif (auth()->user()->category == 'PLBIO')
+                                        <a class="dropdown-item" href="{{ route('bio.tukarpassword') }}">
+                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
+                                    @elseif (auth()->user()->category == 'admin')
+                                        <a class="dropdown-item" href="{{ route('admin.tukarpassword') }}">
+                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
+                                    @endif --}}
+                                    {{-- <a class="dropdown-item" href="{{ route('admin.tukarpassword') }}">
+                                        <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a> --}}
+
                                     <a class="dropdown-item" href="#" aria-expanded="false"
                                         onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                                         <i class="fa fa-power-off m-r-5 m-l-5"></i> Log Keluar</a>
@@ -655,7 +746,7 @@
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="{{ route('penapis.bahagianv') }}" class="sidebar-link">
+                                        <a href="{{ route('isirung.bahagianv') }}" class="sidebar-link">
                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Bahagian V </span>
                                         </a>
