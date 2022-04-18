@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-        <div class="card" style="margin-right:10%; margin-left:10%">
+        <div class="card" style="margin-right:3%; margin-left:3%">
             {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
