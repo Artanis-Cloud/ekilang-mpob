@@ -43,9 +43,7 @@
                 </div>
                 <form method="get" action="" id="myfrm">
                     <div class="card" style="margin-right:2%; margin-left:2%">
-                        {{-- <div class="card-header border-bottom">
-                        <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
-                    </div> --}}
+
                         <br>
                         <br>
                         <div class="card-body">
@@ -773,6 +771,44 @@
                                             </tbody>
                                         </table>
                                         <p><b>
+                                            <font color="#0000FF">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp;IMPORT PRODUK SAWIT
+
+                                            </font>
+                                        </b></p>
+                                        <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                            class="table table-bordered">
+                                            <tbody>
+                                                <tr>
+                                                    <td width="15%" align="center"><b>
+                                                            <font size="2">Nama Produk Sawit</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kod Produk</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Nombor Borang Kastam 1</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Tarikh Import</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                            <font size="2">Kuantiti
+                                                                (Tan Metrik)</font>
+                                                        </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Nilai (RM)</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Kod Negara</font>
+                                                    </b></td>
+                                                    <td width="8%" align="center"><b>
+                                                        <font size="2">Negara Sumber Import</font>
+                                                    </b></td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <p><b><br>
 
 
 
@@ -797,70 +833,71 @@
                                             <input type="text" id="e_notel" class="form-control" size="50"
                                                 name="e_notel" value="">
                                         </p>
-                                    </div>
+                                    </body>
                                 </div>
                             </div>
 
+                        </div>
+                    </div>
 
                 </form>
-                                        <h1 style="page-break-before:always"></h1>
 
-                                        <div class="row form-group" style="padding-top: 10px; ">
+                <h1 style="page-break-before:always"></h1>
+
+                <div class="row form-group" style="padding-top: 10px; ">
 
 
-                                            <div class="text-left col-md-5">
-                                                <a href="{{ route('oleo.bahagianiii') }}" class="btn btn-primary"
-                                                    style="float: left">Sebelumnya</a>
-                                            </div>
-                                            <div class="text-right col-md-7 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                                                    data-target="#next">Hantar</button>
-                                                <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
-                                                    onclick="myPrint('myfrm')" value="print">Cetak</button>
-                                            </div>
+                    <div class="text-left col-md-5">
+                        <a href="{{ route('oleo.bahagianiii') }}" class="btn btn-primary"
+                            style="float: left; margin-left:5%">Sebelumnya</a>
+                    </div>
+                    <div class="text-right col-md-7" >
+                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right; margin-right:3% "
+                            data-target="#next">Hantar</button>
+                        <button type="button" class="btn btn-primary " style=" margin-right:3% "
+                            onclick="myPrint('myfrm')" value="print">Cetak</button>
+                    </div>
 
-                                        </div>
+                </div>
 
-                                        <!-- Vertically Centered modal Modal -->
-                                        <div class="modal fade" id="next" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                            PENGESAHAN</h5>
-                                                        <button type="button" class="close"
-                                                            data-bs-dismiss="modal" aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                            Anda pasti mahu menghantar penyata ini?
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block"
-                                                                style="color:#275047">Tidak</span>
-                                                        </button>
-                                                        <a href="{{ route('oleo.hantar.penyata') }}" type="button"
-                                                        class="btn btn-primary ml-1">
+                <!-- Vertically Centered modal Modal -->
+                <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                        role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                    PENGESAHAN</h5>
+                                <button type="button" class="close"
+                                    data-bs-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Anda pasti mahu menghantar penyata ini?
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary"
+                                    data-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block"
+                                        style="color:#275047">Tidak</span>
+                                </button>
+                                <a href="{{ route('oleo.hantar.penyata') }}" type="button"
+                                class="btn btn-primary ml-1">
 
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Hantar</span>
-                                                    </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div>
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Hantar</span>
+                            </a>
                             </div>
                         </div>
                     </div>
+                </div>
+
+
             </div>
 
         </div>

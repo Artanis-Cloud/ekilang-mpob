@@ -520,6 +520,7 @@ class KilangIsirungController extends Controller
 
         return redirect()->route('isirung.bahagianiv')
             ->with('success', 'Produk Dihapuskan');
+
     }
 
     public function validationiv(Request $request)
