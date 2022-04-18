@@ -298,7 +298,6 @@
                             @endif
                         </a>
                         </li>
-
                         <li class="nav-item dropdown">
 
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
