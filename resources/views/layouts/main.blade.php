@@ -257,25 +257,46 @@
                                 </ul>
                             </div>
                         </li>
-                        @if (auth()->user()->category == 'PL91')
                         <li class="dropdown nav-icon">
+                            @if (auth()->user()->category == 'PL91')
                             <a href="{{ route('buah.email') }}"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
                                 <div class="mt-3">
                                     <i class="fa fa-envelope" style="font-size:20px;"></i>
                                 </div>
                             </a>
-
-                        </li>
-                        @elseif (auth()->user()->category == 'PL101')
-                        <li class="dropdown nav-icon">
+                            @elseif (auth()->user()->category == 'PL101')
                             <a href="{{ route('penapis.email') }}"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-3">
-                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                </div>
-                            </a>
-
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <div class="mt-3">
+                                <i class="fa fa-envelope" style="font-size:20px;"></i>
+                            </div>
+                            @elseif (auth()->user()->category == 'PL102')
+                            <a href="{{ route('isirung.email') }}"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <div class="mt-3">
+                                <i class="fa fa-envelope" style="font-size:20px;"></i>
+                            </div>
+                            @elseif (auth()->user()->category == 'PL104')
+                            <a href="{{ route('oleo.email') }}"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <div class="mt-3">
+                                <i class="fa fa-envelope" style="font-size:20px;"></i>
+                            </div>
+                            @elseif (auth()->user()->category == 'PL111')
+                            <a href="{{ route('pusatsimpan.email') }}"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <div class="mt-3">
+                                <i class="fa fa-envelope" style="font-size:20px;"></i>
+                            </div>
+                            @elseif (auth()->user()->category == 'PLBIO')
+                            <a href="{{ route('bio.email') }}"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+                            <div class="mt-3">
+                                <i class="fa fa-envelope" style="font-size:20px;"></i>
+                            </div>
+                            @endif
+                        </a>
                         </li>
                         @elseif (auth()->user()->category == 'PL102')
                         <li class="dropdown nav-icon">
@@ -865,6 +886,13 @@
                                             data-target="#tutup" class="btn sidebar-link">
                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Bahagian 4 </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('oleo.bahagianiv') }}" data-toggle="modal"
+                                            data-target="#tutup" class="btn sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Bahagian 5 </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">

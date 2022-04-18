@@ -790,60 +790,61 @@
                                         <h1 style="page-break-before:always"></h1>
 
                                         <div class="row form-group" style="padding-top: 10px; ">
-
-
-
-                                            <div class="text-right col-md-7 mb-4 ">
-
-                                                <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
-                                                    onclick="myPrint('myfrm')" value="print">Cetak</button>
-                                            </div>
-
-                                        </div>
-                                    </form>
-                                        <!-- Vertically Centered modal Modal -->
-                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                            PENGESAHAN</h5>
-                                                        <button type="button" class="close"
-                                                            data-bs-dismiss="modal" aria-label="Close">
-                                                            <i data-feather="x"></i>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <p>
-                                                            Anda pasti mahu menghantar penyata ini?
-                                                        </p>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block"
-                                                                style="color:#275047">Tidak</span>
-                                                        </button>
-                                                        <button type="button" class="btn btn-primary ml-1"
-                                                            data-bs-dismiss="modal">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Hantar</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </body>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                </form>
+                <div class="text-right col-md-7 mb-4 ">
+
+                        <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
+                            onclick="myPrint('myfrm')" value="print">Cetak</button>
+                    </div>
+
+                </div>
+
+                <!-- Vertically Centered modal Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                        role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                    PENGESAHAN</h5>
+                                <button type="button" class="close"
+                                    data-bs-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Anda pasti mahu menghantar penyata ini?
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary"
+                                    data-bs-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block"
+                                        style="color:#275047">Tidak</span>
+                                </button>
+                                <button type="button" class="btn btn-primary ml-1"
+                                    data-bs-dismiss="modal">
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Hantar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </div>
-      \
+
 
     </div>
 
