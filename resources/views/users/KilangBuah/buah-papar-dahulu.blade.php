@@ -55,27 +55,7 @@
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
-
-
-
-
                                     <body>
-                                        {{-- <p align="left">
-                                                PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
-                                        {{-- <div align="right">
-                                                <table border="0" width="25%" id="table1">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>MPOB(EL) PX 4-MF </b></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div> --}}
                                             <div align="right">
                                                 <table border="0" width="25%">
                                                     <tbody>
@@ -550,20 +530,20 @@
 
                                             <tbody style="border: 1px solid black;">
                                                 <tr style="border: 1px solid black;">
-                                                    <td align="center" width="209" style="border: 1px solid black;"><b>
+                                                    <td align="center" width="209"><b>
                                                             <font size="3">Sebab-Sebab OER Meningkat</font>
                                                         </b></td>
                                                     <td align="center" width="92">
-                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;)
-                                                                </font></b>
+                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;
+                                                                </font>)</b>
                                                         </font>
                                                     </td>
                                                     <td align="center" width="201"><b>
                                                             <font size="3">Sebab-Sebab OER Menurun</font>
                                                         </b></td>
                                                     <td align="center" width="93">
-                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;)
-                                                                </font></b>
+                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;
+                                                                </font>)</b>
                                                         </font>
                                                     </td>
                                                 </tr>

@@ -298,69 +298,6 @@
                             @endif
                         </a>
                         </li>
-                        @elseif (auth()->user()->category == 'PL102')
-                        <li class="dropdown nav-icon">
-                            <a href="{{ route('isirung.email') }}"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-3">
-                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                </div>
-                            </a>
-
-                        </li>
-                        @elseif (auth()->user()->category == 'PL104')
-                        <li class="dropdown nav-icon">
-                            <a href="{{ route('oleo.email') }}"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-3">
-                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                </div>
-                            </a>
-
-                        </li>
-                        @elseif (auth()->user()->category == 'PL111')
-                        <li class="dropdown nav-icon">
-                            <a href="{{ route('pusatsimpan.email') }}"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-3">
-                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                </div>
-                            </a>
-
-                        </li>
-                        @elseif (auth()->user()->category == 'PLBIO')
-                        <li class="dropdown nav-icon">
-                            <a href="{{ route('bio.email') }}"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-3">
-                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                </div>
-                            </a>
-
-                        </li>
-                        {{-- @elseif (auth()->user()->category == 'admin')
-                            <p class="m-b-0">{{ ucfirst(auth()->user()->role) }}</p> --}}
-                        @endif
-
-
-
-
-                        {{-- <li class="dropdown nav-icon">
-                            <a href="{{ route('penapis.email') }}"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-3">
-                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                </div>
-                            </a>
-
-                        </li> --}}
-
-                        <!-- ============================================================== -->
-                        <!-- End Comment -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
                         <li class="nav-item dropdown">
 
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
