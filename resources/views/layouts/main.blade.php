@@ -257,7 +257,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item dropdown border-right" >
+                        <li class="dropdown nav-icon" >
                             @if (auth()->user()->category == 'PL91')
                             <a href="{{ route('buah.email') }}"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
