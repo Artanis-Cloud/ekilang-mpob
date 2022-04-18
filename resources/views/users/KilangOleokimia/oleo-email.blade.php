@@ -180,8 +180,8 @@
                                     style="float: left">Sebelumnya</a>
                             </div> --}}
                             <div class="text-right col-md-12 ">
-                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                    style="float: right" data-bs-target="#emel">Hantar</button>
+                                <button type="button" class="btn btn-primary " data-toggle="modal"
+                                    style="float: right" data-target="#emel">Hantar</button>
                             </div>
 
                         </div>

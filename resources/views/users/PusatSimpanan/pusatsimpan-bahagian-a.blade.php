@@ -80,7 +80,7 @@
                                     <span class="required">Stok Awal</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_stokawal' style="width: 50%"
+                                    <input type="text" class="form-control" name='e07bt_stokawal' style="width: 50%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_stokawal" required title="Sila isikan butiran ini.">
                                     @error('e07bt_stokawal')
                                         <div class="alert alert-danger">
@@ -110,7 +110,7 @@
                                             title="Jumlah Penerimaan Dalam Negeri adalah termasuk jumlah Import."></i></span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_terima' style="width: 50%"
+                                    <input type="text" class="form-control" name='e07bt_terima' style="width: 50%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_terima" required title="Sila isikan butiran ini.">
                                     @error('e07bt_terima')
                                         <div class="alert alert-danger">
@@ -122,7 +122,7 @@
                                     <span class="required">Pelarasan(+/-)</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 50%"
+                                    <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 50%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_pelarasan" required title="Sila isikan butiran ini.">
                                     @error('e07bt_pelarasan')
                                         <div class="alert alert-danger">
@@ -150,7 +150,7 @@
                                     <span class="required">Stok Akhir</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_stokakhir' style="width: 50%"
+                                    <input type="text" class="form-control" name='e07bt_stokakhir' style="width: 50%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_stokakhir" required title="Sila isikan butiran ini.">
                                     @error('e07bt_stokakhir')
                                         <div class="alert alert-danger">
@@ -166,7 +166,7 @@
                                             title="Jumlah Edaran Dalam Negeri adalah termasuk jumlah Eksport."></i></span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_edaran' style="width: 50%"
+                                    <input type="text" class="form-control" name='e07bt_edaran' style="width: 50%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_edaran" required title="Sila isikan butiran ini.">
                                     @error('e07bt_edaran')
                                         <div class="alert alert-danger">
@@ -185,7 +185,7 @@
 
                         </div>
                     </form>
-                    
+
 <hr>
                     <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:3%; margin-bottom:-2%">Senarai Instolasi Keluaran Minyak
                         Sawit</h5>
@@ -278,14 +278,14 @@
                                                                             </div>
                                                                             <label>Stok Awal </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e07bt_stokawal'
+                                                                                <input type="text" name='e07bt_stokawal' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e07bt_stokawal }}">
                                                                             </div>
                                                                             <label>Penerimaan Dalam Negeri
                                                                             </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e07bt_terima'
+                                                                                <input type="text" name='e07bt_terima' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e07bt_terima }}">
                                                                             </div>
@@ -299,7 +299,7 @@
                                                                             <label>Edaran Dalam Negeri
                                                                             </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e07bt_edaran'
+                                                                                <input type="text" name='e07bt_edaran' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e07bt_edaran }}">
                                                                             </div>
@@ -312,13 +312,13 @@
                                                                             </div>
                                                                             <label>Pelarasan (+/-) </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e07bt_pelarasan'
+                                                                                <input type="text" name='e07bt_pelarasan' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e07bt_pelarasan }}">
                                                                             </div>
                                                                             <label>Stok Akhir </label>
                                                                             <div class="form-group">
-                                                                                <input type="text" name='e07bt_stokakhir'
+                                                                                <input type="text" name='e07bt_stokakhir' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e07bt_stokakhir }}">
                                                                             </div>
