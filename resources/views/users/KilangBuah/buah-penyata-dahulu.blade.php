@@ -59,26 +59,6 @@
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
-                                    {{-- <h6 style="color: rgb(39, 80, 71, 0.8);">
-
-                                    <b><i> Nota :</i></b>
-                                    <ul>
-                                    <li>
-                                    <p><i> Data yang dikeluarkan adalah data 36 bulan terdahulu dari tahun yang diminta.</i></p>
-                                    </li>
-                                    <li>
-                                    <p><i> Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai lebih daripada lima pelesen.</i></p>
-                                    </li>
-                                    <li>
-                                    <p><i> Paparan hanya dapat dilakukan bermula dari tahun 2000 sahaja.</i></p>
-                                    </li>
-                                    </ul>
-
-
-
-                                    </h6> --}}
-
-
                                     <div class="container center mt-2">
                                         <div class="row">
                                             <label for="fname"
@@ -86,7 +66,7 @@
                                                 Sila Pilih Tahun</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" name="tahun">
+                                                    <select class="form-control" id="basicSelect" name="tahun">
                                                         <option selected hidden disabled>Sila Pilih Tahun</option>
                                                         <option>2004</option>
                                                         <option>2005</option>
@@ -123,7 +103,7 @@
                                             </label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" name="bulan">
+                                                    <select class="form-control" id="basicSelect" name="bulan">
                                                         <option selected hidden disabled>Sila Pilih Bulan</option>
                                                         <option value="01">Januari</option>
                                                         <option value="02">Februari</option>

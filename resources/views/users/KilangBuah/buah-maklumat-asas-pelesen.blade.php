@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card" style="margin-right:10%; margin-left:10%">
+                <div class="card" style="margin-right:3%; margin-left:3%">
                     {{-- <div class="card-header border-bottom">
                         <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                     </div> --}}
@@ -115,7 +115,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 No. Telefon (Pejabat / Kilang)</label>
@@ -131,7 +131,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 No. Faks</label>
@@ -146,7 +146,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Alamat Emel Kilang</label>
@@ -161,7 +161,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nama Pegawai Melapor</label>
@@ -176,7 +176,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Jawatan Pegawai Melapor</label>
@@ -191,7 +191,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 No. Telefon Pegawai Melapor</label>
@@ -207,7 +207,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Alamat Emel Pegawai Melapor</label>
@@ -222,7 +222,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Nama Pegawai Bertanggungjawab</label>
@@ -237,7 +237,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Jawatan Pegawai
@@ -253,7 +253,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Alamat Emel Pengurus</label>
@@ -270,7 +270,7 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Syarikat Induk</label>
@@ -290,7 +290,7 @@
                                                 Kumpulan </label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" name="kumpulan">
+                                                    <select class="form-control" id="basicSelect" name="kumpulan">
                                                         <option selected hidden disabled>Sila Pilih</option>
                                                         <option>Kerajaan</option>
                                                         <option>Swasta</option>
@@ -309,7 +309,7 @@
                                                 POMA </label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-select" id="basicSelect" name="poma">
+                                                    <select class="form-control" id="basicSelect" name="poma">
                                                         <option selected hidden disabled>Sila Pilih</option>
                                                         <option>Ya</option>
                                                         <option>Tidak</option>
@@ -323,7 +323,7 @@
                                                         @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kapasiti Pemprosesan / Tahun</label>
@@ -338,7 +338,7 @@
                                             @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kapasiti Tangki Simpanan</label>
@@ -366,7 +366,10 @@
                                         </div>
                                         <div class="row mt-3 text-right">
                                             <div class="col-md-5">
-                                                <span class="required">Bilangan Tangki</span>
+                                                <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                Bilangan Tangki</label>
+                                                {{-- <span class="required">Bilangan Tangki</span> --}}
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b5'
@@ -384,7 +387,10 @@
                                         </div>
                                         <div class="row mt-3 text-right">
                                             <div class="col-md-5">
-                                                <span class="required">Kapasiti Tangki Simpanan (Tan)</span>
+                                                <label for="fname"
+                                                class="text-right control-label col-form-label required align-items-center">
+                                                Kapasiti Tangki Simpanan (Tan)</label>
+                                                {{-- <span class="required">Kapasiti Tangki Simpanan (Tan)</span> --}}
                                             </div>
                                             <div class="col-md-1">
                                                 <input type="text" class="form-control" name='e104_b5'
@@ -400,8 +406,8 @@
 
 
                                         </div>
-                                        <div class="row">
-                                            <i style="width: 90%">Nota: Sekiranya kilang/pelesen tiada tangki simpanan
+                                        <div class="row mx-3" style="margin-left:14%">
+                                            <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
                                                 khusus untuk sesuatu produk. Sila campurkan kesemua
                                                 bilangan dan kapasiti tangki dan lapor dalam kategori Others
                                             </i>
@@ -409,8 +415,8 @@
                                     </div>
 
 
-                                    <div class="row form-group" style="margin-top: 7%">
-                                    <div class="text-right col-md-7 mb-4 ">
+                                    <div class="row form-group" style="margin-top: 2%">
+                                    <div class="text-right col-md-7">
                                             <button type="submit" class="btn btn-primary"
                                                 style="float: right">Simpan</button>
                                         </div>
@@ -463,7 +469,7 @@
 
 
                 </div>
-                <br>
+                
 
 
             </div>

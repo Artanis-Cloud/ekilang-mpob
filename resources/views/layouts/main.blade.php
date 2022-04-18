@@ -299,26 +299,6 @@
                         </a>
                         </li>
 
-
-
-
-
-                        {{-- <li class="dropdown nav-icon">
-                            <a href="{{ route('penapis.email') }}"
-                                class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-3">
-                                    <i class="fa fa-envelope" style="font-size:20px;"></i>
-                                </div>
-                            </a>
-
-                        </li> --}}
-
-                        <!-- ============================================================== -->
-                        <!-- End Comment -->
-                        <!-- ============================================================== -->
-                        <!-- ============================================================== -->
-                        <!-- User profile and search -->
-                        <!-- ============================================================== -->
                         <li class="nav-item dropdown">
 
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
