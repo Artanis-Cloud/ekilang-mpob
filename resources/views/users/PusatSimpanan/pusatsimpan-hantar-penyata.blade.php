@@ -105,7 +105,7 @@
 
                                                     <tr>
 
-                                                        <td width="25%" height="19">Nama Premis 
+                                                        <td width="25%" height="19">Nama Premis
                                                         </td>
 
                                                         <td width="88%" height="19"><b>{{ auth()->user()->name }}
@@ -396,11 +396,11 @@
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                                    <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b> {{ $user->e07_sdate ?? '' }} </b></p>
+                                                    <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b> {{ $date }} </b></p>
                                                     <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $user->e07_npg }}</b>
                                                     </p>
                                                     <p>Jawatan Pegawai Melapor:&nbsp;&nbsp;<b> {{ $user->e07_jpg }}</b></p>
-                                                    <p>No Telefon Kilang:&nbsp;&nbsp;<b> {{ $pelesen->e_notel }}</b>
+                                                    <p>No Telefon Kilang:&nbsp;&nbsp;<b> {{ $user->e07_notel }}</b>
                                                     </p>
 
                     </form>
@@ -420,42 +420,12 @@
 
                     </div>
 
-                    <!-- Vertically Centered modal Modal -->
-                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                            role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                        PENGESAHAN</h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                        <i data-feather="x"></i>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>
-                                        Anda pasti mahu menghantar penyata ini?
-                                    </p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                    </button>
-                                    <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Hantar</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
         {{-- </div> --}}
-    
+
 
 
 

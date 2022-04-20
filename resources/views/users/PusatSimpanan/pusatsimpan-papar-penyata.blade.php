@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-                    <form method="get" action="" id="myfrm">
+                    {{-- <form method="get" action="" id="myfrm"> --}}
                         <div class="card" style="margin-right:2%; margin-left:2%">
                             <br>
                             <br>
@@ -105,7 +105,7 @@
 
                                                     <tr>
 
-                                                        <td width="25%" height="19">Nama Premis 
+                                                        <td width="25%" height="19">Nama Premis
                                                         </td>
 
                                                         <td width="88%" height="19"><b>{{ auth()->user()->name }}
@@ -402,21 +402,25 @@
                                                 <input type="date" id="e91_sdate" class="form-control" size="50"
                                                     name='e102_sdate' value="{{ $user->e07_sdate }}" readonly>
                                             </p> --}}
+
+                                            <form action="{{ route('pusatsimpan.update.papar.penyata', [$user->e07_reg]) }}"
+                                                method="post">
+                                                @csrf
+
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 <input type="text" id="e_npg" class="form-control" size="50"
-                                                    name='e102_npg' value="{{ $user->e07_npg }}">
+                                                    name='e07_npg' value="{{ $user->e07_npg }}">
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
                                                 <input type="text" id="e_jpg" class="form-control" size="50"
-                                                    name='e102_jpg' value="{{ $user->e07_jpg }}">
+                                                    name='e07_jpg' value="{{ $user->e07_jpg }}">
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
                                                 <input type="text" id="e_notel" class="form-control" size="50"
-                                                    name="e102_notel" value="">
+                                                    name="e07_notel" value="{{ $user->e07_notel }}">
                                             </p>
 
-                    </form>
 
 
                     <h1 style="page-break-before:always"></h1>
@@ -431,8 +435,8 @@
                         <div class="text-right col-md-7">
                             <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                                 data-target="#next">Hantar</button>
-                            <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
-                                onclick="myPrint('myfrm')" value="print">Cetak</button>
+                            {{-- <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
+                                onclick="myPrint('myfrm')" value="print">Cetak</button> --}}
                         </div>
                         <div class="text-right col-md-7 mb-4 ">
 
@@ -463,16 +467,15 @@
                                         <i class="bx bx-x d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                     </button>
-                                    <a href="{{ route('pusatsimpan.hantar.penyata') }}" type="button"
-                                    class="btn btn-primary ml-1">
-
-                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Hantar</span>
-                                </a>
+                                    <button type="submit" class="btn btn-primary ml-1">
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">Ya</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
