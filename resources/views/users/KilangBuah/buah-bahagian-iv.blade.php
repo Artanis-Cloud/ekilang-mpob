@@ -303,23 +303,6 @@
                         </div>
                     </div>
                     <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 </div>
             </div>
         </div>
@@ -350,21 +333,35 @@
             var e91_aj3 = $("#e91_aj3").val();
             var e91_aj4 = $("#e91_aj4").val();
             var e91_aj5 = $("#e91_aj5").val();
-            var e91_aj6 = $("#e91_aj6").val();
-            var e91_aj7 = $("#e91_aj7").val();
             var e91_aj8 = $("#e91_aj8").val();
 
             var jumlah = $("#jumlah").val();
             var jumlah_input = 0;
 
             jumlah_input = parseFloat(Number(e91_aj1)) + parseFloat(Number(e91_aj2)) +
-                parseFloat(Number(e91_aj3)) + parseFloat(Number(e91_aj4)) + parseFloat(Number(e91_aj5)) + parseFloat(Number(
-                    e91_aj6)) +
-                parseFloat(Number(e91_aj7)) + parseFloat(Number(e91_aj8));
-            console.log(jumlah_input.toFixed(2));
+                parseFloat(Number(e91_aj3)) + parseFloat(Number(e91_aj4)) + parseFloat(Number(e91_aj5)) + parseFloat(Number(e91_aj8));
+            // console.log(jumlah_input.toFixed(2));
             document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
         }
     </script>
+    {{-- <script>
+        function validation_jumlah() {
+            var e91_aj1 = $("#e91_aj1").val();
+            var e91_aj2 = $("#e91_aj2").val();
+            var e91_aj3 = $("#e91_aj3").val();
+            var e91_aj4 = $("#e91_aj4").val();
+            var e91_aj5 = $("#e91_aj5").val();
+            var e91_aj8 = $("#e91_aj8").val();
+
+            var jumlah = $("#jumlah").val();
+            var jumlah_input = 0;
+
+            jumlah_input = parseFloat(Number(e91_aj1)) + parseFloat(Number(e91_aj2)) + parseFloat(Number(e91_aj3)) + parseFloat(Number(e91_aj4))
+            + parseFloat(Number(e91_aj5)) + parseFloat(Number(e91_aj8));
+
+            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script> --}}
 
 
     </body>
