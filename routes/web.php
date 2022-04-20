@@ -229,6 +229,8 @@ Route::middleware('auth')->group(function () {
         Route::get('buah/bahagian-vi', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagianvi'])->name('buah.bahagianvi');
 
         Route::get('buah/papar-penyata', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_paparpenyata'])->name('buah.paparpenyata');
+        Route::post('buah/update-penyata/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_papar_penyata'])->name('buah.update.papar.penyata');
+
         Route::get('buah/hantar-penyata', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_hantar_penyata'])->name('buah.hantar.penyata');
 
         Route::get('buah/email', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_email'])->name('buah.email');

@@ -461,6 +461,23 @@ class KilangBuahController extends Controller
         return view('users.KilangBuah.buah-papar-penyata', compact('layout','returnArr','user', 'pelesen','penyata','totaliii','bulan','tahun'));
     }
 
+    public function buah_update_papar_penyata(Request $request, $id)
+    {
+        // dd($request->all());
+
+
+        $penyata = E91Init::findOrFail($id);
+        $penyata->e91_npg = $request->e91_npg;
+        $penyata->e91_jpg = $request->e91_jpg;
+        $penyata->e91_notel = $request->e91_notel;
+        $penyata->save();
+
+
+        return redirect()->route('buah.hantar.penyata')
+            ->with('success', 'Penyata Sudah Dihantar');
+
+    }
+
     public function buah_hantar_penyata()
     {
 

@@ -261,7 +261,7 @@
                             @if (auth()->user()->category == 'PL91')
                             <a href="{{ route('buah.email') }}"
                                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                                <div class="mt-1">
+                                <div style="margin-top:13px">
                                     <i class="fa fa-envelope" style="font-size:20px;" ></i>
                                 </div>
                             </a>
