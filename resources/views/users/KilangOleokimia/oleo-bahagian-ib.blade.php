@@ -62,14 +62,14 @@
                                             </div>
                                             <hr>
 
-                                            <div class="container center mt-4">
+                                            <div class="container center mt-4" style="margin-left:4%">
 
                                                 <div class="row">
                                                     <div class="col-md-3">
                                                         <span class="required">Nama Produk dan Kod</span>
                                                     </div>
                                                     <div class="col-md-3">
-                                                        <select class="form-select" id="produk"
+                                                        <select class="form-control" id="produk"
                                                         name="e104_b4" style="width: 50%">
                                                         <option selected hidden disabled>Sila Pilih</option>
                                                         @foreach ($produk as $data)

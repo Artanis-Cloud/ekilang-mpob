@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-                <form method="get" action="" id="myfrm">
+                {{-- <form method="get" action="" id="myfrm"> --}}
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         {{-- <div class="card-header border-bottom">
                         <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -1095,12 +1095,12 @@
                                                         style="float: left">Sebelumnya</a>
                                                 </div>
                                                 <div class="text-right col-md-7 mb-4 ">
-                                                    <button type="submit" class="btn btn-primary " data-toggle="modal"
+                                                    <button type="button" class="btn btn-primary " data-toggle="modal"
                                                         style="float: right"
                                                         data-target="#exampleModalCenter">Hantar</button>
-                                                    <button type="button" class="btn btn-primary "
+                                                    {{-- <button type="button" class="btn btn-primary "
                                                         style="float: right; margin-right:1%" onclick="myPrint('myfrm')"
-                                                        value="print">Cetak</button>
+                                                        value="print">Cetak</button> --}}
                                                 </div>
 
                                             </div>

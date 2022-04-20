@@ -78,7 +78,6 @@ class PusatSimpananController extends Controller
 
         return redirect()->route('pusatsimpan.maklumatasaspelesen')
             ->with('success', 'Maklumat telah dikemaskini');
-
     }
 
 
@@ -122,7 +121,7 @@ class PusatSimpananController extends Controller
 
         $user = E07Init::where('e07_nl', auth()->user()->username)->first('e07_reg');
 
-        $penyata = E07Btranshipment::with('e07init','produk')->where('e07bt_idborang', $user->e07_reg)->get();
+        $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->get();
 
         $produks = Produk::select('prodid', 'prodname')->where('prodcat', '!=', '07')->orderBy('prodname')->get();
         // dd($penyata);
@@ -136,8 +135,18 @@ class PusatSimpananController extends Controller
 
 
 
-        return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact('returnArr', 'layout','user','penyata','produks',
-        'total','total2','total3','total4','total5'));
+        return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact(
+            'returnArr',
+            'layout',
+            'user',
+            'penyata',
+            'produks',
+            'total',
+            'total2',
+            'total3',
+            'total4',
+            'total5'
+        ));
     }
 
     public function pusatsimpan_add_bahagian_a(Request $request)
@@ -148,13 +157,12 @@ class PusatSimpananController extends Controller
         $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->where('e07bt_produk', $request->e07bt_produk)->first();
         if ($penyata) {
             return redirect()->back()->with("error", "Produk telah Tersedia");
-        }
-        else{
+        } else {
 
-        $this->validation_bahagian_a($request->all())->validate();
-        $this->store_bahagian_a($request->all());
+            $this->validation_bahagian_a($request->all())->validate();
+            $this->store_bahagian_a($request->all());
 
-        return redirect()->route('pusatsimpan.bahagiana')->with('success', 'Maklumat sudah ditambah');
+            return redirect()->route('pusatsimpan.bahagiana')->with('success', 'Maklumat sudah ditambah');
         }
     }
 
@@ -229,7 +237,7 @@ class PusatSimpananController extends Controller
 
         $penyata->delete();
         return redirect()->route('pusatsimpan.bahagiana')
-        ->with('success','Produk Dihapuskan');
+            ->with('success', 'Produk Dihapuskan');
     }
 
 
@@ -283,7 +291,7 @@ class PusatSimpananController extends Controller
 
         $user = E07Init::where('e07_nl', auth()->user()->username)->first();
 
-        $penyata = E07Btranshipment::with('e07init','produk')->where('e07bt_idborang', $user->e07_reg)->whereHas('produk', function ($query) {
+        $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '!=', '07');
         })->get();
         // dd($penyata);
@@ -295,10 +303,38 @@ class PusatSimpananController extends Controller
 
 
 
-        return view('users.PusatSimpanan.pusatsimpan-papar-penyata', compact('layout','returnArr','user','penyata','pelesen','tahun','bulan',
-        'total', 'total2', 'total3', 'total4', 'total5'));
+        return view('users.PusatSimpanan.pusatsimpan-papar-penyata', compact(
+            'layout',
+            'returnArr',
+            'user',
+            'penyata',
+            'pelesen',
+            'tahun',
+            'bulan',
+            'total',
+            'total2',
+            'total3',
+            'total4',
+            'total5'
+        ));
     }
 
+    public function pusatsimpan_update_papar_penyata(Request $request, $id)
+    {
+        // dd($request->all());
+
+
+        $penyata = E07Init::findOrFail($id);
+        $penyata->e07_npg = $request->e07_npg;
+        $penyata->e07_jpg = $request->e07_jpg;
+        $penyata->e07_notel = $request->e07_notel;
+        $penyata->save();
+
+
+        return redirect()->route('pusatsimpan.hantar.penyata')
+            ->with('success', 'Penyata Sudah Dihantar');
+
+    }
 
 
     public function pusatsimpan_hantar_penyata()
@@ -321,11 +357,13 @@ class PusatSimpananController extends Controller
 
         $tahun = date("Y");
 
+        $date = date("d-m-Y");
+
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
         $user = E07Init::where('e07_nl', auth()->user()->username)->first();
 
-        $penyata = E07Btranshipment::with('e07init','produk')->where('e07bt_idborang', $user->e07_reg)->whereHas('produk', function ($query) {
+        $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '!=', '07');
         })->get();
         // dd($penyata);
@@ -333,7 +371,7 @@ class PusatSimpananController extends Controller
 
 
 
-        return view('users.PusatSimpanan.pusatsimpan-hantar-penyata', compact('layout','returnArr','user','penyata','pelesen','tahun','bulan'));
+        return view('users.PusatSimpanan.pusatsimpan-hantar-penyata', compact('layout', 'returnArr', 'date', 'user', 'penyata', 'pelesen', 'tahun', 'bulan'));
     }
 
     public function pusatsimpan_email()
@@ -358,7 +396,7 @@ class PusatSimpananController extends Controller
     }
 
 
-    public function pusatsimpan_send_email_proses (Request $request)
+    public function pusatsimpan_send_email_proses(Request $request)
     {
         // dd($request->all());
         $this->validation_send_email($request->all())->validate();
@@ -434,17 +472,19 @@ class PusatSimpananController extends Controller
             ->where('e07_bln', $request->bulan)->first();
         // dd($users->e102_nobatch);
 
-
-        $penyata = H07Btranshipment::with('e07init','produk')->where('e07bt_nobatch', $user->e07_nobatch)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '!=', '07');
-        })->get();
-        // dd($penyata);
-        $total = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_stokawal');
-        $total2 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_terima');
-        $total3 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_edaran');
-        $total4 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_pelarasan');
-        $total5 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_stokakhir');
-
+        if ($user) {
+            $penyata = H07Btranshipment::with('e07init', 'produk')->where('e07bt_nobatch', $user->e07_nobatch)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '!=', '07');
+            })->get();
+            // dd($penyata);
+            $total = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_stokawal');
+            $total2 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_terima');
+            $total3 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_edaran');
+            $total4 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_pelarasan');
+            $total5 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_stokakhir');
+        } else {
+            return redirect()->back()->with('error', 'Penyata Tidak Wujud!');
+        }
 
         $breadcrumbs    = [
             ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
@@ -546,5 +586,4 @@ class PusatSimpananController extends Controller
     {
         //
     }
-
 }

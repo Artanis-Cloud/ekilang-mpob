@@ -40,7 +40,7 @@
                 </div>
             </div>
         </div>
-                    <form method="get" action="" id="myfrm">
+                    {{-- <form method="get" action="" id="myfrm"> --}}
                         <div class="card" style="margin-right:2%; margin-left:2%; margin-top:2%">
                             {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -122,7 +122,7 @@
 
                                                     <tr>
 
-                                                        <td width="25%" height="19">Nama Premis 
+                                                        <td width="25%" height="19">Nama Premis
                                                         </td>
 
                                                         <td width="88%" height="19"><b>{{ auth()->user()->name }}
@@ -868,6 +868,9 @@
                                                 <input type="date" id="e91_sdate" class="form-control" size="50"
                                                     name='e102_sdate' value="{{ $penyatai->e102_sdate }}" readonly>
                                             </p> --}}
+                                            <form action="{{ route('isirung.update.papar.penyata', [$penyatai->e102_reg]) }}"
+                                                method="post">
+                                                @csrf
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 <input type="text" id="e_npg" class="form-control" size="50"
                                                     name='e102_npg' value="{{ $penyatai->e102_npg }}">
@@ -879,7 +882,7 @@
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
                                                 <input type="text" id="e_notel" class="form-control" size="50"
-                                                    name="e102_notel" value="">
+                                                    name="e102_notel" value="{{ $penyatai->e102_notel }}">
                                             </p>
 
 
@@ -895,10 +898,10 @@
                                                         style="float: left">Sebelumnya</a>
                                                 </div>
                                                 <div class="text-right col-md-7 mb-4 ">
-                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                                        data-bs-target="#next">Hantar</button>
-                                                    <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
-                                                        onclick="myPrint('myfrm')" value="print">Cetak</button>
+                                                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                                                        data-target="#next">Hantar</button>
+                                                    {{-- <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
+                                                        onclick="myPrint('myfrm')" value="print">Cetak</button> --}}
                                                 </div>
 
                                             </div>
@@ -929,12 +932,10 @@
                                                                 <span class="d-none d-sm-block"
                                                                     style="color:#275047">Tidak</span>
                                                             </button>
-                                                            <a href="{{ route('isirung.hantar.penyata') }}" type="button"
-                                                            class="btn btn-primary ml-1">
-
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Hantar</span>
-                                                        </a>
+                                                            <button type="submit" class="btn btn-primary ml-1">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Ya</span>
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </div>

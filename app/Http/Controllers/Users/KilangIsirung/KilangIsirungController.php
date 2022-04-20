@@ -902,6 +902,23 @@ class KilangIsirungController extends Controller
         ));
     }
 
+    public function isirung_update_papar_penyata(Request $request, $id)
+    {
+        // dd($request->all());
+
+
+        $penyata = E102Init::findOrFail($id);
+        $penyata->e102_npg = $request->e102_npg;
+        $penyata->e102_jpg = $request->e102_jpg;
+        $penyata->e102_notel = $request->e102_notel;
+        $penyata->save();
+
+
+        return redirect()->route('isirung.hantar.penyata')
+            ->with('success', 'Penyata Sudah Dihantar');
+
+    }
+
 
     public function isirung_hantar_penyata()
     {
@@ -921,6 +938,7 @@ class KilangIsirungController extends Controller
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
+        $date = date("d-m-Y");
 
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
@@ -950,6 +968,7 @@ class KilangIsirungController extends Controller
         return view('users.KilangIsirung.isirung-hantar-penyata', compact(
             'layout',
             'returnArr',
+            'date',
             'user',
             'pelesen',
             'penyatai',
@@ -1092,15 +1111,8 @@ class KilangIsirungController extends Controller
 
             $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();
         } else {
-            $i = [];
-            $iii = [];
-            $totaliii = [];
-            $iv = [];
-            $totaliv = [];
-            $v = [];
-            $totalv = [];
-            $vi = [];
-            $vii = [];
+            return redirect()->back()->with('error', 'Penyata Tidak Wujud!');
+
         }
 
 

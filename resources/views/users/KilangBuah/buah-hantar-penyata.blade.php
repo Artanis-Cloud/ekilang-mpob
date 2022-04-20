@@ -572,20 +572,20 @@
 
                                             <tbody style="border: 1px solid black;">
                                                 <tr style="border: 1px solid black;">
-                                                    <td align="center" width="209" style="border: 1px solid black;"><b>
+                                                    <td align="center" width="209"><b>
                                                             <font size="3">Sebab-Sebab OER Meningkat</font>
                                                         </b></td>
                                                     <td align="center" width="92">
-                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;)
-                                                                </font></b>
+                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;
+                                                                </font>)</b>
                                                         </font>
                                                     </td>
                                                     <td align="center" width="201"><b>
                                                             <font size="3">Sebab-Sebab OER Menurun</font>
                                                         </b></td>
                                                     <td align="center" width="93">
-                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;)
-                                                                </font></b>
+                                                        <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;
+                                                                </font>)</b>
                                                         </font>
                                                     </td>
                                                 </tr>
@@ -1085,12 +1085,12 @@
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
-                                        <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{ $penyata->e91_sdate ?? '' }}
+                                        <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $date }}</b>
                                         </p>
-                                        <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e91_npg }}</b>
+                                        <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_npg }}</b>
                                         </p>
-                                        <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $pelesen->e91_jpg }}</b></p>
-                                        <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $pelesen->e_notel }}</b>
+                                        <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_jpg }}</b></p>
+                                        <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyata->e91_notel }}</b>
                                         </p>
                                     </body>
                                 </div>
@@ -1144,49 +1144,12 @@
                             </div>
                         </div>
                     </div>
-                    {{-- <p><a href="adsubmenu.php">Keluar Ke Menu Penyelenggaraan</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a href="proses6.php">Proses 6</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            </p> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
         </div>
         </div>
-
-
-
-
-
-
-
-
         </div>
         <br>
         </form>
@@ -1195,62 +1158,15 @@
         </div>
         </div>
 
-
-
-
-        {{-- </div>
-                                                                    </div> --}}
-
-        {{-- </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </section><!-- End Hero -->
 
 
-
-
-    <!-- ======= Footer ======= -->
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
     </script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.calc').change(function() {
-                var total = 0;
-                $('.calc').each(function() {
-                    if ($(this).val() != '') {
-                        total += parseInt($(this).val());
-                    }
-                });
-                $('#total').html(total);
-            });
-        });
     </script>
 
     <script>
