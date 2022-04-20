@@ -134,26 +134,21 @@
                                                 <tbody>
                                                     <tr>
 
-                                                        <td width="25%" height="19">
-                                                            <font face="Times New Roman">Nombor Lesen</font>
+                                                        <td width="25%" height="19">Nombor Lesen
                                                         </td>
 
                                                         <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman">
-                                                                    {{ auth()->user()->username }}</font>
+                                                                    {{ auth()->user()->username }}
                                                             </b></td>
 
                                                     </tr>
 
                                                     <tr>
 
-                                                        <td width="25%" height="19">
-                                                            <font face="Times New Roman">Nama Premis </font>
+                                                        <td width="25%" height="19">Nama Premis
                                                         </td>
 
-                                                        <td width="88%" height="19"><b>
-                                                                <font face="Times New Roman">{{ auth()->user()->name }}
-                                                                </font>
+                                                        <td width="88%" height="19"><b>{{ auth()->user()->name }}
                                                             </b></td>
 
                                                     </tr>
@@ -173,21 +168,7 @@
                                             <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
-                                                    <tr>
-
-                                                        <td width="35%">Nombor Lesen</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_nl }}</b></td>
-
-                                                    </tr>
-
-                                                    <tr>
-
-                                                        <td width="35%">Nama Premis</td>
-
-                                                        <td width="65%"><b>{{ $pelesen->e_np }}</b></td>
-
-                                                    </tr>
+                                                    
 
                                                     <tr>
 
@@ -974,49 +955,15 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <p><b>
-                                                    {{-- <font color="#0000FF">BAHAGIAN VII :&nbsp;&nbsp;&nbsp;&nbsp; IMPORT
-                                                        PRODUK SAWIT</font>
-                                                </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td width="14%" align="center"><b>
-                                                                <font size="2">Produk Minyak Sawit</font>
-                                                            </b></td>
-                                                        <td width="7%" align="center"><b>
-                                                                <font size="2">Kod Produk</font>
-                                                            </b></td>
-                                                        <td width="15%" align="center"><b>
-                                                                <font size="2">Nombor Borang Kastam 1</font>
-                                                            </b></td>
-                                                        <td width="12%" align="center"><b>
-                                                                <font size="2">Tarikh Import</font>
-                                                            </b></td>
-                                                        <td width="10%" align="center"><b>
-                                                                <font size="2">Kuantiti<br> (Tan Metrik)</font>
-                                                            </b></td>
-                                                        <td width="11%" align="center"><b>
-                                                                <font size="2">Nilai (RM)</font>
-                                                            </b></td>
-                                                        <td width="6%" align="center"><b>
-                                                                <font size="2">Kod Negara</font>
-                                                            </b></td>
-                                                        <td width="15%" align="center"><b>
-                                                                <font size="2">Negara Sumber Import</font>
-                                                            </b></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table> --}}
-
+                                            <p>
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                                    <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{$penyataiii->e101_sdate ?? '' }} </p>
-                                                    <p>Nama Pegawai Melapor:&nbsp;&nbsp; {{ $penyataiii->e101_npg  }}
+                                                    <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{$date }} </b></p>
+                                                    <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyataiii->e101_npg  }}</b>
                                                     </p>
-                                                    <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; {{ $penyataiii->e101_jpg }}</p>
-                                                    <p>No Telefon Kilang:&nbsp;&nbsp; {{ $pelesen->e_notel }}
+                                                    <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyataiii->e101_jpg }}</b></p>
+                                                    <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyataiii->e101_notel }}</b>
                                                     </p>
 
                                         </form>

@@ -1214,6 +1214,7 @@ class KilangPenapisController extends Controller
         $bulan = date("m") - 1;
 
         $tahun = date("Y");
+        $date = date("d-m-Y");
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
@@ -1363,7 +1364,7 @@ class KilangPenapisController extends Controller
 
         return view('users.KilangPenapis.penapis-hantar-penyata', compact(
             'layout',
-            'returnArr',
+            'returnArr', 'date',
             'user',
             'pelesen',
             'penyatai',
@@ -1386,6 +1387,24 @@ class KilangPenapisController extends Controller
             'totalib14', 'totaliib14',
             'bulan','tahun'
         ));
+    }
+
+
+    public function penapis_update_papar_penyata(Request $request, $id)
+    {
+        // dd($request->all());
+
+
+        $penyata = E101Init::findOrFail($id);
+        $penyata->e101_npg = $request->e101_npg;
+        $penyata->e101_jpg = $request->e101_jpg;
+        $penyata->e101_notel = $request->e101_notel;
+        $penyata->save();
+
+
+        return redirect()->route('penapis.hantar.penyata')
+            ->with('success', 'Penyata Sudah Dihantar');
+
     }
 
 
@@ -1448,6 +1467,7 @@ class KilangPenapisController extends Controller
             ->where('e101_bln', $request->bulan)->first();
         // dd($users);
 
+        if($users){
         $i = H101B::with('h101init', 'produk')->where('e101_nobatch', $users->e101_nobatch)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', '01');
         })->get();
@@ -1577,7 +1597,9 @@ class KilangPenapisController extends Controller
         $totalvbd6 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3','2')->sum('e101_d6');
         $totalvbd7 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3','2')->sum('e101_d7');
         $totalvbd8 = DB::table("h101_d")->where('e101_nobatch', $users->e101_nobatch)->where('e101_d3','2')->sum('e101_d8');
-
+    } else {
+        return redirect()->back()->with('error', 'Penyata Tidak Wujud!');
+    }
 
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],

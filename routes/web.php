@@ -290,6 +290,8 @@ Route::middleware('auth')->group(function () {
         Route::post('penapis/edit-bahagian-vi/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_edit_bahagian_vi'])->name('penapis.edit.bahagian.vi');
 
         Route::get('penapis/papar-penyata', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_paparpenyata'])->name('penapis.paparpenyata');
+        Route::post('penapis/update-penyata/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_update_papar_penyata'])->name('penapis.update.papar.penyata');
+
         Route::get('penapis/hantar-penyata', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_hantar_penyata'])->name('penapis.hantar.penyata');
 
         Route::get('penapis/email', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_email'])->name('penapis.email');
