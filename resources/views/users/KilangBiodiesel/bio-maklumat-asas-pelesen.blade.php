@@ -1,65 +1,41 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
 
-
-
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative"  data-aos-delay="100">
-
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
-                </div>
-            </div> --}}
-
-            <div class="mt-3 mb-4 row">
-                <div class="col-md-12">
-
-                    <div class="page-breadcrumb" style="padding: 0px">
-                        <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" margin-left:25%;color:white; background-color:#25877bd1">Kembali</a>
-                            </div>
-                            <div class="col-6 align-self-center">
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
-                                                            onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
-                                                            {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #25877b  !important;">
+    <div class="page-wrapper">
+                <div class="page-breadcrumb mb-3">
+                    <div class="row">
+                        <div class="col-5 align-self-center">
+                            <h4 class="page-title">Maklumat Pelesen</h4>
+                        </div>
+                        <div class="col-7 align-self-center">
+                            <div class="d-flex align-items-center justify-content-end">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                            @if (!$loop->last)
+                                                <li class="breadcrumb-item">
+                                                    <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
+                                                        onMouseOver="this.style.color='#25877b'"
+                                                        onMouseOut="this.style.color='grey'">
                                                         {{ $breadcrumb['name'] }}
-                                                    </li>
-                                                @endif
-                                            @endforeach
-
-                                        </ol>
-                                    </nav>
-                                </div>
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li class="breadcrumb-item active" aria-current="page"
+                                                    style="color: #25877b  !important;">
+                                                    {{ $breadcrumb['name'] }}
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ol>
+                                </nav>
                             </div>
                         </div>
                     </div>
-                    <div class="card" style="margin-right:10%; margin-left:10%">
-                        {{-- <div class="card-header border-bottom">
-                            <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
-                        </div> --}}
+                </div>
+                    <div class="card" style="margin-right:3%; margin-left:3%">
                         <div class="card-body">
-                            <div class="row">
-                                {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
 
                                     <div class=" text-center">
@@ -73,9 +49,9 @@
                                     <form action="{{ route('bio.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
                                         @csrf
 
-                                            <div class="row" style="margin-bottom:2.5%">
+                                            <div class="row mb-2" >
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     No. Lesen KPPK</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_nlkppk" class="form-control" placeholder="No. Lesen KPPK"
@@ -89,7 +65,7 @@
                                             </div>
                                             <div class="row" style="margin-bottom:2.5%">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label required col-form-label align-items-center">
+                                                    class="text-right col-sm-4 control-label required col-form-label align-items-center">
                                                     Alamat Premis Berlesen</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_ap1" class="form-control" placeholder="Alamat Surat Menyurat 1"
@@ -100,19 +76,19 @@
                                                         </div>
                                                     @enderror --}}
                                                 </div>
-                                                <div class="col-md-6" style="margin-left: 41.6%; ">
+                                                <div class="col-md-6" style="margin-left: 33.35%; ">
                                                     <input type="text" id="e_ap2" class="form-control" placeholder="Alamat Surat Menyurat 2"
                                                         name="e_ap2" value="{{ $pelesen->e_ap2}} ">
                                                 </div>
-                                                <div class="col-md-6" style="margin-left: 41.6%;">
+                                                <div class="col-md-6" style="margin-left: 33.35%; margin-bottom:-1%">
                                                     <input type="text" id="e_ap3" class="form-control" placeholder="Alamat Surat Menyurat 3"
                                                             name="e_ap3" value="{{ $pelesen->e_ap3}}">
                                                 </div>
                                             </div>
 
-                                            <div class="row" style="margin-bottom:2.5%">
+                                            <div class="row">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Alamat Surat Menyurat</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_as1" class="form-control" placeholder="Alamat Surat Menyurat 1"
@@ -123,19 +99,19 @@
                                                         </div>
                                                     @enderror --}}
                                                 </div>
-                                                <div class="col-md-6" style="margin-left: 41.6%">
+                                                <div class="col-md-6" style="margin-left: 33.35%">
                                                     <input type="text" id="e_as2" class="form-control" placeholder="Alamat Surat Menyurat 2"
                                                                 name="e_as2" value="{{ $pelesen->e_as2}}">
                                                 </div>
-                                                <div class="col-md-6" style="margin-left: 41.6%">
+                                                <div class="col-md-6" style="margin-left: 33.35%;">
                                                     <input type="text" id="e_as3" class="form-control" placeholder="Alamat Surat Menyurat 3"
                                                                 name="e_as3" value="{{ $pelesen->e_as3}}">
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     No. Telefon (Pejabat / Kilang)</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_notel" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
@@ -147,9 +123,9 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row" >
+                                            <div class="row mt-2" >
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     No. Faks</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
@@ -161,9 +137,9 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Alamat Emel Kilang</label>
                                                 <div class="col-md-6">
                                                     <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
@@ -175,9 +151,9 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Nama Pegawai Melapor</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_npg" class="form-control" placeholder="Nama Pegawai Melapor"
@@ -189,9 +165,9 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Jawatan Pegawai Melapor</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_jpg" class="form-control" placeholder="Jawatan Pegawai Melapor"
@@ -203,9 +179,9 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     No. Telefon Pegawai Melapor</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_notel_pg" class="form-control" placeholder="No. Telefon Pegawai Melapor"
@@ -217,9 +193,9 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Alamat Emel Pegawai Melapor</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_email_pg" class="form-control" placeholder="Alamat Emel Pegawai Melapor"
@@ -231,9 +207,9 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Nama Pegawai Bertanggungjawab</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_npgtg" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
@@ -245,9 +221,9 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Jawatan Pegawai
                                                     Bertanggungjawab</label>
                                                 <div class="col-md-6">
@@ -260,9 +236,9 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Alamat Emel Pengurus</label>
                                                 <div class="col-md-6">
                                                     <input type="email" id="e_email_pengurus" class="form-control" placeholder="Alamat Emel Pengurus"
@@ -274,9 +250,9 @@
                                                     @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Syarikat Induk</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_syktinduk" class="form-control"
@@ -289,13 +265,13 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2" style="margin-bottom:-1%">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Kumpulan </label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-select" id="basicSelect" name="kumpulan">
+                                                        <select class="form-control" id="basicSelect" name="kumpulan">
                                                             <option selected hidden disabled>Sila Pilih</option>
                                                             <option value="kerajaan">Kerajaan</option>
                                                             <option value="swasta">Swasta</option>
@@ -310,7 +286,7 @@
                                             </div>
                                             <div class="row">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Kapasiti Pemprosesan / Tahun</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="" class="form-control"
@@ -322,9 +298,9 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row mt-2">
                                                 <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Kapasiti Tangki Simpanan</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="" class="form-control"
@@ -336,19 +312,212 @@
                                                 @enderror --}}
                                                 </div>
                                             </div>
+
+                                            <div class="row mt-2" style="text-align: center; font-size: 12px">
+                                                <div class="col-md-3">
+                                                    <span></span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <span></span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <span>CPO</span>
+                                                </div>
+
+                                                <div class="col-md-1">
+                                                    <span>PPO</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <span>CPKO</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <span>PPKO</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <span>OLEO</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <span>OTHERS</span>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <span>JUMLAH</span>
+                                                </div>
+                                            </div>
+                                            <div class="row mt-2 mb-4">
+                                                <label for="fname"
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
+                                                    Bilangan Tangki</label>
+
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b5' style="width:100%"
+                                                        id="e104_b5" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+
+                                            </div>
+                                            <div class="row mt-2 mb-4">
+                                                <label for="fname"
+                                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">
+                                                    Kapasiti Tangki Simpanan (Tan)</label>
+
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b5' style="width:100%"
+                                                        id="e104_b5" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+
+
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='e104_b10' style="width:100%"
+                                                        id="e104_b10" onkeypress="return isNumberKey(event)"
+                                                        title="Sila isikan butiran ini.">
+                                                    {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                                </div><br><br>
+                                                <div class="row ">
+                                                    <i style="margin-left:7%;margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
+                                                        tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
+                                                        bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                                    </i>
+                                                </div>
+
+
+
+                                            </div>
                                         </div>
 
 
-                                        <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="row form-group" style="margin-top: 3%; ">
 
 
-                                            {{-- <div class="text-left col-md-5">
-                                                <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
-                                                    style="float: left">Sebelumnya</a>
-                                            </div> --}}
-                                            <div class="text-right col-md-12 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                    style="float: right" data-bs-target="#next">Simpan</button>
+
+                                            <div class="text-right col-md-6">
+                                                <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                                                    data-target="#next">Simpan</button>
                                             </div>
 
                                         </div>

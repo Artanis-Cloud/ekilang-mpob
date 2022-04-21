@@ -1,66 +1,51 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
 
-
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
-
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row mb-2">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title">Kemasukan Penyata Bulanan</h4>
                 </div>
-            </div> --}}
-
-            <div class="mt-3 mb-2 row">
-                <div class="col-md-12">
-
-                    <div class="page-breadcrumb" style="padding: 0px">
-                        <div class="pb-2 row">
-                            <div class="align-self-center" style="margin-left: 2%; margin-bottom:-2%">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:white; background-color:#25877bd1">Kembali</a>
-                            </div>
-                            <div class="align-self-center" style="margin-left: -1%;">
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
-                                                            onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
-                                                            {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #25877b  !important;">
-                                                        {{ $breadcrumb['name'] }}
-                                                    </li>
-                                                @endif
-                                            @endforeach
-
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                    @if (!$loop->last)
+                                        <li class="breadcrumb-item">
+                                            <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
+                                                onMouseOver="this.style.color='#25877b'"
+                                                onMouseOut="this.style.color='grey'">
+                                                {{ $breadcrumb['name'] }}
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="breadcrumb-item active" aria-current="page"
+                                            style="color: #25877b  !important;">
+                                            {{ $breadcrumb['name'] }}
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ol>
+                        </nav>
                     </div>
+                </div>
+            </div>
+        </div>
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
 
                         <div class="card-body">
-                            <div class="row">
-                                {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     @if (!$penyata)
                                         <form action="{{ route('bio.add.bahagian.ii') }}" method="post">
@@ -81,15 +66,6 @@
                                         {{-- <p>Maklumat Kilang</p> --}}
                                     </div>
                                     <hr>
-
-
-
-                                    {{-- <div class=" mt-2" style="text-align: right">
-                                        <a href="{{ asset('manual/kilangisirung/2.pdf') }}" target="_blank"
-                                            style="text-align:right"><i><u>Panduan
-                                                    Mengisi Maklumat Bahagian II</u></i></a>
-                                    </div> --}}
-
                                     <div class="container center mt-3">
                                         <div class="row">
                                             <label for="fname"
@@ -110,7 +86,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
                                                 Kadar Penggunaan Kapasiti Sebulan </label>
@@ -131,16 +107,16 @@
                                     </div>
 
 
-                                    <div class="row form-group" style="padding-top: 10px; ">
+                                    <div class="row form-group" style="margin-top:4%">
 
-                                        <br>
-                                        <div class="text-left col-md-5">
-                                            <a href="{{ route('bio.bahagianic') }}" class="btn btn-primary"
+
+                                        <div class="text-left col-md-5" style="margin-left:2%">
+                                            <a href="{{ route('bio.bahagianiii') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
                                         </div>
-                                        <div class="text-right col-md-5 mb-4 ">
-                                            <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                style="float: right;" data-bs-target="#next">Simpan &
+                                        <div class="text-right col-md-6" style="margin-left:4%">
+                                            <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                style="float: right" data-target="#next">Simpan &
                                                 Seterusnya</button>
                                         </div>
 
@@ -182,83 +158,5 @@
                                     </form>
                                 </div>
                             </div>
-                            <br>
 
-                        </div>
-
-                    </div>
-
-                </div>
-                <br>
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-
-
-
-
-        </div>
-
-
-    </section><!-- End Hero -->
-
-
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-
-
-    </body>
-
-    </html>
-
-    <script type="text/javascript">
-        function showTable() {
-            var oer = $('#kadar_oer').val();
-            // console.log(oer);
-
-            if (oer == "Meningkat") {
-                document.getElementById('meningkat_container').style.display = "block";
-            } else {
-                document.getElementById('meningkat_container').style.display = "none";
-                document.getElementById("checkbox1").checked = false;
-                document.getElementById("checkbox2").checked = false;
-                document.getElementById("checkbox3").checked = false;
-                document.getElementById("checkbox4").checked = false;
-                document.getElementById("checkbox5").checked = false;
-                document.getElementById("checkbox6").checked = false;
-            }
-
-            if (oer == "Menurun") {
-                document.getElementById('menurun_container').style.display = "block";
-            } else {
-                document.getElementById('menurun_container').style.display = "none";
-                document.getElementById("checkbox7").checked = false;
-                document.getElementById("checkbox8").checked = false;
-                document.getElementById("checkbox9").checked = false;
-                document.getElementById("checkbox10").checked = false;
-                document.getElementById("checkbox11").checked = false;
-                document.getElementById("checkbox12").checked = false;
-                document.getElementById("checkbox13").checked = false;
-            }
-        }
-    </script>
 @endsection

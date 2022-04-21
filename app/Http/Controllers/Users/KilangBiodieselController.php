@@ -1008,6 +1008,23 @@ class KilangBiodieselController extends Controller
         ));
     }
 
+    public function bio_update_papar_penyata(Request $request, $id)
+    {
+        // dd($request->all());
+
+
+        $penyata = EBioInit::findOrFail($id);
+        $penyata->ebio_npg = $request->ebio_npg;
+        $penyata->ebio_jpg = $request->ebio_jpg;
+        $penyata->ebio_notel = $request->ebio_notel;
+        $penyata->save();
+
+
+        return redirect()->route('bio.hantar.penyata')
+            ->with('success', 'Penyata Sudah Dihantar');
+
+    }
+
 
 
     public function bio_hantar_penyata()
@@ -1028,6 +1045,8 @@ class KilangBiodieselController extends Controller
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
+
+        $date = date("d-m-Y");
 
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         // dd($pelesen);
@@ -1089,7 +1108,7 @@ class KilangBiodieselController extends Controller
             'returnArr',
             'pelesen',
             'pelesen2',
-            'user',
+            'user', 'date',
             'ia',
             'ib',
             'ic',

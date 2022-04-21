@@ -1,55 +1,45 @@
-@extends($layout)
+@extends('layouts.main')
 
 @section('content')
-    <!-- ======= Hero Section ======= -->
-    <section id="hero" class="d-flex align-items-center ">
-        <div class="container position-relative" data-aos-delay="100">
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
 
-            {{-- <div class="row justify-content-center" style="margin-bottom: 3%">
-                <div class="col-xl-12 col-lg-9">
-
-                    {{-- <h1 style="font-size:40px;">KILANG BUAH</h1> --}}
-            {{-- <h2 style="text-align: center; color:#247c68"><b> Maklumat Asas Pelesen </b></h2>
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row mb-2">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title">Kemasukan Penyata Bulanan</h4>
                 </div>
-            </div> --}}
-
-            <div class="mt-3 mb-4 row">
-                <div class="col-md-12">
-
-                    <div class="page-breadcrumb" style="padding: 0px">
-                        <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
-                            </div>
-                            <div class="col-7 align-self-center">
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: white !important;"
-                                                            onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='white'">
-                                                            {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #25877b  !important;">
-                                                        {{ $breadcrumb['name'] }}
-                                                    </li>
-                                                @endif
-                                            @endforeach
-
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                    @if (!$loop->last)
+                                        <li class="breadcrumb-item">
+                                            <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
+                                                onMouseOver="this.style.color='#25877b'"
+                                                onMouseOut="this.style.color='grey'">
+                                                {{ $breadcrumb['name'] }}
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="breadcrumb-item active" aria-current="page"
+                                            style="color: #25877b  !important;">
+                                            {{ $breadcrumb['name'] }}
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ol>
+                        </nav>
                     </div>
+                </div>
+            </div>
+        </div>
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -57,9 +47,6 @@
 
 
                         <div class="card-body">
-                            <div class="row">
-                                {{-- <div class="col-md-4 col-12"> --}}
-                                <div class="pl-3">
                                     <form action="{{ route('bio.add.bahagian.iii') }}" method="post">
                                         @csrf
                                         <div class="mb-4 text-center">
@@ -71,14 +58,14 @@
                                         </div>
                                         <hr>
 
-                                        <div class="container center mt-4">
+                                        <div class="container center mt-4" style="margin-left:4%">
 
                                             <div class="row">
                                                 <div class="col-md-3">
                                                     <span class="required">Nama Produk</span>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <select class="form-select" id="ebio_c3" name="ebio_c3"
+                                                    <select class="form-control" id="ebio_c3" name="ebio_c3"
                                                         style="width: 50%">
                                                         <option selected hidden disabled>Sila Pilih</option>
                                                         @foreach ($produk as $data)
@@ -121,10 +108,10 @@
                                                     <input type="text" class="form-control" name='ebio_c8'
                                                         style="width:50%" id="ebio_c8" required
                                                         title="Sila isikan butiran ini.">
-                                                    <i class="fa fa-pencil" title="Pengisian maklumat jualan"
+                                                    <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
                                                         style="font-size:11px; color:red" type="button"
-                                                        data-bs-toggle="modal" data-bs-target="#modal">(Sila klik untuk
-                                                        mengisi maklumat
+                                                        data-toggle="modal" data-target="#modal" &nbsp;>  (Sila klik untuk
+                                                        mengisi<br> maklumat
                                                         jualan)</i>
 
                                                     {{-- @error('alamat_kilang_1')
@@ -210,22 +197,21 @@
                                             </div>
 
                                     </form>
+                                    <section class="section">
 
                                     <hr>
                                     <br>
-                                    <br>
-                                    </form>
-                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Minyak-Minyak Lain</h5>
 
-                                    <section class="section">
+                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Minyak-Minyak Lain</h5>
+                                    <br>
+                                    {{-- <section class="section"> --}}
                                         <div class="card">
 
                                             {{-- <div class="card-body"> --}}
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered mb-0" style="font-size: 13px">
+                                            <div class="table-responsive"  >
+                                                <table class="table table-bordered" style="font-size: 13px">
                                                     <thead style="text-align: center">
                                                         <tr>
-                                                            {{-- <th>Bil</th> --}}
                                                             <th>Nama Produk</th>
                                                             <th>Kod Produk</th>
                                                             <th>Stok Awal Di Premis</th>
@@ -258,8 +244,8 @@
                                                                 {{-- <td>{{ $data->e104_b14 }}</td> --}}
                                                                 <td>
                                                                     <div class="icon" style="text-align: center">
-                                                                        <a href="#" type="button" data-bs-toggle="modal"
-                                                                            data-bs-target="#modal{{ $data->ebio_c1 }}">
+                                                                        <a href="#" type="button" data-toggle="modal"
+                                                                            data-target="#modal{{ $data->ebio_c1 }}">
                                                                             <i class="fas fa-edit fa-lg"
                                                                                 style="color: #ffc107">
                                                                             </i>
@@ -268,9 +254,9 @@
                                                                 </td>
                                                                 <td>
                                                                     <div class="icon" style="text-align: center">
-                                                                        <a href="#" type="button" data-bs-toggle="modal"
-                                                                            data-bs-target="#next2{{ $data->ebio_c1 }}">
-                                                                            <i class="fa fa-trash-o"
+                                                                        <a href="#" type="button" data-toggle="modal"
+                                                                            data-target="#next2{{ $data->ebio_c1 }}">
+                                                                            <i class="fa fa-trash"
                                                                                 style="color: #dc3545;font-size:18px"></i>
                                                                         </a>
                                                                     </div>
@@ -296,7 +282,7 @@
                                                                                     id="exampleModalScrollableTitle">
                                                                                     Kemaskini Maklumat Produk</h5>
                                                                                 <button type="button" class="close"
-                                                                                    data-bs-dismiss="modal"
+                                                                                    data-dismiss="modal"
                                                                                     aria-label="Close">
                                                                                     <i data-feather="x"></i>
                                                                                 </button>
@@ -377,27 +363,13 @@
                                                                                         </label>
 
                                                                                     </div>
-                                                                                    {{-- <div class="modal-footer">
-                                                                                                <button type="button" class="btn btn-light-secondary"
-                                                                                                    data-bs-dismiss="modal">
-                                                                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                                                                    <span class="d-none d-sm-block">Batal</span>
-                                                                                                </button>
-                                                                                                <button type="button" class="btn btn-primary ml-1"
-                                                                                                    data-bs-dismiss="modal">
-                                                                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                                    <span class="d-none d-sm-block">Kemaskini</span>
-                                                                                                </button>
-                                                                                            </div> --}}
-
-
                                                                             </div>
 
 
                                                                             <div class="modal-footer">
                                                                                 <button type="button"
                                                                                     class="btn btn-light-secondary"
-                                                                                    data-bs-dismiss="modal">
+                                                                                    data-dismiss="modal">
                                                                                     <i
                                                                                         class="bx bx-x d-block d-sm-none"></i>
                                                                                     <span
@@ -429,7 +401,7 @@
                                                                                 id="exampleModalCenterTitle">
                                                                                 PENGESAHAN</h5>
                                                                             <button type="button" class="close"
-                                                                                data-bs-dismiss="modal" aria-label="Close">
+                                                                                data-dismiss="modal" aria-label="Close">
                                                                                 <i data-feather="x"></i>
                                                                             </button>
                                                                         </div>
@@ -441,7 +413,7 @@
                                                                         <div class="modal-footer">
                                                                             <button type="button"
                                                                                 class="btn btn-light-secondary"
-                                                                                data-bs-dismiss="modal">
+                                                                                data-dismiss="modal">
                                                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                                                 <span class="d-none d-sm-block"
                                                                                     style="color:#275047">Tidak</span>
@@ -504,16 +476,16 @@
 
 
 
-                                <div class="row form-group" style="padding-top: 10px; ">
+                                <div class="row form-group" >
 
 
                                     <div class="text-left col-md-5">
                                         <a href="{{ route('bio.bahagianii') }}" class="btn btn-primary"
                                             style="float: left">Sebelumnya</a>
                                     </div>
-                                    <div class="text-right col-md-7 mb-4 ">
-                                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                            style="float: right" data-bs-target="#next">Hantar Penyata</button>
+                                    <div class="text-right col-md-7">
+                                        <button type="button" class="btn btn-primary " data-toggle="modal"
+                                            style="float: right" data-target="#next">Hantar Penyata</button>
                                     </div>
 
                                 </div>
@@ -527,7 +499,7 @@
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalCenterTitle">
                                                     PENGESAHAN</h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal"
+                                                <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <i data-feather="x"></i>
                                                 </button>
@@ -539,7 +511,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary"
-                                                    data-bs-dismiss="modal">
+                                                    data-dismiss="modal">
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                 </button>
@@ -562,7 +534,7 @@
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalScrollableTitle">
                                                     Maklumat Jualan / Edaran</h5>
-                                                <button type="button" class="close" data-bs-dismiss="modal"
+                                                <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <i data-feather="x"></i>
                                                 </button>
@@ -591,11 +563,11 @@
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary"
-                                                    data-bs-dismiss="modal">
+                                                    data-dismiss="modal">
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Batal</span>
                                                 </button>
-                                                <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
                                                     <i class=" bx bx-check d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" id="btnShow" >Tambah</span>
                                                 </button>
@@ -614,102 +586,7 @@
                     </div>
 
                 </div>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
 
-
-
-
-    </section><!-- End Hero -->
-
-
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-
-    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
-    <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
-    <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('theme/js/app.js') }}"></script>
-
-    <script src="assets/js/main.js"></script>
-
-    <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-
-
-    {{-- <script>
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
-
-        $(window).on('changed', (e) => {
-            // if($('#example').DataTable().clear().destroy()){
-            // $('#example').DataTable();
-            // }
-        });
-
-        // }
-    </script> --}}
-    {{-- <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
-
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
-
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script> --}}
 
     <script>
         function onlyNumberKey(evt) {

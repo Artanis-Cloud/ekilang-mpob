@@ -932,7 +932,113 @@
                 <!-- End Sidebar scroll-->
             </aside>
         @elseif (auth()->user()->category == 'PLBIO')
-            <p class="m-b-0">Kilang Biodiesel</p>
+        <aside class="left-sidebar">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="nav-small-cap">
+                            {{-- <i class="mdi mdi-dots-horizontal"></i> --}}
+                            <span class="hide-menu font-weight-bold"> </span>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                aria-expanded="false" style="margin-top:-9%">
+                                <i class="fas fa-edit" style="color:rgb(54, 51, 41)"></i>
+                                <span class="hide-menu font-weight-bold"> Maklumat Pelesen </span>
+                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                <li class="sidebar-item">
+                                    <a href="{{ route('bio.maklumatasaspelesen') }}" class="sidebar-link">
+                                        <i class="far fa-id-badge" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Maklumat Asas Pelesen </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('bio.tukarpassword') }}" class="sidebar-link">
+                                        <i class="fas fa-key" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Tukar Kata Laluan </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                aria-expanded="false">
+                                <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
+                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                <li class="sidebar-item">
+                                    <a href="{{ route('bio.bahagiania') }}" class="sidebar-link">
+                                        <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Bahagian I (a) </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('bio.bahagianib') }}" class="sidebar-link">
+                                        <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Bahagian I (b) </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('bio.bahagianic') }}" class="sidebar-link">
+                                        <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Bahagian I(c) </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('bio.bahagianii') }}" class="sidebar-link">
+                                        <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Bahagian II </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('bio.bahagianiii') }}" class="sidebar-link">
+                                        <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Bahagian III </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('oleo.bahagianiv') }}" data-toggle="modal"
+                                        data-target="#tutup" class="btn sidebar-link">
+                                        <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Bahagian IV </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('oleo.bahagianiv') }}" data-toggle="modal"
+                                        data-target="#tutup" class="btn sidebar-link">
+                                        <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Bahagian V </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('oleo.paparpenyata') }}" class="sidebar-link">
+                                        <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('bio.penyatadahulu') }}" class="sidebar-link">
+                                <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
+                                <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <!-- End Sidebar navigation -->
+            </div>
+
+            <!-- End Sidebar scroll-->
+        </aside>
         @elseif (auth()->user()->category == 'admin')
             <aside class="left-sidebar">
                 <!-- Sidebar scroll-->
