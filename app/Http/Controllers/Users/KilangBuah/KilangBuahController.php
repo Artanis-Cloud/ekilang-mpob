@@ -646,10 +646,19 @@ class KilangBuahController extends Controller
             $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
             // dd($pelesen);
 
+            // $date = DB::select("SELECT DATE_FORMAT(e91_init, %d %c %Y)
+            //         FROM h91_init");
+
             $penyata = H91Init::where('e91_nl', auth()->user()->username)
                 ->where('e91_thn', $request->tahun)
                 ->where('e91_bln', $request->bulan)->first();
             // dd($penyata);
+
+            if($penyata){
+                $penyata2 = H91Init::where('e91_nl', auth()->user()->username)->first();
+            } else {
+                return redirect()->back()->with('error', 'Penyata Tidak Wujud!');
+            }
 
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
@@ -665,7 +674,7 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
-        return view('users.KilangBuah.buah-papar-dahulu', compact('returnArr', 'layout', 'user','pelesen','penyata'));
+        return view('users.KilangBuah.buah-papar-dahulu', compact('returnArr', 'layout', 'user','pelesen','penyata','penyata2'));
     }
 
     public function try()

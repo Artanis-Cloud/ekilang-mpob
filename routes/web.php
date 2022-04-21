@@ -390,6 +390,8 @@ Route::middleware('auth')->group(function () {
         Route::post('oleokimia/edit-bahagian-iv/{Id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_edit_bahagian_iv'])->name('oleo.edit.bahagian.iv');
 
         Route::get('oleokimia/papar-penyata', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_paparpenyata'])->name('oleo.paparpenyata');
+        Route::post('oleokimia/update-penyata/{Id}', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_update_papar_penyata'])->name('oleo.update.papar.penyata');
+
         Route::get('oleokimia/hantar-penyata', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_hantar_penyata'])->name('oleo.hantar.penyata');
 
         Route::get('oleokimia/email', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_email'])->name('oleo.email');
