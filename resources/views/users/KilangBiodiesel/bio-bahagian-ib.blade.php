@@ -228,7 +228,7 @@
                                                                 <td>
                                                                     {{ $data->produk->prodid }}</td>
                                                                 <td>{{ number_format($data->ebio_b5 ??  0,2) }}</td>
-                                                                <td>{{ number_format($data->bio_b6 ?? 0 , 2) }}</td>
+                                                                <td>{{ number_format($data->ebio_b6 ?? 0 , 2) }}</td>
                                                                 <td>{{ number_format($data->ebio_b7 ??  0,2) }}</td>
                                                                 <td>{{ number_format($data->ebio_b8 ??  0,2) }}</td>
                                                                 <td>{{ number_format($data->ebio_b9 ??  0,2) }}</td>
