@@ -5,43 +5,37 @@
 
     <div class="page-wrapper">
 
-        <div class="mt-3 mb-4 row">
-            <div class="col-md-12">
-
-                <div class="page-breadcrumb" style="padding: 0px">
-                    <div class="pb-2 row">
-                        <div class="col-5 align-self-center">
-                            <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
-                        </div>
-                        <div class="col-7 align-self-center">
-                            <div class="d-flex align-items-center justify-content-end">
-                                <nav aria-label="breadcrumb">
-                                    <ol class="breadcrumb">
-                                        @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                            @if (!$loop->last)
-                                                <li class="breadcrumb-item">
-                                                    <a href="{{ $breadcrumb['link'] }}"
-                                                        style="color: black !important;"
-                                                        onMouseOver="this.style.color='#25877b'"
-                                                        onMouseOut="this.style.color='black'">
-                                                        {{ $breadcrumb['name'] }}
-                                                    </a>
-                                                </li>
-                                            @else
-                                                <li class="breadcrumb-item active" aria-current="page"
-                                                    style="color: #25877b  !important;">
-                                                    {{ $breadcrumb['name'] }}
-                                                </li>
-                                            @endif
-                                        @endforeach
-
-                                    </ol>
-                                </nav>
-                            </div>
-                        </div>
+        <div class="page-breadcrumb mb-3">
+            <div class="row">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title">Kemasukan Penyata Bulanan</h4>
+                </div>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                    @if (!$loop->last)
+                                        <li class="breadcrumb-item">
+                                            <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
+                                                onMouseOver="this.style.color='#25877b'"
+                                                onMouseOut="this.style.color='grey'">
+                                                {{ $breadcrumb['name'] }}
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="breadcrumb-item active" aria-current="page"
+                                            style="color: #25877b  !important;">
+                                            {{ $breadcrumb['name'] }}
+                                        </li>
+                                    @endif
+                                @endforeach
+                            </ol>
+                        </nav>
                     </div>
                 </div>
+            </div>
+        </div>
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     {{-- <div class="card-header border-bottom">
                         <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -62,14 +56,14 @@
                                     </div>
                                     <hr>
 
-                                    <div class="container center mt-4">
+                                    <div class="container center mt-4" style="margin-left:4%">
 
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <span class="required">Nama Produk dan Kod</span>
                                             </div>
                                             <div class="col-md-3">
-                                                <select class="form-select" id="produk"
+                                                <select class="form-control" id="produk"
                                                 name="e104_b4" style="width: 50%">
                                                 <option selected hidden disabled>Sila Pilih</option>
                                                 @foreach ($produk as $data)
@@ -226,7 +220,7 @@
                                             <div class="card">
 
                                                 <div class="table-responsive">
-                                                    <table class="table table-bordered mb-0" style="font-size: 13px">
+                                                    <table class="table table-bordered " style="font-size: 13px">
                                                         <thead style="text-align: center">
                                                             <tr>
                                                                 <th>Nama Produk</th>
@@ -477,25 +471,14 @@
 
 
                                         </div>
+                                            <div class="row form-group" style="margin-top:-4%">
 
 
-
-
-
-
-
-
-
-
-
-                                            <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                                <div class="text-left col-md-5">
+                                                <div class="text-left col-md-5" style="margin-left:2%">
                                                     <a href="{{ route('oleo.bahagianib') }}" class="btn btn-primary"
                                                         style="float: left">Sebelumnya</a>
                                                 </div>
-                                                <div class="text-right col-md-7 mb-4 ">
+                                                <div class="text-right col-md-6 mb-4 " style="margin-left:4%">
                                                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                                         style="float: right" data-bs-target="#next">Simpan &
                                                         Seterusnya</button>
@@ -541,7 +524,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            {{-- </div> --}}
+                            </div>
                             <br>
                         </div>
 
@@ -552,7 +535,7 @@
             </div>
         </div>
 
-    </div>
+  </div>
 
 
 

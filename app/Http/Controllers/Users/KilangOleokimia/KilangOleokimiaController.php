@@ -1001,6 +1001,23 @@ class KilangOleokimiaController extends Controller
         ));
     }
 
+    public function oleo_update_papar_penyata(Request $request, $id)
+    {
+        // dd($request->all());
+
+
+        $penyata = E104Init::findOrFail($id);
+        $penyata->e104_npg = $request->e104_npg;
+        $penyata->e104_jpg = $request->e104_jpg;
+        $penyata->e104_notel = $request->e104_notel;
+        $penyata->save();
+
+
+        return redirect()->route('oleo.hantar.penyata')
+            ->with('success', 'Penyata Sudah Dihantar');
+
+    }
+
 
     public function oleo_hantar_penyata()
     {
@@ -1021,6 +1038,8 @@ class KilangOleokimiaController extends Controller
         $bulan = date("m") - 01;
 
         $tahun = date("Y");
+
+        $date = date("d-m-Y");
 
         $user = User::first();
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
@@ -1139,7 +1158,7 @@ class KilangOleokimiaController extends Controller
         return view('users.KilangOleokimia.oleo-hantar-penyata', compact(
             'layout',
             'returnArr',
-            'user',
+            'user', 'date',
             'pelesen',
             'pelesen2',
             'penyataia',
@@ -1196,6 +1215,7 @@ class KilangOleokimiaController extends Controller
             ->where('e104_bln', $request->bulan)->first();
         // dd($users);
 
+        if($users){
         $ia = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', '01');
         })->get();
@@ -1402,6 +1422,11 @@ class KilangOleokimiaController extends Controller
                         ->where('e104_nobatch', $users->e104_nobatch)
                         ->where('e104_d3','1')
                         ->sum('e104_d8');
+
+    } else {
+        return redirect()->back()->with('error', 'Penyata Tidak Wujud!');
+
+    }
 
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],

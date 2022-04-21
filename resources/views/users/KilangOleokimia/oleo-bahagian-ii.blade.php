@@ -2,46 +2,40 @@
 
 @section('content')
 
+<div class="page-wrapper">
 
-    <div class="page-wrapper">
 
-            <div class="mt-3 mb-2 row">
-                <div class="col-md-12">
-
-                    <div class="page-breadcrumb" style="padding: 0px">
-                        <div class="pb-2 row">
-                            <div class="col-5 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
-                            </div>
-                            <div class="col-7 align-self-center">
-                                <div class="d-flex align-items-center justify-content-end">
-                                    <nav aria-label="breadcrumb">
-                                        <ol class="breadcrumb">
-                                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                                @if (!$loop->last)
-                                                    <li class="breadcrumb-item">
-                                                        <a href="{{ $breadcrumb['link'] }}"
-                                                            style="color: black !important;"
-                                                            onMouseOver="this.style.color='#25877b'"
-                                                            onMouseOut="this.style.color='black'">
-                                                            {{ $breadcrumb['name'] }}
-                                                        </a>
-                                                    </li>
-                                                @else
-                                                    <li class="breadcrumb-item active" aria-current="page"
-                                                        style="color: #25877b  !important;">
-                                                        {{ $breadcrumb['name'] }}
-                                                    </li>
-                                                @endif
-                                            @endforeach
-
-                                        </ol>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <div class="page-breadcrumb mb-3">
+        <div class="row">
+            <div class="col-5 align-self-center">
+                <h4 class="page-title">Kemasukan Penyata Bulanan</h4>
+            </div>
+            <div class="col-7 align-self-center">
+                <div class="d-flex align-items-center justify-content-end">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                @if (!$loop->last)
+                                    <li class="breadcrumb-item">
+                                        <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
+                                            onMouseOver="this.style.color='#25877b'"
+                                            onMouseOut="this.style.color='grey'">
+                                            {{ $breadcrumb['name'] }}
+                                        </a>
+                                    </li>
+                                @else
+                                    <li class="breadcrumb-item active" aria-current="page"
+                                        style="color: #25877b  !important;">
+                                        {{ $breadcrumb['name'] }}
+                                    </li>
+                                @endif
+                            @endforeach
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
@@ -61,15 +55,6 @@
                                         </div>
                                         <hr>
 
-
-
-                                        {{-- <div class=" mt-2" style="text-align: right">
-                                            <a href="{{ asset('manual/kilangisirung/2.pdf') }}" target="_blank"
-                                                style="text-align:right"><i><u>Panduan
-                                                        Mengisi Maklumat Bahagian II</u></i></a>
-                                        </div> --}}
-                                        {{-- <form>
-                                            @csrf --}}
                                             <div class="container center mt-3">
                                                 <div class="row">
                                                     <label for="fname"
@@ -79,17 +64,17 @@
                                                         <input type="text" class="form-control" name='e104_a5' style="margin-left:42%; width:40%; text-align:right"
                                                             onkeypress="return isNumberKey(event)" id="e104_a5" required
                                                             title="Sila isikan butiran ini." value="{{ $penyata->e104_a5 }}">
-                                                        {{-- @error('alamat_kilang_1')
+                                                        @error('e104_a5')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                     </div>
                                                     <div>
 
                                                     </div>
                                                 </div>
-                                                <div class="row">
+                                                <div class="row mt-2">
                                                     <label for="fname"
                                                         class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
                                                         Kadar Penggunaan Kapasiti Sebulan (%)	</label>
@@ -97,11 +82,11 @@
                                                         <input type="text" class="form-control" name='e104_a6' style="margin-left:42%; width:40%; text-align:right"
                                                             onkeypress="return isNumberKey(event)" id="e104_a6"
                                                             required title="Sila isikan butiran ini." value="{{ $penyata->e104_a6 }}">
-                                                        {{-- @error('alamat_kilang_1')
+                                                        @error('e104_a6')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                     </div>
                                                 </div>
 
@@ -109,20 +94,20 @@
                                             </div>
 
 
-                                        <div class="row form-group" style="padding-top: 10px; ">
+                                            <div class="row form-group" style="margin-top:4%">
 
-                                            <br>
-                                            <div class="text-left col-md-5">
-                                                <a href="{{ route('oleo.bahagianic') }}" class="btn btn-primary"
-                                                    style="float: left">Sebelumnya</a>
-                                            </div>
-                                            <div class="text-right col-md-5 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                    style="float: right;" data-target="#next">Simpan &
-                                                    Seterusnya</button>
-                                            </div>
 
-                                        </div>
+                                                <div class="text-left col-md-5" style="margin-left:2%">
+                                                    <a href="{{ route('oleo.bahagianic') }}" class="btn btn-primary"
+                                                        style="float: left">Sebelumnya</a>
+                                                </div>
+                                                <div class="text-right col-md-6" style="margin-left:4%">
+                                                    <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                        style="float: right" data-target="#next">Simpan &
+                                                        Seterusnya</button>
+                                                </div>
+
+                                            </div>
 
                                         <!-- Vertically Centered modal Modal -->
                                         <div class="modal fade" id="next" tabindex="-1" role="dialog"
@@ -160,11 +145,11 @@
                                         </div>
                                     </div>
 
-                                <br>
+
 
                             </div>
 
-                    </div><br><br><br><br><br><br><br><br><br><br>
+                    </div><br><br><br><br>
                 </form>
                 </div>
             </div>

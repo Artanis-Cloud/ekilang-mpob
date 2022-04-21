@@ -514,8 +514,8 @@
 
 
                                 <div class="text-left col-md-5">
-                                    <a href="{{ route('oleo.dashboard') }}" class="btn btn-primary"
-                                        style="float: left">Sebelumnya</a>
+                                    {{-- <a href="{{ route('oleo.dashboard') }}" class="btn btn-primary"
+                                        style="float: left">Sebelumnya</a> --}}
                                 </div>
                                 <div class="text-right col-md-7 mb-4 ">
                                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
