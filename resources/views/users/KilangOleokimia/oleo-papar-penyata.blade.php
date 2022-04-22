@@ -303,7 +303,7 @@
                                                 <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
-                                                <font size="2">Belian / Terima</font><b></b>
+                                                <font size="2">Belian / Terimaan</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
                                                 <font size="2">Import</font><b></b>
@@ -312,7 +312,7 @@
                                                 <font size="2">Jumlah Yang Diproses</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
-                                                <font size="2">Jualan / Edaran Dalam Negeri</font><b></b>
+                                                <font size="2">Jualan / Edaran Tempatan</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
                                                 <font size="2">Eksport</font><b></b>
@@ -420,7 +420,7 @@
                                                 <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
-                                                <font size="2">Belian / Terima</font><b></b>
+                                                <font size="2">Belian / Terimaan</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
                                                 <font size="2">Import</font><b></b>
@@ -429,7 +429,7 @@
                                                 <font size="2">Jumlah Yang Diproses</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
-                                                <font size="2">Jualan / Edaran Dalam Negeri</font><b></b>
+                                                <font size="2">Jualan / Edaran Tempatan</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
                                                 <font size="2">Eksport</font><b></b>
@@ -518,7 +518,7 @@
                             </table>
 
                             <p><b>
-                                    <font color="#0000FF">BAHAGIAN 1(c) :&nbsp;&nbsp;&nbsp;&nbsp; Minyak-Minyak Lain</font>
+                                    <font color="#0000FF">BAHAGIAN 1(c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK-MINYAK LAIN</font>
                                 </b></p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                 <tbody>
@@ -536,7 +536,7 @@
                                                 <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
-                                                <font size="2">Belian / Terima</font><b></b>
+                                                <font size="2">Belian / Terimaan</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
                                                 <font size="2">Import</font><b></b>
@@ -545,7 +545,7 @@
                                                 <font size="2">Jumlah Yang Diproses</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
-                                                <font size="2">Jualan / Edaran Dalam Negeri</font><b></b>
+                                                <font size="2">Jualan / Edaran Tempatan</font><b></b>
                                             </b></td>
                                         <td width="8%" align="center"><b>
                                                 <font size="2">Eksport</font><b></b>
@@ -669,13 +669,13 @@
                                                 <font size="2">Kod Produk</font>
                                             </b></td>
                                         <td width="10%" align="center"><b>
-                                                <font size="2">Belian / Penerimaan</font>
+                                                <font size="2">Belian / Terimaan</font>
                                             </b></td>
                                         <td width="10%" align="center"><b>
                                                 <font size="2">Pengeluaran</font>
                                             </b></td>
                                         <td width="10%" align="center"><b>
-                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                <font size="2">Jualan / Edaran Tempatan</font>
                                             </b></td>
                                         <td width="10%" align="center"><b>
                                                 <font size="2">Eksport</font>
@@ -822,16 +822,16 @@
                             <form action="{{ route('oleo.update.papar.penyata', [$pelesen2->e104_reg]) }}" method="post">
                                 @csrf
                                 <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                    <input type="text" id="e_npg" class="form-control" size="50" name='e104_npg'
+                                    <input type="text" id="e_npg" class="form-control" size="50" name='e104_npg' required
                                         value="{{ $pelesen2->e104_npg }}">
                                 </p>
                                 <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                    <input type="text" id="e_jpg" class="form-control" size="50" name='e104_jpg'
+                                    <input type="text" id="e_jpg" class="form-control" size="50" name='e104_jpg' required
                                         value="{{ $pelesen2->e104_jpg }}">
                                 </p>
                                 <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                    <input type="text" id="e_notel" class="form-control" size="50" name="e104_notel"
+                                    <input type="text" id="e_notel" class="form-control" size="50" name="e104_notel" required
                                         value="{{ $pelesen2->e104_notel }}">
                                 </p>
                         </body>
@@ -852,7 +852,7 @@
             <div class="text-right col-md-7">
                 <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right; margin-right:3% "
                     data-target="#next">Hantar</button>
-               
+
             </div>
 
         </div>

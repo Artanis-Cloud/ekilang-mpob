@@ -48,8 +48,6 @@
 
 
                         <div class="card-body">
-                            <div class="row">
-                                {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <form action="{{ route('bio.add.bahagian.ib') }}" method="post">
                                         @csrf
@@ -66,7 +64,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <span class="required">Nama Produk</span>
+                                                    <span class="required">Nama Produk dan Kod</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <select class="form-control" id="ebio_b4" name="ebio_b4"

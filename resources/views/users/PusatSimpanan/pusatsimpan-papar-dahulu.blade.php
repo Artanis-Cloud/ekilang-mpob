@@ -48,8 +48,6 @@
                 <br>
                 <br>
                 <div class="card-body">
-                    <div class="row">
-                        {{-- <div class="col-md-4 col-12"> --}}
                         <div class="pl-3">
 
                             <body>
@@ -440,7 +438,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">
                             PENGESAHAN</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i data-feather="x"></i>
                         </button>
                     </div>
@@ -450,11 +448,11 @@
                         </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                         </button>
-                        <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-primary ml-1" data-dismiss="modal">
                             <i class="bx bx-check d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Hantar</span>
                         </button>

@@ -63,7 +63,7 @@
                                                     <div class="col-md-6">
                                                         <input type="text" class="form-control" name='e104_a5' style="margin-left:42%; width:40%; text-align:right"
                                                             onkeypress="return isNumberKey(event)" id="e104_a5" required
-                                                            title="Sila isikan butiran ini." value="{{ $penyata->e104_a5 }}">
+                                                            title="Sila isikan butiran ini." value="{{ old('e104_a5') ?? $penyata->e104_a5 }}">
                                                         @error('e104_a5')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>

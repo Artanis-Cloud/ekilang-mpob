@@ -105,16 +105,16 @@ class KilangIsirungController extends Controller
 
         $user = User::get();
 
-        return view('users.KilangIsirung.isirung-tukar-password', compact('returnArr', 'layout','user'));
+        return view('users.KilangIsirung.isirung-tukar-password', compact('returnArr', 'layout', 'user'));
     }
 
     public function isirung_update_password(Request $request, $id)
     {
         $user = User::findOrFail(auth()->user()->id);
         //compare password
-        if(!Hash::check($request->old_password, $user->password)){
+        if (!Hash::check($request->old_password, $user->password)) {
             return redirect()->route('isirung.tukarpassword')
-            ->with('error', 'Sila masukkan kata laluan lama yang betul');
+                ->with('error', 'Sila masukkan kata laluan lama yang betul');
         }
 
         $password = Hash::make($request->new_password);
@@ -123,7 +123,6 @@ class KilangIsirungController extends Controller
 
         return redirect()->route('isirung.tukarpassword')
             ->with('success', 'Kata Laluan berjaya ditukar');
-
     }
     public function isirung_bahagiani()
     {
@@ -422,11 +421,12 @@ class KilangIsirungController extends Controller
     public function isirung_edit_bahagian_iii(Request $request, $id)
     {
         $e102_reg = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
-        $semak_duplicate = E102b::where('e102_b2',$e102_reg->e102_reg)->where('e102_b4', $request->e102_b4)->where('e102_b5',$request->e102_b5)->first();
-
-        if($semak_duplicate){
-            return redirect()->route('isirung.bahagianiii')
-            ->with('error', 'Maklumat Telah Tersedia');
+        $semak_duplicate = E102b::where('e102_b2', $e102_reg->e102_reg)->where('e102_b4', $request->e102_b4)->where('e102_b5', $request->e102_b5)->first();
+        if ($semak_duplicate) {
+            if($semak_duplicate->e102_b6 == $request->e102_b6){
+                return redirect()->route('isirung.bahagianiii')
+                ->with('error', 'Maklumat Telah Tersedia');
+            }
         }
         $penyata = E102b::findOrFail($id);
         $penyata->e102_b4 = $request->e102_b4;
@@ -473,7 +473,7 @@ class KilangIsirungController extends Controller
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
         $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '1')->get();
         $penyata2 = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '2')->get();
-// dd($penyata);
+        // dd($penyata);
 
         $penyatai = E102Init::where('e102_nl', auth()->user()->username)->first();
 
@@ -510,7 +510,6 @@ class KilangIsirungController extends Controller
 
             return redirect()->route('isirung.bahagianiv')->with('success', 'Maklumat sudah ditambah');
         }
-
     }
 
     protected function validation_bahagian_iv(array $data)
@@ -544,7 +543,6 @@ class KilangIsirungController extends Controller
 
         return redirect()->route('isirung.bahagianiv')
             ->with('success', 'Produk Dihapuskan');
-
     }
 
     public function validationiv(Request $request)
@@ -561,7 +559,6 @@ class KilangIsirungController extends Controller
             return redirect()->route('isirung.bahagianv')
                 ->with('success', 'Maklumat telah disimpan');
         }
-
     }
 
     public function isirung_edit_bahagian_iv(Request $request, $id)
@@ -580,11 +577,13 @@ class KilangIsirungController extends Controller
 
         $e102_reg = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
 
-        $semak_duplicate = E102b::where('e102_b2',$e102_reg->e102_reg)->where('e102_b4', $request->e102_b4)->where('e102_b5',$request->e102_b5)->first();
+        $semak_duplicate = E102b::where('e102_b2', $e102_reg->e102_reg)->where('e102_b4', $request->e102_b4)->where('e102_b5', $request->e102_b5)->first();
 
-        if($semak_duplicate){
-            return redirect()->route('isirung.bahagianiv')
-            ->with('error', 'Maklumat Telah Tersedia');
+        if ($semak_duplicate) {
+            if($semak_duplicate->e102_b6 == $request->e102_b6){
+                return redirect()->route('isirung.bahagianiv')
+                ->with('error', 'Maklumat Telah Tersedia');
+            }
         }
         $penyata = E102b::findOrFail($id);
         $penyata->e102_b4 = $request->e102_b4;
@@ -627,7 +626,7 @@ class KilangIsirungController extends Controller
         // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
         $penyata = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->where('e102_b4', '1')->get();
         $penyata2 = E102b::with('e102init', 'kodsl', 'prodcat2')->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->where('e102_b4', '2')->get();
-// dd($penyata);
+        // dd($penyata);
 
 
         $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->where('e102_b4', '1')->sum('e102_b6');
@@ -704,7 +703,6 @@ class KilangIsirungController extends Controller
             return redirect()->route('isirung.paparpenyata')
                 ->with('success', 'Maklumat telah disimpan');
         }
-
     }
 
     public function destroyv($id)
@@ -722,11 +720,13 @@ class KilangIsirungController extends Controller
 
         $e102_reg = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
 
-        $semak_duplicate = E102b::where('e102_b2',$e102_reg->e102_reg)->where('e102_b4', $request->e102_b4)->where('e102_b5',$request->e102_b5)->first();
+        $semak_duplicate = E102b::where('e102_b2', $e102_reg->e102_reg)->where('e102_b4', $request->e102_b4)->where('e102_b5', $request->e102_b5)->first();
 
-        if($semak_duplicate){
-            return redirect()->route('isirung.bahagianv')
-            ->with('error', 'Maklumat Telah Tersedia');
+        if ($semak_duplicate) {
+            if($semak_duplicate->e102_b6 == $request->e102_b6){
+                return redirect()->route('isirung.bahagianv')
+                ->with('error', 'Maklumat Telah Tersedia');
+            }
         }
         // dd($request->all());
         $penyata = E102b::findOrFail($id);
@@ -956,7 +956,6 @@ class KilangIsirungController extends Controller
 
         return redirect()->route('isirung.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');
-
     }
 
 
@@ -1152,7 +1151,6 @@ class KilangIsirungController extends Controller
             $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();
         } else {
             return redirect()->back()->with('error', 'Penyata Tidak Wujud!');
-
         }
 
 

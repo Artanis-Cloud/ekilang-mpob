@@ -97,7 +97,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                                 Daripada (Alamat Emel)</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='FromEmail' id="FromEmail" required
+                                                <input type="email" class="form-control" name='FromEmail' id="FromEmail" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -183,7 +183,7 @@
                                                 <h5 class="modal-title" id="exampleModalCenterTitle">
                                                     PENGESAHAN</h5>
                                                 <button type="button" class="close"
-                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                    data-dismiss="modal" aria-label="Close">
                                                     <i data-feather="x"></i>
                                                 </button>
                                             </div>

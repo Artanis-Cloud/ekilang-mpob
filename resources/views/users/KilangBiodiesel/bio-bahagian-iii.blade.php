@@ -62,7 +62,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <span class="required">Nama Produk</span>
+                                                    <span class="required">Nama Produk dan Kod</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <select class="form-control" id="ebio_c3" name="ebio_c3"
@@ -171,9 +171,9 @@
                                                     </div>
                                                 @enderror --}}
 
-                                                    <input type="hidden" class="form-control" name='ebio_sykt'
+                                                    <input type="text" class="form-control" name='ebio_sykt'
                                                         style="width:50%" id="myInputHidden1" required>
-                                                    <input type="hidden" class="form-control" name='ebio_jumlah'
+                                                    <input type="text" class="form-control" name='ebio_jumlah'
                                                         style="width:50%" id="myInputHidden2" required>
                                                 </div>
                                             </div>
@@ -540,10 +540,6 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                {{-- <form action="{{ route('bio.add.bahagian.iii.jualan')}}"
-                                                    method="post">
-                                                    @csrf --}}
-                                                {{-- <form action="/action_page.php"> --}}
                                                 <div class="modal-body">
                                                     <label>Nama Syarikat </label>
                                                     <div class="form-group">
@@ -586,7 +582,8 @@
                     </div>
 
                 </div>
-
+@endsection
+@section('scripts')
 
     <script>
         function onlyNumberKey(evt) {
@@ -635,7 +632,5 @@
                 //         $('#modal').modal('hide');
                 // }
     </script>
-    </body>
 
-    </html>
 @endsection

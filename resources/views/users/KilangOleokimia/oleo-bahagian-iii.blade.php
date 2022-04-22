@@ -152,7 +152,7 @@
                     <br>
                     <br>
                     <hr>
-                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Eksport Produk Oleokimia Lain-lain Produk Sawit</h5>
+                    <h5 style="color: rgb(39, 80, 71); text-align:center">Ringkasan Produk Oleokimia</h5>
 
                     <section class="section">
                         <div class="card">

@@ -61,7 +61,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <span class="required">Nama Produk</span>
+                                                    <span class="required">Nama Produk dan Kod</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <select class="form-control" id="ebio_b4" name="ebio_b4"

@@ -103,7 +103,7 @@
 
                                                     </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
 
-                                                    BULAN :&nbsp;&nbsp; {{  }}
+                                                    BULAN :&nbsp;&nbsp; {{ $users->e101_bln  }}
                                                     {{-- @if($bulan == 1) JANUARI
                                                     @elseif($bulan == 2) FEBRUARI
                                                     @elseif($bulan == 3) MAC
@@ -117,7 +117,7 @@
                                                     @elseif($bulan == 11) NOVEMBER
                                                     @elseif($bulan == 12) DISEMBER
                                                     @endif --}}
-                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp; {{ $users->e101_thn  }}
                                                     {{-- {{ $tahun }} --}}
                                                 </b><br>
 

@@ -182,8 +182,8 @@
                                         style="float: left">Sebelumnya</a>
                                 </div> --}}
                                 <div class="text-right col-md-12 ">
-                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                        style="float: right" data-bs-target="#emel">Hantar</button>
+                                    <button type="button" class="btn btn-primary " data-toggle="modal"
+                                        style="float: right" data-target="#emel">Hantar</button>
                                 </div>
 
                             </div>
@@ -199,7 +199,7 @@
                                                 <h5 class="modal-title" id="exampleModalCenterTitle">
                                                     PENGESAHAN</h5>
                                                 <button type="button" class="close"
-                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                    data-dismiss="modal" aria-label="Close">
                                                     <i data-feather="x"></i>
                                                 </button>
                                             </div>
@@ -210,7 +210,7 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-light-secondary"
-                                                    data-bs-dismiss="modal">
+                                                    data-dismiss="modal">
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block"
                                                         style="color:#275047">Kembali</span>

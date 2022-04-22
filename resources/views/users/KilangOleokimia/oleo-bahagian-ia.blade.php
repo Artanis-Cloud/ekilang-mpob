@@ -136,7 +136,9 @@
 
                                         <div class="row mt-3">
                                             <div class="col-md-3">
-                                                <span class="required">Belian/Terimaan</span>
+                                                <span class="required">Belian/Terimaan &nbsp;<i class="fa fa-exclamation-circle"
+                                                    style="color: red"
+                                                    title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e104_b7' onkeypress="return isNumberKey(event)"
