@@ -331,7 +331,7 @@
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalScrollableTitle">
                                                             Kemaskini Maklumat Produk</h5>
-                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                        <button type="button" class="close" data-dismiss="modal"
                                                             aria-label="Close">
                                                             <i data-feather="x"></i>
                                                         </button>
@@ -446,7 +446,7 @@
                                                 <div class="modal-header">
                                                     <h5 class="modal-title" id="exampleModalCenterTitle">
                                                         PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
+                                                    <button type="button" class="close" data-dismiss="modal"
                                                         aria-label="Close">
                                                         <i data-feather="x"></i>
                                                     </button>
@@ -458,7 +458,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
+                                                        data-dismiss="modal">
                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                     </button>
@@ -524,7 +524,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalCenterTitle">
                             PENGESAHAN</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <i data-feather="x"></i>
                         </button>
                     </div>
@@ -534,7 +534,7 @@
                         </p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                         </button>

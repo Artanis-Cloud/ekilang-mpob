@@ -1064,16 +1064,16 @@
 
 
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e91_npg" class="form-control" size="50"
+                                                <input type="text" id="e91_npg" class="form-control" size="50" required
                                                     name='e91_npg' value="{{ $penyata->e91_npg }}">
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e91_jpg" class="form-control" size="50"
+                                                <input type="text" id="e91_jpg" class="form-control" size="50" required
                                                     name='e91_jpg' value="{{ $penyata->e91_jpg }}">
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                                <input type="text" id="e91_notel" class="form-control" size="50"
+                                                <input type="text" id="e91_notel" class="form-control" size="50" required
                                                     name="e91_notel" value="{{ $penyata->e91_notel }}">
                                             </p>
 

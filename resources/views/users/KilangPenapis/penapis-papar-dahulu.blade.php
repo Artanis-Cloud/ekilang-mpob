@@ -103,7 +103,7 @@
 
                                                     </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
 
-                                                    BULAN :&nbsp;&nbsp;
+                                                    BULAN :&nbsp;&nbsp; {{  }}
                                                     {{-- @if($bulan == 1) JANUARI
                                                     @elseif($bulan == 2) FEBRUARI
                                                     @elseif($bulan == 3) MAC
@@ -948,78 +948,27 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
-                                            <p><b>
-                                                    {{-- <font color="#0000FF">BAHAGIAN VII :&nbsp;&nbsp;&nbsp;&nbsp; IMPORT
-                                                        PRODUK SAWIT</font>
-                                                </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0">
-                                                <tbody>
-                                                    <tr>
-                                                        <td width="14%" align="center"><b>
-                                                                <font size="2">Produk Minyak Sawit</font>
-                                                            </b></td>
-                                                        <td width="7%" align="center"><b>
-                                                                <font size="2">Kod Produk</font>
-                                                            </b></td>
-                                                        <td width="15%" align="center"><b>
-                                                                <font size="2">Nombor Borang Kastam 1</font>
-                                                            </b></td>
-                                                        <td width="12%" align="center"><b>
-                                                                <font size="2">Tarikh Import</font>
-                                                            </b></td>
-                                                        <td width="10%" align="center"><b>
-                                                                <font size="2">Kuantiti<br> (Tan Metrik)</font>
-                                                            </b></td>
-                                                        <td width="11%" align="center"><b>
-                                                                <font size="2">Nilai (RM)</font>
-                                                            </b></td>
-                                                        <td width="6%" align="center"><b>
-                                                                <font size="2">Kod Negara</font>
-                                                            </b></td>
-                                                        <td width="15%" align="center"><b>
-                                                                <font size="2">Negara Sumber Import</font>
-                                                            </b></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table> --}}
-
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
-                                                    adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                            {{-- <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
-                                                <input type="date" id="e91_sdate" class="form-control" size="50"
-                                                    name='e91_sdate' value="{{ $penyataiii->e101_sdate ?? '' }}" readonly>
-                                            </p> --}}
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_npg" class="form-control" size="50" name='e_npg'
-                                                    value="{{ $iii->e101_npg }}">
-                                            </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_jpg" class="form-control" size="50" name='e_jpg'
-                                                    value="{{ $iii->e101_jpg }}">
-                                            </p>
-                                            <p>No Telefon Kilang: &nbsp;&nbsp;
-
-                                                <input type="text" id="e_notel" class="form-control" size="50"
-                                                    name="e_notel" value="">
-                                            </p>
+                                                adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
+                                                <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $users->e101_sdate ?? '' }}</b></p>
+                                                <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $users->e101_npg }}</b>
+                                                </p>
+                                                <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $users->e101_jpg }}</b></p>
+                                                <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $users->e101_notel ?? '' }}</b>
+                                                </p>
                                         </body>
 
                                             <h1 style="page-break-before:always"></h1>
 
                                             <div class="row form-group" style="padding-top: 10px; ">
 
+                                                <div class="text-right col-md-7 mb-4 ">
+                                                    <button type="button" class="btn btn-primary "
+                                                        style="float: right" onclick="myPrint('myfrm')" value="print">Cetak</button>
+                                                </div>
 
-                                                <div class="text-left col-md-5">
-                                                    <a href="{{ route('penapis.bahagianv') }}" class="btn btn-primary"
-                                                        style="float: left">Sebelumnya</a>
-                                                </div>
-                                                <div class="text-right col-md-7">
-                                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                                        data-bs-target="#next">Hantar</button>
-                                                    <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
-                                                        onclick="myPrint('myfrm')" value="print">Cetak</button>
-                                                </div>
+                                            </div>
 
                                             </div>
 
