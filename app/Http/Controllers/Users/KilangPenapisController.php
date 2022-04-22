@@ -854,7 +854,14 @@ class KilangPenapisController extends Controller
     {
         // $produk = Produk::where('prodname', $request->e101_d4)->first();
         // $kodsl = KodSl::where('catname', $request->e101_d3)->first();
+        $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
+        $semak_duplicate = E101D::where('e101_reg',$e101_reg->e101_reg)->where('e101_d3', $request->e101_d3)->where('e101_d4',$request->e101_d4)->first();
+
+        if($semak_duplicate){
+            return redirect()->route('penapis.bahagianv')
+            ->with('error', 'Maklumat Telah Tersedia');
+        }
         // dd($request->all());
         $penyata = E101D::findOrFail($id);
         $penyata->e101_d3 = $request->e101_d3;

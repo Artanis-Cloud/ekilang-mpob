@@ -591,27 +591,27 @@
                                     <li class="sidebar-item">
                                         <a href="{{ route('penapis.bahagianivb') }}" class="sidebar-link">
                                             <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Bahagian 5 (b) </span>
+                                            <span class="hide-menu"> Bahagian 4 (b) </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a href="{{ route('penapis.bahagianv') }}" class="sidebar-link">
                                             <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Bahagian 6 </span>
+                                            <span class="hide-menu"> Bahagian 5 </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
 
                                             <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Bahagian 7 </span>
+                                            <span class="hide-menu"> Bahagian 6 </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item ">
                                         <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
                                             <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "> </i>
                                             {{-- <i data-feather="file-plus" width="20"></i> --}}
-                                            <span class="hide-menu">Bahagian 8</span>
+                                            <span class="hide-menu">Bahagian 7</span>
                                         </a>
 
                                     </li>
