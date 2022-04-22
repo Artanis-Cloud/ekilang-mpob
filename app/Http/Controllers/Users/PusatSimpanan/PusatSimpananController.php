@@ -14,7 +14,7 @@ use App\Models\Produk;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use DB;
-
+use Illuminate\Support\Facades\Hash;
 
 class PusatSimpananController extends Controller
 {
@@ -98,9 +98,27 @@ class PusatSimpananController extends Controller
         ];
         $layout = 'layouts.psimpan';
 
+        $user = User::get();
 
+        return view('users.PusatSimpanan.pusatsimpan-tukar-password', compact('returnArr', 'layout','user'));
+    }
 
-        return view('users.PusatSimpanan.pusatsimpan-tukar-password', compact('returnArr', 'layout'));
+    public function pusatsimpan_update_password(Request $request, $id)
+    {
+        $user = User::findOrFail(auth()->user()->id);
+        //compare password
+        if(!Hash::check($request->old_password, $user->password)){
+            return redirect()->route('pusatsimpan.tukarpassword')
+            ->with('error', 'Sila masukkan kata laluan lama yang betul');
+        }
+
+        $password = Hash::make($request->new_password);
+        $user->password = $password;
+        $user->save();
+
+        return redirect()->route('pusatsimpan.tukarpassword')
+            ->with('success', 'Kata Laluan berjaya ditukar');
+
     }
 
     public function pusatsimpan_bahagiana()

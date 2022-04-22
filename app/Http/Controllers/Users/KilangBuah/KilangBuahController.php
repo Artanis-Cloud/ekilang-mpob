@@ -100,11 +100,28 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        $user = User::get();
 
-
-        return view('users.KilangBuah.buah-tukar-password', compact('returnArr', 'layout'));
+        return view('users.KilangBuah.buah-tukar-password', compact('returnArr', 'layout','user'));
     }
 
+    public function buah_update_password(Request $request, $id)
+    {
+        $user = User::findOrFail(auth()->user()->id);
+        //compare password
+        if(!Hash::check($request->old_password, $user->password)){
+            return redirect()->route('buah.tukarpassword')
+            ->with('error', 'Sila masukkan kata laluan lama yang betul');
+        }
+
+        $password = Hash::make($request->new_password);
+        $user->password = $password;
+        $user->save();
+
+        return redirect()->route('buah.tukarpassword')
+            ->with('success', 'Kata Laluan berjaya ditukar');
+
+    }
     public function buah_bahagiani()
     {
 
