@@ -50,7 +50,7 @@
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <form
-                                    action="{{ route('penapis.send.email.proses') }}"
+                                    action="{{ route('buah.send.email.proses') }}"
                                     method="post">
                                     @csrf
                                     <div class="text-center">
@@ -167,7 +167,7 @@
 
 
                                 <div class="text-right col-md-6 mb-4 ">
-                                    <button type="submit" class="btn btn-primary" style="margin-left:90%"  data-toggle="modal"data-target="#emel">Hantar</button>
+                                    <button type="button" class="btn btn-primary" style="margin-left:90%"  data-toggle="modal"data-target="#emel">Hantar</button>
                                 </div>
 
                             </div>

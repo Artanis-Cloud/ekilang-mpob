@@ -458,7 +458,7 @@
                                             </tbody>
                                         </table>
                                         <br>
-
+                                        <div  style='page-break-after:always'></div>
                                         <p><b>
                                                 <font size="3" color="0000FF">BAHAGIAN II : MAKLUMAT JAM PENGILANGAN, KADAR
                                                     PERAHAN DAN HARGA </font>
@@ -968,7 +968,7 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-
+                                        <div  style='page-break-after:always'></div>
                                         <p><b>
                                                 <font size="3" color="#0000FF">BAHAGIAN VI : EKSPORT PRODUK SAWIT</font>
                                             </b></p>
@@ -1013,6 +1013,7 @@
                                         <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_jpg }}</b></p>
                                         <p>No Telefon Kilang:&nbsp;&nbsp; <b>{{ $penyata->e91_notel }}</b>
                                         </p>
+                                    </div>
                                     </div>
                                 </div>
                             </div>
