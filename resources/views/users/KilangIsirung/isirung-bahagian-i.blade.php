@@ -135,9 +135,9 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">C.
-                                                                        Pembelian / Terimaan &nbsp; <i class="fa fa-exclamation-circle"
+                                                                        Belian / Terimaan &nbsp; <i class="fa fa-exclamation-circle"
                                                                         style="color: red"
-                                                                        title="Jumlah Pembelian/Terimaan Dalam Negeri adalah termasuk jumlah Import."></i></td>
+                                                                        title="Jumlah Belian/Terimaan Dalam Negeri adalah termasuk jumlah Import."></i></td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="10" name='e102_ac1'
                                                                                 style="text-align: center"

@@ -50,8 +50,6 @@
                             <br>
                             <br>
                             <div class="card-body">
-                                <div class="row">
-                                    {{-- <div class="col-md-4 col-12"> --}}
                                     <div class="pl-3">
 
                                         <body>
@@ -603,7 +601,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN IV : EDARAN / JUALAN MINYAK ISIRUNG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN IV : JUALAN / EDARAN MINYAK ISIRUNG SAWIT
                                                         MENTAH (CPKO) (04)
                                                     </font>
                                                 </b></p>
@@ -612,7 +610,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Edaran/jualan</font>
+                                                                <font size="2">Jualan/Edaran</font>
                                                             </b></td>
                                                         <td width="11%" align="center"><b>
                                                                 <font size="2">Ke</font>
@@ -642,7 +640,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN V : EDARAN / JUALAN DEDAK ISIRUNG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN V : JUALAN / EDARAN DEDAK ISIRUNG SAWIT
                                                         (PKC) (33)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -650,7 +648,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Edaran/Jualan</font>
+                                                                <font size="2">Jualan/Edaran</font>
                                                             </b></td>
                                                         <td width="11%" align="center"><b>
                                                                 <font size="2">Ke</font>

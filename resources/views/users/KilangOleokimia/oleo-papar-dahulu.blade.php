@@ -94,18 +94,18 @@
                                                 </font>PENYATA BULANAN KILANG OLEOKIMIA - MPOB (EL) CM 4<br>
 
                                                 BULAN :&nbsp;&nbsp; @if($users->e104_bln == 1)
-                                                Januari
-                                                @elseif($users->e104_bln == 2) Februari
-                                                @elseif($users->e104_bln == 3) Mac
-                                                @elseif($users->e104_bln == 4) April
-                                                @elseif($users->e104_bln == 5) Mei
-                                                @elseif($users->e104_bln == 6) Jun
-                                                @elseif($users->e104_bln == 7) Julai
-                                                @elseif($users->e104_bln == 8) Ogos
-                                                @elseif($users->e104_bln == 9) September
-                                                @elseif($users->e104_bln == 10) Oktober
-                                                @elseif($users->e104_bln == 11) November
-                                                @elseif($users->e104_bln == 12) Disember
+                                                JANUARI
+                                                @elseif($users->e104_bln == 2) FEBRUARI
+                                                @elseif($users->e104_bln == 3) MAC
+                                                @elseif($users->e104_bln == 4) APRIL
+                                                @elseif($users->e104_bln == 5) MEI
+                                                @elseif($users->e104_bln == 6) JUN
+                                                @elseif($users->e104_bln == 7) JULAI
+                                                @elseif($users->e104_bln == 8) OGOS
+                                                @elseif($users->e104_bln == 9) SEPTEMBER
+                                                @elseif($users->e104_bln == 10) OKTOBER
+                                                @elseif($users->e104_bln == 11) NOVEMBER
+                                                @elseif($users->e104_bln == 12) DISEMBER
                                                 @endif
                                                 &nbsp;&nbsp;&nbsp;&nbsp;TAHUN :&nbsp;&nbsp;{{ $users->e104_thn }}
                                             </b><br>
@@ -118,26 +118,21 @@
                                             <tbody>
                                                 <tr>
 
-                                                    <td width="25%" height="19">
-                                                        <font face="Times New Roman">Nombor Lesen</font>
+                                                    <td width="25%" height="19">Nombor Lesen
                                                     </td>
 
                                                     <td width="88%" height="19"><b>
-                                                            <font face="Times New Roman">
-                                                                {{ auth()->user()->username }}</font>
+                                                                {{ auth()->user()->username }}
                                                         </b></td>
 
                                                 </tr>
 
                                                 <tr>
 
-                                                    <td width="25%" height="19">
-                                                        <font face="Times New Roman">Nama Premis </font>
+                                                    <td width="25%" height="19">Nama Premis
                                                     </td>
 
-                                                    <td width="88%" height="19"><b>
-                                                            <font face="Times New Roman">{{ auth()->user()->name }}
-                                                            </font>
+                                                    <td width="88%" height="19"><b>{{ auth()->user()->name }}
                                                         </b></td>
 
                                                 </tr>
@@ -284,7 +279,7 @@
                                                             <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
-                                                            <font size="2">Belian / Terima</font><b></b>
+                                                            <font size="2">Belian / Terimaan</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
                                                             <font size="2">Import</font><b></b>
@@ -293,7 +288,7 @@
                                                             <font size="2">Jumlah Yang Diproses</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
-                                                            <font size="2">Jualan / Edaran Dalam Negeri</font><b></b>
+                                                            <font size="2">Jualan / Edaran Tempatan</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
                                                             <font size="2">Eksport</font><b></b>
@@ -402,7 +397,7 @@
                                                             <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
-                                                            <font size="2">Belian / Terima</font><b></b>
+                                                            <font size="2">Belian / Terimaan</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
                                                             <font size="2">Import</font><b></b>
@@ -411,7 +406,7 @@
                                                             <font size="2">Jumlah Yang Diproses</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
-                                                            <font size="2">Jualan / Edaran Dalam Negeri</font><b></b>
+                                                            <font size="2">Jualan / Edaran Tempatan</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
                                                             <font size="2">Eksport</font><b></b>
@@ -500,7 +495,7 @@
                                         </table>
 
                                         <p><b>
-                                            <font color="#0000FF">BAHAGIAN I(c) :&nbsp;&nbsp;&nbsp;&nbsp; Minyak-Minyak Lain</font>
+                                            <font color="#0000FF">BAHAGIAN I(c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK-MINYAK LAIN</font>
                                         </b></p>
                                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                             class="table table-bordered">
@@ -519,7 +514,7 @@
                                                             <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
-                                                            <font size="2">Belian / Terima</font><b></b>
+                                                            <font size="2">Belian / Terimaan</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
                                                             <font size="2">Import</font><b></b>
@@ -528,7 +523,7 @@
                                                             <font size="2">Jumlah Yang Diproses</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
-                                                            <font size="2">Jualan / Edaran Dalam Negeri</font><b></b>
+                                                            <font size="2">Jualan / Edaran Tempatan</font><b></b>
                                                         </b></td>
                                                     <td width="8%" align="center"><b>
                                                             <font size="2">Eksport</font><b></b>
@@ -650,13 +645,13 @@
                                                             <font size="2">Kod Produk</font>
                                                         </b></td>
                                                     <td width="10%" align="center"><b>
-                                                            <font size="2">Belian / Penerimaan</font>
+                                                            <font size="2">Belian / Terimaan</font>
                                                         </b></td>
                                                     <td width="10%" align="center"><b>
                                                             <font size="2">Pengeluaran</font>
                                                         </b></td>
                                                     <td width="10%" align="center"><b>
-                                                            <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                            <font size="2">Jualan / Edaran Tempatan</font>
                                                         </b></td>
                                                     <td width="10%" align="center"><b>
                                                             <font size="2">Eksport</font>
@@ -802,7 +797,6 @@
                                                 </tr>
                                             </tbody>
                                         </table>
-                                        <p><b>
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>

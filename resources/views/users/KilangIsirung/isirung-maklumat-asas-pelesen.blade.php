@@ -57,7 +57,7 @@
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
-                        <form action="{{ route('penapis.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}"
+                        <form action="{{ route('isirung.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}"
                             method="post">
                             @csrf
                             <div class="container center mt-5">

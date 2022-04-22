@@ -163,7 +163,7 @@
                                 <div class="col-md-3">
                                     <span class="required align-items-center">
                                         Edaran Tempatan  &nbsp;<i class="fa fa-exclamation-circle" style="color: red"
-                                            title="Jumlah Edaran Dalam Negeri adalah termasuk jumlah Eksport."></i></span>
+                                            title="Jumlah Edaran Tempatan adalah termasuk jumlah Eksport."></i></span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e07bt_edaran' style="width: 50%" onkeypress="return isNumberKey(event)"
@@ -228,8 +228,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="icon" style="text-align: center">
-                                                            <a href="#" type="button" data-bs-toggle="modal"
-                                                                data-bs-target="#modal{{ $data->e07bt_id }}">
+                                                            <a href="#" type="button" data-toggle="modal"
+                                                                data-target="#modal{{ $data->e07bt_id }}">
                                                                 <i class="fas fa-edit fa-lg" style="color: #ffc107">
                                                                 </i>
                                                             </a>
@@ -237,8 +237,8 @@
                                                     </td>
                                                     <td>
                                                         <div class="icon" style="text-align: center">
-                                                            <a href="#" type="button" data-bs-toggle="modal"
-                                                                data-bs-target="#next2{{ $data->e07bt_id }}">
+                                                            <a href="#" type="button" data-toggle="modal"
+                                                                data-target="#next2{{ $data->e07bt_id }}">
                                                                 <i class="fa fa-trash"
                                                                     style="color: #dc3545;font-size:18px"></i>
                                                             </a>
@@ -259,7 +259,7 @@
                                                                         id="exampleModalScrollableTitle">
                                                                         Kemaskini Maklumat Produk</h5>
                                                                     <button type="button" class="close"
-                                                                        data-bs-dismiss="modal" aria-label="Close">
+                                                                        data-dismiss="modal" aria-label="Close">
                                                                         <i data-feather="x"></i>
                                                                     </button>
                                                                 </div>
@@ -329,7 +329,7 @@
 
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-light-secondary"
-                                                                        data-bs-dismiss="modal">
+                                                                        data-dismiss="modal">
                                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                                         <span class="d-none d-sm-block">Batal</span>
                                                                     </button>
@@ -355,7 +355,7 @@
                                                                 <h5 class="modal-title" id="exampleModalCenterTitle">
                                                                     PENGESAHAN</h5>
                                                                 <button type="button" class="close"
-                                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                                    data-dismiss="modal" aria-label="Close">
                                                                     <i data-feather="x"></i>
                                                                 </button>
                                                             </div>
@@ -366,7 +366,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-light-secondary"
-                                                                    data-bs-dismiss="modal">
+                                                                    data-dismiss="modal">
                                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                                     <span class="d-none d-sm-block"
                                                                         style="color:#275047">Tidak</span>
@@ -424,8 +424,8 @@
                             style="float: left">Sebelumnya</a>
                     </div>
                     <div class="text-right col-md-7">
-                        <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                            data-bs-target="#next">Hantar</button>
+                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                            data-target="#next">Hantar</button>
                     </div>
 
                 </div>
@@ -439,7 +439,7 @@
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalCenterTitle">
                                     PENGESAHAN</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <i data-feather="x"></i>
                                 </button>
                             </div>
@@ -449,7 +449,7 @@
                                 </p>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                                     <i class="bx bx-x d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                 </button>

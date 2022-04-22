@@ -45,7 +45,6 @@
                             <br>
                             <br>
                             <div class="card-body">
-                                <div class="row">
                                     <div class="pl-3">
                                         <body>
                                             <div align="right">
@@ -408,16 +407,16 @@
                                                 @csrf
 
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_npg" class="form-control" size="50"
+                                                <input type="text" id="e_npg" class="form-control" size="50" required
                                                     name='e07_npg' value="{{ $user->e07_npg }}">
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_jpg" class="form-control" size="50"
+                                                <input type="text" id="e_jpg" class="form-control" size="50" required
                                                     name='e07_jpg' value="{{ $user->e07_jpg }}">
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                                <input type="text" id="e_notel" class="form-control" size="50"
+                                                <input type="text" id="e_notel" class="form-control" size="50" required
                                                     name="e07_notel" value="{{ $user->e07_notel }}">
                                             </p>
 
@@ -453,7 +452,7 @@
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalCenterTitle">
                                         PENGESAHAN</h5>
-                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <i data-feather="x"></i>
                                     </button>
                                 </div>
