@@ -18,6 +18,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\Console\Input\Input;
 
@@ -107,9 +108,27 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
+        $user = User::get();
 
+        return view('users.KilangBiodiesel.bio-tukar-password', compact('returnArr', 'layout','user'));
+    }
 
-        return view('users.KilangBiodiesel.bio-tukar-password', compact('returnArr', 'layout'));
+    public function bio_update_password(Request $request, $id)
+    {
+        $user = User::findOrFail(auth()->user()->id);
+        //compare password
+        if(!Hash::check($request->old_password, $user->password)){
+            return redirect()->route('bio.tukarpassword')
+            ->with('error', 'Sila masukkan kata laluan lama yang betul');
+        }
+
+        $password = Hash::make($request->new_password);
+        $user->password = $password;
+        $user->save();
+
+        return redirect()->route('bio.tukarpassword')
+            ->with('success', 'Kata Laluan berjaya ditukar');
+
     }
 
     public function bio_bahagiania()

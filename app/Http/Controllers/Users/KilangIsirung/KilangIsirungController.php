@@ -18,6 +18,7 @@ use App\Models\ProdCat2;
 use App\Models\Produk;
 use App\Models\User;
 use DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -102,11 +103,28 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
 
+        $user = User::get();
 
-
-        return view('users.KilangIsirung.isirung-tukar-password', compact('returnArr', 'layout'));
+        return view('users.KilangIsirung.isirung-tukar-password', compact('returnArr', 'layout','user'));
     }
 
+    public function isirung_update_password(Request $request, $id)
+    {
+        $user = User::findOrFail(auth()->user()->id);
+        //compare password
+        if(!Hash::check($request->old_password, $user->password)){
+            return redirect()->route('isirung.tukarpassword')
+            ->with('error', 'Sila masukkan kata laluan lama yang betul');
+        }
+
+        $password = Hash::make($request->new_password);
+        $user->password = $password;
+        $user->save();
+
+        return redirect()->route('isirung.tukarpassword')
+            ->with('success', 'Kata Laluan berjaya ditukar');
+
+    }
     public function isirung_bahagiani()
     {
 

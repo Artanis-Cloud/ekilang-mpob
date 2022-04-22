@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="card" style="margin-right:3%; margin-left:3%">
-                    </div> --}}
+                    
                     <div class="card-body">
                             <div class="pl-3">
 

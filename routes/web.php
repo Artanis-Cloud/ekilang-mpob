@@ -207,6 +207,8 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('buah/tukar-password', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_tukarpassword'])->name('buah.tukarpassword');
+        Route::post('buah/update-password/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_password'])->name('buah.update.password');
+
 
         Route::get('buah/bahagian-i', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_bahagiani'])->name('buah.bahagiani');
         Route::post('buah/updatbahagian-i/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_bahagian_i'])->name('buah.update.bahagian.i');
@@ -250,6 +252,8 @@ Route::middleware('auth')->group(function () {
         Route::post('penapis/updatmaklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_update_maklumat_asas_pelesen'])->name('penapis.update.maklumat.asas.pelesen');
 
         Route::get('penapis/tukar-password', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_tukarpassword'])->name('penapis.tukarpassword');
+        Route::post('penapis/update-password/{Id}', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_update_password'])->name('penapis.update.password');
+
 
         Route::get('penapis/bahagian-i', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_bahagiani'])->name('penapis.bahagiani');
         Route::post('penapis/add-bahagian-i', [App\Http\Controllers\Users\KilangPenapisController::class, 'penapis_add_bahagian_i'])->name('penapis.add.bahagian.i');
@@ -311,6 +315,9 @@ Route::middleware('auth')->group(function () {
         Route::post('isirung/updatmaklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_update_maklumat_asas_pelesen'])->name('isirung.update.maklumat.asas.pelesen');
 
         Route::get('isirung/tukar-password', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_tukarpassword'])->name('isirung.tukarpassword');
+        Route::post('isirung/update-password/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_update_password'])->name('isirung.update.password');
+
+
         Route::get('isirung/bahagian-i', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_bahagiani'])->name('isirung.bahagiani');
         Route::post('isirung/updatbahagian-i/{Id}', [App\Http\Controllers\Users\KilangIsirung\KilangIsirungController::class, 'isirung_update_bahagian_i'])->name('isirung.update.bahagian.i');
 
@@ -361,6 +368,7 @@ Route::middleware('auth')->group(function () {
         Route::post('oleokimia/updatmaklumat-asas-pelesen/{Id}',  [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_update_maklumat_asas_pelesen'])->name('oleo.update.maklumat.asas.pelesen');
 
         Route::get('oleokimia/tukar-password', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_tukarpassword'])->name('oleo.tukarpassword');
+        Route::post('oleokimia/update-password/{Id}', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_update_password'])->name('oleo.update.password');
 
         Route::get('oleokimia/bahagian-ia', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class, 'oleo_bahagiania'])->name('oleo.bahagiania');
         Route::post('oleokimia/add-bahagian-ia', [App\Http\Controllers\Users\KilangOleokimia\KilangOleokimiaController::class,  'oleo_add_bahagian_ia'])->name('oleo.add.bahagian.ia');
@@ -409,6 +417,8 @@ Route::middleware('auth')->group(function () {
         Route::post('pusatsimpan/updatmaklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_update_maklumat_asas_pelesen'])->name('pusatsimpan.update.maklumat.asas.pelesen');
 
         Route::get('pusatsimpan/tukar-password', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_tukarpassword'])->name('pusatsimpan.tukarpassword');
+        Route::post('pusatsimpan/update-password/{Id}', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_update_password'])->name('pusatsimpan.update.password');
+
 
         Route::get('pusatsimpan/bahagian-a', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_bahagiana'])->name('pusatsimpan.bahagiana');
         Route::post('pusatsimpan/add-bahagian-a', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_add_bahagian_a'])->name('pusatsimpan.add.bahagian.a');
@@ -438,6 +448,8 @@ Route::middleware('auth')->group(function () {
 
         Route::post('biodiesel/updatmaklumat-asas-pelesen/{Id}',  [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_update_maklumat_asas_pelesen'])->name('bio.update.maklumat.asas.pelesen');
         Route::get('biodiesel/tukar-password', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_tukarpassword'])->name('bio.tukarpassword');
+        Route::post('biodiesel/update-password/{Id}', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_update_password'])->name('bio.update.password');
+
 
         Route::get('biodiesel/bahagian-ia', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_bahagiania'])->name('bio.bahagiania');
         Route::post('biodiesel/add-bahagian-ia', [App\Http\Controllers\Users\KilangBiodieselController::class,  'bio_add_bahagian_ia'])->name('bio.add.bahagian.ia');

@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\User;
 use DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -102,9 +103,27 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
+        $user = User::get();
 
+        return view('users.KilangOleokimia.oleo-tukar-password', compact('returnArr', 'layout','user'));
+    }
 
-        return view('users.KilangOleokimia.oleo-tukar-password', compact('returnArr', 'layout'));
+    public function oleo_update_password(Request $request, $id)
+    {
+        $user = User::findOrFail(auth()->user()->id);
+        //compare password
+        if(!Hash::check($request->old_password, $user->password)){
+            return redirect()->route('oleo.tukarpassword')
+            ->with('error', 'Sila masukkan kata laluan lama yang betul');
+        }
+
+        $password = Hash::make($request->new_password);
+        $user->password = $password;
+        $user->save();
+
+        return redirect()->route('oleo.tukarpassword')
+            ->with('success', 'Kata Laluan berjaya ditukar');
+
     }
 
     public function oleo_bahagiania()
