@@ -211,7 +211,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Alamat Emel Pegawai Melapor</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_email_pg" class="form-control"
+                                    <input type="email" id="e_email_pg" class="form-control"
                                         placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg" value="">
                                     @error('e_email_pg')
                                                     <div class="alert alert-danger">

@@ -147,7 +147,7 @@
                                         class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                         Alamat Emel Kilang</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="e_email" class="form-control" placeholder="Alamat Emel"
+                                        <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
                                             name="e_email" value="{{ $pelesen->e_email }}">
                                         {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -206,7 +206,7 @@
                                         class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                         Alamat Emel Pegawai Melapor</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="no-tel-pegawai-melapor" class="form-control"
+                                        <input type="email" id="no-tel-pegawai-melapor" class="form-control"
                                             placeholder="Alamat Emel Pegawai Melapor" name="no-tel-pegawai-melapor"
                                             value="">
                                         {{-- @error('alamat_kilang_1')
@@ -252,7 +252,7 @@
                                         class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                         Alamat Emel Pengurus</label>
                                     <div class="col-md-6">
-                                        <input type="text" id="e_email_pengurus" class="form-control"
+                                        <input type="email" id="e_email_pengurus" class="form-control"
                                             placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
                                             value="{{ $pelesen->e_email_pengurus ?? '-' }}">
 

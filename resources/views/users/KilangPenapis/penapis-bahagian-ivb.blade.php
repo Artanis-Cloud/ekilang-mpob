@@ -47,8 +47,6 @@
                         <form action="{{ route('penapis.add.bahagian.ivb') }}" method="post">
                             @csrf
                             <div class="card-body">
-                                <div class="row">
-                                    {{-- <div class="col-md-4 col-12"> --}}
                                     <div class="pl-3">
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -63,7 +61,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <span class="required">Nama Produk</span>
+                                                    <span class="required">Nama Produk dan Kod</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <select class="form-control" id="produk"
@@ -259,7 +257,7 @@
                                                                     id="exampleModalScrollableTitle">
                                                                     Kemaskini Maklumat Produk</h5>
                                                                 <button type="button" class="close"
-                                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                                    data-dismiss="modal" aria-label="Close">
                                                                     <i data-feather="x"></i>
                                                                 </button>
                                                             </div>
@@ -313,12 +311,12 @@
                                                                     </div>
                                                                     {{-- <div class="modal-footer">
                                                                         <button type="button" class="btn btn-light-secondary"
-                                                                            data-bs-dismiss="modal">
+                                                                            data-dismiss="modal">
                                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                                             <span class="d-none d-sm-block">Batal</span>
                                                                         </button>
                                                                         <button type="button" class="btn btn-primary ml-1"
-                                                                            data-bs-dismiss="modal">
+                                                                            data-dismiss="modal">
                                                                             <i class="bx bx-check d-block d-sm-none"></i>
                                                                             <span class="d-none d-sm-block">Kemaskini</span>
                                                                         </button>
@@ -353,7 +351,7 @@
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalCenterTitle">
                                                                 PENGESAHAN</h5>
-                                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                            <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <i data-feather="x"></i>
                                                             </button>
