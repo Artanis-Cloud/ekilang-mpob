@@ -98,7 +98,7 @@
                                                                         Stok Awal Di Premis</td>
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="10" name='e91_aa1'
-                                                                            style="text-align: center"
+                                                                            style="text-align: center" 
                                                                             onkeypress="return isNumberKey(event)"
                                                                             value="{{ $penyata->e91_aa1 ?? 0 }}">
                                                                     </td>
@@ -124,7 +124,7 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td class="text-bold-500">B.
-                                                                        Pembelian / Terimaan</td>
+                                                                        Belian / Terimaan</td>
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="10" name='e91_ab1' id="number"
                                                                             style="text-align: center"
@@ -383,6 +383,15 @@
         {{-- // function setTwoNumberDecimal(event) {
     // this.value = parseFloat(this.value).toFixed(2);
     // } --}}
+
+    <script>
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode
+            if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+                return false;
+            return true;
+        }
+    </script>
     @endsection
     {{-- </body>
 

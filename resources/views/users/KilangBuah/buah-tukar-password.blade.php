@@ -98,7 +98,7 @@
                         </div>
 
 
-                        <div class="text-right col-md-6 mb-4 ">
+                        <div class="text-right col-md-6 mb-4 mt-4">
                             <button type="button" class="btn btn-primary" style="margin-left:90%"
                                 data-toggle="modal" data-target="#next">Tukar Kata Laluan</button>
                         </div>

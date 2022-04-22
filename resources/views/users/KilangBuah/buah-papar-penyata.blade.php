@@ -42,14 +42,7 @@
                         <br>
                         <br>
                         <div class="card-body">
-                            <div class="row">
-                                {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
-
-
-
-
-
                                     <body>
                                         {{-- <p align="left">
                                             PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
@@ -328,7 +321,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td width="220">
-                                                        <font size="3">B. Pembelian/Terimaan</font>
+                                                        <font size="3">B. Belian/Terimaan</font>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
@@ -866,7 +859,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td align="center" width="168">
-                                                        <font size="3"><b>Pembeli/Terimaan</b></font>
+                                                        <font size="3"><b>Pembeli/Penerima</b></font>
                                                     </td>
                                                     <td align="center" width="158">
                                                         <font size="3"><b>Kuantiti (Tan Metrik)</b></font>

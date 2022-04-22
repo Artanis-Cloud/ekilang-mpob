@@ -65,10 +65,10 @@
                                 <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}"
                                     method="post">
                                     @csrf
-                                    <div class="container center mt-3" style="margin-left:8%">
+                                    <div class="container center mt-3" style="margin-left:15%">
                                         <div class="row">
                                             <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
+                                                class="text-right col-sm-5 required align-items-center">i.
                                                 Jumlah Jam Pengilangan</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='e91_ah1'
@@ -275,7 +275,7 @@
 
 
                                                 <div class="row">
-                                                    <div class="col-12" style="margin-bottom:-5%">
+                                                    <div class="col-12">
                                                         <div class="form-group">
                                                             <label class="control-label col-form-label"
                                                                 for="lain-sebab">Lain-Lain Sebab OER, Sila Nyatakan
@@ -438,13 +438,9 @@
                                             </div>
 
                                         </div>
-
-
-
-
                                     </div>
 
-                                    <div class="row form-group" style="padding-top: 10px; margin-top:2rem ">
+                                    <div class="row form-group">
 
 
                                         <div class="text-left col-md-5">
@@ -503,7 +499,7 @@
 
                 </div>
 
-          
+
 
 
     {{-- <div id="preloader"></div> --}}

@@ -33,6 +33,18 @@ File: scss
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+ @media print {
+    .pagebreak { page-break-before: always; } /* page-break-after works, as well */
+}
+
+@media print {
+    .pagebreak {
+        clear: both;
+        page-break-after: always;
+    }
+}
+
 :root {
   --blue: #137eff;
   --indigo: #6610f2;
@@ -8079,7 +8091,7 @@ a.text-purple:hover, a.text-purple:focus {
     border: 1px solid #dee2e6 !important; } }
 
 /*******************
-Padding margin property 
+Padding margin property
 *******************/
 html body .m-t-5 {
   margin-top: 5px; }
@@ -8664,8 +8676,8 @@ Author: Wrappixel
 
 File: scss
 */
-/*============================================================== 
- For Desktop & above all (2500px) 
+/*==============================================================
+ For Desktop & above all (2500px)
  ============================================================== */
 @media (min-width: 2500px) and (max-width: 4499px) {
   .topbar {
@@ -8673,8 +8685,8 @@ File: scss
   .footer {
     background-position: center bottom -1%; } }
 
-/*============================================================== 
- For Desktop & above all (1600px) 
+/*==============================================================
+ For Desktop & above all (1600px)
  ============================================================== */
 @media (min-width: 1600px) and (max-width: 2499px) {
   .topbar {
@@ -8682,8 +8694,8 @@ File: scss
   .footer {
     background-position: center bottom -3%; } }
 
-/*============================================================== 
- For Laptop & above all (1400px) 
+/*==============================================================
+ For Laptop & above all (1400px)
  ============================================================== */
 @media (min-width: 1400px) and (max-width: 1599px) {
   .topbar {
@@ -8691,8 +8703,8 @@ File: scss
   .footer {
     background-position: center bottom -3%; } }
 
-/*-- ============================================================== 
- Desktop & above all (1399px) 
+/*-- ==============================================================
+ Desktop & above all (1399px)
  ============================================================== */
 @media (max-width: 1399px) {
   .topbar {
@@ -8703,8 +8715,8 @@ File: scss
   .footer {
     background-position: center bottom -3%; } }
 
-/*-- ============================================================== 
- Ipad & above all(1023px) 
+/*-- ==============================================================
+ Ipad & above all(1023px)
  ============================================================== */
 @media (max-width: 1023px) {
   .feature1,
@@ -8714,8 +8726,8 @@ File: scss
     text-align: center;
     padding-bottom: 100px; } }
 
-/*-- ============================================================== 
- Phone and below ipad(767px) 
+/*-- ==============================================================
+ Phone and below ipad(767px)
  ============================================================== */
 @media (max-width: 767px) {
   .navbar-collapse {
