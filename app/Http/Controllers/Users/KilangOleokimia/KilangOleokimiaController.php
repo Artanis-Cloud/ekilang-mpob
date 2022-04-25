@@ -1026,6 +1026,8 @@ class KilangOleokimiaController extends Controller
 
 
         $penyata = E104Init::findOrFail($id);
+        $penyata->e104_flg = '2';
+        $penyata->e104_sdate = date("Y-m-d");
         $penyata->e104_npg = $request->e104_npg;
         $penyata->e104_jpg = $request->e104_jpg;
         $penyata->e104_notel = $request->e104_notel;

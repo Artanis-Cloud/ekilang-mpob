@@ -97,7 +97,9 @@
                                                 </tr>
                                                 <tr>
                                                     <th>Mesej</th>
-                                                    <td>{{ $emel->Message }}</td>
+                                                    <td>{!! $emel->Message !!}
+
+                                                    </td>
                                                 </tr>
 
                                                 <tr>

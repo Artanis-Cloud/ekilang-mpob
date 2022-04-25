@@ -1033,6 +1033,8 @@ class KilangBiodieselController extends Controller
 
 
         $penyata = EBioInit::findOrFail($id);
+        $penyata->ebio_flg = '2';
+        $penyata->ebio_sdate = date("Y-m-d");
         $penyata->ebio_npg = $request->ebio_npg;
         $penyata->ebio_jpg = $request->ebio_jpg;
         $penyata->ebio_notel = $request->ebio_notel;

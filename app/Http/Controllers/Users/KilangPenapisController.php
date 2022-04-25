@@ -1422,6 +1422,8 @@ class KilangPenapisController extends Controller
 
 
         $penyata = E101Init::findOrFail($id);
+        $penyata->e101_flg = '2';
+        $penyata->e101_sdate = date("Y-m-d");
         $penyata->e101_npg = $request->e101_npg;
         $penyata->e101_jpg = $request->e101_jpg;
         $penyata->e101_notel = $request->e101_notel;
