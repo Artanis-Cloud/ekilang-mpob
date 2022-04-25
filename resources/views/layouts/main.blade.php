@@ -222,7 +222,7 @@
                         <!-- ============================================================== -->
                         <!-- Comment -->
                         <!-- ============================================================== -->
-                        <li class="nav-item dropdown border-right">
+                        <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="mdi mdi-bell-outline font-22"></i>
@@ -302,7 +302,7 @@
 
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img src="{{ asset('user_icon.png') }}" alt="user" class="rounded-circle" width="40">
+                                <img src="{{ asset('user_icon.png') }}" alt="user" class="rounded-circle" width="30">
                                 <span class="m-l-5 font-medium d-none d-sm-inline-block">{{ auth()->user()->name }}<i
                                         class="mdi mdi-chevron-down"></i></span>
                             </a>
@@ -314,7 +314,8 @@
                                     <div class="">
                                     </div>
                                     <div class="m-l-10">
-                                        <h4 class="m-b-0">{{ auth()->user()->name }}</h4>
+                                        <h4 class="m-b-0">{{ auth()->user()->name }}</h4><br>
+                                        <p class="m-b-0">{{ auth()->user()->username }}</p>
                                         <p class="m-b-0">{{ auth()->user()->email }}</p>
                                         @if (auth()->user()->category == 'PL91')
                                             <p class="m-b-0">Kilang Buah</p>

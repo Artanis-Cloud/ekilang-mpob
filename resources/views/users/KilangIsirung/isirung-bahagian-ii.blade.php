@@ -48,7 +48,7 @@
 
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71); ">Bahagian II</h3>
+                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 2</h3>
                             <h5 style="color: rgb(39, 80, 71); font-size:14px">Kadar Perahan CPKO, Kadar Perolehan PKC, Jam
                                 Pengilangan dan Penggunaan Kapasiti</h5>
 

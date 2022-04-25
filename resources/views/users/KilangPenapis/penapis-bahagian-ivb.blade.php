@@ -50,7 +50,7 @@
                                     <div class="pl-3">
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                            <h3 style="color: rgb(39, 80, 71);">Bahagian IV (b)</h3>
+                                            <h3 style="color: rgb(39, 80, 71);">Bahagian 4 (b)</h3>
                                             <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan
                                                 Minyak Isirung Sawit
                                                 - Bahan Bukan Makanan</h5>
@@ -278,7 +278,7 @@
                                                                             <input type="text" name='e101_c5' onkeypress="return isNumberKey(event)"
                                                                                 class="form-control" value="{{  $data->e101_c5 }}">
                                                                         </div>
-                                                                        <label>Belian / Penerimaan </label>
+                                                                        <label>Belian / Terimaan </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_c6'
                                                                                 class="form-control" value="{{ $data->e101_c6 }}">

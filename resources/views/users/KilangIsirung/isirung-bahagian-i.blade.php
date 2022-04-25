@@ -49,7 +49,7 @@
                             {{-- <div class="pl-3"> --}}
 
                                 <div class=" text-center">
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian I</h3>
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 1</h3>
                                     <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Imbangan</h5>
                                 </div>
                                 <hr>

@@ -50,7 +50,7 @@
                     <div class="pl-3">
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71);">Bahagian IV</h3>
+                            <h3 style="color: rgb(39, 80, 71);">Bahagian 4</h3>
                             <h5 style="color: rgb(39, 80, 71)">Jualan / Edaran Minyak Isirung Sawit Mentah -
                                 (CPKO) (04)
                             </h5>
@@ -201,7 +201,7 @@
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-body">
-                                                                <label>Belian/Penerimaan </label>
+                                                                <label>Jualan/Edaran </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b4"
@@ -222,7 +222,7 @@
                                                                                                     readonly> --}}
 
                                                                 </div>
-                                                                <label>Dari </label>
+                                                                <label>Ke </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b5"
@@ -371,7 +371,7 @@
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-body">
-                                                                <label>Belian/Penerimaan </label>
+                                                                <label>Jualan/Edaran </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b4"
@@ -392,7 +392,7 @@
                                                                                                     readonly> --}}
 
                                                                 </div>
-                                                                <label>Dari </label>
+                                                                <label>Ke </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b5"
