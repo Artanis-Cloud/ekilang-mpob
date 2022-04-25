@@ -246,7 +246,7 @@
 
                                             <br>
                                             <p><b>
-                                                    <font color="#000FF0">BAHAGIAN I : MAKLUMAT IMBANGAN </font>
+                                                    <font color="#000FF0">BAHAGIAN 1 : MAKLUMAT IMBANGAN </font>
                                                 </b> </p>
 
                                             <table border="1" width="650" cellspacing="0" cellpadding="0"
@@ -588,7 +588,7 @@
 
 
                                             <p><b>
-                                                    <font color="#000FF0">BAHAGIAN II : KADAR PERAHAN CPKO, KADAR PEROLEHAN
+                                                    <font color="#000FF0">BAHAGIAN 2 : KADAR PERAHAN CPKO, KADAR PEROLEHAN
                                                         PKC, JAM PENGILANGAN DAN PENGGUNAAN
                                                         KAPASITI</font>
                                                 </b> </p>
@@ -623,7 +623,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN III : BELIAN / TERIMAAN BEKALAN ISIRONG
+                                                    <font color="#0000FF">BAHAGIAN 3 : BELIAN / TERIMAAN BEKALAN ISIRONG
                                                         SAWIT (PK) (51)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -671,7 +671,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN IV : JUALAN / EDARAN MINYAK ISIRONG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN 4 : JUALAN / EDARAN MINYAK ISIRONG SAWIT
                                                         MENTAH (CPKO) (04)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -718,7 +718,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN V : JUALAN / EDARAN DEDAK ISIRONG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN 5 : JUALAN / EDARAN DEDAK ISIRONG SAWIT
                                                         (PKC) (33)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -765,7 +765,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN VI : EKSPORT PRODUK SAWIT</font>
+                                                    <font color="#0000FF">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                                 class="table table-bordered">
@@ -827,7 +827,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN VII : IMPORT PRODUK SAWIT</font>
+                                                    <font color="#0000FF">BAHAGIAN 7 : IMPORT PRODUK SAWIT</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>

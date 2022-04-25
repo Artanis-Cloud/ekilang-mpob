@@ -267,7 +267,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN I :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                                    <font color="#0000FF">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                                         SAWIT</font>
                                                 </b> </p>
                                             <table border="1" class="table table-bordered" width="100%"
@@ -395,7 +395,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN II :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                    <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         ISIRUNG MINYAK SAWIT</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -522,7 +522,8 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN III :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        HARI BEROPERASI DAN KADAR PENGGUNAAN KAPASITI
                                                     </font>
                                                 </b> </p>
                                             <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -544,7 +545,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN IV (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                    <font color="#0000FF">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         AKHIR
                                                         BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                                         BAHAN MAKANAN</font>
@@ -636,7 +637,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN IV (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                    <font color="#0000FF">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         AKHIR
                                                         BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                                         BAHAN BUKAN MAKANAN</font>
@@ -728,7 +729,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN V (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
+                                                    <font color="#0000FF">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
                                                         TERIMAAN BEKALAN PRODUK SAWIT -
                                                         SENDIRI</font>
                                                 </b></p>
@@ -791,7 +792,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN V (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
+                                                    <font color="#0000FF">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
                                                         TERIMAAN BEKALAN PRODUK SAWIT -
                                                         LUAR</font>
                                                 </b></p>
@@ -853,7 +854,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN VI :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
                                                         EKSPORT PRODUK SAWIT</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -915,7 +916,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN VII :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
                                                         IMPORT PRODUK SAWIT</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">

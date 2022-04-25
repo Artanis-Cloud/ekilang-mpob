@@ -60,7 +60,7 @@
                                 <div class=" mt-2" style="text-align: right">
                                     <a href="{{ asset('manual/kilangbuah/2.pdf') }}" target="_blank"
                                         style="text-align:right"><i><u>Panduan
-                                                Mengisi Maklumat Bahagian II</u></i></a>
+                                                Mengisi Maklumat Bahagian 2</u></i></a>
                                 </div>
                                 <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}"
                                     method="post">

@@ -50,7 +50,7 @@
                     <div class="pl-3">
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71);">Bahagian III</h3>
+                            <h3 style="color: rgb(39, 80, 71);">Bahagian 3</h3>
                             <h5 style="color: rgb(39, 80, 71)">Belian/Terimaan Bekalan Isirung Sawit -
                                 (PK) (51)
                             </h5>

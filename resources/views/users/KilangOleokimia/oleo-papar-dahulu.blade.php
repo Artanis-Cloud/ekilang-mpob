@@ -258,7 +258,7 @@
                                         </table>
                                         <br>
                                         <p><b>
-                                                <font color="#0000FF">BAHAGIAN I(a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                                <font color="#0000FF">BAHAGIAN 1 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                                     SAWIT</font>
                                             </b> </p>
                                         <table border="1" class="table table-bordered" width="100%"
@@ -377,7 +377,7 @@
                                             </tbody>
                                         </table>
                                         <p><b>
-                                                <font color="#0000FF">BAHAGIAN I(b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                <font color="#0000FF">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         MINYAK ISIRUNG SAWIT</font>
                                             </b> </p>
                                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -495,7 +495,7 @@
                                         </table>
 
                                         <p><b>
-                                            <font color="#0000FF">BAHAGIAN I(c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK-MINYAK LAIN</font>
+                                            <font color="#0000FF">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp; MINYAK-MINYAK LAIN</font>
                                         </b></p>
                                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                             class="table table-bordered">
@@ -612,7 +612,7 @@
                                         </table>
 
                                         <p><b>
-                                                <font color="#0000FF">BAHAGIAN II :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                 </font>
                                             </b> </p>
                                         <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -632,7 +632,7 @@
 
 
                                         <p><b>
-                                                <font color="#0000FF">BAHAGIAN III :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA</font>
+                                                <font color="#0000FF">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN PRODUK OLEOKIMIA</font>
                                             </b></p>
                                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                             class="table table-bordered" style="padding: 0.2rem 0.3rem">
@@ -713,7 +713,7 @@
                                         </table>
 
                                         <p><b>
-                                                <font color="#0000FF">BAHAGIAN IV :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
+                                                <font color="#0000FF">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp;EKSPORT PRODUK OLEOKIMIA DAN LAIN-LAIN PRODUK SAWIT
 
                                                 </font>
                                             </b></p>

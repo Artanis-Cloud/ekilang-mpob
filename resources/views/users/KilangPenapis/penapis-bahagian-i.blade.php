@@ -47,7 +47,7 @@
                     <div class="pl-3">
 
                         <div class="mb-4 text-center">
-                            <h3 style="color: rgb(39, 80, 71); ">Bahagian I</h3>
+                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 1</h3>
                             <h5 style="color: rgb(39, 80, 71)">Produk Minyak Sawit
                             </h5>
                         </div>
@@ -361,7 +361,7 @@
                                                                         class="form-control"
                                                                         value="{{ $data->e101_b6 }}">
                                                                 </div>
-                                                                <label>Belian / Penerimaan </label>
+                                                                <label>Belian / Terimaan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b7'
                                                                         onkeypress="return isNumberKey(event)"

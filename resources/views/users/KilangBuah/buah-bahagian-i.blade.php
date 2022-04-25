@@ -98,7 +98,7 @@
                                                                         Stok Awal Di Premis</td>
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="10" name='e91_aa1'
-                                                                            style="text-align: center" 
+                                                                            style="text-align: center"
                                                                             onkeypress="return isNumberKey(event)"
                                                                             value="{{ $penyata->e91_aa1 ?? 0 }}">
                                                                     </td>
