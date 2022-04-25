@@ -948,6 +948,8 @@ class KilangIsirungController extends Controller
 
 
         $penyata = E102Init::findOrFail($id);
+        $penyata->e102_flg = '2';
+        $penyata->e102_sdate = date("Y-m-d");
         $penyata->e102_npg = $request->e102_npg;
         $penyata->e102_jpg = $request->e102_jpg;
         $penyata->e102_notel = $request->e102_notel;

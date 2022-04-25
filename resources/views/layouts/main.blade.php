@@ -1018,7 +1018,7 @@
                                     </a>
                                 </li>
                                 <li class="sidebar-item">
-                                    <a href="{{ route('oleo.paparpenyata') }}" class="sidebar-link">
+                                    <a href="{{ route('bio.paparpenyata') }}" class="sidebar-link">
                                         <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
                                         <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
                                     </a>
@@ -1350,6 +1350,9 @@
 
     {{-- datatable --}}
     <script src="{{ asset('nice-admin/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
+
+    {{-- plotly --}}
+    <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
 
     {{-- notification --}}
     <script>

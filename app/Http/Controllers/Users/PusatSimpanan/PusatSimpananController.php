@@ -343,6 +343,8 @@ class PusatSimpananController extends Controller
 
 
         $penyata = E07Init::findOrFail($id);
+        $penyata->e07_flg = '2';
+        $penyata->e07_sdate = date("Y-m-d");
         $penyata->e07_npg = $request->e07_npg;
         $penyata->e07_jpg = $request->e07_jpg;
         $penyata->e07_notel = $request->e07_notel;

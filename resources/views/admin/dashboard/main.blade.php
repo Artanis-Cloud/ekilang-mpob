@@ -245,6 +245,7 @@
 
 @section('scripts')
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     <script>
         function getRandomColor() {
             var letters = '0123456789ABCDEF';
@@ -261,6 +262,8 @@
     </script>
 
     <script>
+        Chart.register(ChartDataLabels);
+
         var Labels = new Array();
         var Count = new Array();
         $(document).ready(function() {
@@ -299,7 +302,9 @@
                 datasets: [{
                     // label: '# of Votes',
                     // data: Count,
-                    data: [26, 32, 90, 61, 74, 43],
+                    data: [{{ $PL91_total }}, {{ $PL101_total }}, {{ $PL102_total }},
+                        {{ $PL104_total }}, {{ $PL111_total }}, {{ $PLBIO_total }}
+                    ],
                     backgroundColor: [
                         'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
@@ -322,12 +327,31 @@
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        suggestedMin: 10,
+                        suggestedMax: 10,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Penyata Bulanan'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Sektor Kilang'
+                        }
                     }
                 },
                 plugins: {
                     legend: {
                         display: false
+                    },
+                    datalabels: {
+                        anchor: 'end',
+                        align: 'top',
+                        formatter: Math.round,
+                        font: {
+                            weight: 'bold'
+                        }
                     }
                 },
                 onClick: (e, activeEls) => {
@@ -392,10 +416,15 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    data: [{{ $PL91[1][0]->pelesen }}, {{ $PL91[2][0]->pelesen }},
+                        {{ $PL91[3][0]->pelesen }}, {{ $PL91[4][0]->pelesen }},
+                        {{ $PL91[5][0]->pelesen }}, {{ $PL91[6][0]->pelesen }},
+                        {{ $PL91[7][0]->pelesen }}, {{ $PL91[8][0]->pelesen }},
+                        {{ $PL91[9][0]->pelesen }}, {{ $PL91[10][0]->pelesen }}
+                    ],
                     // backgroundColor: [
                     //     getRandomColor(),
                     //     getRandomColor(),
@@ -433,7 +462,7 @@
                         'rgba(255, 99, 132, 1)',
                         'rgba(255, 99, 132, 1)',
                         'rgba(255, 99, 132, 1)',
-                       
+
                     ],
                     borderWidth: 1
                 }]
@@ -441,7 +470,18 @@
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        suggestedMin: 10,
+                        suggestedMax: 10,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Penyata Bulanan'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Haribulan'
+                        }
                     }
                 },
                 plugins: {
@@ -464,22 +504,17 @@
                 labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    data: [{{ $PL101[1][0]->pelesen }}, {{ $PL101[2][0]->pelesen }},
+                        {{ $PL101[3][0]->pelesen }}, {{ $PL101[4][0]->pelesen }},
+                        {{ $PL101[5][0]->pelesen }}, {{ $PL101[6][0]->pelesen }},
+                        {{ $PL101[7][0]->pelesen }}, {{ $PL101[8][0]->pelesen }},
+                        {{ $PL101[9][0]->pelesen }}, {{ $PL101[10][0]->pelesen }}
+                    ],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
                         'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
                         'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1
                 }]
@@ -505,25 +540,20 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    data: [{{ $PL102[1][0]->pelesen }}, {{ $PL102[2][0]->pelesen }},
+                        {{ $PL102[3][0]->pelesen }}, {{ $PL102[4][0]->pelesen }},
+                        {{ $PL102[5][0]->pelesen }}, {{ $PL102[6][0]->pelesen }},
+                        {{ $PL102[7][0]->pelesen }}, {{ $PL102[8][0]->pelesen }},
+                        {{ $PL102[9][0]->pelesen }}, {{ $PL102[10][0]->pelesen }}
+                    ],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
                         'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
                         'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1
                 }]
@@ -531,7 +561,18 @@
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        suggestedMin: 10,
+                        suggestedMax: 10,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Penyata Bulanan'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Haribulan'
+                        }
                     }
                 },
                 plugins: {
@@ -549,25 +590,20 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    data: [{{ $PL104[1][0]->pelesen }}, {{ $PL104[2][0]->pelesen }},
+                        {{ $PL104[3][0]->pelesen }}, {{ $PL104[4][0]->pelesen }},
+                        {{ $PL104[5][0]->pelesen }}, {{ $PL104[6][0]->pelesen }},
+                        {{ $PL104[7][0]->pelesen }}, {{ $PL104[8][0]->pelesen }},
+                        {{ $PL104[9][0]->pelesen }}, {{ $PL104[10][0]->pelesen }}
+                    ],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
                         'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
                         'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1
                 }]
@@ -575,7 +611,18 @@
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        suggestedMin: 10,
+                        suggestedMax: 10,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Penyata Bulanan'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Haribulan'
+                        }
                     }
                 },
                 plugins: {
@@ -593,25 +640,20 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    data: [{{ $PL111[1][0]->pelesen }}, {{ $PL111[2][0]->pelesen }},
+                        {{ $PL111[3][0]->pelesen }}, {{ $PL111[4][0]->pelesen }},
+                        {{ $PL111[5][0]->pelesen }}, {{ $PL111[6][0]->pelesen }},
+                        {{ $PL111[7][0]->pelesen }}, {{ $PL111[8][0]->pelesen }},
+                        {{ $PL111[9][0]->pelesen }}, {{ $PL111[10][0]->pelesen }}
+                    ],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
                         'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
                         'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1
                 }]
@@ -619,7 +661,18 @@
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        suggestedMin: 10,
+                        suggestedMax: 10,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Penyata Bulanan'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Haribulan'
+                        }
                     }
                 },
                 plugins: {
@@ -637,24 +690,19 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: [26, 32, 90, 61, 4, 5, 2, 7, 9, 2],
+                    data: [{{ $PLBIO[1][0]->pelesen }}, {{ $PLBIO[2][0]->pelesen }},
+                        {{ $PLBIO[3][0]->pelesen }}, {{ $PLBIO[4][0]->pelesen }},
+                        {{ $PLBIO[5][0]->pelesen }}, {{ $PLBIO[6][0]->pelesen }},
+                        {{ $PLBIO[7][0]->pelesen }}, {{ $PLBIO[8][0]->pelesen }},
+                        {{ $PLBIO[9][0]->pelesen }}, {{ $PLBIO[10][0]->pelesen }}
+                    ],
                     backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
                         'rgba(255, 159, 64, 0.2)'
                     ],
                     borderColor: [
-                        'rgba(255, 99, 132, 1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
                         'rgba(255, 159, 64, 1)'
                     ],
                     borderWidth: 1
@@ -663,7 +711,18 @@
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        suggestedMin: 10,
+                        suggestedMax: 10,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Penyata Bulanan'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Haribulan'
+                        }
                     }
                 },
                 plugins: {

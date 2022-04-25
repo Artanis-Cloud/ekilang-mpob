@@ -484,6 +484,8 @@ class KilangBuahController extends Controller
 
 
         $penyata = E91Init::findOrFail($id);
+        $penyata->e91_flg = '2';
+        $penyata->e91_sdate = date("Y-m-d");
         $penyata->e91_npg = $request->e91_npg;
         $penyata->e91_jpg = $request->e91_jpg;
         $penyata->e91_notel = $request->e91_notel;
