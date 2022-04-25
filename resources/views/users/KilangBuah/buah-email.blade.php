@@ -50,7 +50,7 @@
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <form
-                                    action="{{ route('buah.send.email.proses') }}"
+                                    action="{{ route('buah.send.email.proses') }}" enctype="multipart/form-data"
                                     method="post">
                                     @csrf
                                     <div class="text-center">
@@ -124,17 +124,24 @@
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kandungan</label>
-                                                <div class="col-md-6">
+                                                {{-- <div class="col-md-6">
                                                     <input type="text" class="form-control" name='Message'
                                                         id="Subject" required title="Sila isikan butiran ini.">
 
-                                                </div>
-                                                {{-- <div class="col-md-6" >
-                                                    <div id="snow" oninput="add_message()">
+                                                </div> --}}
 
+                                                <div class="col-md-6">
+
+                                                    <div id="editor" oninput="add_message()">
+                                                        {{ old('Message') }}
                                                     </div>
+
                                                 </div>
-                                                <input type="hidden" id="quill_html" name="Message"> --}}
+
+                                                <input type="hidden" id="quill_html" name="Message"
+                                                    value="{{ old('Message') }}">
+
+
                                         </div>
                                         <br>
                                         <div class="row" style=" margin-top:-1%">
@@ -143,7 +150,7 @@
                                                 </label>
                                             <div class="col-md-6">
                                                 <div class="form-file">
-                                                    <input type="file" class="form-file-input" id="file">
+                                                    <input type="file" class="form-file-input" id="file" name="file_upload">
                                                     <label class="form-file-label" for="file">
                                                         <label class="form-file-label" for="file">
                                                             <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan dalam bentuk PDF, WORD, EXCEL, JPG dan PNG sahaja</i>
@@ -221,16 +228,13 @@
 
 
 
+@endsection
+@section('scripts')
+    <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
 
-
-
-
-
-
-    </section><!-- End Hero -->
     <script>
-        var quill = new Quill('#snow', {
-            // theme: 'snow'
+        var quill = new Quill('#editor', {
+            theme: 'snow'
         });
 
         function add_message() {
@@ -240,24 +244,17 @@
                 document.getElementById("quill_html").value = quill.root.innerHTML;
             });
         }
-
     </script>
+    <script>
+        var uploadField = document.getElementById("file");
 
-<script>
-    var uploadField = document.getElementById("file");
+        uploadField.onchange = function() {
+            if (this.files[0].size > 3145728) {
+                toastr.error( 'Saiz fail melebihi 3MB!', 'Ralat!', { "progressBar": true });
 
-    uploadField.onchange = function() {
-        if (this.files[0].size > 3145728) {
-            alert("Saiz fail melebihi 3MB!");
-            this.value = "";
+                this.value = "";
+            };
         };
-    };
-</script>
-
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
+    </script>
 
 @endsection

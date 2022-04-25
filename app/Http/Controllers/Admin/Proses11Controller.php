@@ -11,6 +11,8 @@ use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
+
+use Barryvdh\DomPDF\Facade\Pdf;
 use DB;
 
 class Proses11Controller extends Controller
@@ -91,6 +93,20 @@ class Proses11Controller extends Controller
         return view('admin.proses11.11paparemel', compact('returnArr', 'layout', 'emel'));
 
         // return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
+    }
+
+    public function admin_11papar_cetak($MsgID, Ekmessage $emel)
+    {
+        # code...
+        $emel = Ekmessage::find($MsgID);
+
+        $array = [
+            'emel' => $emel
+        ];
+
+        $pdf = PDF::loadView('admin.proses11.11print', $array)->setPaper('a4', 'vertical');
+        // return $pdf->download('invoice.pdf');
+        return $pdf->stream();
     }
 
 }

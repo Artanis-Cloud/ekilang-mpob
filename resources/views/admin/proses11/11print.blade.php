@@ -1,7 +1,4 @@
-@extends('layouts.main')
 
-@section('content')
-    </style>
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
@@ -10,37 +7,7 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        <div class="page-breadcrumb">
-            <div class="row">
-                <div class="col-5 align-self-center">
-                    <h4 class="page-title">Senarai Emel</h4>
-                </div>
-                <div class="col-7 align-self-center">
-                    <div class="d-flex align-items-center justify-content-end">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                    @if (!$loop->last)
-                                        <li class="breadcrumb-item">
-                                            <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
-                                                onMouseOver="this.style.color='#25877b'"
-                                                onMouseOut="this.style.color='grey'">
-                                                {{ $breadcrumb['name'] }}
-                                            </a>
-                                        </li>
-                                    @else
-                                        <li class="breadcrumb-item active" aria-current="page"
-                                            style="color: #25877b  !important;">
-                                            {{ $breadcrumb['name'] }}
-                                        </li>
-                                    @endif
-                                @endforeach
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
 
         <div class="container-fluid">
@@ -101,26 +68,12 @@
                                                 </tr>
 
                                                 <tr>
-                                                    <th>Lampiran</th>
-                                                    @if($emel->file_upload)
-                                                    <td><a target='_blank' href="{{ asset('storage/'.$emel->file_upload) }}">Fail</a></td>
-                                                    @else
-                                                    <td>-</td>
-                                                    @endif
+                                                    <th>Attachement</th>
+                                                    <td><a target='_blank' href="{{ asset('storage/'.$emel->file_upload) }}">File</a></td>
                                                 </tr>
 
                                             </table>
 
-                                        </div>
-
-                                    </div>
-                                    <div class="row form-group" style="padding-top: 10px; ">
-
-
-
-                                        <div class="text-right col-md-7 mb-2 ">
-                                            <button type="button" class="btn btn-primary " style="float: right"
-                                                onclick="myPrint('myfrm')" value="print">Cetak</button>
                                         </div>
 
                                     </div>
@@ -136,17 +89,3 @@
 
     </div>
 
-    </div>
-@endsection
-
-@section('scripts')
-    <script>
-        function myPrint(myfrm) {
-            var printdata = document.getElementById(myfrm);
-            newwin = window.open("");
-            newwin.document.write(printdata.outerHTML);
-            newwin.print();
-            newwin.close();
-        }
-    </script>
-@endsection
