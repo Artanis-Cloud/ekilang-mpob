@@ -164,7 +164,9 @@ Route::middleware('auth')->group(function () {
 
         Route::get('admin/10-port-data-to-dq', [App\Http\Controllers\Admin\Proses10Controller::class, 'admin_10portdatatodq'])->name('admin.10portdatatodq');
         Route::get('admin/11-emel', [App\Http\Controllers\Admin\Proses11Controller::class, 'admin_11emel'])->name('admin.11emel');
+        Route::get('admin/11-emel/data', [App\Http\Controllers\Admin\Proses11Controller::class, 'admin_11emel_data'])->name('admin.11emel.data');
         Route::get('admin/11-papar-emel/{Id}', [App\Http\Controllers\Admin\Proses11Controller::class, 'admin_11paparemel'])->name('admin.11paparemel');
+        Route::get('admin/11-papar-emel-cetak/{Id}', [App\Http\Controllers\Admin\Proses11Controller::class, 'admin_11papar_cetak'])->name('admin.11papar_cetak');
         Route::get('admin/12-validation', [App\Http\Controllers\Admin\Proses12Controller::class, 'admin_12validation'])->name('admin.12validation');
 
         Route::get('admin/direktori', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_direktori'])->name('admin.direktori');

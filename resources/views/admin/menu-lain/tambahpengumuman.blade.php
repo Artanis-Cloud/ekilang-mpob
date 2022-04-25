@@ -108,20 +108,20 @@
                                         </div>
 
                                         <div class="row" style="margin-bottom: 5%; margin-top: 1%" ">
-                                            <label for=" fname"
+                                                <label for=" fname"
                                             class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                             Mesej</label>
 
                                             <div class="col-md-6">
 
                                                 <div id="editor" oninput="add_message()">
-                                                    {{ old('Message')  }}
+                                                    {{ old('Message') }}
                                                 </div>
 
                                             </div>
 
                                             <input type="hidden" id="quill_html" name="Message"
-                                                value="{{ old('Message')  }}">
+                                                value="{{ old('Message') }}">
 
 
                                         </div>
@@ -190,5 +190,13 @@
         var quill = new Quill('#editor', {
             theme: 'snow'
         });
+
+        function add_message() {
+            // var content = document.querySelector("#snow").innerHTML;
+            // alert(quill.getContents());
+            quill.on('text-change', function(delta, oldDelta, source) {
+                document.getElementById("quill_html").value = quill.root.innerHTML;
+            });
+        }
     </script>
 @endsection

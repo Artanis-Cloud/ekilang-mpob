@@ -50,7 +50,7 @@
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <form
-                                    action="{{ route('isirung.send.email.proses') }}"
+                                    action="{{ route('isirung.send.email.proses') }}" enctype="multipart/form-data"
                                     method="post">
                                     @csrf
                                     <div class="text-center">
@@ -120,15 +120,20 @@
                                                 @enderror --}}
                                             </div>
                                         </div>
-                                        <div class="row" style="margin-bottom: 1%">
+                                        <div class="row" style="margin-bottom: 3%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kandungan</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='Message'
-                                                        id="Subject" required title="Sila isikan butiran ini.">
+
+                                                    <div id="editor" oninput="add_message()">
+                                                        {{ old('Message') }}
+                                                    </div>
 
                                                 </div>
+
+                                                <input type="hidden" id="quill_html" name="Message"
+                                                    value="{{ old('Message') }}">
                                                 {{-- <div class="col-md-6" >
                                                     <div id="snow" oninput="add_message()">
 
@@ -137,13 +142,13 @@
                                                 <input type="hidden" id="quill_html" name="Message"> --}}
                                         </div>
                                         <br>
-                                        <div class="row" style="margin-bottom: 1%; margin-top:-1%">
+                                        <div class="row" style="margin-bottom: 1%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label align-items-center">
                                                 </label>
                                             <div class="col-md-6">
                                                 <div class="form-file">
-                                                    <input type="file" class="form-file-input" id="file">
+                                                    <input type="file" class="form-file-input" id="file" name="file_upload">
                                                     <label class="form-file-label" for="file">
                                                         <label class="form-file-label" for="file">
                                                             <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan dalam bentuk PDF, WORD, EXCEL, JPG dan PNG sahaja</i>
@@ -159,11 +164,11 @@
                             </div>
                             <div class="row form-group">
                                 <div class="text-right col-md-6 mb-4 ">
-                                    <button type="button" class="btn btn-primary" style="margin-left:90%" data-bs-toggle="modal"
-                                    data-bs-target="#emel">Simpan</button>
+                                    <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                                    data-target="#emel">Hantar</button>
                                 </div>
                             </div>
-                            
+
 
                                 <!-- Vertically Centered modal Modal -->
                                 <div class="modal fade" id="emel" tabindex="-1"
@@ -221,9 +226,15 @@
 
 
     </section><!-- End Hero -->
+
+
+@endsection
+@section('scripts')
+    <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
+
     <script>
-        var quill = new Quill('#snow', {
-            // theme: 'snow'
+        var quill = new Quill('#editor', {
+            theme: 'snow'
         });
 
         function add_message() {
@@ -233,13 +244,17 @@
                 document.getElementById("quill_html").value = quill.root.innerHTML;
             });
         }
-
     </script>
+    <script>
+        var uploadField = document.getElementById("file");
 
+        uploadField.onchange = function() {
+            if (this.files[0].size > 3145728) {
+                toastr.error( 'Saiz fail melebihi 3MB!', 'Ralat!', { "progressBar": true });
 
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
+                this.value = "";
+            };
+        };
+    </script>
 
 @endsection

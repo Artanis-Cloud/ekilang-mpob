@@ -33,6 +33,7 @@ class Ekmessage extends Model
         'Subject',
         'Message',
         'Status',
+        'file_upload',
 
     ];
 }

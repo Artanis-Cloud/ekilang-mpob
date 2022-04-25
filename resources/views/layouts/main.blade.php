@@ -1354,9 +1354,9 @@
     {{-- notification --}}
     <script>
         @if (Session::has('success'))
-            toastr.success( '{{ session('success') }}', 'Success', { "progressBar": true });
+            toastr.success( '{{ session('success') }}', 'Berjaya!', { "progressBar": true });
         @elseif(Session::has('error'))
-            toastr.error( '{{ session('error') }}', 'Error', { "progressBar": true });
+            toastr.error( '{{ session('error') }}', 'Ralat!', { "progressBar": true });
         @endif
     </script>
 

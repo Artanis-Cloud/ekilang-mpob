@@ -95,7 +95,8 @@
                                                                 {{ $loop->iteration }}
                                                             </td>
                                                             <td >
-                                                                {{$data->Message}}
+                                                                {{-- {{$data->Message}} --}}
+                                                                {!! $data->Message !!}
                                                             </td>
                                                             <td >
                                                                 {{$data->Start_date}}

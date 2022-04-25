@@ -432,13 +432,19 @@ class PusatSimpananController extends Controller
             'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
+            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png']
+
+
         ]);
     }
 
     protected function store_send_email(array $data)
     {
 
-        // $user = User::where('e_nl', auth()->user()->username)->first();
+        //store file
+        if($data['file_upload']){
+            $file = $data['file_upload']->store('email/attachement', 'public');
+        }
 
         return Ekmessage::create([
             // 'Id' => $data['Id'],
@@ -450,6 +456,7 @@ class PusatSimpananController extends Controller
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
+            'file_upload' => $file ?? null,
 
         ]);
     }

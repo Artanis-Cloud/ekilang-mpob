@@ -50,7 +50,7 @@
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <form
-                                    action="{{ route('penapis.send.email.proses') }}"
+                                    action="{{ route('penapis.send.email.proses') }}"  enctype="multipart/form-data"
                                     method="post">
                                     @csrf
                                     <div class="text-center">
@@ -125,10 +125,15 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kandungan</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" class="form-control" name='Message'
-                                                        id="Subject" required title="Sila isikan butiran ini.">
+
+                                                    <div id="editor" oninput="add_message()">
+                                                        {{ old('Message') }}
+                                                    </div>
 
                                                 </div>
+
+                                                <input type="hidden" id="quill_html" name="Message"
+                                                    value="{{ old('Message') }}">
                                                 {{-- <div class="col-md-6" >
                                                     <div id="snow" oninput="add_message()">
 
@@ -143,7 +148,7 @@
                                                 </label>
                                             <div class="col-md-6">
                                                 <div class="form-file">
-                                                    <input type="file" class="form-file-input" id="file">
+                                                    <input type="file" class="form-file-input" id="file" name="file_upload">
                                                     <label class="form-file-label" for="file">
                                                         <label class="form-file-label" for="file">
                                                             <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan dalam bentuk PDF, WORD, EXCEL, JPG dan PNG sahaja</i>
@@ -167,7 +172,7 @@
 
 
                                 <div class="text-right col-md-6 mb-4 ">
-                                    <button type="submit" class="btn btn-primary" style="margin-left:90%"  data-toggle="modal"data-target="#emel">Hantar</button>
+                                    <button type="button" class="btn btn-primary" style="margin-left:90%"  data-toggle="modal"data-target="#emel">Hantar</button>
                                 </div>
 
                             </div>
@@ -228,9 +233,15 @@
 
 
     </section><!-- End Hero -->
+
+@endsection
+
+@section('scripts')
+    <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
+
     <script>
-        var quill = new Quill('#snow', {
-            // theme: 'snow'
+        var quill = new Quill('#editor', {
+            theme: 'snow'
         });
 
         function add_message() {
@@ -240,24 +251,18 @@
                 document.getElementById("quill_html").value = quill.root.innerHTML;
             });
         }
+    </script>
+    <script>
+        var uploadField = document.getElementById("file");
 
+        uploadField.onchange = function() {
+            if (this.files[0].size > 3145728) {
+                toastr.error( 'Saiz fail melebihi 3MB!', 'Ralat!', { "progressBar": true });
+
+                this.value = "";
+            };
+        };
     </script>
 
-<script>
-    var uploadField = document.getElementById("file");
-
-    uploadField.onchange = function() {
-        if (this.files[0].size > 3145728) {
-            alert("Saiz fail melebihi 3MB!");
-            this.value = "";
-        };
-    };
-</script>
-
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
-
 @endsection
+
