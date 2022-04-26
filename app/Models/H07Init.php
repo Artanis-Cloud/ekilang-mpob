@@ -19,6 +19,7 @@ class H07Init extends Model
     protected $table = 'h07_init'; //penyata arkib (history) - pusat simpanan
     protected $primaryKey = 'e07_nobatch';
     public $timestamps = false;
+    protected $keyType = 'string';
 
     protected $fillable = [
         'e07_nobatch',

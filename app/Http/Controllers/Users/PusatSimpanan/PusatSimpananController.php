@@ -503,7 +503,7 @@ class PusatSimpananController extends Controller
             $penyata = H07Btranshipment::with('e07init', 'produk')->where('e07bt_nobatch', $user->e07_nobatch)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '!=', '07');
             })->get();
-            // dd($penyata);
+            // dd($user->e07_nobatch);
             $total = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_stokawal');
             $total2 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_terima');
             $total3 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_edaran');

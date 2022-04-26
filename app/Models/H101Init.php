@@ -19,6 +19,7 @@ class H101Init extends Model
     protected $table = 'h101_init';
     protected $primaryKey = 'e101_nobatch';
     public $timestamps = false;
+    protected $keyType = 'string';
 
      //penyata arkib (history) - kilang penapis
 

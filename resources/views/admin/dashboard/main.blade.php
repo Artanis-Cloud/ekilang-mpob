@@ -233,6 +233,155 @@
             <!-- /.modal-dialog -->
         </div>
         <!-- /.modal -->
+        <div class="modal fade bs-example-modal-lg" id="TOTAL" tabindex="-1" role="dialog"
+            aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myLargeModalLabel">Jadual Penerimaan PL Bagi Semua Sektor</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
+                                <thead style="text-align: center">
+                                    <tr>
+                                        <th>Tarikh</th>
+                                        <th>1hb</th>
+                                        <th>2hb</th>
+                                        <th>3hb</th>
+                                        <th>4hb</th>
+                                        <th>5hb</th>
+                                        <th>6hb</th>
+                                        <th>7hb</th>
+                                        <th>8hb</th>
+                                        <th>9hb</th>
+                                        <th>10hb</th>
+                                        <th>Jumlah</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="text-align: right">
+
+                                        <td style="text-align: left">Kilang Buah </td>
+                                        <td style="text-align: center">{{ $PL91[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91[10][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL91_total }} / {{ $PC91[0]->pelesen }}
+                                            &nbsp; ({{ round($percent91, 2) }}%)</td>
+                                    </tr>
+                                    <tr style="text-align: right">
+
+                                        <td style="text-align: left">Kilang Penapis </td>
+                                        <td style="text-align: center">{{ $PL101[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101[10][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL101_total }} / {{ $PC101[0]->pelesen }}
+                                            &nbsp; ({{ round($percent101, 2) }}%)</td>
+
+                                    </tr>
+                                    <tr style="text-align: right">
+
+                                        <td style="text-align: left">Kilang Isirung </td>
+                                        <td style="text-align: center">{{ $PL102[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102[10][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL102_total }} / {{ $PC102[0]->pelesen }}
+                                            &nbsp; ({{ round($percent102, 2) }}%)</td>
+
+                                    </tr>
+                                    <tr style="text-align: right">
+
+                                        <td style="text-align: left">Kilang Oleokimia </td>
+                                        <td style="text-align: center">{{ $PL104[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104[10][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL104_total }} / {{ $PC104[0]->pelesen }}
+                                            &nbsp; ({{ round($percent104, 2) }}%)</td>
+
+                                    </tr>
+                                    <tr style="text-align: right">
+
+                                        <td style="text-align: left">Pusat Simpanan </td>
+                                        <td style="text-align: center">{{ $PL111[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111[10][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PL111_total }} / {{ $PC111[0]->pelesen }}
+                                            &nbsp; ({{ round($percent111, 2) }}%)</td>
+
+                                    </tr>
+                                    <tr style="text-align: right">
+
+                                        <td style="text-align: left">Kilang Biodiesel </td>
+                                        <td style="text-align: center">{{ $PLBIO[1][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[2][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[3][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[4][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[5][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[6][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[7][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[8][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[9][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO[10][0]->pelesen }} </td>
+                                        <td style="text-align: center">{{ $PLBIO_total }} / {{ $PCBIO[0]->pelesen }}
+                                            &nbsp; ({{ round($percentBIO, 2) }}%)</td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                            <i class="bx bx-x d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                        </button> --}}
+                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Tutup</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
 
     </div>
     </div>
@@ -392,7 +541,7 @@
                     'Belum Hantar',
                 ],
                 datasets: [{
-                    data: [300, 50],
+                    data: [{{ $total_overall }}, {{ $total_overall_1 }}],
                     backgroundColor: [
                         'rgb(0, 36, 255, 1)',
                         'rgb(255, 0, 0, 1)',
@@ -402,9 +551,37 @@
                 }]
             },
             options: {
-                animation: {
-                    animateRotate: true
+                tooltips: {
+                    enabled: false
+                },
+                plugins: {
+                    datalabels: {
+                        formatter: (value, categories) => {
+
+                            let sum = 0;
+                            let dataArr = categories.chart.data.datasets[0].data;
+                            dataArr.map(data => {
+                                sum += data;
+                            });
+                            let percentage = (value * 100 / sum).toFixed(2) + "%";
+                            return percentage;
+
+
+                        },
+                        color: '#fff',
+                    }
+                },
+                onClick: (e, activeEls) => {
+                    let datasetIndex = activeEls[0].datasetIndex;
+                    let dataIndex = activeEls[0].index;
+                    let datasetLabel = e.chart.data.datasets[datasetIndex].label;
+                    let value = e.chart.data.datasets[datasetIndex].data[dataIndex];
+                    let label = e.chart.data.labels[dataIndex];
+                    // console.log(label);
+                    $('#TOTAL').modal('show');
+                    // now I want to retrieve the label/data using the index, how to?
                 }
+
             }
         });
     </script>
@@ -425,18 +602,6 @@
                         {{ $PL91[7][0]->pelesen }}, {{ $PL91[8][0]->pelesen }},
                         {{ $PL91[9][0]->pelesen }}, {{ $PL91[10][0]->pelesen }}
                     ],
-                    // backgroundColor: [
-                    //     getRandomColor(),
-                    //     getRandomColor(),
-                    //     getRandomColor(),
-                    //     getRandomColor(),
-                    //     getRandomColor(),
-                    //     getRandomColor(),
-                    //     getRandomColor(),
-                    //     getRandomColor(),
-                    //     getRandomColor(),
-                    //     getRandomColor()],
-
 
 
                     backgroundColor: [
