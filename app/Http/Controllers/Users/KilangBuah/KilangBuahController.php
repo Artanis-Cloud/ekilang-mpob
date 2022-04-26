@@ -74,7 +74,11 @@ class KilangBuahController extends Controller
         // $penyata->e_notelpg = $request->e_notelpg;
         $penyata->e_npgtg = $request->e_npgtg;
         $penyata->e_jpgtg = $request->e_jpgtg;
-        $penyata->e_email_pengurus = $request->e_email_pengurus;
+        $penyata->kap_proses = $request->kap_proses;
+        $penyata->kap_tangki = $request->kap_tangki;
+        $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
+        $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
+
         $penyata->save();
 
 

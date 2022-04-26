@@ -651,7 +651,7 @@
                                                             <font size="2">Kod Produk</font>
                                                         </b></td>
                                                     <td width="10%" align="center"><b>
-                                                            <font size="2">Belian / Penerimaan</font>
+                                                            <font size="2">Belian / Terimaan</font>
                                                         </b></td>
                                                     <td width="10%" align="center"><b>
                                                             <font size="2">Pengeluaran</font>

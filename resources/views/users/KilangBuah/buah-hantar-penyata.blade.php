@@ -336,7 +336,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td width="220">
-                                                        <font size="3">B. Pembelian/Penerimaan</font>
+                                                        <font size="3">B. Pembelian/Terimaan</font>
                                                     </td>
                                                     <td width="120">
                                                         <p align="center">
@@ -769,7 +769,7 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/PENERIMAAN BEKALAN
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/TERIMAAN BEKALAN
                                                     BUAH
                                                     KELAPA SAWIT (FFB) (52)</b>
                                             </font>

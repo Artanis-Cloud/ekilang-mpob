@@ -275,7 +275,9 @@
                                     Syarikat Induk</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_syktinduk" class="form-control"
-                                        placeholder="Syarikat Induk" name="e_syktinduk">
+                                        placeholder="Syarikat Induk" name="e_syktinduk"
+                                        value="{{ $pelesen->e_syktinduk }}">
+
                                     @error('e_syktinduk')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -287,10 +289,10 @@
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kumpulan </label>
-                                <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="e_group">
-                                            <option selected hidden disabled>Sila Pilih</option>
+                                <div class="col-md-6" >
+                                    <fieldset class="form-group" >
+                                        <select class="form-control" id="e_group" name="e_group">
+                                            <option  hidden  value="{{ $pelesen->e_group }}">{{ $pelesen->e_group }}</option>
                                             <option>Kerajaan</option>
                                             <option>Swasta</option>
                                         </select>
@@ -307,8 +309,9 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kapasiti Pemprosesan / Tahun</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="" class="form-control" onkeypress="return isNumberKey(event)"
-                                        placeholder="Kapasiti Pemprosesan / Tahun" name="">
+                                    <input type="text" id="kap_proses" class="form-control" onkeypress="return isNumberKey(event)"
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                        value="{{ $pelesen->kap_proses }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -321,8 +324,10 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kapasiti Tangki Simpanan</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="" class="form-control" onkeypress="return isNumberKey(event)"
-                                        placeholder="Kapasiti Tangki Simpanan" name="">
+                                    <input type="text" id="kap_tangki" class="form-control" onkeypress="return isNumberKey(event)"
+                                        placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
+                                        value="{{ $pelesen->kap_tangki }}">
+
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -368,9 +373,9 @@
                                     {{-- <span class="required">Bilangan Tangki</span> --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b5' style="width:100%"
-                                        id="e104_b5" required title="Sila isikan butiran ini."
-                                        onkeypress="return isNumberKey(event)">
+                                    <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
+                                        id="bil_tangki_cpo" required title="Sila isikan butiran ini."
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -378,68 +383,66 @@
                                             @enderror --}}
                                 </div>
 
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_ppo'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppo" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppo }}">
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_cpko'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_cpko" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpko }}">
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_ppko'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppko" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppko }}">
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_oleo'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_oleo" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_oleo }}">
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_others'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_others" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_others }}">
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1"><b>
+                                    <b><span id="total" name="total">
+                                        {{ old('total') ?? number_format($jumlah ,2) }}
+                                        </span>
+                                    </b>
 
-                                {{-- </div> --}}
-
-                                <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
-                                </div>
-                                <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
-                                </div>
-                                <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
-                                </div>
-                                <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
-                                </div>
-                                <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
-                                </div>
-                                <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+                                    {{-- <b><input id="total" name="total">
+                                        {{ old('total') ?? number_format($jumlah ,2) }}
+                                        </input>
+                                    </b> --}}
                                 </div>
 
                             </div>
@@ -451,9 +454,9 @@
                                     {{-- <span class="required">Kapasiti Tangki Simpanan (Tan)</span> --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b5'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b5" required
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='kap_tangki_cpo'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_cpo" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpo }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -462,9 +465,9 @@
                                 </div>
 
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='kap_tangki_ppo'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_ppo" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppo }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -472,9 +475,9 @@
                                             @enderror --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='kap_tangki_cpko'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_cpko" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpko }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -482,9 +485,9 @@
                                             @enderror --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='kap_tangki_ppko'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_ppko" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppko }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -492,9 +495,9 @@
                                             @enderror --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='kap_tangki_oleo'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_oleo" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_oleo }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -502,25 +505,24 @@
                                             @enderror --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='kap_tangki_others'
+                                        onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_others" required
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_others }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
                                                 </div>
                                             @enderror --}}
                                 </div>
-                                <div class="col-md-1">
-                                    <input type="text" class="form-control" name='e104_b10'
-                                        onkeypress="return isNumberKey(event)" style="width:100%" id="e104_b10" required
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+                                <div class="col-md-1"><b>
+                                    <input type="text" class="form-control" name='kap_tangki_jumlah'
+                                    onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_jumlah" required
+                                    title="Sila isikan butiran ini." value="  {{ old('total') ?? number_format($jumlah2 ,2) }}"></b>
 
+                                    {{-- <b><input id="total" name="total">
+                                        {{ old('total') ?? number_format($jumlah ,2) }}
+                                        </input>
+                                    </b> --}}
                                 </div><br><br>
                             </div>
                             <div class="row mx-3" style="margin-left:14%">
@@ -654,7 +656,27 @@
                     })
             </script>
 
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+            </script>
+            <script>
+                function validation_jumlah() {
+                    var bil_tangki_cpo = $("#bil_tangki_cpo").val();
+                    var bil_tangki_ppo = $("#bil_tangki_ppo").val();
+                    var bil_tangki_cpko = $("#bil_tangki_cpko").val();
+                    var bil_tangki_ppko = $("#bil_tangki_ppko").val();
+                    var bil_tangki_oleo = $("#bil_tangki_oleo").val();
+                    var bil_tangki_others = $("#bil_tangki_others").val();
 
+                    var jumlah = $("#jumlah").val();
+                    var jumlah_input = 0;
+
+                    jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
+                    parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(bil_tangki_oleo)) + parseFloat(Number(bil_tangki_others));
+
+                    document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                }
+            </script>
 
             </body>
 

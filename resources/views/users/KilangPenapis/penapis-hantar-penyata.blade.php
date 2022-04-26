@@ -168,7 +168,7 @@
                                             <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
-                                                    
+
 
                                                     <tr>
 
@@ -422,7 +422,7 @@
                                                                 <font size="2">Stok Awal Di Pusat Simpanan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Belian / Penerimaan</font>
+                                                                <font size="2">Belian / Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">Import</font>
@@ -570,7 +570,7 @@
                                                                 <font size="2">Stok Awal</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
-                                                                <font size="2">Belian / Penerimaan</font>
+                                                                <font size="2">Belian / Terimaan</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
                                                                 <font size="2">Pengeluaran</font>
@@ -662,7 +662,7 @@
                                                                 <font size="2">Stok Awal</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
-                                                                <font size="2">Belian / Penerimaan</font>
+                                                                <font size="2">Belian / Terimaan</font>
                                                             </b></td>
                                                         <td width="10%" align="center"><b>
                                                                 <font size="2">Pengeluaran</font>
@@ -736,7 +736,7 @@
 
                                             <p><b>
                                                     <font color="#0000FF">BAHAGIAN V (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
-                                                        PENERIMAAN BEKALAN PRODUK SAWIT -
+                                                        TERIMAAN BEKALAN PRODUK SAWIT -
                                                         SENDIRI</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -744,7 +744,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="15%" align="center"><b>
-                                                                <font size="2">Belian/Penerimaan Dari</font>
+                                                                <font size="2">Belian/Terimaan Dari</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">CPO</font>
@@ -799,14 +799,14 @@
                                             </table>
                                             <p><b>
                                                     <font color="#0000FF">BAHAGIAN V (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
-                                                        PENERIMAAN BEKALAN PRODUK SAWIT -
+                                                        TERIMAAN BEKALAN PRODUK SAWIT -
                                                         LUAR</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr>
                                                         <td width="15%" align="center"><b>
-                                                                <font size="2">Belian/Penerimaan Dari</font>
+                                                                <font size="2">Belian/Terimaan Dari</font>
                                                             </b></td>
                                                         <td width="8%" align="center"><b>
                                                                 <font size="2">CPO</font>

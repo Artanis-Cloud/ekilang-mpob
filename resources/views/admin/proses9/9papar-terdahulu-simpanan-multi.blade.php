@@ -730,7 +730,7 @@
 
 
                                             <p align="left">
-                                                <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/PENERIMAAN BEKALAN BUAH
+                                                <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/TERIMAAN BEKALAN BUAH
                                                         KELAPA SAWIT (FFB) (52)</b>
                                                 </font>
                                             </p>
