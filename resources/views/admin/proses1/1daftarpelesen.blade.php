@@ -533,11 +533,11 @@
     <script src="{{ asset('theme/extra-libs/toastr/toastr-init.js') }}"></script>
 
     {{-- toaster display --}}
-    <script>
+    {{-- <script>
         @if (Session::get('success'))
             toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
         @elseif ($message = Session::get('error'))
             toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
         @endif
-    </script>
+    </script> --}}
 @endsection

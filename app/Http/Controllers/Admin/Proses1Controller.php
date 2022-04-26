@@ -10,8 +10,10 @@ use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class Proses1Controller extends Controller
@@ -64,6 +66,7 @@ class Proses1Controller extends Controller
 
         $this->store_daftar_pelesen($request->all());
         $this->store_daftar_pelesen2($request->all());
+        $this->store_daftar_pelesen3($request->all());
 
         return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
     }
@@ -168,6 +171,23 @@ class Proses1Controller extends Controller
             'nosiri' => $data['nosiri'],
             'e_status' => $data['e_status'],
             'e_stock' => $data['e_stock'],
+            'directory' => $data['directory'],
+        ]);
+    }
+    protected function store_daftar_pelesen3(array $data)
+    {
+        $password = Hash::make('12345');
+
+        return User::create([
+            'name' => $data['e_np'],
+            'email' => $data['e_email'],
+            'password' => $password,
+            'username' => $data['e_nl'],
+            'category' => $data['e_kat'],
+            'kod_pegawai' => $data['kodpgw'],
+            'no_siri' => $data['nosiri'],
+            'status' => $data['e_status'],
+            'stock' => $data['e_stock'],
             'directory' => $data['directory'],
         ]);
     }

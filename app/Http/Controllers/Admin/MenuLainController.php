@@ -70,16 +70,28 @@ class MenuLainController extends Controller
     }
 
 
+    protected function validation_direktori(array $data)
+    {
+        return Validator::make($data, [
+            'e_kat' => ['required', 'string'],
+            'nama_negeri' => ['required', 'string'],
+        ]);
+    }
+
     public function admin_direktori_process(Request $request)
     {
+
+        $this->validation_direktori($request->all())->validate();
+
+
         // dd($request->all());
-        $negeri= Negeri::where('kod_negeri', $request->nama_negeri)->first('nama_negeri');
+        $negeri = Negeri::where('kod_negeri', $request->nama_negeri)->first('nama_negeri');
         // dd( $negeri);
         // $statelist = DB::select("SELECT kod_negeri, nama_negeri
         // FROM negeri");
-
-        if ($request->nama_negeri == 'All') {
-            $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+        if ($request->e_kat == 'PL91') {
+            if ($request->nama_negeri == 'All') {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
                 e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
                 r.e_status
@@ -90,10 +102,8 @@ class MenuLainController extends Controller
                 and r.e_status = '1'
                 and r.directory='Y'
                 order by e.e_np,n.nama_negeri");
-
-        } else
-
-            $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+            } else {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
                 e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
                 e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
                 r.e_status
@@ -104,7 +114,112 @@ class MenuLainController extends Controller
                 and  r.e_status = '1'
                 and r.directory='Y'
                 order by e.e_np,e.e_negeri");
-
+            }
+        } elseif ($request->e_kat == 'PL101') {
+            if ($request->nama_negeri == 'All') {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL101'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+            } else {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r
+                WHERE e.e_nl = r.e_nl
+                and r.e_kat = 'PL101'
+                and e.e_negeri= $request->nama_negeri
+                and  r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,e.e_negeri");
+            }
+        } elseif ($request->e_kat == 'PL102') {
+            if ($request->nama_negeri == 'All') {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL102'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+            } else {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r
+                WHERE e.e_nl = r.e_nl
+                and r.e_kat = 'PL102'
+                and e.e_negeri= $request->nama_negeri
+                and  r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,e.e_negeri");
+            }
+        } elseif ($request->e_kat == 'PL104') {
+            if ($request->nama_negeri == 'All') {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL104'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+            } else {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r
+                WHERE e.e_nl = r.e_nl
+                and r.e_kat = 'PL104'
+                and e.e_negeri= $request->nama_negeri
+                and  r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,e.e_negeri");
+            }
+        } elseif ($request->e_kat == 'PL111') {
+            if ($request->nama_negeri == 'All') {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r, negeri n
+                WHERE e.e_nl = r.e_nl
+                and e.e_negeri = n.kod_negeri
+                and r.e_kat = 'PL111'
+                and r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,n.nama_negeri");
+            } else {
+                $query = DB::select("SELECT e.e_id, e.e_nl, e.e_np, e.e_ap1, e.e_ap2, e.e_ap3,
+                e.e_as1, e.e_as2, e.e_as3, e.e_notel, e.e_nofax, e.e_email,
+                e.e_npg, e.e_jpg, e.e_npgtg, e.e_jpgtg, r.kodpgw, r.nosiri,r.e_pwd,
+                r.e_status
+                FROM pelesen e, reg_pelesen r
+                WHERE e.e_nl = r.e_nl
+                and r.e_kat = 'PL111'
+                and e.e_negeri= $request->nama_negeri
+                and  r.e_status = '1'
+                and r.directory='Y'
+                order by e.e_np,e.e_negeri");
+            }
+        }
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -120,7 +235,19 @@ class MenuLainController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.menu-lain.direktori-papar', compact('returnArr', 'layout', 'negeri', 'query'));
+        $array = [
+            'negeri' => $negeri,
+            'query' => $query,
+
+            'breadcrumbs' => $breadcrumbs,
+            'kembali' => $kembali,
+
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+
+        return view('admin.menu-lain.direktori-papar', $array);
     }
 
     public function admin_pengumuman()
@@ -170,7 +297,7 @@ class MenuLainController extends Controller
     }
 
 
-    public function admin_tambah_pengumuman_proses (Request $request)
+    public function admin_tambah_pengumuman_proses(Request $request)
     {
         // dd($request->all());
         $this->validation_tambah_pengumuman($request->all())->validate();
@@ -240,7 +367,6 @@ class MenuLainController extends Controller
 
         return redirect()->back()
             ->with('success', 'Pengumuman telah dikemaskini');
-
     }
 
 
@@ -415,7 +541,8 @@ class MenuLainController extends Controller
         return response($returnArr, 200);
     }
 
-    public function fetch_daerah($kod_negeri){
+    public function fetch_daerah($kod_negeri)
+    {
 
         // $list_daerah = Negeri::where('negeri', $kod_negeri)->get();
 
@@ -467,5 +594,4 @@ class MenuLainController extends Controller
 
         return view('admin.menu-lain.kod-negara', compact('returnArr', 'layout', 'negara'));
     }
-
 }
