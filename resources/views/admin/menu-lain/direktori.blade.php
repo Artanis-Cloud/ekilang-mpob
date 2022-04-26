@@ -51,19 +51,44 @@
 
                         </div>
                         <hr>
-                        <form action="{{ route('admin.direktori.process') }}" method="GET">
+                        <form action="{{ route('admin.direktori.process') }}"
+                            method="GET">
                             @csrf
                             <div class="card-body">
                                 <div class="container center ">
 
-                                    <div class="container center mt-1">
+                                    <div class="container center">
                                         <div class="row" style="margin-bottom:2%;">
+                                            <label for="fname"
+                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">
+                                                Sektor Kilang</label>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-control" id="basicSelect" name="e_kat" required>
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        <option value="PL91">KILANG BUAH</option>
+                                                        <option value="PL101">KILANG PENAPIS</option>
+                                                        <option value="PL102">KILANG ISIRUNG</option>
+                                                        <option value="PL104">KILANG OLEOKIMIA</option>
+                                                        <option value="PL111">PUSAT SIMPANAN</option>
+                                                        <option value="PLBIO">KILANG BIODIESEL</option>
+
+                                                    </select>
+
+                                                </fieldset>
+                                                @error('e_kat')
+                                                    <div class="alert alert-danger">
+                                                        <strong>Sila buat pilihan di bahagian ini</strong>
+                                                    </div>
+                                                @enderror
+                                            </div>
                                             <label for="fname"
                                                 class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                 Negeri Premis</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect" name="nama_negeri">
+                                                    <select class="form-control" id="basicSelect" name="nama_negeri"
+                                                        required>
                                                         <option selected hidden disabled>Sila Pilih</option>
                                                         <option value="All">ALL</option>
                                                         @foreach (App\Models\Negeri::distinct()->orderBy('kod_negeri')->get()
@@ -76,11 +101,11 @@
                                                     </select>
 
                                                 </fieldset>
-                                                {{-- @error('alamat_kilang_1')
+                                                @error('nama_negeri')
                                                     <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong>Sila buat pilihan di bahagian ini</strong>
                                                     </div>
-                                                @enderror --}}
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -133,4 +158,4 @@
             });
         });
     </script>
-@endsection
+    @endsection
