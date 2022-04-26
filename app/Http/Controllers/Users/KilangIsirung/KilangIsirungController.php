@@ -1139,7 +1139,7 @@ class KilangIsirungController extends Controller
         if ($users) {
             $i = H102Init::where('e102_nobatch', $users->e102_nobatch)->first();
             $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->get();
-            // dd($iii);
+            // dd($i);
 
             $totaliii = DB::table("h102b")->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->sum('e102_b6');
 

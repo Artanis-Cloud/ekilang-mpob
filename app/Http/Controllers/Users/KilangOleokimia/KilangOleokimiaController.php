@@ -1237,14 +1237,9 @@ class KilangOleokimiaController extends Controller
         // dd($users);
 
         if($users){
-        $ia = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', '01');
-        })->get();
-        // dd($i);
+        $ia = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->where('e104_b3', '1')->get();
 
-        $ib = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', '02');
-        })->get();
+        $ib = H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->where('e104_b3', '2')->get();
 
         $ic= H104B::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', '08');
@@ -1252,15 +1247,15 @@ class KilangOleokimiaController extends Controller
 
         $ii = H104Init::where('e104_nl', auth()->user()->username)->first();
         // dd($iii);
-        // dd($iv);
+
 
         $iii = H104C::with('h104init', 'produk')->where('e104_nobatch', $users->e104_nobatch)
         ->get();
         // dd($iii);
 
-        $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $users->e104_nobatch)->where('e104_d3', '1')->get();
+        $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', '072017CJ0002')->where('e104_d3', '1')->get();
         // $vii = H102c::with('h102init', 'produk', 'negara')->where('e102_nobatch', $users->e102_nobatch)->where('e102_c3', '2')->get();
-
+// dd($users->e104_nobatch);
         $totalia5 = DB::table("h104_b")
                         ->where('e104_nobatch', $users->e104_nobatch)
                         ->where('e104_b3','1')
