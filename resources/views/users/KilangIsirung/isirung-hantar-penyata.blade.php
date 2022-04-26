@@ -338,7 +338,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">C. Belian / Penerimaan</font>
+                                                            <font size="2">C. Belian / Terimaan</font>
                                                         </td>
                                                         <td width="115">
                                                             <p align="center">
@@ -625,7 +625,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN III : BELIAN / PENERIMAAN BEKALAN ISIRONG
+                                                    <font color="#0000FF">BAHAGIAN III : BELIAN / TERIMAAN BEKALAN ISIRONG
                                                         SAWIT (PK) (51)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -633,7 +633,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Belian/Penerimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="11%" align="center"><b>
                                                                 <font size="2">Dari</font>

@@ -571,7 +571,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="8%" align="center"><b>
-                                                                <font size="2">Belian/Penerimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="11%" align="center"><b>
                                                                 <font size="2">Dari</font>

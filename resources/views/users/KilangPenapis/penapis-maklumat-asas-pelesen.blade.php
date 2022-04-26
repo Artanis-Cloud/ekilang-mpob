@@ -45,7 +45,7 @@
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
             <div class="card-body">
-                <div class="row">
+                {{-- <div class="row"> --}}
                     {{-- <div class="col-md-4 col-12"> --}}
                     <div class="pl-3">
 
@@ -503,13 +503,11 @@
                             </div>
 
 
-                            <div class="row form-group" style="margin-top: 7%; ">
+                            <div class="row form-group" style="margin-top: 2%; ">
 
-
-
-                                <div class="text-right col-md-6 mb-4 ">
-                                    <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                        data-target="#next">Simpan</button>
+                                <div class="text-right col-md-6">
+                                    <button type="button" class="btn btn-primary"  data-toggle="modal"
+                                    data-target="#next">Simpan</button>
                                 </div>
 
                             </div>
@@ -548,7 +546,7 @@
                         </div>
                         </form>
                     </div>
-                </div>
+                {{-- </div> --}}
 
 
 

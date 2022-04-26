@@ -64,5 +64,22 @@ class Pelesen extends Model
         'e_katkilang',
         'e_status',
         'e_email_pengurus',
+        'kap_proses',
+        'kap_tangki',
+        'bil_tangki_cpo',
+        'bil_tangki_ppo',
+        'bil_tangki_cpko',
+        'bil_tangki_ppko',
+        'bil_tangki_oleo',
+        'bil_tangki_others',
+        'bil_tangki_jumlah',
+        'kap_tangki_cpo',
+        'kap_tangki_ppo',
+        'kap_tangki_cpko',
+        'kap_tangki_ppko',
+        'kap_tangki_oleo',
+        'kap_tangki_others',
+        'kap_tangki_jumlah',
+
     ];
 }

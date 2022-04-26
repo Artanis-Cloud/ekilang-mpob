@@ -335,8 +335,8 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kapasiti Pemprosesan / Tahun</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="Kapasiti Pemprosesan / Tahun" name=""
+                                                <input type="text" id="kap_proses" class="form-control"
+                                                    placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                                     onkeypress="return isNumberKey(event)">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -350,8 +350,8 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Kapasiti Tangki Simpanan</label>
                                             <div class="col-md-6">
-                                                <input type="text" id="" class="form-control"
-                                                    placeholder="Kapasiti Tangki Simpanan" name=""
+                                                <input type="text" id="kap_tangki" class="form-control"
+                                                    placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
                                                     onkeypress="return isNumberKey(event)">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -379,10 +379,10 @@
                                                 {{-- <span class="required">Bilangan Tangki</span> --}}
                                             </div>
                                             <div class="col-md-1">
-                                                <input type="text" class="form-control" name='e104_b5'
-                                                    style="width:100%" id="e104_b5" required
+                                                <input type="text" class="form-control" name='bil_tangki_cpo'
+                                                    style="width:100%" id="bil_tangki_cpo" required
                                                     title="Sila isikan butiran ini."
-                                                    onkeypress="return isNumberKey(event)">
+                                                    onkeypress="return isNumberKey(event)"  value="{{ $pelesen->bil_tangki_cpo }}">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -400,10 +400,10 @@
                                                 {{-- <span class="required">Kapasiti Tangki Simpanan (Tan)</span> --}}
                                             </div>
                                             <div class="col-md-1">
-                                                <input type="text" class="form-control" name='e104_b5'
-                                                    style="width:100%" id="e104_b5" required
+                                                <input type="text" class="form-control" name='kap_tangki_cpo'
+                                                    style="width:100%" id="kap_tangki_cpo" required
                                                     title="Sila isikan butiran ini."
-                                                    onkeypress="return isNumberKey(event)">
+                                                    onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpo }}">
                                                 {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -423,15 +423,15 @@
 
 
                                     <div class="row form-group" style="margin-top: 2%">
-                                    <div class="text-right col-md-7">
-                                            <button type="submit" class="btn btn-primary"
-                                                style="float: right">Simpan</button>
+                                        <div class="text-right col-md-6">
+                                            <button type="button" class="btn btn-primary"  data-toggle="modal"
+                                            data-target="#next">Simpan</button>
                                         </div>
 
                                     </div>
 
                                     <!-- Vertically Centered modal Modal -->
-                                    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                    <div class="modal fade" id="next" tabindex="-1" role="dialog"
                                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                             role="document">
@@ -451,7 +451,7 @@
                                                 </div>
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-light-secondary"
-                                                        data-bs-dismiss="modal">
+                                                        data-dismiss="modal">
                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                         <span class="d-none d-sm-block"
                                                             style="color:#275047">Tidak</span>

@@ -51,14 +51,25 @@ class KilangOleokimiaController extends Controller
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
 
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
+        $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
+            ($pelesen->bil_tangki_ppo ?? 0) +
+            ($pelesen->bil_tangki_cpko ?? 0) +
+            ($pelesen->bil_tangki_ppko ?? 0) +
+            ($pelesen->bil_tangki_oleo ?? 0) +
+            ($pelesen->bil_tangki_others ?? 0);
 
-
+        $jumlah2 = ($pelesen->kap_tangki_cpo ?? 0) +
+            ($pelesen->kap_tangki_ppo ?? 0) +
+            ($pelesen->kap_tangki_cpko ?? 0) +
+            ($pelesen->kap_tangki_ppko ?? 0) +
+            ($pelesen->kap_tangki_oleo ?? 0) +
+            ($pelesen->kap_tangki_others ?? 0);
         //dd($pelesen);
 
 
 
 
-        return view('users.KilangOleokimia.oleo-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
+        return view('users.KilangOleokimia.oleo-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
     }
 
     public function oleo_update_maklumat_asas_pelesen(Request $request, $id)
@@ -79,9 +90,32 @@ class KilangOleokimiaController extends Controller
         // $penyata->e_notelpg = $request->e_notelpg;
         $penyata->e_npgtg = $request->e_npgtg;
         $penyata->e_jpgtg = $request->e_jpgtg;
+        $penyata->e_group = $request->e_group;
         $penyata->e_email_pengurus = $request->e_email_pengurus;
-        $penyata->save();
+        $penyata->kap_proses = $request->kap_proses;
+        $penyata->kap_tangki = $request->kap_tangki;
+        $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
+        $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
+        $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
+        $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
+        $penyata->bil_tangki_oleo = $request->bil_tangki_oleo;
+        $penyata->bil_tangki_others = $request->bil_tangki_others;
+        // $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
+        $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
+        $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
+        $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
+        $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
+        $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
+        $penyata->kap_tangki_others = $request->kap_tangki_others;
+        // $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
 
+
+
+        // $penyata->save();
+        // $calculate = floatval($request->bil_tangki_cpo) + floatval($request->bil_tangki_ppo) + floatval($request->bil_tangki_cpko) +
+        // floatval($request->bil_tangki_ppko) + floatval($request->bil_tangki_oleo) + floatval($request->bil_tangki_others);
+
+        // $total = floatval($request->jumlah);
 
         return redirect()->route('oleo.maklumatasaspelesen')
             ->with('success', 'Maklumat telah dikemaskini');
