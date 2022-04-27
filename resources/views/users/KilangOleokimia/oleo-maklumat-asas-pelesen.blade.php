@@ -196,14 +196,10 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     No. Telefon Pegawai Melapor</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_notel_pg" class="form-control"
-                                        placeholder="No. Telefon Pegawai Melapor" onkeypress="return isNumberKey(event)"
-                                        name="e_notel_pg" value="">
-                                    @error('e_notel_pg')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror
+                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control"
+                                        placeholder="No. Telefon Pegawai Melapor"
+                                        name="e_notel_pg"
+                                        onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}">
                                 </div>
                             </div>
                             <div class="row" style="margin-top: 1%">
@@ -212,12 +208,8 @@
                                     Alamat Emel Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="email" id="e_email_pg" class="form-control"
-                                        placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg" value="">
-                                    @error('e_email_pg')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror
+                                        placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg" value="{{ $pelesen->e_email_pg }}">
+
                                 </div>
                             </div>
                             <div class="row" style="margin-top: 1%">
@@ -304,7 +296,7 @@
                                                         @enderror --}}
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top: 1%">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kapasiti Pemprosesan / Tahun</label>
@@ -536,16 +528,10 @@
                         </div>
 
 
-                        <div class="row form-group" style="padding-top: 10px; ">
-
-
-                            {{-- <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
-                                        </div> --}}
-                            <div class="text-right col-md-12">
-                                <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                                    data-bs-target="#next">Simpan</button>
+                        <div class="row form-group" style="margin-top: 2%">
+                            <div class="text-right col-md-6">
+                                <button type="button" class="btn btn-primary"  data-toggle="modal"
+                                data-target="#next">Simpan</button>
                             </div>
 
                         </div>

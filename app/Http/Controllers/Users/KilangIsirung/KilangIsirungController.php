@@ -76,10 +76,17 @@ class KilangIsirungController extends Controller
         $penyata->e_email = $request->e_email;
         $penyata->e_npg = $request->e_npg;
         $penyata->e_jpg = $request->e_jpg;
-        // $penyata->e_notelpg = $request->e_notelpg;
+        $penyata->e_notel_pg = $request->e_notel_pg;
+        $penyata->e_email_pg = $request->e_email_pg;
         $penyata->e_npgtg = $request->e_npgtg;
         $penyata->e_jpgtg = $request->e_jpgtg;
         $penyata->e_email_pengurus = $request->e_email_pengurus;
+        $penyata->e_group = $request->e_group;
+        $penyata->e_syktinduk = $request->e_syktinduk;
+        $penyata->kap_proses = $request->kap_proses;
+        $penyata->kap_tangki = $request->kap_tangki;
+        $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
+        $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
         $penyata->save();
 
 
