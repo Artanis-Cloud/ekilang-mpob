@@ -30,6 +30,8 @@ class Pelesen extends Model
         'e_email',
         'e_npg',
         'e_jpg',
+        'e_notel_pg',
+        'e_email_pg',
         'kodpgw',
         'nosiri',
         'e_npgtg',
