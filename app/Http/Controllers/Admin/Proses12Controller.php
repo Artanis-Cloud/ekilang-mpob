@@ -36,4 +36,12 @@ class Proses12Controller extends Controller
         return view('admin.proses12.12validation', compact('returnArr', 'layout'));
     }
 
+    // protected function validation_direktori(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'e_kat' => ['required', 'string'],
+    //         'nama_negeri' => ['required', 'string'],
+    //     ]);
+    // }
+
 }

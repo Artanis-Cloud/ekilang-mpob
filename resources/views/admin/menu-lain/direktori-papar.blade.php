@@ -45,20 +45,25 @@
             <!-- row -->
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card">
-                        <div class=" text-center">
-                            <h4 style="color: rgb(39, 80, 71); margin-top:3%">Senarai Direktori</h4>
+                    <form method="get" action="" id="myfrm">
 
-                        </div>
-                        <hr>
-                        <div class="row col-md-12" style=" float:right; margin-left:85%">
-
-                            <div class="text-left col-md-8">
-                                <button class="btn btn-primary" onclick="exportTableToExcel('tblData')">Cetak</button>
-
+                        <div class="card">
+                            <div class=" text-center">
+                                <h4 style="color: rgb(39, 80, 71); margin-top:3%">Senarai Direktori</h4>
 
                             </div>
-                        </div>
+                            <hr>
+                            <div class="row col-md-12" style=" float:right; margin-left:83%">
+
+                                <div class="text-left col-md-8">
+                                    <button class="btn btn-primary" onclick="exportTableToExcel('tblData')">Excel</button>
+
+                                    <button type="button" class="btn btn-primary " onclick="myPrint('myfrm')"
+                                        value="print">PDF</button>
+
+
+                                </div>
+                            </div>
 
 
                             <div class="card-body">
@@ -138,12 +143,12 @@
 
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                    </form>
                 </div>
             </div>
-
         </div>
+
+    </div>
 
 
 
@@ -152,36 +157,45 @@
 @endsection
 
 @section('scripts')
-<script>
-    function exportTableToExcel(tableID, filename = '') {
-        var downloadLink;
-        var dataType = 'application/vnd.ms-excel';
-        var tableSelect = document.getElementById(tableID);
-        var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    <script>
+        function exportTableToExcel(tableID, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
 
-        // Specify file name
-        filename = filename ? filename + '.xls' : 'direktori.xls';
+            // Specify file name
+            filename = filename ? filename + '.xls' : 'direktori.xls';
 
-        // Create download link element
-        downloadLink = document.createElement("a");
+            // Create download link element
+            downloadLink = document.createElement("a");
 
-        document.body.appendChild(downloadLink);
+            document.body.appendChild(downloadLink);
 
-        if (navigator.msSaveOrOpenBlob) {
-            var blob = new Blob(['\ufeff', tableHTML], {
-                type: dataType
-            });
-            navigator.msSaveOrOpenBlob(blob, filename);
-        } else {
-            // Create a link to the file
-            downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+            if (navigator.msSaveOrOpenBlob) {
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
 
-            // Setting the file name
-            downloadLink.download = filename;
+                // Setting the file name
+                downloadLink.download = filename;
 
-            //triggering the function
-            downloadLink.click();
+                //triggering the function
+                downloadLink.click();
+            }
         }
-    }
-</script>
+    </script>
+    <script>
+        function myPrint(myfrm) {
+            var printdata = document.getElementById(myfrm);
+            newwin = window.open("");
+            newwin.document.write(printdata.outerHTML);
+            newwin.print();
+            newwin.close();
+        }
+    </script>
 @endsection

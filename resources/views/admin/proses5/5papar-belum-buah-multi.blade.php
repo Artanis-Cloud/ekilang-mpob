@@ -48,7 +48,7 @@
                     <form method="get" action="" id="myfrm">
 
                         <div class="card" style="margin-right:2%; margin-left:2%">
-                            @foreach ($pelesens as $data)
+                            {{-- @foreach ($pelesens as $data) --}}
                                 {{-- @foreach (array_merge($pelesens, $penyata) as $data) --}}
 
                                 <br>
@@ -1098,7 +1098,7 @@
 
                                 <br>
 
-                            @endforeach
+                            {{-- @endforeach --}}
 
                         </div><hr>
                     </form>

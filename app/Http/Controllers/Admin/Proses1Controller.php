@@ -202,70 +202,70 @@ class Proses1Controller extends Controller
         if ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL91') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen Buah"],
+                ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
         } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL91') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senaraipelesenbatalbuah'), 'name' => "Senarai Pelesen Buah Dibatalkan"],
+                ['link' => route('admin.senaraipelesenbatalbuah'), 'name' => "Senarai Pelesen Dibatalkan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
         } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL101') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen Penapis"],
+                ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
         } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL101') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senarai.pelesen.batal.penapis'), 'name' => "Senarai Pelesen Penapis Dibatalkan"],
+                ['link' => route('admin.senarai.pelesen.batal.penapis'), 'name' => "Senarai Pelesen Dibatalkan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
         } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL102') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senaraipelesenisirung'), 'name' => "Senarai Pelesen Isirung"],
+                ['link' => route('admin.senaraipelesenisirung'), 'name' => "Senarai Pelesen"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
         } elseif ($reg_pelesen->e_kat == 'PL102' && $reg_pelesen->e_status == '2') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senarai.pelesen.batal.isirung'), 'name' => "Senarai Pelesen Isirung Dibatalkan"],
+                ['link' => route('admin.senarai.pelesen.batal.isirung'), 'name' => "Senarai Pelesen Dibatalkan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
         } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL104') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen Oleokimia"],
+                ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
         } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL104') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senarai.pelesen.batal.oleokimia'), 'name' => "Senarai Pelesen Oleokimia Dibatalkan"],
+                ['link' => route('admin.senarai.pelesen.batal.oleokimia'), 'name' => "Senarai Pelesen Dibatalkan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
         } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL111') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen Pusat Simpanan"],
+                ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
         } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PL111') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.senarai.pelesen.batal.simpanan'), 'name' => "Senarai Pelesen Pusat Simpanan Dibatalkan"],
+                ['link' => route('admin.senarai.pelesen.batal.simpanan'), 'name' => "Senarai Pelesen Dibatalkan"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
@@ -315,7 +315,7 @@ class Proses1Controller extends Controller
         // dd($e_id);
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenbatalbuah'), 'name' => "Senarai Pelesen Buah Dibatalkan"],
+            ['link' => route('admin.senaraipelesenbatalbuah'), 'name' => "Senarai Pelesen Dibatalkan"],
             ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
         ];
@@ -355,7 +355,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen Buah"],
+            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -379,7 +379,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen Penapis"],
+            ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -401,7 +401,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenisirung'), 'name' => "Senarai Pelesen Isirung"],
+            ['link' => route('admin.senaraipelesenisirung'), 'name' => "Senarai Pelesen"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -423,7 +423,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen Oleokimia"],
+            ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -445,7 +445,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen Pusat Simpanan"],
+            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -466,7 +466,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Kilang Biodiesel"],
+            ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -489,7 +489,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen Buah"],
+            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen"],
             ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
         ];
 
@@ -513,7 +513,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen Penapis"],
+            ['link' => route('admin.senaraipelesenpenapis'), 'name' => "Senarai Pelesen"],
             ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
         ];
 
@@ -537,7 +537,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenisirung'), 'name' => "Senarai Pelesen Isirung"],
+            ['link' => route('admin.senaraipelesenisirung'), 'name' => "Senarai Pelesen"],
             ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
         ];
 
@@ -561,7 +561,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen Oleokimia"],
+            ['link' => route('admin.senaraipelesenoleokimia'), 'name' => "Senarai Pelesen"],
             ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
         ];
 
@@ -585,7 +585,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen Pusat Simpanan"],
+            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen"],
             ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
         ];
 
@@ -609,7 +609,7 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen Kilang Biodiesel"],
+            ['link' => route('admin.senaraipelesensimpanan'), 'name' => "Senarai Pelesen"],
             ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Batal"],
         ];
 

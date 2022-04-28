@@ -39,9 +39,44 @@ class Proses3Controller extends Controller
         ];
         $layout = 'layouts.admin';
 
+        if(now()->month == 1){
+            $month = 'JANUARI';
+        } elseif(now()->month == 2){
+            $month = 'FEBRUARI';
+        }
+        elseif(now()->month == 3){
+            $month = 'MAC';
+        }
+        elseif(now()->month == 4){
+            $month = 'APRIL';
+        }
+        elseif(now()->month == 5){
+            $month = 'MEI';
+        }
+        elseif(now()->month == 6){
+            $month = 'JUN';
+        }
+        elseif(now()->month == 7){
+            $month = 'JULAI';
+        }
+        elseif(now()->month == 8){
+            $month = 'OGOS';
+        }
+        elseif(now()->month == 9){
+            $month = 'SEPTEMBER';
+        }
+        elseif(now()->month == 10){
+            $month = 'OKTOBER';
+        }
+        elseif(now()->month == 11){
+            $month = 'NOVEMBER';
+        }
+        elseif(now()->month == 12){
+            $month = 'DISEMBER';
+        };
 
 
-        return view('admin.proses3.3daftar-penyata', compact('returnArr', 'layout'));
+        return view('admin.proses3.3daftar-penyata', compact('returnArr', 'layout', 'month'));
     }
 
     public function admin_3daftarpenyatapenapis()

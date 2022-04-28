@@ -56,39 +56,16 @@
 
                                         <div class="row" style="margin-top:-2%">
                                             <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                 No. Lesen</label>
                                             <div class="col-md-6">
                                                 <input type="text" id="company-column" class="form-control"
                                                     placeholder=" No. Lesen" name="company-column">
                                             </div>
                                         </div>
-
-                                        <div class="row mt-2">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center ">
-                                                Kata Laluan Baru (8 Aksara)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control"
-                                                    placeholder="Kata Laluan Baru (8 Aksara)" name="company-column">
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kata Laluan Baru Sekali Lagi (8 Aksara)</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control"
-                                                    placeholder=" Kata Laluan Baru Sekali Lagi (8 Aksara)"
-                                                    name="company-column">
-                                            </div>
-                                        </div>
-
-                                        <div class="row form-group mt-2" style="padding-top: 10px; ">
-                                            <div class="text-right col-md-12 center">
-                                                <button type="submit" class="btn btn-primary">Tukar Kata Laluan</button>
-                                                {{-- <button type="submit">YA</button> --}}
-                                            </div>
+                                        <div class="text-right col-md-6 mb-4 mt-4">
+                                            <button type="button" class="btn btn-primary" style="margin-left:90%"
+                                                data-toggle="modal" data-target="#next">Tukar Kata Laluan</button>
                                         </div>
 
                                     </div>
