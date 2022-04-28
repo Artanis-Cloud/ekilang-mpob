@@ -82,32 +82,31 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="pl-3">
+                        <div class="pl-3">
 
-                                <div class=" text-center">
-                                    {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Buah
-                                        - MPOB(EL) MF 4</h3>
-                                    <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
-                                        Dihantar Sehingga Tarikh
-                                        <p><span id="datetime"></span></p>
-                                        <script>
-                                            var dt = new Date();
-                                            document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
-                                                1)).slice(-2)) + "/" + (dt.getFullYear());
-                                        </script>
-                                    </h5>
-                                    {{-- <p>Maklumat Kilang</p> --}}
-                                </div>
-                                <hr>
+                            <div class=" text-center">
+                                {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Buah
+                                    - MPOB(EL) MF 4</h3>
+                                <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
+                                    Dihantar Sehingga Tarikh
+                                    <p><span id="datetime"></span></p>
+                                    <script>
+                                        var dt = new Date();
+                                        document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
+                                            1)).slice(-2)) + "/" + (dt.getFullYear());
+                                    </script>
+                                </h5>
+                            </div>
+                            <hr>
 
 
-                                <section class="section">
-                                    <div class="card">
-                                        <form action="{{ route('admin.5papar.belum.buah.form') }}" method="post">
-                                            @csrf
-                                            <div class="table-responsive">
+                            <section class="section">
+                                <div class="card">
+                                    {{-- <form action="{{ route('admin.5papar.belum.buah.form') }}" method="post">
+                                        @csrf --}}
+                                        <div class="table-responsive">
+                                            <div id="tblData">
                                                 <table id="example" class="table table-striped table-bordered"
                                                     style="width: 100%;">
                                                     <thead>
@@ -128,9 +127,8 @@
                                                                     <input name="papar_ya[]" type="checkbox"
                                                                     value="{{ $data->e91_reg }}">&nbspYa
                                                                 </td> --}}
-                                                                
-                                                                <td>{{ $loop->iteration }}
-                                                                </td>
+
+                                                                <td>{{ $loop->iteration }}</td>
                                                                 {{-- <td>
                                                                 x
                                                             </td> --}}
@@ -150,25 +148,29 @@
                                                     </tbody>
 
                                                 </table>
-                                                <div class="text-left col-md-8">
-                                                    {{-- <button type="submit" class="btn btn-primary ">Emel Peringatan</button> --}}
-
-
-
-                                                </div>
                                             </div>
-                                        </form>
-                                    </div>
-                                </section>
-                            </div>
+                                            <div class="text-left col-md-8">
+                                                {{-- <button type="submit" class="btn btn-primary ">Emel Peringatan</button> --}}
+                                                <button class="btn btn-primary"
+                                                    onclick="exportTableToExcel('tblData')">Excel</button>
 
 
+
+
+                                            </div>
+                                        </div>
+                                    {{-- </form> --}}
+                                </div>
+                            </section>
                         </div>
+
+
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
 
     </div>
 @endsection
@@ -213,4 +215,36 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
+        <script>
+            function exportTableToExcel(tableID, filename = '') {
+                var downloadLink;
+                var dataType = 'application/vnd.ms-excel';
+                var tableSelect = document.getElementById(tableID);
+                var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+    
+                // Specify file name
+                filename = filename ? filename + '.xls' : 'senarai-penyata-belum-hantar.xls';
+    
+                // Create download link element
+                downloadLink = document.createElement("a");
+    
+                document.body.appendChild(downloadLink);
+    
+                if (navigator.msSaveOrOpenBlob) {
+                    var blob = new Blob(['\ufeff', tableHTML], {
+                        type: dataType
+                    });
+                    navigator.msSaveOrOpenBlob(blob, filename);
+                } else {
+                    // Create a link to the file
+                    downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+    
+                    // Setting the file name
+                    downloadLink.download = filename;
+    
+                    //triggering the function
+                    downloadLink.click();
+                }
+            }
+        </script>
 @endsection

@@ -77,16 +77,16 @@ class Proses5Controller extends Controller
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
-        foreach ($request->papar_ya as $key => $e91_reg) {
-            $pelesens[$key] = (object)[];
-            $penyata = E91Init::find($e91_reg);
-            $pelesens[$key] = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
-        }
+        // foreach ($request->papar_ya as $key => $e91_reg) {
+        //     $pelesens[$key] = (object)[];
+        //     $penyata = E91Init::find($e91_reg);
+        //     $pelesens[$key] = Pelesen::where('e_nl', $penyata-> e91_nl)->first();
+        // }
         $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses5.5papar-belum-buah-multi',compact('returnArr' ,'layout', 'tahun', 'bulan', 'pelesens', 'penyata' ));
+        return view('admin.proses5.5papar-belum-buah-multi',compact('returnArr' ,'layout', 'tahun', 'bulan' ));
 
     }
 

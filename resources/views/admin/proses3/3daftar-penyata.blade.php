@@ -110,92 +110,25 @@
 
                     <div class="card-body">
                         <div class="container center ">
-
-                            {{-- <div class="row" style="margin-top:-2%">
-                                <label for="fname"
-                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">User
-                                    ID
-                                </label>
-                                <div class="col-md-6">
-                                    <input type="text" id="company-column" class="form-control" placeholder=" No. Lesen"
-                                        name="company-column">
-                                </div>
-                            </div> --}}
-
-                            {{-- <div class="row" style="margin-top:1%">
-                                <label for="fname"
-                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">Kata
-                                    Laluan
-                                </label>
-                                <div class="col-md-6">
-                                    <input type="text" id="company-column" class="form-control"
-                                        placeholder="Kata Laluan Baru (8 Aksara)" name="company-column">
-                                </div>
-                            </div> --}}
                             <div class="row" style="margin-top:-2%">
                                 <label for="fname"
                                     class="text-right col-sm-4 control-label col-form-label required align-items-center">Tahun
                                 </label>
                                 <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="e_tahun">
-                                            <option selected hidden disabled>Sila Pilih Tahun</option>
-
-                                            <option value="2003">2003</option>
-                                            <option value="2004">2004</option>
-                                            <option value="2005">2005</option>
-                                            <option value="2006">2006</option>
-                                            <option value="2007">2007</option>
-                                            <option value="2008">2008</option>
-                                            <option value="2009">2009</option>
-                                            <option value="2010">2010</option>
-                                            <option value="2011">2011</option>
-                                            <option value="2012">2012</option>
-                                            <option value="2013">2013</option>
-                                            <option value="2014">2014</option>
-                                            <option value="2015">2015</option>
-                                            <option value="2016">2016</option>
-                                            <option value="2017">2017</option>
-                                            <option value="2018">2018</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2020">2020</option>
-                                            <option value="2021">2021</option>
-                                            <option value="2022">2022</option>
-
-
-
-                                        </select>
-                                    </fieldset>
+                                    <input type="text"class="form-control" readonly
+                                        name="e_tahun" value="{{ now()->year }}">
                                 </div>
                             </div>
-                            <div class="row" style="margin-top:-1%">
+                            <div class="row" style="margin-top:1%">
                                 <label for="fname"
                                     class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
                                 </label>
                                 <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="e_bulan">
-                                            <option selected hidden disabled>Sila Pilih Bulan</option>
-                                            <option value="01">Januari</option>
-                                            <option value="02">Februari</option>
-                                            <option value="03">Mac</option>
-                                            <option value="04">April</option>
-                                            <option value="05">Mei</option>
-                                            <option value="06">Jun</option>
-                                            <option value="07">Julai</option>
-                                            <option value="08">Ogos</option>
-                                            <option value="09">September</option>
-                                            <option value="10">Oktober</option>
-                                            <option value="11">November</option>
-                                            <option value="12">Disember</option>
-
-
-
-                                        </select>
-                                    </fieldset>
+                                    <input type="text" class="form-control" readonly
+                                        name="e_bulan" value="{{ $month }}">
                                 </div>
                             </div>
-                            <div class="row" style="margin-top: -1%">
+                            <div class="row" style="margin-top: 1%">
                                 <label for="fname"
                                     class="text-right col-sm-4 control-label col-form-label required align-items-center">Tarikh
                                     Akhir Penghantaran
@@ -206,7 +139,6 @@
                                         name="e_ddate">
                                 </div>
                             </div>
-
 
 
                             <br>
@@ -274,65 +206,20 @@
                                     class="text-right col-sm-4 control-label col-form-label required align-items-center">Tahun
                                 </label>
                                 <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="e_tahun">
-                                            <option selected hidden disabled>Sila Pilih Tahun</option>
-
-                                            <option value="2003">2003</option>
-                                            <option value="2004">2004</option>
-                                            <option value="2005">2005</option>
-                                            <option value="2006">2006</option>
-                                            <option value="2007">2007</option>
-                                            <option value="2008">2008</option>
-                                            <option value="2009">2009</option>
-                                            <option value="2010">2010</option>
-                                            <option value="2011">2011</option>
-                                            <option value="2012">2012</option>
-                                            <option value="2013">2013</option>
-                                            <option value="2014">2014</option>
-                                            <option value="2015">2015</option>
-                                            <option value="2016">2016</option>
-                                            <option value="2017">2017</option>
-                                            <option value="2018">2018</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2020">2020</option>
-                                            <option value="2021">2021</option>
-                                            <option value="2022">2022</option>
-
-
-
-                                        </select>
-                                    </fieldset>
+                                    <input type="text"class="form-control" readonly
+                                        name="e_tahun" value="{{ now()->year }}">
                                 </div>
                             </div>
-                            <div class="row" style="margin-top:-1%">
+                            <div class="row" style="margin-top:1%">
                                 <label for="fname"
                                     class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
                                 </label>
                                 <div class="col-md-6">
-                                    <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="e_bulan">
-                                            <option selected hidden disabled>Sila Pilih Bulan</option>
-                                            <option value="01">Januari</option>
-                                            <option value="02">Februari</option>
-                                            <option value="03">Mac</option>
-                                            <option value="04">April</option>
-                                            <option value="05">Mei</option>
-                                            <option value="06">Jun</option>
-                                            <option value="07">Julai</option>
-                                            <option value="08">Ogos</option>
-                                            <option value="09">September</option>
-                                            <option value="10">Oktober</option>
-                                            <option value="11">November</option>
-                                            <option value="12">Disember</option>
-
-
-
-                                        </select>
-                                    </fieldset>
+                                    <input type="text" class="form-control" readonly
+                                        name="e_bulan" value="{{ $month }}">
                                 </div>
                             </div>
-                            <div class="row" style="margin-top: -1%">
+                            <div class="row" style="margin-top: 1%">
                                 <label for="fname"
                                     class="text-right col-sm-4 control-label col-form-label required align-items-center">Tarikh
                                     Akhir Penghantaran

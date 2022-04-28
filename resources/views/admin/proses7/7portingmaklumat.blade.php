@@ -66,6 +66,7 @@
 
                                                             <option>Produk Sawit</option>
                                                             <option>Negara</option>
+                                                            <option>Daerah</option>
 
 
                                                         </select>

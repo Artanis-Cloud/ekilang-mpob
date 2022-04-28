@@ -1060,9 +1060,15 @@
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                     <li class="sidebar-item">
-                                        <a href="{{ route('admin.senaraipelesenbuah') }}" class="sidebar-link">
+                                        <a href="{{ route('admin.1daftarpelesen') }}" class="sidebar-link">
                                             <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Daftar Pelesen Baru </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.senaraipelesenbuah') }}" class="sidebar-link">
+                                            <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Senarai Pemegang Lesen </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
@@ -1115,7 +1121,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
                                                 <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Produk Sawit/Negara </span>
+                                                <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">

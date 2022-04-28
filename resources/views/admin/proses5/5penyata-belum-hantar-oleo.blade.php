@@ -76,7 +76,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
                             <div class="pl-3">
 
                                 <div class=" text-center">
@@ -106,7 +105,7 @@
                                                     style="width: 100%;">
                                                     <thead>
                                                         <tr>
-                                                            <th>Pilih?</th>
+                                                            <th>Bil</th>
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
@@ -117,10 +116,7 @@
                                                     <tbody style="word-break: break-word; font-size:12px">
                                                         @foreach ($users as $data)
                                                             <tr>
-                                                                <td>
-                                                                    <input name="papar_ya[]" type="checkbox"
-                                                                    value="{{ $data->e104_reg }}">&nbspYa
-                                                                </td>
+                                                                <td>{{ $loop->iteration }}</td>
                                                                 {{-- <td>
                                                                 x
                                                             </td> --}}

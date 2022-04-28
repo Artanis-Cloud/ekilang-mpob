@@ -42,7 +42,34 @@
                                 <div class="d-flex no-block align-items-center">
                                     <div>
                                         <p class="font-16 m-b-5">Jumlah Penyata Bulanan Yang Sudah Dihantar</p>
-                                        <p class="font-16 m-b-5">Bulan: <b>{{ now()->month }}</b> Tahun:
+                                        <p class="font-16 m-b-5">Bulan:
+                                            @if (now()->month == 1)
+                                                <b>JANUARI</b> &nbsp;
+                                            @elseif (now()->month == 2)
+                                                <b>FEBRUARI</b> &nbsp;
+                                            @elseif (now()->month == 3)
+                                                <b>MAC</b> &nbsp;
+                                            @elseif (now()->month == 4)
+                                                <b>APRIL</b> &nbsp;
+                                            @elseif (now()->month == 5)
+                                                <b>MEI</b> &nbsp;
+                                            @elseif (now()->month == 6)
+                                                <b>JUN</b> &nbsp;
+                                            @elseif (now()->month == 7)
+                                                <b>JULAI</b> &nbsp;
+                                            @elseif (now()->month == 8)
+                                                <b>OGOS</b> &nbsp;
+                                            @elseif (now()->month == 9)
+                                                <b>SEPTEMBER</b> &nbsp;
+                                            @elseif (now()->month == 10)
+                                                <b>OKTOBER</b> &nbsp;
+                                            @elseif (now()->month == 11)
+                                                <b>NOVEMBER</b> &nbsp;
+                                            @elseif (now()->month == 12)
+                                                <b>DECEMBER</b> &nbsp;
+                                            @endif
+
+                                            Tahun:
                                             <b>{{ now()->year }}</b>
                                         </p>
                                     </div>
@@ -60,7 +87,7 @@
                 <div class="col-lg-12 col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Peratusan Penghantaran Penyata Bulanan</h4>
+                            <h4 class="card-title">Bilangan Dan Peratusan Penghantaran Penyata Bulanan</h4>
                             <canvas class="ct-chart-line" id="pieChart"
                                 style="height: 300px; width: 100%; max-height: 300px; position: relative;"></canvas>
                         </div>
@@ -666,7 +693,7 @@
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', ],
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
                 datasets: [{
                     // label: '# of Votes',
                     data: [{{ $PL101[1][0]->pelesen }}, {{ $PL101[2][0]->pelesen }},
@@ -687,7 +714,18 @@
             options: {
                 scales: {
                     y: {
-                        beginAtZero: true
+                        suggestedMin: 10,
+                        suggestedMax: 10,
+                        title: {
+                            display: true,
+                            text: 'Jumlah Penyata Bulanan'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Haribulan'
+                        }
                     }
                 },
                 plugins: {
@@ -696,6 +734,7 @@
                     }
                 },
             }
+
         });
     </script>
     <script>
