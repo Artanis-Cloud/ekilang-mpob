@@ -433,10 +433,6 @@
         }
     </script>
 
-    <script type=text/javascript>
-
-    </script>
-
     <script>
         Chart.register(ChartDataLabels);
 
@@ -658,7 +654,7 @@
                     ],
                     borderWidth: 1
                 }]
-            },
+            };
             options: {
                 scales: {
                     y: {

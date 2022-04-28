@@ -61,109 +61,108 @@
                                     Oleokimia</a>
                                 <a class="dropdown-item" href="{{ route('admin.senaraipelesensimpanan') }}">Pusat
                                     Simpanan</a>
-                                <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">Kilang Biodiesel</a>
+                                <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">Kilang
+                                    Biodiesel</a>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        {{-- <div class="col-md-4 col-12"> --}}
-                        <div class="pl-3">
+                    <div class="pl-3">
 
-                            <div class=" text-center">
-                                {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar
-                                </h3>
-                                <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>Kilang Buah</b></h4>
-                                {{-- <p>Maklumat Kilang</p> --}}
-                            </div>
-                            <hr>
+                        <div class=" text-center">
+                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Berdaftar
+                            </h3>
+                            <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>Kilang Buah</b></h4>
+                            {{-- <p>Maklumat Kilang</p> --}}
+                        </div>
+                        <hr>
 
 
-                            <section class="section">
-                                <div class="card">
-                                    {{-- <div class="card-header">
+                        <section class="section">
+                            <div class="card">
+                                {{-- <div class="card-header">
                                                             Simple Datatable
                                                         </div> --}}
-                                    <div class="text-left col-md-7">
-                                        <a href="{{ route('admin.senaraipelesenbatalbuah') }}" class="btn btn-primary"
-                                            style="float: left; margin-right:2%">Senarai
-                                            Pelesen Batal</a>
+                                <div class="text-left col-md-7">
+                                    <a href="{{ route('admin.senaraipelesenbatalbuah') }}" class="btn btn-primary"
+                                        style="float: left; margin-right:2%">Senarai
+                                        Pelesen Batal</a>
 
-                                        <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
-                                            style="float: left"> Tambah Pelesen Baru</a>
-                                    </div>
-                                    <br>
-                                    <div class="table-responsive">
-                                        <table id="example" class="table table-striped table-bordered" style="width: 100%;">
-                                            <thead>
-                                                <tr>
-                                                    <th>Bil.</th>
-                                                    <th>No. Lesen</th>
-                                                    <th>Nama Premis</th>
-                                                    <th>Emel</th>
-                                                    <th>No. Telefon</th>
-                                                    <th>Kod Pegawai</th>
-                                                    <th>No. Siri</th>
-                                                    <th>Status e-Kilang</th>
-                                                    <th>Status e-Stok</th>
-                                                    <th>Direktori</th>
-                                                    <th>Pretasi OER</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody style="word-break: break-word; font-size:12px">
-                                                @foreach ($users as $data)
-                                                    <tr class="text-left">
-                                                        <td>{{ $loop->iteration }}</td>
-                                                        <td>
-                                                            <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
-                                                                    {{ $data->e_nl }}</u></a>
-                                                        </td>
-                                                        <td>{{ $data->pelesen->e_np ?? '-' }}</td>
-                                                        <td>{{ $data->pelesen->e_email ?? '-' }}</td>
-                                                        <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
-                                                        <td>{{ $data->kodpgw }}</td>
-                                                        <td>{{ $data->nosiri }}</td>
-                                                        @if ($data->e_status == 1)
-                                                            <td>Aktif</td>
-                                                        @elseif ($data->e_status == 2)
-                                                            <td>Tidak Aktif</td>
-                                                        @else
-                                                            <td>-</td>
-                                                        @endif
-                                                        @if ($data->e_stock == 1)
-                                                            <td>Aktif</td>
-                                                        @elseif ($data->e_stock == 2)
-                                                            <td>Tidak Aktif</td>
-                                                        @else
-                                                            <td>-</td>
-                                                        @endif
-                                                        @if ($data->directory == 'Y')
-                                                            <td>Ya</td>
-                                                        @elseif ($data->directory == 'N')
-                                                            <td>Tidak</td>
-                                                        @else
-                                                            <td>-</td>
-                                                        @endif
-                                                        <td>-</td>
-
-                                                        {{-- <td>-</td> --}}
-                                                    </tr>
-                                                @endforeach
-
-                                            </tbody>
-
-                                        </table>
-                                    </div>
+                                    <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
+                                        style="float: left"> Tambah Pelesen Baru</a>
                                 </div>
-                            </section>
-                        </div>
+                                <br>
+                                <div class="table-responsive">
+                                    <table id="example" class="table table-striped table-bordered" style="width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th class="no-sort">Bil.</th>
+                                                <th>No. Lesen</th>
+                                                <th>Nama Premis</th>
+                                                <th>Emel</th>
+                                                <th>No. Telefon</th>
+                                                <th>Kod Pegawai</th>
+                                                <th>No. Siri</th>
+                                                <th>Status e-Kilang</th>
+                                                <th>Status e-Stok</th>
+                                                <th>Direktori</th>
+                                                <th>Prestasi OER</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody style="word-break: break-word; font-size:12px">
+                                            @foreach ($users as $data)
+                                                <tr class="text-left">
+                                                    <td>{{ $loop->iteration }}</td>
+                                                    <td>
+                                                        <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
+                                                                {{ $data->e_nl }}</u></a>
+                                                    </td>
+                                                    <td>{{ $data->pelesen->e_np ?? '-' }}</td>
+                                                    <td>{{ $data->pelesen->e_email ?? '-' }}</td>
+                                                    <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
+                                                    <td>{{ $data->kodpgw }}</td>
+                                                    <td>{{ $data->nosiri }}</td>
+                                                    @if ($data->e_status == 1)
+                                                        <td>Aktif</td>
+                                                    @elseif ($data->e_status == 2)
+                                                        <td>Tidak Aktif</td>
+                                                    @else
+                                                        <td>-</td>
+                                                    @endif
+                                                    @if ($data->e_stock == 1)
+                                                        <td>Aktif</td>
+                                                    @elseif ($data->e_stock == 2)
+                                                        <td>Tidak Aktif</td>
+                                                    @else
+                                                        <td>-</td>
+                                                    @endif
+                                                    @if ($data->directory == 'Y')
+                                                        <td>Ya</td>
+                                                    @elseif ($data->directory == 'N')
+                                                        <td>Tidak</td>
+                                                    @else
+                                                        <td>-</td>
+                                                    @endif
+                                                    <td>-</td>
 
+                                                    {{-- <td>-</td> --}}
+                                                </tr>
+                                            @endforeach
 
+                                        </tbody>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </section>
                     </div>
+
+
                 </div>
             </div>
-
         </div>
+
+    </div>
 
     </div>
 
@@ -192,6 +191,42 @@
                         "previous": "Sebelumnya"
                     },
                 },
+                // 'processing': true,
+                // 'serverSide': true,
+                // 'serverMethod': 'POST',
+                // 'columns': [{
+                //         data: 'Bil.'
+                //     }, /* index = 0 */
+                //     {
+                //         data: 'Nama Premis'
+                //     }, /* index = 1 */
+                //     {
+                //         data: 'Emel'
+                //     }, /* index = 2 */
+                //     {
+                //         data: 'No. Telefon'
+                //     }, /* index = 3 */
+                //     {
+                //         data: 'Kod Pegawai'
+                //     } /* index = 4 */ {
+                //         data: 'No. Siri'
+                //     } /* index = 5 */ {
+                //         data: 'Status e-Kilang'
+                //     } /* index = 6 */ {
+                //         data: 'Status e-Stok'
+                //     } /* index = 7 */ {
+                //         data: 'Direktori'
+                //     } /* index = 8 */ {
+                //         data: 'Pretasi OER'
+                //     } /* index = 9 */
+                // ],
+                "columnDefs": [{
+                    'targets': [0,7,8],
+                    /* column index */
+                    'orderable': false,
+                    /* true or false */
+                }]
+
             });
         });
     </script>

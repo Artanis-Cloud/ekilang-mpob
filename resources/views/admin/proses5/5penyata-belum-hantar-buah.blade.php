@@ -123,25 +123,13 @@
                                                     <tbody style="word-break: break-word; font-size:12px">
                                                         @foreach ($users as $data)
                                                             <tr>
-                                                                {{-- <td>
-                                                                    <input name="papar_ya[]" type="checkbox"
-                                                                    value="{{ $data->e91_reg }}">&nbspYa
-                                                                </td> --}}
-
                                                                 <td>{{ $loop->iteration }}</td>
-                                                                {{-- <td>
-                                                                x
-                                                            </td> --}}
-
                                                                 <td>{{ $data->e_nl ?? '-' }}</td>
                                                                 <td>{{ $data->e_np ?? '-' }}</td>
                                                                 <td>{{ $data->kodpgw }}</td>
 
                                                                 <td>{{ $data->e_email ?? '-' }}</td>
                                                                 <td>{{ $data->nosiri }}</td>
-
-
-
                                                             </tr>
                                                         @endforeach
 
@@ -150,13 +138,8 @@
                                                 </table>
                                             </div>
                                             <div class="text-left col-md-8">
-                                                {{-- <button type="submit" class="btn btn-primary ">Emel Peringatan</button> --}}
                                                 <button class="btn btn-primary"
                                                     onclick="exportTableToExcel('tblData')">Excel</button>
-
-
-
-
                                             </div>
                                         </div>
                                     {{-- </form> --}}
