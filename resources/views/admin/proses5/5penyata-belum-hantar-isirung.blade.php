@@ -105,9 +105,10 @@
 
                                 <section class="section">
                                     <div class="card">
-                                        <form action="{{ route('admin.5papar.belum.isirung.form') }}" method="post">
-                                            @csrf
+                                        {{-- <form action="{{ route('admin.5papar.belum.isirung.form') }}" method="post">
+                                            @csrf --}}
                                             <div class="table-responsive">
+                                                <div id="tblData">
                                                 <table id="example" class="table table-striped table-bordered"
                                                     style="width: 100%;">
                                                     <thead>
@@ -143,14 +144,16 @@
                                                     </tbody>
 
                                                 </table>
+                                            </div>
                                                 <div class="text-left col-md-8">
-                                                    <button type="submit" class="btn btn-primary ">Papar</button>
+                                                    <button class="btn btn-primary"
+                                                    onclick="exportTableToExcel('tblData')">Excel</button>
 
 
 
                                                 </div>
                                             </div>
-                                        </form>
+                                        {{-- </form> --}}
                                     </div>
                                 </section>
                             </div>
@@ -205,5 +208,37 @@
 
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
+    </script>
+    <script>
+        function exportTableToExcel(tableID, filename = '') {
+            var downloadLink;
+            var dataType = 'application/vnd.ms-excel';
+            var tableSelect = document.getElementById(tableID);
+            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
+
+            // Specify file name
+            filename = filename ? filename + '.xls' : 'senarai-penyata-belum-hantar.xls';
+
+            // Create download link element
+            downloadLink = document.createElement("a");
+
+            document.body.appendChild(downloadLink);
+
+            if (navigator.msSaveOrOpenBlob) {
+                var blob = new Blob(['\ufeff', tableHTML], {
+                    type: dataType
+                });
+                navigator.msSaveOrOpenBlob(blob, filename);
+            } else {
+                // Create a link to the file
+                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+
+                // Setting the file name
+                downloadLink.download = filename;
+
+                //triggering the function
+                downloadLink.click();
+            }
+        }
     </script>
 @endsection
