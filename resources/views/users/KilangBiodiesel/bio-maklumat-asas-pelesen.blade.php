@@ -354,7 +354,7 @@
                                                     {{-- <span class="required">Bilangan Tangki</span> --}}
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
+                                                    <input type="text" class="calc" name='bil_tangki_cpo' style="width:100%"
                                                         id="bil_tangki_cpo" required title="Sila isikan butiran ini."
                                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -366,7 +366,7 @@
 
 
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='bil_tangki_ppo'
+                                                    <input type="text" class="calc" name='bil_tangki_ppo'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppo" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppo }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -376,7 +376,7 @@
                                                             @enderror --}}
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='bil_tangki_cpko'
+                                                    <input type="text" class="calc" name='bil_tangki_cpko'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_cpko" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpko }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -386,7 +386,7 @@
                                                             @enderror --}}
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='bil_tangki_ppko'
+                                                    <input type="text" class="calc" name='bil_tangki_ppko'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppko" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppko }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -396,7 +396,7 @@
                                                             @enderror --}}
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='bil_tangki_oleo'
+                                                    <input type="text" class="calc" name='bil_tangki_oleo'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_oleo" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_oleo }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -406,7 +406,7 @@
                                                             @enderror --}}
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='bil_tangki_others'
+                                                    <input type="text" class="calc" name='bil_tangki_others'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_others" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_others }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -436,7 +436,7 @@
                                                     {{-- <span class="required">Kapasiti Tangki Simpanan (Tan)</span> --}}
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='kap_tangki_cpo'
+                                                    <input type="text" class="calc" name='kap_tangki_cpo'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_cpo" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpo }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -447,7 +447,7 @@
                                                 </div>
 
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='kap_tangki_ppo'
+                                                    <input type="text" class="calc" name='kap_tangki_ppo'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_ppo" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppo }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -457,7 +457,7 @@
                                                             @enderror --}}
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='kap_tangki_cpko'
+                                                    <input type="text" class="calc" name='kap_tangki_cpko'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_cpko" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpko }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -467,7 +467,7 @@
                                                             @enderror --}}
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='kap_tangki_ppko'
+                                                    <input type="text" class="calc" name='kap_tangki_ppko'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_ppko" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppko }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -477,7 +477,7 @@
                                                             @enderror --}}
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='kap_tangki_oleo'
+                                                    <input type="text" class="calc" name='kap_tangki_oleo'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_oleo" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_oleo }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -487,7 +487,7 @@
                                                             @enderror --}}
                                                 </div>
                                                 <div class="col-md-1">
-                                                    <input type="text" class="form-control" name='kap_tangki_others'
+                                                    <input type="text" class="calc" name='kap_tangki_others'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_others" required
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_others }}">
                                                     {{-- @error('alamat_kilang_1')
@@ -669,7 +669,24 @@
                 }
             })
     </script>
+    <script>
+        function validation_jumlah() {
+            var e91_ai1 = $("#e91_ai1").val();
+            var e91_ai2 = $("#e91_ai2").val();
+            var e91_ai3 = $("#e91_ai3").val();
+            var e91_ai4 = $("#e91_ai4").val();
+            var e91_ai5 = $("#e91_ai5").val();
+            var e91_ai6 = $("#e91_ai6").val();
 
+            var jumlah = $("#jumlah").val();
+            var jumlah_input = 0;
+
+            jumlah_input = parseFloat(Number(e91_ai1)) + parseFloat(Number(e91_ai2)) +
+            parseFloat(Number(e91_ai3)) + parseFloat(Number(e91_ai4)) + parseFloat(Number(e91_ai5)) + parseFloat(Number(e91_ai6));
+
+            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script>
 
 
     </body>
