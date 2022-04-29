@@ -365,9 +365,10 @@
                                     {{-- <span class="required">Bilangan Tangki</span> --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
+                                    <input type="text" class="calc" name='bil_tangki_cpo' style="width:100%" size="15"
                                         id="bil_tangki_cpo" required title="Sila isikan butiran ini."
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}">
+                                        onkeypress="return isNumberKey(event)" 
+                                        value="{{ old('bil_tangki_cpo') ?? $pelesen->bil_tangki_cpo ?? 0 }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -376,9 +377,9 @@
                                 </div>
 
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='bil_tangki_ppo'
+                                    <input type="text" class="calc" name='bil_tangki_ppo' size="15"
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppo" required
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppo }}">
+                                        title="Sila isikan butiran ini." value="{{ old('bil_tangki_ppo') ?? $pelesen->bil_tangki_ppo ?? 0 }}" onchange="validation_jumlah()">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -386,9 +387,9 @@
                                             @enderror --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='bil_tangki_cpko'
+                                    <input type="text" class="calc" name='bil_tangki_cpko' size="15"
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_cpko" required
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpko }}">
+                                        title="Sila isikan butiran ini." value="{{ old('bil_tangki_cpko') ?? $pelesen->bil_tangki_cpko ?? 0  }}" onchange="validation_jumlah()">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -396,9 +397,9 @@
                                             @enderror --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='bil_tangki_ppko'
+                                    <input type="text" class="calc" name='bil_tangki_ppko' size="15"
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppko" required
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppko }}">
+                                        title="Sila isikan butiran ini." value="{{ old('bil_tangki_ppko') ?? $pelesen->bil_tangki_ppko ?? 0  }}" onchange="validation_jumlah()">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -406,9 +407,9 @@
                                             @enderror --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='bil_tangki_oleo'
+                                    <input type="text" class="calc" name='bil_tangki_oleo' size="15"
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_oleo" required
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_oleo }}">
+                                        title="Sila isikan butiran ini." value="{{ old('bil_tangki_oleo') ?? $pelesen->bil_tangki_oleo ?? 0  }}" onchange="validation_jumlah()">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -416,9 +417,9 @@
                                             @enderror --}}
                                 </div>
                                 <div class="col-md-1">
-                                    <input type="text" class="form-control" name='bil_tangki_others'
+                                    <input type="text" class="calc" name='bil_tangki_others' size="15"
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_others" required
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_others }}">
+                                        title="Sila isikan butiran ini." value="{{ old('bil_tangki_others') ?? $pelesen->bil_tangki_others ?? 0  }}" onchange="validation_jumlah()">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -643,7 +644,7 @@
             </script>
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" >
             </script>
             <script>
                 function validation_jumlah() {
