@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\RegPelesen;
 use App\Models\User;
+use DateTime;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -52,7 +53,7 @@ class KilangBuahController extends Controller
 
 
 
-        return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout','pelesen'));
+        return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
     }
 
 
@@ -88,7 +89,6 @@ class KilangBuahController extends Controller
 
         return redirect()->route('buah.maklumatasaspelesen')
             ->with('success', 'Maklumat telah dikemaskini');
-
     }
 
 
@@ -110,16 +110,16 @@ class KilangBuahController extends Controller
 
         $user = User::get();
 
-        return view('users.KilangBuah.buah-tukar-password', compact('returnArr', 'layout','user'));
+        return view('users.KilangBuah.buah-tukar-password', compact('returnArr', 'layout', 'user'));
     }
 
     public function buah_update_password(Request $request, $id)
     {
         $user = User::findOrFail(auth()->user()->id);
         //compare password
-        if(!Hash::check($request->old_password, $user->password)){
+        if (!Hash::check($request->old_password, $user->password)) {
             return redirect()->route('buah.tukarpassword')
-            ->with('error', 'Sila masukkan kata laluan lama yang betul');
+                ->with('error', 'Sila masukkan kata laluan lama yang betul');
         }
 
         $password = Hash::make($request->new_password);
@@ -128,7 +128,6 @@ class KilangBuahController extends Controller
 
         return redirect()->route('buah.tukarpassword')
             ->with('success', 'Kata Laluan berjaya ditukar');
-
     }
     public function buah_bahagiani()
     {
@@ -151,9 +150,9 @@ class KilangBuahController extends Controller
 
         // foreach($no_lesen  as $data){
         //     $penyata = DB::select("SELECT e91_aa1,e91_aa2,e91_aa3,e91_aa4,e91_ab1,e91_ab2,
-		// 	e91_ab3,e91_ab4,e91_ac1,e91_ad1,e91_ad2,
-		// 	e91_ad3,e91_ae1,e91_ae2,e91_ae3,e91_ae4,
-		// 	e91_af1,e91_af2,e91_af3,e91_ag1,e91_ag2,e91_ag3,e91_ag4
+        // 	e91_ab3,e91_ab4,e91_ac1,e91_ad1,e91_ad2,
+        // 	e91_ad3,e91_ae1,e91_ae2,e91_ae3,e91_ae4,
+        // 	e91_af1,e91_af2,e91_af3,e91_ag1,e91_ag2,e91_ag3,e91_ag4
         //     FROM e91_init
         //    WHERE e91_nl = $data->e91_nl");
         // }
@@ -161,7 +160,7 @@ class KilangBuahController extends Controller
         // dd($penyata);
 
 
-        return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout','penyata'));
+        return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'penyata'));
     }
 
 
@@ -195,7 +194,6 @@ class KilangBuahController extends Controller
 
         return redirect()->route('buah.bahagianii')
             ->with('success', 'Maklumat telah disimpan');
-
     }
 
     public function buah_bahagianii()
@@ -230,25 +228,24 @@ class KilangBuahController extends Controller
         $penyata->e91_ah3 = $request->e91_ah3;
         $penyata->e91_ah4 = $request->e91_ah4;
         $penyata->e91_ah5 = $request->e91_ah5;
-        $penyata->e91_ah6 = $request->e91_ah6 ;
-        $penyata->e91_ah7 = $request->e91_ah7 ;
-        $penyata->e91_ah8 = $request->e91_ah8 ;
-        $penyata->e91_ah9 = $request->e91_ah9 ;
-        $penyata->e91_ah10 = $request->e91_ah10 ;
-        $penyata->e91_ah11 = $request->e91_ah11 ;
-        $penyata->e91_ah12 = $request->e91_ah12 ;
-        $penyata->e91_ah13 = $request->e91_ah13 ;
-        $penyata->e91_ah14 = $request->e91_ah14 ;
-        $penyata->e91_ah15 = $request->e91_ah15 ;
-        $penyata->e91_ah16 = $request->e91_ah16 ;
-        $penyata->e91_ah17 = $request->e91_ah17 ;
-        $penyata->e91_ah18 = $request->e91_ah18 ;
+        $penyata->e91_ah6 = $request->e91_ah6;
+        $penyata->e91_ah7 = $request->e91_ah7;
+        $penyata->e91_ah8 = $request->e91_ah8;
+        $penyata->e91_ah9 = $request->e91_ah9;
+        $penyata->e91_ah10 = $request->e91_ah10;
+        $penyata->e91_ah11 = $request->e91_ah11;
+        $penyata->e91_ah12 = $request->e91_ah12;
+        $penyata->e91_ah13 = $request->e91_ah13;
+        $penyata->e91_ah14 = $request->e91_ah14;
+        $penyata->e91_ah15 = $request->e91_ah15;
+        $penyata->e91_ah16 = $request->e91_ah16;
+        $penyata->e91_ah17 = $request->e91_ah17;
+        $penyata->e91_ah18 = $request->e91_ah18;
         $penyata->save();
 
 
         return redirect()->route('buah.bahagianiii')
             ->with('success', 'Maklumat telah disimpan');
-
     }
 
     public function buah_bahagianiii()
@@ -277,7 +274,7 @@ class KilangBuahController extends Controller
             ($penyata->e91_ai6 ?? 0);
 
 
-        return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata' , 'jumlah'));
+        return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'jumlah'));
     }
 
     // protected function validation_bahagian_iii(array $data)
@@ -290,30 +287,28 @@ class KilangBuahController extends Controller
     public function buah_update_bahagian_iii(Request $request, $id)
     {
 
-    //    dd($request->all());
-       $calculate = floatval($request->e91_ai1) + floatval($request->e91_ai2) + floatval($request->e91_ai3) +
-       floatval($request->e91_ai4) + floatval($request->e91_ai5) + floatval($request->e91_ai6);
+        //    dd($request->all());
+        $calculate = floatval($request->e91_ai1) + floatval($request->e91_ai2) + floatval($request->e91_ai3) +
+            floatval($request->e91_ai4) + floatval($request->e91_ai5) + floatval($request->e91_ai6);
 
-       $total = floatval($request->jumlah);
+        $total = floatval($request->jumlah);
 
-       if($calculate != $request->jumlah)
-       {
+        if ($calculate != $request->jumlah) {
             return redirect()->back()->withInput()
-            ->with('error', 'Jumlah Tidak Sama!');
-       }
-       $penyata = E91Init::findOrFail($id);
-       $penyata->e91_ai1 = $request->e91_ai1;
-       $penyata->e91_ai2 = $request->e91_ai2;
-       $penyata->e91_ai3 = $request->e91_ai3;
-       $penyata->e91_ai4 = $request->e91_ai4;
-       $penyata->e91_ai5 = $request->e91_ai5;
-       $penyata->e91_ai6 = $request->e91_ai6;
-       $penyata->save();
+                ->with('error', 'Jumlah Tidak Sama!');
+        }
+        $penyata = E91Init::findOrFail($id);
+        $penyata->e91_ai1 = $request->e91_ai1;
+        $penyata->e91_ai2 = $request->e91_ai2;
+        $penyata->e91_ai3 = $request->e91_ai3;
+        $penyata->e91_ai4 = $request->e91_ai4;
+        $penyata->e91_ai5 = $request->e91_ai5;
+        $penyata->e91_ai6 = $request->e91_ai6;
+        $penyata->save();
 
 
-       return redirect()->route('buah.bahagianiv')
-           ->with('success', 'Maklumat telah disimpan');
-
+        return redirect()->route('buah.bahagianiv')
+            ->with('success', 'Maklumat telah disimpan');
     }
 
     public function buah_bahagianiv()
@@ -335,7 +330,7 @@ class KilangBuahController extends Controller
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
 
         $jumlah = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
-        ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
+            ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
 
         return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah'));
     }
@@ -347,14 +342,13 @@ class KilangBuahController extends Controller
         // dd($request->all());
 
         $calculate = floatval($request->e91_aj1) + floatval($request->e91_aj2) + floatval($request->e91_aj3) +
-        floatval($request->e91_aj4) + floatval($request->e91_aj5) +  floatval($request->e91_aj8);
+            floatval($request->e91_aj4) + floatval($request->e91_aj5) +  floatval($request->e91_aj8);
 
         $total = floatval($request->jumlah);
 
-        if($calculate != $request->jumlah)
-        {
-             return redirect()->back()->withInput()
-             ->with('error', 'Jumlah Tidak Sama!');
+        if ($calculate != $request->jumlah) {
+            return redirect()->back()->withInput()
+                ->with('error', 'Jumlah Tidak Sama!');
         }
 
 
@@ -372,7 +366,6 @@ class KilangBuahController extends Controller
 
         return redirect()->route('buah.bahagianv')
             ->with('success', 'Maklumat telah disimpan');
-
     }
 
 
@@ -396,7 +389,7 @@ class KilangBuahController extends Controller
 
         $jumlah = ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0);
 
-        return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata','jumlah'));
+        return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata', 'jumlah'));
     }
 
 
@@ -407,10 +400,9 @@ class KilangBuahController extends Controller
 
         $total = floatval($request->jumlah);
 
-        if($calculate != $request->jumlah)
-        {
-             return redirect()->back()->withInput()
-             ->with('error', 'Jumlah Tidak Sama!');
+        if ($calculate != $request->jumlah) {
+            return redirect()->back()->withInput()
+                ->with('error', 'Jumlah Tidak Sama!');
         }
 
         $penyata = E91Init::findOrFail($id);
@@ -422,7 +414,6 @@ class KilangBuahController extends Controller
 
         return redirect()->route('buah.paparpenyata')
             ->with('success', 'Maklumat telah disimpan');
-
     }
 
     public function buah_bahagianvi()
@@ -471,19 +462,19 @@ class KilangBuahController extends Controller
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
 
         $totaliii = DB::table("e91_init")
-                        ->where('e91_nl', auth()->user()->username)
-                        ->sum('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6');
+            ->where('e91_nl', auth()->user()->username)
+            ->sum('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6');
 
         // $totaliii = DB::SUM('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6')
         //                         FROM e91_init;
 
-                            // dd($totaliii);
+        // dd($totaliii);
 
         // $ekat = DB::select("SELECT * FROM reg_pelesen");
 
 
 
-        return view('users.KilangBuah.buah-papar-penyata', compact('layout','returnArr','user', 'pelesen','penyata','totaliii','bulan','tahun'));
+        return view('users.KilangBuah.buah-papar-penyata', compact('layout', 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
     }
 
     public function buah_update_papar_penyata(Request $request, $id)
@@ -502,7 +493,6 @@ class KilangBuahController extends Controller
 
         return redirect()->route('buah.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');
-
     }
 
     public function buah_hantar_penyata()
@@ -533,19 +523,19 @@ class KilangBuahController extends Controller
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
 
         $totaliii = DB::table("e91_init")
-                        ->where('e91_nl', auth()->user()->username)
-                        ->sum('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6');
+            ->where('e91_nl', auth()->user()->username)
+            ->sum('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6');
 
         // $totaliii = DB::SUM('e91_ai1', 'e91_ai2', 'e91_ai3', 'e91_ai4', 'e91_ai5', 'e91_ai6')
         //                         FROM e91_init;
 
-                            // dd($totaliii);
+        // dd($totaliii);
 
         // $ekat = DB::select("SELECT * FROM reg_pelesen");
 
 
 
-        return view('users.KilangBuah.buah-hantar-penyata', compact('layout', 'date','returnArr','user', 'pelesen','penyata','totaliii','bulan','tahun'));
+        return view('users.KilangBuah.buah-hantar-penyata', compact('layout', 'date', 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
     }
 
     public function buah_email()
@@ -570,7 +560,7 @@ class KilangBuahController extends Controller
     }
 
 
-    public function buah_send_email_proses (Request $request)
+    public function buah_send_email_proses(Request $request)
     {
         // dd($request->all());
         $this->validation_send_email($request->all())->validate();
@@ -598,7 +588,7 @@ class KilangBuahController extends Controller
     {
 
         //store file
-        if($data['file_upload']){
+        if ($data['file_upload']) {
             $file = $data['file_upload']->store('email/attachement', 'public');
         }
 
@@ -675,24 +665,30 @@ class KilangBuahController extends Controller
         // if('e_kat' == "PL91")
         // {
 
-            $user = User::first();
-            // dd($user);
-            $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
-            // dd($pelesen);
+        $user = User::first();
+        // dd($user);
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // dd($pelesen);
 
-            // $date = DB::select("SELECT DATE_FORMAT(e91_init, %d %c %Y)
-            //         FROM h91_init");
+        // $date = DB::select("SELECT DATE_FORMAT(e91_init, %d %c %Y)
+        //         FROM h91_init");
 
-            $penyata = H91Init::where('e91_nl', auth()->user()->username)
-                ->where('e91_thn', $request->tahun)
-                ->where('e91_bln', $request->bulan)->first();
-            // dd($penyata);
+        $penyata = H91Init::where('e91_nl', auth()->user()->username)
+            ->where('e91_thn', $request->tahun)
+            ->where('e91_bln', $request->bulan)->first();
+        // dd($penyata);
 
-            if($penyata){
-                $penyata2 = H91Init::where('e91_nl', auth()->user()->username)->first();
-            } else {
-                return redirect()->back()->with('error', 'Penyata Tidak Wujud!');
-            }
+
+
+        if ($penyata) {
+            $penyata2 = H91Init::where('e91_nl', auth()->user()->username)->first();
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e91_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
+
+            // dd($formatteddate);
+        } else {
+            return redirect()->back()->with('error', 'Penyata Tidak Wujud!');
+        }
 
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
@@ -708,7 +704,7 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
-        return view('users.KilangBuah.buah-papar-dahulu', compact('returnArr', 'layout', 'user','pelesen','penyata','penyata2'));
+        return view('users.KilangBuah.buah-papar-dahulu', compact('returnArr', 'layout', 'user', 'pelesen', 'penyata', 'penyata2', 'myDateTime', 'formatteddate'));
     }
 
     public function try()

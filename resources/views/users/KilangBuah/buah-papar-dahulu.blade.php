@@ -1007,7 +1007,7 @@
 
                                         <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                         adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                        <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{ $penyata->e91_sdate ?? '' }}</p>
+                                        <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $formatteddate ?? '' }}</b></p>
                                         <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_npg }}</b>
                                         </p>
                                         <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_jpg }}</b></p>

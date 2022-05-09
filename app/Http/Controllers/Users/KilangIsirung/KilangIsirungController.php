@@ -17,6 +17,7 @@ use App\Models\Negara;
 use App\Models\ProdCat2;
 use App\Models\Produk;
 use App\Models\User;
+use DateTime;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -1144,6 +1145,8 @@ class KilangIsirungController extends Controller
         // $i = H102Init::where('e102_nobatch', $users->e102_nobatch)->first();
         // dd($i);
         if ($users) {
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $users->e102_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
             $i = H102Init::where('e102_nobatch', $users->e102_nobatch)->first();
             $iii = H102b::with('h102init', 'kodsl', 'prodcat2')->where('e102_nobatch', $users->e102_nobatch)->where('e102_b3', '51')->get();
             // dd($i);
@@ -1214,7 +1217,7 @@ class KilangIsirungController extends Controller
         $layout = 'layouts.kisirung';
 
         return view('users.KilangIsirung.isirung-papar-dahulu', compact(
-            'returnArr',
+            'returnArr', 'myDateTime', 'formatteddate',
             'layout',
             'user',
             'pelesen',

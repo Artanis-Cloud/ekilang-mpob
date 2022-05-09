@@ -519,19 +519,32 @@
 
             if (oer == "Meningkat") {
                 document.getElementById('meningkat_container').style.display = "block";
+                // if(document.getElementById("checkbox7").checked = true || document.getElementById("checkbox8").checked = true || document.getElementById("checkbox9").checked = true){
+                //     document.getElementById("checkbox1").checked = false;
+                //     document.getElementById("checkbox2").checked = false;
+                //     document.getElementById("checkbox3").checked = false;
+                //     document.getElementById("checkbox4").checked = false;
+                //     document.getElementById("checkbox5").checked = false;
+                //     document.getElementById("checkbox6").checked = false;
+                // }
             } else {
+
                 document.getElementById('meningkat_container').style.display = "none";
-                document.getElementById("checkbox1").checked = false;
-                document.getElementById("checkbox2").checked = false;
-                document.getElementById("checkbox3").checked = false;
-                document.getElementById("checkbox4").checked = false;
-                document.getElementById("checkbox5").checked = false;
-                document.getElementById("checkbox6").checked = false;
+
+                    document.getElementById("checkbox1").checked = false;
+                    document.getElementById("checkbox2").checked = false;
+                    document.getElementById("checkbox3").checked = false;
+                    document.getElementById("checkbox4").checked = false;
+                    document.getElementById("checkbox5").checked = false;
+                    document.getElementById("checkbox6").checked = false;
+
+
             }
 
             if (oer == "Menurun") {
                 document.getElementById('menurun_container').style.display = "block";
-            } else {
+            }
+            else {
                 document.getElementById('menurun_container').style.display = "none";
                 document.getElementById("checkbox7").checked = false;
                 document.getElementById("checkbox8").checked = false;

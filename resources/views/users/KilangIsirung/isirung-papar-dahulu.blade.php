@@ -773,7 +773,7 @@
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
-                                            <p>Tarikh Penghantaran&nbsp;&nbsp;&nbsp; {{ $users->e102_sdate }}</p>
+                                            <p>Tarikh Penghantaran&nbsp;&nbsp;&nbsp;<b> {{ $users->e102_sdate }}</b></p>
                                             <p>Nama Pegawai Melapor&nbsp;&nbsp; <b>{{ $users->e102_npg }}</b>
                                             </p>
                                             <p>Jawatan Pegawai Melapor&nbsp;&nbsp; <b>{{ $users->e102_jpg }}</b></p>
