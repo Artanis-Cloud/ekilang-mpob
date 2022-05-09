@@ -871,16 +871,16 @@
                                                 @csrf
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                                 <input type="text" id="e_npg" class="form-control" size="50"
-                                                    name='e102_npg' value="{{ $penyatai->e102_npg }}">
+                                                    name='e102_npg' value="{{ $penyatai->e102_npg }}" required>
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
                                                 <input type="text" id="e_jpg" class="form-control" size="50"
-                                                    name='e102_jpg' value="{{ $penyatai->e102_jpg }}">
+                                                    name='e102_jpg' value="{{ $penyatai->e102_jpg }}" required>
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
                                                 <input type="text" id="e_notel" class="form-control" size="50"
-                                                    name="e102_notel" value="{{ $penyatai->e102_notel }}">
+                                                    name="e102_notel" value="{{ $penyatai->e102_notel }}" required>
                                             </p>
 
 
@@ -951,40 +951,6 @@
         </div>
         </div>
         </div>
-
-
-
-
-        {{-- </div>
-                            </div> --}}
-
-        {{-- </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </section><!-- End Hero -->
-
-
-
-
-    <!-- ======= Footer ======= -->
-
-
 
 
 
