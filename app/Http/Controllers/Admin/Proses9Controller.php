@@ -175,7 +175,9 @@ class Proses9Controller extends Controller
     public function admin_9penyataterdahulu_process(Request $request)
     {
         //dd($request->all());
+        $sektor = $request->sektor;
 
+        
         $tahun = H91Init::where('e91_thn', $request->tahun);
         $bulan = H91Init::where('e91_bln', $request->bulan);
 
