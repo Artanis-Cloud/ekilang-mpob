@@ -93,14 +93,14 @@ class PusatSimpananController extends Controller
         $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
         $penyata->bil_tangki_oleo = $request->bil_tangki_oleo;
         $penyata->bil_tangki_others = $request->bil_tangki_others;
-        // $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
+        $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
         $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
         $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
         $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
         $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
         $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
         $penyata->kap_tangki_others = $request->kap_tangki_others;
-        // $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
+        $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
 
         $penyata->save();
 
