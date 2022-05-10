@@ -87,6 +87,25 @@
 
                                         <div class="row mt-1">
                                             <label for="fname"
+                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">Sektor Kilang
+                                            </label>
+                                            <div class="col-md-6">
+                                                <fieldset class="form-group">
+                                                    <select class="form-control" id="basicSelect" name="sektor">
+                                                        <option selected hidden disabled>Sila Pilih Sektor</option>
+
+                                                        <option value="PL91">Kilang Buah</option>
+                                                        <option value="PL101">Kilang Penapis</option>
+                                                        <option value="PL102">Kilang Isirung</option>
+                                                        <option value="PL104">Kilang Oleokimia</option>
+                                                        <option value="PL111">Pusat Simpanan</option>
+                                                        <option value="PLBIO">Kilang Biodiesel</option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top:-1%">
+                                            <label for="fname"
                                                 class="text-right col-sm-4 control-label col-form-label required align-items-center">Tahun
                                             </label>
                                             <div class="col-md-6">

@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\Produk;
 use App\Models\User;
+use DateTime;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use Illuminate\Support\Facades\Hash;
@@ -528,6 +529,8 @@ class PusatSimpananController extends Controller
         // dd($users->e102_nobatch);
 
         if ($user) {
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $user->e07_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
             $penyata = H07Btranshipment::with('e07init', 'produk')->where('e07bt_nobatch', $user->e07_nobatch)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '!=', '07');
             })->get();
@@ -556,7 +559,7 @@ class PusatSimpananController extends Controller
         $layout = 'layouts.psimpan';
 
         return view('users.PusatSimpanan.pusatsimpan-papar-dahulu', compact(
-            'returnArr',
+            'returnArr','myDateTime', 'formatteddate',
             'layout',
             'user',
             'pelesen',

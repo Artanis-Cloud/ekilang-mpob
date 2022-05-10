@@ -343,32 +343,6 @@
                                             <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
                                         <div class="dropdown-divider"></div>
                                     @endif
-                                    {{-- <a class="dropdown-item" href="{{ route('admin.akaun.pentadbir') }}"> --}}
-                                    {{-- <i class="ti-settings m-r-5 m-l-5"></i> Akaun Pentadbir </a> --}}
-                                    {{-- @if (auth()->user()->category == 'PL91')
-                                        <a class="dropdown-item" href="{{ route('buah.tukarpassword') }}">
-                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
-                                    @elseif (auth()->user()->category == 'PL101')
-                                        <a class="dropdown-item" href="{{ route('penapis.tukarpassword') }}">
-                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
-                                    @elseif (auth()->user()->category == 'PL102')
-                                        <a class="dropdown-item" href="{{ route('isirung.tukarpassword') }}">
-                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
-                                    @elseif (auth()->user()->category == 'PL104')
-                                        <a class="dropdown-item" href="{{ route('oleo.tukarpassword') }}">
-                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
-                                    @elseif (auth()->user()->category == 'PL111')
-                                        <a class="dropdown-item" href="{{ route('pusatsimpan.tukarpassword') }}">
-                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
-                                    @elseif (auth()->user()->category == 'PLBIO')
-                                        <a class="dropdown-item" href="{{ route('bio.tukarpassword') }}">
-                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
-                                    @elseif (auth()->user()->category == 'admin')
-                                        <a class="dropdown-item" href="{{ route('admin.tukarpassword') }}">
-                                            <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a>
-                                    @endif --}}
-                                    {{-- <a class="dropdown-item" href="{{ route('admin.tukarpassword') }}">
-                                        <i class="ti-settings m-r-5 m-l-5"></i> Tukar Kata Laluan </a> --}}
 
                                     <a class="dropdown-item" href="#" aria-expanded="false"
                                         onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
@@ -379,22 +353,6 @@
                                     </form>
                                     {{-- <div class="dropdown-divider"></div> --}}
                                 </div>
-                                {{-- <li class="sidebar-item">
-                                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                        aria-expanded="false"
-                                        onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                                        <i class="mdi mdi-directions" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu"> Log Keluar</span>
-                                    </a>
-                                    <form id="logoutform" action="{{ route('logout') }}" method="POST"
-                                        style="display: none;">
-                                        @csrf
-                                    </form>
-                                </li> --}}
-                                {{-- <div class="p-l-30 p-10">
-                                    <a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View
-                                        Profile</a>
-                                </div> --}}
                             </div>
                         </li>
                         <!-- ============================================================== -->
@@ -404,12 +362,6 @@
                 </div>
             </nav>
         </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
         @if (auth()->user()->category == 'PL91')
             <aside class="left-sidebar">
                 <!-- Sidebar scroll-->
@@ -451,6 +403,8 @@
                                     <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
                                     {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                 </a>
+
+                                {{-- @if ($penyata91->e91_flg == '1') --}}
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                     <li class="sidebar-item">
                                         <a href="{{ route('buah.bahagiani') }}" class="sidebar-link">
@@ -497,7 +451,14 @@
                                     </li>
                                 </ul>
                             </li>
-
+                            {{-- @elseif ($penyata91->e91_flg == '2') --}}
+                            {{-- <li class="sidebar-item">
+                                <a href="{{ route('buah.paparpenyata') }}" class="sidebar-link">
+                                    <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                    <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
+                                </a>
+                            </li> --}}
+                            {{-- @endif --}}
                             <li class="sidebar-item">
                                 <a href="{{ route('buah.prestasioer') }}" class="sidebar-link">
                                     <i class="far fa-chart-bar" style="color:rgb(54, 51, 41) "></i>
@@ -510,18 +471,10 @@
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
                                     <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
                                 </a>
-
                             </li>
-
-
-
                         </ul>
                     </nav>
-
-                    <!-- End Sidebar navigation -->
                 </div>
-
-                <!-- End Sidebar scroll-->
             </aside>
         @elseif (auth()->user()->category == 'PL101')
             <aside class="left-sidebar">

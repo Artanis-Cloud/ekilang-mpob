@@ -44,7 +44,7 @@
                     <div class="card" style="margin-right:2%; margin-left:2%">
 
                         <div class="card-body">
-                                <div class="pl-3">
+                                {{-- <div class="pl-3"> --}}
                                     {{-- @if (!$penyata)--}}
                                         <form action="{{ route('bio.add.bahagian.ia') }}" method="post">
                                             @csrf

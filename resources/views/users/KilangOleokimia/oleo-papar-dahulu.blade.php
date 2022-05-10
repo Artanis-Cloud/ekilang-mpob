@@ -759,7 +759,7 @@
                                                         <font size="2">{{ $data->e104_d5 }}</font>
                                                     </td>
                                                     <td align="right">
-                                                        <font size="2">{{ $data->e104_d6 }}</font>
+                                                        <font size="2">{{ $formatteddat2 }}</font>
                                                     </td>
                                                     <td align="right">
                                                         <font size="2">{{ number_format($data->e104_d7 ??  0,2) }}</font>
@@ -775,7 +775,7 @@
                                                     </td>
                                                 </tr>
                                                 @endforeach
-                                                <tr>
+                                                {{-- <tr>
                                                     <td align="center">
                                                         <font size="2"><b>JUMLAH</b></font>
                                                     </td>
@@ -794,13 +794,13 @@
                                                     <td align="right">
                                                         <font size="2"><b>{{ number_format($totaliv8 ??  0,2) }}</b></font>
                                                     </td>
-                                                </tr>
+                                                </tr> --}}
                                             </tbody>
                                         </table>
 
                                             <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-                                                <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; {{ $users->e104_sdate ?? '' }}</p>
+                                                <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $formatteddate }}</b></p>
                                                 <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $users->e104_npg }}</b>
                                                 </p>
                                                 <p>Jawatan Pegawai Melapor:&nbsp;&nbsp; <b>{{ $users->e104_jpg }}</b></p>
