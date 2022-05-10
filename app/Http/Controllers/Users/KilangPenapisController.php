@@ -52,9 +52,19 @@ class KilangPenapisController extends Controller
         $layout = 'layouts.kpenapis';
 
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
+        ($pelesen->bil_tangki_ppo ?? 0) +
+        ($pelesen->bil_tangki_cpko ?? 0) +
+        ($pelesen->bil_tangki_ppko ?? 0) +
+        ($pelesen->bil_tangki_others ?? 0);
 
+        $jumlah2 = ($pelesen->kap_tangki_cpo ?? 0) +
+        ($pelesen->kap_tangki_ppo ?? 0) +
+        ($pelesen->kap_tangki_cpko ?? 0) +
+        ($pelesen->kap_tangki_ppko ?? 0) +
+        ($pelesen->kap_tangki_others ?? 0);
 
-        return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
+        return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah' ,'jumlah2'));
     }
 
     public function penapis_update_maklumat_asas_pelesen(Request $request, $id)
@@ -84,7 +94,7 @@ class KilangPenapisController extends Controller
         $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
         $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
         $penyata->bil_tangki_others = $request->bil_tangki_others;
-        // $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
+        $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
         $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
         $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
         $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
