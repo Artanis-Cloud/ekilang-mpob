@@ -7,6 +7,7 @@ use App\Models\E104B;
 use App\Models\E104Init;
 use App\Models\EBioB;
 use App\Models\EBioC;
+use App\Models\EBioCC;
 use App\Models\EBioInit;
 use App\Models\Ekmessage;
 use App\Models\Hari;
@@ -739,17 +740,26 @@ class KilangBiodieselController extends Controller
         if ($user) {
             $penyata = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
+            $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
+            $totaliiic5 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c5');
+            $totaliiic6 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c6');
+            $totaliiic7 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c7');
+            $totaliiic8 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c8');
+            $totaliiic9 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c9');
+            $totaliiic10 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c10');
+
         } else {
             $penyata = [];
+            $totaliiic4 = 0;
+            $totaliiic5 = 0;
+            $totaliiic6 = 0;
+            $totaliiic7 = 0;
+            $totaliiic8 = 0;
+            $totaliiic9 = 0;
+            $totaliiic10 = 0;
         }
-        // dd($penyata_test);
-        $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
-        $totaliiic5 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c5');
-        $totaliiic6 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c6');
-        $totaliiic7 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c7');
-        $totaliiic8 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c8');
-        $totaliiic9 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c9');
-        $totaliiic10 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c10');
+        // dd($user);
+
 
         return view('users.KilangBiodiesel.bio-bahagian-iii', compact(
             'returnArr',
@@ -783,6 +793,7 @@ class KilangBiodieselController extends Controller
             // dd($request->all());
             $this->validation_bahagian_iii($request->all())->validate();
             $this->store_bahagian_iii($request->all());
+            $this->store_bahagian_iii2($request->all());
 
             return redirect()->route('bio.bahagianiii')->with('success', 'Maklumat sudah ditambah');
         }
@@ -800,8 +811,8 @@ class KilangBiodieselController extends Controller
             'ebio_c8' => ['required', 'string'],
             'ebio_c9' => ['required', 'string'],
             'ebio_c10' => ['required', 'string'],
-            'ebio_sykt' => ['required', 'string'],
-            'ebio_jumlah' => ['required', 'string'],
+            'ebio_cc3' => ['required', 'string'],
+            'ebio_cc4' => ['required', 'string'],
             // 'ebio_c12' => ['required', 'string'],
 
             // 'e101_b15' => ['required', 'string'],
@@ -822,8 +833,21 @@ class KilangBiodieselController extends Controller
             'ebio_c8' => $data['ebio_c8'],
             'ebio_c9' => $data['ebio_c9'],
             'ebio_c10' => $data['ebio_c10'],
-            'ebio_sykt' => $data['ebio_sykt'],
-            'ebio_jumlah' => $data['ebio_jumlah'],
+            // 'ebio_c12' => $data['ebio_b12'],
+
+            // 'e101_b15' => $data['e104_b15'],
+        ]);
+        // return $data;
+        // dd($data);
+    }
+    protected function store_bahagian_iii2(array $data)
+    {
+        $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        // dd($ebio_reg);
+        return EBioCC::create([
+            'ebio_reg' => $ebio_reg->ebio_reg,
+            'ebio_cc3' => $data['ebio_c3'],
+            'ebio_cc4' => $data['ebio_c4'],
             // 'ebio_c12' => $data['ebio_b12'],
 
             // 'e101_b15' => $data['e104_b15'],
