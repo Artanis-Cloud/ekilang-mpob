@@ -68,7 +68,7 @@
                                 </div>
                             </div>
 
-                            <div class="table-responsive" style="margin-top: -6%">
+                            <div class="table-responsive">
                                 <table id="example" class="table table-striped table-bordered" style="width: 100%;">
                                     <thead>
                                         <tr class="text-center">
