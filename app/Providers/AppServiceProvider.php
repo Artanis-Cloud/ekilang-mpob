@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
     {
 
 
-        //compose all the views....
+        // compose all the views....
         view()->composer('*', function ($view)
         {
             $layoutpenyata = null;

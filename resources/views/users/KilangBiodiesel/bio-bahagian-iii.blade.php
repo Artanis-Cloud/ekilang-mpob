@@ -163,10 +163,10 @@
                                                     </div>
                                                 @enderror --}}
 
-                                <input type="text" class="form-control" name='ebio_sykt' style="width:50%"
-                                    id="myInputHidden1" required>
-                                <input type="text" class="form-control" name='ebio_jumlah' style="width:50%"
-                                    id="myInputHidden2" required>
+                                <input type="text" class="form-control" name='ebio_cc3' style="width:50%"
+                                    id="myInputHidden1[]" required>
+                                <input type="text" class="form-control" name='ebio_cc4' style="width:50%"
+                                    id="myInputHidden2[]" required>
                             </div>
                         </div>
                     </div>
@@ -549,21 +549,21 @@
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                         <div class="modal-body">
-                            {{-- <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
+                            <table align='center' cellspacing=2 cellpadding=5 id="data_table" border=1>
                                 <tr>
                                     <th>Nama Syarikat</th>
                                     <th>Jumlah Jualan / Edaran</th>
                                 </tr>
                                 <tr>
-                                    <td><input type="text" id="new_syarikat" name='new_syarikat'></td>
-                                    <td><input type="text" id="new_jumlah" name='new_jumlah'></td>
+                                    <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td>
+                                    <td><input type="text" id="new_jumlah[]" name='new_jumlah[]'></td>
                                     <td><input type="button" class="add" onclick="add_row();" value="Tambah Maklumat">
                                     </td>
                                 </tr>
 
-                            </table> --}}
+                            </table>
                             <div class="modal-body">
-                                <label>Nama Syarikat </label>
+                                {{-- <label>Nama Syarikat </label>
                                 <div class="form-group">
                                     <input type="text" id="ebio_sykt1" name='ebio_sykt1' class="form-control" value="">
                                 </div>
@@ -571,7 +571,7 @@
                                 <div class="form-group">
                                     <input type="text" id="ebio_jumlah1" name='ebio_jumlah1' class="form-control"
                                         value="">
-                                </div>
+                                </div> --}}
                             </div>
                             </form>
 
@@ -628,10 +628,10 @@
             $("#btnShow").on('click', function() {
                 console.log('nasuk');
 
-                var getTxtValue1 = $("#ebio_sykt1").val(); // this gives textbox value
-                var getTxtValue2 = $("#ebio_jumlah1").val(); // this gives textbox value
-                $("#myInputHidden1").val(getTxtValue1); // this will set hidden field value
-                $("#myInputHidden2").val(getTxtValue2); // this will set hidden field value
+                var getTxtValue1 = $("#new_syarikat[]").val(); // this gives textbox value
+                var getTxtValue2 = $("#new_jumlah[]").val(); // this gives textbox value
+                $("#myInputHidden1[]").val(getTxtValue1); // this will set hidden field value
+                $("#myInputHidden2[]").val(getTxtValue2); // this will set hidden field value
                 // alert(getTxtValue1);
                 // alert(getTxtValue2);
                 console.log('#btnShow');
