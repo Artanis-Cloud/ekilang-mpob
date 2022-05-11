@@ -47,29 +47,7 @@
 
                 <div class="col-sm-12 col-lg-12">
 
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle"
-                                    style="background-color: rgb(238, 70, 70)" type="button" id="dropdownMenuButton"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Kilang Buah
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    {{-- <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang Buah</a> --}}
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.9penyataterdahulupenapis') }}">Kilang Penapis</a>
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.9penyataterdahuluisirung') }}">Kilang Isirung</a>
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.9penyataterdahuluoleokimia') }}">Kilang Oleokimia</a>
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.9penyataterdahulusimpanan') }}">Pusat Simpanan</a>
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.9penyataterdahulubiodiesel') }}">E-Biodiesel</a>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card-body mt-3">
 
                         <form action="{{ route('admin.9penyataterdahulu.process') }}" method="get">
                             @csrf
@@ -112,7 +90,6 @@
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="basicSelect" name="tahun">
                                                         <option selected hidden disabled>Sila Pilih Tahun</option>
-
                                                         <option>2003</option>
                                                         <option>2004</option>
                                                         <option>2005</option>
@@ -157,9 +134,6 @@
                                                         <option value="10">Oktober</option>
                                                         <option value="11">November</option>
                                                         <option value="12">Disember</option>
-
-
-
                                                     </select>
                                                 </fieldset>
                                             </div>
@@ -195,10 +169,6 @@
                                     </div>
                                 </div>
                         </form>
-
-
-
-
                     </div>
                 </div>
             </div>
