@@ -265,202 +265,130 @@
 
 
                                             <p><b>
-                                                    <font size="3" color="#0000FF">BAHAGIAN I : MAKLUMAT BELIAN, PROSES,
-                                                        PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
-                                                        (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
+                                                    <font size="3" color="#0000FF">BAHAGIAN I : PRODUK MINYAK
+                                                        SAWIT</font>
                                                 </b> </p>
 
-                                            <table border="1" width="650" bordercolor="#000000" cellspacing="0" cellpadding="0"
-                                                bordercolorlight="#FFFFFF" bordercolordark="#000000"
-                                                class="table table-bordered">
+                                                <table border="1" class="table table-bordered" width="100%"
+                                                bordercolor="#000000" cellspacing="0" cellpadding="0"
+                                                bordercolorlight="#FFFFFF" bordercolordark="#000000">
                                                 <tbody>
                                                     <tr>
-                                                        <td width="220">
-                                                            <p align="center"><b>
-                                                                    <font size="3">Butiran</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center"><b>
-                                                                    <font size="3">Buah Kelapa Sawit <br>(FFB) Kod 52</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center"><b>
-                                                                    <font size="3">Minyak Sawit Mentah <br> (CPO) Kod 01</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center"><b>
-                                                                    <font size="3">Isirung <br>(PK) Kod 51</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center"><b>
-                                                                    <font size="3">Minyak Keladak <br>(Sludge Oil) Kod 49</font>
-                                                                </b></p>
-                                                        </td>
+                                                        <td width="13%" align="center"><b>
+                                                                <font size="2">Produk Minyak Sawit</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Kod Produk</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Awal Di Premis</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Belian / Terima</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Import</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Pengeluaran</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Digunakan Untuk Proses Selanjutnya</font>
+                                                                <b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Jualan / Edaran Tempatan</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Eksport</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Akhir Di Premis</font><b></b>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
+                                                            </b></td>
                                                     </tr>
+                                                    @foreach ($pelesens as $data)
+                                                        <tr>
+                                                            {{-- <td align="left">
+                                                                <font size="2">{{ $data->produk->prodname }}</font>
+                                                            </td> --}}
+                                                            <td align="center">
+                                                                <font size="2">{{ $data->e101_b4 }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b5 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b6 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b7 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">0.00</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b10 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b11 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2"> {{ number_format($data->e101_b12 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b13 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b14 ??  0,2) }}</font>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
+
                                                     <tr>
-                                                        <td width="220">
-                                                            <font size="3">A. Stok Awal Di Premis</font>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
                                                         </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{  number_format($penyata->e101_aa1 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
-                                                        <td width="135">
-                                                            <p style="text-align: center">
-                                                                <font size="3">{{  number_format($penyata->e101_aa2 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totalib5 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_aa3 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totalib6 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_aa4 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totalib7 ??  0,2) }}</b></font>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">B. Pembelian/Penerimaan</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totalib8 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ab1 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totalib9 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ab2 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totalib10 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ab3 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totalib11 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ab4 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totalib12 ??  0,2) }}</b></font>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">C. Diproses</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totalib13 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ac1 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                        <td width="110" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                        <td width="120" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">D. Pengeluaran</font>
-                                                        </td>
-                                                        <td width="120" bgcolor="#C0C0C0" align="center">
-                                                            <p align="left">&nbsp;</p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ad1 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ad2 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ad3 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">E. Penjualan/Pengedaran Tempatan</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ae1 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ae2 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ae3 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ae4 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">F. Eksport&nbsp;Terus Dari Premis</font>
-                                                        </td>
-                                                        <td width="120" bgcolor="#C0C0C0" align="center">
-                                                            <p align="left">&nbsp;</p>
-                                                        </td>
-                                                        <td width="135" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="3"></font>
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </p>
-                                                        </td>
-                                                        <td width="110" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="3" </font>
-                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </p>
-                                                        </td>
-                                                        <td width="120" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="3"></font>
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">G. Stok Akhir Di Premis</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ag1 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ag2 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ag3 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e101_ag4 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totalib14 ??  0,2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -468,54 +396,128 @@
                                             <br>
 
                                             <p><b>
-                                                    <font size="3" color="0000FF">BAHAGIAN II : MAKLUMAT JAM PENGILANGAN, KADAR
-                                                        PERAHAN DAN HARGA </font>
+                                                    <font size="3" color="0000FF">BAHAGIAN II : PRODUK
+                                                        ISIRUNG MINYAK SAWIT </font>
                                                 </b> </p>
 
-                                            <table border="0" width="460" cellspacing="0" cellpadding="0">
+                                                <table border="1" width="100%" cellspacing="0" cellpadding="0"
+                                                class="table table-bordered">
                                                 <tbody>
                                                     <tr>
-                                                        <td width="380">
-                                                            <font size="3">i.&nbsp;&nbsp; Jumlah Jam Pengilangan&nbsp;</font>
-                                                        </td>
-                                                        <td width="70">
-                                                            <font size="3">: {{ number_format($penyata->e101_ah1 ?? 0,2) }}</font>
-                                                        </td>
+                                                        <td width="13%" align="center"><b>
+                                                                <font size="2">Produk Minyak Sawit</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Awal Di Premis</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Awal Di Pusat Simpanan</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Belian / Terimaan</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Import</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Pengeluaran</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Digunakan Untuk Proses Selanjutnya</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Jualan / Edaran Tempatan</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Eksport</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Akhir Di Premis</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Akhir Di Pusat Simpanan</font>
+                                                            </b></td>
                                                     </tr>
+                                                    @foreach ($pelesens as $data)
+                                                        <tr>
+                                                            <td align="left">
+                                                                <font size="2">{{ $data->produk->prodname }}</font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2">{{ $data->e101_b4 }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b5 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b6 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b7 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">0.00</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b9 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b10 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b11 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b12 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b13 ??  0,2) }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ number_format($data->e101_b14 ??  0,2) }}</font>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
 
                                                     <tr>
-                                                        <td width="380">
-                                                            <font size="3">ii.&nbsp; Kadar Perahan MKSM (OER) yang
-                                                                diperolehi&nbsp;</font>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
                                                         </td>
-                                                        <td width="100">
-                                                            <font size="3">: {{ number_format($penyata->e101_ah2 ?? 0,2) }}%</font>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="380">
-                                                            <font size="3">iii. Kadar Perolehan Isirung (KER)</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliib5 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td width="100">
-                                                            <font size="3">: {{ number_format($penyata->e101_ah3 ?? 0,2) }}%</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliib6 ??  0,2) }}</b></font>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="1000">
-                                                            <font size="3">iv. Harga Purata Belian Buah Kelapa Sawit
-                                                                (FFB)
-                                                            </font>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliib7 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td width="150">
-                                                            <font size="3">:&nbsp;RM {{ number_format($penyata->e101_ah4 ?? 0,2) }}</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliib8 ??  0,2) }}</b></font>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="380">
-                                                            <font size="3">&nbsp;&nbsp;&nbsp;&nbsp; (1% Kadar Perahan)</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliib9 ??  0,2) }}</b></font>
                                                         </td>
-                                                        <td width="70">
-                                                            <font size="3"></font>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliib10 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliib11 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliib12 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliib13 ??  0,2) }}</b></font>
+                                                        </td>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($totaliib14 ??  0,2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>

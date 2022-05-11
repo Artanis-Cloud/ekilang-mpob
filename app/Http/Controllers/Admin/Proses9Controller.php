@@ -186,18 +186,14 @@ class Proses9Controller extends Controller
             $bulan = H104Init::where('tahun', $request->e104_bln);
 
 
-            $users = DB::select("SELECT e.e104_nl, p.e_nl, p.e_np, k.kodpgw, e.e104_nobatch, k.nosiri, date_format(e104_sdate,'%d-%m-%Y') as sdate
-                            FROM  pelesen p, h104_init e, reg_pelesen k
-                            WHERE e.e104_thn = '$request->tahun'
-                            and e.e104_bln = '$request->bulan'
-                            and p.e_nl = e.e104_nl
-                            and e.e104_flg = '3'
-                            and p.e_nl = k.e_nl
-                            and k.e_kat = 'PL104'
-                            order by k.kodpgw, k.nosiri");
-        } elseif ($sektor == 'PL111') {
-            $tahun = H07Init::where('tahun', $request->e07_thn);
-            $bulan = H07Init::where('tahun', $request->e07_bln);
+    public function admin_9penyataterdahulu_process(Request $request)
+    {
+        //dd($request->all());
+        $sektor = $request->sektor;
+
+
+        $tahun = H91Init::where('e91_thn', $request->tahun);
+        $bulan = H91Init::where('e91_bln', $request->bulan);
 
 
             $users = DB::select("SELECT e.e07_nl, p.e_nl, p.e_np, k.kodpgw, e.e07_nobatch, k.nosiri, date_format(e07_sdate,'%d-%m-%Y') as sdate

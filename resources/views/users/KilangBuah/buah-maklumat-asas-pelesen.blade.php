@@ -267,7 +267,7 @@
                                             <div class="col-md-6">
                                                 <input type="email" id="e_email_pengurus" class="form-control"
                                                     placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                                    value="{{ $pelesen->e_email_pengurus ?? '-' }}">
+                                                    value="{{ $pelesen->e_email_pengurus }}">
 
 
                                                 @error('e_email_pengurus')
@@ -299,9 +299,9 @@
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="e_group" name="e_group">
-                                                        <option selected hidden disabled>Sila Pilih</option>
-                                                        <option>Kerajaan</option>
-                                                        <option>Swasta</option>
+                                                        <option selected hidden disabled>{{ $pelesen->e_group ?? 'Sila Pilih' }}</option>
+                                                            <option value="Kerajaan">Kerajaan</option>
+                                                            <option value="Swasta">Swasta</option>
                                                     </select>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')
@@ -318,10 +318,9 @@
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="e_poma" name="e_poma">
-                                                        <option selected hidden disabled>Sila Pilih</option>
-                                                        <option>Ya</option>
-                                                        <option>Tidak</option>
-
+                                                        <option selected hidden disabled>{{ $pelesen->e_poma ?? 'Sila Pilih' }}</option>
+                                                            <option value="Ya">Ya</option>
+                                                            <option value="Tidak">Tidak</option>
                                                     </select>
                                                 </fieldset>
                                                 {{-- @error('alamat_kilang_1')

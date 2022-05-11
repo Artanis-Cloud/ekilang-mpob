@@ -255,7 +255,7 @@
                                     <div class="col-md-6">
                                         <input type="email" id="e_email_pengurus" class="form-control"
                                             placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                            value="{{ $pelesen->e_email_pengurus ?? '-' }}">
+                                            value="{{ $pelesen->e_email_pengurus  }}">
 
 
                                         {{-- @error('alamat_kilang_1')
@@ -287,9 +287,9 @@
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
                                             <select class="form-control" id="e_group" name="e_group">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                <option>Kerajaan</option>
-                                                <option>Swasta</option>
+                                                <option selected hidden disabled>{{ $pelesen->e_group ?? 'Sila Pilih Kumpulan' }}</option>
+                                                <option value="Kerajaan">Kerajaan</option>
+                                                <option value="Swasta">Swasta</option>
                                             </select>
                                         </fieldset>
                                         {{-- @error('alamat_kilang_1')
@@ -424,11 +424,11 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-light-secondary"
-                                            data-bs-dismiss="modal">
+                                            data-dismiss="modal">
                                             <i class="bx bx-x d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                         </button>
-                                        <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                        <button type="submit" class="btn btn-primary ml-1" data="modal">
                                             <i class="bx bx-check d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block">Ya</span>
                                         </button>
