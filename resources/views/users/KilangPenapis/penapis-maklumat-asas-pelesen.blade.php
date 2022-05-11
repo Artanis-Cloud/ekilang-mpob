@@ -286,7 +286,7 @@
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
                                             <select class="form-control" id="e_group" name="e_group">
-                                                <option value="" >{{ $pelesen->e_group }}</option>
+                                                <option value="" >{{ $pelesen->e_group ?? 'Sila Pilih'  }}</option>
                                                 <option value="Kerajaan">Kerajaan</option>
                                                 <option value="Swasta">Swasta</option>
                                             </select>
