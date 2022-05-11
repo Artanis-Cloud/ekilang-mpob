@@ -330,7 +330,11 @@
                                         @elseif (auth()->user()->category == 'PLBIO')
                                             <p class="m-b-0">Kilang Biodiesel</p>
                                         @elseif (auth()->user()->category == 'admin')
-                                            <p class="m-b-0">{{ ucfirst(auth()->user()->role) }}</p>
+                                            @if (auth()->user()->role == 'NULL')
+                                                <p class="m-b-0">Admin</p>
+                                            @else
+                                                <p class="m-b-0">{{ ucfirst(auth()->user()->role) }}</p>
+                                            @endif
                                         @endif
 
                                     </div>
@@ -404,8 +408,9 @@
                                     {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                 </a>
 
-                                {{-- @if ($penyata91->e91_flg == '1') --}}
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                @if (!$layoutpenyata)
+
                                     <li class="sidebar-item">
                                         <a href="{{ route('buah.bahagiani') }}" class="sidebar-link">
                                             <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
@@ -449,16 +454,19 @@
                                             <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
                                         </a>
                                     </li>
+                                    @else
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('buah.paparpenyata') }}" class="sidebar-link">
+                                                <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                                <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </li>
-                            {{-- @elseif ($penyata91->e91_flg == '2') --}}
-                            {{-- <li class="sidebar-item">
-                                <a href="{{ route('buah.paparpenyata') }}" class="sidebar-link">
-                                    <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                    <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
-                                </a>
-                            </li> --}}
-                            {{-- @endif --}}
+                            <li class="sidebar-item">
+
+                            </li>
                             <li class="sidebar-item">
                                 <a href="{{ route('buah.prestasioer') }}" class="sidebar-link">
                                     <i class="far fa-chart-bar" style="color:rgb(54, 51, 41) "></i>
@@ -518,6 +526,8 @@
                                     {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                @if (!$layoutpenyata)
+
                                     <li class="sidebar-item">
                                         <a href="{{ route('penapis.bahagiani') }}" class="sidebar-link">
                                             <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
@@ -575,6 +585,14 @@
                                             <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
                                         </a>
                                     </li>
+                                    @else
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('penapis.paparpenyata') }}" class="sidebar-link">
+                                                <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                                <span class="hide-menu">Papar & Hantar Penyata <br> Bulanan </span>
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </li>
                             <li class="sidebar-item">
@@ -633,6 +651,8 @@
                                     {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                @if (!$layoutpenyata)
+
                                     <li class="sidebar-item">
                                         <a href="{{ route('isirung.bahagiani') }}" class="sidebar-link">
                                             <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
@@ -684,6 +704,14 @@
                                             <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
                                         </a>
                                     </li>
+                                    @else
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('isirung.paparpenyata') }}" class="sidebar-link">
+                                                <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                                <span class="hide-menu">Papar & Hantar Penyata <br> Bulanan </span>
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </li>
                             <li class="sidebar-item">
@@ -742,6 +770,8 @@
                                     {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    @if (!$layoutpenyata)
+
                                     <li class="sidebar-item">
                                         <a href="{{ route('oleo.bahagiania') }}" class="sidebar-link">
                                             <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
@@ -792,6 +822,14 @@
                                             <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
                                         </a>
                                     </li>
+                                    @else
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('oleo.paparpenyata') }}" class="sidebar-link">
+                                                <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                                <span class="hide-menu">Papar & Hantar Penyata <br> Bulanan </span>
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </li>
                             <li class="sidebar-item">
@@ -851,6 +889,8 @@
                                     {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    @if (!$layoutpenyata)
+
                                     <li class="sidebar-item">
                                         <a href="{{ route('pusatsimpan.bahagiana') }}" class="sidebar-link">
                                             <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
@@ -869,6 +909,14 @@
                                             <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
                                         </a>
                                     </li>
+                                    @else
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('pusatsimpan.paparpenyata') }}" class="sidebar-link">
+                                                <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                                <span class="hide-menu">Papar & Hantar Penyata <br> Bulanan </span>
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                             </li>
                             <li class="sidebar-item">
@@ -927,6 +975,8 @@
                                 {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                             </a>
                             <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                @if (!$layoutpenyata)
+
                                 <li class="sidebar-item">
                                     <a href="{{ route('bio.bahagiania') }}" class="sidebar-link">
                                         <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
@@ -977,6 +1027,14 @@
                                         <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan </span>
                                     </a>
                                 </li>
+                                @else
+                                        <li class="sidebar-item">
+                                            <a href="{{ route('bio.paparpenyata') }}" class="sidebar-link">
+                                                <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                                <span class="hide-menu">Papar & Hantar Penyata <br> Bulanan </span>
+                                            </a>
+                                        </li>
+                                    @endif
                             </ul>
                         </li>
                         <li class="sidebar-item">

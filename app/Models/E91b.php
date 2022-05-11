@@ -16,6 +16,8 @@ class E91b extends Model
      *
      */
     protected $table = 'e91b';
+    public $timestamps = false;
+
 
     protected $fillable = [
         'e91_b1',

@@ -8,6 +8,7 @@ use App\Models\E07Init;
 use App\Models\E101Init;
 use App\Models\E102Init;
 use App\Models\E104Init;
+use App\Models\E91b;
 use App\Models\E91Init;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
@@ -197,16 +198,16 @@ class Proses3Controller extends Controller
     public function admin_initialize(Request $request)
     {
         // dd($request->e_tahun);
-        $this->initialize_proses_pl91($request->e_tahun, $request->e_bulan, $request->e_ddate);
-        $this->initialize_proses_pl101($request->e_tahun, $request->e_bulan, $request->e_ddate);
-        $this->initialize_proses_pl102($request->e_tahun, $request->e_bulan, $request->e_ddate);
-        $this->initialize_proses_pl104($request->e_tahun, $request->e_bulan, $request->e_ddate);
-        $this->initialize_proses_pl111($request->e_tahun, $request->e_bulan, $request->e_ddate);
+        $this->initialize_proses_pl91($request->e_ddate);
+        $this->initialize_proses_pl101($request->e_ddate);
+        $this->initialize_proses_pl102($request->e_ddate);
+        $this->initialize_proses_pl104($request->e_ddate);
+        $this->initialize_proses_pl111($request->e_ddate);
         // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
         return redirect()->back()->with('success', 'Penyata telah diinitialize');
     }
 
-    public function initialize_proses_pl91($e_tahun, $e_bulan, $e_ddate)
+    public function initialize_proses_pl91($e_ddate)
     {
         $reg_pelesen = RegPelesen::where('e_kat', 'PL91')->where('e_status', '1')->get();
 
@@ -218,8 +219,8 @@ class Proses3Controller extends Controller
             $query = E91Init::create([
                 'e91_reg' => $key + 1,
                 'e91_nl' => $e_nl,
-                'e91_bln' => $e_bulan,
-                'e91_thn' => $e_tahun,
+                'e91_bln' => now()->month,
+                'e91_thn' => now()->year,
                 'e91_flg' => '1',
                 'e91_sdate' => NULL,
                 'e91_ddate' => $e_ddate,
@@ -285,10 +286,20 @@ class Proses3Controller extends Controller
                 'e91_ah17' => NULL,
                 'e91_ah18' => NULL,
             ]);
+            $query2 = E91b::create([
+                'e91_b1' => NULL,
+                'e91_b2' => NULL,
+                'e91_b6' => NULL,
+                'e91_b7' => NULL,
+                'e91_b8' => NULL,
+                'e91_b9' => NULL,
+                'e91_b10' => NULL,
+                'e91_b11' => NULL,
+            ]);
         }
     }
 
-    public function initialize_proses_pl101($e_tahun, $e_bulan, $e_ddate)
+    public function initialize_proses_pl101($e_ddate)
     {
         $reg_pelesen = RegPelesen::where('e_kat', 'PL101')->where('e_status', '1')->get();
 
@@ -303,8 +314,8 @@ class Proses3Controller extends Controller
             $query = E101Init::create([
                 'e101_reg' => $key + 1,
                 'e101_nl' => $e_nl,
-                'e101_bln' => $e_bulan,
-                'e101_thn' => $e_tahun,
+                'e101_bln' => now()->month,
+                'e101_thn' => now()->year,
                 'e101_flg' => '1',
                 'e101_sdate' => NULL,
                 'e101_ddate' => $e_ddate,
@@ -318,7 +329,7 @@ class Proses3Controller extends Controller
         }
     }
 
-    public function initialize_proses_pl102($e_tahun, $e_bulan, $e_ddate)
+    public function initialize_proses_pl102($e_ddate)
     {
         $reg_pelesen = RegPelesen::where('e_kat', 'PL102')->where('e_status', '1')->get();
 
@@ -331,8 +342,8 @@ class Proses3Controller extends Controller
             $query = E102Init::create([
                 'e102_reg' => $key + 1,
                 'e102_nl' => $e_nl,
-                'e102_bln' => $e_bulan,
-                'e102_thn' => $e_tahun,
+                'e102_bln' => now()->month,
+                'e102_thn' => now()->year,
                 'e102_flg' => '1',
                 'e102_sdate' => NULL,
                 'e102_ddate' => $e_ddate,
@@ -377,7 +388,7 @@ class Proses3Controller extends Controller
             ]);
         }
     }
-    public function initialize_proses_pl104($e_tahun, $e_bulan, $e_ddate)
+    public function initialize_proses_pl104($e_ddate)
     {
         $reg_pelesen = RegPelesen::where('e_kat', 'PL104')->where('e_status', '1')->get();
 
@@ -391,8 +402,8 @@ class Proses3Controller extends Controller
             $query = E104Init::create([
                 'e104_reg' => $key + 1,
                 'e104_nl' => $e_nl,
-                'e104_bln' => $e_bulan,
-                'e104_thn' => $e_tahun,
+                'e104_bln' => now()->month,
+                'e104_thn' => now()->year,
                 'e104_flg' => '1',
                 'e104_sdate' => NULL,
                 'e104_ddate' => $e_ddate,
@@ -404,7 +415,7 @@ class Proses3Controller extends Controller
             ]);
         }
     }
-    public function initialize_proses_pl111($e_tahun, $e_bulan, $e_ddate)
+    public function initialize_proses_pl111($e_ddate)
     {
         $reg_pelesen = RegPelesen::where('e_kat', 'PL111')->where('e_status', '1')->get();
 
@@ -417,8 +428,8 @@ class Proses3Controller extends Controller
             $query = E07Init::create([
                 'e07_reg' => $key + 1,
                 'e07_nl' => $e_nl,
-                'e07_bln' => $e_bulan,
-                'e07_thn' => $e_tahun,
+                'e07_bln' => now()->month,
+                'e07_thn' => now()->year,
                 'e07_flg' => '1',
                 'e07_sdate' => NULL,
                 'e07_ddate' => $e_ddate,
@@ -434,7 +445,7 @@ class Proses3Controller extends Controller
         // dd($request->e_tahun);
         $reg_pelesen = RegPelesen::where('e_nl', $request->e_initlesen)->where('e_status', '1')->first();
         // dd($reg_pelesen);
-        $count = RegPelesen::count();
+        // $count = RegPelesen::count();
         $e91_init = E91Init::where('e91_nl', $request->e_initlesen)->first();
         $e101_init = E101Init::where('e101_nl', $request->e_initlesen)->first();
         $e102_init = E102Init::where('e102_nl', $request->e_initlesen)->first();
@@ -446,12 +457,15 @@ class Proses3Controller extends Controller
                 return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
             }   else{
                 $e_nl = $reg_pelesen->e_nl;
+                $count = E91Init::max('e91_reg');
+                // dd($count);
+                $count2 = E91b::count();
 
                 $query = E91Init::create([
                     'e91_reg' => $count + 1,
                     'e91_nl' => $request->e_initlesen,
-                    'e91_bln' => $request->e_bulan,
-                    'e91_thn' => $request->e_tahun,
+                    'e91_bln' => now()->month,
+                    'e91_thn' => now()->year,
                     'e91_flg' => '1',
                     'e91_sdate' => NULL,
                     'e91_ddate' => $request->e_ddate,
@@ -517,16 +531,28 @@ class Proses3Controller extends Controller
                     'e91_ah17' => NULL,
                     'e91_ah18' => NULL,
                 ]);
+                $query2 = E91b::create([
+                    'e91_b1' => $count2 + 1,
+                    'e91_b2' => $query->e91_reg,
+                    'e91_b6' => 0,
+                    'e91_b7' => 0,
+                    'e91_b8' => NULL,
+                    'e91_b9' => 0,
+                    'e91_b10' => 0,
+                    'e91_b11' => NULL,
+                ]);
             }
          } elseif ($reg_pelesen->e_kat == 'PL101') {
             if ($e101_init) {
                 return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
             }   else{
+                $count = E101Init::max('e101_reg');
+
                 $query = E101Init::create([
                     'e101_reg' => $count + 1,
                     'e101_nl' => $request->e_initlesen,
-                    'e101_bln' => $request->e_bulan,
-                    'e101_thn' => $request->e_tahun,
+                    'e101_bln' => now()->month,
+                    'e101_thn' => now()->year,
                     'e101_flg' => '1',
                     'e101_sdate' => NULL,
                     'e101_ddate' => $request->e_ddate,
@@ -543,11 +569,13 @@ class Proses3Controller extends Controller
             if ($e102_init) {
                 return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
             }   else{
+                $count = E102Init::max('e102_reg');
+
                 $query = E102Init::create([
                     'e102_reg' => $count + 1,
                     'e102_nl' => $request->e_initlesen,
-                    'e102_bln' => $request->e_bulan,
-                    'e102_thn' => $request->e_tahun,
+                    'e102_bln' => now()->month,
+                    'e102_thn' => now()->year,
                     'e102_flg' => '1',
                     'e102_sdate' => NULL,
                     'e102_ddate' => $request->e_ddate,
@@ -596,11 +624,13 @@ class Proses3Controller extends Controller
                 if ($e104_init) {
                     return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
                 }   else{
+                $count = E104Init::max('e104_reg');
+
                 $query = E104Init::create([
                     'e104_reg' => $count + 1,
                     'e104_nl' => $request->e_initlesen,
-                    'e104_bln' => $request->e_bulan,
-                    'e104_thn' => $request->e_tahun,
+                    'e104_bln' => now()->month,
+                    'e104_thn' => now()->year,
                     'e104_flg' => '1',
                     'e104_sdate' => NULL,
                     'e104_ddate' => $request->e_ddate,
@@ -617,11 +647,13 @@ class Proses3Controller extends Controller
                 if ($e07_init) {
                     return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
                 }   else{
+                $count = E07Init::max('e07_reg');
+
                 $query = E07Init::create([
                     'e07_reg' => $count + 1,
                     'e07_nl' => $request->e_initlesen,
-                    'e07_bln' => $request->e_bulan,
-                    'e07_thn' => $request->e_tahun,
+                    'e07_bln' => now()->month,
+                    'e07_thn' => now()->year,
                     'e07_flg' => '1',
                     'e07_sdate' => NULL,
                     'e07_ddate' => $request->e_ddate,
