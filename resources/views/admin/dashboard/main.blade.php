@@ -561,7 +561,7 @@
             data: {
                 labels: [
                     'Sudah Hantar',
-                    'Belum Hantar',
+                    'Belum Hantar'
                 ],
                 datasets: [{
                     data: [{{ $total_overall }}, {{ $total_overall_1 }}],
@@ -610,26 +610,30 @@
     </script>
 
     <script>
+
         const ctx2 = document.getElementById('myChart2');
-        var myChart2 = new Chart(ctx3, {
+        var myChart2 = new Chart(ctx2, {
             type: 'bar',
             responsive: false,
             maintainAspectRatio: false,
             data: {
-                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb', ],
+                labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb' ],
                 datasets: [{
                     // label: '# of Votes',
-                    data: [{{ $PL101[1][0]->pelesen }}, {{ $PL101[2][0]->pelesen }},
-                        {{ $PL101[3][0]->pelesen }}, {{ $PL101[4][0]->pelesen }},
-                        {{ $PL101[5][0]->pelesen }}, {{ $PL101[6][0]->pelesen }},
-                        {{ $PL101[7][0]->pelesen }}, {{ $PL101[8][0]->pelesen }},
-                        {{ $PL101[9][0]->pelesen }}, {{ $PL101[10][0]->pelesen }}
+                    data: [{{ $PL91[1][0]->pelesen }}, {{ $PL91[2][0]->pelesen }},
+                        {{ $PL91[3][0]->pelesen }}, {{ $PL91[4][0]->pelesen }},
+                        {{ $PL91[5][0]->pelesen }}, {{ $PL91[6][0]->pelesen }},
+                        {{ $PL91[7][0]->pelesen }}, {{ $PL91[8][0]->pelesen }},
+                        {{ $PL91[9][0]->pelesen }}, {{ $PL91[10][0]->pelesen }}
                     ],
+
+
                     backgroundColor: [
-                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 99, 132, 0.2)',
                     ],
                     borderColor: [
-                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 99, 132, 1)',
+
                     ],
                     borderWidth: 1
                 }]
@@ -658,60 +662,8 @@
                 },
             }
 
+
         });
-        // const ctx2 = document.getElementById('myChart2');
-        // var myChart2 = new Chart(ctx2, {
-        //     type: 'bar',
-        //     responsive: false,
-        //     maintainAspectRatio: false,
-        //     data: {
-        //         labels: ['1hb', '2hb', '3hb', '4hb', '5hb', '6hb', '7hb', '8hb', '9hb', '10hb' ],
-        //         datasets: [{
-        //             // label: '# of Votes',
-        //             data: [{{ $PL91[1][0]->pelesen }}, {{ $PL91[2][0]->pelesen }},
-        //                 {{ $PL91[3][0]->pelesen }}, {{ $PL91[4][0]->pelesen }},
-        //                 {{ $PL91[5][0]->pelesen }}, {{ $PL91[6][0]->pelesen }},
-        //                 {{ $PL91[7][0]->pelesen }}, {{ $PL91[8][0]->pelesen }},
-        //                 {{ $PL91[9][0]->pelesen }}, {{ $PL91[10][0]->pelesen }}
-        //             ],
-
-
-        //             backgroundColor: [
-        //                 'rgba(255, 99, 132, 0.2)',
-        //             ],
-        //             borderColor: [
-        //                 'rgba(255, 99, 132, 1)', 
-
-        //             ],
-        //             borderWidth: 1
-        //         }]
-        //     }
-        //     options: {
-        //         scales: {
-        //             y: {
-        //                 suggestedMin: 10,
-        //                 suggestedMax: 10,
-        //                 title: {
-        //                     display: true,
-        //                     text: 'Jumlah Penyata Bulanan'
-        //                 }
-        //             },
-        //             x: {
-        //                 title: {
-        //                     display: true,
-        //                     text: 'Haribulan'
-        //                 }
-        //             }
-        //         },
-        //         plugins: {
-        //             legend: {
-        //                 display: false
-        //             }
-        //         },
-        //     }
-
-
-        // });
     </script>
     <script>
         const ctx3 = document.getElementById('myChart3');
@@ -764,6 +716,7 @@
 
         });
     </script>
+
     <script>
         const ctx4 = document.getElementById('myChart4');
         var myChart4 = new Chart(ctx4, {
