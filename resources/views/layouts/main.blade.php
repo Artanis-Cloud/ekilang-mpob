@@ -1176,21 +1176,6 @@
                                 </ul>
                             </li>
 
-                            <div class="dropdown-divider"></div>
-
-                            <li class="sidebar-item">
-                                <a class="sidebar-link waves-effect waves-dark sidebar-link" href="#"
-                                    aria-expanded="false"
-                                    onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
-                                    <i class="mdi mdi-directions" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu"> Log Keluar</span>
-                                </a>
-                                <form id="logoutform" action="{{ route('logout') }}" method="POST"
-                                    style="display: none;">
-                                    @csrf
-                                </form>
-                            </li>
-
                         </ul>
                     </nav>
 
