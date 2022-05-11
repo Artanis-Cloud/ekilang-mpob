@@ -145,8 +145,7 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
-        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
-        // dd($no_lesen);
+        $kilang = E91Init::where('e91_nl', auth()->user()->username)->first();
 
         // foreach($no_lesen  as $data){
         //     $penyata = DB::select("SELECT e91_aa1,e91_aa2,e91_aa3,e91_aa4,e91_ab1,e91_ab2,
@@ -160,7 +159,7 @@ class KilangBuahController extends Controller
         // dd($penyata);
 
 
-        return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'penyata'));
+        return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'kilang'));
     }
 
 
@@ -578,7 +577,7 @@ class KilangBuahController extends Controller
             'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
-            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png']
+            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
 
 
         ]);
