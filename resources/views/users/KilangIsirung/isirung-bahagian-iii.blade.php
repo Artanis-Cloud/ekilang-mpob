@@ -54,7 +54,6 @@
                             <h5 style="color: rgb(39, 80, 71)">Belian/Terimaan Bekalan Isirung Sawit -
                                 (PK) (51)
                             </h5>
-                            {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
                         <div class="container center mt-4" style="margin-left:4%; margin-right:15%">
@@ -63,7 +62,7 @@
                                     <span class="required">Belian/Terimaan:</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-control" id="e102_b4" style=" width:50%" name="e102_b4">
+                                    <select class="form-control" id="e102_b4" style=" width:50%" name="e102_b4" required>
                                         <option selected hidden disabled>Sila Pilih</option>
                                         @foreach ($kodsl as $data)
                                             <option value="{{ $data->catid }}">
@@ -72,11 +71,11 @@
                                         @endforeach
 
                                     </select>
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e102_b4')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-3">
                                     <span class="required"> Dari:</span>
@@ -90,11 +89,11 @@
                                         <option value="7">LAIN-LAIN</option>
 
                                     </select>
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e102_b5')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
                             </div>
@@ -104,8 +103,13 @@
                                     <span class="required">Kuantiti:</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e102_b6' style="width:50%" id="e102_b6"
+                                    <input type="text" class="form-control" name='e102_b6' style="width:50%" id="e102_b6" oninput="validate_two_decimal(this)"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
+                                        @error('e102_b6')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -201,7 +205,7 @@
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-body">
-                                                                <label>Belian/Terimaan </label>
+                                                                <label class="required">Belian/Terimaan </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b4"
@@ -222,7 +226,7 @@
                                                                                                 readonly> --}}
 
                                                                 </div>
-                                                                <label>Dari </label>
+                                                                <label class="required">Dari </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b5"
@@ -241,11 +245,11 @@
                                                                     </fieldset>
 
                                                                 </div>
-                                                                <label>Kuantiti </label>
+                                                                <label class="required">Kuantiti </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e102_b6'
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control" id='e102_b6'
+                                                                        class="form-control" id='e102_b6' oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e102_b6') ?? $data->e102_b6 }}">
                                                                 </div>
                                                             </div>
@@ -373,7 +377,7 @@
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-body">
-                                                                <label>Belian/Terimaan </label>
+                                                                <label class="required">Belian/Terimaan </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b4"
@@ -394,7 +398,7 @@
                                                                                                 readonly> --}}
 
                                                                 </div>
-                                                                <label>Dari </label>
+                                                                <label class="required">Dari </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e102_b5"
@@ -413,10 +417,10 @@
                                                                     </fieldset>
 
                                                                 </div>
-                                                                <label>Kuantiti </label>
+                                                                <label class="required">Kuantiti </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e102_b6' class="form-control"
-                                                                        id='e102_b6'
+                                                                    <input type="text" name='e102_b6' oninput="validate_two_decimal(this)"
+                                                                        class="form-control" id='e102_b6'
                                                                         value="{{ old('e102_b6') ?? $data->e102_b6 }}">
                                                                 </div>
                                                             </div>

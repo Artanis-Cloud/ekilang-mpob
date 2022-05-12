@@ -68,7 +68,7 @@
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e102_al1'
                                         id="e102_al1" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini."
+                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                         value="{{ number_format($penyata->e102_al1 ?? 0, 2) }}">
                                     @error('e102_al1')
                                         <div class="alert alert-danger">
@@ -85,7 +85,7 @@
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e102_al2'
                                         id="e102_al2" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini."
+                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                         value="{{ number_format($penyata->e102_al2 ?? 0, 2) }}">
                                     @error('e102_al2')
                                         <div class="alert alert-danger">
@@ -119,7 +119,7 @@
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e102_al4'
                                         id="e102_al4" onkeypress="return isNumberKey(event)" required
-                                        title="Sila isikan butiran ini."
+                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                         value="{{ number_format($penyata->e102_al4 ?? 0, 2) }}">
                                     @error('e102_al4')
                                         <div class="alert alert-danger">
@@ -130,12 +130,6 @@
                             </div>
 
                             <div class="row form-group" style="padding-top: 3%; ">
-                                {{-- <div class="row form-group" style="padding-top: 10px; ">
-                                                    <div class="text-right col-md-12 mb-4 ">
-                                                        <button type="submit" class="btn btn-primary ">Simpan &
-                                                            Seterusnya</button>
-                                                    </div>
-                                                </div> --}}
                                 <div class="text-left col-md-5">
                                     <a href="{{ route('isirung.bahagiani') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
@@ -184,16 +178,6 @@
                     </div>
                 </div>
             </form>
-            {{-- </div> --}}
-
-            {{-- </div> --}}
-
-
-
-
-
-            {{-- <div id="preloader"></div> --}}
-
             <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
             </script>
 

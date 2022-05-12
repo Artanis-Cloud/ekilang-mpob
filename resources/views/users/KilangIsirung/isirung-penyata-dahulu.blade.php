@@ -57,7 +57,7 @@
                                     Sila Pilih Tahun</label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="tahun">
+                                        <select class="form-control" id="basicSelect" name="tahun" required>
                                             <option selected hidden disabled>Sila Pilih Tahun</option>
                                             <option>2004</option>
                                             <option>2005</option>
@@ -80,6 +80,12 @@
 
                                         </select>
                                     </fieldset>
+                                    @error('tahun')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
+                                        </div>
+                                    @enderror
+
                                 </div>
                             </div>
 
@@ -89,7 +95,7 @@
                                 </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="bulan">
+                                        <select class="form-control" id="basicSelect" name="bulan" required>
                                             <option selected hidden disabled>Sila Pilih Bulan</option>
                                             <option value="01">Januari</option>
                                             <option value="02">Februari</option>
@@ -108,6 +114,12 @@
 
                                         </select>
                                     </fieldset>
+                                    @error('bulan')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
+                                        </div>
+                                    @enderror
+
                                 </div>
                             </div>
                         </div>
