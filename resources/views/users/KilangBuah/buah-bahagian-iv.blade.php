@@ -83,7 +83,7 @@
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
                                                                                 class="calc" name='e91_aj1'
-                                                                                id='e91_aj1' style="text-align:center"
+                                                                                id='e91_aj1' style="text-align:center" oninput="validate_two_decimal(this)"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ old('e91_aj1') ?? ($penyata->e91_aj1 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
@@ -96,7 +96,7 @@
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
                                                                                 class="calc" name='e91_aj2'
-                                                                                id='e91_aj2' style="text-align:center"
+                                                                                id='e91_aj2' style="text-align:center" oninput="validate_two_decimal(this)"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ old('e91_aj2') ?? ($penyata->e91_aj2 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
@@ -109,7 +109,7 @@
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
                                                                                 class="calc" name='e91_aj3'
-                                                                                id='e91_aj3' style="text-align:center"
+                                                                                id='e91_aj3' style="text-align:center" oninput="validate_two_decimal(this)"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ old('e91_aj3') ?? ($penyata->e91_aj3 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
@@ -122,7 +122,7 @@
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
                                                                                 class="calc" name='e91_aj4'
-                                                                                id='e91_aj4' style="text-align:center"
+                                                                                id='e91_aj4' style="text-align:center" oninput="validate_two_decimal(this)"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ old('e91_aj4') ?? ($penyata->e91_aj4 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
@@ -135,7 +135,7 @@
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
                                                                                 class="calc" name='e91_aj5'
-                                                                                id='e91_aj5' style="text-align:center"
+                                                                                id='e91_aj5' style="text-align:center" oninput="validate_two_decimal(this)"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ old('e91_aj5') ?? ($penyata->e91_aj5 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">
@@ -170,11 +170,11 @@
 
                                                                     </tr> --}}
                                                                     <tr>
-                                                                        <td class="text-bold-500">8. Lain-Lain</td>
+                                                                        <td class="text-bold-500">6. Lain-Lain</td>
                                                                         <td style="text-align:center;">
                                                                             <input type="text" size="15"
                                                                                 class="calc" name='e91_aj8'
-                                                                                id='e91_aj8' style="text-align:center"
+                                                                                id='e91_aj8' style="text-align:center" oninput="validate_two_decimal(this)"
                                                                                 onkeypress="return isNumberKey(event)"
                                                                                 value="{{ old('e91_aj8') ?? ($penyata->e91_aj8 ?? 0) }}"
                                                                                 onchange="validation_jumlah()">

@@ -83,7 +83,7 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak1'
                                                                             class="calc" name='e91_ak1' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)"
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
                                                                             value="{{ old('e91_ak1') ?? $penyata->e91_ak1 ?? 0 }}"
                                                                             onchange="validation_jumlah()">
                                                                     </td>
@@ -95,7 +95,7 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak2'
                                                                             class="calc" name='e91_ak2' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)"
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
                                                                             value="{{ old('e91_ak2') ?? $penyata->e91_ak2 ?? 0 }}"
                                                                             onchange="validation_jumlah()">
                                                                     </td>
@@ -107,7 +107,7 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak3'
                                                                             class="calc" name='e91_ak3' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)"
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
                                                                             value="{{ old('e91_ak3') ?? $penyata->e91_ak3 ?? 0 }}"
                                                                             onchange="validation_jumlah()">
                                                                     </td>

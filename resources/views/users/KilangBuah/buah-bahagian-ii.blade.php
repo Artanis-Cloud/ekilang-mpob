@@ -244,8 +244,6 @@
                                                                         name='e91_ah10' class='form-check-input' value="Y" onclick="untick_menurun()"
                                                                         {{ $penyata->e91_ah10 == 'Y' ? 'checked' : '' }}>
                                                                 </td>
-
-
                                                             </tr>
                                                             <tr>
                                                                 <td colspan="2" style=""><button class="btn btn-primary"
@@ -260,28 +258,7 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="control-label col-form-label" for="lain-sebab">Lain-Lain
-                                                        Sebab OER, Sila Nyatakan
-                                                        <i>(Max.
-                                                            100 character)</i></label>
-                                                    <input type="text" id="lain-sebab" class="form-control"
-                                                        maxlength="100" name="lain-sebab"
-                                                        value="{{ $penyata->e91_ah18 ?? '' }}">
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-
-
-
-
-
-
 
 
                                     {{-- Kadar OER menurun --}}
@@ -398,25 +375,30 @@
                                             </div>
                                         </div>
 
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="form-group">
-                                                    <label class="control-label col-form-label" for="lain-sebab">Lain-Lain
-                                                        Sebab OER, Sila Nyatakan
-                                                        <i>(Max.
-                                                            100 character)</i></label>
-                                                    <input type="text" id="lain-sebab" class="form-control"
-                                                        name='e91_ah18' maxlength="100"
-                                                        value="{{ $penyata->e91_ah18 ?? '' }}">
-                                                </div>
-                                            </div>
-                                        </div>
-
                                         <div>
 
                                         </div>
 
                                     </div>
+                                    <div id="lain_container" style="display:none">
+
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="form-group">
+                                                <label class="control-label col-form-label" for="lain-sebab">Lain-Lain
+                                                    Sebab OER, Sila Nyatakan
+                                                    <i>(Max.
+                                                        100 character)</i></label>
+                                                <input type="text" id="lain-sebab" class="form-control"
+                                                    name='e91_ah18' maxlength="100" onclick="untick_meningkat()"
+                                                    value="{{ $penyata->e91_ah18 ?? '' }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+
+
+
 
                                 </div>
                             </div>
@@ -489,7 +471,10 @@
         </body>
 
         </html>
+        @endsection
 
+
+        @section('scripts')
         <script type="text/javascript">
             function showTable() {
                 var oer = $('#kadar_oer').val();
@@ -497,39 +482,21 @@
 
                 if (oer == "Meningkat") {
                     document.getElementById('meningkat_container').style.display = "block";
-                    // if(document.getElementById("checkbox7").checked = true || document.getElementById("checkbox8").checked = true || document.getElementById("checkbox9").checked = true){
-                    //     document.getElementById("checkbox1").checked = false;
-                    //     document.getElementById("checkbox2").checked = false;
-                    //     document.getElementById("checkbox3").checked = false;
-                    //     document.getElementById("checkbox4").checked = false;
-                    //     document.getElementById("checkbox5").checked = false;
-                    //     document.getElementById("checkbox6").checked = false;
-                    // }
+                    document.getElementById('lain_container').style.display = "block";
                 } else {
-
                     document.getElementById('meningkat_container').style.display = "none";
-
-                    // document.getElementById("checkbox1").checked = false;
-                    // document.getElementById("checkbox2").checked = false;
-                    // document.getElementById("checkbox3").checked = false;
-                    // document.getElementById("checkbox4").checked = false;
-                    // document.getElementById("checkbox5").checked = false;
-                    // document.getElementById("checkbox6").checked = false;
-
+                    document.getElementById('lain_container').style.display = "block";
 
                 }
 
                 if (oer == "Menurun") {
                     document.getElementById('menurun_container').style.display = "block";
+                    document.getElementById('lain_container').style.display = "block";
+
                 } else {
                     document.getElementById('menurun_container').style.display = "none";
-                    //     document.getElementById("checkbox7").checked = false;
-                    //     document.getElementById("checkbox8").checked = false;
-                    //     document.getElementById("checkbox9").checked = false;
-                    //     document.getElementById("checkbox10").checked = false;
-                    //     document.getElementById("checkbox11").checked = false;
-                    //     document.getElementById("checkbox12").checked = false;
-                    //     document.getElementById("checkbox13").checked = false;
+                    document.getElementById('lain_container').style.display = "block";
+
                 }
             }
 
@@ -541,6 +508,7 @@
                 document.getElementById("checkbox11").checked = false;
                 document.getElementById("checkbox12").checked = false;
                 document.getElementById("checkbox13").checked = false;
+
             }
 
             function untick_meningkat() {

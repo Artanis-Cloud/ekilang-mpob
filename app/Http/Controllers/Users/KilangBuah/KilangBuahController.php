@@ -146,20 +146,18 @@ class KilangBuahController extends Controller
         $layout = 'layouts.kbuah';
 
         $kilang = E91Init::where('e91_nl', auth()->user()->username)->first();
+        // $kilang = E91Init::where('e91_nl', '500028104000')->first();
 
-        // foreach($no_lesen  as $data){
-        //     $penyata = DB::select("SELECT e91_aa1,e91_aa2,e91_aa3,e91_aa4,e91_ab1,e91_ab2,
-        // 	e91_ab3,e91_ab4,e91_ac1,e91_ad1,e91_ad2,
-        // 	e91_ad3,e91_ae1,e91_ae2,e91_ae3,e91_ae4,
-        // 	e91_af1,e91_af2,e91_af3,e91_ag1,e91_ag2,e91_ag3,e91_ag4
-        //     FROM e91_init
-        //    WHERE e91_nl = $data->e91_nl");
-        // }
+        if  ($kilang){
+            return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'kilang'));
+        } else {
+            return redirect()->back()
+            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
 
-        // dd($penyata);
+        // dd($kilang);
 
 
-        return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'kilang'));
     }
 
 
@@ -214,7 +212,13 @@ class KilangBuahController extends Controller
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
         // $oer->assign('checked_flag', $db_data=='0'  ? '' : 'checked');
 
-        return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata'));
+
+        if  ($penyata){
+            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata'));
+        } else {
+            return redirect()->back()
+            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
 
@@ -273,16 +277,14 @@ class KilangBuahController extends Controller
             ($penyata->e91_ai6 ?? 0);
 
 
-        return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'jumlah'));
+        if  ($penyata){
+            return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'jumlah'));
+        } else {
+            return redirect()->back()
+            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
-    // protected function validation_bahagian_iii(array $data)
-    // {
-    //     return Validator::make($data, [
-
-    //         'total' => 'required|same:e91_ab1',
-    //     ]);
-    // }
     public function buah_update_bahagian_iii(Request $request, $id)
     {
 
@@ -331,7 +333,14 @@ class KilangBuahController extends Controller
         $jumlah = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
             ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
 
-        return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah'));
+        if  ($penyata){
+            return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah'));
+
+        } else {
+            return redirect()->back()
+            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
+
     }
 
 
@@ -388,7 +397,13 @@ class KilangBuahController extends Controller
 
         $jumlah = ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0);
 
-        return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata', 'jumlah'));
+        if  ($penyata){
+            return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata', 'jumlah'));
+        } else {
+            return redirect()->back()
+            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
+
     }
 
 
@@ -434,6 +449,7 @@ class KilangBuahController extends Controller
 
 
         return view('users.KilangBuah.buah-bahagian-vi', compact('returnArr', 'layout'));
+
     }
 
     public function buah_paparpenyata()
@@ -471,9 +487,14 @@ class KilangBuahController extends Controller
 
         // $ekat = DB::select("SELECT * FROM reg_pelesen");
 
+        if  ($penyata){
+            return view('users.KilangBuah.buah-papar-penyata', compact('layout', 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
+        } else {
+            return redirect()->back()
+            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
 
 
-        return view('users.KilangBuah.buah-papar-penyata', compact('layout', 'returnArr', 'user', 'pelesen', 'penyata', 'totaliii', 'bulan', 'tahun'));
     }
 
     public function buah_update_papar_penyata(Request $request, $id)
