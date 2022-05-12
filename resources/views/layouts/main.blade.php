@@ -46,6 +46,13 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
+<style>
+    .required:after {
+        content: " *";
+        color: red;
+    }
+
+</style>
 
 <body>
     <!-- ============================================================== -->
@@ -1367,11 +1374,12 @@
 
     {{-- notification --}}
     <script>
-        @if(Session::has('success'))
+        @if (Session::has('success'))
             toastr.success('{{ session('success') }}', 'Berjaya!', {
                 "progressBar": true
             });
-        @elseif (Session::has('error'))
+        @else
+            if (Session::has('error'))
                 toastr.error('{{ session('error') }}', 'Ralat!', {
                     "progressBar": true
                 });

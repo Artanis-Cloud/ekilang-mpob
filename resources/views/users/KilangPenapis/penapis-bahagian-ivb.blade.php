@@ -85,7 +85,7 @@
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_c5'style="width: 50%"
                                                         id="e101_c5" required onkeypress="return isNumberKey(event)"
-                                                        title="Sila isikan butiran ini.">
+                                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -98,7 +98,7 @@
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_c8'style="width: 50%"
                                                         id="e101_c8" required onkeypress="return isNumberKey(event)"
-                                                        title="Sila isikan butiran ini.">
+                                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -116,7 +116,7 @@
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_c6' style="width: 50%"
                                                         id="e101_c6" required onkeypress="return isNumberKey(event)"
-                                                        title="Sila isikan butiran ini.">
+                                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -129,7 +129,7 @@
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_c9' style="width: 50%"
                                                         id="e101_c9" required onkeypress="return isNumberKey(event)"
-                                                        title="Sila isikan butiran ini.">
+                                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -147,7 +147,7 @@
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_c7' style="width: 50%"
                                                         id="e101_c7" required onkeypress="return isNumberKey(event)"
-                                                        title="Sila isikan butiran ini.">
+                                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -160,7 +160,7 @@
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='e101_c10' style="width: 50%"
                                                         id="e101_c10" required onkeypress="return isNumberKey(event)"
-                                                        title="Sila isikan butiran ini.">
+                                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -261,68 +261,54 @@
                                                                     <i data-feather="x"></i>
                                                                 </button>
                                                             </div>
-                                                            <div class="modal-body">
+                                                            <div class="modal-body ">
                                                                 <form
                                                                     action="{{ route('penapis.edit.bahagian.ivb', [$data->e101_c1]) }}"
                                                                     method="post">
                                                                     @csrf
                                                                     <div class="modal-body">
-                                                                        <label>Nama Produk </label>
+                                                                        <label class="required">Nama Produk </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_c4'
                                                                                 class="form-control"
                                                                                 value="{{ $data->produk->prodname }}" readonly>
                                                                         </div>
-                                                                        <label>Stok Awal </label>
+                                                                        <label class="required">Stok Awal </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_c5' onkeypress="return isNumberKey(event)"
-                                                                                class="form-control" value="{{  $data->e101_c5 }}">
+                                                                                class="form-control" oninput="validate_two_decimal(this)" value="{{  $data->e101_c5 }}">
                                                                         </div>
-                                                                        <label>Belian / Terimaan </label>
+                                                                        <label class="required">Belian / Terimaan </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_c6'
-                                                                                class="form-control" value="{{ $data->e101_c6 }}">
+                                                                                class="form-control" oninput="validate_two_decimal(this)" value="{{ $data->e101_c6 }}">
                                                                         </div>
                                                                         {{-- <label>Import </label>
                                                                         <div class="form-group">
                                                                             <input type="password" placeholder="Password"
                                                                                 class="form-control">
                                                                         </div> --}}
-                                                                        <label>Pengeluaran </label>
+                                                                        <label class="required">Pengeluaran </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_c7' onkeypress="return isNumberKey(event)"
-                                                                                class="form-control" value="{{ $data->e101_c7 }}">
+                                                                                class="form-control" oninput="validate_two_decimal(this)" value="{{ $data->e101_c7 }}">
                                                                         </div>
-                                                                        <label>Jualan / Edaran Dalam Negeri </label>
+                                                                        <label class="required">Jualan / Edaran Dalam Negeri </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_c8' onkeypress="return isNumberKey(event)"
-                                                                                class="form-control" value="{{ $data->e101_c8 }}">
+                                                                                class="form-control" oninput="validate_two_decimal(this)" value="{{ $data->e101_c8 }}">
                                                                         </div>
-                                                                        <label>Eksport </label>
+                                                                        <label class="required">Eksport </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_c9' onkeypress="return isNumberKey(event)"
-                                                                                class="form-control" value="{{ $data->e101_c9 }}">
+                                                                                class="form-control" oninput="validate_two_decimal(this)" value="{{ $data->e101_c9 }}">
                                                                         </div>
-                                                                        <label>Stok Akhir </label>
+                                                                        <label class="required">Stok Akhir </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_c10' onkeypress="return isNumberKey(event)"
-                                                                                class="form-control" value="{{ $data->e101_c10 }}">
+                                                                                class="form-control" oninput="validate_two_decimal(this)" value="{{ $data->e101_c10 }}">
                                                                         </div>
                                                                     </div>
-                                                                    {{-- <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-light-secondary"
-                                                                            data-dismiss="modal">
-                                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                                            <span class="d-none d-sm-block">Batal</span>
-                                                                        </button>
-                                                                        <button type="button" class="btn btn-primary ml-1"
-                                                                            data-dismiss="modal">
-                                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                                            <span class="d-none d-sm-block">Kemaskini</span>
-                                                                        </button>
-                                                                    </div> --}}
-
-
                                                             </div>
 
                                                             <div class="modal-footer">

@@ -80,13 +80,13 @@
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a2'
                                         id="nombor_borang_kastam" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini."
+                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                         value="{{ number_format($penyata->e101_a2 ?? 0, 2) }}">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e101_a2')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row mt-2">
@@ -96,30 +96,24 @@
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a3'
                                         id="kuantiti" onkeypress="return isNumberKey(event)" required
-                                        title="Sila isikan butiran ini."
+                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                         value="{{ number_format($penyata->e101_a3 ?? 0, 2) }}">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e101_a3')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="row form-group" style="padding-top: 3%; ">
-                                {{-- <div class="row form-group" style="padding-top: 10px; ">
-                                                    <div class="text-right col-md-12 mb-4 ">
-                                                        <button type="submit" class="btn btn-primary ">Simpan &
-                                                            Seterusnya</button>
-                                                    </div>
-                                                </div> --}}
                                 <div class="text-left col-md-5">
                                     <a href="{{ route('penapis.bahagianii') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
                                 </div>
                                 <div class="text-right col-md-5">
-                                    <button type="button" class="btn btn-primary " data-toggle="modal"
-                                        style="float: right" data-target="#next">Simpan &
+                                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                                        data-target="#next">Simpan &
                                         Seterusnya</button>
                                 </div>
 
@@ -161,29 +155,26 @@
                     </div>
                 </div>
             </form>
-        {{-- </div> --}}
+            {{-- </div> --}}
 
-    {{-- </div> --}}
-
-
+            {{-- </div> --}}
 
 
 
-    {{-- <div id="preloader"></div> --}}
-
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-    </script>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(".floatNumberField").change(function() {
-                $(this).val(parseFloat($(this).val()).toFixed(2));
-            });
-        });
-    </script>
+            {{-- <div id="preloader"></div> --}}
+
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+            </script>
 
 
-
-@endsection
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $(".floatNumberField").change(function() {
+                        $(this).val(parseFloat($(this).val()).toFixed(2));
+                    });
+                });
+            </script>
+        @endsection
