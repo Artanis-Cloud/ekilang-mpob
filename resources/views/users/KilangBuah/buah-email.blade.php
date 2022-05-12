@@ -46,7 +46,7 @@
                         </div> --}}
 
             <div class="card-body">
-                <div class="row">
+                {{-- <div class="row"> --}}
                     {{-- <div class="col-md-4 col-12"> --}}
                     <div class="pl-3">
                         <form action="{{ route('buah.send.email.proses') }}" enctype="multipart/form-data" method="post"
@@ -96,7 +96,7 @@
                                         class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                         Daripada (Alamat Emel)</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name='FromEmail' id="FromEmail" required
+                                        <input type="email" class="form-control" name='FromEmail' id="FromEmail" required
                                             title="Sila isikan butiran ini.">
                                         {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -168,7 +168,7 @@
 
 
 
-                </div>
+                {{-- </div> --}}
 
                 <div class="row form-group" style="margin-top: 3%; ">
 

@@ -41,7 +41,7 @@
             <br>
             <br>
             <div class="card-body">
-                <div class="row">
+                {{-- <div class="row"> --}}
                     {{-- <div class="col-md-4 col-12"> --}}
                     <div class="pl-3">
 
@@ -739,16 +739,16 @@
                                 @csrf
                                 <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                     <input type="text" id="ebio_npg" class="form-control" size="50" name="ebio_npg"
-                                    value="{{ $user->ebio_npg ?? ''}}">
+                                    value="{{ $user->ebio_npg ?? ''}}" required>
                                 </p>
                                 <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
                                     <input type="text" id="ebio_jpg" class="form-control" size="50" name="ebio_jpg"
-                                    value="{{ $user->ebio_jpg ?? ''}}">
+                                    value="{{ $user->ebio_jpg ?? ''}}" required>
                                 </p>
                                 <p>No Telefon Kilang: &nbsp;&nbsp;
 
                                     <input type="text" id="ebio_notel" class="form-control" size="50" name="ebio_notel"
-                                    value="{{ $user->ebio_notel ?? ''}}">
+                                    value="{{ $user->ebio_notel ?? ''}}" required>
                                 </p>
 
 
@@ -803,7 +803,7 @@
                                 </div>
                             </form>
                     </div>
-                </div>
+                {{-- </div> --}}
             </div>
         </div>
     </div>

@@ -61,7 +61,8 @@
                                     Jenis Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="jenis_kilang" id="jenis_kilang" onchange="showTable()">
+                                        <select class="form-control" name="e_kat" id="e_kat" readonly>
+
                                             <option {{ ($reg_pelesen->e_kat == 'PL91') ? 'selected' : '' }}>Kilang Buah</option>
                                             <option {{ ($reg_pelesen->e_kat == 'PL101') ? 'selected' : '' }}>Kilang Penapis</option>
                                             <option {{ ($reg_pelesen->e_kat == 'PL102') ? 'selected' : '' }}>Kilang Isirung</option>
@@ -126,7 +127,7 @@
                                     Kod Negeri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="kodpgw">
+                                        <select class="form-control" name="kodpgw" id="kodpgw">
                                             <option selected hidden disabled>{{ $pelesen->kodpgw ?? '' }}
                                             </option>
                                             <option value="JJ">JJ</option>
@@ -557,8 +558,8 @@
                                 </div>
                             </div>
                             <div class="col-12">
+                            @if ($reg_pelesen->e_kat == 'PL91')
 
-                            <div id="meningkat_container" style="display:none">
                                 <div class="row mt-3 " style="text-align: center; font-size: 12px">
                                     <div class="col-md-5">
                                         <span ></span>
@@ -618,10 +619,14 @@
                                         bilangan dan kapasiti tangki dan lapor dalam kategori Others
                                     </i>
                                 </div>
-                            </div>
-                            <div id="menurun_container" style="diplay:none">
+                          
+                            @elseif ($reg_pelesen->e_kat == 'PL101')
+
                                 ssss
-                            </div>
+
+                            @endif
+
+
                         </div>
 
 
@@ -909,58 +914,5 @@
         @endif
     </script>
 
-    <script type="text/javascript">
-        function showTable() {
-            var e_kat = $('#jenis_kilang').val();
-            // console.log(oer);
 
-            if (e_kat == "PL101") {
-                document.getElementById('meningkat_container').style.display = "block";
-                // if(document.getElementById("checkbox7").checked = true || document.getElementById("checkbox8").checked = true || document.getElementById("checkbox9").checked = true){
-                //     document.getElementById("checkbox1").checked = false;
-                //     document.getElementById("checkbox2").checked = false;
-                //     document.getElementById("checkbox3").checked = false;
-                //     document.getElementById("checkbox4").checked = false;
-                //     document.getElementById("checkbox5").checked = false;
-                //     document.getElementById("checkbox6").checked = false;
-                // }
-            } else {
-
-                document.getElementById('meningkat_container').style.display = "none";
-
-                    // document.getElementById("checkbox1").checked = false;
-                    // document.getElementById("checkbox2").checked = false;
-                    // document.getElementById("checkbox3").checked = false;
-                    // document.getElementById("checkbox4").checked = false;
-                    // document.getElementById("checkbox5").checked = false;
-                    // document.getElementById("checkbox6").checked = false;
-
-
-            }
-
-            if (e_kat == "PL91") {
-                document.getElementById('menurun_container').style.display = "block";
-                // if(document.getElementById("checkbox7").checked = true || document.getElementById("checkbox8").checked = true || document.getElementById("checkbox9").checked = true){
-                //     document.getElementById("checkbox1").checked = false;
-                //     document.getElementById("checkbox2").checked = false;
-                //     document.getElementById("checkbox3").checked = false;
-                //     document.getElementById("checkbox4").checked = false;
-                //     document.getElementById("checkbox5").checked = false;
-                //     document.getElementById("checkbox6").checked = false;
-                // }
-            } else {
-
-                document.getElementById('menurun_container').style.display = "none";
-
-                    // document.getElementById("checkbox1").checked = false;
-                    // document.getElementById("checkbox2").checked = false;
-                    // document.getElementById("checkbox3").checked = false;
-                    // document.getElementById("checkbox4").checked = false;
-                    // document.getElementById("checkbox5").checked = false;
-                    // document.getElementById("checkbox6").checked = false;
-
-
-            }
-        }
-    </script>
 @endsection
