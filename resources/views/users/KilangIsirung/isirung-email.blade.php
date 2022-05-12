@@ -254,6 +254,16 @@
 
                 this.value = "";
             };
+            var allowedExtensions =
+                    /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
+
+            if (!allowedExtensions.exec(this.files)) {
+                toastr.error('Sila Masukkan File dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja', 'Ralat!', {
+                    "progressBar": true
+                });
+
+                this.value = "";
+            }
         };
     </script>
 
