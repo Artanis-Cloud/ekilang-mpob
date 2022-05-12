@@ -61,7 +61,7 @@ class PusatSimpananController extends Controller
         // dd($pelesen);
 
 
-    return view('users.PusatSimpanan.pusatsimpan-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
+        return view('users.PusatSimpanan.pusatsimpan-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
     }
 
     public function pusatsimpan_update_maklumat_asas_pelesen(Request $request, $id)
@@ -129,16 +129,16 @@ class PusatSimpananController extends Controller
 
         $user = User::get();
 
-        return view('users.PusatSimpanan.pusatsimpan-tukar-password', compact('returnArr', 'layout','user'));
+        return view('users.PusatSimpanan.pusatsimpan-tukar-password', compact('returnArr', 'layout', 'user'));
     }
 
     public function pusatsimpan_update_password(Request $request, $id)
     {
         $user = User::findOrFail(auth()->user()->id);
         //compare password
-        if(!Hash::check($request->old_password, $user->password)){
+        if (!Hash::check($request->old_password, $user->password)) {
             return redirect()->route('pusatsimpan.tukarpassword')
-            ->with('error', 'Sila masukkan kata laluan lama yang betul');
+                ->with('error', 'Sila masukkan kata laluan lama yang betul');
         }
 
         $password = Hash::make($request->new_password);
@@ -147,7 +147,6 @@ class PusatSimpananController extends Controller
 
         return redirect()->route('pusatsimpan.tukarpassword')
             ->with('success', 'Kata Laluan berjaya ditukar');
-
     }
 
     public function pusatsimpan_bahagiana()
@@ -168,32 +167,33 @@ class PusatSimpananController extends Controller
 
         $user = E07Init::where('e07_nl', auth()->user()->username)->first('e07_reg');
 
-        $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->get();
+        if ($user) {
+            $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->get();
 
-        $produks = Produk::select('prodid', 'prodname')->where('prodcat', '!=', '07')->orderBy('prodname')->get();
-        // dd($penyata);
-        $total = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokawal');
-        $total2 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_terima');
-        $total3 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_edaran');
-        $total4 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_pelarasan');
-        $total5 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokakhir');
+            $produks = Produk::select('prodid', 'prodname')->where('prodcat', '!=', '07')->orderBy('prodname')->get();
+            // dd($penyata);
+            $total = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokawal');
+            $total2 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_terima');
+            $total3 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_edaran');
+            $total4 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_pelarasan');
+            $total5 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokakhir');
 
-
-
-
-
-        return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact(
-            'returnArr',
-            'layout',
-            'user',
-            'penyata',
-            'produks',
-            'total',
-            'total2',
-            'total3',
-            'total4',
-            'total5'
-        ));
+            return view('users.PusatSimpanan.pusatsimpan-bahagian-a', compact(
+                'returnArr',
+                'layout',
+                'user',
+                'penyata',
+                'produks',
+                'total',
+                'total2',
+                'total3',
+                'total4',
+                'total5'
+            ));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
     public function pusatsimpan_add_bahagian_a(Request $request)
@@ -382,7 +382,6 @@ class PusatSimpananController extends Controller
 
         return redirect()->route('pusatsimpan.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');
-
     }
 
 
@@ -463,7 +462,7 @@ class PusatSimpananController extends Controller
             'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
-            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png']
+            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
 
 
         ]);
@@ -473,7 +472,7 @@ class PusatSimpananController extends Controller
     {
 
         //store file
-        if($data['file_upload']){
+        if ($data['file_upload']) {
             $file = $data['file_upload']->store('email/attachement', 'public');
         }
 
@@ -559,7 +558,9 @@ class PusatSimpananController extends Controller
         $layout = 'layouts.psimpan';
 
         return view('users.PusatSimpanan.pusatsimpan-papar-dahulu', compact(
-            'returnArr','myDateTime', 'formatteddate',
+            'returnArr',
+            'myDateTime',
+            'formatteddate',
             'layout',
             'user',
             'pelesen',
