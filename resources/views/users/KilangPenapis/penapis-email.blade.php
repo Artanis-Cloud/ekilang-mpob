@@ -46,7 +46,7 @@
                         </div> --}}
 
                         <div class="card-body">
-                            <div class="row">
+                            {{-- <div class="row"> --}}
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <form
@@ -167,7 +167,7 @@
 
 
 
-                            </div>
+                            {{-- </div> --}}
 
                             <div class="row form-group" style="margin-top: 3%; ">
 

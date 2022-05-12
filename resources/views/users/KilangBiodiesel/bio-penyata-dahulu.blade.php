@@ -121,28 +121,18 @@
                                         </div>
 
 
-
-
-
-
-
-
                                         </div>
                                     </div>
 
 
-
-
                                     <div class="row form-group" style="padding-top: 20px; ">
 
-
-
-                                            <div class="text-right col-md-12 mb-4 ">
-                                                <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                    style="float: right" data-target="#confirmation">Papar Penyata</button>
-                                            </div>
-
+                                    <div class="text-right col-md-12 mb-4 ">
+                                        <button type="submit" class="btn btn-primary " style="margin-right: 48%"
+                                            >Papar Penyata</button>
                                     </div>
+
+                                </div>
                                     {{-- Hidden Gap - Just Ignore --}}
 
 

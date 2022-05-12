@@ -46,7 +46,7 @@
                         </div> --}}
 
                         <div class="card-body">
-                            <div class="row">
+                            {{-- <div class="row"> --}}
                                 {{-- <div class="col-md-4 col-12"> --}}
                                 <div class="pl-3">
                                     <form
@@ -97,7 +97,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                 Daripada (Alamat Emel)</label>
                                             <div class="col-md-6">
-                                                <input type="text" class="form-control" name='FromEmail' id="FromEmail" required
+                                                <input type="email" class="form-control" name='FromEmail' id="FromEmail" required
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -163,7 +163,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            {{-- </div> --}}
                             <div class="row form-group">
                                 <div class="text-right col-md-6 mb-4 ">
                                     <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"

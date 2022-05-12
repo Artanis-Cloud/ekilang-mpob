@@ -103,8 +103,6 @@
                                                     @endif &nbsp;&nbsp;&nbsp;&nbsp;TAHUN : {{ $penyata->e91_thn ?? ''}} &nbsp;&nbsp;
                                             </b><br>
 
-
-
                                         </p>
                                         <hr>
 
