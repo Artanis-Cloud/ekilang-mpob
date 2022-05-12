@@ -269,20 +269,20 @@
                                                                         method="post">
                                                                         @csrf
                                                                         <div class="modal-body">
-                                                                            <label>Nama Produk Sawit</label>
+                                                                            <label class="required">Nama Produk Sawit</label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e07bt_produk'
                                                                                     class="form-control"
                                                                                     value="{{ $data->produk->prodname }}"
                                                                                     readonly>
                                                                             </div>
-                                                                            <label>Stok Awal </label>
+                                                                            <label class="required">Stok Awal </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e07bt_stokawal' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"  oninput="validate_two_decimal(this)"
                                                                                     value="{{ $data->e07bt_stokawal }}">
                                                                             </div>
-                                                                            <label>Penerimaan Dalam Negeri
+                                                                            <label class="required">Penerimaan Dalam Negeri
                                                                             </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e07bt_terima' onkeypress="return isNumberKey(event)"
@@ -296,7 +296,7 @@
                                                                                     value="{{ $data->e07bt_import }}"
                                                                                     readonly>
                                                                             </div>
-                                                                            <label>Edaran Dalam Negeri
+                                                                            <label class="required">Edaran Dalam Negeri
                                                                             </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e07bt_edaran' onkeypress="return isNumberKey(event)"
@@ -310,13 +310,13 @@
                                                                                     value="{{ $data->e07bt_eksport }}"
                                                                                     readonly>
                                                                             </div>
-                                                                            <label>Pelarasan (+/-) </label>
+                                                                            <label class="required">Pelarasan (+/-) </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e07bt_pelarasan' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"  oninput="validate_two_decimal(this)"
                                                                                     value="{{ $data->e07bt_pelarasan }}">
                                                                             </div>
-                                                                            <label>Stok Akhir </label>
+                                                                            <label class="required">Stok Akhir </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e07bt_stokakhir' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"  oninput="validate_two_decimal(this)"

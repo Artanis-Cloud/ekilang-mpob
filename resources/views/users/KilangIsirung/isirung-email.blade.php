@@ -148,7 +148,7 @@
                                                 </label>
                                             <div class="col-md-6">
                                                 <div class="form-file">
-                                                    <input type="file" class="form-file-input" id="file" name="file_upload">
+                                                    <input type="file" class="form-file-input" id="file" name="file_upload" accept=".doc,.docx,.pdf,.jpeg">
                                                     <label class="form-file-label" for="file">
                                                         <label class="form-file-label" for="file">
                                                             <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
@@ -251,6 +251,7 @@
         var uploadField = document.getElementById("file");
 
         uploadField.onchange = function() {
+            extensionFile = this.files[0].type;
             if (this.files[0].size > 3145728) {
                 toastr.error( 'Saiz fail melebihi 3MB!', 'Ralat!', { "progressBar": true });
 
@@ -258,8 +259,9 @@
             };
             var allowedExtensions =
                     /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
+            console.log(extensionFile);
 
-            if (!allowedExtensions.exec(this.files)) {
+            if (extensionFile != 'application/pdf' || extensionFile != 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || extensionFile != 'image/jpeg') {
                 toastr.error('Sila Masukkan File dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja', 'Ralat!', {
                     "progressBar": true
                 });
