@@ -271,8 +271,8 @@
                                                     Kumpulan </label>
                                                 <div class="col-md-6">
                                                     <fieldset class="form-group">
-                                                        <select class="form-control" id="basicSelect" name="e_group">
-                                                            <option selected hidden disabled>{{ $pelesen->e_group ?? 'Sila Pilih Kumpulan' }}</option>
+                                                        <select class="form-control" id="e_group" name="e_group" required>
+                                                            <option value="{{ $pelesen->e_group }}"selected hidden >{{ $pelesen->e_group ?? 'Sila Pilih' }}</option>
                                                             <option value="Kerajaan">Kerajaan</option>
                                                             <option value="Swasta">Swasta</option>
                                                         </select>
