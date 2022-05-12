@@ -72,6 +72,11 @@
                                         @endforeach
 
                                     </select>
+                                    @error('e101_b4')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 

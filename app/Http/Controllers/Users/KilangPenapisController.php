@@ -53,18 +53,18 @@ class KilangPenapisController extends Controller
 
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
-        ($pelesen->bil_tangki_ppo ?? 0) +
-        ($pelesen->bil_tangki_cpko ?? 0) +
-        ($pelesen->bil_tangki_ppko ?? 0) +
-        ($pelesen->bil_tangki_others ?? 0);
+            ($pelesen->bil_tangki_ppo ?? 0) +
+            ($pelesen->bil_tangki_cpko ?? 0) +
+            ($pelesen->bil_tangki_ppko ?? 0) +
+            ($pelesen->bil_tangki_others ?? 0);
 
         $jumlah2 = ($pelesen->kap_tangki_cpo ?? 0) +
-        ($pelesen->kap_tangki_ppo ?? 0) +
-        ($pelesen->kap_tangki_cpko ?? 0) +
-        ($pelesen->kap_tangki_ppko ?? 0) +
-        ($pelesen->kap_tangki_others ?? 0);
+            ($pelesen->kap_tangki_ppo ?? 0) +
+            ($pelesen->kap_tangki_cpko ?? 0) +
+            ($pelesen->kap_tangki_ppko ?? 0) +
+            ($pelesen->kap_tangki_others ?? 0);
 
-        return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah' ,'jumlah2'));
+        return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
     }
 
     public function penapis_update_maklumat_asas_pelesen(Request $request, $id)
@@ -168,49 +168,60 @@ class KilangPenapisController extends Controller
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // dd($user);
 
-        // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 01);
-        })->get();
-        // dd($penyata);
-        $total = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b5');
-
-        $total2 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b6');
-
-        $total3 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b7');
-
-        $total4 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b8');
-
-        $total5 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b9');
-
-        $total6 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b10');
-
-        $total7 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b11');
-
-        $total8 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b12');
-
-        $total9 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b13');
-
-        $total10 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b14');
 
 
-        return view('users.KilangPenapis.penapis-bahagian-i', compact(
-            'returnArr',
-            'layout',
-            'produk',
-            'penyata',
-            'user',
-            'total',
-            'total2',
-            'total3',
-            'total4',
-            'total5',
-            'total6',
-            'total7',
-            'total8',
-            'total9',
-            'total10'
-        ));
+
+        if ($user) {
+
+
+            // $penyata = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
+            $penyata = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 01);
+            })->get();
+            // dd($penyata);
+            $total = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b5');
+
+            $total2 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b6');
+
+            $total3 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b7');
+
+            $total4 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b8');
+
+            $total5 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b9');
+
+            $total6 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b10');
+
+            $total7 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b11');
+
+            $total8 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b12');
+
+            $total9 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b13');
+
+            $total10 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '1')->sum('e101_b14');
+
+
+
+            return view('users.KilangPenapis.penapis-bahagian-i', compact(
+                'returnArr',
+                'layout',
+                'produk',
+                'penyata',
+                'user',
+                'total',
+                'total2',
+                'total3',
+                'total4',
+                'total5',
+                'total6',
+                'total7',
+                'total8',
+                'total9',
+                'total10'
+            ));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
 
@@ -352,49 +363,54 @@ class KilangPenapisController extends Controller
         // $b = E101B::with('e101init')->where('e101_reg', $user->e101_reg)->get();
         // $b = E101B::with('e101init','produk')->where('e101_reg', $user->e101_reg)->get();
 
-        $b = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 02);
-        })->get();
+        if ($user) {
+            $b = E101B::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 02);
+            })->get();
 
-        $total = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b5');
+            $total = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b5');
 
-        $total2 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b6');
+            $total2 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b6');
 
-        $total3 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b7');
+            $total3 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b7');
 
-        $total4 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b8');
+            $total4 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b8');
 
-        $total5 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b9');
+            $total5 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b9');
 
-        $total6 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b10');
+            $total6 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b10');
 
-        $total7 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b11');
+            $total7 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b11');
 
-        $total8 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b12');
+            $total8 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b12');
 
-        $total9 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b13');
+            $total9 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b13');
 
-        $total10 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b14');
-
-
+            $total10 = DB::table("e101_b")->where('e101_reg', $user->e101_reg)->where('e101_b3', '2')->sum('e101_b14');
 
 
-        return view('users.KilangPenapis.penapis-bahagian-ii', compact(
-            'returnArr',
-            'layout',
-            'produk',
-            'b',
-            'total',
-            'total2',
-            'total3',
-            'total4',
-            'total5',
-            'total6',
-            'total7',
-            'total8',
-            'total9',
-            'total10'
-        ));
+
+
+            return view('users.KilangPenapis.penapis-bahagian-ii', compact(
+                'returnArr',
+                'layout',
+                'produk',
+                'b',
+                'total',
+                'total2',
+                'total3',
+                'total4',
+                'total5',
+                'total6',
+                'total7',
+                'total8',
+                'total9',
+                'total10'
+            ));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
 
@@ -519,8 +535,12 @@ class KilangPenapisController extends Controller
 
         $penyata = E101Init::where('e101_nl', auth()->user()->username)->first();
 
-
-        return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout', 'penyata'));
+        if ($penyata) {
+            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout', 'penyata'));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
 
@@ -558,40 +578,40 @@ class KilangPenapisController extends Controller
 
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
+        if ($user) {
+            $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 1)->get();
 
-        // $penyata = E101C::with('e101init','produk')->where('e101_reg', $user->e101_reg)->
-        // whereHas('produk', function ($query) {
-        //         return $query->where('prodcat', '=', 04);
-        //     })->get();
-        $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 1)->get();
+            $total = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c5');
 
-        $total = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c5');
+            $total2 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c6');
 
-        $total2 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c6');
+            $total3 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c7');
 
-        $total3 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c7');
+            $total4 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c8');
 
-        $total4 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c8');
+            $total5 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c9');
 
-        $total5 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c9');
+            $total6 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c10');
 
-        $total6 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '1')->sum('e101_c10');
+            // dd($penyata);
 
-        // dd($penyata);
-
-        return view('users.KilangPenapis.penapis-bahagian-iva', compact(
-            'returnArr',
-            'layout',
-            'produk',
-            'user',
-            'penyata',
-            'total',
-            'total2',
-            'total3',
-            'total4',
-            'total5',
-            'total6'
-        ));
+            return view('users.KilangPenapis.penapis-bahagian-iva', compact(
+                'returnArr',
+                'layout',
+                'produk',
+                'user',
+                'penyata',
+                'total',
+                'total2',
+                'total3',
+                'total4',
+                'total5',
+                'total6'
+            ));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
 
@@ -707,35 +727,39 @@ class KilangPenapisController extends Controller
 
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
+        if ($user) {
+            $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 2)->get();
 
-        $penyata = E101C::with('e101init', 'produk')->where('e101_reg', $user->e101_reg)->where('e101_c3', 2)->get();
+            $total = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c5');
 
-        $total = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c5');
+            $total2 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c6');
 
-        $total2 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c6');
+            $total3 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c7');
 
-        $total3 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c7');
+            $total4 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c8');
 
-        $total4 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c8');
+            $total5 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c9');
 
-        $total5 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c9');
+            $total6 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c10');
+            // dd($penyata);
 
-        $total6 = DB::table("e101_c")->where('e101_reg', $user->e101_reg)->where('e101_c3', '2')->sum('e101_c10');
-        // dd($penyata);
-
-        return view('users.KilangPenapis.penapis-bahagian-ivb', compact(
-            'returnArr',
-            'layout',
-            'produk',
-            'user',
-            'penyata',
-            'total',
-            'total2',
-            'total3',
-            'total4',
-            'total5',
-            'total6'
-        ));
+            return view('users.KilangPenapis.penapis-bahagian-ivb', compact(
+                'returnArr',
+                'layout',
+                'produk',
+                'user',
+                'penyata',
+                'total',
+                'total2',
+                'total3',
+                'total4',
+                'total5',
+                'total6'
+            ));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
 
@@ -850,52 +874,52 @@ class KilangPenapisController extends Controller
 
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
+        if ($user) {
+            // $penyata = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->get();
+            $penyata = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->get();
+            $penyata2 = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->get();
 
-        // $penyata = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->get();
-        $penyata = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->get();
-        $penyata2 = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->get();
+            // $penyata2 = KodSl::where('catid', 1)->get();
+            // $penyatava = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->get();
 
-        // $penyata2 = KodSl::where('catid', 1)->get();
-        // $penyatava = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->get();
-
-        $totala = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d5');
-        $totala2 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d6');
-        $totala3 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d7');
-        $totala4 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d8');
-
-
-        $totalb = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d5');
-        $totalb2 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d6');
-        $totalb3 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d7');
-        $totalb4 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d8');
-        // dd($penyata);
-
-        // $kodsl = KodSl::all();
-        // dd($kodsl);
-        // $selectedKod = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_d3', $kodsl->catid)->get();
-        // dd($selectedKod);
+            $totala = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d5');
+            $totala2 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d6');
+            $totala3 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d7');
+            $totala4 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 1)->sum('e101_d8');
 
 
-        return view('users.KilangPenapis.penapis-bahagian-v', compact(
-            'returnArr',
-            'layout',
-            'user',
-            'penyata',
-            'penyata2',
-            'totala',
-            'totala2',
-            'totala3',
-            'totala4',
-            'totalb',
-            'totalb2',
-            'totalb3',
-            'totalb4'
-        ));
+            $totalb = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d5');
+            $totalb2 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d6');
+            $totalb3 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d7');
+            $totalb4 = DB::table("e101_d")->where('e101_reg', $user->e101_reg)->where('e101_d3', 2)->sum('e101_d8');
+            // dd($penyata);
+
+            // $kodsl = KodSl::all();
+            // dd($kodsl);
+            // $selectedKod = E101D::with('e101init', 'prodcat', 'kodsl')->where('e101_d3', $kodsl->catid)->get();
+            // dd($selectedKod);
+
+
+            return view('users.KilangPenapis.penapis-bahagian-v', compact(
+                'returnArr',
+                'layout',
+                'user',
+                'penyata',
+                'penyata2',
+                'totala',
+                'totala2',
+                'totala3',
+                'totala4',
+                'totalb',
+                'totalb2',
+                'totalb3',
+                'totalb4'
+            ));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
-
-
-
-
 
 
     public function penapis_add_bahagian_v(Request $request)
@@ -915,7 +939,6 @@ class KilangPenapisController extends Controller
             return redirect()->route('penapis.bahagianv')->with('success', 'Maklumat sudah ditambah');
         }
     }
-
     protected function validation_bahagian_v(array $data)
     {
         return Validator::make($data, [
@@ -929,7 +952,10 @@ class KilangPenapisController extends Controller
     }
 
     protected function store_bahagian_v(array $data)
+
     {
+
+
         $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
         // dd($e101_reg->e101_reg);
         return E101D::create([
@@ -944,18 +970,9 @@ class KilangPenapisController extends Controller
         // return $data;
         // dd($data);
     }
-
-    // public function destroy(E101B $penyata)
-    // {
-    //     $penyata->delete();
-
-    //     return redirect()->route('penapis.bahagiani')
-    //                     ->with('success','Product deleted successfully');
-    // }
-
-
     public function penapis_edit_bahagian_v(Request $request, $id)
     {
+
         // $produk = Produk::where('prodname', $request->e101_d4)->first();
         // $kodsl = KodSl::where('catname', $request->e101_d3)->first();
         $e101_reg = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
@@ -990,26 +1007,6 @@ class KilangPenapisController extends Controller
         return redirect()->route('penapis.bahagianv')
             ->with('success', 'Produk Dihapuskan');
     }
-    // public function penapis_bahagianvb()
-    // {
-
-    //     $breadcrumbs    = [
-    //         ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-    //         ['link' => route('penapis.bahagianvb'), 'name' => "Bahagian V(b)"],
-    //     ];
-
-    //     $kembali = route('penapis.bahagianva');
-
-    //     $returnArr = [
-    //         'breadcrumbs' => $breadcrumbs,
-    //         'kembali'     => $kembali,
-    //     ];
-    //     $layout = 'layouts.kpenapis';
-
-
-
-    //     return view('users.KilangPenapis.penapis-bahagian-vb', compact('returnArr', 'layout'));
-    // }
 
     public function penapis_bahagianvi()
     {
@@ -1138,202 +1135,203 @@ class KilangPenapisController extends Controller
 
         $pelesen2 = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
+        if ($pelesen2) {
+            $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->get();
+            // dd($penyatai);
 
-        $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->get();
-        // dd($penyatai);
+            $totalib5 = DB::table("e101_b")
+                ->where('e101_reg', $pelesen2->e101_reg)
+                ->where('e101_b3', '1')
+                ->sum('e101_b5');
 
-        $totalib5 = DB::table("e101_b")
-            ->where('e101_reg', $pelesen2->e101_reg)
-            ->where('e101_b3', '1')
-            ->sum('e101_b5');
+            //  dd($totalib5);
 
-        //  dd($totalib5);
+            $totalib6 = DB::table("e101_b")
+                ->where('e101_reg', $pelesen2->e101_reg)
+                ->where('e101_b3', '1')
+                ->sum('e101_b6');
 
-        $totalib6 = DB::table("e101_b")
-            ->where('e101_reg', $pelesen2->e101_reg)
-            ->where('e101_b3', '1')
-            ->sum('e101_b6');
+            //  dd($totalib5);
+            $totalib7 = DB::table("e101_b")
+                ->where('e101_reg', $pelesen2->e101_reg)
+                ->where('e101_b3', '1')
+                ->sum('e101_b7');
+            //  dd($totalib5);
+            $totalib8 = DB::table("e101_b")
+                ->where('e101_reg', $pelesen2->e101_reg)
+                ->where('e101_b3', '1')
+                ->sum('e101_b8');
+            //  dd($totalib5);
+            $totalib9 = DB::table("e101_b")
+                ->where('e101_reg', $pelesen2->e101_reg)
+                ->where('e101_b3', '1')
+                ->sum('e101_b9');
+            //  dd($totalib5);
+            $totalib10 = DB::table("e101_b")
+                ->where('e101_reg', $pelesen2->e101_reg)
+                ->where('e101_b3', '1')
+                ->sum('e101_b10');
+            //  dd($totalib5);
+            $totalib11 = DB::table("e101_b")
+                ->where('e101_reg', $pelesen2->e101_reg)
+                ->where('e101_b3', '1')
+                ->sum('e101_b11');
+            //  dd($totalib5);
+            $totalib12 = DB::table("e101_b")
+                ->where('e101_reg', $pelesen2->e101_reg)
+                ->where('e101_b3', '1')
+                ->sum('e101_b12');
+            //  dd($totalib5);
+            $totalib13 = DB::table("e101_b")
+                ->where('e101_reg', $pelesen2->e101_reg)
+                ->where('e101_b3', '1')
+                ->sum('e101_b13');
+            //  dd($totalib5);
+            $totalib14 = DB::table("e101_b")
+                ->where('e101_reg', $pelesen2->e101_reg)
+                ->where('e101_b3', '1')
+                ->sum('e101_b14');
+            //  dd($totalib5);
 
-        //  dd($totalib5);
-        $totalib7 = DB::table("e101_b")
-            ->where('e101_reg', $pelesen2->e101_reg)
-            ->where('e101_b3', '1')
-            ->sum('e101_b7');
-        //  dd($totalib5);
-        $totalib8 = DB::table("e101_b")
-            ->where('e101_reg', $pelesen2->e101_reg)
-            ->where('e101_b3', '1')
-            ->sum('e101_b8');
-        //  dd($totalib5);
-        $totalib9 = DB::table("e101_b")
-            ->where('e101_reg', $pelesen2->e101_reg)
-            ->where('e101_b3', '1')
-            ->sum('e101_b9');
-        //  dd($totalib5);
-        $totalib10 = DB::table("e101_b")
-            ->where('e101_reg', $pelesen2->e101_reg)
-            ->where('e101_b3', '1')
-            ->sum('e101_b10');
-        //  dd($totalib5);
-        $totalib11 = DB::table("e101_b")
-            ->where('e101_reg', $pelesen2->e101_reg)
-            ->where('e101_b3', '1')
-            ->sum('e101_b11');
-        //  dd($totalib5);
-        $totalib12 = DB::table("e101_b")
-            ->where('e101_reg', $pelesen2->e101_reg)
-            ->where('e101_b3', '1')
-            ->sum('e101_b12');
-        //  dd($totalib5);
-        $totalib13 = DB::table("e101_b")
-            ->where('e101_reg', $pelesen2->e101_reg)
-            ->where('e101_b3', '1')
-            ->sum('e101_b13');
-        //  dd($totalib5);
-        $totalib14 = DB::table("e101_b")
-            ->where('e101_reg', $pelesen2->e101_reg)
-            ->where('e101_b3', '1')
-            ->sum('e101_b14');
-        //  dd($totalib5);
+            $penyataii = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 02);
+            })->get();
+            // dd($penyataii);
 
-        $penyataii = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', 02);
-        })->get();
-        // dd($penyataii);
+            $totaliib5 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b5');
+            //  dd($totaliib5);
+            $totaliib6 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b6');
+            //  dd($totaliib5);
+            $totaliib7 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b7');
+            //  dd($totaliib5);
+            $totaliib8 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b8');
+            //  dd($totaliib5);
+            $totaliib9 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b9');
+            //  dd($totaliib5);
+            $totaliib10 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b10');
+            //  dd($totaliib5);
+            $totaliib11 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b11');
+            //  dd($totaliib5);
+            $totaliib12 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b12');
+            //  dd($totaliib5);
+            $totaliib13 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b13');
+            //  dd($totaliib5);
+            $totaliib14 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b14');
+            //  dd($totaliib5);
 
-        $totaliib5 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b5');
-        //  dd($totaliib5);
-        $totaliib6 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b6');
-        //  dd($totaliib5);
-        $totaliib7 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b7');
-        //  dd($totaliib5);
-        $totaliib8 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b8');
-        //  dd($totaliib5);
-        $totaliib9 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b9');
-        //  dd($totaliib5);
-        $totaliib10 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b10');
-        //  dd($totaliib5);
-        $totaliib11 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b11');
-        //  dd($totaliib5);
-        $totaliib12 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b12');
-        //  dd($totaliib5);
-        $totaliib13 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b13');
-        //  dd($totaliib5);
-        $totaliib14 = DB::table("e101_b")->where('e101_reg', $pelesen2->e101_reg)->where('e101_b3', '2')->sum('e101_b14');
-        //  dd($totaliib5);
+            $penyataiii = E101Init::where('e101_nl', auth()->user()->username)->first();
+            // dd($penyataiii);
 
-        $penyataiii = E101Init::where('e101_nl', auth()->user()->username)->first();
-        // dd($penyataiii);
+            $penyataiva = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->get();
+            // dd($penyataiva);
 
-        $penyataiva = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->get();
-        // dd($penyataiva);
+            $totalivac5 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c5');
+            //   dd($totalivac5);
+            $totalivac6 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c6');
+            //   dd($totalivac5);
+            $totalivac7 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c7');
+            //   dd($totalivac5);
+            $totalivac8 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c8');
+            //   dd($totalivac5);
+            $totalivac9 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c9');
+            //   dd($totalivac5);
+            $totalivac10 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c10');
+            //   dd($totalivac5);
 
-        $totalivac5 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c5');
-        //   dd($totalivac5);
-        $totalivac6 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c6');
-        //   dd($totalivac5);
-        $totalivac7 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c7');
-        //   dd($totalivac5);
-        $totalivac8 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c8');
-        //   dd($totalivac5);
-        $totalivac9 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c9');
-        //   dd($totalivac5);
-        $totalivac10 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '1')->sum('e101_c10');
-        //   dd($totalivac5);
+            $penyataivb = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', 2)->get();
+            // dd($penyataivb);
 
-        $penyataivb = E101C::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', 2)->get();
-        // dd($penyataivb);
+            $totalivbc5 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c5');
+            //   dd($totalivac5);
+            $totalivbc6 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c6');
+            //   dd($totalivac5);
+            $totalivbc7 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c7');
+            //   dd($totalivac5);
+            $totalivbc8 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c8');
+            //   dd($totalivac5);
+            $totalivbc9 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c9');
+            //   dd($totalivac5);
+            $totalivbc10 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c10');
+            //   dd($totalivac5);
 
-        $totalivbc5 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c5');
-        //   dd($totalivac5);
-        $totalivbc6 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c6');
-        //   dd($totalivac5);
-        $totalivbc7 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c7');
-        //   dd($totalivac5);
-        $totalivbc8 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c8');
-        //   dd($totalivac5);
-        $totalivbc9 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c9');
-        //   dd($totalivac5);
-        $totalivbc10 = DB::table("e101_c")->where('e101_reg', $pelesen2->e101_reg)->where('e101_c3', '2')->sum('e101_c10');
-        //   dd($totalivac5);
-
-        $penyatava = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', 1)->get();
-        // dd($penyatava);
-        $totalvad5 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d5');
-        $totalvad6 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d6');
-        $totalvad7 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d7');
-        $totalvad8 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d8');
-
-
-        $penyatavb = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', 2)->get();
-        // dd($penyatavb);
-        $totalvbd5 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '2')->sum('e101_d5');
-        $totalvbd6 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '2')->sum('e101_d6');
-        $totalvbd7 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '2')->sum('e101_d7');
-        $totalvbd8 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '2')->sum('e101_d8');
-
-        $penyatavii = E101E::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_e3', 1)->get();
-        // dd($penyatavii);
+            $penyatava = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', 1)->get();
+            // dd($penyatava);
+            $totalvad5 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d5');
+            $totalvad6 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d6');
+            $totalvad7 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d7');
+            $totalvad8 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '1')->sum('e101_d8');
 
 
+            $penyatavb = E101D::with('e101init', 'prodcat')->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', 2)->get();
+            // dd($penyatavb);
+            $totalvbd5 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '2')->sum('e101_d5');
+            $totalvbd6 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '2')->sum('e101_d6');
+            $totalvbd7 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '2')->sum('e101_d7');
+            $totalvbd8 = DB::table("e101_d")->where('e101_reg', $pelesen2->e101_reg)->where('e101_d3', '2')->sum('e101_d8');
 
+            $penyatavii = E101E::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->where('e101_e3', 1)->get();
+            // dd($penyatavii);
 
-        return view('users.KilangPenapis.penapis-papar-penyata', compact(
-            'layout',
-            'returnArr',
-            'user',
-            'pelesen',
-            'penyatai',
-            'penyataii',
-            'penyataiii',
-            'penyataiva',
-            'penyataivb',
-            'penyatava',
-            'penyatavb',
-            'penyatavii',
-            'totalib5',
-            'totaliib5',
-            'totalivac5',
-            'totalivbc5',
-            'totalvad5',
-            'totalvbd5',
-            'totalib6',
-            'totaliib6',
-            'totalivac6',
-            'totalivbc6',
-            'totalvad6',
-            'totalvbd6',
-            'totalib7',
-            'totaliib7',
-            'totalivac7',
-            'totalivbc7',
-            'totalvad7',
-            'totalvbd7',
-            'totalib8',
-            'totaliib8',
-            'totalivac8',
-            'totalivbc8',
-            'totalvad8',
-            'totalvbd8',
-            'totalib9',
-            'totaliib9',
-            'totalivac9',
-            'totalivbc9',
-            'totalib10',
-            'totaliib10',
-            'totalivac10',
-            'totalivbc10',
-            'totalib11',
-            'totaliib11',
-            'totalib12',
-            'totaliib12',
-            'totalib13',
-            'totaliib13',
-            'totalib14',
-            'totaliib14',
-            'bulan',
-            'tahun'
-        ));
+            return view('users.KilangPenapis.penapis-papar-penyata', compact(
+                'layout',
+                'returnArr',
+                'user',
+                'pelesen',
+                'penyatai',
+                'penyataii',
+                'penyataiii',
+                'penyataiva',
+                'penyataivb',
+                'penyatava',
+                'penyatavb',
+                'penyatavii',
+                'totalib5',
+                'totaliib5',
+                'totalivac5',
+                'totalivbc5',
+                'totalvad5',
+                'totalvbd5',
+                'totalib6',
+                'totaliib6',
+                'totalivac6',
+                'totalivbc6',
+                'totalvad6',
+                'totalvbd6',
+                'totalib7',
+                'totaliib7',
+                'totalivac7',
+                'totalivbc7',
+                'totalvad7',
+                'totalvbd7',
+                'totalib8',
+                'totaliib8',
+                'totalivac8',
+                'totalivbc8',
+                'totalvad8',
+                'totalvbd8',
+                'totalib9',
+                'totaliib9',
+                'totalivac9',
+                'totalivbc9',
+                'totalib10',
+                'totaliib10',
+                'totalivac10',
+                'totalivbc10',
+                'totalib11',
+                'totaliib11',
+                'totalib12',
+                'totaliib12',
+                'totalib13',
+                'totaliib13',
+                'totalib14',
+                'totaliib14',
+                'bulan',
+                'tahun'
+            ));
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
 
@@ -1626,10 +1624,20 @@ class KilangPenapisController extends Controller
         return view('users.KilangPenapis.penapis-penyata-dahulu', compact('returnArr', 'layout'));
     }
 
+    protected function validation_terdahulu(array $data)
+    {
+        return Validator::make($data, [
+            'tahun' => ['required', 'string'],
+            'bulan' => ['required', 'string'],
+        ]);
+    }
+
 
     public function penapis_penyata_dahulu_process(Request $request)
     {
         // dd($request->all());
+
+        $this->validation_terdahulu($request->all())->validate();
 
         $user = User::first();
         // dd($user);
@@ -1794,7 +1802,9 @@ class KilangPenapisController extends Controller
         $layout = 'layouts.kpenapis';
 
         return view('users.KilangPenapis.penapis-papar-dahulu', compact(
-            'returnArr', 'myDateTime', 'formatteddate',
+            'returnArr',
+            'myDateTime',
+            'formatteddate',
             'layout',
             'user',
             'pelesen',
@@ -1889,7 +1899,7 @@ class KilangPenapisController extends Controller
             'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
-            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
+            'file_upload' => ['mimes:pdf,xls,png,jpg,xlsx']
 
 
         ]);

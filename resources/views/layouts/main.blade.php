@@ -1378,8 +1378,7 @@
             toastr.success('{{ session('success') }}', 'Berjaya!', {
                 "progressBar": true
             });
-        @else
-            if (Session::has('error'))
+        @elseif (Session::has('error'))
                 toastr.error('{{ session('error') }}', 'Ralat!', {
                     "progressBar": true
                 });
