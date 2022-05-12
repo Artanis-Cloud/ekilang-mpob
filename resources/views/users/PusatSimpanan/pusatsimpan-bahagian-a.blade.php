@@ -269,10 +269,10 @@
                                                                         method="post">
                                                                         @csrf
                                                                         <div class="modal-body">
-                                                                            <label>Nama Produk Sawit dan Kod</label>
+                                                                            <label>Nama Produk Sawit</label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e07bt_produk'
-                                                                                    class="form-control" oninput="validate_two_decimal(this)"
+                                                                                    class="form-control"
                                                                                     value="{{ $data->produk->prodname }}"
                                                                                     readonly>
                                                                             </div>

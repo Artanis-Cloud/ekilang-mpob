@@ -240,7 +240,7 @@
                                                                         method="post">
                                                                         @csrf
                                                                         <div class="modal-body">
-                                                                            <label>Sendiri / Luar </label>
+                                                                            <label class="required">Sendiri / Luar </label>
                                                                             <div class="form-group">
                                                                                 <fieldset class="form-group">
                                                                                     <select class="form-control" id="e101_d3" name="e101_d3">
@@ -256,7 +256,7 @@
                                                                                     readonly> --}}
 
                                                                             </div>
-                                                                            <label>Belian/Terimaan dari </label>
+                                                                            <label class="required">Belian/Terimaan dari </label>
                                                                             <div class="form-group">
                                                                                 <fieldset class="form-group">
                                                                                     <select class="form-control" id="e101_d4" name="e101_d4">
@@ -272,13 +272,13 @@
                                                                                 </fieldset>
 
                                                                             </div>
-                                                                            <label>CPO </label>
+                                                                            <label class="required">CPO </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_d5' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e101_d5 }}">
                                                                             </div>
-                                                                            <label>PPO </label>
+                                                                            <label class="required">PPO </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_d6' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
@@ -289,13 +289,13 @@
                                                                             <input type="password" placeholder="Password"
                                                                                 class="form-control">
                                                                         </div> --}}
-                                                                            <label>CPKO </label>
+                                                                            <label class="required">CPKO </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_d7' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
                                                                                     value="{{ $data->e101_d7 }}">
                                                                             </div>
-                                                                            <label>PPKO </label>
+                                                                            <label class="required">PPKO </label>
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e101_d8' onkeypress="return isNumberKey(event)"
                                                                                     class="form-control"
@@ -437,7 +437,7 @@
                                                                     method="post">
                                                                     @csrf
                                                                     <div class="modal-body">
-                                                                        <label>Sendiri / Luar </label>
+                                                                        <label class="required">Sendiri / Luar </label>
                                                                         <div class="form-group">
                                                                             <fieldset class="form-group">
                                                                                 <select class="form-control" id="e101_d3" name="e101_d3">
@@ -453,7 +453,7 @@
                                                                                 readonly> --}}
 
                                                                         </div>
-                                                                        <label>Belian/Terimaan dari </label>
+                                                                        <label class="required">Belian/Terimaan dari </label>
                                                                         <div class="form-group">
                                                                             <fieldset class="form-group">
                                                                                 <select class="form-control" id="e101_d4" name="e101_d4">
@@ -469,13 +469,13 @@
                                                                             </fieldset>
 
                                                                         </div>
-                                                                        <label>CPO </label>
+                                                                        <label class="required">CPO </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_d5'
                                                                                 class="form-control"
                                                                                 value="{{ $data->e101_d5 }}">
                                                                         </div>
-                                                                        <label>PPO </label>
+                                                                        <label class="required">PPO </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_d6'
                                                                                 class="form-control"
@@ -486,13 +486,13 @@
                                                                         <input type="password" placeholder="Password"
                                                                             class="form-control">
                                                                     </div> --}}
-                                                                        <label>CPKO </label>
+                                                                        <label class="required">CPKO </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_d7'
                                                                                 class="form-control"
                                                                                 value="{{ $data->e101_d7 }}">
                                                                         </div>
-                                                                        <label>PPKO </label>
+                                                                        <label class="required">PPKO </label>
                                                                         <div class="form-group">
                                                                             <input type="text" name='e101_d8'
                                                                                 class="form-control"

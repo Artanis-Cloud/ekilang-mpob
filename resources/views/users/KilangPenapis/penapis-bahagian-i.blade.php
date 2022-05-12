@@ -60,7 +60,7 @@
                                     <span class="required">Nama Produk dan Kod </span>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-control" id="produk" name="e101_b4" style="width: 50%">
+                                    <select class="form-control" id="produk" name="e101_b4" style="width: 50%" required>
                                         <option selected hidden disabled>Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
@@ -80,12 +80,13 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b5' style="width: 50%" id="e101_b5"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                        oninput="validate_two_decimal(this)">
+                                    @error('e101_b5')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-3">
                                     <span class="required">Digunakan Untuk Proses Selanjutnya</span>
@@ -93,12 +94,12 @@
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b10' style="width: 50%"
                                         id="e101_b10" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        oninput="validate_two_decimal(this)" title="Sila isikan butiran ini.">
+                                    @error('e101_b10')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -109,12 +110,13 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b6' style="width: 50%" id="e101_b6"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                        oninput="validate_two_decimal(this)">
+                                    @error('e101_b6')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-3">
                                     <span class="required">Jualan / Edaran Tempatan</span>
@@ -122,12 +124,12 @@
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b11' style="width: 50%"
                                         id="e101_b11" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        oninput="validate_two_decimal(this)" title="Sila isikan butiran ini.">
+                                    @error('e101_b11')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -141,12 +143,13 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b7' style="width: 50%" id="e101_b7"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                        oninput="validate_two_decimal(this)">
+                                    @error('e101_b7')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-3">
                                     <span class="required">Eksport</span>
@@ -154,12 +157,12 @@
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b12' style="width: 50%"
                                         id="e101_b12" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
+                                    @error('e101_b12')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -171,11 +174,11 @@
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b8' style="width: 50%" id="e101_b8"
                                         title="Sila isikan butiran ini." readonly>
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e101_b8')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-3">
                                     <span class="required">Stok Akhir Di Premis</span>
@@ -183,12 +186,12 @@
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b13' style="width: 50%"
                                         id="e101_b13" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
+                                    @error('e101_b13')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -197,12 +200,13 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b9' style="width: 50%" id="e101_b9"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                        oninput="validate_two_decimal(this)">
+                                    @error('e101_b9')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-3">
                                     <span class="required">Stok Akhir Di Pusat Simpanan</span>
@@ -210,12 +214,12 @@
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b14' style="width: 50%"
                                         id="e101_b14" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini.">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        oninput="validate_two_decimal(this)" title="Sila isikan butiran ini.">
+                                    @error('e101_b14')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -277,21 +281,9 @@
 
                                         <td style="text-align: left">
                                             {{ $data->produk->prodname }}
-
-
-                                            {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid) --}}
-                                            {{-- <span value={{ $data->e101_b4 }}>{{ $data->e101_b4   }}</span> --}}
-                                            {{-- @endif --}}
-
                                         </td>
                                         <td>
                                             {{ $data->produk->prodid }}
-
-
-                                            {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid) --}}
-                                            {{-- <span value={{ $data->e101_b4 }}>{{ $data->e101_b4   }}</span> --}}
-                                            {{-- @endif --}}
-
                                         </td>
                                         <td>{{ number_format($data->e101_b5 ?? 0, 2) }}</td>
                                         <td>{{ number_format($data->e101_b6 ?? 0, 2) }}</td>
@@ -342,79 +334,89 @@
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-body">
-                                                                <label>Nama Produk </label>
+                                                                <label>Nama Produk</label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b4' class="form-control"
                                                                         value="{{ $data->produk->prodname }}" readonly>
                                                                 </div>
-                                                                <label>Stok Awal Di Premis </label>
+                                                                <label class="required">Stok Awal Di Premis </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b5'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
+                                                                        oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b5') ?? $data->e101_b5 }}">
                                                                 </div>
-                                                                <label>Stok Awal Di Pusat Simpanan </label>
+                                                                <label class="required">Stok Awal Di Pusat Simpanan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b6'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
+                                                                        oninput="validate_two_decimal(this)"
                                                                         value="{{ $data->e101_b6 }}">
                                                                 </div>
-                                                                <label>Belian / Terimaan </label>
+                                                                <label class="required">Belian / Terimaan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b7'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
+                                                                        oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b7') ?? $data->e101_b7 }}">
                                                                 </div>
-                                                                <label>Import </label>
+                                                                <label class="required">Import </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e101_b8' class="form-control"
+                                                                    <input type="text" name='e101_b8'
+                                                                        class="form-control"
                                                                         value="{{ old('e101_b8') ?? $data->e101_b8 }}"
                                                                         readonly>
                                                                 </div>
-                                                                <label>Pengeluaran </label>
+                                                                <label class="required">Pengeluaran </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b9'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
+                                                                        oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b9') ?? $data->e101_b9 }}">
                                                                 </div>
-                                                                <label>Digunakan Untuk Proses
+                                                                <label class="required">Digunakan Untuk Proses
                                                                     Selanjutnya</label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b10'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
+                                                                        oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b10') ?? $data->e101_b10 }}">
                                                                 </div>
-                                                                <label>Jualan / Edaran Dalam Negeri </label>
+                                                                <label class="required">Jualan / Edaran Dalam Negeri </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b11'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
+                                                                        oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b11') ?? $data->e101_b11 }}">
                                                                 </div>
-                                                                <label>Eksport </label>
+                                                                <label class="required">Eksport </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b12'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
+                                                                        oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b12') ?? $data->e101_b12 }}">
                                                                 </div>
-                                                                <label>Stok Akhir Di Premis </label>
+                                                                <label class="required">Stok Akhir Di Premis </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b13'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
+                                                                        oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b13') ?? $data->e101_b13 }}">
                                                                 </div>
-                                                                <label>Stok Akhir Di Pusat Simpanan </label>
+                                                                <label class="required">Stok Akhir Di Pusat Simpanan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b14'
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
+                                                                        oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b14') ?? $data->e101_b14 }}">
                                                                 </div>
                                                             </div>
@@ -501,81 +503,82 @@
 
 
                 </div>
-        {{-- </div> --}}
-        <div class=" row form-group" style="padding-top: 10px; ">
+                {{-- </div> --}}
+                <div class=" row form-group" style="padding-top: 10px; ">
 
 
-            <div class="text-left col-md-5">
-                {{-- <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary" style="float: left">Sebelumnya</a> --}}
-            </div>
-            <div class="text-right col-md-7">
-                <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                    data-target="#next">Simpan &
-                    Seterusnya</button>
-            </div>
-
-        </div>
-
-        <!-- Vertically Centered modal Modal -->
-        <div class="modal fade" id="next" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                            PENGESAHAN</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <i data-feather="x"></i>
-                        </button>
+                    <div class="text-left col-md-5">
+                        {{-- <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary" style="float: left">Sebelumnya</a> --}}
                     </div>
-                    <div class="modal-body">
-                        <p>
-                            Anda pasti mahu menyimpan maklumat ini?
-                        </p>
+                    <div class="text-right col-md-7">
+                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                            data-target="#next">Simpan &
+                            Seterusnya</button>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                        </button>
-                        <a href="{{ route('penapis.bahagianii') }}" type="button" class="btn btn-primary ml-1">
 
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Ya</span>
-                        </a>
+                </div>
+
+                <!-- Vertically Centered modal Modal -->
+                <div class="modal fade" id="next" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                        role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                    PENGESAHAN</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Anda pasti mahu menyimpan maklumat ini?
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                </button>
+                                <a href="{{ route('penapis.bahagianii') }}" type="button" class="btn btn-primary ml-1">
+
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Ya</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
-    </div>
-    {{-- </form> --}}
+        {{-- </form> --}}
 
-    {{-- </div> --}}
-
+        {{-- </div> --}}
 
 
-    <script>
-        function onlyNumberKey(evt) {
 
-            // Only ASCII charactar in that range allowed
-            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-                return false;
-            return true;
-        }
-    </script>
+        <script>
+            function onlyNumberKey(evt) {
+
+                // Only ASCII charactar in that range allowed
+                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                    return false;
+                return true;
+            }
+        </script>
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(".floatNumberField").change(function() {
-                $(this).val(parseFloat($(this).val()).toFixed(2));
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".floatNumberField").change(function() {
+                    $(this).val(parseFloat($(this).val()).toFixed(2));
+                });
             });
-        });
-    </script>
+        </script>
 
-    </body>
+        </body>
 
-    </html>
-@endsection
+        </html>
+    @endsection

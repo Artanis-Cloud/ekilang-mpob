@@ -38,6 +38,11 @@ File: scss
     }
   }
 
+
+  .required:after {
+    content:" *";
+    color: red;
+  }
 .topbar .dropdown-menu .with-arrow > span {
   transform: rotate(45deg);
   -ms-transform: rotate(45deg);
