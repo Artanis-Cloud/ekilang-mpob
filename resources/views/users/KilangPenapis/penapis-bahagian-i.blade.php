@@ -69,6 +69,11 @@
                                         @endforeach
 
                                     </select>
+                                    @error('e101_b4')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
                             </div>
@@ -347,7 +352,8 @@
                                                                         oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b5') ?? $data->e101_b5 }}">
                                                                 </div>
-                                                                <label class="required">Stok Awal Di Pusat Simpanan </label>
+                                                                <label class="required">Stok Awal Di Pusat Simpanan
+                                                                </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b6'
                                                                         onkeypress="return isNumberKey(event)"
@@ -387,7 +393,8 @@
                                                                         oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b10') ?? $data->e101_b10 }}">
                                                                 </div>
-                                                                <label class="required">Jualan / Edaran Dalam Negeri </label>
+                                                                <label class="required">Jualan / Edaran Dalam Negeri
+                                                                </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b11'
                                                                         onkeypress="return isNumberKey(event)"
@@ -411,7 +418,8 @@
                                                                         oninput="validate_two_decimal(this)"
                                                                         value="{{ old('e101_b13') ?? $data->e101_b13 }}">
                                                                 </div>
-                                                                <label class="required">Stok Akhir Di Pusat Simpanan </label>
+                                                                <label class="required">Stok Akhir Di Pusat Simpanan
+                                                                </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b14'
                                                                         onkeypress="return isNumberKey(event)"
