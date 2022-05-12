@@ -77,6 +77,7 @@ class KilangBuahController extends Controller
         $penyata->e_npgtg = $request->e_npgtg;
         $penyata->e_jpgtg = $request->e_jpgtg;
         $penyata->e_email_pengurus = $request->e_email_pengurus;
+        $penyata->e_syktinduk = $request->e_syktinduk;
         $penyata->e_group = $request->e_group;
         $penyata->e_poma = $request->e_poma;
         $penyata->kap_proses = $request->kap_proses;

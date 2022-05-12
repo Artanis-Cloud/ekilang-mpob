@@ -1059,19 +1059,19 @@
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
                                         <form action="{{ route('buah.update.papar.penyata', [$penyata->e91_reg]) }}"
-                                            method="post">
+                                            method="post" required>
                                             @csrf
 
 
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                            <p ><div class="required">Nama Pegawai Melapor:</div> &nbsp;&nbsp;
                                                 <input type="text" id="e91_npg" class="form-control" size="50" required
                                                     name='e91_npg' value="{{ $penyata->e91_npg }}">
                                             </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                            <p><div class="required">Jawatan Pegawai Melapor:</div> &nbsp;&nbsp;
                                                 <input type="text" id="e91_jpg" class="form-control" size="50" required
                                                     name='e91_jpg' value="{{ $penyata->e91_jpg }}">
                                             </p>
-                                            <p>No Telefon Kilang: &nbsp;&nbsp;
+                                            <p><div class="required">No Telefon Kilang:</div> &nbsp;&nbsp;
 
                                                 <input type="text" id="e91_notel" class="form-control" size="50" required
                                                     name="e91_notel" value="{{ $penyata->e91_notel }}">
@@ -1080,7 +1080,7 @@
 
                                             <h1 style="page-break-before:always"></h1>
 
-                                            <div class="row form-group" style="padding-top: 10px; ">
+                                            <div class="row form-group " style="padding-top: 10px; ">
 
 
                                                 <div class="text-left col-md-5">

@@ -91,7 +91,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="text-bold-500">A.
+                                                    <td class="text-bold-500 required" >A.
                                                         Stok Awal Di Premis</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa1'
@@ -120,7 +120,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500">B.
+                                                    <td class="text-bold-500 required">B.
                                                         Belian / Terimaan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_ab1' id="number"
@@ -146,7 +146,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500">C.
+                                                    <td class="text-bold-500 required">C.
                                                         Diproses</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
@@ -168,7 +168,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500">D.
+                                                    <td class="text-bold-500 required">D.
                                                         Pengeluaran</td>
                                                     <td style="text-align:center; background-color:#808080b8">
                                                         {{-- <input type="text"size="10" style="text-align: center"
@@ -192,7 +192,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500">E.
+                                                    <td class="text-bold-500 required">E.
                                                         Jualan / Edaran Tempatan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
@@ -217,7 +217,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500">F.
+                                                    <td class="text-bold-500 required">F.
                                                         Eksport</td>
                                                     <td style="text-align:center; background-color:#808080b8">
                                                         {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
@@ -234,7 +234,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500">G.
+                                                    <td class="text-bold-500 required">G.
                                                         Stok Akhir Di Premis</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"

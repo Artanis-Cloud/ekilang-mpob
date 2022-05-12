@@ -118,7 +118,7 @@
                                     <div class="col-md-6">
                                         <input type="text" id="e_notel" class="form-control"
                                             placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
-                                            value="{{ $pelesen->e_notel }}" onkeypress="return isNumberKey(event)">
+                                            value="{{ $pelesen->e_notel }}" onkeypress="return isNumberKey(event)" required>
                                         {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -146,7 +146,7 @@
                                         Alamat Emel Kilang</label>
                                     <div class="col-md-6">
                                         <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
-                                            name="e_email" value="{{ $pelesen->e_email }}">
+                                            name="e_email" value="{{ $pelesen->e_email }}" required>
                                         {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -161,7 +161,7 @@
                                     <div class="col-md-6">
                                         <input type="text" id="e_npg" class="form-control"
                                             placeholder="Nama Pegawai Melapor" name="e_npg"
-                                            value="{{ $pelesen->e_npg }}">
+                                            value="{{ $pelesen->e_npg }}" required>
                                         {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -176,7 +176,7 @@
                                     <div class="col-md-6">
                                         <input type="text" id="e_jpg" class="form-control"
                                             placeholder="Jawatan Pegawai Melapor" name="e_jpg"
-                                            value="{{ $pelesen->e_jpg }}">
+                                            value="{{ $pelesen->e_jpg }}" required>
                                         {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -192,7 +192,7 @@
                                         <input type="text" id="no-tel-pegawai-melapor" class="form-control"
                                             placeholder="No. Telefon Pegawai Melapor"
                                             name="e_notel_pg"
-                                            onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}">
+                                            onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}" required>
                                         {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -206,7 +206,7 @@
                                         Alamat Emel Pegawai Melapor</label>
                                     <div class="col-md-6">
                                         <input type="email" id="e_email_pg" class="form-control"
-                                             placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg" value="{{ $pelesen->e_email_pg }}">
+                                             placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg" value="{{ $pelesen->e_email_pg }}" required>
                                         {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -221,7 +221,7 @@
                                     <div class="col-md-6">
                                         <input type="text" id="e_npgtg" class="form-control"
                                             placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                            value="{{ $pelesen->e_npgtg }}">
+                                            value="{{ $pelesen->e_npgtg }}" required>
                                         {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -237,7 +237,7 @@
                                     <div class="col-md-6">
                                         <input type="text" id="e_jpgtg" class="form-control"
                                             placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                            value="{{ $pelesen->e_jpgtg }}">
+                                            value="{{ $pelesen->e_jpgtg }}" required>
                                         {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -252,7 +252,7 @@
                                     <div class="col-md-6">
                                         <input type="email" id="e_email_pengurus" class="form-control"
                                             placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                            value="{{ $pelesen->e_email_pengurus ?? '-' }}">
+                                            value="{{ $pelesen->e_email_pengurus ?? '-' }}" required>
 
 
                                         {{-- @error('alamat_kilang_1')
@@ -269,7 +269,7 @@
                                     <div class="col-md-6">
                                         <input type="text" id="e_syktinduk" class="form-control"
                                             placeholder="Syarikat Induk" name="e_syktinduk"
-                                            value="{{ $pelesen->e_syktinduk }}">
+                                            value="{{ $pelesen->e_syktinduk }}" required>
                                         {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -283,8 +283,8 @@
                                         Kumpulan </label>
                                     <div class="col-md-6">
                                         <fieldset class="form-group" >
-                                            <select class="form-control" id="e_group" name="e_group">
-                                                <option  hidden  value="">{{ $pelesen->e_group ?? 'Sila Pilih' }}</option>
+                                            <select class="form-control" id="e_group" name="e_group" required>
+                                                <option value="{{ $pelesen->e_group }}"selected hidden >{{ $pelesen->e_group ?? 'Sila Pilih' }}</option>
                                                 <option value="Kerajaan">Kerajaan</option>
                                                 <option value="Swasta">Swasta</option>
                                             </select>
@@ -303,7 +303,7 @@
                                     <div class="col-md-6">
                                         <input type="text" id="kap_proses" class="form-control" onkeypress="return isNumberKey(event)"
                                         placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                        value="{{ $pelesen->kap_proses }}">
+                                        value="{{ $pelesen->kap_proses }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -318,7 +318,7 @@
                                     <div class="col-md-6">
                                         <input type="text" id="kap_tangki" class="form-control" onkeypress="return isNumberKey(event)"
                                             placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
-                                            value="{{ $pelesen->kap_tangki }}">
+                                            value="{{ $pelesen->kap_tangki }}" required>
                                         {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
