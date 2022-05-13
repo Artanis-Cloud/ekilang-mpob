@@ -70,8 +70,8 @@
 
                                     </select>
                                     @error('e102_b4')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                        <div class="alert alert-danger" style="margin-right:20%">
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -90,8 +90,8 @@
 
                                     </select>
                                     @error('e102_b5')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                        <div class="alert alert-danger" style="margin-right:50%; margin-left:-30%">
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
                                         </div>
                                     @enderror
                                 </div>
