@@ -740,6 +740,7 @@
                                 <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                     <input type="text" id="ebio_npg" class="form-control" size="50" name="ebio_npg"
                                     value="{{ $user->ebio_npg ?? ''}}" required>
+                                    
                                 </p>
                                 <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
                                     <input type="text" id="ebio_jpg" class="form-control" size="50" name="ebio_jpg"
