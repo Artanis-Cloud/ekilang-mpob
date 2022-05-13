@@ -175,10 +175,9 @@
                                     </div>
                                 @enderror
 
-                                <input type="text" class="form-control" name='ebio_cc3' style="width:50%"
-                                    id="myInputHidden1[]" required>
-                                <input type="text" class="form-control" name='ebio_cc4' style="width:50%"
-                                    id="myInputHidden2[]" required>
+                                {{-- <input type="text" class="form-control" name='ebio_cc3' style="width:50%"> --}}
+                                {{-- <input type="text" class="form-control" name='ebio_cc4' style="width:50%"> --}}
+                                <table id="cc3_4"></table>
                             </div>
                         </div>
                     </div>
@@ -235,7 +234,8 @@
                                             <td>{{ number_format($data->ebio_c7 ?? 0, 2) }}</td>
                                             <td>{{ number_format($data->ebio_c8 ?? 0, 2) }} &nbsp; <i
                                                     class="far fa-file-alt" style="color: blue; cursor: pointer;"
-                                                    data-toggle="modal" data-target="#list{{ $data->ebio_c1 }}"></i></td>
+                                                    data-toggle="modal" data-target="#modal{{ $key }}"></i>
+                                            </td>
                                             <td>{{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
                                             <td>{{ number_format($data->ebio_c10 ?? 0, 2) }}</td>
                                             {{-- <td>{{ $data->e104_b13 }}</td> --}}
@@ -264,7 +264,7 @@
 
                                         <div class="col-md-6 col-12">
 
-                                            <!--scrolling content Modal -->
+                                            <!--Kemaskini Maklumat Modal -->
                                             <div class="modal fade" id="modal{{ $data->ebio_c1 }}" tabindex="-1"
                                                 role="dialog" aria-labelledby="exampleModalScrollableTitle"
                                                 aria-hidden="true">
@@ -371,6 +371,11 @@
                                             </div>
 
                                         </div>
+
+
+
+
+                                        <!-- Pengesahan Modal -->
                                         <div class="modal fade" id="next2{{ $data->ebio_c1 }}" tabindex="-1"
                                             role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
@@ -407,6 +412,7 @@
                                             </div>
                                         </div>
                                     @endforeach
+
                                     <tr>
 
                                         <td colspan="2"><b>JUMLAH</b></td>
@@ -449,6 +455,64 @@
 
             </div>
 
+            <!-- Senarai Syarikat Modal -->
+            @foreach ($penyata as $key => $data)
+                <div class="modal fade" id="modal{{ $key }}" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                        role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                    Senarai Syarikat</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" style="font-size: 13px">
+                                        <thead style="text-align: center">
+                                            <tr>
+                                                <th>Nama Syarikat</th>
+                                                <th>Jumlah Jualan Edaran</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($data->ebiocc as $ebiocc_data)
+                                                <tr style="text-align: right">
+                                                    {{-- <td class="text-center">{{ $key+1 }}</td> --}}
+                                                    <td><input type="text" id="ebio_sykt" class="form-control"
+                                                            placeholder="Nama Syarikat" name="ebio_sykt"
+                                                            value="{{ $ebiocc_data->ebio_cc3 ?? 0 }}">
+                                                    </td>
+                                                    <td><input type="text" id="ebio_jumlah" class="form-control"
+                                                            placeholder="Jumlah Jualan / Edaran" name="ebio_jumlah"
+                                                            value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td>
+
+                                                    {{-- <td>{{ $data->e101_b15 }}</td> --}}
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block" style="color:#275047">Kembali</span>
+                                </button>
+                                <a href="{{ route('bio.paparpenyata') }}" type="button" class="btn btn-primary ml-1">
+
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Kemaskini</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
 
 
 
@@ -500,67 +564,11 @@
             </div>
 
 
-            <!-- Senarai Syarikat Modal -->
-            <div class="modal fade" id="list{{ $data->ebio_c1 }}" tabindex="-1" role="dialog"
-                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                    role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                Senarai Syarikat</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <i data-feather="x"></i>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="table-responsive">
-                                <table class="table table-bordered" style="font-size: 13px">
-                                    <thead style="text-align: center">
-                                        <tr>
-                                            <th>Nama Syarikat</th>
-                                            <th>Jumlah Jualan Edaran</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($penyata as $key => $data)
-                                            <tr style="text-align: right">
-                                                {{-- <td class="text-center">{{ $key+1 }}</td> --}}
-                                                <td><input type="text" id="ebio_sykt" class="form-control"
-                                                        placeholder="Nama Syarikat" name="ebio_sykt"
-                                                        value="{{ $data->ebio_sykt }}">
-                                                </td>
-                                                <td><input type="text" id="ebio_jumlah" class="form-control"
-                                                        placeholder="Jumlah Jualan / Edaran" name="ebio_jumlah"
-                                                        value="{{ $data->ebio_jumlah }}"></td>
 
-                                                {{-- <td>{{ $data->e101_b15 }}</td> --}}
-
-
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                <i class="bx bx-x d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block" style="color:#275047">Kembali</span>
-                            </button>
-                            <a href="{{ route('bio.paparpenyata') }}" type="button" class="btn btn-primary ml-1">
-
-                                <i class="bx bx-check d-block d-sm-none"></i>
-                                <span class="d-none d-sm-block">Kemaskini</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
             <!-- Syarikat Input Modal -->
-            <div class="modal fade bs-example-modal-lg" id="modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-                aria-hidden="true" style="display: none;">
+            <div class="modal fade bs-example-modal-lg" id="modal" tabindex="-1" role="dialog"
+                aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -576,22 +584,12 @@
                                 <tr>
                                     <td><input type="text" id="new_syarikat[]" name='new_syarikat[]'></td>
                                     <td><input type="text" id="new_jumlah[]" name='new_jumlah[]'></td>
-                                    <td><input type="button" class="add" onclick="add_row();" value="Tambah Maklumat">
+                                    <td><input type="button" class="add" onclick="add_row();"
+                                            value="Tambah Maklumat">
                                     </td>
                                 </tr>
 
                             </table>
-                            <div class="modal-body">
-                                {{-- <label>Nama Syarikat </label>
-                                <div class="form-group">
-                                    <input type="text" id="ebio_sykt1" name='ebio_sykt1' class="form-control" value="">
-                                </div>
-                                <label>Jumlah Jualan / Edaran </label>
-                                <div class="form-group">
-                                    <input type="text" id="ebio_jumlah1" name='ebio_jumlah1' class="form-control"
-                                        value="">
-                                </div> --}}
-                            </div>
                             </form>
 
                         </div>
@@ -613,6 +611,9 @@
             </div>
         </div>
         <br>
+        {{-- INPUT HIDDEN --}}
+        <input type="hidden" name="jumlah_row[]">
+        <input type="hidden" name="nama_syarikat[]">
         </form>
 
     </div>
@@ -635,6 +636,7 @@
     </script>
 
     <script type="text/javascript" src="{{ asset('js/table_scripts.js') }}""></script>
+
     <script>
         // function inputHidden() {
         //     var ebio_sykt = $("#ebio_sykt").val();
@@ -643,19 +645,19 @@
         //     document.getElementById("ebio_sykt").value = ebio_sykt;
         //     document.getElementById("ebio_jumlah").value = ebio_jumlah;
         // }
-        $(document).ready(function() {
-            $("#btnShow").on('click', function() {
-                console.log('nasuk');
+        // $(document).ready(function() {
+        //     $("#btnShow").on('click', function() {
+        //         console.log('nasuk');
 
-                var getTxtValue1 = $("#new_syarikat[]").val(); // this gives textbox value
-                var getTxtValue2 = $("#new_jumlah[]").val(); // this gives textbox value
-                $("#myInputHidden1[]").val(getTxtValue1); // this will set hidden field value
-                $("#myInputHidden2[]").val(getTxtValue2); // this will set hidden field value
-                // alert(getTxtValue1);
-                // alert(getTxtValue2);
-                console.log('#btnShow');
-            });
-        })
+        //         var getTxtValue1 = $("#new_syarikat[]").val(); // this gives textbox value
+        //         var getTxtValue2 = $("#new_jumlah[]").val(); // this gives textbox value
+        //         $("#myInputHidden1[]").val(getTxtValue1); // this will set hidden field value
+        //         $("#myInputHidden2[]").val(getTxtValue2); // this will set hidden field value
+        //         // alert(getTxtValue1);
+        //         // alert(getTxtValue2);
+        //         console.log('#btnShow');
+        //     });
+        // })
 
         // function transferid(){
         //     // console.log('nasuk');
@@ -669,5 +671,42 @@
         //         // console.log('#btnShow');
         //         $('#modal').modal('hide');
         // }
+        function add_row() {
+            var new_syarikat = document.getElementById("new_syarikat[]").value;
+            var new_jumlah = document.getElementById("new_jumlah[]").value;
+
+            var table = document.getElementById("data_table");
+            var table_len = (table.rows.length) - 1;
+            var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='syarikat_row" +
+                table_len + "'>" + new_syarikat + "</td><td id='jumlah_row" + table_len + "'>" + new_jumlah +
+                "</td><td><input type='button' id='edit_button" + table_len +
+                "' value='Kemaskini' class='edit' onclick='edit_row(" + table_len +
+                ")'> <input type='button' id='save_button" + table_len +
+                "' value='Simpan' class='save' onclick='save_row(" + table_len +
+                ")'> <input type='hidden' id='jumlah_row" + table_len +
+                "' name='jumlah_row_hidden[]' value=" + new_jumlah +
+                "> <input type='button' value='Hapus' class='delete' onclick='delete_row(" + table_len + ")'></td></tr>";
+
+            var table_input = document.getElementById("cc3_4");
+            var table_input_len = (table_input.rows.length);
+            var row_input = table_input.insertRow(table_input_len).outerHTML =
+                "<tr id='row_input" + table_input_len + "'><td><input type='hidden' id='jumlah_row_hidden" +
+                table_input_len +
+                "' name='jumlah_row_hidden[]' value=" + new_jumlah +
+                "><input type='hidden' id='new_syarikat_hidden" + table_input_len +
+                "' name='new_syarikat_hidden[]' value=" + new_syarikat +
+                "></td></tr>";
+
+            document.getElementById("new_syarikat[]").value = "";
+            document.getElementById("new_jumlah[]").value = "";
+        }
+
+        function delete_row(no) {
+            document.getElementById("row" + no + "").outerHTML = "";
+            // document.getElementById("row_input" + no + "").outerHTML = "";
+
+            document.getElementById("jumlah_row_hidden" + (no - 1)).value = "";
+            document.getElementById("new_syarikat_hidden" + (no - 1)).value = "";
+        }
     </script>
 @endsection

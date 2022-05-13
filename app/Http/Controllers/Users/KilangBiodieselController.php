@@ -738,8 +738,11 @@ class KilangBiodieselController extends Controller
 
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
         if ($user) {
-            $penyata = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
+            $penyata = EBioC::with('ebioinit', 'produk','ebiocc')->where('ebio_reg', $user->ebio_reg)->get();
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
+// dd($penyata);
+            $senarai_syarikat = EBioCC::with('ebioinit')->where('ebio_reg', $user->ebio_reg)->get();
+
             $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
             $totaliiic5 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c5');
             $totaliiic6 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c6');
@@ -762,7 +765,7 @@ class KilangBiodieselController extends Controller
 
 
         return view('users.KilangBiodiesel.bio-bahagian-iii', compact(
-            'returnArr',
+            'returnArr', 'senarai_syarikat',
             'layout',
             'user',
             'produk',
@@ -791,7 +794,7 @@ class KilangBiodieselController extends Controller
             return redirect()->route('bio.bahagianiii')->with('error', 'Maklumat sudah tersedia');
         } else {
             // dd($request->all());
-            $this->validation_bahagian_iii($request->all())->validate();
+            // $this->validation_bahagian_iii($request->all())->validate();
             $this->store_bahagian_iii($request->all());
             $this->store_bahagian_iii2($request->all());
 
@@ -811,6 +814,7 @@ class KilangBiodieselController extends Controller
             'ebio_c8' => ['required', 'string'],
             'ebio_c9' => ['required', 'string'],
             'ebio_c10' => ['required', 'string'],
+            'ebio_cc2' => ['required', 'string'],
             'ebio_cc3' => ['required', 'string'],
             'ebio_cc4' => ['required', 'string'],
             // 'ebio_c12' => ['required', 'string'],
@@ -844,16 +848,15 @@ class KilangBiodieselController extends Controller
     {
         $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
         // dd($ebio_reg);
-        return EBioCC::create([
-            'ebio_reg' => $ebio_reg->ebio_reg,
-            'ebio_cc3' => $data['ebio_c3'],
-            'ebio_cc4' => $data['ebio_c4'],
-            // 'ebio_c12' => $data['ebio_b12'],
-
-            // 'e101_b15' => $data['e104_b15'],
-        ]);
-        // return $data;
-        // dd($data);
+        foreach ($data['jumlah_row_hidden'] as $key => $value) {
+            $bio = EBioCC::create([
+                'ebio_reg' => $ebio_reg->ebio_reg,
+                'ebio_cc2' => $data['ebio_c3'],
+                'ebio_cc3' => $data['new_syarikat_hidden'][$key],
+                'ebio_cc4' => $data['jumlah_row_hidden'][$key],
+            ]);
+        }
+        return $bio;
     }
 
     public function bio_edit_bahagian_iii(Request $request, $id)
