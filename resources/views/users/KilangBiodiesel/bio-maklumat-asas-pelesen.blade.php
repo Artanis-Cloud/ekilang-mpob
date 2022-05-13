@@ -55,12 +55,12 @@
                                                     No. Lesen KPPK</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_nlkppk" class="form-control" placeholder="No. Lesen KPPK"
-                                                            name="e_nlkppk" value="{{ $pelesen->e_nlkppk  ?? '-'}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                            name="e_nlkppk" value="{{ $pelesen->e_nlkppk  ?? '-'}}" required>
+                                                    @error('e_nlkppk')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row" style="margin-bottom:2.5%">
@@ -69,12 +69,12 @@
                                                     Alamat Premis Berlesen</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_ap1" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                            name="e_ap1" value="{{ $pelesen->e_ap1}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                            name="e_ap1" value="{{ $pelesen->e_ap1}}" required>
+                                                    @error('e_ap1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 33.35%; ">
                                                     <input type="text" id="e_ap2" class="form-control" placeholder="Alamat Surat Menyurat 2"
@@ -92,12 +92,12 @@
                                                     Alamat Surat Menyurat</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_as1" class="form-control" placeholder="Alamat Surat Menyurat 1"
-                                                                name="e_as1" value="{{ $pelesen->e_as1}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_as1" value="{{ $pelesen->e_as1}}" required>
+                                                    @error('e_as1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                                 <div class="col-md-6" style="margin-left: 33.35%">
                                                     <input type="text" id="e_as2" class="form-control" placeholder="Alamat Surat Menyurat 2"
@@ -115,12 +115,12 @@
                                                     No. Telefon (Pejabat / Kilang)</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_notel" class="form-control" placeholder="No. Telefon Pejabat / Kilang"
-                                                                name="e_notel" value="{{ $pelesen->e_notel}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_notel" value="{{ $pelesen->e_notel}}" required>
+                                                    @error('e_notel')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2" >
@@ -129,12 +129,12 @@
                                                     No. Faks</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
-                                                                name="e_nofax" value="{{ $pelesen->e_nofax}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_nofax" value="{{ $pelesen->e_nofax}}" required>
+                                                    @error('e_nofax')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -143,12 +143,12 @@
                                                     Alamat Emel Kilang</label>
                                                 <div class="col-md-6">
                                                     <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
-                                                                name="e_email" value="{{ $pelesen->e_email}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_email" value="{{ $pelesen->e_email}}" required>
+                                                    @error('e_email')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -157,12 +157,12 @@
                                                     Nama Pegawai Melapor</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_npg" class="form-control" placeholder="Nama Pegawai Melapor"
-                                                                name="e_npg" value="{{ $pelesen->e_npg}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_npg" value="{{ $pelesen->e_npg}}" required>
+                                                    @error('e_npg')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -171,12 +171,12 @@
                                                     Jawatan Pegawai Melapor</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_jpg" class="form-control" placeholder="Jawatan Pegawai Melapor"
-                                                                name="e_jpg" value="{{ $pelesen->e_jpg}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_jpg" value="{{ $pelesen->e_jpg}}" required>
+                                                    @error('e_jpg')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -185,12 +185,12 @@
                                                     No. Telefon Pegawai Melapor</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_notel_pg" class="form-control" placeholder="No. Telefon Pegawai Melapor"
-                                                                name="e_notel_pg" value="{{ $pelesen->e_notel_pg}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_notel_pg" value="{{ $pelesen->e_notel_pg}}" required>
+                                                    @error('e_notel_pg')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -199,12 +199,12 @@
                                                     Alamat Emel Pegawai Melapor</label>
                                                 <div class="col-md-6">
                                                     <input type="email" id="e_email_pg" class="form-control" placeholder="Alamat Emel Pegawai Melapor"
-                                                                name="e_email_pg" value="{{ $pelesen->e_email_pg}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_email_pg" value="{{ $pelesen->e_email_pg}}" required>
+                                                    @error('e_email_pg')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -213,12 +213,12 @@
                                                     Nama Pegawai Bertanggungjawab</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_npgtg" class="form-control" placeholder="Nama Pegawai Bertanggungjawab"
-                                                                name="e_npgtg" value="{{ $pelesen->e_npgtg }}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_npgtg" value="{{ $pelesen->e_npgtg }}" required>
+                                                    @error('e_npgtg')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -228,12 +228,12 @@
                                                     Bertanggungjawab</label>
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_jpgtg" class="form-control" placeholder="Jawatan Pegawai Bertanggungjawab"
-                                                                name="e_jpgtg" value="{{ $pelesen->e_jpgtg }}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_jpgtg" value="{{ $pelesen->e_jpgtg }}" required>
+                                                    @error('e_jpgtg')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -242,12 +242,12 @@
                                                     Alamat Emel Pengurus</label>
                                                 <div class="col-md-6">
                                                     <input type="email" id="e_email_pengurus" class="form-control" placeholder="Alamat Emel Pengurus"
-                                                                name="e_email_pengurus" value="{{ $pelesen->e_email_pengurus}}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                                name="e_email_pengurus" value="{{ $pelesen->e_email_pengurus}}" required>
+                                                    @error('e_email_pengurus')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
-                                                    @enderror --}}
+                                                    @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -257,12 +257,12 @@
                                                 <div class="col-md-6">
                                                     <input type="text" id="e_syktinduk" class="form-control"
                                                         placeholder="Syarikat Induk" name="e_syktinduk"
-                                                        value="{{ $pelesen->e_syktinduk }}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                        value="{{ $pelesen->e_syktinduk }}" required>
+                                                    @error('e_syktinduk')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
-                                                @enderror --}}
+                                                @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2" style="margin-bottom:-1%">
@@ -277,11 +277,11 @@
                                                             <option value="Swasta">Swasta</option>
                                                         </select>
                                                     </fieldset>
-                                                    {{-- @error('alamat_kilang_1')
+                                                    @error('e_group')
                                                                 <div class="alert alert-danger">
                                                                     <strong>{{ $message }}</strong>
                                                                 </div>
-                                                            @enderror --}}
+                                                            @enderror
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -289,14 +289,15 @@
                                                     class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Kapasiti Pemprosesan / Tahun</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="kap_proses" class="form-control" onkeypress="return isNumberKey(event)"
+                                                    <input type="text" id="kap_proses" class="form-control" oninput="validate_two_decimal(this)"
+                                                     onkeypress="return isNumberKey(event)"
                                                         placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                                        value="{{ $pelesen->kap_proses }}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                        value="{{ $pelesen->kap_proses }}" required>
+                                                    @error('kap_proses')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
-                                                @enderror --}}
+                                                @enderror
                                                 </div>
                                             </div>
                                             <div class="row mt-2">
@@ -304,18 +305,19 @@
                                                     class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                                     Kapasiti Tangki Simpanan</label>
                                                 <div class="col-md-6">
-                                                    <input type="text" id="kap_tangki" class="form-control" onkeypress="return isNumberKey(event)"
+                                                    <input type="text" id="kap_tangki" class="form-control" oninput="validate_two_decimal(this)"
+                                                     onkeypress="return isNumberKey(event)"
                                                         placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
-                                                        value="{{ $pelesen->kap_tangki }}">
-                                                    {{-- @error('alamat_kilang_1')
+                                                        value="{{ $pelesen->kap_tangki }}" required>
+                                                    @error('kap_tangki')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
-                                                @enderror --}}
+                                                @enderror
                                                 </div>
                                             </div><br>
 
-                                            <div class="row mt-2" style="text-align: center; font-size: 12px">
+                                            <div class="row mt-2" style="text-align: center; font-size: 12px" >
                                                 <div class="col-md-3">
                                                     <span></span>
                                                 </div>

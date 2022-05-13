@@ -74,13 +74,14 @@
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='hari_operasi'
                                                     style="margin-left:42%; width:40%"
-                                                    onkeypress="return isNumberKey(event)" id="hari_operasi" required
-                                                    title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
+                                                    onkeypress="return isNumberKey(event)" id="hari_operasi"  oninput="validate_two_decimal(this)"
+                                                    required
+                                                    title="Sila isikan butiran ini." value="{{ $penyata->hari_operasi ?? 0 }}">
+                                                @error('hari_operasi')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
-                                                @enderror --}}
+                                                @enderror
                                             </div>
                                             <div>
 
@@ -93,13 +94,14 @@
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='kapasiti'
                                                     style="margin-left:42%; width:40%"
-                                                    onkeypress="return isNumberKey(event)" id="kapasiti" required
-                                                    title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
+                                                    onkeypress="return isNumberKey(event)" id="kapasiti" oninput="validate_two_decimal(this)"
+                                                    required
+                                                    title="Sila isikan butiran ini." value="{{ $penyata->kapasiti ?? 0 }}">
+                                                @error('kapasiti')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
-                                                @enderror --}}
+                                                @enderror
                                             </div>
                                         </div>
 

@@ -83,7 +83,14 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b8'
-                                                        style="width:50%" id="ebio_b8">
+                                                        style="width:50%" id="ebio_b8" oninput="validate_two_decimal(this)"
+                                                        onkeypress="return isNumberKey(event)" required>
+
+                                                        @error('ebio_b8')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
                                                 </div>
 
 
@@ -95,26 +102,30 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b5'
-                                                        style="width:50%" id="ebio_b5" required
+                                                        style="width:50%" id="ebio_b5" oninput="validate_two_decimal(this)"
+                                                        onkeypress="return isNumberKey(event)" required
                                                         title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+
+                                                        @error('ebio_b5')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
                                                 </div>
                                                 <div class="col-md-3">
                                                     <span class="required">Jualan / Edaran Tempatan</span>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b9'
-                                                        style="width:50%" id="ebio_b9" required
+                                                        style="width:50%" id="ebio_b9" oninput="validate_two_decimal(this)"
+                                                        onkeypress="return isNumberKey(event)" required
                                                         title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+
+                                                        @error('ebio_b9')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
                                                 </div>
 
                                             </div>
@@ -125,8 +136,15 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b6'
-                                                        style="width:50%" id="ebio_b6" required
+                                                        style="width:50%" id="ebio_b6" oninput="validate_two_decimal(this)"
+                                                        onkeypress="return isNumberKey(event)" required
                                                         title="Sila isikan butiran ini.">
+
+                                                        @error('ebio_b6')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
                                                 </div>
 
                                                 <div class="col-md-3">
@@ -134,13 +152,15 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b10'
-                                                        style="width:50%" id="ebio_b10" required
+                                                        style="width:50%" id="ebio_b10" oninput="validate_two_decimal(this)"
+                                                        onkeypress="return isNumberKey(event)" required
                                                         title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+
+                                                        @error('ebio_b10')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
                                                 </div>
                                             </div>
 
@@ -150,8 +170,15 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b7'
-                                                        style="width:50%" id="ebio_b7" required
+                                                        style="width:50%" id="ebio_b7" oninput="validate_two_decimal(this)"
+                                                        onkeypress="return isNumberKey(event)" required
                                                         title="Sila isikan butiran ini.">
+
+                                                        @error('ebio_b7')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
                                                 </div>
 
                                                 <div class="col-md-3">
@@ -159,13 +186,15 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <input type="text" class="form-control" name='ebio_b11'
-                                                        style="width:50%" id="ebio_b11" required
+                                                        style="width:50%" id="ebio_b11" oninput="validate_two_decimal(this)"
+                                                        onkeypress="return isNumberKey(event)" required
                                                         title="Sila isikan butiran ini.">
-                                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+
+                                                        @error('ebio_b11')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror
                                                 </div>
                                             </div>
 
