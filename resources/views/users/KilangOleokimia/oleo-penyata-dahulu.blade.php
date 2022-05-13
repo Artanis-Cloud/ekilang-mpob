@@ -87,7 +87,7 @@
                                             </fieldset>
                                             @error('tahun')
                                                 <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
+                                                    <strong>Sila buat pilihan di bahagian ini</strong>
                                                 </div>
                                             @enderror
                                         </div>
@@ -120,17 +120,11 @@
                                             </fieldset>
                                             @error('bulan')
                                                 <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
+                                                    <strong>Sila buat pilihan di bahagian ini</strong>
                                                 </div>
                                             @enderror
                                         </div>
                                     </div>
-
-
-
-
-
-
 
                                     </div>
                                 </div>
@@ -148,7 +142,6 @@
                                         </div>
 
                                 </div>
-                                {{-- Hidden Gap - Just Ignore --}}
 
                             </form>
 
@@ -179,47 +172,5 @@
 
 
 
-
-    <script>
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
-
-        $(window).on('changed', (e) => {
-            // if($('#example').DataTable().clear().destroy()){
-            // $('#example').DataTable();
-            // }
-        });
-
-        // document.getElementById("form_type").onchange = function() {
-        //     myFunction()
-        // };
-
-        // function myFunction() {
-        //     console.log('asasa');
-        //     table.clear().draw();
-        // }
-    </script>
-
-
-    </body>
-
-    </html>
 
 @endsection

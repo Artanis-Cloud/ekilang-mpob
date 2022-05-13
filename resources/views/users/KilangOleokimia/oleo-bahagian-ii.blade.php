@@ -80,7 +80,7 @@
                                                         Kadar Penggunaan Kapasiti Sebulan (%)	</label>
                                                     <div class="col-md-6">
                                                         <input type="text" class="form-control" name='e104_a6' style="margin-left:42%; width:40%; text-align:right"
-                                                            onkeypress="return isNumberKey(event)" id="e104_a6"
+                                                            onkeypress="return isNumberKey(event)" id="e104_a6" oninput="validate_two_decimal(this)"
                                                             required title="Sila isikan butiran ini." value="{{ $penyata->e104_a6 }}">
                                                         @error('e104_a6')
                                                         <div class="alert alert-danger">

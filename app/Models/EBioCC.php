@@ -23,6 +23,7 @@ class EBioCC extends Model
     protected $fillable = [
         'ebio_cc1',
         'ebio_reg',
+        'ebio_cc2',
         'ebio_cc3',
         'ebio_cc4',
         // 'ebio_c13',

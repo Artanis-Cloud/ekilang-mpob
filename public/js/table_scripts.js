@@ -31,15 +31,3 @@ function save_row(no) {
 function delete_row(no) {
     document.getElementById("row" + no + "").outerHTML = "";
 }
-
-function add_row() {
-    var new_syarikat = document.getElementById("new_syarikat[]").value;
-    var new_jumlah = document.getElementById("new_jumlah[]").value;
-
-    var table = document.getElementById("data_table");
-    var table_len = (table.rows.length) - 1;
-    var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='syarikat_row" + table_len + "'>" + new_syarikat + "</td><td id='jumlah_row" + table_len + "'>" + new_jumlah + "</td><td><input type='button' id='edit_button" + table_len + "' value='Kemaskini' class='edit' onclick='edit_row(" + table_len + ")'> <input type='button' id='save_button" + table_len + "' value='Simpan' class='save' onclick='save_row(" + table_len + ")'> <input type='button' value='Hapus' class='delete' onclick='delete_row(" + table_len + ")'></td></tr>";
-
-    document.getElementById("new_syarikat[]").value = "";
-    document.getElementById("new_jumlah[]").value = "";
-}

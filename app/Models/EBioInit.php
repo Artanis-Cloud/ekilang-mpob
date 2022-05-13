@@ -36,4 +36,9 @@ class EBioInit extends Model
       'ebio_flagcetak',
 
   ];
+
+  public function ebiocc(){
+    return $this->hasOne(EBioCC::class,'ebio_reg', 'ebio_reg');
+}
+
 }
