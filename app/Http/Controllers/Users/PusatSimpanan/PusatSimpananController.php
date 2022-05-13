@@ -290,26 +290,26 @@ class PusatSimpananController extends Controller
 
 
 
-    public function pusatsimpan_bahagianb()
-    {
+    // public function pusatsimpan_bahagianb()
+    // {
 
-        $breadcrumbs    = [
-            ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('pusatsimpan.bahagianb'), 'name' => "Bahagian B"],
-        ];
+    //     $breadcrumbs    = [
+    //         ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
+    //         ['link' => route('pusatsimpan.bahagianb'), 'name' => "Bahagian B"],
+    //     ];
 
-        $kembali = route('pusatsimpan.dashboard');
+    //     $kembali = route('pusatsimpan.dashboard');
 
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.psimpan';
+    //     $returnArr = [
+    //         'breadcrumbs' => $breadcrumbs,
+    //         'kembali'     => $kembali,
+    //     ];
+    //     $layout = 'layouts.psimpan';
 
 
 
-        return view('users.PusatSimpanan.pusatsimpan-bahagian-b', compact('returnArr', 'layout'));
-    }
+    //     return view('users.PusatSimpanan.pusatsimpan-bahagian-b', compact('returnArr', 'layout'));
+    // }
 
 
 
@@ -513,10 +513,19 @@ class PusatSimpananController extends Controller
         return view('users.PusatSimpanan.pusatsimpan-penyata-dahulu', compact('returnArr', 'layout'));
     }
 
+    protected function validation_terdahulu(array $data)
+    {
+        return Validator::make($data, [
+            'tahun' => ['required', 'string'],
+            'bulan' => ['required', 'string'],
+        ]);
+    }
 
     public function pusatsimpan_penyata_dahulu_process(Request $request)
     {
         // dd($request->all());
+        $this->validation_terdahulu($request->all())->validate();
+
 
         // $user = User::first();
         // dd($user);
