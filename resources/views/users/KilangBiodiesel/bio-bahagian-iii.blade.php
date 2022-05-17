@@ -455,8 +455,8 @@
 
             </div>
 
-            <!-- Senarai Syarikat Modal -->
             @foreach ($penyata as $key => $data)
+            <!-- Senarai Syarikat Modals -->
                 <div class="modal fade" id="modal{{ $key }}" tabindex="-1" role="dialog"
                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
@@ -464,15 +464,13 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalCenterTitle">
-                                    Senarai Syarikat</h5>
+                                    Senarai Syarikat {{ $key }}</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <i data-feather="x"></i>
                                 </button>
                             </div>
-                            {{-- <form
-                            action="{{ route('bio.edit.bahagian.iii.sykt', [$data->ebio_cc1]) }}"
-                            method="post">
-                            @csrf --}}
+                            <form action="{{ route('bio.edit.bahagian.iii.sykt', $data->ebio_c1) }}" method="post">
+                            @csrf
                             <div class="modal-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" style="font-size: 13px">
@@ -487,11 +485,11 @@
                                                 <tr style="text-align: right">
                                                     {{-- <td class="text-center">{{ $key+1 }}</td> --}}
                                                     <td><input type="text" id="ebio_cc3" class="form-control"
-                                                            placeholder="Nama Syarikat" name="ebio_cc3"
+                                                            placeholder="Nama Syarikat" name="ebio_cc3[]"
                                                             value="{{ $ebiocc_data->ebio_cc3 ?? 0 }}">
                                                     </td>
                                                     <td><input type="text" id="ebio_cc4" class="form-control"
-                                                            placeholder="Jumlah Jualan / Edaran" name="ebio_cc4"
+                                                            placeholder="Jumlah Jualan / Edaran" name="ebio_cc4[]"
                                                             value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td>
 
                                                 </tr>
@@ -511,6 +509,7 @@
                                     <span class="d-none d-sm-block">Kemaskini</span>
                                 </button>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>

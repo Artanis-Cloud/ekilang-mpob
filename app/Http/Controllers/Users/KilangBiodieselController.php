@@ -57,18 +57,18 @@ class KilangBiodieselController extends Controller
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
 
         $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
-        ($pelesen->bil_tangki_ppo ?? 0) +
-        ($pelesen->bil_tangki_cpko ?? 0) +
-        ($pelesen->bil_tangki_ppko ?? 0) +
-        ($pelesen->bil_tangki_oleo ?? 0) +
-        ($pelesen->bil_tangki_others ?? 0);
+            ($pelesen->bil_tangki_ppo ?? 0) +
+            ($pelesen->bil_tangki_cpko ?? 0) +
+            ($pelesen->bil_tangki_ppko ?? 0) +
+            ($pelesen->bil_tangki_oleo ?? 0) +
+            ($pelesen->bil_tangki_others ?? 0);
 
         $jumlah2 = ($pelesen->kap_tangki_cpo ?? 0) +
-        ($pelesen->kap_tangki_ppo ?? 0) +
-        ($pelesen->kap_tangki_cpko ?? 0) +
-        ($pelesen->kap_tangki_ppko ?? 0) +
-        ($pelesen->kap_tangki_oleo ?? 0) +
-        ($pelesen->kap_tangki_others ?? 0);
+            ($pelesen->kap_tangki_ppo ?? 0) +
+            ($pelesen->kap_tangki_cpko ?? 0) +
+            ($pelesen->kap_tangki_ppko ?? 0) +
+            ($pelesen->kap_tangki_oleo ?? 0) +
+            ($pelesen->kap_tangki_others ?? 0);
 
         //dd($pelesen);
 
@@ -142,16 +142,16 @@ class KilangBiodieselController extends Controller
 
         $user = User::get();
 
-        return view('users.KilangBiodiesel.bio-tukar-password', compact('returnArr', 'layout','user'));
+        return view('users.KilangBiodiesel.bio-tukar-password', compact('returnArr', 'layout', 'user'));
     }
 
     public function bio_update_password(Request $request, $id)
     {
         $user = User::findOrFail(auth()->user()->id);
         //compare password
-        if(!Hash::check($request->old_password, $user->password)){
+        if (!Hash::check($request->old_password, $user->password)) {
             return redirect()->route('bio.tukarpassword')
-            ->with('error', 'Sila masukkan kata laluan lama yang betul');
+                ->with('error', 'Sila masukkan kata laluan lama yang betul');
         }
 
         $password = Hash::make($request->new_password);
@@ -160,7 +160,6 @@ class KilangBiodieselController extends Controller
 
         return redirect()->route('bio.tukarpassword')
             ->with('success', 'Kata Laluan berjaya ditukar');
-
     }
 
     public function bio_bahagiania()
@@ -316,7 +315,7 @@ class KilangBiodieselController extends Controller
 
         $penyata->delete();
         return redirect()->route('bio.bahagiania')
-        ->with('success','Produk Dihapuskan');
+            ->with('success', 'Produk Dihapuskan');
     }
 
 
@@ -477,7 +476,7 @@ class KilangBiodieselController extends Controller
 
         $penyata->delete();
         return redirect()->route('bio.bahagianib')
-        ->with('success','Produk Dihapuskan');
+            ->with('success', 'Produk Dihapuskan');
     }
 
 
@@ -626,7 +625,7 @@ class KilangBiodieselController extends Controller
 
         $penyata->delete();
         return redirect()->route('bio.bahagianic')
-        ->with('success','Produk Dihapuskan');
+            ->with('success', 'Produk Dihapuskan');
     }
 
     public function bio_bahagianii()
@@ -715,7 +714,7 @@ class KilangBiodieselController extends Controller
 
         $penyata->delete();
         return redirect()->route('bio.bahagianii')
-        ->with('success','Produk Dihapuskan');
+            ->with('success', 'Produk Dihapuskan');
     }
 
     public function bio_bahagianiii()
@@ -738,9 +737,9 @@ class KilangBiodieselController extends Controller
 
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
         if ($user) {
-            $penyata = EBioC::with('ebioinit', 'produk','ebiocc')->where('ebio_reg', $user->ebio_reg)->get();
+            $penyata = EBioC::with('ebioinit', 'produk', 'ebiocc')->where('ebio_reg', $user->ebio_reg)->get();
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
-// dd($penyata);
+            // dd($penyata);
             $senarai_syarikat = EBioCC::with('ebioinit')->where('ebio_reg', $user->ebio_reg)->get();
 
             $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
@@ -750,7 +749,6 @@ class KilangBiodieselController extends Controller
             $totaliiic8 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c8');
             $totaliiic9 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c9');
             $totaliiic10 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c10');
-
         } else {
             $penyata = [];
             $totaliiic4 = 0;
@@ -765,7 +763,8 @@ class KilangBiodieselController extends Controller
 
 
         return view('users.KilangBiodiesel.bio-bahagian-iii', compact(
-            'returnArr', 'senarai_syarikat',
+            'returnArr',
+            'senarai_syarikat',
             'layout',
             'user',
             'produk',
@@ -886,29 +885,42 @@ class KilangBiodieselController extends Controller
     public function bio_edit_bahagian_iii_sykt(Request $request, $id)
     {
 
-
         // dd($request->all());
         $penyata = EBioC::findOrFail($id);
-        $penyata->ebio_cc3 = $request->ebio_cc3;
-        $penyata->ebio_cc4 = $request->ebio_cc4;
-        $penyata->save();
+        // dd($penyata);
+
+        $syarikat = EBioCC::where('ebio_cc2', $penyata->ebio_c3)->get();
+
+        foreach ($syarikat as $key => $data) {
+            $data->ebio_cc3 = $request->ebio_cc3[$key];
+            $data->ebio_cc4 = $request->ebio_cc4[$key];
+            $data->save();
+        }
+        // dd($syarikat);
 
         return redirect()->route('bio.bahagianiii')
             ->with('success', 'Maklumat telah disimpan');
     }
 
 
-
     public function bio_delete_bahagian_iii($id)
     {
+
         $penyata = EBioC::findOrFail($id);
+
+        $syarikat = EBioCC::where('ebio_cc2', $penyata->ebio_c3)->get();
+
         // $penyata2 = EBioCC::findOrFail($id);
         // dd($penyata);
+        foreach ($syarikat as $data) {
+
+            $data->delete();
+        }
 
         $penyata->delete();
         // $penyata2->delete()
         return redirect()->route('bio.bahagianiii')
-        ->with('success','Produk Dihapuskan');
+            ->with('success', 'Produk Dihapuskan');
     }
 
     public function bio_bahagianiv()
@@ -1069,7 +1081,6 @@ class KilangBiodieselController extends Controller
 
         return redirect()->route('bio.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');
-
     }
 
 
@@ -1155,7 +1166,8 @@ class KilangBiodieselController extends Controller
             'returnArr',
             'pelesen',
             'pelesen2',
-            'user', 'date',
+            'user',
+            'date',
             'ia',
             'ib',
             'ic',
@@ -1243,7 +1255,7 @@ class KilangBiodieselController extends Controller
     {
 
         //store file
-        if($data['file_upload']){
+        if ($data['file_upload']) {
             $file = $data['file_upload']->store('email/attachement', 'public');
         }
 
