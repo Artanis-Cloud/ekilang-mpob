@@ -47,6 +47,8 @@
 
 
             <div class="card-body">
+                <div class="pl-3">
+
                 <form action="{{ route('bio.add.bahagian.iii') }}" method="post">
                     @csrf
                     <div class="mb-4 text-center">
@@ -464,7 +466,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalCenterTitle">
-                                    Senarai Syarikat {{ $key }}</h5>
+                                    Senarai Syarikat</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <i data-feather="x"></i>
                                 </button>
@@ -623,6 +625,7 @@
     </div>
 
     </div>
+    </div>
 @endsection
 @section('scripts')
     <script>
@@ -639,39 +642,6 @@
     <script type="text/javascript" src="{{ asset('js/table_scripts.js') }}""></script>
 
     <script>
-        // function inputHidden() {
-        //     var ebio_sykt = $("#ebio_sykt").val();
-        //     var ebio_jumlah = $("#ebio_jumlah").val();
-
-        //     document.getElementById("ebio_sykt").value = ebio_sykt;
-        //     document.getElementById("ebio_jumlah").value = ebio_jumlah;
-        // }
-        // $(document).ready(function() {
-        //     $("#btnShow").on('click', function() {
-        //         console.log('nasuk');
-
-        //         var getTxtValue1 = $("#new_syarikat[]").val(); // this gives textbox value
-        //         var getTxtValue2 = $("#new_jumlah[]").val(); // this gives textbox value
-        //         $("#myInputHidden1[]").val(getTxtValue1); // this will set hidden field value
-        //         $("#myInputHidden2[]").val(getTxtValue2); // this will set hidden field value
-        //         // alert(getTxtValue1);
-        //         // alert(getTxtValue2);
-        //         console.log('#btnShow');
-        //     });
-        // })
-
-        // function transferid(){
-        //     // console.log('nasuk');
-
-        //         var getTxtValue1 = $("#ebio_sykt1").val(); // this gives textbox value
-        //         var getTxtValue2 = $("#ebio_jumlah1").val(); // this gives textbox value
-        //         $("#myInputHidden1").val(getTxtValue1); // this will set hidden field value
-        //         $("#myInputHidden2").val(getTxtValue2); // this will set hidden field value
-        //         // alert(getTxtValue1);
-        //         // alert(getTxtValue2);
-        //         // console.log('#btnShow');
-        //         $('#modal').modal('hide');
-        // }
         function add_row() {
             var new_syarikat = document.getElementById("new_syarikat[]").value;
             var new_jumlah = document.getElementById("new_jumlah[]").value;
@@ -680,11 +650,7 @@
             var table_len = (table.rows.length) - 1;
             var row = table.insertRow(table_len).outerHTML = "<tr id='row" + table_len + "'><td id='syarikat_row" +
                 table_len + "'>" + new_syarikat + "</td><td id='jumlah_row" + table_len + "'>" + new_jumlah +
-                "</td><td><input type='button' id='edit_button" + table_len +
-                "' value='Kemaskini' class='edit' onclick='edit_row(" + table_len +
-                ")'> <input type='button' id='save_button" + table_len +
-                "' value='Simpan' class='save' onclick='save_row(" + table_len +
-                ")'> <input type='hidden' id='jumlah_row" + table_len +
+                "</td><td><input type='hidden' id='jumlah_row" + table_len +
                 "' name='jumlah_row_hidden[]' value=" + new_jumlah +
                 "> <input type='button' value='Hapus' class='delete' onclick='delete_row(" + table_len + ")'></td></tr>";
 
