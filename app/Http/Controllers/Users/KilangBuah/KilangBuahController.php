@@ -46,20 +46,28 @@ class KilangBuahController extends Controller
         $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
         // $pelesen = E91Init::where('e91_nl', auth()->user()->$no_lesen)->first();
 
-
-        // dd($pelesen);
-        // $data = .....;
-
-
-
-
         return view('users.KilangBuah.buah-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen'));
+    }
+
+
+    public function buah_update_maklumat_asas_pelesen2($id)
+    {
+
+        $penyata = User::findOrFail($id);
+        $penyata->map_flg = '1';
+        $penyata->map_sdate = now();
+
+        $penyata->save();
+
+
+        return redirect()->route('buah.maklumatasaspelesen')
+            ->with('success', 'Maklumat telah dikemaskini');
     }
 
 
     public function buah_update_maklumat_asas_pelesen(Request $request, $id)
     {
-        // dd($request->all());
+        // dd($id);
         $penyata = Pelesen::findOrFail($id);
         $penyata->e_ap1 = $request->e_ap1;
         $penyata->e_ap2 = $request->e_ap2;
@@ -84,8 +92,15 @@ class KilangBuahController extends Controller
         $penyata->kap_tangki = $request->kap_tangki;
         $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
         $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
-
         $penyata->save();
+
+        $map = User::where('username',$penyata->e_nl)->first();
+        $map->map_flg = '1';
+        $map->map_sdate = now();
+        $map->save();
+
+        // dd($map);
+
 
 
         return redirect()->route('buah.maklumatasaspelesen')

@@ -39,6 +39,9 @@
     <link href="{{ asset('nice-admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}"
         rel="stylesheet">
 
+    {{-- SweetAlert2 --}}
+    <link href="{{ asset('nice-admin/assets/libs/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -1331,6 +1334,8 @@
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->
+        <button id="map-message-warning" hidden></button>
+        <a id="map-flag-redirect" href="{{ route('buah.maklumatasaspelesen') }}" hidden></a>
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
@@ -1372,13 +1377,18 @@
     {{-- plotly --}}
     <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
 
+    {{-- sweetalert2 --}}
+    <script src="{{ asset('nice-admin/assets/libs/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+    <script src="{{ asset('nice-admin/assets/libs/sweetalert2/sweet-alert.init.js') }}"></script>
+
     {{-- notification --}}
     <script>
         @if (Session::has('success'))
             toastr.success('{{ session('success') }}', 'Berjaya!', {
                 "progressBar": true
             });
-        @elseif (Session::has('error'))
+        @else
+            if (Session::has('error'))
                 toastr.error('{{ session('error') }}', 'Ralat!', {
                     "progressBar": true
                 });
@@ -1499,7 +1509,46 @@
     </script>
 
     @yield('scripts')
+    @if ($map_url)
+        @if ($not_admin)
+            @if (now() > $map_date_expired)
+                <script>
+                    $('#map-message-warning').click(function() {
+                        swal({
+                            title: "Perhatian!",
+                            text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen. Sistem akan membawa anda ke halaman tersebut dalam masa 5 saat",
+                            type: "warning",
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            confirmButtonColor: "#DD6B55",
+                            confirmButtonText: "Yes, delete it!",
+                            closeOnConfirm: false
+                        }, function() {
+                            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                        });
+                    });
+                    // $('#map-message').click(function(){
+                    //     swal({
+                    //         title: "Perhatian!",
+                    //         text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen. Sistem akan membawa anda ke halaman tersebut dalam masa 5 saat",
+                    //         timer: 5000,
+                    //         showConfirmButton: false
+                    //     });
+                    // });
 
+                    @if (auth()->user()->map_flg == false)
+                        window.onload = function() {
+                            document.getElementById('map-message-warning').click();
+                        }
+                    @endif
+
+                    setTimeout(function() {
+                        document.getElementById('map-flag-redirect').click();
+                    }, 5100);
+                </script>
+            @endif
+        @endif
+    @endif
 </body>
 
 </html>

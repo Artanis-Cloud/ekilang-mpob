@@ -32,6 +32,8 @@ class User extends Authenticatable
         'directory',
         'priv',
         'role',
+        'map_flg',
+        'map_sdate',
     ];
 
     /**
