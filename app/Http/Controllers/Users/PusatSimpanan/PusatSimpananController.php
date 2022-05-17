@@ -540,10 +540,8 @@ class PusatSimpananController extends Controller
         if ($user) {
             $myDateTime = DateTime::createFromFormat('Y-m-d', $user->e07_sdate);
             $formatteddate = $myDateTime->format('d-m-Y');
-            $penyata = H07Btranshipment::with('e07init', 'produk')->where('e07bt_nobatch', $user->e07_nobatch)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '!=', '07');
-            })->get();
-            // dd($user->e07_nobatch);
+            $penyata = H07Btranshipment::with('h07init', 'produk')->where('e07bt_nobatch', $user->e07_nobatch)->get();
+            // dd($penyata);
             $total = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_stokawal');
             $total2 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_terima');
             $total3 = DB::table("h07_btranshipment")->where('e07bt_nobatch', $user->e07_nobatch)->sum('e07bt_edaran');

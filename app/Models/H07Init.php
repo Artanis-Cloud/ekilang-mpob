@@ -33,4 +33,10 @@ class H07Init extends Model
         'e07_jpg',
 
     ];
+
+    public function h07btranshipment()
+    {
+
+        return $this->hasOne(H07Btranshipment::class, 'e07_nobatch', 'e07bt_nobatch');
+    }
 }

@@ -317,6 +317,7 @@
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
                                         </div>
+                                        @enderror
                                         <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
@@ -331,6 +332,7 @@
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
                                         </div>
+                                        @enderror
                                         <div class="row mb-2">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">

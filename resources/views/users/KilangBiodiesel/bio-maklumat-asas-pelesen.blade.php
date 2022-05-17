@@ -623,45 +623,47 @@
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-            <script>
-                function validation_jumlah() {
-                    var bil_tangki_cpo = $("#bil_tangki_cpo").val();
-                    var bil_tangki_ppo = $("#bil_tangki_ppo").val();
-                    var bil_tangki_cpko = $("#bil_tangki_cpko").val();
-                    var bil_tangki_ppko = $("#bil_tangki_ppko").val();
-                    var bil_tangki_oleo = $("#bil_tangki_oleo").val();
-                    var bil_tangki_others = $("#bil_tangki_others").val();
+            
 
-                    var jumlah = $("#jumlah").val();
-                    var jumlah_input = 0;
+    <script>
+        function validation_jumlah() {
+            var bil_tangki_cpo = $("#bil_tangki_cpo").val();
+            var bil_tangki_ppo = $("#bil_tangki_ppo").val();
+            var bil_tangki_cpko = $("#bil_tangki_cpko").val();
+            var bil_tangki_ppko = $("#bil_tangki_ppko").val();
+            var bil_tangki_oleo = $("#bil_tangki_oleo").val();
+            var bil_tangki_others = $("#bil_tangki_others").val();
 
-                    jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
-                        parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
-                            bil_tangki_oleo)) + parseFloat(Number(bil_tangki_others));
+            var jumlah = $("#jumlah").val();
+            var jumlah_input = 0;
 
-                    document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
-                }
-            </script>
-            <script>
-                function validation_jumlah2() {
-                    var kap_tangki_cpo = $("#kap_tangki_cpo").val();
-                    var kap_tangki_ppo = $("#kap_tangki_ppo").val();
-                    var kap_tangki_cpko = $("#kap_tangki_cpko").val();
-                    var kap_tangki_ppko = $("#kap_tangki_ppko").val();
-                    var kap_tangki_oleo = $("#kap_tangki_oleo").val();
-                    var kap_tangki_others = $("#kap_tangki_others").val();
+            jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
+                parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
+                    bil_tangki_oleo)) + parseFloat(Number(bil_tangki_others));
 
-                    var jumlah = $("#jumlah2").val();
-                    var jumlah_input = 0;
+            document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script>
+    <script>
+        function validation_jumlah2() {
+            var kap_tangki_cpo = $("#kap_tangki_cpo").val();
+            var kap_tangki_ppo = $("#kap_tangki_ppo").val();
+            var kap_tangki_cpko = $("#kap_tangki_cpko").val();
+            var kap_tangki_ppko = $("#kap_tangki_ppko").val();
+            var kap_tangki_oleo = $("#kap_tangki_oleo").val();
+            var kap_tangki_others = $("#kap_tangki_others").val();
 
-                    jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
-                        parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
-                            kap_tangki_oleo)) + parseFloat(Number(kap_tangki_others));
+            var jumlah = $("#jumlah2").val();
+            var jumlah_input = 0;
 
-                    document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
-                }
-            </script>
-            </body>
+            jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
+                parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
+                    kap_tangki_oleo)) + parseFloat(Number(kap_tangki_others));
 
-            </html>
-        @endsection
+            document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script>
+
+
+
+@endsection
