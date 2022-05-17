@@ -336,7 +336,7 @@
                                             <div class="col-md-6">
                                                 <input type="text" id="kap_proses" class="form-control"
                                                     placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                                    onkeypress="return isNumberKey(event)"
+                                                    onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
                                                     value="{{ $pelesen->kap_proses  }}" required>
 
                                                 {{-- @error('alamat_kilang_1')
@@ -353,7 +353,7 @@
                                             <div class="col-md-6">
                                                 <input type="text" id="kap_tangki" class="form-control"
                                                     placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
-                                                    onkeypress="return isNumberKey(event)"
+                                                    onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
                                                     value="{{ $pelesen->kap_tangki }}" required>
 
                                                 {{-- @error('alamat_kilang_1')

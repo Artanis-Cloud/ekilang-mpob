@@ -102,7 +102,7 @@
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e102_al3'
                                         id="e102_al3" onkeypress="return isNumberKey(event)" required
-                                        title="Sila isikan butiran ini."
+                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                         value="{{ number_format($penyata->e102_al3 ?? 0, 2) }}">
                                     @error('e102_al3')
                                         <div class="alert alert-danger">

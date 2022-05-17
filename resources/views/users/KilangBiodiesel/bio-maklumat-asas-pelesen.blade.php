@@ -281,7 +281,7 @@
                                                                 <div class="alert alert-danger">
                                                                     <strong>{{ $message }}</strong>
                                                                 </div>
-                                                            @enderror
+                                                        @enderror
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -359,11 +359,11 @@
                                                     <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
                                                         id="bil_tangki_cpo" required title="Sila isikan butiran ini."
                                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()">
-                                                    {{-- @error('alamat_kilang_1')
-                                                                <div class="alert alert-danger">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror --}}
+                                                    @error('bil_tangki_cpo')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror
                                                 </div>
 
 
@@ -371,21 +371,21 @@
                                                     <input type="text" class="form-control" name='bil_tangki_ppo'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppo"  onchange="validation_jumlah()"
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppo }}">
-                                                    {{-- @error('alamat_kilang_1')
-                                                                <div class="alert alert-danger">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror --}}
+                                                    @error('alamat_kilang_1')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-md-1">
                                                     <input type="text" class="form-control" name='bil_tangki_cpko'
                                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_cpko"  onchange="validation_jumlah()"
                                                         title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpko }}">
-                                                    {{-- @error('alamat_kilang_1')
-                                                                <div class="alert alert-danger">
-                                                                    <strong>{{ $message }}</strong>
-                                                                </div>
-                                                            @enderror --}}
+                                                    @error('bil_tangki_cpko')
+                                                        <div class="alert alert-danger">
+                                                            <strong>{{ $message }}</strong>
+                                                        </div>
+                                                    @enderror
                                                 </div>
                                                 <div class="col-md-1">
                                                     <input type="text" class="form-control" name='bil_tangki_ppko'
