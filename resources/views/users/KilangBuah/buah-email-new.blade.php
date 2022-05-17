@@ -47,123 +47,122 @@
 
             <div class="card-body">
                 {{-- <div class="row"> --}}
-                    {{-- <div class="col-md-4 col-12"> --}}
-                    <div class="pl-3">
-                        <form action="{{ route('buah.send.email.proses') }}" enctype="multipart/form-data" method="post"
-                            onsubmit="return Validate(this);">
-                            @csrf
-                            <div class="text-center">
-                                {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Emel Pertanyaan / Pindaan /
-                                    Cadangan </h3>
-                                {{-- <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
+                {{-- <div class="col-md-4 col-12"> --}}
+                <div class="pl-3">
+                    <form action="{{ route('buah.send.email.proses') }}" enctype="multipart/form-data" method="post"
+                        onsubmit="return Validate(this);">
+                        @csrf
+                        <div class="text-center">
+                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Emel Pertanyaan / Pindaan /
+                                Cadangan </h3>
+                            {{-- <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
                                         </h5> --}}
-                                {{-- <p>Maklumat Kilang</p> --}}
+                            {{-- <p>Maklumat Kilang</p> --}}
+                        </div>
+                        <hr>
+
+
+
+                        <div class="container center mt-2">
+                            <div class="row" style="margin-bottom:-1%">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Jenis Emel</label>
+                                <div class="col-md-6">
+                                    <fieldset class="form-group">
+                                        <select class="form-control" id="basicSelect" name="TypeOfEmail">
+                                            <option selected hidden disabled>Sila Pilih Jenis Emel</option>
+                                            <option value="pertanyaan">Pertanyaan
+                                            </option>
+                                            <option value="pindaan">Pindaan
+                                            </option>
+                                            <option value="cadangan">Cadangan
+                                            </option>
+
+                                        </select>
+                                    </fieldset>
+                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                </div>
                             </div>
-                            <hr>
 
 
-
-                            <div class="container center mt-2">
-                                <div class="row" style="margin-bottom:-1%">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                        Jenis Emel</label>
-                                    <div class="col-md-6">
-                                        <fieldset class="form-group">
-                                            <select class="form-control" id="basicSelect" name="TypeOfEmail">
-                                                <option selected hidden disabled>Sila Pilih Jenis Emel</option>
-                                                <option value="pertanyaan">Pertanyaan
-                                                </option>
-                                                <option value="pindaan">Pindaan
-                                                </option>
-                                                <option value="cadangan">Cadangan
-                                                </option>
-
-                                            </select>
-                                        </fieldset>
-                                        {{-- @error('alamat_kilang_1')
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
+                                    Daripada (Alamat Emel)</label>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control" name='FromEmail' id="FromEmail" required
+                                        title="Sila isikan butiran ini.">
+                                    {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
-                                    </div>
                                 </div>
-
-
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
-                                        Daripada (Alamat Emel)</label>
-                                    <div class="col-md-6">
-                                        <input type="email" class="form-control" name='FromEmail' id="FromEmail" required
-                                            title="Sila isikan butiran ini.">
-                                        {{-- @error('alamat_kilang_1')
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
+                                    Tajuk</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name='Subject' id="Subject" required
+                                        title="Sila isikan butiran ini.">
+                                    {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
-                                    </div>
                                 </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
-                                        Tajuk</label>
-                                    <div class="col-md-6">
-                                        <input type="text" class="form-control" name='Subject' id="Subject" required
-                                            title="Sila isikan butiran ini.">
-                                        {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-bottom: 5%">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                        Kandungan</label>
-                                    {{-- <div class="col-md-6">
+                            </div>
+                            <div class="row" style="margin-bottom: 5%">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Kandungan</label>
+                                {{-- <div class="col-md-6">
                                                     <input type="text" class="form-control" name='Message'
                                                         id="Subject" required title="Sila isikan butiran ini.">
 
                                                 </div> --}}
 
-                                    <div class="col-md-6">
+                                <div class="col-md-6">
 
-                                        <div id="editor" oninput="add_message()">
-                                            {{ old('Message') }}
-                                        </div>
-
+                                    <div id="editor" oninput="add_message()">
+                                        {{ old('Message') }}
                                     </div>
-
-                                    <input type="hidden" id="quill_html" name="Message" value="{{ old('Message') }}">
-
 
                                 </div>
-                                <br>
-                                <div class="row" style=" margin-top:-1%">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label align-items-center">
-                                    </label>
-                                    <div class="col-md-6">
-                                        <div class="form-file">
-                                            <input type="file" class="form-file-input" id="file" name="file_upload"
-                                                onchange="fileValidation()">
+
+                                <input type="hidden" id="quill_html" name="Message" value="{{ old('Message') }}">
+
+
+                            </div>
+                            <br>
+                            <div class="row" style=" margin-top:-1%">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                </label>
+                                <div class="col-md-6">
+                                    <div class="form-file">
+                                        <input type="file" class="form-file-input" id="file" name="file_upload">
+                                        <label class="form-file-label" for="file">
                                             <label class="form-file-label" for="file">
-                                                <label class="form-file-label" for="file">
-                                                    <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
-                                                        dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg dan .png
-                                                        sahaja</i>
-                                                </label>
-
+                                                <i>Notass: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
+                                                    dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg dan .png
+                                                    sahaja</i>
                                             </label>
-                                        </div>
 
+                                        </label>
                                     </div>
+
                                 </div>
                             </div>
-                    </div>
+                        </div>
+                </div>
 
 
 
@@ -249,18 +248,21 @@
 
                 this.value = "";
             };
-            var allowedExtensions =
-                    /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
-
-            if (!allowedExtensions.exec(this.files)) {
-                toastr.error('Sila Masukkan File dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja', 'Ralat!', {
-                    "progressBar": true
-                });
-
-                this.value = "";
-            }
-
         };
-    </script>
 
+        uploadField.onchange = function() {
+            var fileInput = document.getElementById('file');
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                toastr.error(
+                    'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
+                    'Ralat!', {
+                        "progressBar": true
+                    });
+                fileInput.value = '';
+                return false;
+            }
+        }
+    </script>
 @endsection

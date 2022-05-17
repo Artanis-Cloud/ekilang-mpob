@@ -1334,8 +1334,27 @@
         <!-- ============================================================== -->
         <!-- End footer -->
         <!-- ============================================================== -->
-        <button id="map-message-warning" hidden></button>
-        <a id="map-flag-redirect" href="{{ route('buah.maklumatasaspelesen') }}" hidden></a>
+
+        @if (auth()->user()->category == 'PL91')
+            <button id="map-message-warning" hidden></button>
+            <a id="map-flag-redirect" href="{{ route('buah.maklumatasaspelesen') }}" hidden></a>
+        @elseif (auth()->user()->category == 'PL101')
+            <button id="map-message-warning" hidden></button>
+            <a id="map-flag-redirect" href="{{ route('penapis.maklumatasaspelesen') }}" hidden></a>
+        @elseif (auth()->user()->category == 'PL102')
+            <button id="map-message-warning" hidden></button>
+            <a id="map-flag-redirect" href="{{ route('isirung.maklumatasaspelesen') }}" hidden></a>
+        @elseif (auth()->user()->category == 'PL104')
+            <button id="map-message-warning" hidden></button>
+            <a id="map-flag-redirect" href="{{ route('oleo.maklumatasaspelesen') }}" hidden></a>
+        @elseif (auth()->user()->category == 'PL111')
+            <button id="map-message-warning" hidden></button>
+            <a id="map-flag-redirect" href="{{ route('pusatsimpan.maklumatasaspelesen') }}" hidden></a>
+        @elseif (auth()->user()->category == 'PLBIO')
+            <button id="map-message-warning" hidden></button>
+            <a id="map-flag-redirect" href="{{ route('bio.maklumatasaspelesen') }}" hidden></a>
+        @endif
+
     </div>
     <!-- ============================================================== -->
     <!-- End Wrapper -->
@@ -1387,11 +1406,10 @@
             toastr.success('{{ session('success') }}', 'Berjaya!', {
                 "progressBar": true
             });
-        @else
-            if (Session::has('error'))
-                toastr.error('{{ session('error') }}', 'Ralat!', {
-                    "progressBar": true
-                });
+        @elseif (Session::has('error'))
+            toastr.error('{{ session('error') }}', 'Ralat!', {
+                "progressBar": true
+            });
         @endif
     </script>
 

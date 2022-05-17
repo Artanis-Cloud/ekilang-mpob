@@ -86,6 +86,11 @@
                                                                             onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
                                                                             value="{{ old('e91_ak1') ?? $penyata->e91_ak1 ?? 0 }}"
                                                                             onchange="validation_jumlah()">
+                                                                            @error('e91_ak1')
+                                                                            <div class="alert alert-danger">
+                                                                                <strong>Sila isi butiran ini</strong>
+                                                                            </div>
+                                                                        @enderror
                                                                     </td>
 
 
@@ -98,6 +103,11 @@
                                                                             onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
                                                                             value="{{ old('e91_ak2') ?? $penyata->e91_ak2 ?? 0 }}"
                                                                             onchange="validation_jumlah()">
+                                                                            @error('e91_ak2')
+                                                                            <div class="alert alert-danger">
+                                                                                <strong>Sila isi butiran ini</strong>
+                                                                            </div>
+                                                                        @enderror
                                                                     </td>
 
 
@@ -110,6 +120,11 @@
                                                                             onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
                                                                             value="{{ old('e91_ak3') ?? $penyata->e91_ak3 ?? 0 }}"
                                                                             onchange="validation_jumlah()">
+                                                                            @error('e91_ak3')
+                                                                            <div class="alert alert-danger">
+                                                                                <strong>Sila isi butiran ini</strong>
+                                                                            </div>
+                                                                        @enderror
                                                                     </td>
 
 

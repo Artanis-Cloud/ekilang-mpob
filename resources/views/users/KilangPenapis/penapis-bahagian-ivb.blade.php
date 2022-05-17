@@ -49,12 +49,10 @@
                 <div class="card-body">
                     <div class="pl-3">
                         <div class="mb-4 text-center">
-                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                             <h3 style="color: rgb(39, 80, 71);">Bahagian 4 (b)</h3>
                             <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan
                                 Minyak Isirung Sawit
                                 - Bahan Bukan Makanan</h5>
-                            {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
                         <div class="container center mt-4" style="margin-left:4%">
@@ -90,11 +88,11 @@
                                     <input type="text" class="form-control" name='e101_c5' style="width: 50%" id="e101_c5"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this)">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e101_c5')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-3">
                                     <span class="required">Jualan / Edaran Tempatan</span>
@@ -103,11 +101,11 @@
                                     <input type="text" class="form-control" name='e101_c8' style="width: 50%" id="e101_c8"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this)">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e101_c8')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -121,11 +119,11 @@
                                     <input type="text" class="form-control" name='e101_c6' style="width: 50%" id="e101_c6"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this)">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e101_c6')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-3">
                                     <span class="required">Eksport</span>
@@ -134,11 +132,11 @@
                                     <input type="text" class="form-control" name='e101_c9' style="width: 50%" id="e101_c9"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this)">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e101_c9')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
                             </div>
@@ -152,11 +150,11 @@
                                     <input type="text" class="form-control" name='e101_c7' style="width: 50%" id="e101_c7"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this)">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e101_c7')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="col-md-3">
                                     <span class="required">Stok Akhir Di Premis</span>
@@ -165,11 +163,11 @@
                                     <input type="text" class="form-control" name='e101_c10' style="width: 50%"
                                         id="e101_c10" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                    @error('e101_c10')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
                             </div>

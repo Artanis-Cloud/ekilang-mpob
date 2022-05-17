@@ -112,6 +112,11 @@
                                     <input type="text" class="form-control" name='e102_b6' style="width:50%" id="e102_b6"
                                         oninput="validate_two_decimal(this)" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
+                                        @error('e102_b6')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
 

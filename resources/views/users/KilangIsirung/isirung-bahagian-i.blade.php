@@ -41,12 +41,8 @@
             </div>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%; margin-top:2%">
-            {{-- <div class="card-header border-bottom">
-                            <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
-                        </div> --}}
 
             <div class="card-body">
-                {{-- <div class="pl-3"> --}}
 
                 <div class=" text-center">
                     <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 1</h3>
@@ -58,7 +54,6 @@
 
 
                 <div class="col-12 mt-3">
-                    {{-- <div class="row" id="table-bordered"> --}}
 
                     <form action="{{ route('isirung.update.bahagian.i', [$penyata->e102_reg]) }}" method="post">
                         @csrf
