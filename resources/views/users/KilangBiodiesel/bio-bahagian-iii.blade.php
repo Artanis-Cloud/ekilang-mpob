@@ -89,6 +89,11 @@
                             <div class="col-md-3">
                                 <input type="text" class="form-control" name='ebio_c7' style="width:50%" id="ebio_c7" oninput="validate_two_decimal(this)"
                                 onkeypress="return isNumberKey(event)" required>
+                                @error('ebio_c7')
+                                    <div class="alert alert-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
                             </div>
 
                         </div>
@@ -138,6 +143,11 @@
                                 <input type="text" class="form-control" name='ebio_c5' style="width:50%" id="ebio_c5" oninput="validate_two_decimal(this)"
                                 onkeypress="return isNumberKey(event)"
                                     required title="Sila isikan butiran ini.">
+                                    @error('ebio_c5')
+                                    <div class="alert alert-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
                             </div>
 
                             <div class="col-md-3">
@@ -166,6 +176,12 @@
                                 oninput="validate_two_decimal(this)"
                                 onkeypress="return isNumberKey(event)"
                                  required title="Sila isikan butiran ini.">
+                                 @error('ebio_c6')
+                                    <div class="alert alert-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
+
                             </div>
 
                             <div class="col-md-3">
