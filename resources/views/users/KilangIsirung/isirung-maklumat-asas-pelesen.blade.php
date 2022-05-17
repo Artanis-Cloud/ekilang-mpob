@@ -46,56 +46,53 @@
                         </div> --}}
             <div class="card-body">
                 {{-- <div class="row"> --}}
-                    {{-- <div class="col-md-4 col-12"> --}}
-                    <div class="pl-3">
+                {{-- <div class="col-md-4 col-12"> --}}
+                <div class="pl-3">
 
-                        <div class=" text-center">
-                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
-                            <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan </i>
-                            </h5>
-                            {{-- <p>Maklumat Kilang</p> --}}
-                        </div>
-                        <hr>
-                        <form action="{{ route('isirung.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}"
-                            method="post">
-                            @csrf
-                            <div class="container center mt-5">
-                                <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label required col-form-label align-items-center">
-                                        Alamat Premis Berlesen</label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="e_ap1" class="form-control"
-                                            placeholder="Alamat Premis Berlesen 1" name="e_ap1"
-                                            value="{{ $pelesen->e_ap1 }}" required>
-                                        @error('e_ap1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror
-                                    </div>
-                                    <div class="col-md-6" style="margin-left: 41.6%; ">
-                                        <input type="text" id="e_ap2" class="form-control"
-                                            placeholder="Alamat Premis Berlesen 2" name="e_ap2"
-                                            value="{{ $pelesen->e_ap2 }}">
-                                            @error('e_ap2')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror
-                                    </div>
-                                    <div class="col-md-6" style="margin-left: 41.6%;">
-                                        <input type="text" id="e_ap3" class="form-control"
-                                            placeholder="Alamat Premis Berlesen 3" name="e_ap3"
-                                            value="{{ $pelesen->e_ap3 }}">
-                                            @error('e_ap3')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror
-                                    </div>
+                    <div class=" text-center">
+                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
+                        <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan </i>
+                        </h5>
+                        {{-- <p>Maklumat Kilang</p> --}}
+                    </div>
+                    <hr>
+                    <form action="{{ route('isirung.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
+                        @csrf
+                        <div class="container center mt-5">
+                            <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label required col-form-label align-items-center">
+                                    Alamat Premis Berlesen</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="e_ap1" class="form-control"
+                                        placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}"
+                                        required>
+                                    @error('e_ap1')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
+                                <div class="col-md-6" style="margin-left: 41.6%; ">
+                                    <input type="text" id="e_ap2" class="form-control"
+                                        placeholder="Alamat Premis Berlesen 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}">
+                                    @error('e_ap2')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-6" style="margin-left: 41.6%;">
+                                    <input type="text" id="e_ap3" class="form-control"
+                                        placeholder="Alamat Premis Berlesen 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}">
+                                    @error('e_ap3')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
 
                                 <div class="row" style="margin-bottom:2.5%">
                                     <label for="fname"
@@ -132,6 +129,7 @@
                                                 @enderror
                                     </div>
                                 </div>
+                            </div>
 
                                 <div class="row">
                                     <label for="fname"
@@ -148,19 +146,19 @@
                                                 @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-2">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                        No. Faks</label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
-                                            name="e_nofax" value="{{ $pelesen->e_nofax }}" required>
-                                        @error('e_nofax')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror
-                                    </div>
+                            </div>
+                            <div class="row mt-2">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    No. Faks</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
+                                        name="e_nofax" value="{{ $pelesen->e_nofax }}" required>
+                                    @error('e_nofax')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="row mt-2">
                                     <label for="fname"
@@ -319,50 +317,64 @@
                                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top:-1%">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                        Kapasiti Pemprosesan / Tahun</label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="kap_proses" class="form-control"
-                                            placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                            onkeypress="return isNumberKey(event)"
-                                            value="{{ $pelesen->kap_proses  }}">
+                            </div>
+                            <div class="row" style="margin-top:-1%">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Kapasiti Pemprosesan / Tahun</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="kap_proses" class="form-control"
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}">
 
-                                        @error('kap_proses')
+                                    @error('kap_proses')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
                                         </div>
                                     @enderror
-                                    </div>
                                 </div>
-                                <div class="row mb-2">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                        Kapasiti Tangki Simpanan</label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="kap_tangki" class="form-control"
-                                            placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
-                                            onkeypress="return isNumberKey(event)"
-                                            value="{{ $pelesen->kap_tangki }}">
-                                        @error('kap_tangki')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror
-                                    </div>
+                            </div>
+                            <div class="row mb-2">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Kapasiti Tangki Simpanan</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="kap_tangki" class="form-control"
+                                        placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki }}">
+                                    @error('kap_tangki')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mt-3" style="text-align: center; font-size: 12px">
+                                <div class="col-md-5">
+                                    <span></span>
                                 </div>
 
-                                <div class="row mt-3" style="text-align: center; font-size: 12px">
-                                    <div class="col-md-5">
-                                        <span ></span>
-                                    </div>
 
+                                <div class="col-md-1">
+                                    <span>CPKO</span>
+                                </div>
 
-                                    <div class="col-md-1">
-                                        <span>CPKO</span>
-                                    </div>
+                            </div>
+                            <div class="row mt-2">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Bilangan Tangki</label>
 
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_cpko' style="width:100%"
+                                        id="bil_tangki_cpo" title="Sila isikan butiran ini."
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpko }}">
+                                    @error('bil_tangki_cpko')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="row mt-2">
                                     <label for="fname"
@@ -383,6 +395,21 @@
 
 
 
+                            </div>
+                            <div class="row ">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Kapasiti Tangki Simpanan (Tan)</label>
+
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='kap_tangki_cpko' style="width:100%"
+                                        id="bil_tangki_cpo" title="Sila isikan butiran ini."
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpko }}">
+                                    @error('kap_tangki_cpko')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                                 <div class="row ">
                                     <label for="fname"
@@ -402,29 +429,29 @@
                                     </div>
 
 
-                                    <br><br>
-                                    <div class="row ">
-                                        <i style="margin-left:7%;margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
-                                            tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
-                                            bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                                        </i>
-                                    </div>
-
-
-
+                                <br><br>
+                                <div class="row ">
+                                    <i style="margin-left:7%;margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
+                                        tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
+                                        bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                    </i>
                                 </div>
+
+
+
                             </div>
+                        </div>
 
 
-                            <div class="row form-group" style="margin-top: 2%">
-                                <div class="text-right col-md-6">
-                                    <button type="button" class="btn btn-primary"  data-toggle="modal"
+                        <div class="row form-group" style="margin-top: 2%">
+                            <div class="text-right col-md-6">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#next">Simpan</button>
-                                </div>
-
                             </div>
 
-                            <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                        </div>
+
+                        <div class="modal fade" id="next" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
                                 role="document">
@@ -443,8 +470,7 @@
                                         </p>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-light-secondary"
-                                            data-dismiss="modal">
+                                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                                             <i class="bx bx-x d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                         </button>
@@ -456,8 +482,8 @@
                                 </div>
                             </div>
                         </div>
-                        </form>
-                    </div>
+                    </form>
+                </div>
                 {{-- </div> --}}
 
 
