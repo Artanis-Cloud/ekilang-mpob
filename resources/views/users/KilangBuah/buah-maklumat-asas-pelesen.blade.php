@@ -317,31 +317,35 @@
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
                                         </div>
-                                        @enderror
-                                        <div class="row mb-2">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kapasiti Pemprosesan / Tahun</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="kap_proses" class="form-control"
-                                                    placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                                    onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
-                                                    value="{{ $pelesen->kap_proses  }}" required>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Kapasiti Pemprosesan / Tahun</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="kap_proses" class="form-control"
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                        onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
+                                        value="{{ $pelesen->kap_proses  }}" required>
 
-                                    @error('kap_proses')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                        @enderror
-                                        <div class="row mb-2">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Kapasiti Tangki Simpanan</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="kap_tangki" class="form-control"
-                                                    placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
-                                                    onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
-                                                    value="{{ $pelesen->kap_tangki }}" required>
+                                        @error('kap_proses')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                            @enderror
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Kapasiti Tangki Simpanan</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="kap_tangki" class="form-control"
+                                        placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
+                                        onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
+                                        value="{{ $pelesen->kap_tangki }}" required>
 
                                     @error('kap_tangki')
                                         <div class="alert alert-danger">
@@ -370,7 +374,7 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
                                         id="bil_tangki_cpo" required title="Sila isikan butiran ini."
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}"
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo ?? 0  }}"
                                         required>
                                     @error('bil_tangki_cpo')
                                         <div class="alert alert-danger">
@@ -390,7 +394,7 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%"
                                         id="kap_tangki_cpo" required title="Sila isikan butiran ini."
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpo }}"
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpo ?? 0  }}"
                                         required>
                                     @error('kap_tangki_cpo')
                                         <div class="alert alert-danger">
@@ -427,7 +431,7 @@
                                     <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalCenterTitle">
                                             PENGESAHAN</h5>
-                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                        <button type="button" class="close" data-dismiss="modal"
                                             aria-label="Close">
                                             <i data-feather="x"></i>
                                         </button>
