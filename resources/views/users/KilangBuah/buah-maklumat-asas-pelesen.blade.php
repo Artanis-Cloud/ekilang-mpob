@@ -299,9 +299,8 @@
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="e_group" name="e_group" required>
-                                                        <option value="{{ $pelesen->e_group }}"selected hidden >{{ $pelesen->e_group ?? 'Sila Pilih' }}</option>
-                                                        <option value="Kerajaan">Kerajaan</option>
-                                                        <option value="Swasta">Swasta</option>
+                                                        <option {{ ($pelesen->e_group) == 'GOV' ? 'selected' : '' }}  value="GOV">Kerajaan</option>
+                                                        <option {{ ($pelesen->e_group) == 'IND' ? 'selected' : '' }}  value="IND">Swasta</option>
                                                     </select>
                                                 </fieldset>
                                                 @error('e_group')

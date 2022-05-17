@@ -854,6 +854,7 @@ class KilangBiodieselController extends Controller
                 'ebio_cc2' => $data['ebio_c3'],
                 'ebio_cc3' => $data['new_syarikat_hidden'][$key],
                 'ebio_cc4' => $data['jumlah_row_hidden'][$key],
+
             ]);
         }
         return $bio;
@@ -874,8 +875,6 @@ class KilangBiodieselController extends Controller
         $penyata->ebio_c8 = $request->ebio_c8;
         $penyata->ebio_c9 = $request->ebio_c9;
         $penyata->ebio_c10 = $request->ebio_c10;
-        $penyata->ebio_sykt = $request->ebio_sykt;
-        $penyata->ebio_jumlah = $request->ebio_jumlah;
         // $penyata->ebio_c12 = $request->ebio_c12;
         $penyata->save();
 
@@ -884,61 +883,30 @@ class KilangBiodieselController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
-    public function bio_add_bahagian_iii_jualan(Request $request)
+    public function bio_edit_bahagian_iii_sykt(Request $request, $id)
     {
 
-            // dd($request->all());
-            $this->validation_bahagian_iii_jualan($request->all())->validate();
-            $this->store_bahagian_iii_jualan($request->all());
-
-            return redirect()->route('bio.bahagianiii')->with('success', 'Maklumat sudah ditambah');
-
-    }
-
-    protected function validation_bahagian_iii_jualan(array $data)
-    {
-        return Validator::make($data, [
-
-            'ebio_sykt' => ['required', 'string'],
-            'ebio_jumlah' => ['required', 'string'],
-        ]);
-    }
-
-    protected function store_bahagian_iii_jualan(array $data)
-    {
-        // $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
-        // dd($ebio_reg);
-        return EBioC::create([
-            'ebio_sykt' => $data['ebio_sykt'],
-            'ebio_jumlah' => $data['ebio_jumlah'],
-        ]);
-        // return $data;
-        // dd($data);
-    }
-
-    public function bio_edit_bahagian_iii_jualan(Request $request, $id)
-    {
-
-        // $produk = Produk::where('prodname', $request->ebio_c3)->first();
 
         // dd($request->all());
         $penyata = EBioC::findOrFail($id);
-        $penyata->ebio_sykt = $request->ebio_sykt;
-        $penyata->ebio_jumlah = $request->ebio_jumlah;
+        $penyata->ebio_cc3 = $request->ebio_cc3;
+        $penyata->ebio_cc4 = $request->ebio_cc4;
         $penyata->save();
-
 
         return redirect()->route('bio.bahagianiii')
             ->with('success', 'Maklumat telah disimpan');
     }
 
 
+
     public function bio_delete_bahagian_iii($id)
     {
         $penyata = EBioC::findOrFail($id);
+        // $penyata2 = EBioCC::findOrFail($id);
         // dd($penyata);
 
         $penyata->delete();
+        // $penyata2->delete()
         return redirect()->route('bio.bahagianiii')
         ->with('success','Produk Dihapuskan');
     }
