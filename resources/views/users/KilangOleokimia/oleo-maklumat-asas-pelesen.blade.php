@@ -435,7 +435,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-1 text-center"><b>
+                                <div class="col-md-1 text-center">
                                         <b><span id="bil_tangki_jumlah">
                                                 {{ old('bil_tangki_jumlah') ?? number_format($jumlah, 2) }}
                                             </span>
@@ -520,7 +520,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-1 text-center"><b>
+                                <div class="col-md-1 text-center">
                                         <b><span id="kap_tangki_jumlah">
                                                 {{ old('kap_tangki_jumlah') ?? number_format($jumlah2, 2) }}
                                             </span>
