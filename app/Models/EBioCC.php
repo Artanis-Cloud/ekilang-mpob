@@ -33,6 +33,9 @@ class EBioCC extends Model
     public function ebioinit(){
         return $this->hasOne(EBioInit::class,'ebio_reg', 'ebio_reg');
     }
+    public function ebioc(){
+        return $this->hasOne(EBioC::class,'ebio_c3', 'ebio_cc2');
+    }
 
 
 }
