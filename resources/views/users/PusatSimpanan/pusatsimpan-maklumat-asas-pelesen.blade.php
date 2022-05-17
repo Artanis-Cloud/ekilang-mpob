@@ -312,7 +312,7 @@
                                     Kapasiti Pemprosesan / Tahun</label>
                                 <div class="col-md-6">
                                     <input type="text" id="kap_proses" class="form-control"
-                                        onkeypress="return isNumberKey(event)" placeholder="Kapasiti Pemprosesan / Tahun"
+                                        onkeypress="return isNumberKey(event)" placeholder="Kapasiti Pemprosesan / Tahun" oninput="validate_two_decimal(this)"
                                         name="kap_proses" value="{{ $pelesen->kap_proses }}" required>
                                     @error('kap_proses')
                                         <div class="alert alert-danger">
@@ -327,7 +327,7 @@
                                     Kapasiti Tangki Simpanan</label>
                                 <div class="col-md-6">
                                     <input type="text" id="kap_tangki" class="form-control"
-                                        onkeypress="return isNumberKey(event)" placeholder="Kapasiti Tangki Simpanan"
+                                        onkeypress="return isNumberKey(event)" placeholder="Kapasiti Tangki Simpanan" oninput="validate_two_decimal(this)"
                                         name="kap_tangki" value="{{ $pelesen->kap_tangki }}" required>
                                     @error('kap_tangki')
                                         <div class="alert alert-danger">

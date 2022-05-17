@@ -90,6 +90,10 @@ class KilangIsirungController extends Controller
         $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
         $penyata->save();
 
+        $map = User::where('username',$penyata->e_nl)->first();
+        $map->map_flg = '1';
+        $map->map_sdate = now();
+        $map->save();
 
         return redirect()->route('isirung.maklumatasaspelesen')
             ->with('success', 'Maklumat telah dikemaskini');
