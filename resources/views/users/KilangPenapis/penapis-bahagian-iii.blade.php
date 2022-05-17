@@ -68,7 +68,7 @@
                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong>Sila isi butiran ini</strong>
                                                     </div>
                                                 @enderror --}}
                                 </div>
@@ -84,7 +84,7 @@
                                         value="{{ number_format($penyata->e101_a2 ?? 0, 2) }}">
                                     @error('e101_a2')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -100,7 +100,7 @@
                                         value="{{ number_format($penyata->e101_a3 ?? 0, 2) }}">
                                     @error('e101_a3')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>

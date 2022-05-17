@@ -51,20 +51,14 @@
                         </div>
                     </div>
                     <div class="card" style="margin-right:2%; margin-left:2%">
-                        {{-- <div class="card-header border-bottom">
-                            <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
-                        </div> --}}
                         <form action="{{ route('penapis.add.bahagian.vi') }}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="row">
-                                    {{-- <div class="col-md-4 col-12"> --}}
                                     <div class="pl-3">
                                         <div class="mb-4 text-center">
-                                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                             <h3 style="color: rgb(39, 80, 71);">Bahagian 6</h3>
                                             <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit</h5>
-                                            {{-- <p>Maklumat Kilang</p> --}}
                                         </div>
                                         <hr>
                                         <div class="container center mt-4">
@@ -95,7 +89,7 @@
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong>Sila isi butiran ini</strong>
                                                     </div>
                                                 @enderror --}}
                                                 </div>
@@ -111,7 +105,7 @@
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong>Sila isi butiran ini</strong>
                                                     </div>
                                                 @enderror --}}
                                                 </div>
@@ -124,7 +118,7 @@
                                                         title="Sila isikan butiran ini.">
                                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong>Sila isi butiran ini</strong>
                                                     </div>
                                                 @enderror --}}
                                                 </div>

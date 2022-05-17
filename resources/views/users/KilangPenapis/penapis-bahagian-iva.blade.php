@@ -41,9 +41,6 @@
             </div>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            {{-- <div class="card-header border-bottom">
-                            <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
-                        </div> --}}
             <form action="{{ route('penapis.add.bahagian.iva') }}" method="post">
                 @csrf
                 <div class="card-body">
@@ -90,7 +87,7 @@
                                         title="Sila isikan butiran ini.">
                                     @error('e101_c5')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -103,7 +100,7 @@
                                         title="Sila isikan butiran ini.">
                                     @error('e101_c8')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -121,7 +118,7 @@
                                         title="Sila isikan butiran ini.">
                                     @error('e101_c6')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -134,7 +131,7 @@
                                         title="Sila isikan butiran ini.">
                                     @error('e101_c9')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -152,7 +149,7 @@
                                         title="Sila isikan butiran ini.">
                                     @error('e101_c7')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -165,7 +162,7 @@
                                         oninput="validate_two_decimal(this)" title="Sila isikan butiran ini.">
                                     @error('e101_c10')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>

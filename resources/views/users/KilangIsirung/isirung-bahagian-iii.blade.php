@@ -107,7 +107,7 @@
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
                                         @error('e102_b6')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>

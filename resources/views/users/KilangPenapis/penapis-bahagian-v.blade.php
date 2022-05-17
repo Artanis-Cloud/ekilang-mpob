@@ -66,7 +66,7 @@
                                     </select>
                                     @error('e101_d3')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -80,7 +80,7 @@
                                         oninput="validate_two_decimal(this)">
                                     @error('e101_d6')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -118,7 +118,7 @@
                                         oninput="validate_two_decimal(this)">
                                     @error('e101_d7')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -136,7 +136,7 @@
                                         oninput="validate_two_decimal(this)">
                                     @error('e101_d5')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -149,7 +149,7 @@
                                         oninput="validate_two_decimal(this)">
                                     @error('e101_d8')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>

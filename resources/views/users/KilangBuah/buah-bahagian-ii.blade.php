@@ -46,12 +46,10 @@
                     <div class="pl-3">
 
                         <div class="text-center">
-                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h3>
                             <h5 style="color: rgb(39, 80, 71); font-size:14px">Maklumat Jam Pengilangan, Kadar
                                 Perahan Dan
                                 Harga</h5>
-                            {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
 
@@ -73,11 +71,11 @@
                                             style=" width:40%; text-align:right" onkeypress="return isNumberKey(event)"
                                             id="jam_pengilangan" required title="Sila isikan butiran ini."
                                             value="{{ $penyata->e91_ah1 ?? 0 }}">
-                                        {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+                                            @error('e91_ah1')
+                                            <div class="alert alert-danger">
+                                                <strong>Sila isi butiran ini</strong>
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row mt-2">
@@ -90,11 +88,11 @@
                                             style="width:40%; text-align:right" onkeypress="return isNumberKey(event)"
                                             id="kadar_perahan_mksm" required title="Sila isikan butiran ini."
                                             value="{{ $penyata->e91_ah2 ?? 0 }}">
-                                        {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+                                            @error('e91_ah2')
+                                            <div class="alert alert-danger">
+                                                <strong>Sila isi butiran ini</strong>
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row mt-2">
@@ -106,11 +104,11 @@
                                             style="width:40%; text-align:right" onkeypress="return isNumberKey(event)"
                                             id="kadar_perolehan_isirung" required title="Sila isikan butiran ini."
                                             value="{{ $penyata->e91_ah3 ?? 0 }}">
-                                        {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+                                            @error('e91_ah3')
+                                            <div class="alert alert-danger">
+                                                <strong>Sila isi butiran ini</strong>
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row mt-2">
@@ -123,11 +121,11 @@
                                             id="harga_purata_buah_sawit" placeholder="RM" required
                                             title="Sila isikan butiran ini." value="{{ $penyata->e91_ah4 ?? 0 }}">
                                         <p><i>(1% Kadar Perahan)</i></p>
-                                        {{-- @error('alamat_kilang_1')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror --}}
+                                        @error('e91_ah4')
+                                            <div class="alert alert-danger">
+                                                <strong>Sila isi butiran ini</strong>
+                                            </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="row">

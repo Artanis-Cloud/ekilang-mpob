@@ -55,7 +55,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_nlkppk" class="form-control"
                                         placeholder="No. Lesen KPPK" onkeypress="return isNumberKey(event)"
-                                        name="e_nlkppk" value="{{ $pelesen->e_notel }}" required>
+                                        name="e_nlkppk" value="{{ $pelesen->e_nlkppk }}" required>
                                     @error('e_nlkppk')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>

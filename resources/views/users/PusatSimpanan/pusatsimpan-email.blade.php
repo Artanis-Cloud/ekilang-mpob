@@ -243,21 +243,28 @@
 
         uploadField.onchange = function() {
             if (this.files[0].size > 3145728) {
-                toastr.error( 'Saiz fail melebihi 3MB!', 'Ralat!', { "progressBar": true });
-
-                this.value = "";
-            };
-            var allowedExtensions =
-                    /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
-
-            if (!allowedExtensions.exec(this.files)) {
-                toastr.error('Sila Masukkan File dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja', 'Ralat!', {
+                toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
                     "progressBar": true
                 });
 
                 this.value = "";
-            }
+            };
         };
+
+        uploadField.onchange = function() {
+            var fileInput = document.getElementById('file');
+            var filePath = fileInput.value;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                toastr.error(
+                    'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
+                    'Ralat!', {
+                        "progressBar": true
+                    });
+                fileInput.value = '';
+                return false;
+            }
+        }
     </script>
 
 @endsection

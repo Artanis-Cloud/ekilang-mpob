@@ -47,14 +47,11 @@
                     <div class="pl-3">
 
                         <div class="mb-4 text-center">
-                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                             <h3 style="color: rgb(39, 80, 71); ">Bahagian 2</h3>
                             <h5 style="color: rgb(39, 80, 71); font-size:14px">Kadar Perahan CPKO, Kadar Perolehan PKC, Jam
                                 Pengilangan dan Penggunaan Kapasiti</h5>
 
 
-
-                            {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
 
@@ -72,7 +69,7 @@
                                         value="{{ number_format($penyata->e102_al1 ?? 0, 2) }}">
                                     @error('e102_al1')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -89,7 +86,7 @@
                                         value="{{ number_format($penyata->e102_al2 ?? 0, 2) }}">
                                     @error('e102_al2')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -106,7 +103,7 @@
                                         value="{{ number_format($penyata->e102_al3 ?? 0, 2) }}">
                                     @error('e102_al3')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
@@ -123,7 +120,7 @@
                                         value="{{ number_format($penyata->e102_al4 ?? 0, 2) }}">
                                     @error('e102_al4')
                                         <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>

@@ -592,7 +592,7 @@ class KilangBuahController extends Controller
 
 
 
-        return view('users.KilangBuah.buah-email', compact('returnArr', 'layout'));
+        return view('users.KilangBuah.buah-email-new', compact('returnArr', 'layout'));
     }
 
 
