@@ -338,7 +338,8 @@
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b5'
-                                                                                                class="form-control"
+                                                                                                class="form-control" oninput="validate_two_decimal(this)"
+                                                                                                onkeypress="return isNumberKey(event)" required
                                                                                                 value="{{ $data->ebio_b5 }}">
                                                                                         </div>
                                                                                         <label>Belian / Terimaan
@@ -346,14 +347,16 @@
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b6'
-                                                                                                class="form-control"
+                                                                                                class="form-control" oninput="validate_two_decimal(this)"
+                                                                                                onkeypress="return isNumberKey(event)" required
                                                                                                 value="{{ $data->ebio_b6 }}">
                                                                                         </div>
                                                                                         <label>Pengeluaran </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b7'
-                                                                                                class="form-control"
+                                                                                                class="form-control" oninput="validate_two_decimal(this)"
+                                                                                                onkeypress="return isNumberKey(event)" required
                                                                                                 value="{{ $data->ebio_b7 }}">
                                                                                         </div>
                                                                                         {{-- <label>Import </label>
@@ -366,7 +369,8 @@
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b8'
-                                                                                                class="form-control"
+                                                                                                class="form-control" oninput="validate_two_decimal(this)"
+                                                                                                onkeypress="return isNumberKey(event)" required
                                                                                                 value="{{ $data->ebio_b8 }}">
                                                                                         </div>
                                                                                         <label>Jualan / Edaran
@@ -374,7 +378,8 @@
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b9'
-                                                                                                class="form-control"
+                                                                                                class="form-control" oninput="validate_two_decimal(this)"
+                                                                                                onkeypress="return isNumberKey(event)" required
                                                                                                 value="{{ $data->ebio_b9 }}">
                                                                                         </div>
                                                                                         <label>Eksport
@@ -382,14 +387,16 @@
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b10'
-                                                                                                class="form-control"
+                                                                                                class="form-control" oninput="validate_two_decimal(this)"
+                                                                                                onkeypress="return isNumberKey(event)" required
                                                                                                 value="{{ $data->ebio_b10 }}">
                                                                                         </div>
                                                                                         <label>Stok Akhir Dilapor </label>
                                                                                         <div class="form-group">
                                                                                             <input type="text"
                                                                                                 name='ebio_b11'
-                                                                                                class="form-control"
+                                                                                                class="form-control" oninput="validate_two_decimal(this)"
+                                                                                                onkeypress="return isNumberKey(event)" required
                                                                                                 value="{{ $data->ebio_b11 }}">
                                                                                         </div>
 
