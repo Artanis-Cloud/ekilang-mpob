@@ -686,20 +686,18 @@ class KilangBuahController extends Controller
         return view('users.KilangBuah.buah-penyata-dahulu', compact('returnArr', 'layout'));
     }
 
+    protected function validation_terdahulu(array $data)
+    {
+        return Validator::make($data, [
+            'tahun' => ['required', 'string'],
+            'bulan' => ['required', 'string'],
+        ]);
+    }
 
     public function buah_penyata_dahulu_process(Request $request)
     {
-        // //dd($request->all());
+        $this->validation_terdahulu($request->all())->validate();
 
-        // $tahun = H91Init::where('tahun', $request->e91_thn);
-        // $bulan = H91Init::where('bulan', $request->e91_bln);
-        // $ekat = RegPelesen::get('e_kat');
-        // $ekat = DB::select("SELECT * FROM reg_pelesen");
-        // dd($ekat);
-        // $users = RegPelesen::with('pelesen')->where('e_kat','PL91')->where('e_status',1)->get();
-        // foreach($ekat as $data){
-        // if('e_kat' == "PL91")
-        // {
 
         $user = User::first();
         // dd($user);

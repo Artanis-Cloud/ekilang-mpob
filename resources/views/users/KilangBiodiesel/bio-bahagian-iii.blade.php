@@ -76,6 +76,11 @@
                                     @endforeach
 
                                 </select>
+                                @error('ebio_c3')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
+                                        </div>
+                                    @enderror
 
                             </div>
                             <div class="col-md-3">

@@ -67,7 +67,7 @@
                                     <label for="fname" class="text-right col-sm-5 required align-items-center">i.
                                         Jumlah Jam Pengilangan</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name='e91_ah1'
+                                        <input type="text" class="form-control" name='e91_ah1'  oninput="validate_two_decimal(this)"
                                             style=" width:40%; text-align:right" onkeypress="return isNumberKey(event)"
                                             id="jam_pengilangan" required title="Sila isikan butiran ini."
                                             value="{{ $penyata->e91_ah1 ?? 0 }}">
@@ -84,7 +84,7 @@
                                         Kadar
                                         Perahan MSM (OER) Yang Diperolehi</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name='e91_ah2'
+                                        <input type="text" class="form-control" name='e91_ah2' oninput="validate_two_decimal(this)"
                                             style="width:40%; text-align:right" onkeypress="return isNumberKey(event)"
                                             id="kadar_perahan_mksm" required title="Sila isikan butiran ini."
                                             value="{{ $penyata->e91_ah2 ?? 0 }}">
@@ -100,7 +100,7 @@
                                         class="text-right col-sm-5 control-label col-form-label required align-items-center">iii.
                                         Kadar Perolehan Isirung (KER)</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name='e91_ah3'
+                                        <input type="text" class="form-control" name='e91_ah3' oninput="validate_two_decimal(this)"
                                             style="width:40%; text-align:right" onkeypress="return isNumberKey(event)"
                                             id="kadar_perolehan_isirung" required title="Sila isikan butiran ini."
                                             value="{{ $penyata->e91_ah3 ?? 0 }}">
@@ -116,7 +116,7 @@
                                         class="text-right col-sm-5 control-label col-form-label required align-items-center">iv.
                                         Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name='e91_ah4'
+                                        <input type="text" class="form-control" name='e91_ah4' oninput="validate_two_decimal(this)"
                                             style=" width:40%; text-align:right" onkeypress="return isNumberKey(event)"
                                             id="harga_purata_buah_sawit" placeholder="RM" required
                                             title="Sila isikan butiran ini." value="{{ $penyata->e91_ah4 ?? 0 }}">

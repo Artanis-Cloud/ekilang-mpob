@@ -151,7 +151,7 @@
                                         <input type="file" class="form-file-input" id="file" name="file_upload">
                                         <label class="form-file-label" for="file">
                                             <label class="form-file-label" for="file">
-                                                <i>Notass: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
+                                                <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
                                                     dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg dan .png
                                                     sahaja</i>
                                             </label>
@@ -238,9 +238,53 @@
         }
     </script>
     <script>
-        var uploadField = document.getElementById("file");
-
+        var uploadField = document.getElementById('file');
+        var fileInput = document.getElementById('file');
+        var filePath = fileInput.value;
+        var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
         uploadField.onchange = function() {
+            if (this.files[0].size > 3145728) {
+                toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
+                    "progressBar": true
+                });
+
+                this.value = "";
+            };
+        };
+        uploadField.onchange = function() {
+        elseif(!allowedExtensions.exec(filePath)) {
+            toastr.error(
+                'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
+                'Ralat!', {
+                    "progressBar": true
+                });
+            fileInput.value = '';
+            return false;
+        };
+    };
+
+
+
+        // uploadField.onchange = function() {
+        //     var fileInput = document.getElementById('file');
+        //     var filePath = fileInput.value;
+        //     var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
+        //     if (!allowedExtensions.exec(filePath)) {
+        //         toastr.error(
+        //             'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
+        //             'Ralat!', {
+        //                 "progressBar": true
+        //             });
+        //         fileInput.value = '';
+        //         return false;
+        //     }
+        // }
+    </script>
+    <script>
+
+var uploadField = document.getElementById('file');
+        uploadField.onchange = function() {
+
             if (this.files[0].size > 3145728) {
                 toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
                     "progressBar": true
@@ -265,4 +309,5 @@
             }
         }
     </script>
+
 @endsection
