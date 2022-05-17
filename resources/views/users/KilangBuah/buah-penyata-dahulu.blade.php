@@ -83,11 +83,11 @@
 
                                                     </select>
                                                 </fieldset>
-                                                {{-- @error('alamat_kilang_1')
+                                                @error('tahun')
                                                     <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong>Sila buat pilihan di bahagian ini</strong>
                                                     </div>
-                                                @enderror --}}
+                                                @enderror
                                             </div>
                                         </div>
 
@@ -116,11 +116,11 @@
 
                                                     </select>
                                                 </fieldset>
-                                                {{-- @error('alamat_kilang_1')
+                                                @error('bulan')
                                                     <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
+                                                        <strong>Sila buat pilihan di bahagian ini</strong>
                                                     </div>
-                                                @enderror --}}
+                                                @enderror
                                             </div>
                                         </div>
 
