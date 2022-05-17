@@ -469,6 +469,10 @@
                                     <i data-feather="x"></i>
                                 </button>
                             </div>
+                            {{-- <form
+                            action="{{ route('bio.edit.bahagian.iii.sykt', [$data->ebio_cc1]) }}"
+                            method="post">
+                            @csrf --}}
                             <div class="modal-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" style="font-size: 13px">
@@ -482,15 +486,14 @@
                                             @foreach ($data->ebiocc as $ebiocc_data)
                                                 <tr style="text-align: right">
                                                     {{-- <td class="text-center">{{ $key+1 }}</td> --}}
-                                                    <td><input type="text" id="ebio_sykt" class="form-control"
-                                                            placeholder="Nama Syarikat" name="ebio_sykt"
+                                                    <td><input type="text" id="ebio_cc3" class="form-control"
+                                                            placeholder="Nama Syarikat" name="ebio_cc3"
                                                             value="{{ $ebiocc_data->ebio_cc3 ?? 0 }}">
                                                     </td>
-                                                    <td><input type="text" id="ebio_jumlah" class="form-control"
-                                                            placeholder="Jumlah Jualan / Edaran" name="ebio_jumlah"
+                                                    <td><input type="text" id="ebio_cc4" class="form-control"
+                                                            placeholder="Jumlah Jualan / Edaran" name="ebio_cc4"
                                                             value="{{ $ebiocc_data->ebio_cc4 ?? 0 }}"></td>
 
-                                                    {{-- <td>{{ $data->e101_b15 }}</td> --}}
                                                 </tr>
                                             @endforeach
 
@@ -503,11 +506,10 @@
                                     <i class="bx bx-x d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block" style="color:#275047">Kembali</span>
                                 </button>
-                                <a href="{{ route('bio.paparpenyata') }}" type="button" class="btn btn-primary ml-1">
-
+                                <button type="submit" class="btn btn-primary ml-1">
                                     <i class="bx bx-check d-block d-sm-none"></i>
                                     <span class="d-none d-sm-block">Kemaskini</span>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
