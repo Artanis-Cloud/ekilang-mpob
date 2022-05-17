@@ -72,7 +72,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <span class="required">PPO:</span>
+                                    <span class="required">PPO</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_d6' style="width: 50%" id="e101_d6"
