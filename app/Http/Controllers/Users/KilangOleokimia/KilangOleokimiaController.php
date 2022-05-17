@@ -114,6 +114,10 @@ class KilangOleokimiaController extends Controller
 
         $penyata->save();
 
+        $map = User::where('username',$penyata->e_nl)->first();
+        $map->map_flg = '1';
+        $map->map_sdate = now();
+        $map->save();
         // $calculate = floatval($request->bil_tangki_cpo) + floatval($request->bil_tangki_ppo) + floatval($request->bil_tangki_cpko) +
         // floatval($request->bil_tangki_ppko) + floatval($request->bil_tangki_oleo) + floatval($request->bil_tangki_others);
 

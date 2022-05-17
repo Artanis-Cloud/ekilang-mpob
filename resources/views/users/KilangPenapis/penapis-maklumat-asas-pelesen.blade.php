@@ -297,7 +297,7 @@
                                     Kapasiti Pemprosesan / Tahun</label>
                                 <div class="col-md-6">
                                     <input type="text" id="kap_proses" class="form-control"
-                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" onchange="validation_jumlah()"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
@@ -312,7 +312,7 @@
                                     Kapasiti Tangki Simpanan</label>
                                 <div class="col-md-6">
                                     <input type="text" id="kap_tangki" class="form-control"
-                                        placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
+                                        placeholder="Kapasiti Tangki Simpanan" name="kap_tangki" onchange="validation_jumlah()"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki }}">
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">

@@ -104,6 +104,10 @@ class KilangPenapisController extends Controller
         // $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
         $penyata->save();
 
+        $map = User::where('username',$penyata->e_nl)->first();
+        $map->map_flg = '1';
+        $map->map_sdate = now();
+        $map->save();
 
         return redirect()->route('penapis.maklumatasaspelesen')
             ->with('success', 'Maklumat telah dikemaskini');
