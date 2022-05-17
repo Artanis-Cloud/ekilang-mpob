@@ -188,34 +188,39 @@ class KilangBiodieselController extends Controller
             $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
                 return $query->where('prodcat', '=', '01');
             })->get();
+
+            $totaliab5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b5');
+            $totaliab6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b6');
+            $totaliab7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b7');
+            $totaliab8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b8');
+            $totaliab9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b9');
+            $totaliab10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b10');
+            $totaliab11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b11');
+            // $totaliab12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b12');
+            // dd($totalia);
+
+            // dd($penyata);
+            return view('users.KilangBiodiesel.bio-bahagian-ia', compact(
+                'returnArr',
+                'layout',
+                'produk',
+                'penyata',
+                'totaliab5',
+                'totaliab6',
+                'totaliab7',
+                'totaliab8',
+                'totaliab9',
+                'totaliab10',
+                'totaliab11'
+            ));
+
+
         } else {
-            $penyata = [];
+            return redirect()->back()
+            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
         }
 
-        $totaliab5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b5');
-        $totaliab6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b6');
-        $totaliab7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b7');
-        $totaliab8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b8');
-        $totaliab9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b9');
-        $totaliab10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b10');
-        $totaliab11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b11');
-        // $totaliab12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b12');
-        // dd($totalia);
 
-        // dd($penyata);
-        return view('users.KilangBiodiesel.bio-bahagian-ia', compact(
-            'returnArr',
-            'layout',
-            'produk',
-            'penyata',
-            'totaliab5',
-            'totaliab6',
-            'totaliab7',
-            'totaliab8',
-            'totaliab9',
-            'totaliab10',
-            'totaliab11'
-        ));
     }
 
     public function bio_add_bahagian_ia(Request $request)
@@ -344,33 +349,38 @@ class KilangBiodieselController extends Controller
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
         if ($user) {
             $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->get();
+
+
+            $totalibb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b5');
+            $totalibb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b6');
+            $totalibb7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b7');
+            $totalibb8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b8');
+            $totalibb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b9');
+            $totalibb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b10');
+            $totalibb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b11');
+            // $totalibb12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b12');
+            // dd($penyata);
+            return view('users.KilangBiodiesel.bio-bahagian-ib', compact(
+                'returnArr',
+                'layout',
+                'produk',
+                'user',
+                'penyata',
+                'totalibb5',
+                'totalibb6',
+                'totalibb7',
+                'totalibb8',
+                'totalibb9',
+                'totalibb10',
+                'totalibb11',
+            ));
+
+
         } else {
-            $penyata = [];
+            return redirect()->back()
+            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
         }
 
-        $totalibb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b5');
-        $totalibb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b6');
-        $totalibb7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b7');
-        $totalibb8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b8');
-        $totalibb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b9');
-        $totalibb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b10');
-        $totalibb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b11');
-        // $totalibb12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b12');
-        // dd($penyata);
-        return view('users.KilangBiodiesel.bio-bahagian-ib', compact(
-            'returnArr',
-            'layout',
-            'produk',
-            'user',
-            'penyata',
-            'totalibb5',
-            'totalibb6',
-            'totalibb7',
-            'totalibb8',
-            'totalibb9',
-            'totalibb10',
-            'totalibb11',
-        ));
     }
 
     public function bio_add_bahagian_ib(Request $request)
@@ -503,32 +513,36 @@ class KilangBiodieselController extends Controller
 
         if ($user) {
             $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
-        } else {
-            $penyata = [];
-        }
-        $totalicb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b5');
-        $totalicb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b6');
-        $totalicb7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b7');
-        $totalicb8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b8');
-        $totalicb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b9');
-        $totalicb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b10');
-        $totalicb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b11');
-        // $totalicb12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b12');
 
-        return view('users.KilangBiodiesel.bio-bahagian-ic', compact(
-            'returnArr',
-            'layout',
-            'user',
-            'produk',
-            'penyata',
-            'totalicb5',
-            'totalicb6',
-            'totalicb7',
-            'totalicb8',
-            'totalicb9',
-            'totalicb10',
-            'totalicb11'
-        ));
+            $totalicb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b5');
+            $totalicb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b6');
+            $totalicb7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b7');
+            $totalicb8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b8');
+            $totalicb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b9');
+            $totalicb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b10');
+            $totalicb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b11');
+            // $totalicb12 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b12');
+
+            return view('users.KilangBiodiesel.bio-bahagian-ic', compact(
+                'returnArr',
+                'layout',
+                'user',
+                'produk',
+                'penyata',
+                'totalicb5',
+                'totalicb6',
+                'totalicb7',
+                'totalicb8',
+                'totalicb9',
+                'totalicb10',
+                'totalicb11'
+            ));
+
+        } else {
+            return redirect()->back()
+            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
+
     }
 
     public function bio_add_bahagian_ic(Request $request)
@@ -644,10 +658,18 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
-        $penyata = Hari::where('lesen', auth()->user()->username)->first();
 
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        if ($user) {
 
-        return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout', 'penyata'));
+            $penyata = Hari::where('lesen', auth()->user()->username)->first();
+
+            return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout', 'penyata'));
+
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
     public function bio_add_bahagian_ii(Request $request)
@@ -749,34 +771,39 @@ class KilangBiodieselController extends Controller
             $totaliiic8 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c8');
             $totaliiic9 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c9');
             $totaliiic10 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c10');
+
+            return view('users.KilangBiodiesel.bio-bahagian-iii', compact(
+                'returnArr', 'senarai_syarikat',
+                'layout',
+                'user',
+                'produk',
+                'penyata',
+                'totaliiic4',
+                'totaliiic5',
+                'totaliiic6',
+                'totaliiic7',
+                'totaliiic8',
+                'totaliiic9',
+                'totaliiic10',
+            ));
+
         } else {
-            $penyata = [];
-            $totaliiic4 = 0;
-            $totaliiic5 = 0;
-            $totaliiic6 = 0;
-            $totaliiic7 = 0;
-            $totaliiic8 = 0;
-            $totaliiic9 = 0;
-            $totaliiic10 = 0;
+
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
         }
+            // $penyata = [];
+            // $totaliiic4 = 0;
+            // $totaliiic5 = 0;
+            // $totaliiic6 = 0;
+            // $totaliiic7 = 0;
+            // $totaliiic8 = 0;
+            // $totaliiic9 = 0;
+            // $totaliiic10 = 0;
+
         // dd($user);
 
 
-        return view('users.KilangBiodiesel.bio-bahagian-iii', compact(
-            'returnArr',
-            'senarai_syarikat',
-            'layout',
-            'user',
-            'produk',
-            'penyata',
-            'totaliiic4',
-            'totaliiic5',
-            'totaliiic6',
-            'totaliiic7',
-            'totaliiic8',
-            'totaliiic9',
-            'totaliiic10',
-        ));
     }
 
     public function bio_add_bahagian_iii(Request $request)
