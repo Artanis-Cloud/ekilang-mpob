@@ -81,7 +81,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td class="text-bold-500 required">A.
+                                                <td class="text-bold-500 ">A.
                                                     Stok Awal Di Premis</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_aa1' style="text-align: center"
@@ -105,7 +105,7 @@
 
                                             </tr>
                                             <tr>
-                                                <td class="text-bold-500 required">B.
+                                                <td class="text-bold-500 ">B.
                                                     Stok Awal Di Pusat Simpanan / Gudang</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ab1' style="text-align: center"
@@ -129,7 +129,7 @@
 
                                             </tr>
                                             <tr>
-                                                <td class="text-bold-500 required">C.
+                                                <td class="text-bold-500 ">C.
                                                     Belian / Terimaan &nbsp; <i class="fa fa-exclamation-circle"
                                                         style="color: red; cursor: pointer;"
                                                         title="Jumlah Belian/Terimaan Dalam Negeri adalah termasuk jumlah Import."></i>
@@ -171,7 +171,7 @@
 
                                             </tr>
                                             <tr>
-                                                <td class="text-bold-500 required">E.
+                                                <td class="text-bold-500 ">E.
                                                     Diproses</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ae1' style="text-align: center"
@@ -191,7 +191,7 @@
 
                                             </tr>
                                             <tr>
-                                                <td class="text-bold-500 required">F.
+                                                <td class="text-bold-500 ">F.
                                                     Pengeluaran</td>
                                                 <td style="text-align:center; background-color:#808080b8">
                                                     {{-- <input type="text" size="10"
@@ -213,7 +213,7 @@
 
                                             </tr>
                                             <tr>
-                                                <td class="text-bold-500 required">G.
+                                                <td class="text-bold-500 ">G.
                                                     Jualan / Edaran Tempatan</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ag1' style="text-align: center"
@@ -237,7 +237,7 @@
 
                                             </tr>
                                             <tr>
-                                                <td class="text-bold-500 required">H.
+                                                <td class="text-bold-500 ">H.
                                                     Hantar ke Pusat Simpanan / Gudang</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ah1' style="text-align: center"
@@ -261,7 +261,7 @@
 
                                             </tr>
                                             <tr>
-                                                <td class="text-bold-500 required">I.
+                                                <td class="text-bold-500 ">I.
                                                     Eksport</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ai1' style="text-align: center"
@@ -285,7 +285,7 @@
 
                                             </tr>
                                             <tr>
-                                                <td class="text-bold-500 required">J.
+                                                <td class="text-bold-500 ">J.
                                                     Stok Akhir di Premis</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_aj1' style="text-align: center"
@@ -309,7 +309,7 @@
 
                                             </tr>
                                             <tr>
-                                                <td class="text-bold-500 required">K.
+                                                <td class="text-bold-500 ">K.
                                                     Stok Akhir di Pusat Simpanan</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ak1' style="text-align: center"
@@ -388,22 +388,6 @@
 
                 </div>
             </div>
-        </div>
-
-
-
-
-
-
-    </div>
-    </div>
-    </div><br><br><br><br>
-    </div>
-
-
-
-
-
 
     </section><!-- End Hero -->
 

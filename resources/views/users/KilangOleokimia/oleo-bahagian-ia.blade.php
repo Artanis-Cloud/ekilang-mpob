@@ -52,7 +52,7 @@
 
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <span class="required">Nama Produk dan Kod</span>
+                                                <span class="">Nama Produk dan Kod</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <select class="form-control" id="e104_b4" name="e104_b4"
@@ -76,7 +76,7 @@
 
                                         <div class="row mt-3">
                                             <div class="col-md-3">
-                                                <span class="required">Stok Awal di Premis</span>
+                                                <span class="">Stok Awal di Premis</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e104_b5' onkeypress="return isNumberKey(event)"
@@ -89,7 +89,7 @@
                                             @enderror
                                             </div>
                                             <div class="col-md-3">
-                                                <span class="required">Jualan/Edaran Tempatan</span>
+                                                <span class="">Jualan/Edaran Tempatan</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e104_b10' onkeypress="return isNumberKey(event)"
@@ -106,7 +106,7 @@
 
                                         <div class="row mt-3">
                                             <div class="col-md-3">
-                                                <span class="required">Stok Awal di Pusat Simpanan</span>
+                                                <span class="">Stok Awal di Pusat Simpanan</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e104_b6' onkeypress="return isNumberKey(event)"
@@ -120,7 +120,7 @@
                                             </div>
 
                                             <div class="col-md-3">
-                                                <span class="required">Eksport</span>
+                                                <span class="">Eksport</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e104_b11' onkeypress="return isNumberKey(event)"
@@ -136,7 +136,7 @@
 
                                         <div class="row mt-3">
                                             <div class="col-md-3">
-                                                <span class="required">Belian/Terimaan &nbsp;<i class="fa fa-exclamation-circle"
+                                                <span class="">Belian/Terimaan &nbsp;<i class="fa fa-exclamation-circle"
                                                     style="color: red; cursor: pointer;"
                                                     title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
                                             </div>
@@ -152,7 +152,7 @@
                                             </div>
 
                                             <div class="col-md-3">
-                                                <span class="required">Stok Akhir di Premis</span>
+                                                <span class="">Stok Akhir di Premis</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e104_b12' onkeypress="return isNumberKey(event)"
@@ -176,7 +176,7 @@
                                             </div>
 
                                             <div class="col-md-3">
-                                                <span class="required">Stok Akhir di Pusat Simpanan</span>
+                                                <span class="">Stok Akhir di Pusat Simpanan</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e104_b13' onkeypress="return isNumberKey(event)"
@@ -192,7 +192,7 @@
 
                                         <div class="row mt-3">
                                             <div class="col-md-3">
-                                                <span class="required">Jumlah Yang Diproses</span>
+                                                <span class="">Jumlah Yang Diproses</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e104_b9' onkeypress="return isNumberKey(event)"

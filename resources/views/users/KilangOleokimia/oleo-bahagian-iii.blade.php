@@ -47,7 +47,7 @@
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <span class="required">Nama Produk dan Kod</span>
+                                    <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="produk" name="e104_c3" style="width: 50%">
@@ -67,7 +67,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <span class="required">Jualan/Edaran Tempatan</span>
+                                    <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_c6' style="width: 50%" id="e104_c6" oninput="validate_two_decimal(this)"
@@ -82,7 +82,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Belian/Terimaan</span>
+                                    <span class="">Belian/Terimaan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_c4' style="width:50%" id="e104_c4" oninput="validate_two_decimal(this)"
@@ -94,7 +94,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Eksport</span>
+                                    <span class="">Eksport</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_c7' style="width: 50%" id="e104_c7" oninput="validate_two_decimal(this)"
@@ -110,7 +110,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Pengeluaran</span>
+                                    <span class="">Pengeluaran</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_c5' style="width:50%" id="e104_c5" oninput="validate_two_decimal(this)"
@@ -123,7 +123,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <span class="required">Stok Akhir</span>
+                                    <span class="">Stok Akhir</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_c8' style="width:50%" id="e104_c8" oninput="validate_two_decimal(this)"
@@ -351,7 +351,7 @@
                     </div>
                 </div>
 
-                
+
 
 
         <div class="row form-group" style="padding-top: 10px; ">
@@ -363,7 +363,7 @@
             </div>
             <div class="text-right col-md-7 mb-4 ">
                 <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right; margin-right:7%"
-                    data-target="#next">Hantar</button>
+                    data-target="#next">Simpan & Seterusnya</button>
             </div>
 
         </div>
@@ -397,7 +397,9 @@
                         </a>
                     </div>
                 </div>
-
+            </div>
+        </div>
+    </div>
 
 
     {{-- <div id="preloader"></div> --}}

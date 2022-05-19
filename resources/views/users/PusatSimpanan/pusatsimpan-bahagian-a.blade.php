@@ -57,7 +57,7 @@
                         <div class="container center mt-4" style="margin-left:4%">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <span class="required">Nama Produk Sawit dan Kod</span>
+                                    <span class="">Nama Produk Sawit dan Kod</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="produk" name="e07bt_produk" style="width: 50%">
@@ -82,7 +82,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Stok Awal</span>
+                                    <span class="">Stok Awal</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e07bt_stokawal' style="width: 50%" onkeypress="return isNumberKey(event)"
@@ -110,7 +110,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required align-items-center">
+                                    <span class=" align-items-center">
                                         Terimaan Dalam Negeri &nbsp;<i class="fa fa-exclamation-circle" style="color: red"
                                             title="Jumlah Penerimaan Dalam Negeri adalah termasuk jumlah Import."></i></span>
                                 </div>
@@ -124,7 +124,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Pelarasan(+/-)</span>
+                                    <span class="">Pelarasan(+/-)</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 50%" onkeypress="return isNumberKey(event)"
@@ -152,7 +152,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Stok Akhir</span>
+                                    <span class="">Stok Akhir</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e07bt_stokakhir' style="width: 50%" onkeypress="return isNumberKey(event)"
@@ -166,7 +166,7 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required align-items-center">
+                                    <span class=" align-items-center">
                                         Edaran Tempatan  &nbsp;<i class="fa fa-exclamation-circle" style="color: red"
                                             title="Jumlah Edaran Tempatan adalah termasuk jumlah Eksport."></i></span>
                                 </div>
@@ -430,7 +430,7 @@
                     </div>
                     <div class="text-right col-md-7">
                         <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                            data-target="#next">Hantar</button>
+                            data-target="#next">Simpan & Seterusnya</button>
                     </div>
 
                 </div>

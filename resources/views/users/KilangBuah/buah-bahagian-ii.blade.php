@@ -37,7 +37,7 @@
                 </div>
             </div>
         </div>
-                <div class="card" style="margin-right:2%; margin-left:2%">
+                <div class="card" style="margin-right:2%; margin-left:2%;">
                     <div class="card-body">
                         <div class="col-md-12">
                             <div class="pl-3">
@@ -61,7 +61,7 @@
                             @csrf
                             <div class="container center mt-3" style="margin-left:15%">
                                 <div class="row">
-                                    <label for="fname" class="text-right col-sm-5 required align-items-center">i.
+                                    <label for="fname" class="text-right col-sm-5 align-items-center">i.
                                         Jumlah Jam Pengilangan</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name='e91_ah1'  oninput="validate_two_decimal(this)"
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="row mt-2">
                                     <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
+                                        class="text-right col-sm-5 control-label col-form-label align-items-center">ii.
                                         Kadar
                                         Perahan MSM (OER) Yang Diperolehi</label>
                                     <div class="col-md-6">
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="row mt-2">
                                     <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">iii.
+                                        class="text-right col-sm-5 control-label col-form-label align-items-center">iii.
                                         Kadar Perolehan Isirung (KER)</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name='e91_ah3' oninput="validate_two_decimal(this)"
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="row mt-2">
                                     <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">iv.
+                                        class="text-right col-sm-5 control-label col-form-label align-items-center">iv.
                                         Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name='e91_ah4' oninput="validate_two_decimal(this)"
@@ -127,7 +127,7 @@
                                 </div>
                                 <div class="row">
                                     <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">v.
+                                        class="text-right col-sm-5 control-label col-form-label align-items-center">v.
                                         Prestasi OER</label>
                                     <div class="col-md-3">
                                         <fieldset class="form-group" style=" width: 85%">
@@ -398,7 +398,7 @@
                                 </div>
                             </div>
 
-                            <div class="row form-group">
+                            <div class="row form-group" style="margin-bottom: 70px">
 
 
                                 <div class="text-left col-md-5">
@@ -452,7 +452,7 @@
                 </div>
             </div>
 
-        </div>
+
 
 
 

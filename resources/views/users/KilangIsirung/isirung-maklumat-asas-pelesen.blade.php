@@ -57,6 +57,7 @@
                         {{-- <p>Maklumat Kilang</p> --}}
                     </div>
                     <hr>
+                    <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> * </b><i>'</i>
                     <form action="{{ route('isirung.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
                         @csrf
                         <div class="container center mt-5">
@@ -458,36 +459,11 @@
 
 
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            </div>
 
 
     <br>
-
-
-
-
-
     </section><!-- End Hero -->
-
-
-
-
-
-
-
 
     {{-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
@@ -565,6 +541,6 @@
 
     </html>
 @endsection
-            </div>
+
         </div>
     </div>

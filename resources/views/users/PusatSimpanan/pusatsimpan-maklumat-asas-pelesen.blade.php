@@ -54,6 +54,7 @@
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
+                        <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> * </b><i>'</i>
                         <form action="{{ route('pusatsimpan.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}"
                             method="post">
                             @csrf
@@ -83,7 +84,7 @@
                                             value="{{ $pelesen->e_ap3 }}">
                                     </div>
                                 </div>
-                            </div>
+
 
                             <div class="row" style="margin-bottom:2.5%">
                                 <label for="fname"
@@ -588,14 +589,8 @@
                         </form>
                     </div>
                 {{--  </div> --}}
-              </div>
+                </div>
             </div>
-            @endsection
-        </div>
-    </div>
-
-
-
     {{-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
@@ -662,4 +657,5 @@
     </body>
 
     </html>
+    @endsection
 

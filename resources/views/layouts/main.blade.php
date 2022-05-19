@@ -1328,8 +1328,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="text-center footer" style="background-color: white;  ">
-            All Rights Reserved by Artanis Cloud. Designed and Developed by
-            <a href="https://www.artaniscloud.com/">ArtanisCloud</a>.
+            ©Copyright 2022 Malaysian Palm Oil Board (MPOB). All Rights Reserved.
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->
