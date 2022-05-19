@@ -45,7 +45,8 @@
                         </h5>
                     </div>
                     <hr>
-                    <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b style="color: red"> * </b><i>'</i>
+                    <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b style="color: red"> *
+                    </b><i>'</i>
                     <form action="{{ route('buah.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
                         @csrf
                         <div class="container center mt-5">
@@ -54,7 +55,8 @@
                                     class="text-right col-sm-5 control-label required col-form-label align-items-center">
                                     Alamat Premis Berlesen</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_ap1" class="form-control"
+                                    <input type="text" id="e_ap1" class="form-control" oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                         placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}"
                                         required>
                                     @error('e_ap1')
@@ -64,7 +66,8 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 41.6%; ">
-                                    <input type="text" id="e_ap2" class="form-control"
+                                    <input type="text" id="e_ap2" class="form-control" oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                         placeholder="Alamat Premis Berlesen 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}">
                                     @error('e_ap2')
                                         <div class="alert alert-danger">
@@ -73,7 +76,8 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 41.6%;">
-                                    <input type="text" id="e_ap3" class="form-control"
+                                    <input type="text" id="e_ap3" class="form-control" oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                         placeholder="Alamat Premis Berlesen 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}">
                                     @error('e_ap3')
                                         <div class="alert alert-danger">
@@ -88,7 +92,8 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Alamat Surat Menyurat</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_as1" class="form-control"
+                                    <input type="text" id="e_as1" class="form-control" oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}">
                                     @error('e_as1')
                                         <div class="alert alert-danger">
@@ -97,7 +102,8 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 41.6%">
-                                    <input type="text" id="e_as2" class="form-control"
+                                    <input type="text" id="e_as2" class="form-control" oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Alamat Surat Menyurat 2" name="e_as2" value="{{ $pelesen->e_as2 }}">
                                     @error('e_as2')
                                         <div class="alert alert-danger">
@@ -106,7 +112,8 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 41.6%">
-                                    <input type="text" id="e_as3" class="form-control"
+                                    <input type="text" id="e_as3" class="form-control" oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Alamat Surat Menyurat 3" name="e_as3" value="{{ $pelesen->e_as3 }}">
                                     @error('e_as3')
                                         <div class="alert alert-danger">
@@ -121,7 +128,8 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     No. Telefon (Pejabat / Kilang)</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_notel" class="form-control"
+                                    <input type="text" id="e_notel" class="form-control" oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
                                         value="{{ $pelesen->e_notel }}" required onkeypress="return isNumberKey(event)">
                                     @error('e_notel')
@@ -137,7 +145,8 @@
                                     No. Faks</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
-                                        name="e_nofax" value="{{ $pelesen->e_nofax }}" required>
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" name="e_nofax"
+                                        value="{{ $pelesen->e_nofax }}" required oninput="setCustomValidity('')">
                                     @error('e_nofax')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -151,7 +160,8 @@
                                     Alamat Emel Kilang</label>
                                 <div class="col-md-6">
                                     <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
-                                        name="e_email" value="{{ $pelesen->e_email }}">
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" name="e_email"
+                                        value="{{ $pelesen->e_email }}" oninput="setCustomValidity('')">
                                     @error('e_email')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -165,7 +175,8 @@
                                     Nama Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_npg" class="form-control" placeholder="Nama Pegawai Melapor"
-                                        name="e_npg" value="{{ $pelesen->e_npg }}">
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" name="e_npg"
+                                        value="{{ $pelesen->e_npg }}" oninput="setCustomValidity('')">
                                     @error('e_npg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -178,7 +189,8 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Jawatan Pegawai Melapor</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_jpg" class="form-control"
+                                    <input type="text" id="e_jpg" class="form-control" oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}">
                                     @error('e_jpg')
                                         <div class="alert alert-danger">
@@ -193,9 +205,10 @@
                                     No. Telefon Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="text" id="no-tel-pegawai-melapor" class="form-control"
-                                        placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->e_notel_pg }}"
-                                        required>
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="setCustomValidity('')" placeholder="No. Telefon Pegawai Melapor"
+                                        name="e_notel_pg" onkeypress="return isNumberKey(event)"
+                                        value="{{ $pelesen->e_notel_pg }}" required>
                                     @error('e_notel_pg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -210,7 +223,8 @@
                                 <div class="col-md-6">
                                     <input type="text" id="no-tel-pegawai-melapor" class="form-control"
                                         placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
-                                        value="{{ $pelesen->e_email_pg }}" required>
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="setCustomValidity('')" value="{{ $pelesen->e_email_pg }}" required>
                                     @error('e_email_pg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -223,7 +237,8 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Nama Pegawai Bertanggungjawab</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_npgtg" class="form-control"
+                                    <input type="text" id="e_npgtg" class="form-control" oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
                                         value="{{ $pelesen->e_npgtg }}" required>
                                     @error('e_npgtg')
@@ -240,8 +255,9 @@
                                     Bertanggungjawab</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_jpgtg" class="form-control"
-                                        placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                        value="{{ $pelesen->e_jpgtg }}" required>
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="setCustomValidity('')" placeholder="Jawatan Pegawai Bertanggungjawab"
+                                        name="e_jpgtg" value="{{ $pelesen->e_jpgtg }}" required>
                                     @error('e_jpgtg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -255,8 +271,9 @@
                                     Alamat Emel Pengurus</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_email_pengurus" class="form-control"
-                                        placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                        value="{{ $pelesen->e_email_pengurus }}" required>
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="setCustomValidity('')" placeholder="Alamat Emel Pengurus"
+                                        name="e_email_pengurus" value="{{ $pelesen->e_email_pengurus }}" required>
 
 
                                     @error('e_email_pengurus')
@@ -272,8 +289,9 @@
                                     Syarikat Induk</label>
                                 <div class="col-md-6">
                                     <input type="text" id="syarikat_induk" class="form-control"
-                                        placeholder="Syarikat Induk" name="e_syktinduk"
-                                        value="{{ $pelesen->e_syktinduk }}" required>
+                                        oninput="setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" placeholder="Syarikat Induk"
+                                        name="e_syktinduk" value="{{ $pelesen->e_syktinduk }}" required>
                                     @error('e_syktinduk')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -287,7 +305,11 @@
                                     Kumpulan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="e_group" name="e_group" required>
+                                        <select class="form-control" id="e_group" name="e_group" required
+                                            oninput="setCustomValidity('')"
+                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                            <option selected hidden disabled value="">Sila Pilih Kumpulan</option>
+
                                             <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
                                                 Kerajaan</option>
                                             <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
@@ -307,7 +329,15 @@
                                     POMA </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="e_poma" name="e_poma" required>
+                                        <select class="form-control" id="e_poma" name="e_poma" required
+                                            oninput="setCustomValidity('')"
+                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                            <option selected hidden disabled value="">POMA</option>
+                                            <option {{ $pelesen->e_poma == 'Ya' ? 'selected' : '' }} value="Ya">
+                                                Ya</option>
+                                            <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }} value="Tidak">
+                                                Tidak</option>
+
                                             <option value="{{ $pelesen->e_poma }}" selected hidden>
                                                 {{ $pelesen->e_poma ?? 'Sila Pilih' }}</option>
                                             <option value="Ya">Ya</option>
@@ -328,8 +358,10 @@
                                 <div class="col-md-6">
                                     <input type="text" id="kap_proses" class="form-control"
                                         placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                        onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
-                                        value="{{ $pelesen->kap_proses }}" required>
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        onkeypress="return isNumberKey(event)"
+                                        oninput="validate_two_decimal(this);setCustomValidity('')""
+                                                value=" {{ $pelesen->kap_proses }}" required>
 
                                     @error('kap_proses')
                                         <div class="alert alert-danger">
@@ -357,7 +389,9 @@
                                 </div>
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
-                                        id="bil_tangki_cpo" required title="Sila isikan butiran ini."
+                                        oninput="setCustomValidity('')" id="bil_tangki_cpo" required
+                                        title="Sila isikan butiran ini."
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}"
                                         required>
                                     @error('bil_tangki_cpo')
@@ -377,7 +411,9 @@
                                 </div>
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%"
-                                        id="kap_tangki_cpo" required title="Sila isikan butiran ini."
+                                        oninput="setCustomValidity('')" id="kap_tangki_cpo" required
+                                        title="Sila isikan butiran ini."
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpo }}"
                                         required>
                                     @error('kap_tangki_cpo')
@@ -435,33 +471,32 @@
                                             <span class="d-none d-sm-block">Ya</span>
                                         </button>
                                     </div>
-                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                @endsection
 
+                @section('scripts')
+                    <script type="text/javascript">
+                        $(document).ready(function() {
+                            $(".floatNumberField").change(function() {
+                                $(this).val(parseFloat($(this).val()).toFixed(2));
+                            });
+                        });
+                    </script>
+                    <script>
+                        var input = document.getElementById("kap_proses");
+                        var lastValue = "";
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-@endsection
+                        input.addEventListener("keydown", valueCheck);
+                        input.addEventListener("keyup", valueCheck);
 
-@section('scripts')
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $(".floatNumberField").change(function() {
-                $(this).val(parseFloat($(this).val()).toFixed(2));
-            });
-        });
-    </script>
-    <script>
-        var input = document.getElementById("kap_proses");
-        var lastValue = "";
-
-        input.addEventListener("keydown", valueCheck);
-        input.addEventListener("keyup", valueCheck);
-
-        function valueCheck() {
-            if (input.value.match(/^[0-9]*$/))
-                lastValue = input.value;
-            else
-                input.value = lastValue;
-        }
-    </script>
-@endsection
+                        function valueCheck() {
+                            if (input.value.match(/^[0-9]*$/))
+                                lastValue = input.value;
+                            else
+                                input.value = lastValue;
+                        }
+                    </script>
+                @endsection

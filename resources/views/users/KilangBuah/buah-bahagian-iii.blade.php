@@ -73,7 +73,8 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id="e91_ai1"
                                                             name='e91_ai1' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"  oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event);"
                                                             onchange="validation_jumlah()" required
                                                             value="{{ old('e91_ai1') ?? ($penyata->e91_ai1 ?? 0) }}"
@@ -92,12 +93,13 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id="e91_ai2"
                                                             name='e91_ai2' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)"
                                                             onchange="validation_jumlah()" required
                                                             value="{{ old('e91_ai2') ?? ($penyata->e91_ai2 ?? 0) }}"
                                                             onchange="validation_jumlah()">
-                                                            @error('e91_ai2')
+                                                        @error('e91_ai2')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
                                                             </div>
@@ -111,11 +113,12 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id='e91_ai3'
                                                             name='e91_ai3' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai3') ?? ($penyata->e91_ai3 ?? 0) }}"
                                                             onchange="validation_jumlah()">
-                                                            @error('e91_ai3')
+                                                        @error('e91_ai3')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
                                                             </div>
@@ -129,11 +132,12 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id='e91_ai4'
                                                             name='e91_ai4' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai4') ?? ($penyata->e91_ai4 ?? 0) }}"
                                                             onchange="validation_jumlah()">
-                                                            @error('e91_ai4')
+                                                        @error('e91_ai4')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
                                                             </div>
@@ -147,11 +151,12 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" name='e91_ai5'
                                                             id='e91_ai5' size="15" id="text1" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai5') ?? ($penyata->e91_ai5 ?? 0) }}"
                                                             onchange="validation_jumlah()">
-                                                            @error('e91_ai5')
+                                                        @error('e91_ai5')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
                                                             </div>
@@ -165,11 +170,12 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" name='e91_ai6'
                                                             id='e91_ai6' size="15" id="text2" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai6') ?? ($penyata->e91_ai6 ?? 0) }}"
                                                             onchange="validation_jumlah()">
-                                                            @error('e91_ai6')
+                                                        @error('e91_ai6')
                                                             <div class="alert alert-danger">
                                                                 <strong>Sila isi butiran ini</strong>
                                                             </div>
@@ -184,8 +190,10 @@
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <b><span id="total" name="total">
-                                                                {{ old('total') ?? number_format($jumlah, 2) }}
+                                                                {{ old('total_hidden') ?? number_format($jumlah, 2) }}
                                                             </span>
+                                                            <input type="hidden" id="total_hidden" name="total_hidden"
+                                                                value="{{ $jumlah }}">
                                                         </b>
                                                     </td>
 
@@ -212,17 +220,16 @@
                 <br>
 
 
-                                <div class="row form-group" style="margin-top:30px">
-                                    <div class="text-left col-md-5">
-                                        <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
-                                            style="float: left">Sebelumnya</a>
-                                    </div>
-                                    <div class="text-right col-md-7">
-                                        <button type="SUBMIT" class="btn btn-primary" style="float: right"
-                                            id="go">Simpan &
-                                            Seterusnya</button>
-                                    </div>
-                                </div>
+                <div class="row form-group" style="margin-top:30px">
+                    <div class="text-left col-md-5">
+                        <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
+                            style="float: left">Sebelumnya</a>
+                    </div>
+                    <div class="text-right col-md-7">
+                        <button type="SUBMIT" class="btn btn-primary" style="float: right" id="go">Simpan &
+                            Seterusnya</button>
+                    </div>
+                </div>
 
                 <!-- Vertically Centered modal Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -261,29 +268,32 @@
 
 
 
-        {{-- <div id="preloader"></div> --}}
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
+            {{-- <div id="preloader"></div> --}}
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                    class="bi bi-arrow-up-short"></i></a>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script>
-            function validation_jumlah() {
-                var e91_ai1 = $("#e91_ai1").val();
-                var e91_ai2 = $("#e91_ai2").val();
-                var e91_ai3 = $("#e91_ai3").val();
-                var e91_ai4 = $("#e91_ai4").val();
-                var e91_ai5 = $("#e91_ai5").val();
-                var e91_ai6 = $("#e91_ai6").val();
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script>
+                function validation_jumlah() {
+                    var e91_ai1 = $("#e91_ai1").val();
+                    var e91_ai2 = $("#e91_ai2").val();
+                    var e91_ai3 = $("#e91_ai3").val();
+                    var e91_ai4 = $("#e91_ai4").val();
+                    var e91_ai5 = $("#e91_ai5").val();
+                    var e91_ai6 = $("#e91_ai6").val();
 
-                var jumlah = $("#jumlah").val();
-                var jumlah_input = 0;
+                    var jumlah = $("#jumlah").val();
+                    var jumlah_input = 0;
 
-                jumlah_input = parseFloat(Number(e91_ai1)) + parseFloat(Number(e91_ai2)) +
-                    parseFloat(Number(e91_ai3)) + parseFloat(Number(e91_ai4)) + parseFloat(Number(e91_ai5)) + parseFloat(Number(
-                        e91_ai6));
+                    jumlah_input = parseFloat(Number(e91_ai1)) + parseFloat(Number(e91_ai2)) +
+                        parseFloat(Number(e91_ai3)) + parseFloat(Number(e91_ai4)) + parseFloat(Number(e91_ai5)) + parseFloat(Number(
+                            e91_ai6));
 
-                document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
-            }
-        </script>
-    @endsection
+                    document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                    document.getElementById('total_hidden').value = jumlah_input.toFixed(2);
+
+                    console.log(document.getElementById('total_hidden').value);
+                }
+            </script>
+        @endsection

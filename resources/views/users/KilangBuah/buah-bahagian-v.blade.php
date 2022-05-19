@@ -166,7 +166,7 @@
 
 
 
-                                    <div class="row form-group" style="padding-top: 100px; ">
+                                    <div class="row form-group">
                                         <div class="text-left col-md-5">
                                             <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
@@ -176,7 +176,7 @@
                                                 style="float: right"
                                                 data-bs-target="#exampleModalCenter">Hantar</button>
                                         </div> --}}
-                                        <div class="text-right col-md-7 mb-4 ">
+                                        <div class="text-right col-md-7">
                                             <button type="submit" class="btn btn-primary " style="float: right;">Simpan & Seterusnya</button>
                                         </div>
                                     </div>
@@ -220,7 +220,7 @@
                                     </div>
                                 </form>
                             </div>
-                    </div><br>
+                    </div>
 
                     {{-- <div id="preloader"></div> --}}
                     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
