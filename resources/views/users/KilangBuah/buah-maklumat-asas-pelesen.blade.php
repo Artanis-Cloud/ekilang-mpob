@@ -207,7 +207,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Alamat Emel Pegawai Melapor</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="no-tel-pegawai-melapor" class="form-control"
+                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control"
                                         placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
                                         value="{{ $pelesen->e_email_pg }}" required>
                                     @error('e_email_pg')
@@ -253,7 +253,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Alamat Emel Pengurus</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="e_email_pengurus" class="form-control"
+                                    <input type="text" id="e_email_pengurus" class="form-control"
                                         placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
                                         value="{{ $pelesen->e_email_pengurus }}" required>
 
@@ -337,7 +337,7 @@
                                             @enderror
                                         </div>
                                     </div>
-                                            <div class="row mb-2">
+                                            {{-- <div class="row mb-2">
                                                 <label for="fname"
                                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                                     Kapasiti Tangki Simpanan</label>
@@ -354,7 +354,7 @@
                                                         </div>
                                                     @enderror
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                                 <div class="row mt-3 " style="text-align: center; font-size: 12px">
                                                     <div class="col-md-5">
                                                         <span></span>
