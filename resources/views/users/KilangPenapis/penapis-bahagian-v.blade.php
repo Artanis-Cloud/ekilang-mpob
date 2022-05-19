@@ -282,7 +282,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_d5 }}">
+                                                                        value="{{ $data->e101_d5 }}" required>
                                                                 </div>
                                                                 <label class="required">PPO </label>
                                                                 <div class="form-group">
@@ -290,7 +290,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_d6 }}">
+                                                                        value="{{ $data->e101_d6 }}" required>
                                                                 </div>
                                                                 <label class="required">CPKO </label>
                                                                 <div class="form-group">
@@ -298,7 +298,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_d7 }}">
+                                                                        value="{{ $data->e101_d7 }}" required>
                                                                 </div>
                                                                 <label class="required">PPKO </label>
                                                                 <div class="form-group">
@@ -306,7 +306,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_d8 }}">
+                                                                        value="{{ $data->e101_d8 }}" required>
                                                                 </div>
                                                             </div>
                                                     </div>
