@@ -262,7 +262,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Syarikat Induk</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="syarikat_induk" class="form-control"
+                                    <input type="text" id="syarikat_induk" class="form-control" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                         placeholder="Syarikat Induk" name="e_syktinduk"
                                         value="{{ $pelesen->e_syktinduk }}">
                                     {{-- @error('alamat_kilang_1')
@@ -278,7 +278,10 @@
                                     Kumpulan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="e_group" name="e_group" required>
+                                        <select class="form-control" id="e_group" name="e_group" required oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                        oninput="setCustomValidity('')">
+                                            <option selected   value="">Sila Pilih Kumpulan</option>
+
                                             <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
                                                 Kerajaan</option>
                                             <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">

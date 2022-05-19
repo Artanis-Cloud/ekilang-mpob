@@ -1524,17 +1524,6 @@
             e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
         }
     </script>
-    <script>
-        <script>
-             $('input[type="text"]')
-            .on('invalid', function(){
-                return this.setCustomValidity('Ingresa una dirección de correo válida.');
-            })
-            .on('input', function(){
-                return this.setCustomValidity('');
-            });
-        </script>
-        </script>
 
         @yield('scripts')
         @if ($map_url)
