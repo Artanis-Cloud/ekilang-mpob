@@ -59,7 +59,7 @@
                         <div class="container center mt-4" style="margin-left:4%; margin-right:15%">
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Belian/Terimaan:</span>
+                                    <span class="">Belian/Terimaan:</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="e102_b4" style=" width:50%" name="e102_b4" required>
@@ -78,7 +78,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required"> Dari:</span>
+                                    <span class=""> Dari:</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="e102_b5" style=" width:50%" name='e102_b5'>
@@ -100,7 +100,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Kuantiti:</span>
+                                    <span class="">Kuantiti:</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e102_b6' style="width:50%" id="e102_b6" oninput="validate_two_decimal(this)"

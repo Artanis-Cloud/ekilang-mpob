@@ -51,7 +51,7 @@
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <span class="required">Nama Produk dan Kod</span>
+                                    <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="produk" name="e104_b4" style="width: 50%">
@@ -75,7 +75,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Stok Awal di Premis</span>
+                                    <span class="">Stok Awal di Premis</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_b5' oninput="validate_two_decimal(this)"
@@ -88,7 +88,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Jualan/Edaran Tempatan</span>
+                                    <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_b10' oninput="validate_two_decimal(this)"
@@ -105,7 +105,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Stok Awal di Pusat Simpanan</span>
+                                    <span class="">Stok Awal di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_b6' oninput="validate_two_decimal(this)"
@@ -119,7 +119,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <span class="required">Eksport</span>
+                                    <span class="">Eksport</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_b11' oninput="validate_two_decimal(this)"
@@ -135,7 +135,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Belian/Terimaan</span>
+                                    <span class="">Belian/Terimaan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_b7' oninput="validate_two_decimal(this)"
@@ -149,7 +149,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <span class="required">Stok Akhir di Premis</span>
+                                    <span class="">Stok Akhir di Premis</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_b12' oninput="validate_two_decimal(this)"
@@ -174,7 +174,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <span class="required">Stok Akhir di Pusat Simpanan</span>
+                                    <span class="">Stok Akhir di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_b13' oninput="validate_two_decimal(this)"
@@ -190,7 +190,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Jumlah Yang Diproses</span>
+                                    <span class="">Jumlah Yang Diproses</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e104_b9' oninput="validate_two_decimal(this)"
@@ -205,10 +205,6 @@
 
 
                             </div>
-
-
-
-
                         </div>
                         <br>
 
@@ -509,24 +505,6 @@
                 </div>
             </div>
         </div>
-
-    </div>
-    </div>
-    </div>
-    </div>
-    <br>
-    </div>
-
-
-
-    </div>
-
-    </div>
-    </div>
-
-    </div>
-
-
 
 
 

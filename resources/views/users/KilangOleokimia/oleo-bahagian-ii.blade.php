@@ -58,7 +58,7 @@
                                             <div class="container center mt-3">
                                                 <div class="row">
                                                     <label for="fname"
-                                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">i.
+                                                        class="text-right col-sm-5 control-label col-form-label align-items-center">i.
                                                         Jumlah Hari Kilang Beroperasi Sebulan </label>
                                                     <div class="col-md-6">
                                                         <input type="text" class="form-control" name='e104_a5' style="margin-left:42%; width:40%; text-align:right"
@@ -76,7 +76,7 @@
                                                 </div>
                                                 <div class="row mt-2">
                                                     <label for="fname"
-                                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">ii.
+                                                        class="text-right col-sm-5 control-label col-form-label align-items-center">ii.
                                                         Kadar Penggunaan Kapasiti Sebulan (%)	</label>
                                                     <div class="col-md-6">
                                                         <input type="text" class="form-control" name='e104_a6' style="margin-left:42%; width:40%; text-align:right"
@@ -152,7 +152,7 @@
 
                             </div><br><br><br><br>
                         </form>
-                    
+
 
 
 

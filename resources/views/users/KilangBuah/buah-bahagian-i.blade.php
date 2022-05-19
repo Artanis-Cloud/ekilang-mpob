@@ -82,7 +82,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="text-bold-500 required">A.
+                                                    <td class="text-bold-500 ">A.
                                                         Stok Awal Di Premis</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa1'
@@ -111,7 +111,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500 required">B.
+                                                    <td class="text-bold-500 ">B.
                                                         Belian / Terimaan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_ab1' id="number" required
@@ -140,7 +140,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500 required">C.
+                                                    <td class="text-bold-500 ">C.
                                                         Diproses</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center"
@@ -163,7 +163,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500 required">D.
+                                                    <td class="text-bold-500 ">D.
                                                         Pengeluaran</td>
                                                     <td style="text-align:center; background-color:#808080b8">
                                                         {{-- <input type="text"size="10" style="text-align: center"
@@ -190,7 +190,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500 required">E.
+                                                    <td class="text-bold-500 ">E.
                                                         Jualan / Edaran Tempatan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center"
@@ -219,7 +219,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500 required">F.
+                                                    <td class="text-bold-500 ">F.
                                                         Eksport</td>
                                                     <td style="text-align:center; background-color:#808080b8">
                                                         {{-- <input type="text"size="10" style="text-align: center" disabled> --}}
@@ -236,7 +236,7 @@
 
                                                 </tr>
                                                 <tr>
-                                                    <td class="text-bold-500 required">G.
+                                                    <td class="text-bold-500 ">G.
                                                         Stok Akhir Di Premis</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center"
@@ -366,4 +366,4 @@
 
 
         @endsection
-   
+

@@ -45,6 +45,7 @@
                         </h5>
                     </div>
                     <hr>
+                    <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b style="color: red"> * </b><i>'</i>
                     <form action="{{ route('buah.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
                         @csrf
                         <div class="container center mt-5">
@@ -409,7 +410,7 @@
 
                                                 </div>
                                                 <div class="row mx-3" style="margin-left:14%">
-                                                    <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
+                                                    <i>Nota:Sekiranya kilang/pelesen tiada tangki simpanan
                                                         khusus untuk sesuatu produk. Sila campurkan kesemua
                                                         bilangan dan kapasiti tangki dan lapor dalam kategori Others
                                                     </i>
@@ -463,8 +464,6 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                        </div>
 
 
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

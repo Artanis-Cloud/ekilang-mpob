@@ -56,7 +56,7 @@
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <span class="required">Sendiri / Luar</span>
+                                    <span class="">Sendiri / Luar</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="e101_d3" name="e101_d3" style="width: 50%" required>
@@ -72,7 +72,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <span class="required">PPO</span>
+                                    <span class="">PPO</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_d6' style="width: 50%" id="e101_d6"
@@ -89,7 +89,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Belian/Terimaan Dari</span>
+                                    <span class="">Belian/Terimaan Dari</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="e101_d4" style="width:50%" name="e101_d4" required>
@@ -110,7 +110,7 @@
                                 </div>
 
                                 <div class="col-md-3">
-                                    <span class="required">CPKO</span>
+                                    <span class="">CPKO</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_d7' style="width: 50%" id="e101_d7"
@@ -128,7 +128,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">CPO</span>
+                                    <span class="">CPO</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_d5' style="width: 50%" id="e101_d5"
@@ -141,7 +141,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">PPKO</span>
+                                    <span class="">PPKO</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_d8' style="width: 50%" id="e101_d8"
@@ -573,7 +573,7 @@
                     </div>
                     <div class="text-right col-md-7">
                         <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                            data-target="#next">Papar Penyata</button>
+                            data-target="#next">Simpan & Seterusnya</button>
                     </div>
 
                 </div>

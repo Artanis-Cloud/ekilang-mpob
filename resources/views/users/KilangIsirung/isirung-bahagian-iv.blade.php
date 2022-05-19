@@ -60,7 +60,7 @@
                         <div class="container center mt-3" style="margin-left: 4%">
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Jualan / Edaran:</span>
+                                    <span class="">Jualan / Edaran:</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="e102_b4" style=" width:50%" name="e102_b4" required>
@@ -79,7 +79,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Ke:</span>
+                                    <span class="">Ke:</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="e102_b5" style=" margin-left:-30%; width:50%"
@@ -106,7 +106,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Kuantiti:</span>
+                                    <span class="">Kuantiti:</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e102_b6' style="width:50%" id="e102_b6"

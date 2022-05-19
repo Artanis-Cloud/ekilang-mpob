@@ -59,7 +59,7 @@
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <span class="required">Nama Produk dan Kod</span>
+                                    <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="produk" name="e101_c4" style="width: 50%">
@@ -82,7 +82,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Stok Awal Di Premis</span>
+                                    <span class="">Stok Awal Di Premis</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_c5' style="width: 50%" id="e101_c5"
@@ -95,7 +95,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Jualan / Edaran Tempatan</span>
+                                    <span class="">Jualan / Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_c8' style="width: 50%" id="e101_c8"
@@ -113,7 +113,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Belian/Terimaan</span>
+                                    <span class="">Belian/Terimaan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_c6' style="width: 50%" id="e101_c6"
@@ -126,7 +126,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Eksport</span>
+                                    <span class="">Eksport</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_c9' style="width: 50%" id="e101_c9"
@@ -144,7 +144,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Pengeluaran</span>
+                                    <span class="">Pengeluaran</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_c7' style="width: 50%" id="e101_c7"
@@ -157,7 +157,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Stok Akhir Di Premis</span>
+                                    <span class="">Stok Akhir Di Premis</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_c10' style="width: 50%"
@@ -277,13 +277,13 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c5 }}" required>
+                                                                        value="{{ $data->e101_c5 }}">
                                                                 </div>
                                                                 <label class="required">Belian / Terimaan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_c6' class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c6 }}" required>
+                                                                        value="{{ $data->e101_c6 }}">
                                                                 </div>
                                                                 {{-- <label>Import </label>
                                                                         <div class="form-group">
@@ -296,7 +296,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c7 }}" required>
+                                                                        value="{{ $data->e101_c7 }}">
                                                                 </div>
                                                                 <label class="required">Jualan / Edaran Dalam Negeri
                                                                 </label>
@@ -305,7 +305,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c8 }}" required>
+                                                                        value="{{ $data->e101_c8 }}">
                                                                 </div>
                                                                 <label class="required">Eksport </label>
                                                                 <div class="form-group">
@@ -313,7 +313,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c9 }}" required>
+                                                                        value="{{ $data->e101_c9 }}">
                                                                 </div>
                                                                 <label class="required">Stok Akhir </label>
                                                                 <div class="form-group">
@@ -321,7 +321,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c10 }}" required>
+                                                                        value="{{ $data->e101_c10 }}">
                                                                 </div>
                                                             </div>
                                                     </div>
@@ -460,38 +460,15 @@
                         </div>
                     </div>
                 </div>
+        </div>
+        </form>
+
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <br>
-
-
-
-
     </section><!-- End Hero -->
-
-
-
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
-
-
-
 
 
     {{-- <div id="preloader"></div> --}}

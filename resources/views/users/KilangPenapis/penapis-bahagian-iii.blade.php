@@ -60,7 +60,7 @@
 
                             <div class="row">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
                                     Jumlah Hari Kilang Beroperasi Sebulan</label>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a1'
@@ -75,7 +75,7 @@
                             </div>
                             <div class="row mt-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
                                     Kadar Penggunaan Kapasiti(Refining) Sebulan</label>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a2'
@@ -91,7 +91,7 @@
                             </div>
                             <div class="row mt-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
                                     Kadar Penggunaan Kapasiti(Fractionation) Sebulan</label>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a3'
@@ -106,7 +106,7 @@
                                 </div>
                             </div>
 
-                            <div class="row form-group" style="margin-top: 200px; ">
+                            <div class="row form-group" style="margin-top: 200px; margin-bottom: 50px">
                                 {{-- <div class="row form-group" style="padding-top: 10px; ">
                                                     <div class="text-right col-md-12 mb-4 ">
                                                         <button type="submit" class="btn btn-primary ">Simpan &
@@ -119,8 +119,7 @@
                                 </div>
                                 <div class="text-right col-md-5">
                                     <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                                        data-target="#next">Simpan &
-                                        Seterusnya</button>
+                                        data-target="#next">Simpan & Seterusnya</button>
                                 </div>
 
                             </div>

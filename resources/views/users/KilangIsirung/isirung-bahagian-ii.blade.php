@@ -59,7 +59,7 @@
 
                             <div class="row">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
                                     i.
                                     Kadar Perahan Minyak Isirung Sawit Mentah (CPKO) <b>%</b></label>
                                 <div class="col-md-2">
@@ -76,7 +76,7 @@
                             </div>
                             <div class="row mt-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
                                     ii.
                                     Kadar Perolehan Dedak Isirung (PKC)<b>%</b></label>
                                 <div class="col-md-2">
@@ -93,7 +93,7 @@
                             </div>
                             <div class="row mt-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
                                     iii.
                                     Jumlah Jam Pengilangan Isirung (PK)</label>
                                 <div class="col-md-2">
@@ -110,7 +110,7 @@
                             </div>
                             <div class="row mt-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
                                     iv.
                                     Kadar Penggunaan Kapasiti Sebulan <b>%</b></label>
                                 <div class="col-md-2">

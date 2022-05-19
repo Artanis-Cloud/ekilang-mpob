@@ -177,7 +177,7 @@
                                                 data-bs-target="#exampleModalCenter">Hantar</button>
                                         </div> --}}
                                         <div class="text-right col-md-7 mb-4 ">
-                                            <button type="submit" class="btn btn-primary " style="float: right;">Hantar</button>
+                                            <button type="submit" class="btn btn-primary " style="float: right;">Simpan & Seterusnya</button>
                                         </div>
                                     </div>
 
