@@ -181,6 +181,9 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
 
         if ($user) {
@@ -225,7 +228,7 @@ class KilangOleokimiaController extends Controller
                 'total6',
                 'total7',
                 'total8',
-                'total9'
+                'total9','bulan','tahun',
             ));
         } else {
             return redirect()->back()
@@ -347,6 +350,9 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
 
         if ($user) {
@@ -388,7 +394,7 @@ class KilangOleokimiaController extends Controller
                 'total6',
                 'total7',
                 'total8',
-                'total9'
+                'total9','bulan','tahun',
             ));
         } else {
             return redirect()->back()
@@ -521,6 +527,9 @@ class KilangOleokimiaController extends Controller
         ];
         $layout = 'layouts.koleo';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
 
         $produk = Produk::where('prodcat', '08')->orderBy('prodname')->get();
@@ -561,7 +570,7 @@ class KilangOleokimiaController extends Controller
                 'total6',
                 'total7',
                 'total8',
-                'total9'
+                'total9','bulan','tahun',
             ));
         } else {
 
@@ -688,6 +697,9 @@ class KilangOleokimiaController extends Controller
 
         $kembali = route('oleo.bahagianic');
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
@@ -699,7 +711,7 @@ class KilangOleokimiaController extends Controller
         if ($user) {
             $penyata = E104Init::where('e104_nl', auth()->user()->username)->first();
 
-            return view('users.KilangOleokimia.oleo-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'user'));
+            return view('users.KilangOleokimia.oleo-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'user','bulan','tahun',));
 
         } else {
             return redirect()->back()
@@ -738,6 +750,8 @@ class KilangOleokimiaController extends Controller
 
         $user = E104Init::where('e104_nl', auth()->user()->username)->first('e104_reg');
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
 
         $produk = Produk::whereIn('prodcat',  ['03', '06', '08'])->orderBy('prodname')->get();
 
@@ -768,7 +782,7 @@ class KilangOleokimiaController extends Controller
                 'total2',
                 'total3',
                 'total4',
-                'total5'
+                'total5','bulan','tahun',
             ));
 
         } else {

@@ -327,7 +327,7 @@
                                     Kapasiti Pemprosesan / Tahun</label>
                                 <div class="col-md-6">
                                     <input type="text" id="kap_proses" class="form-control"
-                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}">
 
                                     @error('kap_proses')
@@ -343,7 +343,7 @@
                                     Kapasiti Tangki Simpanan</label>
                                 <div class="col-md-6">
                                     <input type="text" id="kap_tangki" class="form-control"
-                                        placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
+                                        placeholder="Kapasiti Tangki Simpanan" name="kap_tangki" required
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki }}">
                                     @error('kap_tangki')
                                         <div class="alert alert-danger">
@@ -372,7 +372,7 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='bil_tangki_cpko' style="width:100%"
                                         id="bil_tangki_cpko" title="Sila isikan butiran ini."
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpko ?? 0  }}">
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpko  }}" required>
                                     @error('bil_tangki_cpko')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -388,7 +388,7 @@
                                         <input type="text" class="form-control" name='kap_tangki_cpko'
                                             style="width:100%" id="kap_tangki_cpko"
                                             title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
-                                            onkeypress="return isNumberKey(event)"  value="{{ $pelesen->bil_tangki_cpko ?? 0  }}">
+                                            onkeypress="return isNumberKey(event)"  value="{{ $pelesen->bil_tangki_cpko  }}" required>
                                         @error('kap_tangki_cpko')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>

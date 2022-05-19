@@ -91,7 +91,7 @@
                                     Alamat Surat Menyurat</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_as1" class="form-control"
-                                        placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}">
+                                        placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -115,7 +115,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_notel" class="form-control"
                                         placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
-                                        value="{{ $pelesen->e_notel }}" onkeypress="return isNumberKey(event)">
+                                        value="{{ $pelesen->e_notel }}" onkeypress="return isNumberKey(event)" required>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -143,7 +143,7 @@
                                     Alamat Emel Kilang</label>
                                 <div class="col-md-6">
                                     <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
-                                        name="e_email" value="{{ $pelesen->e_email }}">
+                                        name="e_email" value="{{ $pelesen->e_email }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -157,7 +157,7 @@
                                     Nama Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_npg" class="form-control" placeholder="Nama Pegawai Melapor"
-                                        name="e_npg" value="{{ $pelesen->e_npg }}">
+                                        name="e_npg" value="{{ $pelesen->e_npg }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -171,7 +171,7 @@
                                     Jawatan Pegawai Melapor</label>
                                 <div class="col-md-6">
                                     <input type="text" id="e_jpg" class="form-control"
-                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}">
+                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -186,7 +186,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="no-tel-pegawai-melapor" class="form-control"
                                         placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
-                                        value="{{ $pelesen->e_notel_pg }}" onkeypress="return isNumberKey(event)">
+                                        value="{{ $pelesen->e_notel_pg }}" onkeypress="return isNumberKey(event)" required>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -201,7 +201,7 @@
                                 <div class="col-md-6">
                                     <input type="email" id="no-tel-pegawai-melapor" class="form-control"
                                         placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
-                                        value="{{ $pelesen->e_email_pg }}">
+                                        value="{{ $pelesen->e_email_pg }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -216,7 +216,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_npgtg" class="form-control"
                                         placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                        value="{{ $pelesen->e_npgtg }}">
+                                        value="{{ $pelesen->e_npgtg }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -232,7 +232,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="e_jpgtg" class="form-control"
                                         placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                        value="{{ $pelesen->e_jpgtg }}">
+                                        value="{{ $pelesen->e_jpgtg }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -247,7 +247,7 @@
                                 <div class="col-md-6">
                                     <input type="email" id="e_email_pengurus" class="form-control"
                                         placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                        value="{{ $pelesen->e_email_pengurus }}">
+                                        value="{{ $pelesen->e_email_pengurus }}" required>
 
 
                                     {{-- @error('alamat_kilang_1')
@@ -264,7 +264,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="syarikat_induk" class="form-control" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                         placeholder="Syarikat Induk" name="e_syktinduk"
-                                        value="{{ $pelesen->e_syktinduk }}">
+                                        value="{{ $pelesen->e_syktinduk }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -302,7 +302,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="kap_proses" class="form-control"
                                         placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" onchange="validation_jumlah()"
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}">
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -317,7 +317,7 @@
                                 <div class="col-md-6">
                                     <input type="text" id="kap_tangki" class="form-control"
                                         placeholder="Kapasiti Tangki Simpanan" name="kap_tangki" onchange="validation_jumlah()"
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki }}">
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki }}" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -361,8 +361,8 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
                                         size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpo ?? 0  }}"
-                                        onchange="validation_jumlah()">
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpo  }}"
+                                        onchange="validation_jumlah()" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -373,8 +373,8 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='bil_tangki_ppo' style="width:100%"
                                         size="15" id="bil_tangki_ppo" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppo ?? 0  }}"
-                                        onchange="validation_jumlah()">
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppo  }}"
+                                        onchange="validation_jumlah()" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -384,8 +384,8 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='bil_tangki_cpko' style="width:100%"
                                         size="15" id="bil_tangki_cpko" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpko ?? 0  }}"
-                                        onchange="validation_jumlah()">
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpko  }}"
+                                        onchange="validation_jumlah()" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -395,8 +395,8 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='bil_tangki_ppko' style="width:100%"
                                         size="15" id="bil_tangki_ppko" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppko ?? 0  }}"
-                                        onchange="validation_jumlah()">
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppko   }}"
+                                        onchange="validation_jumlah()" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -406,8 +406,8 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='bil_tangki_others' style="width:100%"
                                         size="15" id="bil_tangki_others" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_others ?? 0  }}"
-                                        onchange="validation_jumlah()">
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_others  }}"
+                                        onchange="validation_jumlah()" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -440,8 +440,8 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%"
                                         id="kap_tangki_cpo" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpo ?? 0  }}"
-                                        onchange="validation_jumlah2()">
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpo }}"
+                                        onchange="validation_jumlah2()" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -453,8 +453,8 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='kap_tangki_ppo' style="width:100%"
                                         id="kap_tangki_ppo" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppo ?? 0  }}"
-                                        onchange="validation_jumlah2()">
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppo  }}"
+                                        onchange="validation_jumlah2()" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -464,8 +464,8 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='kap_tangki_cpko' style="width:100%"
                                         id="kap_tangki_cpko" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpko ?? 0  }}"
-                                        onchange="validation_jumlah2()">
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpko  }}"
+                                        onchange="validation_jumlah2()" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -475,8 +475,8 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='kap_tangki_ppko' style="width:100%"
                                         id="kap_tangki_ppko" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppko ?? 0  }}"
-                                        onchange="validation_jumlah2()">
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppko  }}"
+                                        onchange="validation_jumlah2()" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -486,8 +486,8 @@
                                 <div class="col-md-1">
                                     <input type="text" class="form-control" name='kap_tangki_others' style="width:100%"
                                         id="kap_tangki_others" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_others ?? 0  }}"
-                                        onchange="validation_jumlah2()">
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_others  }}"
+                                        onchange="validation_jumlah2()" required>
                                     {{-- @error('alamat_kilang_1')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>

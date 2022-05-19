@@ -182,6 +182,9 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
         // $user = DB::connection('mysql2')->select("SELECT * FROM profile_bulanan");
 
@@ -215,7 +218,7 @@ class KilangBiodieselController extends Controller
                 'totaliab8',
                 'totaliab9',
                 'totaliab10',
-                'totaliab11'
+                'totaliab11','bulan','tahun',
             ));
 
 
@@ -348,7 +351,8 @@ class KilangBiodieselController extends Controller
 
         $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
 
-
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
 
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
         if ($user) {
@@ -376,7 +380,7 @@ class KilangBiodieselController extends Controller
                 'totalibb8',
                 'totalibb9',
                 'totalibb10',
-                'totalibb11',
+                'totalibb11','bulan','tahun',
             ));
 
 
@@ -512,6 +516,8 @@ class KilangBiodieselController extends Controller
 
         $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
 
         $produk = Produk::where('prodcat', '08')->orderBy('prodname')->get();
 
@@ -539,7 +545,7 @@ class KilangBiodieselController extends Controller
                 'totalicb8',
                 'totalicb9',
                 'totalicb10',
-                'totalicb11'
+                'totalicb11','bulan','tahun',
             ));
 
         } else {
@@ -662,13 +668,15 @@ class KilangBiodieselController extends Controller
         ];
         $layout = 'layouts.kbio';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
 
         $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
         if ($user) {
 
             $penyata = Hari::where('lesen', auth()->user()->username)->first();
 
-            return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout', 'penyata'));
+            return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun',));
 
         } else {
             return redirect()->back()
@@ -761,6 +769,9 @@ class KilangBiodieselController extends Controller
 
         $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
         if ($user) {
             $penyata = EBioC::with('ebioinit', 'produk', 'ebiocc')->where('ebio_reg', $user->ebio_reg)->get();
@@ -788,7 +799,7 @@ class KilangBiodieselController extends Controller
                 'totaliiic7',
                 'totaliiic8',
                 'totaliiic9',
-                'totaliiic10',
+                'totaliiic10','bulan','tahun',
             ));
 
         } else {
@@ -964,6 +975,9 @@ class KilangBiodieselController extends Controller
 
         $kembali = route('bio.bahagianiii');
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
@@ -972,7 +986,7 @@ class KilangBiodieselController extends Controller
 
 
 
-        return view('users.KilangBiodiesel.bio-bahagian-iv', compact('returnArr', 'layout'));
+        return view('users.KilangBiodiesel.bio-bahagian-iv', compact('returnArr', 'layout','bulan','tahun',));
     }
 
 

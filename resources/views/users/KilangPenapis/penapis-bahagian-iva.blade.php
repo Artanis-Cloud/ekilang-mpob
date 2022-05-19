@@ -12,7 +12,32 @@
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Kemasukan Penyata Bulanan</h4>
+                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                        @if ($bulan == 1)
+                            JANUARI
+                        @elseif($bulan == 2)
+                            FEBRUARI
+                        @elseif($bulan == 3)
+                            MAC
+                        @elseif($bulan == 4)
+                            APRIL
+                        @elseif($bulan == 5)
+                            MEI
+                        @elseif($bulan == 6)
+                            JUN
+                        @elseif($bulan == 7)
+                            JULAI
+                        @elseif($bulan == 8)
+                            OGOS
+                        @elseif($bulan == 9)
+                            SEPTEMBER
+                        @elseif($bulan == 10)
+                            OKTOBER
+                        @elseif($bulan == 11)
+                            NOVEMBER
+                        @elseif($bulan == 12)
+                            DISEMBER
+                        @endif  {{ $tahun }}</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -363,16 +388,16 @@
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
+                                                    <button type="button" class="btn btn-primary ml-1"
                                                         data-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block">Tidak</span>
                                                     </button>
                                                     <a href="{{ route('penapis.delete.bahagianiva', [$data->e101_c1]) }}"
-                                                        type="button" class="btn btn-primary ml-1">
+                                                        type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
 
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
+                                                        <i class="bx bx-x d-block d-sm-none" ></i>
+                                                        <span class="d-none d-sm-block" >Ya</span>
                                                     </a>
                                                 </div>
                                             </div>

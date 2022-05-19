@@ -154,8 +154,11 @@ class KilangIsirungController extends Controller
         $penyata = E102Init::where('e102_nl', auth()->user()->username)->first();
         // dd($penyata);
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         if ($penyata) {
-            return view('users.KilangIsirung.isirung-bahagian-i', compact('returnArr', 'layout', 'penyata'));
+            return view('users.KilangIsirung.isirung-bahagian-i', compact('returnArr', 'layout', 'penyata','bulan','tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -220,8 +223,11 @@ class KilangIsirungController extends Controller
         $layout = 'layouts.kisirung';
         $penyata = E102Init::where('e102_nl', auth()->user()->username)->first();
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         if ($penyata) {
-            return view('users.KilangIsirung.isirung-bahagian-ii', compact('returnArr', 'layout', 'penyata'));
+            return view('users.KilangIsirung.isirung-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -282,6 +288,9 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $kodsl = KodSl::get();
         // dd($prodcat);
 
@@ -320,7 +329,7 @@ class KilangIsirungController extends Controller
                 'total',
                 'penyatai',
                 'total2',
-                'total3'
+                'total3','bulan','tahun',
             ));
         } else {
             return redirect()->back()
@@ -451,6 +460,9 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $prodcat = KodSl::get();
         $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
         // dd($user);
@@ -470,7 +482,8 @@ class KilangIsirungController extends Controller
             $total3 = $total + $total2;
 
 
-            return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout', 'prodcat', 'penyata', 'penyata2', 'user', 'total', 'total2', 'total3', 'penyatai'));
+            return view('users.KilangIsirung.isirung-bahagian-iv', compact('returnArr', 'layout', 'prodcat', 'penyata', 'penyata2', 'user',
+            'total', 'total2', 'total3', 'penyatai','bulan','tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -603,6 +616,9 @@ class KilangIsirungController extends Controller
         ];
         $layout = 'layouts.kisirung';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $prodcat = KodSl::get();
         // dd($prodcat);
 
@@ -630,7 +646,8 @@ class KilangIsirungController extends Controller
             $penyatai = E102Init::where('e102_nl', auth()->user()->username)->first();
 
 
-            return view('users.KilangIsirung.isirung-bahagian-v', compact('returnArr', 'layout', 'prodcat', 'penyata', 'penyata2', 'user', 'total', 'total2', 'total3', 'penyatai'));
+            return view('users.KilangIsirung.isirung-bahagian-v', compact('returnArr', 'layout', 'prodcat', 'penyata',
+            'penyata2', 'user', 'total', 'total2', 'total3', 'penyatai','bulan','tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');

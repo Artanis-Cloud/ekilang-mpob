@@ -311,10 +311,11 @@
                         <li class="nav-item dropdown">
 
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                 <img src="{{ asset('user_icon.png') }}" alt="user" class="rounded-circle" width="30">
-                                <span class="m-l-5 font-medium d-none d-sm-inline-block">{{ auth()->user()->name }}<i
-                                        class="mdi mdi-chevron-down"></i></span>
+                                <span class="m-l-5 font-medium d-none d-sm-inline-block">{{ auth()->user()->name }} </span>
+                                <span class="m-l-5 font-medium d-none d-sm-inline-block" style="font-size: 15px">{{ auth()->user()->username }}<i
+                                    class="mdi mdi-chevron-down"></i></span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <span class="with-arrow">
@@ -324,28 +325,9 @@
                                     <div class="">
                                     </div>
                                     <div class="m-l-10">
-                                        <h4 class="m-b-0">{{ auth()->user()->name }}</h4><br>
-                                        <p class="m-b-0">{{ auth()->user()->username }}</p>
+
                                         <p class="m-b-0">{{ auth()->user()->email }}</p>
-                                        @if (auth()->user()->category == 'PL91')
-                                            <p class="m-b-0">Kilang Buah</p>
-                                        @elseif (auth()->user()->category == 'PL101')
-                                            <p class="m-b-0">Kilang Penapis</p>
-                                        @elseif (auth()->user()->category == 'PL102')
-                                            <p class="m-b-0">Kilang Isirung</p>
-                                        @elseif (auth()->user()->category == 'PL104')
-                                            <p class="m-b-0">Kilang Oleokimia</p>
-                                        @elseif (auth()->user()->category == 'PL111')
-                                            <p class="m-b-0">Pusat Simpanan</p>
-                                        @elseif (auth()->user()->category == 'PLBIO')
-                                            <p class="m-b-0">Kilang Biodiesel</p>
-                                        @elseif (auth()->user()->category == 'admin')
-                                            @if (auth()->user()->role == 'NULL')
-                                                <p class="m-b-0">Admin</p>
-                                            @else
-                                                <p class="m-b-0">{{ ucfirst(auth()->user()->role) }}</p>
-                                            @endif
-                                        @endif
+
 
                                     </div>
                                 </div>
