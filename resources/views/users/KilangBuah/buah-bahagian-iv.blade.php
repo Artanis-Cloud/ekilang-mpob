@@ -81,9 +81,9 @@
                                                     <td class="text-bold-500">1. Kilang Buah</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj1'
-                                                            id='e91_aj1' style="text-align:center"
-                                                            oninput="validate_two_decimal(this)"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            id='e91_aj1' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj1') ?? ($penyata->e91_aj1 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                         @error('e91_aj1')
@@ -99,9 +99,9 @@
                                                     <td class="text-bold-500">2. Kilang Penapis</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj2'
-                                                            id='e91_aj2' style="text-align:center"
-                                                            oninput="validate_two_decimal(this)"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            id='e91_aj2' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj2') ?? ($penyata->e91_aj2 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                             @error('e91_aj2')
@@ -117,9 +117,9 @@
                                                     <td class="text-bold-500">3. Kilang Oleokimia</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj3'
-                                                            id='e91_aj3' style="text-align:center"
-                                                            oninput="validate_two_decimal(this)"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            id='e91_aj3' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj3') ?? ($penyata->e91_aj3 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                             @error('e91_aj3')
@@ -135,9 +135,9 @@
                                                     <td class="text-bold-500">4. Peniaga</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj4'
-                                                            id='e91_aj4' style="text-align:center"
-                                                            oninput="validate_two_decimal(this)"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            id='e91_aj4' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj4') ?? ($penyata->e91_aj4 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                             @error('e91_aj4')
@@ -153,9 +153,9 @@
                                                     <td class="text-bold-500">5. Pusat Simpanan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj5'
-                                                            id='e91_aj5' style="text-align:center"
-                                                            oninput="validate_two_decimal(this)"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            id='e91_aj5' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj5') ?? ($penyata->e91_aj5 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                             @error('e91_aj5')
@@ -171,9 +171,9 @@
                                                     <td class="text-bold-500">6. Lain-Lain</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="15" class="calc" name='e91_aj8'
-                                                            id='e91_aj8' style="text-align:center"
-                                                            oninput="validate_two_decimal(this)"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            id='e91_aj8' style="text-align:center" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_aj8') ?? ($penyata->e91_aj8 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                             @error('e91_aj8')
