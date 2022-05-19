@@ -373,7 +373,7 @@
                                     <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
                                         size="15" id="bil_tangki_cpo" required title="Sila isikan butiran ini."
                                         onkeypress="return isNumberKey(event)"
-                                        value="{{ $pelesen->bil_tangki_cpo ?? 0 }}" onchange="validation_jumlah()">
+                                        value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()">
                                     @error('bil_tangki_cpo')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -385,7 +385,7 @@
                                     <input type="text" class="form-control" name='bil_tangki_ppo' size="15"
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppo"
                                         required title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->bil_tangki_ppo ?? 0 }}" onchange="validation_jumlah()">
+                                        value="{{ $pelesen->bil_tangki_ppo }}" onchange="validation_jumlah()">
                                     @error('bil_tangki_ppo')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -396,7 +396,7 @@
                                     <input type="text" class="form-control" name='bil_tangki_cpko' size="15"
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_cpko"
                                         required title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->bil_tangki_cpko ?? 0 }}" onchange="validation_jumlah()">
+                                        value="{{ $pelesen->bil_tangki_cpko  }}" onchange="validation_jumlah()">
                                     @error('bil_tangki_cpko')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -407,7 +407,7 @@
                                     <input type="text" class="form-control" name='bil_tangki_ppko' size="15"
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppko"
                                         required title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->bil_tangki_ppko ?? 0 }}" onchange="validation_jumlah()">
+                                        value="{{ $pelesen->bil_tangki_ppko }}" onchange="validation_jumlah()">
                                     @error('bil_tangki_ppko')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -418,7 +418,7 @@
                                     <input type="text" class="form-control" name='bil_tangki_oleo' size="15"
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_oleo"
                                         required title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->bil_tangki_oleo ?? 0 }}" onchange="validation_jumlah()">
+                                        value="{{ $pelesen->bil_tangki_oleo }}" onchange="validation_jumlah()">
                                     @error('bil_tangki_oleo')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -429,7 +429,7 @@
                                     <input type="text" class="form-control" name='bil_tangki_others' size="15"
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_others"
                                         required title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->bil_tangki_others ?? 0 }}" onchange="validation_jumlah()">
+                                        value="{{ $pelesen->bil_tangki_others }}" onchange="validation_jumlah()">
                                     @error('bil_tangki_others')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -458,7 +458,7 @@
                                     <input type="text" class="form-control" name='kap_tangki_cpo'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_cpo"
                                         onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->kap_tangki_cpo ?? 0  }}">
+                                        value="{{ $pelesen->kap_tangki_cpo  }}">
                                     @error('kap_tangki_cpo')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -470,7 +470,7 @@
                                     <input type="text" class="form-control" name='kap_tangki_ppo'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_ppo"
                                         onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->kap_tangki_ppo ?? 0  }}">
+                                        value="{{ $pelesen->kap_tangki_ppo  }}">
                                     @error('kap_tangki_ppo')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -481,7 +481,7 @@
                                     <input type="text" class="form-control" name='kap_tangki_cpko'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_cpko"
                                         onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->kap_tangki_cpko ?? 0  }}">
+                                        value="{{ $pelesen->kap_tangki_cpko }}">
                                     @error('kap_tangki_cpko')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -492,7 +492,7 @@
                                     <input type="text" class="form-control" name='kap_tangki_ppko'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_ppko"
                                         onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->kap_tangki_ppko ?? 0  }}">
+                                        value="{{ $pelesen->kap_tangki_ppko  }}">
                                     @error('kap_tangki_ppko')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -503,7 +503,7 @@
                                     <input type="text" class="form-control" name='kap_tangki_oleo'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_oleo"
                                         onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->kap_tangki_oleo ?? 0  }}">
+                                        value="{{ $pelesen->kap_tangki_oleo }}">
                                     @error('kap_tangki_oleo')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -514,7 +514,7 @@
                                     <input type="text" class="form-control" name='kap_tangki_others'
                                         onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_others"
                                         onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                        value="{{ $pelesen->kap_tangki_others ?? 0  }}">
+                                        value="{{ $pelesen->kap_tangki_others  }}">
                                     @error('kap_tangki_others')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>

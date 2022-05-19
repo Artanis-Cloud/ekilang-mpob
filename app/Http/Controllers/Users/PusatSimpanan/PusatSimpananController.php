@@ -172,6 +172,9 @@ class PusatSimpananController extends Controller
 
         $user = E07Init::where('e07_nl', auth()->user()->username)->first('e07_reg');
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         if ($user) {
             $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->get();
 
@@ -193,7 +196,7 @@ class PusatSimpananController extends Controller
                 'total2',
                 'total3',
                 'total4',
-                'total5'
+                'total5','bulan','tahun',
             ));
         } else {
             return redirect()->back()

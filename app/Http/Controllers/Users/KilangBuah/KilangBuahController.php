@@ -161,11 +161,14 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $kilang = E91Init::where('e91_nl', auth()->user()->username)->first();
         // $kilang = E91Init::where('e91_nl', '500028104000')->first();
 
-        if ($kilang) {
-            return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'kilang'));
+        if  ($kilang){
+            return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'kilang','bulan','tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -228,9 +231,12 @@ class KilangBuahController extends Controller
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
         // $oer->assign('checked_flag', $db_data=='0'  ? '' : 'checked');
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
 
-        if ($penyata) {
-            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata'));
+
+        if  ($penyata){
+            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -283,6 +289,9 @@ class KilangBuahController extends Controller
         ];
         $layout = 'layouts.kbuah';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
         // dd($penyata);
         $jumlah = ($penyata->e91_ai1 ?? 0) +
@@ -293,8 +302,8 @@ class KilangBuahController extends Controller
             ($penyata->e91_ai6 ?? 0);
 
 
-        if ($penyata) {
-            return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'jumlah'));
+        if  ($penyata){
+            return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'jumlah','bulan','tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -361,11 +370,15 @@ class KilangBuahController extends Controller
 
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $jumlah = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
             ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
 
-        if ($penyata) {
-            return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah'));
+        if  ($penyata){
+            return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah','bulan','tahun',));
+
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -429,6 +442,9 @@ class KilangBuahController extends Controller
 
         $kembali = route('buah.bahagianiv');
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
@@ -439,8 +455,8 @@ class KilangBuahController extends Controller
 
         $jumlah = ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0);
 
-        if ($penyata) {
-            return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata', 'jumlah'));
+        if  ($penyata){
+            return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata', 'jumlah','bulan','tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');

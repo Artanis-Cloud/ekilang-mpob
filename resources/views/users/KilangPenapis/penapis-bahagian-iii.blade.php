@@ -12,7 +12,32 @@
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Kemasukan Penyata Bulanan</h4>
+                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                        @if ($bulan == 1)
+                            JANUARI
+                        @elseif($bulan == 2)
+                            FEBRUARI
+                        @elseif($bulan == 3)
+                            MAC
+                        @elseif($bulan == 4)
+                            APRIL
+                        @elseif($bulan == 5)
+                            MEI
+                        @elseif($bulan == 6)
+                            JUN
+                        @elseif($bulan == 7)
+                            JULAI
+                        @elseif($bulan == 8)
+                            OGOS
+                        @elseif($bulan == 9)
+                            SEPTEMBER
+                        @elseif($bulan == 10)
+                            OKTOBER
+                        @elseif($bulan == 11)
+                            NOVEMBER
+                        @elseif($bulan == 12)
+                            DISEMBER
+                        @endif  {{ $tahun }}</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -64,7 +89,7 @@
                                     Jumlah Hari Kilang Beroperasi Sebulan</label>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a1'
-                                        id="nombor_borang_kastam" required onkeypress="return isNumberKey(event)"
+                                    id="inputBox" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -181,5 +206,27 @@
                         $(this).val(parseFloat($(this).val()).toFixed(2));
                     });
                 });
+            </script>
+            <script>
+               var inputBox = document.getElementById("inputBox");
+
+            var invalidChars = [
+                "-",
+                "+",
+                "e",
+                "."
+            ];
+
+            inputBox.addEventListener("input", function() {
+                this.value = this.value.replace(/[e\+\-\.]/gi, "");
+            });
+
+
+            inputBox.addEventListener("keydown", function(e) {
+                if (invalidChars.includes(e.key)) {
+                    e.preventDefault();
+                }
+            });
+
             </script>
         @endsection

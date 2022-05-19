@@ -167,6 +167,9 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $produk = Produk::where('prodcat', 01)->orderBy('prodname')->get();
         // $penyata = E101Init::with('e101b')->where('e101_nl', auth()->user()->username)->get();
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
@@ -220,7 +223,9 @@ class KilangPenapisController extends Controller
                 'total7',
                 'total8',
                 'total9',
-                'total10'
+                'total10',
+                'bulan',
+                'tahun',
             ));
         } else {
             return redirect()->back()
@@ -353,6 +358,9 @@ class KilangPenapisController extends Controller
 
         $kembali = route('penapis.bahagiani');
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
@@ -409,7 +417,9 @@ class KilangPenapisController extends Controller
                 'total7',
                 'total8',
                 'total9',
-                'total10'
+                'total10',
+                'bulan',
+                'tahun',
             ));
         } else {
             return redirect()->back()
@@ -537,10 +547,13 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $penyata = E101Init::where('e101_nl', auth()->user()->username)->first();
 
         if ($penyata) {
-            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout', 'penyata'));
+            return view('users.KilangPenapis.penapis-bahagian-iii', compact('returnArr', 'layout', 'penyata','bulan','tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -578,6 +591,9 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         $produk = Produk::where('prodcat', 04)->orderBy('prodname')->get();
 
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
@@ -610,7 +626,9 @@ class KilangPenapisController extends Controller
                 'total3',
                 'total4',
                 'total5',
-                'total6'
+                'total6',
+                'bulan',
+                'tahun',
             ));
         } else {
             return redirect()->back()
@@ -726,6 +744,8 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
 
         $produk = Produk::where('prodcat', 04)->orderBy('prodname')->get();
 
@@ -758,7 +778,9 @@ class KilangPenapisController extends Controller
                 'total3',
                 'total4',
                 'total5',
-                'total6'
+                'total6',
+                'bulan',
+                'tahun',
             ));
         } else {
             return redirect()->back()
@@ -874,6 +896,9 @@ class KilangPenapisController extends Controller
         ];
         $layout = 'layouts.kpenapis';
 
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
         // $produk = ProdCat::where('prodcat', 04)->orderBy('prodname')->get();
 
         $user = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
@@ -917,7 +942,9 @@ class KilangPenapisController extends Controller
                 'totalb',
                 'totalb2',
                 'totalb3',
-                'totalb4'
+                'totalb4',
+                'bulan',
+                'tahun',
             ));
         } else {
             return redirect()->back()
