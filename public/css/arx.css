@@ -1,0 +1,63 @@
+body
+{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    background-size: cover;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.364),rgba(0,0,0,0.3)),url(https://makkalosai.com.my/mycms_uploads/2020/04/kelapa-sawit.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+}
+.container
+{
+    display: flex;
+    position: relative;
+    padding: 3%;
+    flex-wrap: wrap;
+}
+.arrg
+{
+    margin: 5% 0%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.container01
+{
+    text-align: center;
+    display: inline-block;
+    background-image: linear-gradient(rgba(212, 212, 212, 0.505),rgba(233, 233, 233, 0.662)),url(https://i.pinimg.com/564x/c2/f6/d5/c2f6d533fbf280847cf46872d06b6c3d.jpg);
+    color: black;
+    padding: 20px;
+}
+.container02
+{
+    background:white;
+    display: inline-block;
+    padding: 50px;
+    width: 100%;
+    text-align: center;
+}
+.container02 input
+{
+    border: 2px solid #04B486;
+    border-radius: 25px;
+    padding: 15px 30px;
+    width: 65%;
+    font-size: 17px;
+}
+td, th, table
+{
+    border: solid 0px transparent;
+    padding: 10.2px 7px;
+}
+@media screen{
+
+    .container01,
+    .container02{
+        width: auto;
+    }
+}

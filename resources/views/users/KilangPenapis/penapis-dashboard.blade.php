@@ -105,80 +105,74 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="card">
-                                        <div class=" text-center">
-                                            <h4 style="color: rgb(39, 80, 71); margin-top:7%">Peringatan</h4>
-                                        </div>
-                                        <hr>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <div class="card">
+                                    <div class=" text-center">
+                                        <h4 style="color: rgb(39, 80, 71); margin-top:7%">Peringatan</h4>
+                                    </div>
+                                    <hr>
 
-                                        <div class="card-body">
-                                            <div class="container center ">
+                                    <div class="card-body">
+                                        <div class="container center ">
 
-                                                <div class="pl-3">
+                                            <div class="pl-3">
 
-                                                    <p style=" text-align: justify">
-                                                        Adalah menjadi kesalahan
-                                                        dibawah syarat-syarat dan sekatan
-                                                        lesen yang terkandung di bawah
-                                                        Peraturan 21(1), Peraturan-peraturan Lembaga Minyak Sawit
-                                                        Malaysia(Pelesenan) 2005, jika gagal/lewat
-                                                        menyerahkan Penyata Bulanan tidak lewat dari 7hb. bagi bulan
-                                                        berikutnya dan apabila
-                                                        disabitkan boleh dikenakan denda.</p>
+                                                <p style=" text-align: justify">
+                                                    Adalah menjadi kesalahan
+                                                    dibawah syarat-syarat dan sekatan
+                                                    lesen yang terkandung di bawah
+                                                    Peraturan 21(1), Peraturan-peraturan Lembaga Minyak Sawit
+                                                    Malaysia(Pelesenan) 2005, jika gagal/lewat
+                                                    menyerahkan Penyata Bulanan tidak lewat dari 7hb. bagi bulan
+                                                    berikutnya dan apabila
+                                                    disabitkan boleh dikenakan denda.</p>
 
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class=" text-center">
-                                            <h4 style="color: rgb(39, 80, 71); margin-top:7%">Penafian</h4>
-                                        </div>
-                                        <hr>
-
-                                        <div class="card-body">
-                                            <div class="container center ">
-
-                                                <div class="pl-3">
-
-                                                    <p style=" text-align: justify">
-                                                        Kerajaan Malaysia dan
-                                                    Lembaga Minyak Sawit
-                                                    Malaysia
-                                                    (MPOB)
-                                                    adalah
-                                                    tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang
-                                                    disebabkan oleh penggunaan
-                                                    mana-mana maklumat yang diperolehi dari laman web ini
-                                                    .Syarikat-syarikat
-                                                    yang dirujuk di dalam
-                                                    laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun
-                                                    syarikat yang disyorkan oleh
-                                                    Lembaga Minyak Sawit Malaysia (MPOB).</p>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-
                                 </div>
-                            </div>
-                    </div>
+                                <div class="card">
+                                    <div class=" text-center">
+                                        <h4 style="color: rgb(39, 80, 71); margin-top:7%">Penafian</h4>
+                                    </div>
+                                    <hr>
 
+                                    <div class="card-body">
+                                        <div class="container center ">
+
+                                            <div class="pl-3">
+
+                                                <p style=" text-align: justify">
+                                                    Kerajaan Malaysia dan
+                                                Lembaga Minyak Sawit
+                                                Malaysia
+                                                (MPOB)
+                                                adalah
+                                                tidak bertanggungjawab bagi apa-apa kehilangan atau kerugian yang
+                                                disebabkan oleh penggunaan
+                                                mana-mana maklumat yang diperolehi dari laman web ini
+                                                .Syarikat-syarikat
+                                                yang dirujuk di dalam
+                                                laman web ini tidak boleh ditafsirkan sebagai ejen kepada, ataupun
+                                                syarikat yang disyorkan oleh
+                                                Lembaga Minyak Sawit Malaysia (MPOB).</p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            @endsection
         </div>
-
     </div>
 
 
 
-
-    </div>
-
-
-    @endsection

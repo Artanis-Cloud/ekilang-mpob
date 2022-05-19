@@ -517,6 +517,8 @@ Route::get('/migrate/data/admin', [App\Http\Controllers\DataMigrationController:
 
 Route::get('/trylogin', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'trylogin'])->name('trylogin');
 
+Route::get('/loginArx', [App\Http\Controllers\tryController::class, 'tryArx'])->name('loginArx');
+
 // //Kilang Biodiesel
 // Route::get('biodiesel/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'biodiesel_dashboard'])->name('bio.dashboard');
 // Route::get('biodiesel/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangBiodieselController::class, 'bio_maklumatasaspelesen'])->name('bio.maklumatasaspelesen');

@@ -124,7 +124,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                            </div>
+                            </div><br><br><br><br><br>
 
                             <div class="row form-group" style="padding-top: 3%; ">
                                 <div class="text-left col-md-5">
@@ -187,4 +187,8 @@
                     });
                 });
             </script>
-        @endsection
+            @endsection
+        </div><br><br>
+
+    </div>
+

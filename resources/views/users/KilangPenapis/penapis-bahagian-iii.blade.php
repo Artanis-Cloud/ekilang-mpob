@@ -106,7 +106,13 @@
                                 </div>
                             </div>
 
-                            <div class="row form-group" style="padding-top: 3%; ">
+                            <div class="row form-group" style="margin-top: 200px; ">
+                                {{-- <div class="row form-group" style="padding-top: 10px; ">
+                                                    <div class="text-right col-md-12 mb-4 ">
+                                                        <button type="submit" class="btn btn-primary ">Simpan &
+                                                            Seterusnya</button>
+                                                    </div>
+                                                </div> --}}
                                 <div class="text-left col-md-5">
                                     <a href="{{ route('penapis.bahagianii') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>

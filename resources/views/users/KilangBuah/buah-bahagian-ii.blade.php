@@ -37,13 +37,10 @@
                 </div>
             </div>
         </div>
-        <div class="card" style="margin-right:2%; margin-left:2%">
-
-
-            <div class="card-body">
-                {{-- <div class="row"> --}}
-                <div class="col-md-12">
-                    <div class="pl-3">
+                <div class="card" style="margin-right:2%; margin-left:2%">
+                    <div class="card-body">
+                        <div class="col-md-12">
+                            <div class="pl-3">
 
                         <div class="text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h3>

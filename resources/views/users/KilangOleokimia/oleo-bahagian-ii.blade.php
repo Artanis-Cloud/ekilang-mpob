@@ -94,7 +94,7 @@
                                             </div>
 
 
-                                            <div class="row form-group" style="margin-top:4%">
+                                            <div class="row form-group" style="margin-top:200px">
 
 
                                                 <div class="text-left col-md-5" style="margin-left:2%">
@@ -144,21 +144,15 @@
                                             </div>
                                         </div>
                                     </div>
+                                    {{-- </div></div> --}}
 
 
 
-                            </div>
-
-                    </div><br><br><br><br>
-                </form>
-                </div>
-            </div>
 
 
-    </div>
-
-
-
+                            </div><br><br><br><br>
+                        </form>
+                    
 
 
 

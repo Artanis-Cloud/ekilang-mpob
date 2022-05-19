@@ -563,49 +563,6 @@
                             </form>
 
                         </div>
-
-
-                    </div>
-
-                </div>
-                <br>
-                <br>
-                <br>
-                <br>
-
-
-
-                {{-- </div>
-                                                                    </div> --}}
-
-                {{-- </section> --}}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                {{-- </div>
-
-                    </div> --}}
-
-
-
-                <br>
-                <br>
-
-
-
-
     </section><!-- End Hero -->
 
 

@@ -34,14 +34,8 @@
                 </div>
             </div>
         </div>
-                <div class="card" style="margin-right:2%; margin-left:2%">
-                    {{-- <div class="card-header border-bottom">
-                        <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
-                    </div> --}}
-
+                <div class="card" style="margin-right:2%; margin-left:2%;">
                     <div class="card-body">
-                        {{-- <div class="row"> --}}
-                            {{-- <div class="col-md-4 col-12"> --}}
                             <div class="pl-3">
 
                                 <div class="text-center">
@@ -164,9 +158,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
-
-
                                         </div>
                                     {{-- </div> --}}
                                     <br>
@@ -175,9 +166,7 @@
 
 
 
-                                    <div class="row form-group" style="padding-top: 10px; ">
-
-
+                                    <div class="row form-group" style="padding-top: 100px; ">
                                         <div class="text-left col-md-5">
                                             <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
                                                 style="float: left">Sebelumnya</a>
@@ -190,8 +179,9 @@
                                         <div class="text-right col-md-7 mb-4 ">
                                             <button type="submit" class="btn btn-primary " style="float: right;">Hantar</button>
                                         </div>
-
                                     </div>
+
+
 
                                     <!-- Vertically Centered modal Modal -->
                                     <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
@@ -230,67 +220,47 @@
                                     </div>
                                 </form>
                             </div>
-                            <br>
+                    </div><br>
 
+                    {{-- <div id="preloader"></div> --}}
+                    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                            class="bi bi-arrow-up-short"></i></a>
 
-                        {{-- </div> --}}
-                    </div>
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+                    </script>
+                    {{-- <script type="text/javascript">
+                        $(document).ready(function() {
+                            $('.calc').change(function() {
+                                var total = 0;
+                                $('.calc').each(function() {
+                                    if ($(this).val() != '') {
+                                        total += parseFloat($(this).val());
+                                    }
+                                });
+                                $('#total').html(total);
+                            });
+                        });
+                    </script> --}}
+                    <script>
+                        function validation_jumlah() {
+                            var e91_ak1 = $("#e91_ak1").val();
+                            var e91_ak2 = $("#e91_ak2").val();
+                            var e91_ak3 = $("#e91_ak3").val();
+
+                            var jumlah = $("#jumlah").val();
+                            var jumlah_input = 0;
+
+                            jumlah_input = parseFloat(Number(e91_ak1)) + parseFloat(Number(e91_ak2)) +
+                                parseFloat(Number(e91_ak3));
+                            console.log(jumlah_input.toFixed(2));
+                            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                        }
+                    </script>
+
+                    </body>
+
+                    </html>
+                  @endsection
                 </div>
-
-
-
-
-                {{-- </div>
-                                                                </div> --}}
-
-                {{-- </section> --}}
-            </div>
-        </div>
-
-
     </div>
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-    </script>
-    {{-- <script type="text/javascript">
-        $(document).ready(function() {
-            $('.calc').change(function() {
-                var total = 0;
-                $('.calc').each(function() {
-                    if ($(this).val() != '') {
-                        total += parseFloat($(this).val());
-                    }
-                });
-                $('#total').html(total);
-            });
-        });
-    </script> --}}
-    <script>
-        function validation_jumlah() {
-            var e91_ak1 = $("#e91_ak1").val();
-            var e91_ak2 = $("#e91_ak2").val();
-            var e91_ak3 = $("#e91_ak3").val();
-
-            var jumlah = $("#jumlah").val();
-            var jumlah_input = 0;
-
-            jumlah_input = parseFloat(Number(e91_ak1)) + parseFloat(Number(e91_ak2)) +
-                parseFloat(Number(e91_ak3));
-            console.log(jumlah_input.toFixed(2));
-            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
-        }
-    </script>
-
-    </body>
-
-    </html>
-@endsection

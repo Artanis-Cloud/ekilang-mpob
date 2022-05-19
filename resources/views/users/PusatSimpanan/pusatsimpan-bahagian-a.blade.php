@@ -478,19 +478,6 @@
         </div>
     </div>
 
-    </div>
-    <br>
-    <br>
-    <br>
-    <br>
-
-
-
-    <br>
-    <br>
-
-
-
 
 
 
@@ -588,4 +575,5 @@
     </body>
 
     </html>
-@endsection
+    @endsection
+
