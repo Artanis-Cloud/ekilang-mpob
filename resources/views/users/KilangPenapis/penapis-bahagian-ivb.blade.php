@@ -277,13 +277,13 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c5 }}">
+                                                                        value="{{ $data->e101_c5 }}" required>
                                                                 </div>
                                                                 <label class="required">Belian / Terimaan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_c6' class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c6 }}">
+                                                                        value="{{ $data->e101_c6 }}" required>
                                                                 </div>
                                                                 {{-- <label>Import </label>
                                                                         <div class="form-group">
@@ -296,7 +296,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c7 }}">
+                                                                        value="{{ $data->e101_c7 }}" required>
                                                                 </div>
                                                                 <label class="required">Jualan / Edaran Dalam Negeri
                                                                 </label>
@@ -305,7 +305,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c8 }}">
+                                                                        value="{{ $data->e101_c8 }}" required>
                                                                 </div>
                                                                 <label class="required">Eksport </label>
                                                                 <div class="form-group">
@@ -313,7 +313,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c9 }}">
+                                                                        value="{{ $data->e101_c9 }}" required>
                                                                 </div>
                                                                 <label class="required">Stok Akhir </label>
                                                                 <div class="form-group">
@@ -321,7 +321,7 @@
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         oninput="validate_two_decimal(this)"
-                                                                        value="{{ $data->e101_c10 }}">
+                                                                        value="{{ $data->e101_c10 }}" required>
                                                                 </div>
                                                             </div>
                                                     </div>
