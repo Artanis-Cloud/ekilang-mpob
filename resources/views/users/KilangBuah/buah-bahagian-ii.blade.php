@@ -64,8 +64,8 @@
                                     <label for="fname" class="text-right col-sm-5 align-items-center">i.
                                         Jumlah Jam Pengilangan</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name='e91_ah1'  oninput="validate_two_decimal(this)"
-                                            style=" width:40%; text-align:right" onkeypress="return isNumberKey(event)"
+                                        <input type="text" class="form-control" name='e91_ah1'  oninput="validate_two_decimal(this);setCustomValidity('')"
+                                            style=" width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             id="jam_pengilangan" required title="Sila isikan butiran ini."
                                             value="{{ $penyata->e91_ah1 ?? 0 }}">
                                             @error('e91_ah1')
@@ -81,8 +81,8 @@
                                         Kadar
                                         Perahan MSM (OER) Yang Diperolehi</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name='e91_ah2' oninput="validate_two_decimal(this)"
-                                            style="width:40%; text-align:right" onkeypress="return isNumberKey(event)"
+                                        <input type="text" class="form-control" name='e91_ah2' oninput="validate_two_decimal(this);setCustomValidity('')"
+                                            style="width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             id="kadar_perahan_mksm" required title="Sila isikan butiran ini."
                                             value="{{ $penyata->e91_ah2 ?? 0 }}">
                                             @error('e91_ah2')
@@ -97,8 +97,8 @@
                                         class="text-right col-sm-5 control-label col-form-label align-items-center">iii.
                                         Kadar Perolehan Isirung (KER)</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name='e91_ah3' oninput="validate_two_decimal(this)"
-                                            style="width:40%; text-align:right" onkeypress="return isNumberKey(event)"
+                                        <input type="text" class="form-control" name='e91_ah3' oninput="validate_two_decimal(this);setCustomValidity('')"
+                                            style="width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             id="kadar_perolehan_isirung" required title="Sila isikan butiran ini."
                                             value="{{ $penyata->e91_ah3 ?? 0 }}">
                                             @error('e91_ah3')
@@ -113,8 +113,8 @@
                                         class="text-right col-sm-5 control-label col-form-label align-items-center">iv.
                                         Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
                                     <div class="col-md-6">
-                                        <input type="text" class="form-control" name='e91_ah4' oninput="validate_two_decimal(this)"
-                                            style=" width:40%; text-align:right" onkeypress="return isNumberKey(event)"
+                                        <input type="text" class="form-control" name='e91_ah4' oninput="validate_two_decimal(this);setCustomValidity('')"
+                                            style=" width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             id="harga_purata_buah_sawit" placeholder="RM" required
                                             title="Sila isikan butiran ini." value="{{ $penyata->e91_ah4 ?? 0 }}">
                                         <p><i>(1% Kadar Perahan)</i></p>
@@ -130,10 +130,10 @@
                                         class="text-right col-sm-5 control-label col-form-label align-items-center">v.
                                         Prestasi OER</label>
                                     <div class="col-md-3">
-                                        <fieldset class="form-group" style=" width: 85%">
-                                            <select name="kadar_oer" class="form-control" id="kadar_oer"
-                                                onchange="showTable()">
-                                                <option selected hidden disabled>Sila Pilih Prestasi OER</option>
+                                        <fieldset class="form-group" style=" width: 85%" >
+                                            <select name="kadar_oer" class="form-control" id="kadar_oer" required
+                                                onchange="showTable()" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                                <option selected hidden disabled value="">Sila Pilih Prestasi OER</option>
                                                 <option value="Meningkat">Meningkat</option>
                                                 <option value="Menurun">Menurun</option>
                                             </select>

@@ -266,7 +266,7 @@
                                             <td>
                                                 <div class="icon" style="text-align: center">
                                                     <a href="#" type="button" data-toggle="modal"
-                                                        data-target="#modal{{ $data->ebio_c1 }}">
+                                                        data-target="#kemaskini{{ $data->ebio_c1 }}">
                                                         <i class="fas fa-edit fa-lg" style="color: #ffc107">
                                                         </i>
                                                     </a>
@@ -288,7 +288,7 @@
                                         <div class="col-md-6 col-12">
 
                                             <!--Kemaskini Maklumat Modal -->
-                                            <div class="modal fade" id="modal{{ $data->ebio_c1 }}" tabindex="-1"
+                                            <div class="modal fade" id="kemaskini{{ $data->ebio_c1 }}" tabindex="-1"
                                                 role="dialog" aria-labelledby="exampleModalScrollableTitle"
                                                 aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-scrollable" role="document">

@@ -1405,7 +1405,7 @@
             toastr.success('{{ session('success') }}', 'Berjaya!', {
                 "progressBar": true
             });
-        @elseif (Session::has('error'))
+        @elseif(Session::has('error'))
             toastr.error('{{ session('error') }}', 'Ralat!', {
                 "progressBar": true
             });
@@ -1524,26 +1524,37 @@
             e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
         }
     </script>
+    <script>
+        <script>
+             $('input[type="text"]')
+            .on('invalid', function(){
+                return this.setCustomValidity('Ingresa una dirección de correo válida.');
+            })
+            .on('input', function(){
+                return this.setCustomValidity('');
+            });
+        </script>
+        </script>
 
-    @yield('scripts')
-    @if ($map_url)
-        @if ($not_admin)
-            @if (now() > $map_date_expired)
-                <script>
-                    $('#map-message-warning').click(function() {
-                        swal({
-                            title: "Perhatian!",
-                            text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen. Sistem akan membawa anda ke halaman tersebut dalam masa 5 saat",
-                            type: "warning",
-                            showCancelButton: false,
-                            showConfirmButton: false,
-                            confirmButtonColor: "#DD6B55",
-                            confirmButtonText: "Yes, delete it!",
-                            closeOnConfirm: false
-                        }, function() {
-                            swal("Deleted!", "Your imaginary file has been deleted.", "success");
+        @yield('scripts')
+        @if ($map_url)
+            @if ($not_admin)
+                @if (now() > $map_date_expired)
+                    <script >
+                        $('#map-message-warning').click(function() {
+                            swal({
+                                title: "Perhatian!",
+                                text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen. Sistem akan membawa anda ke halaman tersebut dalam masa 5 saat",
+                                type: "warning",
+                                showCancelButton: false,
+                                showConfirmButton: false,
+                                confirmButtonColor: "#DD6B55",
+                                confirmButtonText: "Yes, delete it!",
+                                closeOnConfirm: false
+                            }, function() {
+                                swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                            });
                         });
-                    });
                     // $('#map-message').click(function(){
                     //     swal({
                     //         title: "Perhatian!",
@@ -1562,9 +1573,9 @@
                     setTimeout(function() {
                         document.getElementById('map-flag-redirect').click();
                     }, 5100);
-                </script>
-            @endif
-        @endif
+    </script>
+    @endif
+    @endif
     @endif
 </body>
 

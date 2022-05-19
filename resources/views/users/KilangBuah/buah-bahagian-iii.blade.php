@@ -36,26 +36,17 @@
             </div>
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
-            {{-- <div class="card-header border-bottom">
-                        <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
-                    </div> --}}
-
             <div class="card-body">
-                {{-- <div class="row"> --}}
-                {{-- <div class="col-md-4 col-12"> --}}
                 <div class="pl-3">
 
                     <div class="text-center">
-                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 3</h3>
-                        <h5 style="color: rgb(39, 80, 71) ; font-size:14px">Belian / Terimaan Bekalan Buah
+                        <h5 style="color: rgb(39, 80, 71) ; font-size:14px">Belian/Terimaan Bekalan Buah
                             Kelapa Sawit
                             (FFB) (52)</h5>
-                        {{-- <p>Maklumat Kilang</p> --}}
                     </div>
                     <hr>
 
-                    {{-- <div class="row" id="table-bordered"> --}}
                     <div class="col-12 mt-2" style="margin-bottom: -2%">
                         <form action="{{ route('buah.update.bahagian.iii', [$penyata->e91_reg]) }}" method="post"
                             onsubmit="return validation_jum();" onload="validation_jumlah()">
@@ -82,9 +73,9 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id="e91_ai1"
                                                             name='e91_ai1' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this)"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')"  oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event);"
-                                                            onchange="validation_jumlah()"
+                                                            onchange="validation_jumlah()" required
                                                             value="{{ old('e91_ai1') ?? ($penyata->e91_ai1 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                         @error('e91_ai1')
@@ -101,9 +92,9 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id="e91_ai2"
                                                             name='e91_ai2' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this)"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)"
-                                                            onchange="validation_jumlah()"
+                                                            onchange="validation_jumlah()" required
                                                             value="{{ old('e91_ai2') ?? ($penyata->e91_ai2 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                             @error('e91_ai2')
@@ -120,8 +111,8 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id='e91_ai3'
                                                             name='e91_ai3' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this)"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai3') ?? ($penyata->e91_ai3 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                             @error('e91_ai3')
@@ -138,8 +129,8 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id='e91_ai4'
                                                             name='e91_ai4' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this)"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai4') ?? ($penyata->e91_ai4 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                             @error('e91_ai4')
@@ -156,8 +147,8 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" name='e91_ai5'
                                                             id='e91_ai5' size="15" id="text1" style="text-align: center"
-                                                            oninput="validate_two_decimal(this)"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai5') ?? ($penyata->e91_ai5 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                             @error('e91_ai5')
@@ -174,8 +165,8 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" name='e91_ai6'
                                                             id='e91_ai6' size="15" id="text2" style="text-align: center"
-                                                            oninput="validate_two_decimal(this)"
-                                                            onkeypress="return isNumberKey(event)"
+                                                            oninput="validate_two_decimal(this);setCustomValidity('')" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai6') ?? ($penyata->e91_ai6 ?? 0) }}"
                                                             onchange="validation_jumlah()">
                                                             @error('e91_ai6')

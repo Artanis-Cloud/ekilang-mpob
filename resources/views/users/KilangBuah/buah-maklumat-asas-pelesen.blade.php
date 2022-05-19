@@ -321,165 +321,147 @@
                                     @enderror
                                 </div>
                             </div>
-                                    <div class="row mb-2">
-                                        <label for="fname"
-                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                            Kapasiti Pemprosesan / Tahun</label>
-                                        <div class="col-md-6">
-                                            <input type="text" id="kap_proses" class="form-control"
-                                                placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
-                                                onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
-                                                value="{{ $pelesen->kap_proses }}" required>
+                            <div class="row mb-2">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Kapasiti Pemprosesan / Tahun</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="kap_proses" class="form-control"
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                        onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
+                                        value="{{ $pelesen->kap_proses }}" required>
 
-                                            @error('kap_proses')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror
+                                    @error('kap_proses')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
                                         </div>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="row mt-3 " style="text-align: center; font-size: 12px">
+                                <div class="col-md-5">
+                                    <span></span>
+                                </div>
+
+
+                                <div class="col-md-1">
+                                    <span>CPO</span>
+                                </div>
+
+                            </div>
+                            <div class="row mt-3 text-right">
+                                <div class="col-md-5">
+                                    <label for="fname"
+                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                        Bilangan Tangki</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
+                                        id="bil_tangki_cpo" required title="Sila isikan butiran ini."
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo }}"
+                                        required>
+                                    @error('bil_tangki_cpo')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+
+
+                            </div>
+                            <div class="row mt-3 text-right">
+                                <div class="col-md-5">
+                                    <label for="fname"
+                                        class="text-right control-label col-form-label required align-items-center">
+                                        Kapasiti Tangki Simpanan (Tan)</label>
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%"
+                                        id="kap_tangki_cpo" required title="Sila isikan butiran ini."
+                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki_cpo }}"
+                                        required>
+                                    @error('kap_tangki_cpo')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div><br><br>
+
+
+                            </div>
+                            <div class="row mx-3" style="margin-left:14%">
+                                <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
+                                    khusus untuk sesuatu produk. Sila campurkan kesemua
+                                    bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                </i>
+                            </div>
+                        </div>
+
+
+                        <div class="row form-group" style="margin-top: 2%">
+                            <div class="text-right col-md-6">
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#next">Simpan</button>
+                            </div>
+
+                        </div>
+
+                        <!-- Vertically Centered modal Modal -->
+                        <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                            PENGESAHAN</h5>
+                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                            aria-label="Close">
+                                            <i data-feather="x"></i>
+                                        </button>
                                     </div>
-                                            {{-- <div class="row mb-2">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Kapasiti Tangki Simpanan</label>
-                                                <div class="col-md-6">
-                                                    <input type="text" id="kap_tangki" class="form-control"
-                                                        placeholder="Kapasiti Tangki Simpanan" name="kap_tangki"
-                                                        onkeypress="return isNumberKey(event)"
-                                                        oninput="validate_two_decimal(this)"
-                                                        value="{{ $pelesen->kap_tangki }}" required>
-
-                                                    @error('kap_tangki')
-                                                        <div class="alert alert-danger">
-                                                            <strong>{{ $message }}</strong>
-                                                        </div>
-                                                    @enderror
-                                                    </div>
-                                                </div> --}}
-                                                <div class="row mt-3 " style="text-align: center; font-size: 12px">
-                                                    <div class="col-md-5">
-                                                        <span></span>
-                                                    </div>
-
-
-                                                    <div class="col-md-1">
-                                                        <span>CPO</span>
-                                                    </div>
-
-                                                </div>
-                                                <div class="row mt-3 text-right">
-                                                    <div class="col-md-5">
-                                                        <label for="fname"
-                                                            class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                            Bilangan Tangki</label>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <input type="text" class="form-control" name='bil_tangki_cpo'
-                                                            style="width:100%" id="bil_tangki_cpo" required
-                                                            title="Sila isikan butiran ini."
-                                                            onkeypress="return isNumberKey(event)"
-                                                            value="{{ $pelesen->bil_tangki_cpo }}" required>
-                                                        @error('bil_tangki_cpo')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
-                                                    </div>
-
-
-                                                </div>
-                                                <div class="row mt-3 text-right">
-                                                    <div class="col-md-5">
-                                                        <label for="fname"
-                                                            class="text-right control-label col-form-label required align-items-center">
-                                                            Kapasiti Tangki Simpanan (Tan)</label>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <input type="text" class="form-control" name='kap_tangki_cpo'
-                                                            style="width:100%" id="kap_tangki_cpo" required
-                                                            title="Sila isikan butiran ini."
-                                                            onkeypress="return isNumberKey(event)"
-                                                            value="{{ $pelesen->kap_tangki_cpo }}" required>
-                                                        @error('kap_tangki_cpo')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
-                                                    </div><br><br>
-
-
-                                                </div>
-                                                <div class="row mx-3" style="margin-left:14%">
-                                                    <i>Nota:Sekiranya kilang/pelesen tiada tangki simpanan
-                                                        khusus untuk sesuatu produk. Sila campurkan kesemua
-                                                        bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                                                    </i>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="row form-group" style="margin-top: 2%">
-                                                <div class="text-right col-md-6">
-                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                        data-target="#next">Simpan</button>
-                                                </div>
-
-                                            </div>
-
-                                            <!-- Vertically Centered modal Modal -->
-                                            <div class="modal fade" id="next" tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                    role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                PENGESAHAN</h5>
-                                                            <button type="button" class="close"
-                                                                data-bs-dismiss="modal" aria-label="Close">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <p>
-                                                                Anda pasti mahu menyimpan maklumat ini?
-                                                            </p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-light-secondary"
-                                                                data-dismiss="modal">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block"
-                                                                    style="color:#275047">Tidak</span>
-                                                            </button>
-                                                            <button type="submit" class="btn btn-primary ml-1"
-                                                                data-bs-dismiss="modal">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">Ya</span>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="modal-body">
+                                        <p>
+                                            Anda pasti mahu menyimpan maklumat ini?
+                                        </p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                        </button>
+                                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Ya</span>
+                                        </button>
                                     </div>
                                 </form>
 
 
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+@endsection
 
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $(".floatNumberField").change(function() {
-                    $(this).val(parseFloat($(this).val()).toFixed(2));
-                });
+@section('scripts')
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".floatNumberField").change(function() {
+                $(this).val(parseFloat($(this).val()).toFixed(2));
             });
-        </script>
+        });
+    </script>
+    <script>
+        var input = document.getElementById("kap_proses");
+        var lastValue = "";
 
-        </body>
+        input.addEventListener("keydown", valueCheck);
+        input.addEventListener("keyup", valueCheck);
 
-        </html>
-    @endsection
+        function valueCheck() {
+            if (input.value.match(/^[0-9]*$/))
+                lastValue = input.value;
+            else
+                input.value = lastValue;
+        }
+    </script>
+@endsection

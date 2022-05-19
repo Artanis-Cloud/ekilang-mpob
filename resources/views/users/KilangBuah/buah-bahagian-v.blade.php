@@ -77,9 +77,9 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak1'
                                                                             class="calc" name='e91_ak1' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
-                                                                            value="{{ old('e91_ak1') ?? $penyata->e91_ak1 ?? 0 }}"
-                                                                            onchange="validation_jumlah()">
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                                            value="{{ old('e91_ak1') ?? $penyata->e91_ak1 ?? 0 }}" required
+                                                                            onchange="validation_jumlah()" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak1')
                                                                             <div class="alert alert-danger">
                                                                                 <strong>Sila isi butiran ini</strong>
@@ -94,9 +94,9 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak2'
                                                                             class="calc" name='e91_ak2' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
-                                                                            value="{{ old('e91_ak2') ?? $penyata->e91_ak2 ?? 0 }}"
-                                                                            onchange="validation_jumlah()">
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                                            value="{{ old('e91_ak2') ?? $penyata->e91_ak2 ?? 0 }}" required
+                                                                            onchange="validation_jumlah()" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak2')
                                                                             <div class="alert alert-danger">
                                                                                 <strong>Sila isi butiran ini</strong>
@@ -111,9 +111,9 @@
                                                                     <td style="text-align:center;">
                                                                         <input type="text" size="15" id='e91_ak3'
                                                                             class="calc" name='e91_ak3' style="text-align:center"
-                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
-                                                                            value="{{ old('e91_ak3') ?? $penyata->e91_ak3 ?? 0 }}"
-                                                                            onchange="validation_jumlah()">
+                                                                            onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                                            value="{{ old('e91_ak3') ?? $penyata->e91_ak3 ?? 0 }}" required
+                                                                            onchange="validation_jumlah()" oninvalid="setCustomValidity('Sila isi butiran ini')">
                                                                             @error('e91_ak3')
                                                                             <div class="alert alert-danger">
                                                                                 <strong>Sila isi butiran ini</strong>

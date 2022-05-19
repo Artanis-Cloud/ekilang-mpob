@@ -66,7 +66,7 @@
                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">Kata
                                 Laluan Baru <i>(8 Aksara)</i></label>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name='new_password' id="myInput2"  maxlength="8"
+                                <input type="password" class="form-control" name='new_password' id="myInput2" minlength="8"
                                     placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                 @error('new_password')
                                                         <div class="alert alert-danger">
@@ -80,7 +80,7 @@
                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">Sahkan
                                 Kata Laluan Baru <i>(8 Aksara)</i></label>
                             <div class="col-md-6">
-                                <input type="password" class="form-control" name='password_confirmation' id="myInput3"  maxlength="8"
+                                <input type="password" class="form-control" name='password_confirmation' id="myInput3"  minlength="8"
                                     placeholder="Sahkan Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                 @error('password_confirmation')
                                                         <div class="alert alert-danger">
