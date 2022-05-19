@@ -547,17 +547,10 @@
                                 </a>
                                 </div>
                             </div>
-                        </div>
+                            <br>
+                            </form>
+
                     </div>
-                </div>
-                <br>
-                </form>
-
-            </div>
-
-        </div>
-
-
 
 
 

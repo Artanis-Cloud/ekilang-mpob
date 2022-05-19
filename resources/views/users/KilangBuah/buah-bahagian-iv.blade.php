@@ -246,117 +246,106 @@
                                                     style="float: right" data-bs-target="#exampleModalCenter">Simpan &
                                                     Seterusnya</button>
                                             </div> --}}
-                    <div class="text-right col-md-7 mb-4 ">
-                        <button type="submit" class="btn btn-primary " style="float: right;">Simpan
-                            & Seterusnya</button>
-                    </div>
+                                            <div class="text-right col-md-7 mb-4 ">
+                                                <button type="submit" class="btn btn-primary " style="float: right;">Simpan
+                                                    & Seterusnya</button>
+                                            </div>
 
-                </div>
+                                        </div>
 
-                <!-- Vertically Centered modal Modal -->
-                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                        role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                    PENGESAHAN</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <i data-feather="x"></i>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    Anda pasti mahu menyimpan maklumat ini?
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                </button>
-                                <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Ya</span>
-                                </button>
-                            </div>
+                                        <!-- Vertically Centered modal Modal -->
+                                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Anda pasti mahu menyimpan maklumat ini?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-light-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block"
+                                                                style="color:#275047">Tidak</span>
+                                                        </button>
+                                                        <button type="submit" class="btn btn-primary ml-1"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Ya</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+
+
+                                {{-- <div id="preloader"></div> --}}
+                                <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                                        class="bi bi-arrow-up-short"></i></a>
+
+
+
+
+                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+                                        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+                                </script>
+                                <script>
+                                    function validation_jumlah() {
+                                        var e91_aj1 = $("#e91_aj1").val();
+                                        var e91_aj2 = $("#e91_aj2").val();
+                                        var e91_aj3 = $("#e91_aj3").val();
+                                        var e91_aj4 = $("#e91_aj4").val();
+                                        var e91_aj5 = $("#e91_aj5").val();
+                                        var e91_aj8 = $("#e91_aj8").val();
+
+                                        var jumlah = $("#jumlah").val();
+                                        var jumlah_input = 0;
+
+                                        jumlah_input = parseFloat(Number(e91_aj1)) + parseFloat(Number(e91_aj2)) +
+                                            parseFloat(Number(e91_aj3)) + parseFloat(Number(e91_aj4)) + parseFloat(Number(e91_aj5)) + parseFloat(Number(e91_aj8));
+                                        // console.log(jumlah_input.toFixed(2));
+                                        document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                                    }
+                                </script>
+                                {{-- <script>
+                                    function validation_jumlah() {
+                                        var e91_aj1 = $("#e91_aj1").val();
+                                        var e91_aj2 = $("#e91_aj2").val();
+                                        var e91_aj3 = $("#e91_aj3").val();
+                                        var e91_aj4 = $("#e91_aj4").val();
+                                        var e91_aj5 = $("#e91_aj5").val();
+                                        var e91_aj8 = $("#e91_aj8").val();
+
+                                        var jumlah = $("#jumlah").val();
+                                        var jumlah_input = 0;
+
+                                        jumlah_input = parseFloat(Number(e91_aj1)) + parseFloat(Number(e91_aj2)) + parseFloat(Number(e91_aj3)) + parseFloat(Number(e91_aj4))
+                                        + parseFloat(Number(e91_aj5)) + parseFloat(Number(e91_aj8));
+
+                                        document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
+                                    }
+                                </script> --}}
+
+
+                                </body>
+
+                                </html>
+                            @endsection
+
                         </div>
                     </div>
-                </div>
-                </form>
-
-            </div>
-            <br>
-
-
-        </div>
     </div>
-    </div>
-    <br>
-    </div>
-    </div>
-    </div>
-
-
-
-
-    </div>
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-
-
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-    </script>
-    <script>
-        function validation_jumlah() {
-            var e91_aj1 = $("#e91_aj1").val();
-            var e91_aj2 = $("#e91_aj2").val();
-            var e91_aj3 = $("#e91_aj3").val();
-            var e91_aj4 = $("#e91_aj4").val();
-            var e91_aj5 = $("#e91_aj5").val();
-            var e91_aj8 = $("#e91_aj8").val();
-
-            var jumlah = $("#jumlah").val();
-            var jumlah_input = 0;
-
-            jumlah_input = parseFloat(Number(e91_aj1)) + parseFloat(Number(e91_aj2)) +
-                parseFloat(Number(e91_aj3)) + parseFloat(Number(e91_aj4)) + parseFloat(Number(e91_aj5)) + parseFloat(Number(
-                    e91_aj8));
-            // console.log(jumlah_input.toFixed(2));
-            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
-        }
-    </script>
-    {{-- <script>
-        function validation_jumlah() {
-            var e91_aj1 = $("#e91_aj1").val();
-            var e91_aj2 = $("#e91_aj2").val();
-            var e91_aj3 = $("#e91_aj3").val();
-            var e91_aj4 = $("#e91_aj4").val();
-            var e91_aj5 = $("#e91_aj5").val();
-            var e91_aj8 = $("#e91_aj8").val();
-
-            var jumlah = $("#jumlah").val();
-            var jumlah_input = 0;
-
-            jumlah_input = parseFloat(Number(e91_aj1)) + parseFloat(Number(e91_aj2)) + parseFloat(Number(e91_aj3)) + parseFloat(Number(e91_aj4))
-            + parseFloat(Number(e91_aj5)) + parseFloat(Number(e91_aj8));
-
-            document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
-        }
-    </script> --}}
-
-
-    </body>
-
-    </html>
-@endsection

@@ -42,49 +42,46 @@
         </div>
         <div class="card" style="margin-right:3%; margin-left:3%">
             <div class="card-body">
-                <div class="pl-3">
+                <div class="row">
+                        {{-- <div class="col-md-4 col-12"> --}}
+                    <div class="pl-3">
 
-                    <div class=" text-center">
-                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
-                        <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan </i>
-                        </h5>
-                    </div>
-                    <hr>
-                    <form action="{{ route('pusatsimpan.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}"
-                        method="post">
-                        @csrf
-                        <div class="container center mt-5">
-                            <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label required col-form-label align-items-center">
-                                    Alamat Premis Berlesen</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_ap1" class="form-control"
-                                        placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}"
-                                        required>
-                                    @error('e_ap1')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6" style="margin-left: 41.6%; ">
-                                    <input type="text" id="e_ap2" class="form-control"
-                                        placeholder="Alamat Premis Berlesen 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}">
-                                    @error('e_ap2')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                                <div class="col-md-6" style="margin-left: 41.6%;">
-                                    <input type="text" id="e_ap3" class="form-control"
-                                        placeholder="Alamat Premis Berlesen 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}">
-                                    @error('e_ap3')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
+                        <div class=" text-center">
+                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
+                            <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan </i>
+                            </h5>
+                            {{-- <p>Maklumat Kilang</p> --}}
+                        </div>
+                        <hr>
+                        <form action="{{ route('pusatsimpan.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}"
+                            method="post">
+                            @csrf
+                            <div class="container center mt-5">
+                                <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
+                                    <label for="fname"
+                                        class="text-right col-sm-5 control-label required col-form-label align-items-center">
+                                        Alamat Premis Berlesen</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="e_ap1" class="form-control"
+                                            placeholder="Alamat Premis Berlesen 1" name="e_ap1"
+                                            value="{{ $pelesen->e_ap1 }}" required>
+                                        {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                    </div>
+                                    <div class="col-md-6" style="margin-left: 41.6%; ">
+                                        <input type="text" id="e_ap2" class="form-control"
+                                            placeholder="Alamat Premis Berlesen 2" name="e_ap2"
+                                            value="{{ $pelesen->e_ap2 }}">
+                                    </div>
+                                    <div class="col-md-6" style="margin-left: 41.6%;">
+                                        <input type="text" id="e_ap3" class="form-control"
+                                            placeholder="Alamat Premis Berlesen 3" name="e_ap3"
+                                            value="{{ $pelesen->e_ap3 }}">
+                                    </div>
                                 </div>
                             </div>
 
@@ -587,24 +584,16 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
+                            </div>
+                        </form>
+                    </div>
+                {{--  </div> --}}
+              </div>
             </div>
-
-
-
-
+            @endsection
         </div>
-
-
     </div>
-    <br>
 
-
-    </div>
-    </div>
-    <br>
 
 
     {{-- <div id="preloader"></div> --}}
@@ -673,4 +662,4 @@
     </body>
 
     </html>
-@endsection
+

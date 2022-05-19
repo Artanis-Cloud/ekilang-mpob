@@ -19,7 +19,7 @@
         <div class="container-fluid">
             <!-- row -->
             <div class="row">
-                {{-- <div class="col-sm-12 col-lg-12"> --}}
+
 
                 <div class="container center mt-2">
                     <div class="mb-4 row">
@@ -105,7 +105,7 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
+                        </div>
                             <div class="col-md-4">
                                 <div class="row">
                                     <div class="card">
@@ -163,22 +163,13 @@
                                             </div>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
                     </div>
-
                 </div>
-            </div>
+            </div> @endsection
         </div>
-
     </div>
 
 
 
-
-    </div>
-
-
-    @endsection

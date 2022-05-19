@@ -605,21 +605,9 @@
 
 
 
-
-
-
-
-            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                    class="bi bi-arrow-up-short"></i></a>
-
-
-            <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-            <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
-            <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
-            <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-            <script src="{{ asset('theme/js/app.js') }}"></script>
-
-            <script src="assets/js/main.js"></script>
+    {{-- <div id="preloader"></div> --}}
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>

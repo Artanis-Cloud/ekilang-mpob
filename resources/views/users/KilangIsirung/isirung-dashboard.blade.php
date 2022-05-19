@@ -105,7 +105,7 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
+                        </div>
                             <div class="col-md-4">
                                 <div class="row">
                                     <div class="card">
@@ -171,14 +171,8 @@
 
                 </div>
             </div>
+            @endsection
         </div>
-
     </div>
 
 
-
-
-    </div>
-
-
-    @endsection

@@ -125,7 +125,9 @@
                                     </div>
 
 
-                                    <div class="row form-group" style="padding-top: 20px; ">
+
+
+                                    <div class="row form-group" style="margin-top: 20px; margin-bottom: 220px">
 
                                     <div class="text-right col-md-12 mb-4 ">
                                         <button type="submit" class="btn btn-primary " style="margin-right: 48%"
@@ -166,45 +168,6 @@
 
 
                             </div>
-
-
-
-
-                    {{-- </div>
-                                                                    </div> --}}
-
-                    {{-- </section> --}}
-
-
-
-
-
-
-
-                </div>
-
-            </div>
-
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-                            <br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

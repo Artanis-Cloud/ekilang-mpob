@@ -615,24 +615,9 @@
             </div>
         </div>
     </div>
-    <br>
-    </form>
-
-    </div><br>
-
-
-
-    </div> <br><br>
-    </div>
-    </div>
-
-
-
+    <br><br>
 
     </section><!-- End Hero -->
-
-
-
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->
@@ -674,9 +659,6 @@
             document.getElementById('jumlah').innerHTML = jumlah_input.toFixed(2);
         }
     </script>
-
-
-
     </body>
 
     </html>

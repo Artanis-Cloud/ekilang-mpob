@@ -351,18 +351,7 @@
                     </div>
                 </div>
 
-            </section>
-
-        </div>
-
-
-
-
-
-
-
-
-
+                
 
 
         <div class="row form-group" style="padding-top: 10px; ">
@@ -408,18 +397,6 @@
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-
-    </div>
-
-    </form>
-    </div>
-
-
-
-    </div>
-
 
 
 

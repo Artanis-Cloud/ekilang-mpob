@@ -142,59 +142,62 @@
 
 
                     </div>
-                </div>
-            </div>
-        </div><br><br><br><br><br><br><br><br><br><br><br><br>
+              <br><br><br><br><br><br><br><br>
 
+
+
+
+                        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                                class="bi bi-arrow-up-short"></i></a>
+
+
+
+
+                        <script>
+                            $(document).ready(function() {
+                                var table = $('#example').DataTable({
+                                    "language": {
+                                        "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
+                                        "zeroRecords": "Maaf, tiada rekod.",
+                                        "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
+                                        "infoEmpty": "Tidak ada rekod yang tersedia",
+                                        "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                                        "search": "Carian",
+                                        "previous": "Sebelum",
+                                        "paginate": {
+                                            "first": "Pertama",
+                                            "last": "Terakhir",
+                                            "next": "Seterusnya",
+                                            "previous": "Sebelumnya"
+                                        },
+                                    },
+                                });
+                            });
+
+                            $(window).on('changed', (e) => {
+                                // if($('#example').DataTable().clear().destroy()){
+                                // $('#example').DataTable();
+                                // }
+                            });
+
+                            // document.getElementById("form_type").onchange = function() {
+                            //     myFunction()
+                            // };
+
+                            // function myFunction() {
+                            //     console.log('asasa');
+                            //     table.clear().draw();
+                            // }
+                        </script>
+
+
+                        </body>
+
+                        </html>@endsection
+
+
+                    </div>
+                </div>
     </div>
 
 
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-
-
-
-    <script>
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
-
-        $(window).on('changed', (e) => {
-            // if($('#example').DataTable().clear().destroy()){
-            // $('#example').DataTable();
-            // }
-        });
-
-        // document.getElementById("form_type").onchange = function() {
-        //     myFunction()
-        // };
-
-        // function myFunction() {
-        //     console.log('asasa');
-        //     table.clear().draw();
-        // }
-    </script>
-
-
-    </body>
-
-    </html>
-
-@endsection

@@ -460,12 +460,9 @@
             </div>
 
 
-        </div>
-        <br>
 
 
-    </div>
-    </div>
+
 
 
 
@@ -568,3 +565,6 @@
 
     </html>
 @endsection
+            </div>
+        </div>
+    </div>

@@ -1327,7 +1327,7 @@
         <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
-        <footer class="text-center footer">
+        <footer class="text-center footer" style="background-color: white;  ">
             All Rights Reserved by Artanis Cloud. Designed and Developed by
             <a href="https://www.artaniscloud.com/">ArtanisCloud</a>.
         </footer>

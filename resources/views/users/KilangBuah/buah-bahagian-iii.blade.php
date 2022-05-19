@@ -221,16 +221,17 @@
                 <br>
 
 
-                <div class="row form-group">
-                    <div class="text-left col-md-5">
-                        <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
-                            style="float: left">Sebelumnya</a>
-                    </div>
-                    <div class="text-right col-md-7">
-                        <button type="SUBMIT" class="btn btn-primary" style="float: right" id="go">Simpan &
-                            Seterusnya</button>
-                    </div>
-                </div>
+                                <div class="row form-group" style="margin-top:30px">
+                                    <div class="text-left col-md-5">
+                                        <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
+                                            style="float: left">Sebelumnya</a>
+                                    </div>
+                                    <div class="text-right col-md-7">
+                                        <button type="SUBMIT" class="btn btn-primary" style="float: right"
+                                            id="go">Simpan &
+                                            Seterusnya</button>
+                                    </div>
+                                </div>
 
                 <!-- Vertically Centered modal Modal -->
                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"

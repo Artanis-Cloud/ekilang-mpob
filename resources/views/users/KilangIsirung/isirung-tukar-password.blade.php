@@ -103,6 +103,7 @@
                                 data-toggle="modal" data-target="#next">Tukar Kata Laluan</button>
                         </div>
                 </div>
+                </div>
 
 
 
@@ -143,10 +144,7 @@
 
                 </form>
             </div>
-            {{-- </div> --}}
-            {{-- </div> --}}
-            {{-- </div> --}}
-            {{-- </div><br><br><br><br><br><br><br><br><br><br><br><br> --}}
+
         @endsection
         @section('scripts')
             <script>
@@ -172,3 +170,5 @@
                 }
             </script>
         @endsection
+        </div>
+    </div>

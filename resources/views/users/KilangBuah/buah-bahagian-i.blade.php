@@ -91,7 +91,7 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="text-bold-500 required" >A.
+                                                    <td class="text-bold-500 required">A.
                                                         Stok Awal Di Premis</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa1'
@@ -129,18 +129,21 @@
                                                             value="{{ $kilang->e91_ab1 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ab2' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ab2'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ab2 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ab3' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ab3'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ab3 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ab4' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ab4'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ab4 ?? 0 }}">
                                                     </td>
 
@@ -149,8 +152,9 @@
                                                     <td class="text-bold-500 required">C.
                                                         Diproses</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ac1' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ac1'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ac1 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center; background-color:#808080b8">
@@ -175,18 +179,21 @@
                                                                                 onkeypress="return isNumberKey(event)"> --}}
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ad1' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ad1'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ad1 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ad2' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ad2'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ad2 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ad3' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ad3'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ad3 ?? 0 }}">
                                                     </td>
 
@@ -195,23 +202,27 @@
                                                     <td class="text-bold-500 required">E.
                                                         Jualan / Edaran Tempatan</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ae1' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ae1'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ae1 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ae2' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ae2'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ae2 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ae3' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ae3'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ae3 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ae4' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ae4'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ae4 ?? 0 }}">
                                                     </td>
 
@@ -237,24 +248,28 @@
                                                     <td class="text-bold-500 required">G.
                                                         Stok Akhir Di Premis</td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ag1' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ag1'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ag1 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ag2' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ag2'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             value="{{ $kilang->e91_ag2 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ag3' onkeypress="return isNumberKey(event)" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ag3'
+                                                            onkeypress="return isNumberKey(event)" required
                                                             onchange="setTwoNumberDecimal"
                                                             value="{{ $kilang->e91_ag3 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninput="validate_two_decimal(this)"
-                                                            name='e91_ag4' onchange="setTwoNumberDecimal()" required
+                                                        <input type="text" size="10" style="text-align: center"
+                                                            oninput="validate_two_decimal(this)" name='e91_ag4'
+                                                            onchange="setTwoNumberDecimal()" required
                                                             onkeypress="return isNumberKey(event)"
                                                             value="{{ $kilang->e91_ag4 ?? 0 }}">
                                                     </td>
@@ -349,5 +364,15 @@
                 }
             </script>
 
+            <script>
+                function isNumberKey(evt) {
+                    var charCode = (evt.which) ? evt.which : evt.keyCode
+                    if (charCode > 31 && (charCode != 46 && (charCode < 48 || charCode > 57)))
+                        return false;
+                    return true;
+                }
+            </script>
+
 
         @endsection
+   

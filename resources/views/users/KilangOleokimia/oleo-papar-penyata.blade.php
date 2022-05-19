@@ -839,96 +839,91 @@
                 </div>
 
             </div>
-        </div>
-        <h1 style="page-break-before:always"></h1>
 
-        <div class="row form-group" style="padding-top: 10px; ">
+                <h1 style="page-break-before:always"></h1>
+
+                <div class="row form-group" style="padding-top: 10px; ">
 
 
-            <div class="text-left col-md-5">
-                <a href="{{ route('oleo.bahagianiii') }}" class="btn btn-primary"
-                    style="float: left; margin-left:5%">Sebelumnya</a>
-            </div>
-            <div class="text-right col-md-7">
-                <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right; margin-right:3% "
-                    data-target="#next">Hantar</button>
-
-            </div>
-
-        </div>
-
-        <!-- Vertically Centered modal Modal -->
-        <div class="modal fade" id="next" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                            PENGESAHAN</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <i data-feather="x"></i>
-                        </button>
+                    <div class="text-left col-md-5">
+                        <a href="{{ route('oleo.bahagianiii') }}" class="btn btn-primary"
+                            style="float: left; margin-left:5%">Sebelumnya</a>
                     </div>
-                    <div class="modal-body">
-                        <p>
-                            Anda pasti mahu menghantar penyata ini?
-                        </p>
+                    <div class="text-right col-md-7">
+                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right; margin-right:3% "
+                            data-target="#next">Hantar</button>
+
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                            <i class="bx bx-x d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                        </button>
-                        <button type="submit" class="btn btn-primary ml-1">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Ya</span>
-                        </button>
+
+                </div>
+
+                <!-- Vertically Centered modal Modal -->
+                <div class="modal fade" id="next" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                    PENGESAHAN</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Anda pasti mahu menghantar penyata ini?
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                </button>
+                                <button type="submit" class="btn btn-primary ml-1">
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Ya</span>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </form>
-
-
-    </div>
-
-    </div>
+            {{-- </form> --}}
 
 
 
 
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+            {{-- <div id="preloader"></div> --}}
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                    class="bi bi-arrow-up-short"></i></a>
 
-    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('.calc').change(function() {
-                var total = 0;
-                $('.calc').each(function() {
-                    if ($(this).val() != '') {
-                        total += parseInt($(this).val());
-                    }
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('.calc').change(function() {
+                        var total = 0;
+                        $('.calc').each(function() {
+                            if ($(this).val() != '') {
+                                total += parseInt($(this).val());
+                            }
+                        });
+                        $('#total').html(total);
+                    });
                 });
-                $('#total').html(total);
-            });
-        });
-    </script>
+            </script>
 
 
-    <script>
-        function myPrint(myfrm) {
-            var printdata = document.getElementById(myfrm);
-            newwin = window.open("");
-            newwin.document.write(printdata.outerHTML);
-            newwin.print();
-            newwin.close();
-        }
-    </script>
+            <script>
+                function myPrint(myfrm) {
+                    var printdata = document.getElementById(myfrm);
+                    newwin = window.open("");
+                    newwin.document.write(printdata.outerHTML);
+                    newwin.print();
+                    newwin.close();
+                }
+            </script>
 
-    </body>
+            </body>
 
-    </html>
-@endsection
+            </html>
+            @endsection
