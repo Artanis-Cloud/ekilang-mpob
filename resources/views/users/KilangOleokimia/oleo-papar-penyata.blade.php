@@ -229,12 +229,20 @@
 
                                     <tr>
 
-                                        <td width="35%">No Telefon</td>
+                                        <td width="35%">No. Telefon</td>
 
                                         <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
-                                            <b>{{ $pelesen->e_nofax }}</b>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+
+                                        <td width="35%">No. Faks</td>
+
+                                        <td width="65%"><b>{{ $pelesen->e_nofax }}</b>
+
                                         </td>
 
                                     </tr>
@@ -810,9 +818,12 @@
                                     </tr>
 
                                 </tbody>
-                            </table>
-                            <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
-                                    adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
+                            </table><br>
+
+                            <p style="font-size: 16px"><b>
+                                Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
+                                     benar, lengkap dan selaras dengan rekod harian.
+                            </b></p>
 
                             {{-- <p>Tarikh Penghantaran : &nbsp;&nbsp;&nbsp;
                                             <input type="date" id="e104_sdate" class="form-control" size="50"

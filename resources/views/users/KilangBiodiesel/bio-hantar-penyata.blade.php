@@ -138,7 +138,7 @@
                                             <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
                                                 <tbody>
-                                              
+
 
                                                         <td width="35%">Alamat Premis Berlesen</td>
 
@@ -188,12 +188,21 @@
 
                                                     <tr>
 
-                                                        <td width="35%">No Telefon</td>
+                                                        <td width="35%">No. Telefon</td>
 
-                                                        <td width="65%"><b>{{ $pelesen2->no_tel }}</b>
+                                                        <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No
-                                                            Faks&nbsp;&nbsp;&nbsp; <b>{{ $pelesen2->no_faks }}</b></td>
+                                                        </td>
+
+                                                    </tr>
+
+                                                    <tr>
+
+                                                        <td width="35%">No. Faks</td>
+
+                                                        <td width="65%"><b>{{ $pelesen->e_nofax }}</b>
+
+                                                        </td>
 
                                                     </tr>
 
@@ -241,7 +250,7 @@
                                             </table>
 <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN I(a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                    <font color="#0000FF">BAHAGIAN 1 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         MINYAK SAWIT</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -339,7 +348,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN I(b) :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp;
                                                         PRODUK MINYAK ISIRONG SAWIT</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -438,7 +447,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN I(c) :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN 1 (c) :&nbsp;&nbsp;&nbsp;&nbsp;
                                                         LAIN-LAIN MINYAK SAWIT</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -536,7 +545,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN II: HARI BEROPERASI DAN KADAR
+                                                    <font color="#0000FF">BAHAGIAN 2 : HARI BEROPERASI DAN KADAR
                                                         PENGGUNAAN KAPASITI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
                                                 </b> </p>
                                             <table border="0" width="90%" cellspacing="0" cellpadding="0">
@@ -553,7 +562,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN III :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;
                                                         RINGKASAN PRODUK OLEOKIMIA</font>
                                                 </b></p>
 
@@ -652,7 +661,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN IV :&nbsp;&nbsp;&nbsp;&nbsp; EKSPORT
+                                                    <font color="#0000FF">BAHAGIAN 4 :&nbsp;&nbsp;&nbsp;&nbsp; EKSPORT
                                                         PRODUK BIODIESEL DAN LAIN-LAIN PRODUK SAWIT</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -688,7 +697,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN V :&nbsp;&nbsp;&nbsp;&nbsp; IMPORT
+                                                    <font color="#0000FF">BAHAGIAN 5 :&nbsp;&nbsp;&nbsp;&nbsp; IMPORT
                                                         PRODUK SAWIT</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -720,10 +729,12 @@
                                                             </b></td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br>
 
-                                        <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
-                                                adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
+                                            <p style="font-size: 16px"><b>
+                                                Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
+                                                     benar, lengkap dan selaras dengan rekod harian.
+                                            </b></p>
                                                 <p >Tarikh Penghantaran:&nbsp;&nbsp;&nbsp;<b>{{ $date }} </b></p>
                                                 <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $user->ebio_npg ?? '' }}</b>
                                                 </p>

@@ -313,9 +313,9 @@
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                 <img src="{{ asset('user_icon.png') }}" alt="user" class="rounded-circle" width="30">
-                                <span class="m-l-5 font-medium d-none d-sm-inline-block">{{ auth()->user()->name }} </span>
-                                <span class="m-l-5 font-medium d-none d-sm-inline-block" style="font-size: 15px">{{ auth()->user()->username }}<i
-                                    class="mdi mdi-chevron-down"></i></span>
+                                <span class="m-l-5 font-medium d-none d-sm-inline-block" style="font-size:14px; line-height:20px; padding-top:15px">{{ auth()->user()->name }} <br> {{ auth()->user()->username }}</span>
+                                {{-- <span class="m-l-5 font-medium d-none d-sm-inline-block" style="font-size: 15px"><i
+                                    class="mdi mdi-chevron-down"></i></span> --}}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated flipInY">
                                 <span class="with-arrow">

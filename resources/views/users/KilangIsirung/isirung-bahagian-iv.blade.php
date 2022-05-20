@@ -321,16 +321,16 @@
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
+                                                    <button type="button" class="btn btn-primary ml-1"
                                                         data-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <a href="{{ route('isirung.bahagianiv.delete', [$data->e102_b1 ?? '']) }}"
-                                                        type="button" class="btn btn-primary ml-1">
-
                                                         <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
+                                                        <span class="d-none d-sm-block">Tidak</span>
+                                                    </button>
+                                                    <a href="{{ route('isirung.bahagianiv.delete', [$data->e102_b1]) }}"
+                                                        type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
+
+                                                        <i class="bx bx-x d-block d-sm-none" ></i>
+                                                        <span class="d-none d-sm-block" >Ya</span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -493,16 +493,16 @@
                                                     </p>
                                                 </div>
                                                 <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary"
+                                                    <button type="button" class="btn btn-primary ml-1"
                                                         data-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                    </button>
-                                                    <a href="{{ route('isirung.bahagianiv.delete', [$data->e102_b1 ?? '']) }}"
-                                                        type="button" class="btn btn-primary ml-1">
-
                                                         <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Ya</span>
+                                                        <span class="d-none d-sm-block">Tidak</span>
+                                                    </button>
+                                                    <a href="{{ route('isirung.bahagianiv.delete', [$data->e102_b1]) }}"
+                                                        type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
+
+                                                        <i class="bx bx-x d-block d-sm-none" ></i>
+                                                        <span class="d-none d-sm-block" >Ya</span>
                                                     </a>
                                                 </div>
                                             </div>
