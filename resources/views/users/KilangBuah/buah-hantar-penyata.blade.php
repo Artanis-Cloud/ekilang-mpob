@@ -211,12 +211,20 @@
 
                                                 <tr>
 
-                                                    <td width="35%">No Telefon</td>
+                                                    <td width="35%">No. Telefon</td>
 
                                                     <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; No Faks&nbsp;&nbsp;&nbsp;
-                                                        <b>{{ $pelesen->e_nofax }}</b>
+                                                    </td>
+
+                                                </tr>
+
+                                                <tr>
+
+                                                    <td width="35%">No. Faks</td>
+
+                                                    <td width="65%"><b>{{ $pelesen->e_nofax }}</b>
+
                                                     </td>
 
                                                 </tr>
@@ -1068,12 +1076,12 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table><br>
 
-
-                                        <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
-                                                adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
-
+                                        <p style="font-size: 16px"><b>
+                                            Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya adalah tepat,
+                                                 benar, lengkap dan selaras dengan rekod harian.
+                                        </b></p>
                                         <p>Tarikh Penghantaran:&nbsp;&nbsp;&nbsp; <b>{{ $date }}</b>
                                         </p>
                                         <p>Nama Pegawai Melapor:&nbsp;&nbsp; <b>{{ $penyata->e91_npg }}</b>

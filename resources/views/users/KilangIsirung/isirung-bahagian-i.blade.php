@@ -12,31 +12,31 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                    <h4 class="page-title"  style="font-size: 20px">Kemasukan Penyata Bulanan :
                         @if ($bulan == 1)
-                            JANUARI
+                            Januari
                         @elseif($bulan == 2)
-                            FEBRUARI
+                            Februari
                         @elseif($bulan == 3)
-                            MAC
+                            Mac
                         @elseif($bulan == 4)
-                            APRIL
+                            April
                         @elseif($bulan == 5)
-                            MEI
+                            Mei
                         @elseif($bulan == 6)
-                            JUN
+                            Jun
                         @elseif($bulan == 7)
-                            JULAI
+                            Julai
                         @elseif($bulan == 8)
-                            OGOS
+                            Ogos
                         @elseif($bulan == 9)
-                            SEPTEMBER
+                            September
                         @elseif($bulan == 10)
-                            OKTOBER
+                            Oktober
                         @elseif($bulan == 11)
-                            NOVEMBER
+                            November
                         @elseif($bulan == 12)
-                            DISEMBER
+                            Disember
                         @endif  {{ $tahun }}</h4>
                 </div>
                 <div class="col-7 align-self-center">

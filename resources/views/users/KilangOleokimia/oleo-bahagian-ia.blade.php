@@ -483,15 +483,15 @@
                                                                         </p>
                                                                     </div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                                            <i class="bx bx-x d-block d-sm-none"></i>
-                                                                            <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                                        </button>
-                                                                        <a href="{{ route('oleo.delete.bahagiania',[$data->e104_b1]) }}" type="button"
-                                                                            class="btn btn-primary ml-1">
-
+                                                                        <button type="button" class="btn btn-primary ml-1"
+                                                                            data-bs-dismiss="modal">
                                                                             <i class="bx bx-check d-block d-sm-none"></i>
-                                                                            <span class="d-none d-sm-block">Ya</span>
+                                                                            <span class="d-none d-sm-block">Tidak</span>
+                                                                        </button>
+                                                                        <a href="{{ route('oleo.delete.bahagiania',[$data->e104_b1]) }}"
+                                                                            type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
+                                                                            <i class="bx bx-x d-block d-sm-none" ></i>
+                                                                            <span class="d-none d-sm-block" >Ya</span>
                                                                         </a>
                                                                     </div>
                                                                 </div>
