@@ -52,8 +52,11 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">Kata
                                     Laluan Terdahulu <i>(8 Aksara)</i></label>
                                 <div class="col-md-6">
-                                    <input type="password" class="form-control" name='old_password' id="myInput"   maxlength="8"
-                                        placeholder="Kata Laluan Terdahulu" required title="Sila isikan butiran ini.">
+                                    <input type="password" class="form-control" name='old_password' id="myInput"
+                                     placeholder="Kata Laluan Terdahulu" required
+                                     oninvalid="this.setCustomValidity('Sila isi butiran ini')"
+                                     oninput="this.setCustomValidity('')"
+                                        title="Sila isikan butiran ini.">
                                     @error('old_password')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -66,13 +69,17 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">Kata
                                     Laluan Baru <i>(8 Aksara)</i></label>
                                 <div class="col-md-6">
-                                    <input type="password" class="form-control" name='new_password' id="myInput2"   maxlength="8"
-                                        placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
-                                    @error('new_password')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
+                                    <input type="password" class="form-control" name='new_password' id="myInput2"
+                                         placeholder="Kata Laluan Baru" required
+                                         oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
+                                         oninput="this.setCustomValidity('')" minlength="8"
+                                        title="Sila isikan butiran ini.">
+                                        <span id = "message" style="color:red"> </span>
+                                    {{-- @error('new_password')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror --}}
                                 </div>
                             </div>
                             <div class="row mt-2">
@@ -80,13 +87,16 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">Sahkan
                                     Kata Laluan Baru <i>(8 Aksara)</i></label>
                                 <div class="col-md-6">
-                                    <input type="password" class="form-control" name='password_confirmation' id="myInput3"   maxlength="8"
-                                        placeholder="Sahkan Kata Laluan Baru" required title="Sila isikan butiran ini.">
-                                    @error('password_confirmation')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
+                                    <input type="password" class="form-control" name='password_confirmation' id="myInput3"
+                                        minlength="8" placeholder="Sahkan Kata Laluan Baru" required
+                                        oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
+                                        oninput="this.setCustomValidity('')"
+                                        title="Sila isikan butiran ini.">
+                                    {{-- @error('password_confirmation')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror --}}
                                 </div>
                             </div>
                             <div class="row mt-2">
@@ -99,8 +109,8 @@
 
 
                             <div class="text-right col-md-6 mb-4 mt-4">
-                                <button type="button" class="btn btn-primary" style="margin-left:90%"
-                                    data-toggle="modal" data-target="#next">Tukar Kata Laluan</button>
+                                <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                                    data-target="#next">Tukar Kata Laluan</button>
                             </div>
                     </div>
 
@@ -139,7 +149,6 @@
                     </form>
                 </div>
             </div>
-
         @endsection
         @section('scripts')
             <script>

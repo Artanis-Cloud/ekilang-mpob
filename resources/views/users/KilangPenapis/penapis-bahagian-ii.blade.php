@@ -88,8 +88,8 @@
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-control" id="produk" required name="e101_b4" style="width: 50%">
-                                        <option selected hidden disabled>Sila Pilih</option>
+                                    <select class="form-control" id="produk" required name="e101_b4" style="width: 50%" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
+                                        <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
                                                 {{ $data->prodname }} - {{ $data->prodid }}
@@ -111,8 +111,8 @@
                                     <span class="">Stok Awal Di Premis</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e101_b5' style="width: 50%" id="e101_b5"
-                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
+                                    <input type="text" class="form-control" name='e101_b5' style="width: 50%" id="e101_b5" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
                                         title="Sila isikan butiran ini.">
                                     @error('e101_b5')
                                         <div class="alert alert-danger">
@@ -125,7 +125,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b10' style="width: 50%"
-                                        oninput="validate_two_decimal(this)" id="e101_b10" required
+                                        oninput="validate_two_decimal(this);setCustomValidity('')" id="e101_b10" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
                                     @error('e101_b10')
                                         <div class="alert alert-danger">
@@ -141,8 +141,8 @@
                                     <span class="">Stok Awal Di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e101_b6' style="width: 50%" id="e101_b6"
-                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
+                                    <input type="text" class="form-control" name='e101_b6' style="width: 50%" id="e101_b6" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
                                         title="Sila isikan butiran ini.">
                                     @error('e101_b6')
                                         <div class="alert alert-danger">
@@ -151,12 +151,12 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="">Jualan / Edaran Tempatan</span>
+                                    <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b11' style="width: 50%"
-                                        id="e101_b11" required onkeypress="return isNumberKey(event)"
-                                        oninput="validate_two_decimal(this)" title="Sila isikan butiran ini.">
+                                        id="e101_b11" required onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="validate_two_decimal(this);setCustomValidity('')" title="Sila isikan butiran ini.">
                                     @error('e101_b11')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -168,14 +168,15 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class=""> Belian / Terimaan</span>
+                                    <span class=""> Belian/Terimaan</span>
                                     <i class="fa fa-exclamation-circle" style="color: red"
-                                        title="Sekiranya ada maklumat import, sila campurkan (+) dengan maklumat Belian/Terimaan.">
+                                        title="Sekiranya ada maklumat import,
+sila campurkan (+) dengan maklumat Belian/Terimaan.">
                                     </i>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e101_b7' style="width: 50%" id="e101_b7"
-                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
+                                    <input type="text" class="form-control" name='e101_b7' style="width: 50%" id="e101_b7" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
                                         title="Sila isikan butiran ini.">
                                     @error('e101_b7')
                                         <div class="alert alert-danger">
@@ -188,8 +189,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b12' style="width: 50%"
-                                        id="e101_b12" required onkeypress="return isNumberKey(event)"
-                                        oninput="validate_two_decimal(this)" title="Sila isikan butiran ini.">
+                                        id="e101_b12" required onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="validate_two_decimal(this);setCustomValidity('')" title="Sila isikan butiran ini.">
                                     @error('e101_b12')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -217,8 +218,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b13' style="width: 50%"
-                                        id="e101_b13" required onkeypress="return isNumberKey(event)"
-                                        oninput="validate_two_decimal(this)" title="Sila isikan butiran ini.">
+                                        id="e101_b13" required onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="validate_two_decimal(this);setCustomValidity('')" title="Sila isikan butiran ini.">
                                     @error('e101_b13')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -233,8 +234,8 @@
                                     <span class="">Pengeluaran</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e101_b9' style="width: 50%" id="e101_b9"
-                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this)"
+                                    <input type="text" class="form-control" name='e101_b9' style="width: 50%" id="e101_b9" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        required onkeypress="return isNumberKey(event)" oninput="validate_two_decimal(this);setCustomValidity('')"
                                         title="Sila isikan butiran ini.">
                                     @error('e101_b9')
                                         <div class="alert alert-danger">
@@ -247,8 +248,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b14' style="width: 50%"
-                                        id="e101_b14" required onkeypress="return isNumberKey(event)"
-                                        oninput="validate_two_decimal(this)" title="Sila isikan butiran ini.">
+                                        id="e101_b14" required onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        oninput="validate_two_decimal(this);setCustomValidity('')" title="Sila isikan butiran ini.">
                                     @error('e101_b14')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -289,11 +290,11 @@
                                     <th>Kod Produk</th>
                                     <th>Stok Awal Di Premis</th>
                                     <th>Stok Awal Di Pusat Simpanan</th>
-                                    <th>Belian / Terimaan</th>
+                                    <th>Belian/Terimaan</th>
                                     <th>Import</th>
                                     <th>Pengeluaran</th>
                                     <th>Digunakan Untuk Proses Selanjutnya</th>
-                                    <th>Jualan / Edaran Tempatan</th>
+                                    <th>Jualan/Edaran Tempatan</th>
                                     <th>Eksport</th>
                                     <th>Stok Akhir Di Premis</th>
                                     <th>Stok Akhir Di Pusat Simpanan</th>
@@ -385,39 +386,39 @@
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b5'
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b5 }}" required>
                                                                 </div>
                                                                 <label class="required">Stok Awal Di Pusat Simpanan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b6'
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b6 }}" required>
                                                                 </div>
-                                                                <label class="required">Belian / Terimaan </label>
+                                                                <label class="required">Belian/Terimaan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b7'
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b7 }}" required>
                                                                 </div>
                                                                 <label>Import </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b8'
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b8 }}" readonly>
                                                                 </div>
                                                                 <label class="required">Pengeluaran </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b9'
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b9 }}" required>
                                                                 </div>
                                                                 <label class="required">Digunakan Untuk Proses
@@ -425,40 +426,40 @@
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b10'
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b10 }}" required>
                                                                 </div>
-                                                                <label class="required">Jualan / Edaran Dalam Negeri </label>
+                                                                <label class="required">Jualan/Edaran Dalam Negeri </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b11'
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b11 }}" required>
                                                                 </div>
                                                                 <label class="required">Eksport </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b12'
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b12 }}" required>
                                                                 </div>
                                                                 <label class="required">Stok Akhir Di Premis </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b13'
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b13 }}" required>
                                                                 </div>
                                                                 <label class="required">Stok Akhir Di Pusat Simpanan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_b14'
                                                                         onkeypress="return isNumberKey(event)"
-                                                                        class="form-control"
-                                                                        oninput="validate_two_decimal(this)"
+                                                                        class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_b14 }}" required>
                                                                 </div>
                                                             </div>

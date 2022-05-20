@@ -12,7 +12,7 @@
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                    <h4 class="page-title">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
                         @elseif($bulan == 2)
@@ -37,7 +37,8 @@
                             NOVEMBER
                         @elseif($bulan == 12)
                             DISEMBER
-                        @endif  {{ $tahun }}</h4>
+                        @endif {{ $tahun }}
+                    </h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -89,7 +90,9 @@
                                     Jumlah Hari Kilang Beroperasi Sebulan</label>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a1'
-                                    id="inputBox" required onkeypress="return isNumberKey(event)"
+                                        oninput="setCustomValidity('')" id="e101_a1" required
+                                        onkeypress="return isNumberKey(event)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         title="Sila isikan butiran ini." value="{{ $penyata->e101_a1 }}">
                                     {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -105,7 +108,9 @@
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a2'
                                         id="nombor_borang_kastam" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini."
+                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                         value="{{ number_format($penyata->e101_a2 ?? 0, 2) }}">
                                     @error('e101_a2')
                                         <div class="alert alert-danger">
@@ -121,7 +126,9 @@
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a3'
                                         id="kuantiti" onkeypress="return isNumberKey(event)" required
-                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini."
+                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                         value="{{ number_format($penyata->e101_a3 ?? 0, 2) }}">
                                     @error('e101_a3')
                                         <div class="alert alert-danger">
@@ -131,13 +138,7 @@
                                 </div>
                             </div>
 
-                            <div class="row form-group" style="margin-top: 200px; margin-bottom: 50px">
-                                {{-- <div class="row form-group" style="padding-top: 10px; ">
-                                                    <div class="text-right col-md-12 mb-4 ">
-                                                        <button type="submit" class="btn btn-primary ">Simpan &
-                                                            Seterusnya</button>
-                                                    </div>
-                                                </div> --}}
+                            <div class="row form-group" style="margin-top: 30px">
                                 <div class="text-left col-md-5">
                                     <a href="{{ route('penapis.bahagianii') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
@@ -207,26 +208,39 @@
                     });
                 });
             </script>
+            {{-- <script>
+                var inputBox = document.getElementById("inputBox");
+
+                var invalidChars = [
+                    "-",
+                    "+",
+                    "e",
+                    "."
+                ];
+
+                inputBox.addEventListener("input", function() {
+                    this.value = this.value.replace(/[e\+\-\.]/gi, "");
+                });
+
+
+                inputBox.addEventListener("keydown", function(e) {
+                    if (invalidChars.includes(e.key)) {
+                        e.preventDefault();
+                    }
+                });
+            </script> --}}
             <script>
-               var inputBox = document.getElementById("inputBox");
+                var input = document.getElementById("e101_a1");
+                var lastValue = "";
 
-            var invalidChars = [
-                "-",
-                "+",
-                "e",
-                "."
-            ];
+                input.addEventListener("keydown", valueCheck);
+                input.addEventListener("keyup", valueCheck);
 
-            inputBox.addEventListener("input", function() {
-                this.value = this.value.replace(/[e\+\-\.]/gi, "");
-            });
-
-
-            inputBox.addEventListener("keydown", function(e) {
-                if (invalidChars.includes(e.key)) {
-                    e.preventDefault();
+                function valueCheck() {
+                    if (input.value.match(/^[0-9]*$/))
+                        lastValue = input.value;
+                    else
+                        input.value = lastValue;
                 }
-            });
-
             </script>
         @endsection
