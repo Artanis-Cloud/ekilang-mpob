@@ -10,6 +10,7 @@ use App\Models\E102Init;
 use App\Models\E104Init;
 use App\Models\E91b;
 use App\Models\E91Init;
+use App\Models\EBioInit;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
 use App\Models\Negeri;
@@ -203,6 +204,7 @@ class Proses3Controller extends Controller
         $this->initialize_proses_pl102($request->e_ddate);
         $this->initialize_proses_pl104($request->e_ddate);
         $this->initialize_proses_pl111($request->e_ddate);
+        $this->initialize_proses_plbio($request->e_ddate);
         // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
         return redirect()->back()->with('success', 'Penyata telah diinitialize');
     }
@@ -286,16 +288,7 @@ class Proses3Controller extends Controller
                 'e91_ah17' => NULL,
                 'e91_ah18' => NULL,
             ]);
-            $query2 = E91b::create([
-                'e91_b1' => NULL,
-                'e91_b2' => NULL,
-                'e91_b6' => NULL,
-                'e91_b7' => NULL,
-                'e91_b8' => NULL,
-                'e91_b9' => NULL,
-                'e91_b10' => NULL,
-                'e91_b11' => NULL,
-            ]);
+
         }
     }
 
@@ -436,6 +429,36 @@ class Proses3Controller extends Controller
                 'e07_npg' => NULL,
                 'e07_jpg' => NULL,
                 'e07_flagcetak' => NULL,
+            ]);
+        }
+    }
+    public function initialize_proses_plbio($e_ddate)
+    {
+        $reg_pelesen = RegPelesen::where('e_kat', 'PLBIO')->where('e_status', '1')->get();
+
+        $ebio_init = DB::table('e_bio_inits')->delete();
+        $ebio_b = DB::table('e_bio_b_s')->delete();
+        $ebio_c = DB::table('e_bio_c_s')->delete();
+        $ebio_cc = DB::table('e_bio_cc')->delete();
+
+        foreach ($reg_pelesen as $key => $reg_pelesens) {
+            $e_nl = $reg_pelesens->e_nl;
+            $query = EBioInit::create([
+                'ebio_reg' => $key + 1,
+                'ebio_nl' => $e_nl,
+                'ebio_bln' => now()->month,
+                'ebio_thn' => now()->year,
+                'ebio_flg' => '1',
+                'ebio_sdate' => NULL,
+                'ebio_ddate' => $e_ddate,
+                'ebio_a5' => $e_ddate,
+                'ebio_a6' => $e_ddate,
+                'ebio_npg' => NULL,
+                'ebio_jpg' => NULL,
+                'ebio_notel' => NULL,
+                'ebio_flagcetak' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
             ]);
         }
     }
