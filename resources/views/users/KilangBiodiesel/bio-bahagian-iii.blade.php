@@ -90,7 +90,7 @@
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <span class="">Nama Produk dan Kod</span>
+                                    <span class="required">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="ebio_c3" name="ebio_c3" style="width: 50%">
@@ -103,19 +103,18 @@
 
                                     </select>
                                     @error('ebio_c3')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila buat pilihan di bahagian ini</strong>
-                                        </div>
-                                    @enderror
+                                            <div class="alert alert-danger">
+                                                <strong>Sila buat pilihan di bahagian ini</strong>
+                                            </div>
+                                        @enderror
 
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="">Digunakan Untuk Proses Selanjutnya</span>
+                                    <span class="required">Digunakan Untuk Proses Selanjutnya</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='ebio_c7' style="width:50%" id="ebio_c7"
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                        required>
+                                    <input type="text" class="form-control" name='ebio_c7' style="width:50%" id="ebio_c7" oninput="validate_two_decimal(this)"
+                                    onkeypress="return isNumberKey(event)" required>
                                     @error('ebio_c7')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -127,12 +126,12 @@
 
                             <div class="row mt-4">
                                 <div class="col-md-3">
-                                    <span class="">Stok Awal di Premis</span>
+                                    <span class="required">Stok Awal di Premis</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='ebio_c4' style="width:50%"
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                        id="ebio_c4" required title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='ebio_c4' style="width:50%" oninput="validate_two_decimal(this)"
+                                    onkeypress="return isNumberKey(event)" id="ebio_c4"
+                                        required title="Sila isikan butiran ini.">
 
                                     @error('ebio_c4')
                                         <div class="alert alert-danger">
@@ -141,15 +140,15 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="">Jualan/Edaran Tempatan </span>
+                                    <span class="required">Jualan / Edaran Tempatan </span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='ebio_c8' style="width:50%" id="ebio_c8"
-                                        required oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini.">
+                                        required oninput="validate_two_decimal(this)"
+                                        onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
                                     <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
-                                        style="font-size:11px; color:red" type="button" data-toggle="modal"
-                                        data-target="#modal" &nbsp;> (Sila klik untuk
+                                        style="font-size:11px; color:red" type="button" data-toggle="modal" data-target="#modal"
+                                        &nbsp;> (Sila klik untuk
                                         mengisi<br> maklumat
                                         jualan)</i>
 
@@ -160,125 +159,87 @@
                                     @enderror
                                 </div>
 
-                                <div class="row mt-4">
-                                    <div class="col-md-3">
-                                        <span class="required">Stok Awal di Premis</span>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" name='ebio_c4' style="width:50%"
-                                            oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                            id="ebio_c4" required title="Sila isikan butiran ini.">
+                            </div>
 
-                                        @error('ebio_c4')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="col-md-3">
-                                        <span class="required">Jualan / Edaran Tempatan </span>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" name='ebio_c8' style="width:50%"
-                                            id="ebio_c8" required oninput="validate_two_decimal(this)"
-                                            onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
-                                        <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
-                                            style="font-size:11px; color:red" type="button" data-toggle="modal"
-                                            data-target="#modal" &nbsp;> (Sila klik untuk
-                                            mengisi<br> maklumat
-                                            jualan)</i>
-
-                                        @error('ebio_c8')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-
+                            <div class="row mt-4">
+                                <div class="col-md-3">
+                                    <span class="required">Belian / Terimaan</span>
                                 </div>
-
-                                <div class="row mt-4">
-                                    <div class="col-md-3">
-                                        <span class="required">Belian / Terimaan</span>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" name='ebio_c5' style="width:50%"
-                                            id="ebio_c5" oninput="validate_two_decimal(this)"
-                                            onkeypress="return isNumberKey(event)" required
-                                            title="Sila isikan butiran ini.">
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_c5' style="width:50%" id="ebio_c5" oninput="validate_two_decimal(this)"
+                                    onkeypress="return isNumberKey(event)"
+                                        required title="Sila isikan butiran ini.">
                                         @error('ebio_c5')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <span class="">Eksport </span>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" name='ebio_c9' style="width:50%"
-                                            id="ebio_c9" oninput="validate_two_decimal(this)"
-                                            onkeypress="return isNumberKey(event)" required
-                                            title="Sila isikan butiran ini.">
-
-                                        @error('ebio_c9')
-                                            <div class="alert alert-danger">
-                                                <strong>{{ $message }}</strong>
-                                            </div>
-                                        @enderror
-                                    </div>
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
 
-                                <div class="row mt-4">
-                                    <div class="col-md-3">
-                                        <span class="">Pengeluaran</span>
+                                <div class="col-md-3">
+                                    <span class="required">Eksport </span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_c9' style="width:50%" id="ebio_c9"
+                                    oninput="validate_two_decimal(this)"
+                                    onkeypress="return isNumberKey(event)"
+                                    required title="Sila isikan butiran ini.">
+
+                                    @error('ebio_c9')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-3">
+                                    <span class="required">Pengeluaran</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_c6' style="width:50%" id="ebio_c6"
+                                    oninput="validate_two_decimal(this)"
+                                    onkeypress="return isNumberKey(event)"
+                                     required title="Sila isikan butiran ini.">
+                                     @error('ebio_c6')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+
+                                </div>
+
+                                <div class="col-md-3">
+                                    <span class="required">Stok Akhir Dilapor</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_c10' style="width:50%" id="ebio_c10"
+                                    oninput="validate_two_decimal(this)"
+                                    onkeypress="return isNumberKey(event)"
+                                    required title="Sila isikan butiran ini.">
+                                    @error('ebio_c10')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+
+                                    {{-- <input type="text" class="form-control" name='ebio_cc3' style="width:50%"> --}}
+                                    {{-- <input type="text" class="form-control" name='ebio_cc4' style="width:50%"> --}}
+                                    <table id="cc3_4"></table>
+                                </div>
+                            </div>
+                        </div>
+                                <br>
+
+                                <div class="row form-group" style="padding-top: 10px; ">
+
+
+                                    <div class="row form-group" style="margin-left: 45%;">
+                                        <div class="text-right col-md-12 mb-4 ">
+                                            <button type="submit" class="btn btn-primary ">Tambah</button>
+                                        </div>
                                     </div>
-
-                                    <div class="row mt-4">
-                                        <div class="col-md-3">
-                                            <span class="required">Pengeluaran</span>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <input type="text" class="form-control" name='ebio_c6' style="width:50%"
-                                                id="ebio_c6" oninput="validate_two_decimal(this)"
-                                                onkeypress="return isNumberKey(event)" required
-                                                title="Sila isikan butiran ini.">
-                                            @error('ebio_c6')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror
-
-                                            <div class="col-md-3">
-                                                <span class="">Stok Akhir Dilapor</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text" class="form-control" name='ebio_c10' style="width:50%"
-                                                    id="ebio_c10" oninput="validate_two_decimal(this)"
-                                                    onkeypress="return isNumberKey(event)" required
-                                                    title="Sila isikan butiran ini.">
-                                                @error('ebio_c10')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror
-
-                                                {{-- <input type="text" class="form-control" name='ebio_cc3' style="width:50%"> --}}
-                                                {{-- <input type="text" class="form-control" name='ebio_cc4' style="width:50%"> --}}
-                                                <table id="cc3_4"></table>
-                                            </div>
-                                        </div>
-                                        <br>
-
-                                        <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                            <div class="row form-group" style="margin-left: 45%;">
-                                                <div class="text-right col-md-12 mb-4 ">
-                                                    <button type="submit" class="btn btn-primary ">Tambah</button>
-                                                </div>
-                                            </div>
 
                     </form>
                     <section class="section">
@@ -485,7 +446,11 @@
                                                                 <i data-feather="x"></i>
                                                             </button>
                                                         </div>
-                                                        
+                                                        <div class="modal-body">
+                                                            <p>
+                                                                Anda pasti mahu menghapus produk ini?
+                                                            </p>
+                                                        </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-primary ml-1"
                                                                 data-dismiss="modal">
@@ -607,7 +572,7 @@
             @endforeach --}}
 
 
-                <!-- Syarikat Input Modal -->
+                <!-- Kemaskini Syarikat Input Modal -->
                 @foreach ($penyata as $key => $data)
                     <div class="modal fade bs-example-modal-lg" id="modal{{ $key }}" tabindex="-1" role="dialog"
                         aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
@@ -618,8 +583,8 @@
                                     <button type="button" class="close" data-dismiss="modal"
                                         aria-hidden="true">×</button>
                                 </div>
-                                {{-- <form action="{{ route('bio.edit.bahagian.iii.sykt', $data->ebio_c1) }}" method="post">
-                                    @csrf --}}
+                                <form action="{{ route('bio.edit.bahagian.iii.sykt', $data->ebio_c1) }}" method="post">
+                                    @csrf
                                 <div class="modal-body">
                                     <table align='center' cellspacing=2 cellpadding=5 id="data_table{{ $key }}"
                                         border=1>
@@ -664,7 +629,7 @@
                                     </button>
                                     <button type="submit" class="btn btn-primary ml-1">
                                         <i class=" bx bx-check d-block d-sm-none"></i>
-                                        <span class="d-none d-sm-block">Tambah</span>
+                                        <span class="d-none d-sm-block">Kemaskini</span>
                                     </button>
                                 </div>
                                 </form>
