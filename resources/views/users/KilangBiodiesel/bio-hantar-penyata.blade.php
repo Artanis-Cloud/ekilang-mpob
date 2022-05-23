@@ -266,7 +266,7 @@
                                                                 <font size="2">Stok Awal Di Premis</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Pengeluaran</font>
@@ -275,7 +275,7 @@
                                                                 <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Tempatan</font>
+                                                                <font size="2">Jualan/Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font>
@@ -364,7 +364,7 @@
                                                                 <font size="2">Stok Awal Di Premis</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Pengeluaran</font>
@@ -372,8 +372,8 @@
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
-                                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Tempatan</font>
+                                                        <td width="8%"  style="text-align: center; vertical-align:middle"><b>
+                                                                <font size="2">Jualan/Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font>
@@ -463,7 +463,7 @@
                                                                 <font size="2">Stok Awal Di Premis</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Pengeluaran</font>
@@ -472,7 +472,7 @@
                                                                 <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Tempatan</font>
+                                                                <font size="2">Jualan/Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font>
@@ -579,7 +579,7 @@
                                                                 <font size="2">Stok Awal Di Premis</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Pengeluaran</font>
@@ -588,7 +588,7 @@
                                                                 <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Tempatan</font>
+                                                                <font size="2">Jualan/Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font>

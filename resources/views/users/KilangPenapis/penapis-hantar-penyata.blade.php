@@ -282,7 +282,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN I :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
+                                                    <font color="#0000FF">BAHAGIAN 1 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK MINYAK
                                                         SAWIT</font>
                                                 </b> </p>
                                             <table border="1" class="table table-bordered" width="100%"
@@ -303,7 +303,7 @@
                                                                 <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terima</font><b></b>
+                                                                <font size="2">Belian/Terima</font><b></b>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Import</font><b></b>
@@ -316,7 +316,7 @@
                                                                 <b></b>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font><b></b>
+                                                                <font size="2">Jualan/Edaran Dalam Negeri</font><b></b>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font><b></b>
@@ -410,7 +410,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN II :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                    <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         ISIRUNG MINYAK SAWIT</font>
                                                 </b> </p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -430,7 +430,7 @@
                                                                 <font size="2">Stok Awal Di Pusat Simpanan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Import</font>
@@ -442,7 +442,7 @@
                                                                 <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                                <font size="2">Jualan/Edaran Dalam Negeri</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font>
@@ -537,7 +537,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN III :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                                     </font>
                                                 </b> </p>
                                             <table border="0" width="100%" cellspacing="0" cellpadding="0">
@@ -559,7 +559,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN IV (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                    <font color="#0000FF">BAHAGIAN 4 (a) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         AKHIR
                                                         BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                                         BAHAN MAKANAN</font>
@@ -578,13 +578,13 @@
                                                                 <font size="2">Stok Awal</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Pengeluaran</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                                <font size="2">Jualan/Edaran Dalam Negeri</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font>
@@ -651,7 +651,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN IV (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
+                                                    <font color="#0000FF">BAHAGIAN 4 (b) :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
                                                         AKHIR
                                                         BERASASKAN MINYAK SAWIT DAN MINYAK ISIRUNG SAWIT -
                                                         BAHAN BUKAN MAKANAN</font>
@@ -670,13 +670,13 @@
                                                                 <font size="2">Stok Awal</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Pengeluaran</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Dalam Negeri</font>
+                                                                <font size="2">Jualan/Edaran Dalam Negeri</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font>
@@ -743,8 +743,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN V (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
-                                                        TERIMAAN BEKALAN PRODUK SAWIT -
+                                                    <font color="#0000FF">BAHAGIAN 5 (a) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                                         SENDIRI</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -806,8 +805,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN V (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN /
-                                                        TERIMAAN BEKALAN PRODUK SAWIT -
+                                                    <font color="#0000FF">BAHAGIAN 5 (b) :&nbsp;&nbsp;&nbsp;&nbsp;BELIAN/TERIMAAN BEKALAN PRODUK SAWIT -
                                                         LUAR</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -868,7 +866,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN VI :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN 6 :&nbsp;&nbsp;&nbsp;&nbsp;
                                                         EKSPORT PRODUK SAWIT</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -930,7 +928,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN VII :&nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <font color="#0000FF">BAHAGIAN 7 :&nbsp;&nbsp;&nbsp;&nbsp;
                                                         IMPORT PRODUK SAWIT</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
@@ -1030,53 +1028,12 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                </div>
-                {{-- </form> --}}
-            </div>
-            <br>
-            {{-- </form> --}}
 
-        </div>
-        </div>
-        </div>
-
-
-
-
-        {{-- </div>
-                                                                    </div> --}}
 
         {{-- </section> --}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </section><!-- End Hero -->
-
-
-
-
     <!-- ======= Footer ======= -->
-
-
-
-
-
     {{-- <div id="preloader"></div> --}}
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>

@@ -44,6 +44,7 @@
                         </h5>
                     </div>
                     <hr>
+                    <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> * </b><i>'</i>
                     <form action="{{ route('bio.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
                         @csrf
 
@@ -326,22 +327,6 @@
                                         onkeypress="return isNumberKey(event)" placeholder="Kapasiti Pemprosesan / Tahun" oninput="validate_two_decimal(this)"
                                         name="kap_proses" value="{{ $pelesen->kap_proses }}" required>
                                     @error('kap_proses')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: 1%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                    Kapasiti Tangki Simpanan</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="kap_tangki" class="form-control"
-                                        onkeypress="return isNumberKey(event)" placeholder="Kapasiti Tangki Simpanan" oninput="validate_two_decimal(this)"
-                                        name="kap_tangki" value="{{ $pelesen->kap_tangki }}" required>
-
-                                    @error('kap_tangki')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
                                         </div>

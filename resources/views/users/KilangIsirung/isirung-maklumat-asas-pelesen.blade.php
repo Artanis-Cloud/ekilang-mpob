@@ -337,21 +337,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row mb-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                    Kapasiti Tangki Simpanan</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="kap_tangki" class="form-control"
-                                        placeholder="Kapasiti Tangki Simpanan" name="kap_tangki" required
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_tangki }}">
-                                    @error('kap_tangki')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
+                            
 
                             <div class="row mt-3" style="text-align: center; font-size: 12px">
                                 <div class="col-md-5">

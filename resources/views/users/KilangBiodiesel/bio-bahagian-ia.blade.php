@@ -86,7 +86,7 @@
 
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <span class="required">Nama Produk dan Kod</span>
+                                            <span class="">Nama Produk dan Kod</span>
                                         </div>
                                         <div class="col-md-3">
                                             <select class="form-control" id="ebio_b4" name="ebio_b4"
@@ -102,7 +102,7 @@
 
                                         </div>
                                         <div class="col-md-3">
-                                            <span class="required">Digunakan Untuk Proses Selanjutnya</span>
+                                            <span class="">Digunakan Untuk Proses Selanjutnya</span>
                                         </div>
                                         <div class="col-md-3">
                                             <input type="text" class="form-control" name='ebio_b8'
@@ -120,7 +120,7 @@
 
                                     <div class="row mt-4">
                                         <div class="col-md-3">
-                                            <span class="required">Stok Awal di Premis</span>
+                                            <span class="">Stok Awal di Premis</span>
                                         </div>
                                         <div class="col-md-3">
                                             <input type="text" class="form-control" name='ebio_b5'
@@ -135,7 +135,7 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-3">
-                                            <span class="required">Jualan / Edaran Tempatan</span>
+                                            <span class="">Jualan/Edaran Tempatan</span>
                                         </div>
                                         <div class="col-md-3">
                                             <input type="text" class="form-control" name='ebio_b9'
@@ -154,7 +154,7 @@
 
                                     <div class="row mt-4">
                                         <div class="col-md-3">
-                                            <span class="required">Belian / Terimaan</span>
+                                            <span class="">Belian/Terimaan</span>
                                         </div>
                                         <div class="col-md-3">
                                             <input type="text" class="form-control" name='ebio_b6'
@@ -170,7 +170,7 @@
                                         </div>
 
                                         <div class="col-md-3">
-                                            <span class="required">Eksport </span>
+                                            <span class="">Eksport </span>
                                         </div>
                                         <div class="col-md-3">
                                             <input type="text" class="form-control" name='ebio_b10'
@@ -188,7 +188,7 @@
 
                                     <div class="row mt-4">
                                         <div class="col-md-3">
-                                            <span class="required">Pengeluaran</span>
+                                            <span class="">Pengeluaran</span>
                                         </div>
                                         <div class="col-md-3">
                                             <input type="text" class="form-control" name='ebio_b7'
@@ -204,7 +204,7 @@
                                         </div>
 
                                         <div class="col-md-3">
-                                            <span class="required">Stok Akhir Dilapor</span>
+                                            <span class="">Stok Akhir Dilapor</span>
                                         </div>
                                         <div class="col-md-3">
                                             <input type="text" class="form-control" name='ebio_b11'
@@ -353,7 +353,7 @@
                                                                                     oninput="validate_two_decimal(this)"
                                                                                     onkeypress="return isNumberKey(event)">
                                                                             </div>
-                                                                            <label>Belian / Terimaan
+                                                                            <label>Belian/Terimaan
                                                                             </label>
                                                                             <div class="form-group">
                                                                                 <input type="text"
@@ -386,7 +386,7 @@
                                                                                     oninput="validate_two_decimal(this)"
                                                                                     onkeypress="return isNumberKey(event)">
                                                                             </div>
-                                                                            <label>Jualan / Edaran Tempatan</label>
+                                                                            <label>Jualan/Edaran Tempatan</label>
                                                                             <div class="form-group">
                                                                                 <input type="text"
                                                                                     name='ebio_b9'
@@ -576,9 +576,7 @@
                             </form>
 
                     </div>
-
-
-
+                </div>
 
     <script>
         function onlyNumberKey(evt) {

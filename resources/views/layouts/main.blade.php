@@ -978,45 +978,45 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('bio.bahagiania') }}" class="sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Bahagian I (a) </span>
+                                                <span class="hide-menu"> Bahagian 1 (a) </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
                                             <a href="{{ route('bio.bahagianib') }}" class="sidebar-link">
                                                 <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Bahagian I (b) </span>
+                                                <span class="hide-menu"> Bahagian 1 (b) </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
                                             <a href="{{ route('bio.bahagianic') }}" class="sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Bahagian I(c) </span>
+                                                <span class="hide-menu"> Bahagian 1(c) </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
                                             <a href="{{ route('bio.bahagianii') }}" class="sidebar-link">
                                                 <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Bahagian II </span>
+                                                <span class="hide-menu"> Bahagian 2 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
                                             <a href="{{ route('bio.bahagianiii') }}" class="sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Bahagian III </span>
+                                                <span class="hide-menu"> Bahagian 3 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
                                             <a href="{{ route('oleo.bahagianiv') }}" data-toggle="modal"
                                                 data-target="#tutup" class="btn sidebar-link">
                                                 <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Bahagian IV </span>
+                                                <span class="hide-menu"> Bahagian 4 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
                                             <a href="{{ route('oleo.bahagianiv') }}" data-toggle="modal"
                                                 data-target="#tutup" class="btn sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Bahagian V </span>
+                                                <span class="hide-menu"> Bahagian 5 </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">

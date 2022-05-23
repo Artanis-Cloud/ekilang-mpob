@@ -317,22 +317,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row" style="margin-top: 1%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                    Kapasiti Tangki Simpanan</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="kap_tangki" class="form-control"
-                                        onkeypress="return isNumberKey(event)" placeholder="Kapasiti Tangki Simpanan" oninput="validate_two_decimal(this)"
-                                        name="kap_tangki" value="{{ $pelesen->kap_tangki }}" required>
-
-                                    @error('kap_tangki')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
+                            
 
                             <div class="row mt-3 " style="text-align: center; font-size: 12px">
                                 <div class="col-md-5">

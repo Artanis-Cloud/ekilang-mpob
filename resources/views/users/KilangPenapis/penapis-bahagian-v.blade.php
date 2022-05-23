@@ -81,7 +81,7 @@
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <span class="">Sendiri / Luar</span>
+                                    <span class="">Sendiri/Luar</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="e101_d3" name="e101_d3" style="width: 50%" required>
@@ -204,7 +204,7 @@
                         <table class="table table-bordered mb-0" style="font-size: 13px">
                             <thead>
                                 <tr style="text-align: center">
-                                    <th>Sendiri / Luar</th>
+                                    <th>Sendiri/Luar</th>
                                     <th>Belian/Terimaan dari</th>
                                     <th>CPO</th>
                                     <th>PPO</th>
@@ -265,7 +265,7 @@
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-body">
-                                                                <label class="required">Sendiri / Luar </label>
+                                                                <label class="required">Sendiri/Luar </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e101_d3"
@@ -452,7 +452,7 @@
                                                             method="post">
                                                             @csrf
                                                             <div class="modal-body">
-                                                                <label class="required">Sendiri / Luar </label>
+                                                                <label class="required">Sendiri/Luar </label>
                                                                 <div class="form-group">
                                                                     <fieldset class="form-group">
                                                                         <select class="form-control" id="e101_d3"

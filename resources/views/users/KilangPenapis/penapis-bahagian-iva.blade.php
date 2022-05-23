@@ -117,7 +117,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="">Jualan / Edaran Tempatan</span>
+                                    <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_c8' style="width: 50%" id="e101_c8" oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -222,9 +222,9 @@
                                     <th>Nama Produk</th>
                                     <th>Kod Produk</th>
                                     <th>Stok Awal Di Premis</th>
-                                    <th>Belian / Terimaan</th>
+                                    <th>Belian/Terimaan</th>
                                     <th>Pengeluaran</th>
-                                    <th>Jualan / Edaran Tempatan</th>
+                                    <th>Jualan/Edaran Tempatan</th>
                                     <th>Eksport</th>
                                     <th>Stok Akhir Di Proses</th>
                                     <th>Kemaskini</th>
@@ -296,7 +296,7 @@
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_c5 }}" required>
                                                                 </div>
-                                                                <label class="required">Belian / Terimaan </label>
+                                                                <label class="required">Belian/Terimaan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_c6' class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
@@ -314,7 +314,7 @@
                                                                         oninput="validate_two_decimal(this);setCustomValidity('')"
                                                                         value="{{ $data->e101_c7 }}" required>
                                                                 </div>
-                                                                <label class="required">Jualan / Edaran Tempatan </label>
+                                                                <label class="required">Jualan/Edaran Tempatan </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_c8' oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                                         onkeypress="return isNumberKey(event)"

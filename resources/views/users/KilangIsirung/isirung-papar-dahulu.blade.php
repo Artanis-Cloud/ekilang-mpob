@@ -341,7 +341,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">B. Stok Awal Di Pusat Simpanan / Gudang</font>
+                                                            <font size="2">B. Stok Awal Di Pusat Simpanan/Gudang</font>
                                                         </td>
                                                         <td width="115">
                                                             <p style="text-align: center; vertical-align:middle">
@@ -361,7 +361,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">C. Belian / Terimaan</font>
+                                                            <font size="2">C. Belian/Terimaan</font>
                                                         </td>
                                                         <td width="115">
                                                             <p style="text-align: center; vertical-align:middle">
@@ -436,7 +436,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">G. Jualan / Edaran Tempatan</font>
+                                                            <font size="2">G. Jualan/Edaran Tempatan</font>
                                                         </td>
                                                         <td width="115">
                                                             <p style="text-align: center; vertical-align:middle">
@@ -456,7 +456,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">H. Hantar Ke Pusat Simpanan / Gudang</font>
+                                                            <font size="2">H. Hantar Ke Pusat Simpanan/Gudang</font>
                                                         </td>
                                                         <td width="115">
                                                             <p style="text-align: center; vertical-align:middle">
@@ -609,7 +609,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN 4 : JUALAN / EDARAN MINYAK ISIRUNG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN 4 : JUALAN/EDARAN MINYAK ISIRUNG SAWIT
                                                         MENTAH (CPKO) (04)
                                                     </font>
                                                 </b></p>
@@ -648,7 +648,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN 5 : JUALAN / EDARAN DEDAK ISIRUNG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
                                                         (PKC) (33)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
