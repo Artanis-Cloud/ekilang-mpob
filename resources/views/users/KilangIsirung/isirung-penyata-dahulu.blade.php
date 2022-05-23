@@ -141,8 +141,7 @@
                     </div>
 
                 </div>
-                </form><br><br><br><br><br><br><br><br><br><br><br>
-                <br>
+                </form><br><br>
             </div>@endsection
         </div>
         <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

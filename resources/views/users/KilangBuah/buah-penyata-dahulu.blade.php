@@ -1,8 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-
-
     <div class="page-wrapper">
         <div class="page-breadcrumb mb-3">
             <div class="row">
@@ -35,185 +33,150 @@
                 </div>
             </div>
         </div>
-                    <div class="card" style="margin-right:2%; margin-left:2%">
+        <div class="card" style="margin-right:2%; margin-left:2%">
 
 
-                        <div class="card-body">
+            <div class="card-body">
 
-                                <div class="pl-3">
-                                    <form action="{{ route('buah.penyata.dahulu.process') }}" method="post">
-                                        @csrf
-                                        <div class="text-center">
-                                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Terdahulu</h3>
-                                            <h5 style="color: rgb(39, 80, 71); font-size:14px">Senarai Penyata Bulanan Terdahulu</h5>
-                                            {{-- <p>Maklumat Kilang</p> --}}
-                                        </div>
-                                        <hr>
-                                        <div class="container center mt-2">
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                    Sila Pilih Tahun</label>
-                                                <div class="col-md-6">
-                                                    <fieldset class="form-group">
-                                                        <select class="form-control" id="basicSelect" name="tahun">
-                                                            <option selected hidden disabled>Sila Pilih Tahun</option>
-                                                            <option>2004</option>
-                                                            <option>2005</option>
-                                                            <option>2006</option>
-                                                            <option>2007</option>
-                                                            <option>2008</option>
-                                                            <option>2009</option>
-                                                            <option>2010</option>
-                                                            <option>2011</option>
-                                                            <option>2012</option>
-                                                            <option>2013</option>
-                                                            <option>2014</option>
-                                                            <option>2015</option>
-                                                            <option>2016</option>
-                                                            <option>2017</option>
-                                                            <option>2018</option>
-                                                            <option>2019</option>
-                                                            <option>2020</option>
-                                                            <option>2021</option>
+                <div class="pl-3">
+                    <form action="{{ route('buah.penyata.dahulu.process') }}" method="post">
+                        @csrf
+                        <div class="text-center">
+                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Penyata Bulanan Terdahulu</h3>
+                            <h5 style="color: rgb(39, 80, 71); font-size:14px">Senarai Penyata Bulanan Terdahulu</h5>
+                            {{-- <p>Maklumat Kilang</p> --}}
+                        </div>
+                        <hr>
+                        <div class="container center mt-2">
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Sila Pilih Tahun</label>
+                                <div class="col-md-6">
+                                    <fieldset class="form-group">
+                                        <select class="form-control" id="basicSelect" name="tahun">
+                                            <option selected hidden disabled>Sila Pilih Tahun</option>
+                                            <option>2004</option>
+                                            <option>2005</option>
+                                            <option>2006</option>
+                                            <option>2007</option>
+                                            <option>2008</option>
+                                            <option>2009</option>
+                                            <option>2010</option>
+                                            <option>2011</option>
+                                            <option>2012</option>
+                                            <option>2013</option>
+                                            <option>2014</option>
+                                            <option>2015</option>
+                                            <option>2016</option>
+                                            <option>2017</option>
+                                            <option>2018</option>
+                                            <option>2019</option>
+                                            <option>2020</option>
+                                            <option>2021</option>
 
-                                                        </select>
-                                                    </fieldset>
-                                                    {{-- @error('alamat_kilang_1')
+                                        </select>
+                                    </fieldset>
+                                    {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
                                                     @enderror --}}
-                                                </div>
-                                            </div>
+                                </div>
+                            </div>
 
-                                            <div class="row">
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">Bulan
-                                                </label>
-                                                <div class="col-md-6">
-                                                    <fieldset class="form-group">
-                                                        <select class="form-control" id="basicSelect" name="bulan">
-                                                            <option selected hidden disabled>Sila Pilih Bulan</option>
-                                                            <option value="01">Januari</option>
-                                                            <option value="02">Februari</option>
-                                                            <option value="03">Mac</option>
-                                                            <option value="04">April</option>
-                                                            <option value="05">Mei</option>
-                                                            <option value="06">Jun</option>
-                                                            <option value="07">Julai</option>
-                                                            <option value="08">Ogos</option>
-                                                            <option value="09">September</option>
-                                                            <option value="10">Oktober</option>
-                                                            <option value="11">November</option>
-                                                            <option value="12">Disember</option>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">Bulan
+                                </label>
+                                <div class="col-md-6">
+                                    <fieldset class="form-group">
+                                        <select class="form-control" id="basicSelect" name="bulan">
+                                            <option selected hidden disabled>Sila Pilih Bulan</option>
+                                            <option value="01">Januari</option>
+                                            <option value="02">Februari</option>
+                                            <option value="03">Mac</option>
+                                            <option value="04">April</option>
+                                            <option value="05">Mei</option>
+                                            <option value="06">Jun</option>
+                                            <option value="07">Julai</option>
+                                            <option value="08">Ogos</option>
+                                            <option value="09">September</option>
+                                            <option value="10">Oktober</option>
+                                            <option value="11">November</option>
+                                            <option value="12">Disember</option>
 
 
 
-                                                        </select>
-                                                    </fieldset>
-                                                    {{-- @error('alamat_kilang_1')
+                                        </select>
+                                    </fieldset>
+                                    {{-- @error('alamat_kilang_1')
                                                         <div class="alert alert-danger">
                                                             <strong>{{ $message }}</strong>
                                                         </div>
                                                     @enderror --}}
-                                                </div>
-                                            </div>
+                                </div>
+                            </div>
 
-                                        </div>
-
-                                        <div class="row form-group" style="padding-top: 20px; ">
-
-                                            <div class="text-right col-md-12 mb-4 ">
-                                                <button type="submit" class="btn btn-primary " style="margin-right: 48%"
-                                                    >Papar Penyata</button>
-                                            </div>
-
-                                        </div>
-                                        {{-- Hidden Gap - Just Ignore --}}
-
-                                    </form>
-                                    {{-- <!-- Modal Confirmation -->
-                                    <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-                                        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header" style="background-color:#f3ce8f  !important">
-                                                    <h5 class="modal-title" id="exampleModalLongTitle"><i
-                                                            class="fa fa-exclamation-triangle" aria-hidden="true"
-                                                            style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
-                                                    </h5>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Anda pasti mahu menyimpan maklumat ini?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-danger"
-                                                        data-dismiss="modal">Kembali</button>
-                                                    <button type="submit" class="btn btn-success">Ya</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div> --}}
-                                    <br>
-
-                                </div>  <br><br><br><br><br><br><br><br><br>
                         </div>
 
-                                {{-- <div id="preloader"></div> --}}
-                                <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-                                        class="bi bi-arrow-up-short"></i></a>
+                        <div class="row form-group" style="padding-top: 20px; ">
 
+                            <div class="text-right col-md-12 mb-4 ">
+                                <button type="submit" class="btn btn-primary " style="margin-right: 48%">Papar
+                                    Penyata</button>
+                            </div>
 
+                        </div>
 
+                    </form>
+                    <br>
 
-                                <script>
-                                    $(document).ready(function() {
-                                        var table = $('#example').DataTable({
-                                            "language": {
-                                                "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                                                "zeroRecords": "Maaf, tiada rekod.",
-                                                "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                                                "infoEmpty": "Tidak ada rekod yang tersedia",
-                                                "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                                                "search": "Carian",
-                                                "previous": "Sebelum",
-                                                "paginate": {
-                                                    "first": "Pertama",
-                                                    "last": "Terakhir",
-                                                    "next": "Seterusnya",
-                                                    "previous": "Sebelumnya"
-                                                },
-                                            },
-                                        });
-                                    });
+                </div> <br><br>
+            </div>
 
-                                    $(window).on('changed', (e) => {
-                                        // if($('#example').DataTable().clear().destroy()){
-                                        // $('#example').DataTable();
-                                        // }
-                                    });
+            {{-- <div id="preloader"></div> --}}
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                    class="bi bi-arrow-up-short"></i></a>
+        @endsection
+        @section('scripts')
+            <script>
+                $(document).ready(function() {
+                    var table = $('#example').DataTable({
+                        "language": {
+                            "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
+                            "zeroRecords": "Maaf, tiada rekod.",
+                            "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
+                            "infoEmpty": "Tidak ada rekod yang tersedia",
+                            "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                            "search": "Carian",
+                            "previous": "Sebelum",
+                            "paginate": {
+                                "first": "Pertama",
+                                "last": "Terakhir",
+                                "next": "Seterusnya",
+                                "previous": "Sebelumnya"
+                            },
+                        },
+                    });
+                });
 
-                                    // document.getElementById("form_type").onchange = function() {
-                                    //     myFunction()
-                                    // };
+                $(window).on('changed', (e) => {
+                    // if($('#example').DataTable().clear().destroy()){
+                    // $('#example').DataTable();
+                    // }
+                });
 
-                                    // function myFunction() {
-                                    //     console.log('asasa');
-                                    //     table.clear().draw();
-                                    // }
-                                </script>
+                // document.getElementById("form_type").onchange = function() {
+                //     myFunction()
+                // };
 
-
-                                </body>
-
-                                </html>
-
-                                 @endsection
-                    </div>
+                // function myFunction() {
+                //     console.log('asasa');
+                //     table.clear().draw();
+                // }
+            </script>
+        @endsection
     </div>
+</div>

@@ -62,12 +62,12 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <p align="center">
+                                <p style="text-align: center; vertical-align:middle">
                                     <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
                                 </p>
 
                                 <title>PENYATA BULANAN PUSAT SIMPANAN - MPOB (EL) KS 4</title>
-                                <p align="center"><b>
+                                <p style="text-align: center; vertical-align:middle"><b>
                                         <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
                                         </font>PENYATA BULANAN PUSAT SIMPANAN - MPOB (EL) KS 4<br>
@@ -261,31 +261,31 @@
                                 <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Nama Produk</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Kod Produk</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Stok Awal</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Terimaan Dalam Negeri</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Import</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Edaran Tempatan</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Eksport</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Pelarasan (+/-)</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Stok Akhir</font>
                                                 </b></td>
                                         </tr>
@@ -294,7 +294,7 @@
                                                 <td align="left">
                                                     <font size="2">{{ $data->produk->prodname }}</font>
                                                 </td>
-                                                <td align="center">
+                                                <td style="text-align: center; vertical-align:middle">
                                                     <font size="2">{{ $data->produk->prodid }}</font>
                                                 </td>
                                                 <td align="right">
@@ -321,10 +321,10 @@
                                             </tr>
                                         @endforeach
                                         <tr>
-                                            <td align="center">
+                                            <td style="text-align: center; vertical-align:middle">
                                                 <font size="2"><b>JUMLAH</b></font>
                                             </td>
-                                            <td align="center">
+                                            <td style="text-align: center; vertical-align:middle">
                                                 <font size="2"><b>-</b></font>
                                             </td>
                                             <td align="right">
@@ -358,36 +358,36 @@
                                 <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Nama Produk</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Kod Produk</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Stok Awal</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Penerimaan Dari Luar Negara</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Edaran Ke Dalam Negeri/Import</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Eksport Semula</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Pelarasan (+/-)</font>
                                                 </b></td>
-                                            <td width="8%" align="center"><b>
+                                            <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                     <font size="2">Stok Akhir</font>
                                                 </b></td>
                                         </tr>
                                         <tr>
-                                            <td align="center">
+                                            <td style="text-align: center; vertical-align:middle">
                                                 <font size="2"><b>JUMLAH</b></font>
                                             </td>
-                                            <td align="center">
+                                            <td style="text-align: center; vertical-align:middle">
                                                 <font size="2"><b>-</b></font>
                                             </td>
                                             <td align="right">

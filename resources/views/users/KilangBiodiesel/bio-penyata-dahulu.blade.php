@@ -127,7 +127,7 @@
 
 
 
-                                    <div class="row form-group" style="margin-top: 20px; margin-bottom: 220px">
+                                    <div class="row form-group" style="margin-top: 20px; ">
 
                                     <div class="text-right col-md-12 mb-4 ">
                                         <button type="submit" class="btn btn-primary " style="margin-right: 48%"
@@ -135,35 +135,6 @@
                                     </div>
 
                                 </div>
-                                    {{-- Hidden Gap - Just Ignore --}}
-
-
-                                {{-- <!-- Modal Confirmation -->
-                                <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header" style="background-color:#f3ce8f  !important">
-                                                <h5 class="modal-title" id="exampleModalLongTitle"><i
-                                                        class="fa fa-exclamation-triangle" aria-hidden="true"
-                                                        style="color:rgb(255, 255, 0)"></i>&nbspPENGESAHAN
-                                                </h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                Anda pasti mahu menyimpan maklumat ini?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-danger"
-                                                    data-dismiss="modal">Kembali</button>
-                                                <button type="submit" class="btn btn-success">Ya</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> --}}
                                 <br>
 
 
