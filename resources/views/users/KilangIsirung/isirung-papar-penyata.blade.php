@@ -315,7 +315,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">B. Stok Awal Di Pusat Simpanan / Gudang</font>
+                                                            <font size="2">B. Stok Awal Di Pusat Simpanan/Gudang</font>
                                                         </td>
                                                         <td width="115">
                                                             <p style="text-align: center; vertical-align:middle">
@@ -344,7 +344,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">C. Belian / Terimaan</font>
+                                                            <font size="2">C. Belian/Terimaan</font>
                                                         </td>
                                                         <td width="115">
                                                             <p style="text-align: center; vertical-align:middle">
@@ -448,7 +448,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">G. Jualan / Edaran Tempatan</font>
+                                                            <font size="2">G. Jualan/Edaran Tempatan</font>
                                                         </td>
                                                         <td width="115">
                                                             <p style="text-align: center; vertical-align:middle">
@@ -477,7 +477,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td width="255">
-                                                            <font size="2">H. Hantar Ke Pusat Simpanan / Gudang</font>
+                                                            <font size="2">H. Hantar Ke Pusat Simpanan/Gudang</font>
                                                         </td>
                                                         <td width="115">
                                                             <p style="text-align: center; vertical-align:middle">
@@ -631,7 +631,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN 3 : BELIAN / TERIMAAN BEKALAN ISIRONG
+                                                    <font color="#0000FF">BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN ISIRONG
                                                         SAWIT (PK) (51)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -679,7 +679,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN 4 : JUALAN / EDARAN MINYAK ISIRONG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN 4 : JUALAN/EDARAN MINYAK ISIRONG SAWIT
                                                         MENTAH (CPKO) (04)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -687,7 +687,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran</font>
+                                                                <font size="2">Jualan/Edaran</font>
                                                             </b></td>
                                                         <td width="11%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Ke</font>
@@ -726,7 +726,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN 5 : JUALAN / EDARAN DEDAK ISIRONG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRONG SAWIT
                                                         (PKC) (33)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -734,7 +734,7 @@
                                                 <tbody>
                                                     <tr>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran</font>
+                                                                <font size="2">Jualan/Edaran</font>
                                                             </b></td>
                                                         <td width="11%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Ke</font>

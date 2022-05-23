@@ -45,15 +45,7 @@
 
                             <div class="card-body">
 
-
-
-
-
                                         <body>
-                                            {{-- <p align="left">
-                                                PROSES6 : PAPAR PL 9.1</p>JJ0003<br> --}}
-
-
                                                 <div align="right">
                                                     <table border="0" width="25%">
                                                         <tbody>
@@ -76,21 +68,6 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
-
-                                            {{-- <div align="right">
-                                                <table border="0" width="25%" id="table1">
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>
-                                                                <p align="left"><b>MPOB(EL) MF 4</b></p>
-                                                            </td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td><b>MPOB(EL) PX 4-MF </b></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div> --}}
 
                                             <p style="text-align: center; vertical-align:middle">
                                                 <img border="0" src="{{ asset('/mpob.png') }}" width="128"
@@ -121,155 +98,153 @@
                                                     {{-- {{ $tahun }} --}}
                                                 </b><br>
 
-                                            </p>
-                                            <hr>
+                                </p>
+                                <hr>
 
-                                            <table border="0" width="100%" cellspacing="0">
+                                <table border="0" width="100%" cellspacing="0">
 
-                                                <tbody>
-                                                    <tr>
+                                    <tbody>
+                                        <tr>
 
-                                                        <td width="25%" height="19">Nombor Lesen
-                                                        </td>
+                                            <td width="25%" height="19">Nombor Lesen
+                                            </td>
 
-                                                        <td width="88%" height="19"><b>
-                                                                    {{ auth()->user()->username }}
-                                                            </b></td>
+                                            <td width="88%" height="19"><b>
+                                                        {{ auth()->user()->username }}
+                                                </b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="25%" height="19">Nama Premis
+                                            <td width="25%" height="19">Nama Premis
 
-                                                        <td width="88%" height="19"><b>{{ auth()->user()->name }}
-                                                            </b></td>
+                                            <td width="88%" height="19"><b>{{ auth()->user()->name }}
+                                                </b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                </tbody>
-                                            </table>
+                                    </tbody>
+                                </table>
 
-                                            <hr>
+                                <hr>
 
-                                            <p></p>
+                                <p></p>
 
 
-                                            <p align="left"><b>
-                                                    <font color="#0000FF">MAKLUMAT PELESEN </font>
-                                                </b></p>
+                                <p align="left"><b>
+                                        <font color="#0000FF">MAKLUMAT PELESEN </font>
+                                    </b></p>
 
-                                            <table border="0" width="100%" cellpadding="0" cellspacing="0">
+                                <table border="0" width="100%" cellpadding="0" cellspacing="0">
 
-                                                <tbody>
+                                    <tbody>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">Alamat Premis Berlesen</td>
+                                            <td width="35%">Alamat Premis Berlesen</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_ap1 }}</b></td>
+                                            <td width="65%"><b>{{ $pelesen->e_ap1 }}</b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">&nbsp;</td>
+                                            <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_ap2 }}</b></td>
+                                            <td width="65%"><b>{{ $pelesen->e_ap2 }}</b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">&nbsp;</td>
+                                            <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_ap3 }}</b></td>
+                                            <td width="65%"><b>{{ $pelesen->e_ap3 }}</b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">Alamat Surat Menyurat</td>
+                                            <td width="35%">Alamat Surat Menyurat</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_as1 }}</b></td>
+                                            <td width="65%"><b>{{ $pelesen->e_as1 }}</b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">&nbsp;</td>
+                                            <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_as2 }}</b></td>
+                                            <td width="65%"><b>{{ $pelesen->e_as2 }}</b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">&nbsp;</td>
+                                            <td width="35%">&nbsp;</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_as3 }}</b></td>
+                                            <td width="65%"><b>{{ $pelesen->e_as3 }}</b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">No. Telefon</td>
+                                            <td width="35%">No. Telefon</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_notel }}</b>
+                                            <td width="65%"><b>{{ $pelesen->e_notel }}</b>
 
-                                                        </td>
+                                            </td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">No. Faks</td>
+                                            <td width="35%">No. Faks</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_nofax }}</b>
+                                            <td width="65%"><b>{{ $pelesen->e_nofax }}</b>
 
-                                                        </td>
+                                            </td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">Alamat emel </td>
+                                            <td width="35%">Alamat emel </td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_email }}</b></td>
+                                            <td width="65%"><b>{{ $pelesen->e_email }}</b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">Nama Pegawai Melapor</td>
+                                            <td width="35%">Nama Pegawai Melapor</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_npg }}</b></td>
+                                            <td width="65%"><b>{{ $pelesen->e_npg }}</b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">Jawatan Pegawai Melapor</td>
+                                            <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_jpg }}</b></td>
+                                            <td width="65%"><b>{{ $pelesen->e_jpg }}</b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">Nama Pegawai Bertanggungjawab</td>
+                                            <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_npgtg }}</b></td>
+                                            <td width="65%"><b>{{ $pelesen->e_npgtg }}</b></td>
 
-                                                    </tr>
+                                        </tr>
 
-                                                    <tr>
+                                        <tr>
 
-                                                        <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
+                                            <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                                        <td width="65%"><b>{{ $pelesen->e_jpgtg }}</b></td>
-
-                                                    </tr>
+                                            <td width="65%"><b>{{ $pelesen->e_jpgtg }}</b></td>
 
                                                 </tbody>
                                             </table>
@@ -296,7 +271,7 @@
                                                                 <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font><b></b>
+                                                                <font size="2">Belian/Terimaan</font><b></b>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Import</font><b></b>
@@ -309,7 +284,7 @@
                                                                 <b></b>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Tempatan</font><b></b>
+                                                                <font size="2">Jualan/Edaran Tempatan</font><b></b>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font><b></b>
@@ -423,7 +398,7 @@
                                                                 <font size="2">Stok Awal Di Pusat Simpanan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Import</font>
@@ -435,7 +410,7 @@
                                                                 <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Tempatan</font>
+                                                                <font size="2">Jualan/Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font>
@@ -572,13 +547,13 @@
                                                                 <font size="2">Stok Awal</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Pengeluaran</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Jualan / Edaran Tempatan</font>
+                                                                <font size="2">Jualan/Edaran Tempatan</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Eksport</font>
@@ -664,7 +639,7 @@
                                                                 <font size="2">Stok Awal</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
-                                                                <font size="2">Belian / Terimaan</font>
+                                                                <font size="2">Belian/Terimaan</font>
                                                             </b></td>
                                                         <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                                                 <font size="2">Pengeluaran</font>
@@ -970,60 +945,59 @@
                                                 </p>
                                         </body>
 
-                                            <h1 style="page-break-before:always"></h1>
+                                    </tbody>
+                                </table>
+                                <br>
 
-                                            <div class="row form-group" style="padding-top: 10px; ">
+                                <h1 style="page-break-before:always"></h1>
 
-                                                <div class="text-right col-md-7 mb-4 ">
-                                                    <button type="button" class="btn btn-primary "
-                                                        style="float: right" onclick="myPrint('myfrm')" value="print">Cetak</button>
-                                                </div>
+                                <div class="row form-group" style="padding-top: 10px; ">
 
+                                    <div class="text-right col-md-7 mb-4 ">
+                                        <button type="button" class="btn btn-primary "
+                                            style="float: right" onclick="myPrint('myfrm')" value="print">Cetak</button>
+                                    </div>
+
+                                </div>
+
+                                </div>
+
+                                <!-- Vertically Centered modal Modal -->
+                                <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                        role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                    PENGESAHAN</h5>
+                                                <button type="button" class="close"
+                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                    <i data-feather="x"></i>
+                                                </button>
                                             </div>
-
+                                            <div class="modal-body">
+                                                <p>
+                                                    Anda pasti mahu menghantar penyata ini?
+                                                </p>
                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-secondary"
+                                                    data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block"
+                                                        style="color:#275047">Tidak</span>
+                                                </button>
+                                                <a href="{{ route('penapis.hantar.penyata') }}" type="button"
+                                                class="btn btn-primary ml-1">
 
-                                            <!-- Vertically Centered modal Modal -->
-                                            <div class="modal fade" id="next" tabindex="-1" role="dialog"
-                                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                    role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                PENGESAHAN</h5>
-                                                            <button type="button" class="close"
-                                                                data-bs-dismiss="modal" aria-label="Close">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <p>
-                                                                Anda pasti mahu menghantar penyata ini?
-                                                            </p>
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            <button type="button" class="btn btn-light-secondary"
-                                                                data-bs-dismiss="modal">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block"
-                                                                    style="color:#275047">Tidak</span>
-                                                            </button>
-                                                            <a href="{{ route('penapis.hantar.penyata') }}" type="button"
-                                                            class="btn btn-primary ml-1">
-
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Hantar</span>
-                                                        </a>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block">Hantar</span>
+                                            </a>
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
 
                     </form>
 

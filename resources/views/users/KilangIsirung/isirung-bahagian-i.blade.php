@@ -131,7 +131,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="text-bold-500 ">B.
-                                                    Stok Awal Di Pusat Simpanan / Gudang</td>
+                                                    Stok Awal Di Pusat Simpanan/Gudang</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ab1' style="text-align: center"
                                                         required oninput="validate_two_decimal(this)"
@@ -155,7 +155,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="text-bold-500 ">C.
-                                                    Belian / Terimaan &nbsp; <i class="fa fa-exclamation-circle"
+                                                    Belian/Terimaan &nbsp; <i class="fa fa-exclamation-circle"
                                                         style="color: red; cursor: pointer;"
                                                         title="Jumlah Belian/Terimaan Dalam Negeri adalah termasuk jumlah Import."></i>
                                                 </td>
@@ -239,7 +239,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="text-bold-500 ">G.
-                                                    Jualan / Edaran Tempatan</td>
+                                                    Jualan/Edaran Tempatan</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ag1' style="text-align: center"
                                                         required oninput="validate_two_decimal(this)"
@@ -263,7 +263,7 @@
                                             </tr>
                                             <tr>
                                                 <td class="text-bold-500 ">H.
-                                                    Hantar ke Pusat Simpanan / Gudang</td>
+                                                    Hantar ke Pusat Simpanan/Gudang</td>
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_ah1' style="text-align: center"
                                                         required oninput="validate_two_decimal(this)"

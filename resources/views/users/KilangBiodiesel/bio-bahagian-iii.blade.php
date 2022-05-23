@@ -89,7 +89,7 @@
 
                         <div class="row">
                             <div class="col-md-3">
-                                <span class="required">Nama Produk dan Kod</span>
+                                <span class="">Nama Produk dan Kod</span>
                             </div>
                             <div class="col-md-3">
                                 <select class="form-control" id="ebio_c3" name="ebio_c3" style="width: 50%">
@@ -109,7 +109,7 @@
 
                             </div>
                             <div class="col-md-3">
-                                <span class="required">Digunakan Untuk Proses Selanjutnya</span>
+                                <span class="">Digunakan Untuk Proses Selanjutnya</span>
                             </div>
                             <div class="col-md-3">
                                 <input type="text" class="form-control" name='ebio_c7' style="width:50%" id="ebio_c7" oninput="validate_two_decimal(this)"
@@ -125,7 +125,7 @@
 
                         <div class="row mt-4">
                             <div class="col-md-3">
-                                <span class="required">Stok Awal di Premis</span>
+                                <span class="">Stok Awal di Premis</span>
                             </div>
                             <div class="col-md-3">
                                 <input type="text" class="form-control" name='ebio_c4' style="width:50%" oninput="validate_two_decimal(this)"
@@ -139,7 +139,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-3">
-                                <span class="required">Jualan / Edaran Tempatan </span>
+                                <span class="">Jualan/Edaran Tempatan </span>
                             </div>
                             <div class="col-md-3">
                                 <input type="text" class="form-control" name='ebio_c8' style="width:50%" id="ebio_c8"
@@ -162,7 +162,7 @@
 
                         <div class="row mt-4">
                             <div class="col-md-3">
-                                <span class="required">Belian / Terimaan</span>
+                                <span class="">Belian/Terimaan</span>
                             </div>
                             <div class="col-md-3">
                                 <input type="text" class="form-control" name='ebio_c5' style="width:50%" id="ebio_c5" oninput="validate_two_decimal(this)"
@@ -176,7 +176,7 @@
                             </div>
 
                             <div class="col-md-3">
-                                <span class="required">Eksport </span>
+                                <span class="">Eksport </span>
                             </div>
                             <div class="col-md-3">
                                 <input type="text" class="form-control" name='ebio_c9' style="width:50%" id="ebio_c9"
@@ -194,7 +194,7 @@
 
                         <div class="row mt-4">
                             <div class="col-md-3">
-                                <span class="required">Pengeluaran</span>
+                                <span class="">Pengeluaran</span>
                             </div>
                             <div class="col-md-3">
                                 <input type="text" class="form-control" name='ebio_c6' style="width:50%" id="ebio_c6"
@@ -210,7 +210,7 @@
                             </div>
 
                             <div class="col-md-3">
-                                <span class="required">Stok Akhir Dilapor</span>
+                                <span class="">Stok Akhir Dilapor</span>
                             </div>
                             <div class="col-md-3">
                                 <input type="text" class="form-control" name='ebio_c10' style="width:50%" id="ebio_c10"
@@ -259,10 +259,10 @@
                                         <th>Nama Produk</th>
                                         <th>Kod Produk</th>
                                         <th>Stok Awal Di Premis</th>
-                                        <th>Belian / Terimaan</th>
+                                        <th>Belian/Terimaan</th>
                                         <th>Pengeluaran</th>
                                         <th>Digunakan Untuk Proses Selanjutnya</th>
-                                        <th>Jualan / Edaran Tempatan </th>
+                                        <th>Jualan/Edaran Tempatan </th>
                                         <th>Eksport</th>
                                         <th>Stok Akhir Dilapor</th>
                                         <th>Kemaskini</th>
@@ -346,7 +346,7 @@
                                                                             value="{{ $data->ebio_c4 }}" oninput="validate_two_decimal(this)"
                                                                             onkeypress="return isNumberKey(event)">
                                                                     </div>
-                                                                    <label>Belian / Terimaan
+                                                                    <label>Belian/Terimaan
                                                                     </label>
                                                                     <div class="form-group">
                                                                         <input type="text" name='ebio_c5'
@@ -374,7 +374,7 @@
                                                                             value="{{ $data->ebio_c7 }}" oninput="validate_two_decimal(this)"
                                                                             onkeypress="return isNumberKey(event)">
                                                                     </div>
-                                                                    <label>Jualan / Edaran
+                                                                    <label>Jualan/Edaran
                                                                         Tempatan</label>
                                                                     <div class="form-group">
                                                                         <input type="text" name='ebio_c8'
@@ -666,10 +666,8 @@
     </div>
 
 
-    </div>
 
-    </div>
-    </div>
+
 @endsection
 @section('scripts')
     <script>

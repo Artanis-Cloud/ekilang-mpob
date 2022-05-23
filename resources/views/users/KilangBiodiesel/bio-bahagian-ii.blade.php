@@ -94,7 +94,7 @@
                                     <div class="container center mt-3">
                                         <div class="row">
                                             <label for="fname"
-                                                class="text-left col-sm-5 control-label col-form-label required align-items-center">i.
+                                                class="text-left col-sm-5 control-label col-form-label align-items-center">i.
                                                 Jumlah Hari Kilang Beroperasi Sebulan </label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='hari_operasi'
@@ -114,7 +114,7 @@
                                         </div>
                                         <div class="row mt-2">
                                             <label for="fname"
-                                                class="text-left col-sm-5 control-label col-form-label required align-items-center">ii.
+                                                class="text-left col-sm-5 control-label col-form-label align-items-center">ii.
                                                 Kadar Penggunaan Kapasiti Sebulan </label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='kapasiti'

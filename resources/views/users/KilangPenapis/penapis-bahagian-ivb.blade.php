@@ -120,7 +120,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="">Jualan / Edaran Tempatan</span>
+                                    <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_c8' style="width: 50%" id="e101_c8"
@@ -229,9 +229,9 @@
                                     <th>Nama Produk</th>
                                     <th>Kod Produk</th>
                                     <th>Stok Awal Di Premis</th>
-                                    <th>Belian / Terimaan</th>
+                                    <th>Belian/Terimaan</th>
                                     <th>Pengeluaran</th>
-                                    <th>Jualan / Edaran Tempatan</th>
+                                    <th>Jualan/Edaran Tempatan</th>
                                     <th>Eksport</th>
                                     <th>Stok Akhir Di Premis</th>
                                     <th>Kemaskini</th>
@@ -323,7 +323,7 @@
                                                                         oninput="validate_two_decimal(this)"
                                                                         value="{{ $data->e101_c7 }}">
                                                                 </div>
-                                                                <label class="required">Jualan / Edaran Dalam Negeri
+                                                                <label class="required">Jualan/Edaran Dalam Negeri
                                                                 </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_c8'

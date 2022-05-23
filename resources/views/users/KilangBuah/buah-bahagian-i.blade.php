@@ -137,7 +137,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="text-bold-500 ">B.
-                                                        Belian / Terimaan</td>
+                                                        Belian/Terimaan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_ab1' id="number" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity('')"
@@ -216,7 +216,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="text-bold-500 ">E.
-                                                        Jualan / Edaran Tempatan</td>
+                                                        Jualan/Edaran Tempatan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ae1'

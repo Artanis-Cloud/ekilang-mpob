@@ -76,7 +76,7 @@
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                             <h3 style="color: rgb(39, 80, 71);">Bahagian 4</h3>
-                            <h5 style="color: rgb(39, 80, 71)">Jualan / Edaran Minyak Isirung Sawit Mentah -
+                            <h5 style="color: rgb(39, 80, 71)">Jualan/Edaran Minyak Isirung Sawit Mentah -
                                 (CPKO) (04)
                             </h5>
                             {{-- <p>Maklumat Kilang</p> --}}
@@ -85,7 +85,7 @@
                         <div class="container center mt-3" style="margin-left: 4%">
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="">Jualan / Edaran:</span>
+                                    <span class="">Jualan/Edaran:</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="e102_b4" style=" width:50%" name="e102_b4" required>
@@ -161,7 +161,7 @@
             <hr>
             <br>
             <br>
-            <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Jualan / Edaran Minyak Isirung Sawit Mentah -
+            <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Jualan/Edaran Minyak Isirung Sawit Mentah -
                 (CPKO) (04)</h5>
 
             <section class="section">
@@ -172,7 +172,7 @@
                         <table class="table table-bordered mb-0">
                             <thead>
                                 <tr style="text-align: center">
-                                    <th>Jualan / Edaran</th>
+                                    <th>Jualan/Edaran</th>
                                     <th>Ke</th>
                                     <th>Kuantiti</th>
                                     <th>Kemaskini</th>
