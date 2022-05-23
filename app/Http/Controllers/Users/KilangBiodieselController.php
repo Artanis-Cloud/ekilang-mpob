@@ -119,7 +119,7 @@ class KilangBiodieselController extends Controller
 
         $penyata->save();
 
-        $map = User::where('username',$penyata->e_nl)->first();
+        $map = User::where('username', $penyata->e_nl)->first();
         $map->map_flg = '1';
         $map->map_sdate = now();
         $map->save();
@@ -218,16 +218,14 @@ class KilangBiodieselController extends Controller
                 'totaliab8',
                 'totaliab9',
                 'totaliab10',
-                'totaliab11','bulan','tahun',
+                'totaliab11',
+                'bulan',
+                'tahun',
             ));
-
-
         } else {
             return redirect()->back()
-            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
         }
-
-
     }
 
     public function bio_add_bahagian_ia(Request $request)
@@ -380,15 +378,14 @@ class KilangBiodieselController extends Controller
                 'totalibb8',
                 'totalibb9',
                 'totalibb10',
-                'totalibb11','bulan','tahun',
+                'totalibb11',
+                'bulan',
+                'tahun',
             ));
-
-
         } else {
             return redirect()->back()
-            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
         }
-
     }
 
     public function bio_add_bahagian_ib(Request $request)
@@ -545,14 +542,14 @@ class KilangBiodieselController extends Controller
                 'totalicb8',
                 'totalicb9',
                 'totalicb10',
-                'totalicb11','bulan','tahun',
+                'totalicb11',
+                'bulan',
+                'tahun',
             ));
-
         } else {
             return redirect()->back()
-            ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
         }
-
     }
 
     public function bio_add_bahagian_ic(Request $request)
@@ -676,8 +673,7 @@ class KilangBiodieselController extends Controller
 
             $penyata = Hari::where('lesen', auth()->user()->username)->first();
 
-            return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun',));
-
+            return view('users.KilangBiodiesel.bio-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -788,7 +784,8 @@ class KilangBiodieselController extends Controller
             $totaliiic10 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c10');
 
             return view('users.KilangBiodiesel.bio-bahagian-iii', compact(
-                'returnArr', 'senarai_syarikat',
+                'returnArr',
+                'senarai_syarikat',
                 'layout',
                 'user',
                 'produk',
@@ -799,22 +796,23 @@ class KilangBiodieselController extends Controller
                 'totaliiic7',
                 'totaliiic8',
                 'totaliiic9',
-                'totaliiic10','bulan','tahun',
+                'totaliiic10',
+                'bulan',
+                'tahun',
             ));
-
         } else {
 
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
         }
-            // $penyata = [];
-            // $totaliiic4 = 0;
-            // $totaliiic5 = 0;
-            // $totaliiic6 = 0;
-            // $totaliiic7 = 0;
-            // $totaliiic8 = 0;
-            // $totaliiic9 = 0;
-            // $totaliiic10 = 0;
+        // $penyata = [];
+        // $totaliiic4 = 0;
+        // $totaliiic5 = 0;
+        // $totaliiic6 = 0;
+        // $totaliiic7 = 0;
+        // $totaliiic8 = 0;
+        // $totaliiic9 = 0;
+        // $totaliiic10 = 0;
 
         // dd($user);
 
@@ -924,25 +922,74 @@ class KilangBiodieselController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
+
+    // public function bio_iii_edit_add(Request $request)
+    // {
+    //     // dd($request->e_tahun);
+    //     $this->delete_add_sykt($request->e_ddate);
+    //     // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
+    //     return redirect()->back()->with('success', 'Penyata telah diinitialize');
+    // }
+
+
     public function bio_edit_bahagian_iii_sykt(Request $request, $id)
     {
 
-        // dd($request->all());
         $penyata = EBioC::findOrFail($id);
-        // dd($penyata);
-
         $syarikat = EBioCC::where('ebio_cc2', $penyata->ebio_c3)->get();
-
+        $count = EBioCC::max('ebio_cc1');
+        // dd($syarikat);
         foreach ($syarikat as $key => $data) {
-            $data->ebio_cc3 = $request->ebio_cc3[$key];
-            $data->ebio_cc4 = $request->ebio_cc4[$key];
-            $data->save();
+            $data->delete();
+
         }
         // dd($syarikat);
 
-        return redirect()->route('bio.bahagianiii')
-            ->with('success', 'Maklumat telah disimpan');
+        $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+        // dd($ebio_reg);
+        foreach ($data['jumlah_row_hidden'] as $key => $value) {
+            $bio = EBioCC::create([
+                'ebio_reg' => $ebio_reg->ebio_reg,
+                'ebio_cc2' => $data['ebio_c3'],
+                'ebio_cc3' => $data['new_syarikat_hidden'][$key],
+                'ebio_cc4' => $data['jumlah_row_hidden'][$key],
+
+            ]);
+        }
+        return $bio;
+
+        foreach ($syarikat as $key => $syarikats) {
+            $ebio_cc2 = $penyata->ebio_c3;
+            $ebio_reg = $penyata->ebio_reg;
+            $query = EBioCC::create([
+                'ebio_cc1' => $count + 1,
+                'ebio_reg' => $ebio_reg,
+                'ebio_cc2' => $ebio_cc2,
+                'ebio_cc3' => now()->year,
+                'ebio_cc4' => '1',
+            ]);
+        }
     }
+
+    // public function bio_edit_bahagian_iii_sykt(Request $request, $id)
+    // {
+
+    //     // dd($request->all());
+    //     $penyata = EBioC::findOrFail($id);
+    //     // dd($penyata);
+
+    //     $syarikat = EBioCC::where('ebio_cc2', $penyata->ebio_c3)->get();
+
+    //     foreach ($syarikat as $key => $data) {
+    //         $data->ebio_cc3 = $request->ebio_cc3[$key];
+    //         $data->ebio_cc4 = $request->ebio_cc4[$key];
+    //         $data->save();
+    //     }
+    //     // dd($syarikat);
+
+    //     return redirect()->route('bio.bahagianiii')
+    //         ->with('success', 'Maklumat telah disimpan');
+    // }
 
 
     public function bio_delete_bahagian_iii($id)
@@ -986,7 +1033,7 @@ class KilangBiodieselController extends Controller
 
 
 
-        return view('users.KilangBiodiesel.bio-bahagian-iv', compact('returnArr', 'layout','bulan','tahun',));
+        return view('users.KilangBiodiesel.bio-bahagian-iv', compact('returnArr', 'layout', 'bulan', 'tahun',));
     }
 
 
