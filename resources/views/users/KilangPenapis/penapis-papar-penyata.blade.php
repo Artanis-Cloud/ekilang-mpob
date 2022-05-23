@@ -87,12 +87,12 @@
                                                 </table>
                                             </div> --}}
 
-                        <p align="center">
+                        <p style="text-align: center; vertical-align:middle">
                             <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
                         </p>
 
                         <title>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4</title>
-                        <p align="center"><b>
+                        <p style="text-align: center; vertical-align:middle"><b>
                                 <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
                                 </font>PENYATA BULANAN KILANG PENAPIS - MPOB (EL) RF 4<br>
@@ -286,52 +286,53 @@
                             </b> </p>
                         <table border="1" class="table table-bordered" width="100%" bordercolor="#000000" cellspacing="0"
                             cellpadding="0" bordercolorlight="#FFFFFF" bordercolordark="#000000">
-                            <tbody>
+                            {{-- <tbody> --}}
                                 <tr>
-                                    <td width="13%" align="center"><b>
+                                    <th width="13%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</font><b></b>
-                                        </b></td>
-                                    <td width="8%" align="center"><b>
+                                        </b></th>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font><b></b>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Awal Di Premis</font><b></b>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Awal Di Pusat Simpanan</font><b></b>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Belian / Terima</font><b></b>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Import</font><b></b>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Pengeluaran</font><b></b>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                             <b></b>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Jualan / Edaran Tempatan</font><b></b>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Eksport</font><b></b>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Akhir Di Premis</font><b></b>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Akhir Di Pusat Simpanan</font><b></b>
                                         </b></td>
                                 </tr>
+                                <tbody>
                                 @foreach ($penyatai as $data)
                                     <tr>
                                         <td align="left">
                                             <font size="2">{{ $data->produk->prodname }}</font>
                                         </td>
-                                        <td align="center">
+                                        <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->e101_b4 }}</font>
                                         </td>
                                         <td align="right">
@@ -368,10 +369,10 @@
                                 @endforeach
 
                                 <tr>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>-</b></font>
                                     </td>
                                     <td align="right">
@@ -414,40 +415,40 @@
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td width="13%" align="center"><b>
+                                    <td width="13%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</f                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ont>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Awal Di Premis</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Awal Di Pusat Simpanan</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Belian / Terimaan</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Import</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Pengeluaran</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Digunakan Untuk Proses Selanjutnya</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Jualan / Edaran Tempatan</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Eksport</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Akhir Di Premis</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Akhir Di Pusat Simpanan</font>
                                         </b></td>
                                 </tr>
@@ -456,7 +457,7 @@
                                         <td align="left">
                                             <font size="2">{{ $data->produk->prodname }}</font>
                                         </td>
-                                        <td align="center">
+                                        <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->e101_b4 }}</font>
                                         </td>
                                         <td align="right">
@@ -493,10 +494,10 @@
                                 @endforeach
 
                                 <tr>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>-</b></font>
                                     </td>
                                     <td align="right">
@@ -567,28 +568,28 @@
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td width="13%" align="center"><b>
+                                    <td width="13%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Awal</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Belian / Terimaan</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Pengeluaran</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Jualan / Edaran Tempatan</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Eksport</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Akhir</font>
                                         </b></td>
                                 </tr>
@@ -597,7 +598,7 @@
                                         <td align="left">
                                             <font size="2">{{ $data->produk->prodname }}</font>
                                         </td>
-                                        <td align="center">
+                                        <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->e101_c4 }}</font>
                                         </td>
                                         <td align="right">
@@ -621,10 +622,10 @@
                                     </tr>
                                 @endforeach
                                 <tr>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>-</b></font>
                                     </td>
                                     <td align="right">
@@ -659,28 +660,28 @@
                             style="padding: 0.2rem 0.3rem">
                             <tbody>
                                 <tr style="padding: 0.2rem 0.3rem">
-                                    <td width="13%" align="center"><b>
+                                    <td width="13%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Awal</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Belian / Terimaan</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Pengeluaran</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Jualan / Edaran Tempatan</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Eksport</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Stok Akhir</font>
                                         </b></td>
                                 </tr>
@@ -689,7 +690,7 @@
                                         <td align="left">
                                             <font size="2">{{ $data->produk->prodname }}</font>
                                         </td>
-                                        <td align="center">
+                                        <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->e101_c4 }}</font>
                                         </td>
                                         <td align="right">
@@ -713,10 +714,10 @@
                                     </tr>
                                 @endforeach
                                 <tr>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>-</b></font>
                                     </td>
                                     <td align="right">
@@ -749,19 +750,19 @@
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td width="15%" align="center"><b>
+                                    <td width="15%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Belian/Terimaan Dari</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">CPO</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">PPO</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">CPKO</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">PPKO</font>
                                         </b></td>
                                 </tr>
@@ -770,7 +771,7 @@
                                         <td align="left">
                                             <font size="2">{{ $data->prodcat->catname }}</font>
                                         </td>
-                                        <td align="center">
+                                        <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ number_format($data->e101_d5 ?? 0, 2) }}</font>
                                         </td>
                                         <td align="right">
@@ -785,10 +786,10 @@
                                     </tr>
                                 @endforeach
                                 <tr>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>{{ number_format($totalvad5 ?? 0, 2) }}</b></font>
                                     </td>
                                     <td align="right">
@@ -811,19 +812,19 @@
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td width="15%" align="center"><b>
+                                    <td width="15%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Belian/Terimaan Dari</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">CPO</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">PPO</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">CPKO</font>
                                         </b></td>
-                                    <td width="8%" align="center"><b>
+                                    <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">PPKO</font>
                                         </b></td>
                                 </tr>
@@ -832,7 +833,7 @@
                                         <td align="left">
                                             <font size="2">{{ $data->prodcat->catname }}</font>
                                         </td>
-                                        <td align="center">
+                                        <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ number_format($data->e101_d5 ?? 0, 2) }}</font>
                                         </td>
                                         <td align="right">
@@ -847,10 +848,10 @@
                                     </tr>
                                 @endforeach
                                 <tr>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>JUMLAH</b></font>
                                     </td>
-                                    <td align="center">
+                                    <td style="text-align: center; vertical-align:middle">
                                         <font size="2"><b>{{ number_format($totalvbd5 ?? 0, 2) }}</b></font>
                                     </td>
                                     <td align="right">
@@ -872,28 +873,28 @@
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td width="14%" align="center"><b>
+                                    <td width="14%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</font>
                                         </b></td>
-                                    <td width="7%" align="center"><b>
+                                    <td width="7%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
                                         </b></td>
-                                    <td width="15%" align="center"><b>
+                                    <td width="15%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Nombor Borang Kastam 2</font>
                                         </b></td>
-                                    <td width="12%" align="center"><b>
+                                    <td width="12%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Tarikh Eksport</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kuantiti<br> (Tan Metrik)</font><b></b>
                                         </b></td>
-                                    <td width="11%" align="center"><b>
+                                    <td width="11%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Nilai (RM)</font>
                                         </b></td>
-                                    <td width="6%" align="center"><b>
+                                    <td width="6%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Negara</font>
                                         </b></td>
-                                    <td width="15%" align="center"><b>
+                                    <td width="15%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Destinasi Negara</font>
                                         </b></td>
                                 </tr>
@@ -902,7 +903,7 @@
                                         <td align="left">
                                             <font size="2">{{ $data->produk->prodname }}</font>
                                         </td>
-                                        <td align="center">
+                                        <td style="text-align: center; vertical-align:middle">
                                             <font size="2">{{ $data->e101_e4 }}</font>
                                         </td>
                                         <td align="right">
@@ -934,28 +935,28 @@
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr>
-                                    <td width="14%" align="center"><b>
+                                    <td width="14%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Produk Minyak Sawit</font>
                                         </b></td>
-                                    <td width="7%" align="center"><b>
+                                    <td width="7%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
                                         </b></td>
-                                    <td width="15%" align="center"><b>
+                                    <td width="15%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Nombor Borang Kastam 1</font>
                                         </b></td>
-                                    <td width="12%" align="center"><b>
+                                    <td width="12%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Tarikh Eksport</font>
                                         </b></td>
-                                    <td width="10%" align="center"><b>
+                                    <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kuantiti<br> (Tan Metrik)</font><b></b>
                                         </b></td>
-                                    <td width="11%" align="center"><b>
+                                    <td width="11%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Nilai (RM)</font>
                                         </b></td>
-                                    <td width="6%" align="center"><b>
+                                    <td width="6%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Negara</font>
                                         </b></td>
-                                    <td width="15%" align="center"><b>
+                                    <td width="15%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Destinasi Negara</font>
                                         </b></td>
                                 </tr>

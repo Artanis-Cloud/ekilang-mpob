@@ -129,7 +129,7 @@
 
                 </div>
 
-                                    <div class="row form-group" style="margin-top: 1%; margin-bottom: 250px ">
+                                    <div class="row form-group" style="margin-top: 1%;">
                                         <div class="text-right col-md-6">
                                             <button type="submit" class="btn btn-primary" style="margin-left:90%" >Papar Penyata</button>
                                         </div>
