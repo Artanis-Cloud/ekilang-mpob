@@ -864,13 +864,13 @@
                                     <li class="sidebar-item">
                                         <a href="{{ route('pusatsimpan.maklumatasaspelesen') }}"
                                             class="sidebar-link">
-                                            <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                            <i class="far fa-id-badge" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Maklumat Asas Pelesen </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
                                         <a href="{{ route('pusatsimpan.tukarpassword') }}" class="sidebar-link">
-                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <i class="fas fa-key" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Tukar Kata Laluan </span>
                                         </a>
                                     </li>
@@ -888,20 +888,20 @@
                                     @if (!$layoutpenyata)
                                         <li class="sidebar-item">
                                             <a href="{{ route('pusatsimpan.bahagiana') }}" class="sidebar-link">
-                                                <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                                <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Bahagian A </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
                                             <a data-toggle="modal" data-target="#tutup" class="btn sidebar-link">
-                                                <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                                <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Bahagian B </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
                                             <a href="{{ route('pusatsimpan.paparpenyata') }}"
                                                 class="sidebar-link">
-                                                <i class="fas fa-filter" style="color:rgb(54, 51, 41)"></i>
+                                                <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
                                                 <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
@@ -920,7 +920,7 @@
                             </li>
                             <li class="sidebar-item">
                                 <a href="{{ route('pusatsimpan.penyatadahulu') }}" class="sidebar-link">
-                                    <i class="fas fa-leaf" style="color:rgb(54, 51, 41)"></i>
+                                    <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
                                     <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
                                 </a>
                             </li>
