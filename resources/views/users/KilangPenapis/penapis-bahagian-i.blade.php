@@ -83,7 +83,7 @@
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <span class="required">Nama Produk dan Kod </span>
+                                    <span class="">Nama Produk dan Kod </span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="produk" name="e101_b4" style="width: 50%" required
@@ -109,7 +109,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Stok Awal Di Premis</span>
+                                    <span class="">Stok Awal Di Premis</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b5' style="width: 50%" id="e101_b5"
@@ -123,7 +123,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Digunakan Untuk Proses Selanjutnya</span>
+                                    <span class="">Digunakan Untuk Proses Selanjutnya</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b10' style="width: 50%"
@@ -142,7 +142,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Stok Awal Di Pusat Simpanan</span>
+                                    <span class="">Stok Awal Di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b6' style="width: 50%" id="e101_b6"
@@ -156,7 +156,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Jualan/Edaran Tempatan</span>
+                                    <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b11' style="width: 50%"
@@ -175,7 +175,7 @@
 
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required"> Belian/Terimaan</span>
+                                    <span class=""> Belian/Terimaan</span>
                                     <i class="fa fa-exclamation-circle" style="color: red" title="Sekiranya ada maklumat import,
 sila campurkan (+) dengan maklumat Belian/Terimaan.">
                                     </i>
@@ -192,7 +192,7 @@ sila campurkan (+) dengan maklumat Belian/Terimaan.">
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Eksport</span>
+                                    <span class="">Eksport</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b12' style="width: 50%"
@@ -217,7 +217,7 @@ sila campurkan (+) dengan maklumat Belian/Terimaan.">
                                         title="Sila isikan butiran ini." readonly>
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Stok Akhir Di Premis</span>
+                                    <span class="">Stok Akhir Di Premis</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b13' style="width: 50%"
@@ -233,7 +233,7 @@ sila campurkan (+) dengan maklumat Belian/Terimaan.">
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-3">
-                                    <span class="required">Pengeluaran</span>
+                                    <span class="">Pengeluaran</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b9' style="width: 50%" id="e101_b9"
@@ -247,7 +247,7 @@ sila campurkan (+) dengan maklumat Belian/Terimaan.">
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="required">Stok Akhir Di Pusat Simpanan</span>
+                                    <span class="">Stok Akhir Di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_b14' style="width: 50%"
