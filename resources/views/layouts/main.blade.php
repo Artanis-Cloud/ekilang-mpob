@@ -1161,7 +1161,7 @@
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                     <li class="sidebar-item">
-                                        @if (auth()->user()->role == 'Superadmin')
+                                        @if ( auth()->user()->role == 'Superadmin' || auth()->user()->role == 'Manager' || auth()->user()->role == 'Supervisor')
                                             <a href="{{ route('admin.senarai.pentadbir') }}" class="sidebar-link">
                                                 <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Pengurusan Pentadbir </span>
