@@ -66,13 +66,15 @@ class KonfigurasiController extends Controller
     protected function store_daftar_pentadbir(array $data)
     {
         $password = Hash::make('admin123');
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $password,
             'username' => $data['username'],
-            'category' => 'Admin',
+            'category' => 'admin',
             'role' => $data['role'],
+            'map_sdate' => now()
         ]);
     }
 

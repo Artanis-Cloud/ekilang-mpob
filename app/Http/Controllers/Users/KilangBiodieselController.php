@@ -768,7 +768,7 @@ class KilangBiodieselController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $produk = Produk::where('prodcat', 02)->orderBy('prodname')->get();
+        $produk = Produk::where('prodcat', [3,6,8,12])->orderBy('prodname')->get();
         if ($user) {
             $penyata = EBioC::with('ebioinit', 'produk', 'ebiocc')->where('ebio_reg', $user->ebio_reg)->get();
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");

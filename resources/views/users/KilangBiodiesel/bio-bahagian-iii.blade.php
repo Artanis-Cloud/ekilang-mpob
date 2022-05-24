@@ -93,7 +93,7 @@
                                     <span class="required">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-control" id="ebio_c3" name="ebio_c3" style="width: 50%">
+                                    <select class="form-control" id="ebio_c3" name="ebio_c3" style="width: 50%" onchange="showDetail()">
                                         <option selected hidden disabled>Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
@@ -146,11 +146,14 @@
                                     <input type="text" class="form-control" name='ebio_c8' style="width:50%" id="ebio_c8"
                                         required oninput="validate_two_decimal(this)"
                                         onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
-                                    <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
-                                        style="font-size:11px; color:red" type="button" data-toggle="modal" data-target="#modal"
-                                        &nbsp;> (Sila klik untuk
-                                        mengisi<br> maklumat
-                                        jualan)</i>
+
+                                    <div id="merah_container" style="display:none">
+                                        <i class="fa fa-pencil-alt" title="Pengisian maklumat jualan"
+                                            style="font-size:11px; color:red" type="button" data-toggle="modal" data-target="#modal"
+                                            &nbsp;> (Sila klik untuk
+                                            mengisi<br> maklumat
+                                            jualan)</i>
+                                    </div>
 
                                     @error('ebio_c8')
                                         <div class="alert alert-danger">
@@ -247,7 +250,7 @@
                         <hr>
                         <br>
 
-                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Minyak-Minyak Lain</h5>
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Ringkasan Produk Biodiesel dan Glycerine</h5>
                         <br>
                         {{-- <section class="section"> --}}
                         <div class="card">
@@ -835,5 +838,22 @@
                 document.getElementById("jumlah_row_hidden1" + (no - 1)).value = "";
                 document.getElementById("new_syarikat_hidden1" + (no - 1)).value = "";
             }
+        </script>
+        <script type="text/javascript">
+            function showDetail() {
+                var produk = $('#ebio_c3').val();
+                // console.log(oer);
+
+                if (produk == "FI"  ) {
+                    document.getElementById('merah_container').style.display = "block";
+                    document.getElementById('lain_container').style.display = "block";
+                } else {
+                    document.getElementById('merah_container').style.display = "none";
+                    document.getElementById('lain_container').style.display = "block";
+
+                }
+
+            }
+
         </script>
     @endsection
