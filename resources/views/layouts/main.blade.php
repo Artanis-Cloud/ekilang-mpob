@@ -23,6 +23,7 @@
     <link href="{{ asset('nice-admin/assets/extra-libs/c3/c3.min.css') }}  " rel="stylesheet">
     {{-- <link href="{{ asset('assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" /> --}}
     <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('nice-admin/assets/libs/bootstrap-duallistbox/dist/bootstrap-duallistbox.min.css') }}" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="{{ asset('nice-admin/dist/css/style.css') }}" rel="stylesheet">
@@ -1114,6 +1115,84 @@
                                     </li>
                                 </ul>
                             </li>
+                            @if (auth()->user()->sub_category == 'PLBIO')
+                            <li class="sidebar-item">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                    aria-expanded="false">
+                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu font-weight-bold"> Laporan Dynamic <br> Query </span>
+                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                </a>
+                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.maklumat.penyata.bulanan') }}"
+                                            class="sidebar-link">
+                                            <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Maklumat Penyata Bulanan </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.pl.lewat') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> PL Lewat </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.9penyataterdahulu') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Kapasiti Kilang Biodiesel </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.9penyataterdahulu') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Laporan Tahunan </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link has-arrow " style=" margin-right:5%"
+                                            aria-expanded="false">
+                                            <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Hebahan 10hb </span>
+                                            {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                        </a>
+                                        <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                            <li class="sidebar-item">
+                                                <a href="#" class="sidebar-link">
+                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Stok Akhir</span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="#" class="sidebar-link">
+                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Validasi Stok Akhir</span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="#" class="sidebar-link">
+                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Validasi Stok Akhir <br> Ikut Produk</span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="#" class="sidebar-link">
+                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Biodiesel Diproses</span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="#" class="sidebar-link">
+                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Validasi Biodiesel <br> Diproses</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            @else
+                            @endif
                             @if (auth()->user()->role != 'Admin')
                                 <li class="sidebar-item">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
@@ -1380,6 +1459,11 @@
     {{-- sweetalert2 --}}
     <script src="{{ asset('nice-admin/assets/libs/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
     <script src="{{ asset('nice-admin/assets/libs/sweetalert2/sweet-alert.init.js') }}"></script>
+
+
+    <script src="{{ asset('nice-admin/assets/libs/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js') }}"></script>
+    <script src="{{ asset('nice-admin/dist/js/pages/forms/dual-listbox/dual-listbox.js') }}"></script>
+    <script src="{{ asset('nice-admin/dist/js/pages/datatable/datatable-advanced.init.js') }}"></script>
 
     {{-- notification --}}
     <script>

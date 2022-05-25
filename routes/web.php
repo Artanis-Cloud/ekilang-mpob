@@ -196,6 +196,12 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/senarai-pentadbir', [App\Http\Controllers\Admin\KonfigurasiController::class, 'admin_senarai_pentadbir'])->name('admin.senarai.pentadbir');
         Route::post('admin/edit-pentadbir/{Id}', [App\Http\Controllers\Admin\KonfigurasiController::class, 'admin_edit_pentadbir'])->name('admin.edit.pentadbir');
         Route::get('admin/delete-pentadbir/{id}', [App\Http\Controllers\Admin\KonfigurasiController::class, 'admin_delete_pentadbir'])->name('admin.delete.pentadbir');
+
+
+        Route::get('admin/maklumat-penyata-bulanan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_maklumat_penyata_bulanan'])->name('admin.maklumat.penyata.bulanan');
+        Route::get('admin/pl-lewat', [App\Http\Controllers\Admin\LaporanController::class, 'admin_pl_lewat'])->name('admin.pl.lewat');
+        Route::get('admin/kapasiti', [App\Http\Controllers\Admin\LaporanController::class, 'admin_kapasiti'])->name('admin.kapasiti');
+        Route::get('admin/laporan-tahunan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_tahunan'])->name('admin.laporan.tahunan');
     });
 
     Route::get('try3', [App\Http\Controllers\Admin\KilangController::class, 'try3'])->name('try3');
