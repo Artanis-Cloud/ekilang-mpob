@@ -113,11 +113,10 @@
                                                     <select class="form-control" id="basicSelect" name="role"
                                                         value={{ old('role') }}>
                                                         <option selected hidden disabled>Sila Pilih</option>
-                                                        <option value="Admin">Admin</option>
-                                                        <option value="Kerani">Kerani</option>
-                                                        <option value="Manager">Manager</option>
                                                         <option value="Superadmin">Superadmin</option>
+                                                        <option value="Manager">Manager</option>
                                                         <option value="Supervisor">Supervisor</option>
+                                                        <option value="Admin">Admin</option>
                                                     </select>
                                                 </fieldset>
                                                 @error('category')
@@ -127,6 +126,23 @@
                                                 @enderror
 
                                             @elseif (auth()->user()->role == 'Manager')
+
+                                                <fieldset class="form-group">
+                                                    <select class="form-control" id="basicSelect" name="role"
+                                                        value={{ old('role') }}>
+                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        <option value="Manager">Manager</option>
+                                                        <option value="Supervisor">Supervisor</option>
+                                                        <option value="Admin">Admin</option>
+                                                    </select>
+                                                </fieldset>
+                                                @error('category')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror
+
+                                            @elseif (auth()->user()->role == 'Supervisor')
 
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="basicSelect" name="role"
@@ -142,7 +158,7 @@
                                                     </div>
                                                 @enderror
 
-                                            @elseif (auth()->user()->role == 'Supervisor')
+                                            @elseif (auth()->user()->role == 'Admin' || auth()->user()->role == '')
 
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="basicSelect" name="role"
