@@ -256,203 +256,101 @@
                                             <br>
 
 
+                                            <br><h1 style="page-break-before:always"></h1>
                                             <p><b>
-                                                    <font size="3" color="#0000FF">BAHAGIAN I : MAKLUMAT BELIAN, PROSES,
-                                                        PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
-                                                        (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
-                                                </b> </p>
+                                                    <font color="#0000FF">BHG A :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KELUARAN
+                                                        MINYAK SAWIT - AKTIVITI BUKAN PERALIHAN (NON TRANSHIPMENT)</font>
+                                            </b> </p>
 
-                                            <table border="1" width="650" bordercolor="#000000" cellspacing="0" cellpadding="0"
-                                                bordercolorlight="#FFFFFF" bordercolordark="#000000"
-                                                class="table table-bordered">
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr>
-                                                        <td width="220">
-                                                            <p align="center"><b>
-                                                                    <font size="3">Butiran</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center"><b>
-                                                                    <font size="3">Buah Kelapa Sawit <br>(FFB) Kod 52</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center"><b>
-                                                                    <font size="3">Minyak Sawit Mentah <br> (CPO) Kod 01</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center"><b>
-                                                                    <font size="3">Isirung <br>(PK) Kod 51</font>
-                                                                </b></p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center"><b>
-                                                                    <font size="3">Minyak Keladak <br>(Sludge Oil) Kod 49</font>
-                                                                </b></p>
-                                                        </td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Nama Produk</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Kod Produk</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Awal</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Terimaan Dalam Negeri</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Import</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Edaran Tempatan</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Eksport</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Pelarasan (+/-)</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Akhir</font>
+                                                            </b></td>
                                                     </tr>
+                                                    @foreach ($a as $data)
+                                                        <tr>
+                                                            <td align="left">
+                                                                <font size="2">{{ $data->produk->prodname }}</font>
+                                                            </td>
+                                                            <td align="center">
+                                                                <font size="2">{{ $data->produk->prodid }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ $data->e07bt_stokawal }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ $data->e07bt_terima }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ $data->e07bt_import }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ $data->e07bt_edaran }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ $data->e07bt_eksport }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ $data->e07bt_pelarasan }}</font>
+                                                            </td>
+                                                            <td align="right">
+                                                                <font size="2">{{ $data->e07bt_stokakhir }}</font>
+                                                            </td>
+                                                        </tr>
+                                                    @endforeach
                                                     <tr>
-                                                        <td width="220">
-                                                            <font size="3">A. Stok Awal Di Premis</font>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
                                                         </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{  number_format($penyata->e07_aa1 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
-                                                        <td width="135">
-                                                            <p style="text-align: center">
-                                                                <font size="3">{{  number_format($penyata->e07_aa2 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total ?? 0, 2) }}</b></font>
                                                         </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_aa3 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total2 ?? 0, 2) }}</b></font>
                                                         </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_aa4 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>0</b></font>
                                                         </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">B. Pembelian/Penerimaan</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total3 ?? 0, 2) }}</b></font>
                                                         </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ab1 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>0</b></font>
                                                         </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ab2 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total4 ?? 0, 2) }}</b></font>
                                                         </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ab3 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ab4 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">C. Diproses</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ac1 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                        <td width="110" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                        <td width="120" bgcolor="#C0C0C0" align="center">&nbsp;</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">D. Pengeluaran</font>
-                                                        </td>
-                                                        <td width="120" bgcolor="#C0C0C0" align="center">
-                                                            <p align="left">&nbsp;</p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ad1 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ad2 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ad3 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">E. Penjualan/Pengedaran Tempatan</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ae1 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ae2 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ae3 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ae4 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">F. Eksport&nbsp;Terus Dari Premis</font>
-                                                        </td>
-                                                        <td width="120" bgcolor="#C0C0C0" align="center">
-                                                            <p align="left">&nbsp;</p>
-                                                        </td>
-                                                        <td width="135" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="3"></font>
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </p>
-                                                        </td>
-                                                        <td width="110" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="3" </font>
-                                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </p>
-                                                        </td>
-                                                        <td width="120" bgcolor="#C0C0C0">
-                                                            <p align="center">
-                                                                <font size="3"></font>
-                                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="220">
-                                                            <font size="3">G. Stok Akhir Di Premis</font>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ag1 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="135">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ag2 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="110">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ag3 ?? 0,2) }}</font>
-                                                            </p>
-                                                        </td>
-                                                        <td width="120">
-                                                            <p align="center">
-                                                                <font size="3">{{ number_format($penyata->e07_ag4 ?? 0,2) }}</font>
-                                                            </p>
+                                                        <td align="right">
+                                                            <font size="2"><b>{{ number_format($total5 ?? 0, 2) }}</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -460,558 +358,80 @@
                                             <br>
 
                                             <p><b>
-                                                    <font size="3" color="0000FF">BAHAGIAN II : MAKLUMAT JAM PENGILANGAN, KADAR
-                                                        PERAHAN DAN HARGA </font>
-                                                </b> </p>
+                                                <font color="#0000FF">BHG B :&nbsp;&nbsp;&nbsp;&nbsp; RINGKASAN INSTOLASI KELUARAN
+                                                    MINYAK SAWIT - AKTIVITI PERALIHAN (TRANSHIPMENT)</font>
+                                            </b> </p>
 
-                                            <table border="0" width="460" cellspacing="0" cellpadding="0">
+                                            <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                                 <tbody>
                                                     <tr>
-                                                        <td width="380">
-                                                            <font size="3">i.&nbsp;&nbsp; Jumlah Jam Pengilangan&nbsp;</font>
-                                                        </td>
-                                                        <td width="70">
-                                                            <font size="3">: {{ number_format($penyata->e07_ah1 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td width="380">
-                                                            <font size="3">ii.&nbsp; Kadar Perahan MKSM (OER) yang
-                                                                diperolehi&nbsp;</font>
-                                                        </td>
-                                                        <td width="100">
-                                                            <font size="3">: {{ number_format($penyata->e07_ah2 ?? 0,2) }}%</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="380">
-                                                            <font size="3">iii. Kadar Perolehan Isirung (KER)</font>
-                                                        </td>
-                                                        <td width="100">
-                                                            <font size="3">: {{ number_format($penyata->e07_ah3 ?? 0,2) }}%</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="1000">
-                                                            <font size="3">iv. Harga Purata Belian Buah Kelapa Sawit
-                                                                (FFB)
-                                                            </font>
-                                                        </td>
-                                                        <td width="150">
-                                                            <font size="3">:&nbsp;RM {{ number_format($penyata->e07_ah4 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="380">
-                                                            <font size="3">&nbsp;&nbsp;&nbsp;&nbsp; (1% Kadar Perahan)</font>
-                                                        </td>
-                                                        <td width="70">
-                                                            <font size="3"></font>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                            <br>
-
-
-
-                                            <table border="1" width="604" cellspacing="0" cellpadding="0"
-                                                class="table table-bordered ">
-
-                                                <tbody style="border: 1px solid black;">
-                                                    <tr style="border: 1px solid black;">
-                                                        <td align="center" width="209" ><b>
-                                                                <font size="3">Sebab-Sebab OER Meningkat</font>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Nama Produk</font>
                                                             </b></td>
-                                                        <td align="center" width="92">
-                                                            <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;)
-                                                                    </font></b>
-                                                            </font>
-                                                        </td>
-                                                        <td align="center" width="201"><b>
-                                                                <font size="3">Sebab-Sebab OER Menurun</font>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Kod Produk</font>
                                                             </b></td>
-                                                        <td align="center" width="93">
-                                                            <font size="3"><b>Tanda (<font face="Times New Roman">&#10004;)
-                                                                    </font></b>
-                                                            </font>
-                                                        </td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Awal</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Penerimaan Dari Luar Negara</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Edaran Ke Dalam Negeri/Import</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Eksport Semula</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Pelarasan (+/-)</font>
+                                                            </b></td>
+                                                        <td width="8%" align="center"><b>
+                                                                <font size="2">Stok Akhir</font>
+                                                            </b></td>
                                                     </tr>
                                                     <tr>
-                                                        <td width="209">
-                                                            <font size="3">a. Buah berkualiti</font>
+                                                        <td align="center">
+                                                            <font size="2"><b>JUMLAH</b></font>
                                                         </td>
-
-                                                        @if ($penyata->e07_ah5 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah5 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;&nbsp;&nbsp;</font>
-                                                            </td>
-                                                        @endif
-
-                                                        <td width="201" align="left">
-                                                            <font size="3">
-                                                                a. Tiada/ kurang buah berkualiti</font>
+                                                        <td align="center">
+                                                            <font size="2"><b>-</b></font>
                                                         </td>
-                                                        @if ($penyata->e07_ah11 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah11 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="209">
-                                                            <font size="3">b. Kesan dari cuaca yang baik</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
                                                         </td>
-                                                        @if ($penyata->e07_ah6 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah6 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                        <td width="201" align="left">
-                                                            <font size="3">
-                                                                b. Kesan cuaca kering</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
                                                         </td>
-                                                        @if ($penyata->e07_ah12 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah12 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="209">
-                                                            <font size="3">c. Proses kitar semula minyak</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
                                                         </td>
-                                                        @if ($penyata->e07_ah7 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah7 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                        <td width="201" align="left">
-                                                            <font size="3">
-                                                                c. Jerebu</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
                                                         </td>
-                                                        @if ($penyata->e07_ah13 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah13 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="209">
-                                                            <font size="3">d. Kecekapan kilang/mesin</font>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
                                                         </td>
-                                                        @if ($penyata->e07_ah8 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah8 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                        <td width="201" align="left">
-                                                            <font size="3">
-                                                                d. Kesan Penerimaan hujan yang berlebihan</font>
-                                                        </td>
-                                                        @if ($penyata->e07_ah14 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah14 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="209">
-                                                            <font size="3">e. Proses pengendalian bks yang minima (less ffb
-                                                                handling)</font>
-                                                        </td>
-                                                        @if ($penyata->e07_ah9 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah9 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                        <td width="201" align="left">
-                                                            <font size="3">
-                                                                e. Banjir</font>
-                                                        </td>
-                                                        @if ($penyata->e07_ah15 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah15 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="209" rowspan="2">
-                                                            <font size="3">f. Proses lebih buah lerai</font>
-                                                        </td>
-                                                        @if ($penyata->e07_ah10 == 'Y')
-                                                            <td width="92" align="center" rowspan="2">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah10 == null)
-                                                            <td width="92" align="center" rowspan="2">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                        <td width="201" align="left">
-                                                            <font size="3">
-                                                                f. Buah Dari Ladang Baru Berhasil</font>
-                                                        </td>
-                                                        @if ($penyata->e07_ah16 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah16 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="201" align="left">
-                                                            <font size="3">
-                                                                g.Kurang Buah Lerai</font>
-                                                        </td>
-                                                        @if ($penyata->e07_ah17 == 'Y')
-                                                            <td width="92" align="center">
-                                                                <font size="3">&#10004; &nbsp;</font>
-                                                            </td>
-                                                        @elseif ($penyata->e07_ah17 == null)
-                                                            <td width="92" align="center">
-                                                                <font size="3"> &nbsp;</font>
-                                                            </td>
-                                                        @endif
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <p>
-                                                <font size="3">Lain-lain jawapan, sila nyatakan (max. 100 character):
-                                                    {{ $penyata->e07_ah18 ?? '-' }}</font>
-                                            </p>
-
-
-
-
-                                            <p align="left">
-                                                <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/TERIMAAN BEKALAN BUAH
-                                                        KELAPA SAWIT (FFB) (52)</b>
-                                                </font>
-                                            </p>
-
-                                            <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0"
-                                                bordercolorlight="#FFFFFF" bordercolordark="#000000"
-                                                class="table table-bordered ">
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="center" width="168">
-                                                            <font size="3"><b>Sumber Bekalan</b></font>
-                                                        </td>
-                                                        <td align="center" width="158">
-                                                            <font size="3"><b>Kuantiti (Tan Metrik)</b></font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">1. Estet Sendiri</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_ai1 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">2. Estet Luar</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_ai ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">3. Peniaga Buah</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_ai3 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">4. Pekebun Kecil</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_ai4 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">5. Kilang Buah Lain</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_ai5 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">6. Lain-lain</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_ai6 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">&nbsp;&nbsp;&nbsp;&nbsp;<b>JUMLAH</b></font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">
-                                                                <b>{{  number_format(($penyata->e07_ai1 ?? 0) +($penyata->e07_ai2 ?? 0)
-                                                                +($penyata->e07_ai3 ?? 0) +($penyata->e07_ai4 ?? 0)
-                                                                +($penyata->e07_ai5 ?? 0) +($penyata->e07_ai6 ?? 0) ?? 0,2) }}</b>
-                                                            </font>
+                                                        <td align="right">
+                                                            <font size="2"><b>0.00</b></font>
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table>
+                                            </table><br><h1 style="page-break-before:always"></h1>
 
 
-                                            <p align="left">
-                                                <font size="3" color="#0000FF"><b>BAHAGIAN IV : EDARAN/JUALAN MINYAK SAWIT
-                                                        MENTAH (CPO) (01) </b></font>
-                                            </p>
-
-                                            <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0"
-                                                bordercolorlight="#FFFFFF" bordercolordark="#000000"
-                                                class="table table-bordered">
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="center" width="168">
-                                                            <font size="3"><b>Pembeli/Penerima</b></font>
-                                                        </td>
-                                                        <td align="center" width="158">
-                                                            <font size="3"><b>Kuantiti (Tan Metrik)</b></font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">1. Kilang Buah</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_aj1 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">2. Kilang Penapis</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_aj2 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">3. Kilang Oleokimia</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_aj3 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">4. Peniaga</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_aj4 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">5. Pusat Simpanan</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_aj5 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">6. Eksport</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_aj6 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">7. Transit</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_aj7 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">8. Lain-lain</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_aj8 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3"><b>&nbsp;&nbsp;&nbsp;&nbsp; JUMLAH</b></font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">
-                                                                <b>{{  number_format(($penyata->e07_aj1 ?? 0) +($penyata->e07_aj2 ?? 0)
-                                                                +($penyata->e07_aj3 ?? 0) +($penyata->e07_aj4 ?? 0)
-                                                                +($penyata->e07_aj5 ?? 0) +($penyata->e07_aj6 ?? 0)
-                                                                +($penyata->e07_aj7 ?? 0) +($penyata->e07_aj8 ?? 0) ?? 0,2) }}</b>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-
-                                            <p align="left">
-                                                <font size="3" color="#0000FF"><b>BAHAGIAN V : EDARAN / JUALAN ISIRUNG SAWIT
-                                                        (PK) DALAM NEGERI
-                                                        (51)</b></font>
-                                            </p>
-
-                                            <table border="1" width="342" bordercolor="#000000" cellspacing="0" cellpadding="0"
-                                                bordercolorlight="#FFFFFF" bordercolordark="#000000"
-                                                class="table table-bordered">
-                                                <tbody>
-                                                    <tr>
-                                                        <td align="center" width="168">
-                                                            <font size="3"><b>Pembeli/Penerima</b></font>
-                                                        </td>
-                                                        <td align="center" width="158">
-                                                            <font size="3"><b>Kuantiti (Tan Metrik)</b></font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">1. Kilang Isirung</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_ak1 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">2. Peniaga</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_ak2 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">
-                                                            <font size="3">3. Lain-lain</font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">{{ number_format($penyata->e07_ak3 ?? 0,2) }}</font>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="168">&nbsp;&nbsp;&nbsp;&nbsp;<font size="3"><b>JUMLAH</b>
-                                                            </font>
-                                                        </td>
-                                                        <td width="158" align="center">
-                                                            <font size="3">
-                                                                <b>{{  number_format(($penyata->e07_ak1 ?? 0) + ($penyata->e07_ak2 ?? 0)
-                                                                + ($penyata->e07_ak3 ?? 0) ?? 0,2) }}</b>
-                                                            </font>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-                                                <p><b>
-                                                    <font size="3" color="#0000FF">BAHAGIAN VI : EKSPORT PRODUK SAWIT</font>
-                                                </b></p>
-                                            <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                                class="table table-bordered">
-                                                <tbody>
-                                                    <tr>
-                                                        <td width="14%" align="center">
-                                                            <font size="3"><b>Produk</b></font>
-                                                        </td>
-                                                        <td width="7%" align="center">
-                                                            <font size="3"><b>Kod Produk</b></font>
-                                                        </td>
-                                                        <td width="15%" align="center">
-                                                            <font size="3"><b>Nombor Borang Kastam 2</b></font>
-                                                        </td>
-                                                        <td width="12%" align="center">
-                                                            <font size="3"><b>Tarikh Eksport</b></font>
-                                                        </td>
-                                                        <td width="10%" align="center">
-                                                            <font size="3"><b>Kuantiti<br> (Tan Metrik)</b></font>
-                                                        </td>
-                                                        <td width="11%" align="center">
-                                                            <font size="3"><b>Nilai (RM)</b></font>
-                                                        </td>
-                                                        <td width="6%" align="center">
-                                                            <font size="3"><b>Kod Negara</b></font>
-                                                        </td>
-                                                        <td width="15%" align="center">
-                                                            <font size="3"><b>Destinasi Negara</b></font>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-
-
-                                            <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
+                                            <p style="font-size: 16px"><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                 adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                {{ $data->e07_npg }}
+                                                {{ $penyata->e07_npg }}
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                {{ $data->e07_jpg }}
+                                                {{ $penyata->e07_jpg }}
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                                {{ $data->e07_notel }}
+                                                {{ $penyata->e07_notel }}
                                             </p>
 
 
@@ -1021,7 +441,7 @@
                                 </div>
                             </div>
 
-                            <br><hr>
+                            <br>
 
                         @endforeach
 

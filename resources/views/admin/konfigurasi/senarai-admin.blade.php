@@ -115,13 +115,7 @@
                                                     </td>
                                                 </tr>
 
-
-
-
                                                     <div class="col-md-6 col-12">
-
-
-
 
                                                         <div class="modal fade" id="modal{{ $data->id }}"
                                                             tabindex="-1" role="dialog"
@@ -202,7 +196,7 @@
                                                                     </div>
 
                                                                 @elseif (auth()->user()->role == 'Manager')
-                                                                    @if ($data->role == 'Supervisor' || $data->role =='')
+                                                                    @if ($data->role != 'Superadmin')
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <h5 class="modal-title"
@@ -314,7 +308,7 @@
                                                                         </div>
                                                                     @endif
                                                                 @elseif (auth()->user()->role == 'Supervisor')
-                                                                    @if ( $data->role =='')
+                                                                    @if ( $data->role =='' || $data->role =='Supervisor' || $data->role =='Admin')
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
                                                                                 <h5 class="modal-title"
