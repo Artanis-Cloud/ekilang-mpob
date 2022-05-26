@@ -81,6 +81,7 @@
                                                 <th>Username</th>
                                                 <th>Alamat Emel</th>
                                                 <th>Kategori</th>
+                                                <th>Sub-Kategori</th>
                                                 <th>Kemaskini</th>
                                                 <th>Hapus</th>
                                             </tr>
@@ -97,6 +98,7 @@
                                                     <td>{{ $data->username ?? '-' }}</td>
                                                     <td>{{ $data->email ?? '-' }}</td>
                                                     <td>{{ $data->role }}</td>
+                                                    <td>{{ $data->sub_category }}</td>
                                                     <td>
                                                         <div class="icon" style="text-align: center">
                                                             <a href="#" type="button" data-toggle="modal"

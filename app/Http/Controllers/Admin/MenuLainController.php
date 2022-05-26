@@ -12,6 +12,8 @@ use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\Produk;
 use App\Models\RegPelesen;
+use App\Models\ScLog;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB;
@@ -593,5 +595,27 @@ class MenuLainController extends Controller
         $layout = 'layouts.main';
 
         return view('admin.menu-lain.kod-negara', compact('returnArr', 'layout', 'negara'));
+    }
+
+    public function admin_log_admin()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.kod.negara'), 'name' => "Senarai Log Admin"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $admin = User::where('category','Admin')->get();
+        $log = ScLog::get();
+        $layout = 'layouts.main';
+
+        return view('admin.menu-lain.log-superadmin', compact('returnArr', 'layout', 'admin', 'log'));
     }
 }
