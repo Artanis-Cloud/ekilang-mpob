@@ -11,7 +11,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Daftar Pelesen</h4>
+                    <h4 class="page-title">Profil Pelesen</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -47,6 +47,10 @@
                         <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post">
                             @csrf
                             <div class="card-body">
+                                <div class=" text-center">
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Daftar Pelesen Baru</h3><br>
+                                </div>
+                                <hr>
                                 <div class="row">
                                     <div class="col-12">
                                         {{-- @if($errors->any())

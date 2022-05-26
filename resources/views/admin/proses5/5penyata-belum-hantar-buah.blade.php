@@ -13,7 +13,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Senarai Penyata Bulanan Belum Hantar</h4>
+                    <h4 class="page-title">Papar Penyata</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -204,15 +204,15 @@
                 var dataType = 'application/vnd.ms-excel';
                 var tableSelect = document.getElementById(tableID);
                 var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
-    
+
                 // Specify file name
                 filename = filename ? filename + '.xls' : 'senarai-penyata-belum-hantar.xls';
-    
+
                 // Create download link element
                 downloadLink = document.createElement("a");
-    
+
                 document.body.appendChild(downloadLink);
-    
+
                 if (navigator.msSaveOrOpenBlob) {
                     var blob = new Blob(['\ufeff', tableHTML], {
                         type: dataType
@@ -221,10 +221,10 @@
                 } else {
                     // Create a link to the file
                     downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
-    
+
                     // Setting the file name
                     downloadLink.download = filename;
-    
+
                     //triggering the function
                     downloadLink.click();
                 }
