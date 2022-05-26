@@ -52,7 +52,7 @@
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-8 ml-auto mr-auto">
                                         {{-- @if($errors->any())
                                         {{ implode('', $errors->all('<div>:message</div>')) }}
                                         @endif --}}
@@ -73,7 +73,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Status e-Kilang</label>
                                             <select class="form-control" name="e_status">
@@ -83,7 +83,9 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Status e-Mingguan</label>
                                             <select class="form-control" name="e_stock">
@@ -96,7 +98,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Status Direktori</label>
                                             <select class="form-control" name="directory">
@@ -106,7 +108,9 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label class="control-label col-form-label">Kod Negeri </label>
                                             <select class="form-control" name="kodpgw">
@@ -130,14 +134,16 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Nombor Siri</label>
                                             <input type="text" id="nombor_siri" class="form-control"
                                                 placeholder="Nombor Siri" name="nosiri" value="{{ old('nombor_siri') }}">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Nombor Lesen</label>
                                             <input type="text" id="nombor_lesen" class="form-control"
@@ -146,7 +152,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Nama Premis</label>
                                             <input type="text" id="nama_premis" class="form-control"
@@ -155,7 +161,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Alamat Premis
                                                 Berlesen</label>
@@ -163,8 +169,22 @@
                                                 placeholder="Alamat Premis 1" name="e_ap1"
                                                 value="{{ old('alamat_premis_1') }}">
                                         </div>
+                                        <div class="form-group">
+                                            {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
+                                            <input type="text" id="alamat_premis_1" class="form-control"
+                                                placeholder="Alamat Premis 2" name="e_ap2"
+                                                value="{{ old('alamat_premis_1') }}">
+                                        </div>
+                                        <div class="form-group">
+                                            {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
+                                            <input type="text" id="alamat_premis_1" class="form-control"
+                                                placeholder="Alamat Premis 3" name="e_ap3"
+                                                value="{{ old('alamat_premis_1') }}">
+                                        </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Alamat Surat
                                                 Menyurat</label>
@@ -174,44 +194,22 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: -1%">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group">
-                                            {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
-                                            <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 2" name="e_ap2"
-                                                value="{{ old('alamat_premis_1') }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
+                               <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
                                             <input type="text" id="alamat_surat_1" class="form-control"
                                                 placeholder="Alamat Surat Menyurat 2" name="e_as2"
                                                 value="{{ old('alamat_surat_1') }}">
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: -1%">
-                                    <div class="col-sm-12 col-md-6">
-                                        <div class="form-group">
-                                            {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
-                                            <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 3" name="e_ap3"
-                                                value="{{ old('alamat_premis_1') }}">
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-6">
+
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
                                             <input type="text" id="alamat_surat_1" class="form-control"
                                                 placeholder="Alamat Surat Menyurat 3" name="e_as3"
                                                 value="{{ old('alamat_surat_1') }}">
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top: -1%">
-                                    <div class="col-sm-12 col-md-6">
+
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">No. Telefon
                                                 Kilang</label>
@@ -220,7 +218,9 @@
                                                 value="{{ old('no_tel_kilang') }}">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">No. Faks
                                                 Kilang</label>
@@ -231,7 +231,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Alamat Emel
                                                 Kilang</label>
@@ -242,7 +242,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Nama Pegawai
                                                 Melapor</label>
@@ -253,7 +253,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Jawatan Pegawai
                                                 Melapor</label>
@@ -262,18 +262,20 @@
                                                 value="{{ old('jawatan_pegawai_lapor') }}">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">No. Telefon Pegawai
                                                 Melapor</label>
                                             <input type="text" id="email-id-column" class="form-control"
                                                 placeholder="No. Telefon Pegawai Melapor" name='e_notel_pg'
-                                                value="{{ old('e_notel_pg') }}">'
+                                                value="{{ old('e_notel_pg') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-12">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Nama Pegawai
                                                 Bertanggungjawab</label>
@@ -284,7 +286,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Jawatan Pegawai
                                                 Bertanggungjawab</label>
@@ -293,18 +295,20 @@
                                                 value="{{ old('jawatan_pegawai_jawab') }}">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">Alamat Emel
                                                 Pengurus</label>
                                             <input type="text" id="emel_pengurus" class="form-control"
                                                 placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                                value="{{ old('eemel_pengurus') }}">'
+                                                value="{{ old('eemel_pengurus') }}">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top: -1%">
-                                    <div class="col-sm-12 col-md-4">
+                                <div class="row" >
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">
                                                 Negeri</label>
@@ -321,7 +325,9 @@
                                             </fieldset>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-4">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <label for="inputcom" class="control-label col-form-label">
                                             Daerah</label>
                                         <fieldset class="form-group">
@@ -334,7 +340,9 @@
                                         </fieldset>
 
                                     </div>
-                                    <div class="col-sm-12 col-md-4">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <label for="inputcom" class="control-label col-form-label">
                                             Kawasan</label>
                                         <fieldset class="form-group">
@@ -346,7 +354,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">
                                                 Syarikat Induk</label>
@@ -354,7 +362,9 @@
                                                 placeholder="Syarikat Induk" name="e_syktinduk">
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <label for="inputcom" class="control-label col-form-label">
                                             Tahun Mula Beroperasi</label>
                                         <input type="text" id="tahun_operasi" class="form-control"
@@ -362,7 +372,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-sm-12 col-md-6">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             <label for="inputcom" class="control-label col-form-label">
                                                 Kumpulan</label>
@@ -375,7 +385,9 @@
                                             </fieldset>
                                         </div>
                                     </div>
-                                    <div class="col-sm-12 col-md-6">
+                                </div>
+                                <div class="row">
+                                    <div class="col-8 ml-auto mr-auto">
                                         <label for="inputcom" class="control-label col-form-label">
                                             POMA</label>
                                         <fieldset class="form-group">
@@ -388,13 +400,13 @@
                                     </div>
                                 </div>
                                 <div class="row form-group" style="padding-top: 10px; ">
-                                    <div class="text-right col-md-12 mb-4 ">
+                                    <div class="text-right col-8 ml-auto mr-auto">
                                         <button type="button" class="btn btn-primary " data-toggle="modal"
                                             style="float: right;margin-left:44%" data-target="#myModal">Tambah</button>
                                     </div>
                                 </div>
                                 {{-- <div class="row form-group" style="padding-top: 10px; ">
-                                    <div class="text-right col-md-12 mb-4 ">
+                                    <div class="text-right col-8 ml-auto mr-auto">
                                         <button type="submit" class="btn btn-primary ">Tambah</button>
                                     </div>
                                 </div> --}}
