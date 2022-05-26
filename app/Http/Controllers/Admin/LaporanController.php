@@ -147,6 +147,66 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.stok-akhir', compact('returnArr', 'layout'));
     }
 
+    public function admin_tambah_stok_akhir()
+    {
+        $bulan=Bulan::get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.tambah-stok-akhir', compact('returnArr', 'layout','bulan'));
+    }
+
+    public function admin_validasi_stok_akhir()
+    {
+        $bulan=Bulan::get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.validasi-stok-akhir', compact('returnArr', 'layout','bulan'));
+    }
+
+    public function admin_validasi_stok_akhir_ikut_produk()
+    {
+        $bulan=Bulan::get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.validasi-stok-akhir-ikut-produk', compact('returnArr', 'layout','bulan'));
+    }
+
 
     public function admin_kilangbuah()
     {

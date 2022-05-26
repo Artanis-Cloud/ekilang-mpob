@@ -1158,19 +1158,19 @@
                                         </a>
                                         <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                             <li class="sidebar-item">
-                                                <a href="#" class="sidebar-link">
+                                                <a href="{{ route('admin.stok.akhir') }}" class="sidebar-link">
                                                     <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                     <span class="hide-menu"> Stok Akhir</span>
                                                 </a>
                                             </li>
                                             <li class="sidebar-item">
-                                                <a href="#" class="sidebar-link">
+                                                <a href="{{ route('admin.validasi.stok.akhir') }}" class="sidebar-link">
                                                     <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                     <span class="hide-menu"> Validasi Stok Akhir</span>
                                                 </a>
                                             </li>
                                             <li class="sidebar-item">
-                                                <a href="#" class="sidebar-link">
+                                                <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}" class="sidebar-link">
                                                     <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                     <span class="hide-menu"> Validasi Stok Akhir <br> Ikut Produk</span>
                                                 </a>

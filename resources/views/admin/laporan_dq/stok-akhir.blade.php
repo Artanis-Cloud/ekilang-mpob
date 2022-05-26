@@ -12,7 +12,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Laporan Dynamic Query
+                    <h4 class="page-title">Hebahan 10hb
                     </h4>
                 </div>
                 <div class="col-7 align-self-center">
@@ -48,53 +48,20 @@
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Kapasiti Kilang Biodiesel
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Stok Akhir
                             </h3>
-                            {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5> --}}
+                            {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir</h5> --}}
                         </div>
                         <hr>
 
-                        <div class="card-body">
+                            <div class="text-left col-md-7 mx-3">
 
-                            <div class="container center">
 
-                                <div class="row ml-auto" style="margin-top:-1%">
-                                    <label for="fname"
-                                        class="text-right col-sm-4 control-label col-form-label  align-items-center">No.
-                                        Lesen
-                                    </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="No. Lesen">
-
-                                    </div>
-                                </div>
-                                <div class="row mt-2 ml-auto">
-                                    <label
-                                        class="text-right col-sm-4 control-label col-form-label  align-items-center">Bulan
-                                    </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="No. Lesen">
-
-                                    </div>
-                                </div>
-                                <div class="row mt-2 ml-auto">
-                                    <label for="fname"
-                                        class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
-                                    </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="No. Lesen">
-
-                                    </div>
-                                </div>
-
+                                <a href="{{ route('admin.tambah.stok.akhir') }}" class="btn btn-primary"
+                                    style="float: left"> Tambah Stok Akhir</a>
                             </div>
-                            <div class="text-right col-md-6 mb-4 mt-4">
-                                <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                    data-target="#next">Cari</button>
-                            </div>
-                            <hr>
                             <div class="row">
-                                <div class="col-8 mr-auto ml-auto">
+                                <div class="col-12 mr-auto ml-auto">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="table-responsive">
@@ -102,21 +69,76 @@
                                                     <thead>
                                                         <tr>
                                                             <th>Bil.</th>
-                                                            <th>No. Lesen</th>
-                                                            <th>Bulan</th>
                                                             <th>Tahun</th>
+                                                            <th>Bulan</th>
+                                                            <th>CPO SM</th>
+                                                            <th>PPO SM</th>
+                                                            <th>CPKO SM</th>
+                                                            <th>PPKO SM</th>
+                                                            <th>CPO SBH</th>
+                                                            <th>PPO SBH</th>
+                                                            <th>CPKO SBH</th>
+                                                            <th>PPKO SBH</th>
+                                                            <th>CPO SRWK</th>
+                                                            <th>PPO SRWK</th>
+                                                            <th>CPKO SRWK</th>
+                                                            <th>PPKO SRWK</th>
+                                                            <th>Kemaskini</th>
+                                                            <th>Padam</th>
+                                                            <th>Port</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach ($pelesen as $data)
+                                                        {{-- @foreach ($pelesen as $data) --}}
 
                                                         <tr>
-                                                            <td>{{ $loop->iteration }}</td>
-                                                            <td><a href="{{ route('admin.edit.kapasiti') }}"><u>{{ $data->e_nl }}</u></a></td>
-                                                            <td>{{ $data->bulan }}</td>
-                                                            <td>{{ $data->tahun }}</td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td>
+                                                                <div class="icon" style="text-align: center">
+                                                                    <a href="#" type="button" data-toggle="modal"
+                                                                        data-target="#modal">
+                                                                        <i class="fas fa-edit fa-lg" style="color: #ffc107">
+                                                                        </i>
+                                                                    </a>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="icon" style="text-align: center">
+                                                                    <a href="#" type="button" data-toggle="modal"
+                                                                        data-target="#exampleModalCenter2">
+                                                                        <i class="fa fa-trash" style="color: #dc3545;font-size:18px"></i>
+
+                                                                    </a>
+
+
+                                                                </div>
+
+                                                            </td>
+                                                            <td> <div class="icon" style="text-align: center">
+                                                                <a href="#" type="button" data-toggle="modal"
+                                                                    data-target="#exampleModalCenter2">
+                                                                    <i class="fas fa-arrow-circle-up" style="color: #31bc6d;font-size:18px"></i>
+
+                                                                </a>
+
+
+                                                            </div></td>
                                                         </tr>
-                                                        @endforeach
+                                                        {{-- @endforeach --}}
                                                     </tbody>
 
                                                 </table>
