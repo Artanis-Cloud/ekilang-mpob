@@ -12,7 +12,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Pengurusan Pentadbir</h4>
+                    <h4 class="page-title">Konfigurasi</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -48,6 +48,7 @@
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
                         <div class=" text-center">
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%">Pengurusan Pentadbir</h3>
                             <h4 style="color: rgb(39, 80, 71); margin-top:3%">Daftar Akaun Pentadbir</h4>
                         </div>
                         <hr>
