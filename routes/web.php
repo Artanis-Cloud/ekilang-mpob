@@ -55,6 +55,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('admin/papar-maklumat/{Id}', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_papar_maklumat'])->name('admin.papar.maklumat');
         Route::get('admin/papar-maklumat-batal/{Id}', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_papar_maklumat_batal'])->name('admin.papar.maklumat.batal');
+        Route::post('admin/updatemaklumat-asas-pelesen/{Id}', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_update_maklumat_asas_pelesen'])->name('admin.update.maklumat.asas.pelesen');
 
         Route::get('admin/senarai-pelesen-buah', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenbuah'])->name('admin.senaraipelesenbuah');
         Route::get('admin/senarai-pelesen-penapis', [App\Http\Controllers\Admin\Proses1Controller::class, 'admin_senaraipelesenpenapis'])->name('admin.senaraipelesenpenapis');
@@ -187,6 +188,8 @@ Route::middleware('auth')->group(function () {
 
         Route::get('admin/kod-produk', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_kod_produk'])->name('admin.kod.produk');
         Route::get('admin/kod-negara', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_kod_negara'])->name('admin.kod.negara');
+
+        Route::get('admin/log-admin', [App\Http\Controllers\Admin\MenuLainController::class, 'admin_log_admin'])->name('admin.log.superadmin');
 
 
         Route::get('admin/akaun-pentadbir', [App\Http\Controllers\Admin\TetapanAkaunController::class, 'admin_akaun_pentadbir'])->name('admin.akaun.pentadbir');

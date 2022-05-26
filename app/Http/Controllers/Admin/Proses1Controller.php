@@ -60,7 +60,7 @@ class Proses1Controller extends Controller
 
     public function admin_1daftarpelesen_proses(Request $request)
     {
-         dd($request->all());
+        //  dd($request->all());
 
         $this->validation_daftar_pelesen($request->all())->validate();
 
@@ -162,6 +162,16 @@ class Proses1Controller extends Controller
             'e_email_pengurus' => $data['e_email_pengurus'],
             'kap_proses' => $data['kap_proses'],
             'kap_tangki' => $data['kap_tangki'],
+            'bil_tangki_cpo' => $data['bil_tangki_cpo'],
+            'bil_tangki_ppo' => $data['bil_tangki_ppo'],
+            'bil_tangki_cpko' => $data['bil_tangki_cpko'],
+            'bil_tangki_ppko' => $data['bil_tangki_ppko'],
+            'bil_tangki_others' => $data['bil_tangki_others'],
+            'kap_tangki_cpo' => $data['kap_tangki_cpo'],
+            'kap_tangki_ppo' => $data['kap_tangki_ppo'],
+            'kap_tangki_cpko' => $data['kap_tangki_cpko'],
+            'kap_tangki_ppko' => $data['kap_tangki_ppko'],
+            'kap_tangki_others' => $data['kap_tangki_others'],
 
         ]);
     }
@@ -202,6 +212,17 @@ class Proses1Controller extends Controller
         $reg_pelesen = RegPelesen::find($e_id);
         $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
         // dd($pelesen);
+        $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
+        ($pelesen->bil_tangki_ppo ?? 0) +
+        ($pelesen->bil_tangki_cpko ?? 0) +
+        ($pelesen->bil_tangki_ppko ?? 0) +
+        ($pelesen->bil_tangki_others ?? 0);
+
+        $jumlah2 = ($pelesen->kap_tangki_cpo ?? 0) +
+        ($pelesen->kap_tangki_ppo ?? 0) +
+        ($pelesen->kap_tangki_cpko ?? 0) +
+        ($pelesen->kap_tangki_ppko ?? 0) +
+        ($pelesen->kap_tangki_others ?? 0);
 
         if ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL91') {
             $breadcrumbs    = [
@@ -309,9 +330,65 @@ class Proses1Controller extends Controller
         // $pengumuman = \DB::table('pengumuman')->get();
         // dd($id);
 
-        return view('admin.proses1.papar-maklumat', compact('returnArr', 'layout', 'pelesen', 'negeri', 'reg_pelesen'));
+        return view('admin.proses1.papar-maklumat', compact('returnArr', 'layout', 'pelesen', 'negeri', 'reg_pelesen', 'jumlah', 'jumlah2'));
 
         // return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
+    }
+
+    public function admin_update_maklumat_asas_pelesen(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = Pelesen::findOrFail($id);
+        $penyata->e_status = $request->e_status;
+
+        $penyata->directory = $request->directory;
+        $penyata->kodpgw = $request->kodpgw;
+        $penyata->nosiri = $request->nosiri;
+        $penyata->e_nl = $request->e_nl;
+        $penyata->e_np = $request->e_np;
+        $penyata->e_ap1 = $request->e_ap1;
+        $penyata->e_ap2 = $request->e_ap2;
+        $penyata->e_ap3 = $request->e_ap3;
+        $penyata->e_as1 = $request->e_as1;
+        $penyata->e_as2 = $request->e_as2;
+        $penyata->e_as3 = $request->e_as3;
+        $penyata->e_notel = $request->e_notel;
+        $penyata->e_nofax = $request->e_nofax;
+        $penyata->e_email = $request->e_email;
+        $penyata->e_npg = $request->e_npg;
+        $penyata->e_jpg = $request->e_jpg;
+        $penyata->e_notel_pg = $request->e_notel_pg;
+        $penyata->e_email_pg = $request->e_email_pg;
+        $penyata->e_npgtg = $request->e_npgtg;
+        $penyata->e_jpgtg = $request->e_jpgtg;
+        $penyata->e_negeri = $request->e_negeri;
+        $penyata->e_jpgtg = $request->e_jpgtg;
+        $penyata->e_daerah = $request->e_daerah;
+        $penyata->e_kawasan = $request->e_kawasan;
+        $penyata->e_syktinduk = $request->e_syktinduk;
+        $penyata->e_group = $request->e_group;
+        $penyata->e_poma = $request->e_poma;
+        $penyata->e_year = $request->e_year;
+        $penyata->e_email_pengurus = $request->e_email_pengurus;
+        $penyata->kap_proses = $request->kap_proses;
+        $penyata->kap_tangki = $request->kap_tangki;
+        $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
+        $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
+        $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
+        $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
+        $penyata->bil_tangki_others = $request->bil_tangki_others;
+        $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
+        $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
+        $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
+        $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
+        $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
+        $penyata->kap_tangki_others = $request->kap_tangki_others;
+        // $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
+        $penyata->save();
+
+        
+        return redirect()->route('admin.proses1.papar-maklumat')
+            ->with('success', 'Maklumat telah dikemaskini');
     }
 
     public function admin_papar_maklumat_batal($e_id, Pelesen $pelesen)

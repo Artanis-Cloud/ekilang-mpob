@@ -52,7 +52,7 @@
                         </h5>
                     </div>
                     <hr>
-                    <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post">
+                    <form action="{{ route('admin.update.maklumat.asas.pelesen', [$pelesen->e_id] ) }}" method="post">
                         @csrf
                         <div class="container center mt-5">
                             <div class="row">
@@ -61,7 +61,7 @@
                                     Jenis Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="e_kat" id="e_kat" readonly>
+                                        <select class="form-control" name="e_kat" id="e_kat" disabled>
 
                                             <option {{ ($reg_pelesen->e_kat == 'PL91') ? 'selected' : '' }}>Kilang Buah</option>
                                             <option {{ ($reg_pelesen->e_kat == 'PL101') ? 'selected' : '' }}>Kilang Penapis</option>
@@ -413,13 +413,13 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-2">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Negeri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="negeri_id"
+                                        <select class="form-control" id="negeri_id" name='e_negeri'
                                             onchange="ajax_daerah(this);ajax_kawasan(this)">
                                             <option selected hidden disabled>Sila Pilih</option>
                                             @foreach ($negeri as $data)
@@ -432,13 +432,13 @@
 
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-2">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Daerah </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="daerah_id" name='daerah_id'
+                                        <select class="form-control" id="daerah_id" name='e_daerah'
                                             placeholder="Daerah">
                                             <option selected hidden disabled>Sila Pilih Negeri Terlebih Dahulu
                                             </option>
@@ -446,13 +446,13 @@
                                     </fieldset>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-2">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kawasan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="kawasan_id">
+                                        <select class="form-control" id="kawasan_id" name='e_kawasan'>
                                             <option value="" selected hidden disabled>Sila Pilih
                                                 Daerah Terlebih Dahulu</option>
                                         </select>
@@ -460,7 +460,7 @@
 
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-2">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Syarikat Induk</label>
@@ -475,7 +475,7 @@
                                 @enderror
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-2">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Tahun Mula Beroperasi</label>
@@ -485,7 +485,7 @@
                                     value="{{ $pelesen->e_year ?? '-' }}">
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-2">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kumpulan </label>
@@ -504,7 +504,7 @@
                                             @enderror --}}
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row mb-2">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     POMA </label>
@@ -619,10 +619,185 @@
                                         bilangan dan kapasiti tangki dan lapor dalam kategori Others
                                     </i>
                                 </div>
-                          
-                            @elseif ($reg_pelesen->e_kat == 'PL101')
 
-                                ssss
+
+                            @elseif ($reg_pelesen->e_kat == 'PL101')<br>
+
+                            <div class="row mt-2" style="text-align: center; font-size: 12px">
+                                <div class="col-md-4">
+                                    <span></span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span></span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>CPO</span>
+                                </div>
+
+                                <div class="col-md-1">
+                                    <span>PPO</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>CPKO</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>PPKO</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>OTHERS</span>
+                                </div>
+                                <div class="col-md-1">
+                                    <span>JUMLAH</span>
+                                </div>
+                            </div>
+                            <div class="row mt-2 mb-4">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Bilangan Tangki</label>
+
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%" oninput="setCustomValidity('')"
+                                        size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpo  }}"
+                                        onchange="validation_jumlah()" required>
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_ppo' style="width:100%" oninput="setCustomValidity('')"
+                                        size="15" id="bil_tangki_ppo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppo  }}"
+                                        onchange="validation_jumlah()" required>
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_cpko' style="width:100%" oninput="setCustomValidity('')"
+                                        size="15" id="bil_tangki_cpko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_cpko  }}"
+                                        onchange="validation_jumlah()" required>
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_ppko' style="width:100%" oninput="setCustomValidity('')"
+                                        size="15" id="bil_tangki_ppko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_ppko   }}"
+                                        onchange="validation_jumlah()" required>
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='bil_tangki_others' style="width:100%" oninput="setCustomValidity('')"
+                                        size="15" id="bil_tangki_others" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->bil_tangki_others  }}"
+                                        onchange="validation_jumlah()" required>
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+
+
+
+                                <div class="col-md-1 text-center">
+                                    <b><span id="bil_tangki_jumlah">
+                                            {{ old('bil_tangki_jumlah') ?? number_format($jumlah, 2) }}
+                                        </span>
+                                    </b>
+                                </div>
+
+                            </div>
+
+                            <div class="row mt-2 mb-4">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Kapasiti Tangki Simpanan (Tan)</label>
+
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%" oninput="setCustomValidity('')"
+                                        id="kap_tangki_cpo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpo }}"
+                                        onchange="validation_jumlah2()" required>
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+
+
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='kap_tangki_ppo' style="width:100%" oninput="setCustomValidity('')"
+                                        id="kap_tangki_ppo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppo  }}"
+                                        onchange="validation_jumlah2()" required>
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='kap_tangki_cpko' style="width:100%" oninput="setCustomValidity('')"
+                                        id="kap_tangki_cpko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_cpko  }}"
+                                        onchange="validation_jumlah2()" required>
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='kap_tangki_ppko' style="width:100%" oninput="setCustomValidity('')"
+                                        id="kap_tangki_ppko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_ppko  }}"
+                                        onchange="validation_jumlah2()" required>
+                                    {{-- @error('alamat_kilang_1')
+                                                <div class="alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror --}}
+                                </div>
+                                <div class="col-md-1">
+                                    <input type="text" class="form-control" name='kap_tangki_others' style="width:100%" oninput="setCustomValidity('')"
+                                        id="kap_tangki_others" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        title="Sila isikan butiran ini." value="{{ $pelesen->kap_tangki_others  }}"
+                                        onchange="validation_jumlah2()" required>
+                                </div>
+                                <div class="col-md-1 text-center">
+                                        <b><span id="kap_tangki_jumlah">
+                                                {{ old('kap_tangki_jumlah') ?? number_format($jumlah2, 2) }}
+                                            </span>
+                                        </b>
+                                        {{-- <input type="text" name='bil_tangki_jumlah' style="width:100%" size="15" value="{{ $jumlah }}"
+                                        id="bil_tangki_jumlah"> --}}
+
+                                </div>
+                                <br><br>
+                                <div class="row ">
+                                    <i style="margin-left:7%;margin-right:7%">Nota: Sekiranya kilang/pelesen tiada
+                                        tangki simpanan khusus untuk sesuatu produk. Sila campurkan kesemua
+                                        bilangan dan kapasiti tangki dan lapor dalam kategori Others
+                                    </i>
+                                </div>
+
+                            </div>
 
                             @endif
 
@@ -914,5 +1089,42 @@
         @endif
     </script>
 
+    <script>
+        function validation_jumlah() {
+            var bil_tangki_cpo = $("#bil_tangki_cpo").val();
+            var bil_tangki_ppo = $("#bil_tangki_ppo").val();
+            var bil_tangki_cpko = $("#bil_tangki_cpko").val();
+            var bil_tangki_ppko = $("#bil_tangki_ppko").val();
+            var bil_tangki_others = $("#bil_tangki_others").val();
+
+            var jumlah = $("#jumlah").val();
+            var jumlah_input = 0;
+
+            jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
+                parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
+                    bil_tangki_others));
+
+            document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script>
+
+    <script>
+        function validation_jumlah2() {
+            var kap_tangki_cpo = $("#kap_tangki_cpo").val();
+            var kap_tangki_ppo = $("#kap_tangki_ppo").val();
+            var kap_tangki_cpko = $("#kap_tangki_cpko").val();
+            var kap_tangki_ppko = $("#kap_tangki_ppko").val();
+            var kap_tangki_others = $("#kap_tangki_others").val();
+
+            var jumlah = $("#jumlah2").val();
+            var jumlah_input = 0;
+
+            jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
+                parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
+                    kap_tangki_others));
+
+            document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script>
 
 @endsection
