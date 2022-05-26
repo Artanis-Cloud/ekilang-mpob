@@ -1068,6 +1068,8 @@ class KilangBiodieselController extends Controller
         $user = EBioInit::where('ebio_nl', auth()->user()->username)->first();
         // dd($user);
 
+        
+
         $ia = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
             return $query->where('prodcat', '=', '01');
         })->get();

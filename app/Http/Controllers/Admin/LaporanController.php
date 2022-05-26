@@ -207,6 +207,66 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.validasi-stok-akhir-ikut-produk', compact('returnArr', 'layout','bulan'));
     }
 
+    public function admin_minyak_sawit_diproses()
+    {
+        $bulan=Bulan::get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.minyak-sawit-diproses', compact('returnArr', 'layout','bulan'));
+    }
+
+    public function admin_tambah_proses()
+    {
+        $bulan=Bulan::get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.tambah-proses', compact('returnArr', 'layout','bulan'));
+    }
+
+    public function admin_validasi_minyak_sawit_diproses()
+    {
+        $bulan=Bulan::get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.validasi-minyak-sawit-diproses', compact('returnArr', 'layout','bulan'));
+    }
+
 
     public function admin_kilangbuah()
     {
