@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bulan;
 use App\Models\Daerah;
 use App\Models\H91Init;
 use App\Models\Produk;
@@ -57,6 +58,13 @@ class LaporanController extends Controller
     public function admin_kapasiti()
     {
 
+        // $date= date("m");
+
+        $reg_pelesen = RegPelesen::where('e_kat','PLBIO')->get('e_nl');
+        $pelesen = Pelesen::with('regpelesen')->where('e_nl', $reg_pelesen[0]->e_nl)->get();
+        // dd($pelesen);
+
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Kapasiti Kilang Biodiesel"],
@@ -70,7 +78,35 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.kapasiti', compact('returnArr', 'layout'));
+        return view('admin.laporan_dq.kapasiti', compact('returnArr', 'layout','reg_pelesen','pelesen'));
+    }
+
+    public function admin_edit_kapasiti()
+    {
+
+        // $date= date("m");
+
+        $reg_pelesen = RegPelesen::where('e_kat','PLBIO')->get('e_nl');
+        $pelesen = Pelesen::with('regpelesen')->where('e_nl', $reg_pelesen[0]->e_nl)->get();
+        // dd($pelesen);
+
+        $bulan = Bulan::get();
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Kapasiti Kilang Biodiesel"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.edit-kapasiti', compact('returnArr', 'layout','reg_pelesen','pelesen','bulan'));
     }
 
     public function admin_laporan_tahunan()
@@ -90,6 +126,25 @@ class LaporanController extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.laporan_dq.laporan-tahunan', compact('returnArr', 'layout'));
+    }
+
+    public function admin_stok_akhir()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.stok-akhir', compact('returnArr', 'layout'));
     }
 
 

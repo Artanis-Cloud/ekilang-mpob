@@ -1138,13 +1138,13 @@
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="{{ route('admin.9penyataterdahulu') }}" class="sidebar-link">
+                                        <a href="{{ route('admin.kapasiti') }}" class="sidebar-link">
                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Kapasiti Kilang Biodiesel </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="{{ route('admin.9penyataterdahulu') }}" class="sidebar-link">
+                                        <a href="{{ route('admin.laporan.tahunan') }}" class="sidebar-link">
                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Laporan Tahunan </span>
                                         </a>
@@ -1452,6 +1452,7 @@
 
     {{-- datatable --}}
     <script src="{{ asset('nice-admin/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
+    <script src="{{ asset('nice-admin/dist/js/pages/datatable/datatable-basic.init.js') }}"></script>
 
     {{-- plotly --}}
     <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
@@ -1464,6 +1465,7 @@
     <script src="{{ asset('nice-admin/assets/libs/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js') }}"></script>
     <script src="{{ asset('nice-admin/dist/js/pages/forms/dual-listbox/dual-listbox.js') }}"></script>
     <script src="{{ asset('nice-admin/dist/js/pages/datatable/datatable-advanced.init.js') }}"></script>
+    <script src="{{ asset('nice-admin/dist/js/custom.min.js') }}"></script>
 
     {{-- notification --}}
     <script>
