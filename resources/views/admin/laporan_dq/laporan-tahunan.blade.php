@@ -48,7 +48,7 @@
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Kapasiti Kilang Biodiesel</h3>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Laporan Tahunan</h3>
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5> --}}
                         </div>
                         <hr>
@@ -60,24 +60,24 @@
                                     <div class="col-md-5 ml-auto">
 
                                         <div class="form-group">
-                                            <label>Kategori</label>
+                                            <label>Jenis Laporan</label>
                                             <fieldset class="form-group">
-                                                <select class="form-control" name="e_kat">
-                                                    <option selected hidden disabled>Sila Pilih Kategori</option>
-                                                    <option value="PLBIO">Kilang Biodiesel</option>
+                                                <select class="form-control" name="laporan">
+                                                    <option selected hidden disabled>Sila Pilih Jenis Laporan</option>
+                                                    <option value="PLBIO">Senarai Tahunan Negeri</option>
                                                 </select>
                                             </fieldset>
                                         </div>
                                     </div>
                                     <div class="col-md-5 mr-auto">
                                         <div class="form-group">
-                                            <label>Tarikh Lewat Terima (PL)</label>
-                                            <input type="date" class="form-control" placeholder="No. Lesen">
+                                            <label>Tahun</label>
+                                            <input type="tex" class="form-control" placeholder="Tahun">
                                         </div>
                                     </div>
                                 </div>
-                            <div class="text-right col-md-6 mb-4 mt-4">
-                                <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                            <div class=" col-md-12 mb-4 mt-4">
+                                <button type="button" class="btn btn-primary" style="margin-left:47%" data-toggle="modal"
                                     data-target="#next">Cari</button>
                             </div>
                         </div>

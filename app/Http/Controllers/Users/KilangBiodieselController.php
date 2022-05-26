@@ -116,6 +116,8 @@ class KilangBiodieselController extends Controller
         $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
         $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
         $penyata->kap_tangki_others = $request->kap_tangki_others;
+        $penyata->tahun = date("Y");
+        $penyata->bulan = date("m");
 
         $penyata->save();
 

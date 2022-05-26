@@ -84,4 +84,10 @@ class Pelesen extends Model
         'kap_tangki_jumlah',
 
     ];
+
+    public function regpelesen()
+    {
+
+        return $this->hasOne(RegPelesen::class, 'e_nl', 'e_nl');
+    }
 }
