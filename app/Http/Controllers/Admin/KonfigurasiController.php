@@ -45,6 +45,7 @@ class KonfigurasiController extends Controller
 
     public function admin_pengurusan_pentadbir_process(Request $request)
     {
+        // dd($request->all());
         $this->validation_daftar_pentadbir($request->all())->validate();
         $this->store_daftar_pentadbir($request->all());
         $this->store_daftar_pentadbir2($request->all());
@@ -59,6 +60,8 @@ class KonfigurasiController extends Controller
             'email' => ['required', 'string'],
             'username' => ['required', 'string'],
             'role' => ['required', 'string'],
+            'sub-cat[]' => ['required', 'string'],
+            'status' => ['required', 'string'],
 
         ]);
     }
@@ -74,6 +77,8 @@ class KonfigurasiController extends Controller
             'username' => $data['username'],
             'category' => 'admin',
             'role' => $data['role'],
+            'sub_cat[]' => $data['sub_cat[]'],
+            'status' => $data['status'],
             'map_sdate' => now()
         ]);
     }
@@ -89,6 +94,12 @@ class KonfigurasiController extends Controller
             // 'category' => $data['category'],
         ]);
     }
+
+    //notification kalau admin, manager dan supervisor daftar admin.
+    //kalau admin yg daftar untuk admin, notification akan masuk ke supervisor ke atas
+    //kalau supervisor daftar utk sv dan admin, noti masuk manager ke atas
+    //sama juga untuk manager
+    //notification in system dengan ke email sv, manager and superadmin
 
 
     public function admin_senarai_pentadbir()
@@ -130,6 +141,15 @@ class KonfigurasiController extends Controller
         return redirect()->route('admin.senarai.pentadbir')
             ->with('success', 'Maklumat telah disimpan');
     }
+
+
+    //notification kalau admin, manager dan supervisor kemaskini data admin.
+    //kalau admin yg kemaskini untuk admin, notification akan masuk ke supervisor ke atas
+    //kalau supervisor kemaskini utk sv dan admin, noti masuk manager ke atas
+    //sama juga untuk manager
+    //notification in system dengan ke email sv, manager and superadmin
+
+
 
     public function admin_delete_pentadbir($id)
     {

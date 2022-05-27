@@ -46,30 +46,61 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
-                                <div class=" text-center">
-                                    <h4 style="color: rgb(39, 80, 71); margin-top:3%">Tukar Kata Laluan</h4>
-                                </div>
-                                <hr>
+                        <div class=" text-center">
+                            <h4 style="color: rgb(39, 80, 71); margin-top:3%">Tukar Kata Laluan</h4>
+                        </div>
+                        <hr>
 
-                                <div class="card-body">
-                                    <div class="container center ">
+                        <div class="card-body">
+                            <div class="container center ">
 
-                                        <div class="row" style="margin-top:-2%">
-                                            <label for="fname"
-                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">
-                                                No. Lesen</label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="company-column" class="form-control"
-                                                    placeholder=" No. Lesen" name="company-column">
-                                            </div>
-                                        </div>
-                                        <div class="text-right col-md-6 mb-4 mt-4">
-                                            <button type="button" class="btn btn-primary" style="margin-left:90%"
-                                                data-toggle="modal" data-target="#next">Tukar Kata Laluan</button>
-                                        </div>
-
+                                <div class="row" style="margin-top:-2%">
+                                    <label for="fname"
+                                        class="text-right col-sm-4 control-label col-form-label required align-items-center">
+                                        No. Lesen</label>
+                                    <div class="col-md-6">
+                                        <input type="text" id="company-column" class="form-control"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            oninput="setCustomValidity('')" required placeholder=" No. Lesen"
+                                            name="e_nl">
                                     </div>
                                 </div>
+                                <div class="text-right col-md-6 mb-4 mt-4">
+                                    <button type="button" class="btn btn-primary" style="margin-left:90%"
+                                        data-toggle="modal" data-target="#myModal">Tukar Kata Laluan</button>
+                                </div>
+                                <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>
+                                                    Anda pasti mahu menukar kata laluan pelesen ini?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                </button>
+                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Ya</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

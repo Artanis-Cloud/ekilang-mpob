@@ -51,129 +51,135 @@
 
                         <form action="{{ route('admin.9penyataterdahulu.process') }}" method="get">
                             @csrf
-                                <div class>
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:-2%; text-align:center">Papar Penyata Bulanan
-                                        Terdahulu</h3>
-                                    <h5 style="color: rgb(39, 80, 71); font-size:14px; margin-bottom:-2%; text-align:center">Papar Penyata Bulanan
-                                        Terdahulu di MYSQL dan PLEID</h5>
-                                </div>
+                            <div class>
+                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:-2%; text-align:center">
+                                    Papar Penyata Bulanan
+                                    Terdahulu</h3>
+                                <h5 style="color: rgb(39, 80, 71); font-size:14px; margin-bottom:-2%; text-align:center">
+                                    Papar Penyata Bulanan
+                                    Terdahulu di MYSQL dan PLEID</h5>
+                            </div>
 
 
-                                <div class="card-body">
-                                    <hr>
-                                    <div class="container center ">
+                            <div class="card-body">
+                                <hr>
+                                <div class="container center ">
 
-                                        <div class="row mt-1">
-                                            <label for="fname"
-                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">Sektor Kilang
-                                            </label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect" name="sektor">
-                                                        <option selected hidden disabled>Sila Pilih Sektor</option>
+                                    <div class="row mt-1">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Sektor
+                                            Kilang
+                                        </label>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group">
+                                                <select class="form-control" id="basicSelect" name="sektor" required
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option selected hidden disabled value="">Sila Pilih Sektor</option>
 
-                                                        <option value="PL91">Kilang Buah</option>
-                                                        <option value="PL101">Kilang Penapis</option>
-                                                        <option value="PL102">Kilang Isirung</option>
-                                                        <option value="PL104">Kilang Oleokimia</option>
-                                                        <option value="PL111">Pusat Simpanan</option>
-                                                        <option value="PLBIO">Kilang Biodiesel</option>
-                                                    </select>
-                                                </fieldset>
-                                            </div>
+                                                    <option value="PL91">Kilang Buah</option>
+                                                    <option value="PL101">Kilang Penapis</option>
+                                                    <option value="PL102">Kilang Isirung</option>
+                                                    <option value="PL104">Kilang Oleokimia</option>
+                                                    <option value="PL111">Pusat Simpanan</option>
+                                                    <option value="PLBIO">Kilang Biodiesel</option>
+                                                </select>
+                                            </fieldset>
                                         </div>
-                                        <div class="row" style="margin-top:-1%">
-                                            <label for="fname"
-                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">Tahun
-                                            </label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect" name="tahun">
-                                                        <option selected hidden disabled>Sila Pilih Tahun</option>
-                                                        <option>2003</option>
-                                                        <option>2004</option>
-                                                        <option>2005</option>
-                                                        <option>2006</option>
-                                                        <option>2007</option>
-                                                        <option>2008</option>
-                                                        <option>2009</option>
-                                                        <option>2010</option>
-                                                        <option>2011</option>
-                                                        <option>2012</option>
-                                                        <option>2013</option>
-                                                        <option>2014</option>
-                                                        <option>2015</option>
-                                                        <option>2016</option>
-                                                        <option>2017</option>
-                                                        <option>2018</option>
-                                                        <option>2019</option>
-                                                        <option>2020</option>
-                                                        <option>2021</option>
-                                                        <option>2022</option>
-                                                    </select>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-top:-1%">
-                                            <label for="fname"
-                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
-                                            </label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect" name="bulan">
-                                                        <option selected hidden disabled>Sila Pilih Bulan</option>
-                                                        <option value="01">Januari</option>
-                                                        <option value="02">Februari</option>
-                                                        <option value="03">Mac</option>
-                                                        <option value="04">April</option>
-                                                        <option value="05">Mei</option>
-                                                        <option value="06">Jun</option>
-                                                        <option value="07">Julai</option>
-                                                        <option value="08">Ogos</option>
-                                                        <option value="09">September</option>
-                                                        <option value="10">Oktober</option>
-                                                        <option value="11">November</option>
-                                                        <option value="12">Disember</option>
-                                                    </select>
-                                                </fieldset>
-                                            </div>
-                                        </div>
-
-                                        <div class="row" style="margin-top:-1%">
-                                            <label for="fname"
-                                                class="text-right col-sm-4 control-label col-form-label required align-items-center">Sumber
-                                                Data
-                                            </label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect" name="sumber">
-                                                        <option selected hidden disabled>Sila Pilih Sumber Data</option>
-                                                        <option>e-Kilang</option>
-                                                        <option>PLEID</option>
-                                                    </select>
-                                                </fieldset>
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row form-group" style="padding-top: 10px; ">
-                                            <div class="text-right col-md-12 center">
-                                                <button type="submit" class="btn btn-primary">Papar</button>
-                                                {{-- <button type="submit">YA</button> --}}
-                                            </div>
-                                        </div>
-
                                     </div>
+                                    <div class="row" style="margin-top:-1%">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Tahun
+                                        </label>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group">
+                                                <select class="form-control" id="basicSelect" name="tahun" required
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option selected hidden disabled value="">Sila Pilih Tahun</option>
+                                                    <option>2003</option>
+                                                    <option>2004</option>
+                                                    <option>2005</option>
+                                                    <option>2006</option>
+                                                    <option>2007</option>
+                                                    <option>2008</option>
+                                                    <option>2009</option>
+                                                    <option>2010</option>
+                                                    <option>2011</option>
+                                                    <option>2012</option>
+                                                    <option>2013</option>
+                                                    <option>2014</option>
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                    <option>2017</option>
+                                                    <option>2018</option>
+                                                    <option>2019</option>
+                                                    <option>2020</option>
+                                                    <option>2021</option>
+                                                    <option>2022</option>
+                                                </select>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:-1%">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
+                                        </label>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group">
+                                                <select class="form-control" id="basicSelect" name="bulan" required
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                    <option value="01">Januari</option>
+                                                    <option value="02">Februari</option>
+                                                    <option value="03">Mac</option>
+                                                    <option value="04">April</option>
+                                                    <option value="05">Mei</option>
+                                                    <option value="06">Jun</option>
+                                                    <option value="07">Julai</option>
+                                                    <option value="08">Ogos</option>
+                                                    <option value="09">September</option>
+                                                    <option value="10">Oktober</option>
+                                                    <option value="11">November</option>
+                                                    <option value="12">Disember</option>
+                                                </select>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="margin-top:-1%">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Sumber
+                                            Data
+                                        </label>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group">
+                                                <select class="form-control" id="basicSelect" name="data" required
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option selected hidden disabled value="">Sila Pilih Sumber Data</option>
+                                                    <option value="ekilang">e-Kilang</option>
+                                                    <option value="pleid">PLEID</option>
+                                                </select>
+                                            </fieldset>
+                                        </div>
+                                    </div>
+                                    <div class="row form-group" style="padding-top: 10px; ">
+                                        <div class="text-right col-md-12 center">
+                                            <button type="submit" class="btn btn-primary">Papar</button>
+                                            {{-- <button type="submit">YA</button> --}}
+                                        </div>
+                                    </div>
+
                                 </div>
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 
 
     </div>

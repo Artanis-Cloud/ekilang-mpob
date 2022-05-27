@@ -26,6 +26,7 @@ class User extends Authenticatable
         'username',
         'category',
         'sub_category',
+        'sub_cat',
         'kod_pegawai',
         'no_siri',
         'status',

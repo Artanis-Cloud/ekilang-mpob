@@ -37,5 +37,7 @@ class Proses2Controller extends Controller
         return view('admin.proses2.2tukar-password', compact('returnArr', 'layout'));
     }
 
+    //tukar password by email
+
 
 }
