@@ -155,7 +155,7 @@
 
                                         <td width="35%">Alamat Premis Berlesen</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->alamat_premis ?? '' }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_ap1 ?? '' }}</b></td>
 
                                     </tr>
 
@@ -163,8 +163,7 @@
 
                                         <td width="35%">&nbsp;</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->daerah_premis ?? ''   }}, &nbsp;
-                                                {{ $pelesen2->poskod_premis ?? ''  }} </b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_ap2 ?? ''   }} </b></td>
 
                                     </tr>
 
@@ -172,7 +171,7 @@
 
                                         <td width="35%">&nbsp;</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->negeri_premis ?? ''  }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_ap3 ?? ''  }}</b></td>
 
                                     </tr>
 
@@ -180,7 +179,7 @@
 
                                         <td width="35%">Alamat Surat Menyurat</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->alamat_surat  ?? '' }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_as1  ?? '' }}</b></td>
 
                                     </tr>
 
@@ -188,7 +187,7 @@
 
                                         <td width="35%">&nbsp;</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->daerah  ?? ''  }} {{ $pelesen2->poskod  ?? ''  }} </b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_as2  ?? ''  }} </b></td>
 
                                     </tr>
 
@@ -196,7 +195,7 @@
 
                                         <td width="35%">&nbsp;</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->negeri  ?? ''  }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_as3  ?? ''  }}</b></td>
 
                                     </tr>
 
@@ -204,7 +203,7 @@
 
                                         <td width="35%">No. Telefon</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->e_notel  ?? ''  }}</b>
+                                        <td width="65%"><b>{{ $pelesen->e_notel  ?? ''  }}</b>
 
                                         </td>
 
@@ -214,7 +213,7 @@
 
                                         <td width="35%">No. Faks</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->e_nofax  ?? ''  }}</b>
+                                        <td width="65%"><b>{{ $pelesen->e_nofax  ?? ''  }}</b>
 
                                         </td>
 
@@ -222,9 +221,9 @@
 
                                     <tr>
 
-                                        <td width="35%">Alamat emel </td>
+                                        <td width="35%">Alamat Emel Kilang</td>
 
-                                        <td width="65%"><b></b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_email  ?? ''  }}</b></td>
 
                                     </tr>
 
@@ -232,7 +231,7 @@
 
                                         <td width="35%">Nama Pegawai Melapor</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->n_pgw_m  ?? ''  }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_npg  ?? ''  }}</b></td>
 
                                     </tr>
 
@@ -240,7 +239,7 @@
 
                                         <td width="35%">Jawatan Pegawai Melapor</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->j_pgw_m  ?? ''  }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_jpg  ?? ''  }}</b></td>
 
                                     </tr>
 
@@ -248,7 +247,7 @@
 
                                         <td width="35%">Nama Pegawai Bertanggungjawab</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->n_pgw_b  ?? ''  }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_npgtg  ?? ''  }}</b></td>
 
                                     </tr>
 
@@ -256,7 +255,7 @@
 
                                         <td width="35%">Jawatan Pegawai Bertanggungjawab</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->j_pgw_b  ?? ''  }}</b></td>
+                                        <td width="65%"><b>{{ $pelesen->e_jpgtg  ?? ''  }}</b></td>
 
                                     </tr>
 
