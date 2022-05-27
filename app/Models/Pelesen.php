@@ -90,4 +90,14 @@ class Pelesen extends Model
 
         return $this->hasOne(RegPelesen::class, 'e_nl', 'e_nl');
     }
+    public function daerah()
+    {
+
+        return $this->hasOne(Daerah::class, 'kod_daerah', 'e_daerah');
+    }
+    public function negeri()
+    {
+
+        return $this->hasOne(Negeri::class, 'kod_negeri', 'e_negeri');
+    }
 }

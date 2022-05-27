@@ -332,11 +332,11 @@
                                         <select class="form-control" id="e_poma" name="e_poma" required
                                             oninput="setCustomValidity('')"
                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
-                                            <option selected hidden disabled value="">POMA</option>
+                                            {{-- <option selected hidden disabled value="">POMA</option>
                                             <option {{ $pelesen->e_poma == 'Ya' ? 'selected' : '' }} value="Ya">
                                                 Ya</option>
                                             <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }} value="Tidak">
-                                                Tidak</option>
+                                                Tidak</option> --}}
 
                                             <option value="{{ $pelesen->e_poma }}" selected hidden>
                                                 {{ $pelesen->e_poma ?? 'Sila Pilih' }}</option>

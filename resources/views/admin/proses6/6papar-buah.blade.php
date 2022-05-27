@@ -269,7 +269,7 @@
 
 
                                             <p><b>
-                                                <font size="3" color="#0000FF">BAHAGIAN I : MAKLUMAT BELIAN, PROSES,
+                                                <font size="3" color="#0000FF">BAHAGIAN 1 : MAKLUMAT BELIAN, PROSES,
                                                     PENGELUARAN, JUALAN/EDARAN, STOK AKHIR
                                                     (Berdasarkan Dalam Premis Kilang Sahaja.)</font>
                                             </b> </p>
@@ -494,7 +494,7 @@
                                         <br>
 
                                         <p><b>
-                                                <font size="3" color="0000FF">BAHAGIAN II : MAKLUMAT JAM PENGILANGAN,
+                                                <font size="3" color="0000FF">BAHAGIAN 2 : MAKLUMAT JAM PENGILANGAN,
                                                     KADAR
                                                     PERAHAN DAN HARGA </font>
                                             </b> </p>
@@ -771,7 +771,7 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN III : BELIAN/TERIMAAN BEKALAN
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN
                                                     BUAH
                                                     KELAPA SAWIT (FFB) (52)</b>
                                             </font>
@@ -867,7 +867,7 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN IV : JUALAN/EDARAN MINYAK SAWIT
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN 4 : JUALAN/EDARAN MINYAK SAWIT
                                                     MENTAH (CPO) (01) </b></font>
                                         </p>
 
@@ -980,7 +980,7 @@
 
 
                                         <p align="left">
-                                            <font size="3" color="#0000FF"><b>BAHAGIAN V : JUALAN/EDARAN ISIRUNG SAWIT
+                                            <font size="3" color="#0000FF"><b>BAHAGIAN 5 : JUALAN/EDARAN ISIRUNG SAWIT
                                                     (PK) DALAM NEGERI
                                                     (51)</b></font>
                                         </p>
@@ -1038,7 +1038,7 @@
                                         </table>
 
                                         <p><b>
-                                                <font size="3" color="#0000FF">BAHAGIAN VI : EKSPORT PRODUK SAWIT</font>
+                                                <font size="3" color="#0000FF">BAHAGIAN 6 : EKSPORT PRODUK SAWIT</font>
                                             </b></p>
                                         <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                             class="table table-bordered">
