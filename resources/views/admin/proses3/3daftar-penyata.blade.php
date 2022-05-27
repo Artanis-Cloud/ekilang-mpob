@@ -98,193 +98,192 @@
                 {{-- tab for all pelesen --}}
                 <div id="All" class="tabcontent">
                     <form action="{{ route('admin.initialize') }}">
-                    <div class=" text-center">
-                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:2%">Initialize Semua Pelesen
-                        </h3>
-                        <h5 style="color: rgb(39, 80, 71); font-size:14px ">Daftar Penyata Bulanan Baru
-                            Semua
-                            Kilang
-                        </h5>
-                    </div>
-                    <hr>
-
-                    <div class="card-body">
-                        <div class="container center ">
-                            <div class="row" style="margin-top:-2%">
-                                <label for="fname"
-                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">Tahun
-                                </label>
-                                <div class="col-md-6">
-                                    <input type="text"class="form-control" readonly
-                                        name="e_tahun" value="{{ now()->year }}">
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top:1%">
-                                <label for="fname"
-                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
-                                </label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" readonly
-                                        name="e_bulan" value="{{ $month }}">
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: 1%">
-                                <label for="fname"
-                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">Tarikh
-                                    Akhir Penghantaran
-                                </label>
-
-                                <div class="col-md-6">
-                                    <input type="date" id="company-column" class="form-control" placeholder="Bulan"
-                                        name="e_ddate">
-                                </div>
-                            </div>
-
-
-                            <br>
-                            <div class="row center">
-                                <div class="col-md-12 center">
-                                    <button type="button" class="btn btn-primary center" style="margin-left:45%"
-                                        data-toggle="modal" data-target="#myModal">Initialize</button>
-                                    {{-- <button type="submit">YA</button> --}}
-                                </div>
-                            </div>
-
-                            <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
-                                aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-hidden="true">×</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>
-                                                Anda pasti mahu initialize semua pelesen?
-                                            </p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                            </button>
-                                            <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Ya</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- /.modal-content -->
-                                </div>
-                                <!-- /.modal-dialog -->
-                            </div>
-
+                        <div class=" text-center">
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:2%">Initialize Semua Pelesen
+                            </h3>
+                            <h5 style="color: rgb(39, 80, 71); font-size:14px ">Daftar Penyata Bulanan Baru
+                                Semua
+                                Kilang
+                            </h5>
                         </div>
-                    </div>
-                </form>
+                        <hr>
+
+                        <div class="card-body">
+                            <div class="container center ">
+                                <div class="row" style="margin-top:-2%">
+                                    <label for="fname"
+                                        class="text-right col-sm-4 control-label col-form-label align-items-center">Tahun
+                                    </label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" readonly name="e_tahun"
+                                            value="{{ now()->year }}">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:1%">
+                                    <label for="fname"
+                                        class="text-right col-sm-4 control-label col-form-label align-items-center">Bulan
+                                    </label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" readonly name="e_bulan"
+                                            value="{{ $month }}">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 1%">
+                                    <label for="fname"
+                                        class="text-right col-sm-4 control-label col-form-label required align-items-center">Tarikh
+                                        Akhir Penghantaran
+                                    </label>
+
+                                    <div class="col-md-6">
+                                        <input type="date" id="datefield" class="form-control" placeholder="Bulan" name="e_ddate">
+                                    </div>
+                                </div>
+
+
+                                <br>
+                                <div class="row center">
+                                    <div class="col-md-12 center">
+                                        <button type="button" class="btn btn-primary center" style="margin-left:45%"
+                                            data-toggle="modal" data-target="#myModal">Initialize</button>
+                                        {{-- <button type="submit">YA</button> --}}
+                                    </div>
+                                </div>
+
+                                <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>
+                                                    Anda pasti mahu initialize semua pelesen?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                </button>
+                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Ya</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
                 </div>
 
                 {{-- tab for one pelesen --}}
                 <div id="One" class="tabcontent">
                     <form action="{{ route('admin.initialize.satu') }}">
 
-                    <div class=" text-center">
-                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:2%">Initialize Pelesen</h3>
-                        <h5 style="color: rgb(39, 80, 71); font-size:14px ">Daftar Penyata Bulanan Baru
-                            Pelesen
-                        </h5>
-                    </div>
-                    <hr>
-
-                    <div class="card-body">
-                        <div class="container center ">
-
-
-                            <div class="row" style="margin-top:-2%">
-                                <label for="fname"
-                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">Tahun
-                                </label>
-                                <div class="col-md-6">
-                                    <input type="text"class="form-control" readonly
-                                        name="e_tahun" value="{{ now()->year }}">
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top:1%">
-                                <label for="fname"
-                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">Bulan
-                                </label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" readonly
-                                        name="e_bulan" value="{{ $month }}">
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: 1%">
-                                <label for="fname"
-                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">Tarikh
-                                    Akhir Penghantaran
-                                </label>
-
-                                <div class="col-md-6">
-                                    <input type="date" id="company-column" class="form-control" placeholder="Bulan"
-                                        name="e_ddate">
-                                </div>
-                            </div>
-                            <div class="row" style="margin-top: 1%">
-                                <label for="fname"
-                                    class="text-right col-sm-4 control-label col-form-label required align-items-center">No
-                                    Lesen Pelesen
-                                </label>
-
-                                <div class="col-md-6">
-                                    <input type="text" id="company-column" class="form-control" placeholder="No Lesen"
-                                        name="e_initlesen">
-                                </div>
-                            </div>
-
-
-
-                            <br>
-                            <div class="row center">
-                                <div class="col-md-12 center">
-                                    <button type="button" class="btn btn-primary center" style="margin-left:45%"
-                                        data-toggle="modal" data-target="#myModal2">Initialize</button>
-                                    {{-- <button type="submit">YA</button> --}}
-                                </div>
-                            </div>
-
-                            <div id="myModal2" class="modal fade" tabindex="-1" role="dialog"
-                                aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-hidden="true">×</button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>
-                                                Anda pasti mahu initialize pelesen ini?
-                                            </p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                            </button>
-                                            <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Ya</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- /.modal-content -->
-                                </div>
-                                <!-- /.modal-dialog -->
-                            </div>
-
+                        <div class=" text-center">
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:2%">Initialize Pelesen</h3>
+                            <h5 style="color: rgb(39, 80, 71); font-size:14px ">Daftar Penyata Bulanan Baru
+                                Pelesen
+                            </h5>
                         </div>
-                    </div>
+                        <hr>
+
+                        <div class="card-body">
+                            <div class="container center ">
+
+
+                                <div class="row" style="margin-top:-2%">
+                                    <label for="fname"
+                                        class="text-right col-sm-4 control-label col-form-label align-items-center">Tahun
+                                    </label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" readonly name="e_tahun"
+                                            value="{{ now()->year }}">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:1%">
+                                    <label for="fname"
+                                        class="text-right col-sm-4 control-label col-form-label align-items-center">Bulan
+                                    </label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" readonly name="e_bulan"
+                                            value="{{ $month }}">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 1%">
+                                    <label for="fname"
+                                        class="text-right col-sm-4 control-label col-form-label required align-items-center">Tarikh
+                                        Akhir Penghantaran
+                                    </label>
+
+                                    <div class="col-md-6">
+                                        <input type="date" id="datefield2" class="form-control" placeholder="Bulan"
+                                            name="e_ddate">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 1%">
+                                    <label for="fname"
+                                        class="text-right col-sm-4 control-label col-form-label required align-items-center">No
+                                        Lesen Pelesen
+                                    </label>
+
+                                    <div class="col-md-6">
+                                        <input type="text" id="company-column" class="form-control" placeholder="No Lesen"
+                                            name="e_initlesen">
+                                    </div>
+                                </div>
+
+
+
+                                <br>
+                                <div class="row center">
+                                    <div class="col-md-12 center">
+                                        <button type="button" class="btn btn-primary center" style="margin-left:45%"
+                                            data-toggle="modal" data-target="#myModal2">Initialize</button>
+                                        {{-- <button type="submit">YA</button> --}}
+                                    </div>
+                                </div>
+
+                                <div id="myModal2" class="modal fade" tabindex="-1" role="dialog"
+                                    aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-hidden="true">×</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>
+                                                    Anda pasti mahu initialize pelesen ini?
+                                                </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                </button>
+                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Ya</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -333,5 +332,39 @@
 
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
+    </script>
+
+    <script>
+        // Use Javascript
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("datefield").setAttribute("min", today);
+    </script>
+
+    <script>
+        // Use Javascript
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0 so need to add 1 to make it 1!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+
+        today = yyyy + '-' + mm + '-' + dd;
+        document.getElementById("datefield2").setAttribute("min", today);
     </script>
 @endsection

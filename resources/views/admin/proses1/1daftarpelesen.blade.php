@@ -53,14 +53,16 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
-                                        {{-- @if($errors->any())
+                                        {{-- @if ($errors->any())
                                         {{ implode('', $errors->all('<div>:message</div>')) }}
                                         @endif --}}
-                                        <label for="fname" class="control-label col-form-label">
+                                        <label for="fname" class="control-label col-form-label required">
                                             Jenis Kilang</label>
                                         <fieldset class="form-group">
-                                            <select class="form-control" name="e_kat">
-                                                <option selected hidden disabled>Sila Pilih Kilang</option>
+                                            <select class="form-control" name="e_kat" required
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                <option selected hidden disabled value="">Sila Pilih Kilang</option>
                                                 <option value="PL91">Kilang Buah</option>
                                                 <option value="PL101">Kilang Penapis</option>
                                                 <option value="PL102">Kilang Isirung</option>
@@ -75,9 +77,11 @@
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label class="control-label col-form-label">Status e-Kilang</label>
-                                            <select class="form-control" name="e_status">
-                                                <option selected hidden disabled>Sila Pilih</option>
+                                            <label class="control-label col-form-label required">Status e-Kilang</label>
+                                            <select class="form-control" name="e_status" required
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                <option selected hidden disabled value="">Sila Pilih</option>
                                                 <option value="1">Aktif</option>
                                                 <option value="2">Tidak Aktif</option>
                                             </select>
@@ -87,9 +91,11 @@
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label class="control-label col-form-label">Status e-Mingguan</label>
-                                            <select class="form-control" name="e_stock">
-                                                <option selected hidden disabled>Sila Pilih</option>
+                                            <label class="control-label col-form-label required">Status e-Mingguan</label>
+                                            <select class="form-control" name="e_stock" required
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                <option selected hidden disabled value="">Sila Pilih</option>
                                                 <option value="1">Aktif</option>
                                                 <option value="2">Tidak Aktif</option>
                                             </select>
@@ -100,9 +106,11 @@
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label class="control-label col-form-label">Status Direktori</label>
-                                            <select class="form-control" name="directory">
-                                                <option selected hidden disabled>Sila Pilih</option>
+                                            <label class="control-label col-form-label required">Status Direktori</label>
+                                            <select class="form-control" name="directory" required
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                <option selected hidden disabled value="">Sila Pilih</option>
                                                 <option value="Y">Ya</option>
                                                 <option value="N">Tidak</option>
                                             </select>
@@ -112,9 +120,11 @@
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label class="control-label col-form-label">Kod Negeri </label>
-                                            <select class="form-control" name="kodpgw">
-                                                <option selected hidden disabled>Sila Pilih</option>
+                                            <label class="control-label col-form-label required">Kod Negeri </label>
+                                            <select class="form-control" name="kodpgw" required
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                <option selected hidden disabled value="">Sila Pilih</option>
                                                 <option value="JJ">JJ</option>
                                                 <option value="KB">KB</option>
                                                 <option value="KK">KK</option>
@@ -136,162 +146,191 @@
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Nombor Siri</label>
-                                            <input type="text" id="nombor_siri" class="form-control"
-                                                placeholder="Nombor Siri" name="nosiri" value="{{ old('nombor_siri') }}">
+                                            <label for="inputcom" class="control-label col-form-label required">Nombor
+                                                Siri</label>
+                                            <input type="text" id="nombor_siri" class="form-control" required
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Nombor Siri" name="nosiri"
+                                                value="{{ old('nombor_siri') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Nombor Lesen</label>
-                                            <input type="text" id="nombor_lesen" class="form-control"
-                                                placeholder="Nombor Lesen" name="e_nl" value="{{ old('nombor_lesen') }}">
+                                            <label for="inputcom" class="control-label col-form-label required">Nombor
+                                                Lesen</label>
+                                            <input type="text" id="nombor_lesen" class="form-control" required
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Nombor Lesen" name="e_nl"
+                                                value="{{ old('nombor_lesen') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Nama Premis</label>
-                                            <input type="text" id="nama_premis" class="form-control"
-                                                placeholder="Nama Premis" name="e_np" value="{{ old('nama_premis') }}">
+                                            <label for="inputcom" class="control-label col-form-label required">Nama
+                                                Premis</label>
+                                            <input type="text" id="nama_premis" class="form-control" required
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Nama Premis" name="e_np"
+                                                value="{{ old('nama_premis') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Alamat Premis
+                                            <label for="inputcom" class="control-label col-form-label required">Alamat
+                                                Premis
                                                 Berlesen</label>
                                             <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 1" name="e_ap1"
-                                                value="{{ old('alamat_premis_1') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Alamat Premis 1" name="e_ap1"
+                                                required value="{{ old('alamat_premis_1') }}">
                                         </div>
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
                                             <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 2" name="e_ap2"
-                                                value="{{ old('alamat_premis_1') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Alamat Premis 2" name="e_ap2"
+                                                required value="{{ old('alamat_premis_1') }}">
                                         </div>
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
                                             <input type="text" id="alamat_premis_1" class="form-control"
-                                                placeholder="Alamat Premis 3" name="e_ap3"
-                                                value="{{ old('alamat_premis_1') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Alamat Premis 3" name="e_ap3"
+                                                required value="{{ old('alamat_premis_1') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Alamat Surat
+                                            <label for="inputcom" class="control-label col-form-label required">Alamat Surat
                                                 Menyurat</label>
                                             <input type="text" id="alamat_surat_1" class="form-control"
-                                                placeholder="Alamat Surat Menyurat 1" name="e_as1"
-                                                value="{{ old('alamat_surat_1') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Alamat Surat Menyurat 1"
+                                                name="e_as1" required value="{{ old('alamat_surat_1') }}">
                                         </div>
                                     </div>
                                 </div>
-                               <div class="row">
+                                <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
                                             <input type="text" id="alamat_surat_1" class="form-control"
-                                                placeholder="Alamat Surat Menyurat 2" name="e_as2"
-                                                value="{{ old('alamat_surat_1') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Alamat Surat Menyurat 2"
+                                                name="e_as2" required value="{{ old('alamat_surat_1') }}">
                                         </div>
 
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
                                             <input type="text" id="alamat_surat_1" class="form-control"
-                                                placeholder="Alamat Surat Menyurat 3" name="e_as3"
-                                                value="{{ old('alamat_surat_1') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Alamat Surat Menyurat 3"
+                                                name="e_as3" required value="{{ old('alamat_surat_1') }}">
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">No. Telefon
+                                            <label for="inputcom" class="control-label col-form-label required">No. Telefon
                                                 Kilang</label>
                                             <input type="text" id="no_tel_kilang" class="form-control"
-                                                placeholder="No. Telefon Kilang" name="e_notel"
-                                                value="{{ old('no_tel_kilang') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="No. Telefon Kilang"
+                                                name="e_notel" required value="{{ old('no_tel_kilang') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">No. Faks
+                                            <label for="inputcom" class="control-label col-form-label required">No. Faks
                                                 Kilang</label>
                                             <input type="text" id="no_faks_kilang" class="form-control"
-                                                placeholder="No. Faks Kilang" name="e_nofax"
-                                                value="{{ old('no_faks_kilang') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="No. Faks Kilang" name="e_nofax"
+                                                required value="{{ old('no_faks_kilang') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Alamat Emel
+                                            <label for="inputcom" class="control-label col-form-label required">Alamat Emel
                                                 Kilang</label>
                                             <input type="text" id="emel_kilang" class="form-control"
-                                                placeholder="Alamat Emel Kilang" name="e_email"
-                                                value="{{ old('emel_kilang') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Alamat Emel Kilang"
+                                                name="e_email" required value="{{ old('emel_kilang') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Nama Pegawai
+                                            <label for="inputcom" class="control-label col-form-label required">Nama Pegawai
                                                 Melapor</label>
                                             <input type="text" id="nama_pegawai_lapor" class="form-control"
-                                                placeholder="Nama Pegawai Melapor" name="e_npg"
-                                                value="{{ old('nama_pegawai_lapor') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Nama Pegawai Melapor"
+                                                name="e_npg" required value="{{ old('nama_pegawai_lapor') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Jawatan Pegawai
+                                            <label for="inputcom" class="control-label col-form-label required">Jawatan
+                                                Pegawai
                                                 Melapor</label>
                                             <input type="text" id="jawatan_pegawai_lapor" class="form-control"
-                                                placeholder="Jawatan Pegawai Melapor" name="e_jpg"
-                                                value="{{ old('jawatan_pegawai_lapor') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Jawatan Pegawai Melapor"
+                                                name="e_jpg" required value="{{ old('jawatan_pegawai_lapor') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">No. Telefon Pegawai
+                                            <label for="inputcom" class="control-label col-form-label required">No. Telefon
+                                                Pegawai
                                                 Melapor</label>
-                                            <input type="text" id="email-id-column" class="form-control"
+                                            <input type="text" id="email-id-column" class="form-control" required
                                                 placeholder="No. Telefon Pegawai Melapor" name='e_notel_pg'
-                                                value="{{ old('e_notel_pg') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" value="{{ old('e_notel_pg') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Nama Pegawai
+                                            <label for="inputcom" class="control-label col-form-label required">Nama
+                                                Pegawai
                                                 Bertanggungjawab</label>
                                             <input type="text" id="enama_pegawai_jawab" class="form-control"
-                                                placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                                value="{{ old('nama_pegawai_jawab') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Nama Pegawai Bertanggungjawab"
+                                                name="e_npgtg" required value="{{ old('nama_pegawai_jawab') }}">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Jawatan Pegawai
+                                            <label for="inputcom" class="control-label col-form-label required">Jawatan
+                                                Pegawai
                                                 Bertanggungjawab</label>
                                             <input type="text" id="jawatan_pegawai_jawab" class="form-control"
-                                                placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')"
+                                                placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" required
                                                 value="{{ old('jawatan_pegawai_jawab') }}">
                                         </div>
                                     </div>
@@ -299,23 +338,26 @@
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">Alamat Emel
+                                            <label for="inputcom" class="control-label col-form-label required">Alamat Emel
                                                 Pengurus</label>
                                             <input type="text" id="emel_pengurus" class="form-control"
-                                                placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                                value="{{ old('eemel_pengurus') }}">
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Alamat Emel Pengurus"
+                                                name="e_email_pengurus" required value="{{ old('eemel_pengurus') }}">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row" >
+                                <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">
+                                            <label for="inputcom" class="control-label col-form-label required">
                                                 Negeri</label>
                                             <fieldset class="form-group">
                                                 <select class="form-control" id="negeri_id" name="e_negeri"
-                                                    onchange="ajax_daerah(this);ajax_kawasan(this)">
-                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')"
+                                                    onchange="ajax_daerah(this);ajax_kawasan(this)" required>
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($negeri as $data)
                                                         <option value="{{ $data->kod_negeri }}">
                                                             {{ $data->nama_negeri }}
@@ -328,13 +370,15 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
-                                        <label for="inputcom" class="control-label col-form-label">
+                                        <label for="inputcom" class="control-label col-form-label required">
                                             Daerah</label>
                                         <fieldset class="form-group">
 
-                                            <select class="form-control" id="daerah_id" name='e_daerah'
-                                                placeholder="Daerah">
-                                                <option selected hidden disabled>Sila Pilih Negeri Terlebih Dahulu
+                                            <select class="form-control" id="daerah_id" name='e_daerah' required
+                                                placeholder="Daerah"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                <option selected hidden disabled value="">Sila Pilih Negeri Terlebih Dahulu
                                                 </option>
                                             </select>
                                         </fieldset>
@@ -343,10 +387,12 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
-                                        <label for="inputcom" class="control-label col-form-label">
+                                        <label for="inputcom" class="control-label col-form-label required">
                                             Kawasan</label>
                                         <fieldset class="form-group">
-                                            <select class="form-control" id="kawasan_id" name='e_kawasan'>
+                                            <select class="form-control" id="kawasan_id" name='e_kawasan' required
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
                                                 <option value="" selected hidden disabled>Sila Pilih
                                                     Daerah Terlebih Dahulu</option>
                                             </select>
@@ -356,29 +402,35 @@
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">
+                                            <label for="inputcom" class="control-label col-form-label required">
                                                 Syarikat Induk</label>
-                                            <input type="text" id="syarikat_induk" class="form-control"
-                                                placeholder="Syarikat Induk" name="e_syktinduk">
+                                            <input type="text" id="syarikat_induk" class="form-control" required
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" placeholder="Syarikat Induk"
+                                                name="e_syktinduk">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
-                                        <label for="inputcom" class="control-label col-form-label">
+                                        <label for="inputcom" class="control-label col-form-label required">
                                             Tahun Mula Beroperasi</label>
-                                        <input type="text" id="tahun_operasi" class="form-control"
-                                            placeholder="Tahun Mula Beroperasi" name="e_year">
+                                        <input type="text" id="tahun_operasi" class="form-control" required
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            oninput="setCustomValidity('')" placeholder="Tahun Mula Beroperasi"
+                                            name="e_year">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
                                         <div class="form-group">
-                                            <label for="inputcom" class="control-label col-form-label">
+                                            <label for="inputcom" class="control-label col-form-label required">
                                                 Kumpulan</label>
                                             <fieldset class="form-group">
-                                                <select class="form-control" name="e_group">
-                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                <select class="form-control" name="e_group" required
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
                                                     <option value="GOV">Kerajaan</option>
                                                     <option value="IND">Swasta</option>
                                                 </select>
@@ -388,11 +440,13 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-8 ml-auto mr-auto">
-                                        <label for="inputcom" class="control-label col-form-label">
+                                        <label for="inputcom" class="control-label col-form-label required">
                                             POMA</label>
                                         <fieldset class="form-group">
-                                            <select class="form-control" name="e_poma">
-                                                <option selected hidden disabled>Sila Pilih</option>
+                                            <select class="form-control" name="e_poma" required
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                <option selected hidden disabled value="">Sila Pilih</option>
                                                 <option value="poma">Ya</option>
                                                 <option value="NULL">Tidak</option>
                                             </select>

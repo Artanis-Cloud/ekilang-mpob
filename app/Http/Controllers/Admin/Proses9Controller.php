@@ -26,6 +26,7 @@ use App\Models\RegPelesen;
 use DateTime;
 use Illuminate\Http\Request;
 use DB;
+use Illuminate\Support\Facades\Validator;
 
 class Proses9Controller extends Controller
 {
@@ -142,103 +143,125 @@ class Proses9Controller extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.proses9.9penyataterdahulubiodiesel', compact('returnArr', 'layout'));
+
     }
+
+
+    protected function validation_terdahulu(array $data)
+    {
+        return Validator::make($data, [
+            'sektor' => ['required', 'string'],
+            'tahun' => ['required', 'string'],
+            'bulan' => ['required', 'string'],
+            'data' => ['required', 'string'],
+        ]);
+    }
+
+
 
     public function admin_9penyataterdahulu_process(Request $request)
     {
+
+        $this->validation_terdahulu($request->all())->validate();
+
         // dd($request->all());
         $sektor = $request->sektor;
+        $data = $request->data;
         // dd($sektor);
 
-        if ($sektor == 'PL91') {
-            $tahun = H91Init::where('e91_thn', $request->tahun);
-            $bulan = H91Init::where('e91_bln', $request->bulan);
-
-            $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, e.e91_nobatch,  date_format(e91_sdate,'%d-%m-%Y') as sdate
-                            FROM pelesen p, h91_init e, reg_pelesen k
-                            WHERE e.e91_thn = '$request->tahun'
-                            and e.e91_bln = '$request->bulan'
-                            and p.e_nl = e.e91_nl
-                            and e.e91_flg = '3'
-                            and p.e_nl = k.e_nl
-                            and k.e_kat = 'PL91'
-                            order by k.kodpgw, k.nosiri");
-
-        } elseif ($sektor == 'PL101') {
-            $tahun = H101Init::where('tahun', $request->e101_thn);
-            $bulan = H101Init::where('tahun', $request->e101_bln);
 
 
-            $users = DB::select("SELECT e.e101_nl, p.e_nl, p.e_np, k.kodpgw, e.e101_nobatch, k.nosiri,date_format(e101_sdate,'%d-%m-%Y') as sdate
-                            from pelesen p, h101_init e, reg_pelesen k
-                            WHERE e.e101_thn = '$request->tahun'
-                            and e.e101_bln = '$request->bulan'
-                            and e.e101_flg = '3'
-                            and p.e_nl = e.e101_nl
-                            and p.e_nl = k.e_nl
-                            and k.e_kat = 'PL101'
-                            order by k.kodpgw, k.nosiri");
+        if ($data == 'ekilang') {
+            if ($sektor == 'PL91') {
+                $tahun = H91Init::where('e91_thn', $request->tahun);
+                $bulan = H91Init::where('e91_bln', $request->bulan);
 
-        } elseif ($sektor == 'PL102') {
-            $tahun = H102Init::where('tahun', $request->e102_thn);
-            $bulan = H102Init::where('tahun', $request->e102_bln);
+                $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, e.e91_nobatch,  date_format(e91_sdate,'%d-%m-%Y') as sdate
+                                FROM pelesen p, h91_init e, reg_pelesen k
+                                WHERE e.e91_thn = '$request->tahun'
+                                and e.e91_bln = '$request->bulan'
+                                and p.e_nl = e.e91_nl
+                                and e.e91_flg = '3'
+                                and p.e_nl = k.e_nl
+                                and k.e_kat = 'PL91'
+                                order by k.kodpgw, k.nosiri");
+            } elseif ($sektor == 'PL101') {
+                $tahun = H101Init::where('tahun', $request->e101_thn);
+                $bulan = H101Init::where('tahun', $request->e101_bln);
 
 
-            $users = DB::select("SELECT e.e102_nl, p.e_nl, p.e_np, k.kodpgw, e.e102_nobatch, k.nosiri, date_format(e102_sdate,'%d-%m-%Y') as sdate
-                            FROM  pelesen p, h102_init e, reg_pelesen k
-                            WHERE e.e102_thn = '$request->tahun'
-                            and e.e102_bln = '$request->bulan'
-                            and p.e_nl = e.e102_nl
-                            and e.e102_flg = '3'
-                            and p.e_nl = k.e_nl
-                            and k.e_kat = 'PL102'
-                            order by k.kodpgw, k.nosiri");
+                $users = DB::select("SELECT e.e101_nl, p.e_nl, p.e_np, k.kodpgw, e.e101_nobatch, k.nosiri,date_format(e101_sdate,'%d-%m-%Y') as sdate
+                                from pelesen p, h101_init e, reg_pelesen k
+                                WHERE e.e101_thn = '$request->tahun'
+                                and e.e101_bln = '$request->bulan'
+                                and e.e101_flg = '3'
+                                and p.e_nl = e.e101_nl
+                                and p.e_nl = k.e_nl
+                                and k.e_kat = 'PL101'
+                                order by k.kodpgw, k.nosiri");
+            } elseif ($sektor == 'PL102') {
+                $tahun = H102Init::where('tahun', $request->e102_thn);
+                $bulan = H102Init::where('tahun', $request->e102_bln);
 
-        } elseif ($sektor == 'PL104') {
-            $tahun = H104Init::where('tahun', $request->e104_thn);
-            $bulan = H104Init::where('tahun', $request->e104_bln);
 
-            $users = DB::select("SELECT e.e104_nl, p.e_nl, p.e_np, k.kodpgw, e.e104_nobatch, k.nosiri, date_format(e104_sdate,'%d-%m-%Y') as sdate
-                            FROM  pelesen p, h104_init e, reg_pelesen k
-                            WHERE e.e104_thn = '$request->tahun'
-                            and e.e104_bln = '$request->bulan'
-                            and p.e_nl = e.e104_nl
-                            and e.e104_flg = '3'
-                            and p.e_nl = k.e_nl
-                            and k.e_kat = 'PL104'
-                            order by k.kodpgw, k.nosiri");
+                $users = DB::select("SELECT e.e102_nl, p.e_nl, p.e_np, k.kodpgw, e.e102_nobatch, k.nosiri, date_format(e102_sdate,'%d-%m-%Y') as sdate
+                                FROM  pelesen p, h102_init e, reg_pelesen k
+                                WHERE e.e102_thn = '$request->tahun'
+                                and e.e102_bln = '$request->bulan'
+                                and p.e_nl = e.e102_nl
+                                and e.e102_flg = '3'
+                                and p.e_nl = k.e_nl
+                                and k.e_kat = 'PL102'
+                                order by k.kodpgw, k.nosiri");
+            } elseif ($sektor == 'PL104') {
+                $tahun = H104Init::where('tahun', $request->e104_thn);
+                $bulan = H104Init::where('tahun', $request->e104_bln);
 
-        } elseif ($sektor == 'PL111') {
-            $tahun = H104Init::where('tahun', $request->e104_thn);
-            $bulan = H104Init::where('tahun', $request->e104_bln);
+                $users = DB::select("SELECT e.e104_nl, p.e_nl, p.e_np, k.kodpgw, e.e104_nobatch, k.nosiri, date_format(e104_sdate,'%d-%m-%Y') as sdate
+                                FROM  pelesen p, h104_init e, reg_pelesen k
+                                WHERE e.e104_thn = '$request->tahun'
+                                and e.e104_bln = '$request->bulan'
+                                and p.e_nl = e.e104_nl
+                                and e.e104_flg = '3'
+                                and p.e_nl = k.e_nl
+                                and k.e_kat = 'PL104'
+                                order by k.kodpgw, k.nosiri");
+            } elseif ($sektor == 'PL111') {
+                $tahun = H104Init::where('tahun', $request->e104_thn);
+                $bulan = H104Init::where('tahun', $request->e104_bln);
 
-            $users = DB::select("SELECT e.e07_nl, p.e_nl, p.e_np, k.kodpgw, e.e07_nobatch, k.nosiri, date_format(e07_sdate,'%d-%m-%Y') as sdate
-            FROM pelesen p, h07_init e, reg_pelesen k
-            WHERE e.e07_thn = '$request->tahun'
-            and e.e07_bln = '$request->bulan'
-            and p.e_nl = e.e07_nl
-            and e.e07_flg = '3'
-            and p.e_nl = k.e_nl
-            and k.e_kat = 'PL111'
-            order by k.kodpgw, k.nosiri");
+                $users = DB::select("SELECT e.e07_nl, p.e_nl, p.e_np, k.kodpgw, e.e07_nobatch, k.nosiri, date_format(e07_sdate,'%d-%m-%Y') as sdate
+                FROM pelesen p, h07_init e, reg_pelesen k
+                WHERE e.e07_thn = '$request->tahun'
+                and e.e07_bln = '$request->bulan'
+                and p.e_nl = e.e07_nl
+                and e.e07_flg = '3'
+                and p.e_nl = k.e_nl
+                and k.e_kat = 'PL111'
+                order by k.kodpgw, k.nosiri");
+            }
+        } elseif ($data == 'pleid') {
+            return redirect()->back()
+                ->with('error', 'Penyata Tidak Wujud!');
         }
 
+
+
         $breadcrumbs    = [
-        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
-        ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Senarai Penyata Terdahulu"],
         ];
 
         $kembali = route('admin.9penyataterdahulu');
 
         $returnArr = [
-        'breadcrumbs' => $breadcrumbs,
-        'kembali'     => $kembali,
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'tahun', 'bulan', 'users', 'sektor'));
-
+        return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor'));
     }
 
     // public function admin_9penyataterdahulu_process(Request $request)
@@ -303,7 +326,6 @@ class Proses9Controller extends Controller
             $pelesens[$key] = (object)[];
             $penyata = H91Init::find($e91_nobatch);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata->e91_nl)->first();
-
         }
 
         $layout = 'layouts.main';
@@ -395,18 +417,63 @@ class Proses9Controller extends Controller
             $totalvbd6 = DB::table("h101_d")->where('e101_nobatch', $penyata->e101_nobatch)->where('e101_d3', '2')->sum('e101_d6');
             $totalvbd7 = DB::table("h101_d")->where('e101_nobatch', $penyata->e101_nobatch)->where('e101_d3', '2')->sum('e101_d7');
             $totalvbd8 = DB::table("h101_d")->where('e101_nobatch', $penyata->e101_nobatch)->where('e101_d3', '2')->sum('e101_d8');
-
         }
         $layout = 'layouts.main';
 
         // dd($pelesens);
         // dd($penyatas);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-terdahulu-penapis-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata',
-         'i', 'ii', 'iva', 'ivb', 'va', 'vb', 'totalib5','totaliib5', 'totalivac5','totalvad5', 'totalvbd5','totalib6',
-         'totaliib6','totalivac6', 'totalivbc6', 'totalvbd6','totalib7', 'totaliib7','totalivac7','totalivbc7','totalvad7','totalvbd7',
-         'totalib8','totaliib8','totalivac8','totalivbc8','totalvad8','totalvbd8','totalib9','totaliib9','totalivac9','totalivbc9','totalib10',
-         'totaliib10','totalivac10','totalivbc10','totalib11','totaliib11','totaliib12','totalib13','totaliib13','totalib14','totaliib14'));
+        return view('admin.proses9.9papar-terdahulu-penapis-multi', compact(
+            'returnArr',
+            'layout',
+            'tahun',
+            'bulan',
+            'pelesens',
+            'penyata',
+            'i',
+            'ii',
+            'iva',
+            'ivb',
+            'va',
+            'vb',
+            'totalib5',
+            'totaliib5',
+            'totalivac5',
+            'totalvad5',
+            'totalvbd5',
+            'totalib6',
+            'totaliib6',
+            'totalivac6',
+            'totalivbc6',
+            'totalvbd6',
+            'totalib7',
+            'totaliib7',
+            'totalivac7',
+            'totalivbc7',
+            'totalvad7',
+            'totalvbd7',
+            'totalib8',
+            'totaliib8',
+            'totalivac8',
+            'totalivbc8',
+            'totalvad8',
+            'totalvbd8',
+            'totalib9',
+            'totaliib9',
+            'totalivac9',
+            'totalivbc9',
+            'totalib10',
+            'totaliib10',
+            'totalivac10',
+            'totalivbc10',
+            'totalib11',
+            'totaliib11',
+            'totaliib12',
+            'totalib13',
+            'totaliib13',
+            'totalib14',
+            'totaliib14'
+        ));
     }
 
 
@@ -456,8 +523,22 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-terdahulu-isirung-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata',
-        'iii', 'totaliii', 'iv', 'totaliv', 'v', 'totalv', 'vi', 'vii'));
+        return view('admin.proses9.9papar-terdahulu-isirung-multi', compact(
+            'returnArr',
+            'layout',
+            'tahun',
+            'bulan',
+            'pelesens',
+            'penyata',
+            'iii',
+            'totaliii',
+            'iv',
+            'totaliv',
+            'v',
+            'totalv',
+            'vi',
+            'vii'
+        ));
     }
 
 
@@ -510,7 +591,8 @@ class Proses9Controller extends Controller
             $totalib13 = DB::table("h104_b")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_b3', '2')->sum('e104_b13');
 
             $ic = H104B::with('h104init', 'produk')->where('e104_nobatch', $penyata->e104_nobatch)->whereHas('produk', function ($query) {
-                return $query->where('prodcat', '=', '08');})->get();
+                return $query->where('prodcat', '=', '08');
+            })->get();
             $totalic5 = DB::table("h104_b")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_b3', '3')->sum('e104_b5');
             $totalic6 = DB::table("h104_b")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_b3', '3')->sum('e104_b6');
             $totalic7 = DB::table("h104_b")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_b3', '3')->sum('e104_b7');
@@ -534,26 +616,68 @@ class Proses9Controller extends Controller
             $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->get();
             $totaliv7 = DB::table("h104_d")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->sum('e104_d7');
             $totaliv8 = DB::table("h104_d")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->sum('e104_d8');
-
-
-
         }
 
         $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[0]->e104_d6);
-            $formatteddat2 = $myDateTime2->format('d-m-Y');
-            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e104_sdate);
-            $formatteddate = $myDateTime->format('d-m-Y');
+        $formatteddat2 = $myDateTime2->format('d-m-Y');
+        $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e104_sdate);
+        $formatteddate = $myDateTime->format('d-m-Y');
         $layout = 'layouts.main';
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-terdahulu-oleo-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata','ia',
-        'ib','ic','ii','iii','iv','totalia5','totalia6','totalia7','totalia8','totalia9','totalia10','totalia11','totalia12','totalia13',
-        'totalib5','totalib6','totalib7','totalib8','totalib9','totalib10','totalib11','totalib12','totalib13','totalic5','totalic6','totalic7',
-        'totalic8','totalic9','totalic10','totalic11','totalic12','totalic13','totaliii4','totaliii5','totaliii6','totaliii7','totaliii8',
-        'totaliv7','totaliv8' ,  'myDateTime','myDateTime2',
-        'formatteddat2',
-        'formatteddate',));
+        return view('admin.proses9.9papar-terdahulu-oleo-multi', compact(
+            'returnArr',
+            'layout',
+            'tahun',
+            'bulan',
+            'pelesens',
+            'penyata',
+            'ia',
+            'ib',
+            'ic',
+            'ii',
+            'iii',
+            'iv',
+            'totalia5',
+            'totalia6',
+            'totalia7',
+            'totalia8',
+            'totalia9',
+            'totalia10',
+            'totalia11',
+            'totalia12',
+            'totalia13',
+            'totalib5',
+            'totalib6',
+            'totalib7',
+            'totalib8',
+            'totalib9',
+            'totalib10',
+            'totalib11',
+            'totalib12',
+            'totalib13',
+            'totalic5',
+            'totalic6',
+            'totalic7',
+            'totalic8',
+            'totalic9',
+            'totalic10',
+            'totalic11',
+            'totalic12',
+            'totalic13',
+            'totaliii4',
+            'totaliii5',
+            'totaliii6',
+            'totaliii7',
+            'totaliii8',
+            'totaliv7',
+            'totaliv8',
+            'myDateTime',
+            'myDateTime2',
+            'formatteddat2',
+            'formatteddate',
+        ));
     }
 
     public function process_admin_9penyataterdahulu_simpanan_form(Request $request)
@@ -591,7 +715,19 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-terdahulu-simpanan-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'a',
-        'total','total2','total3','total4','total5'));
+        return view('admin.proses9.9papar-terdahulu-simpanan-multi', compact(
+            'returnArr',
+            'layout',
+            'tahun',
+            'bulan',
+            'pelesens',
+            'penyata',
+            'a',
+            'total',
+            'total2',
+            'total3',
+            'total4',
+            'total5'
+        ));
     }
 }

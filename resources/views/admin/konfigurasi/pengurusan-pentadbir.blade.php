@@ -49,7 +49,7 @@
                     <div class="card">
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-top:3%">Pengurusan Pentadbir</h3>
-                            <h4 style="color: rgb(39, 80, 71); margin-top:3%">Daftar Akaun Pentadbir</h4>
+                            <h4 style="color: rgb(39, 80, 71); margin-top:1%">Daftar Akaun Pentadbir</h4>
                         </div>
                         <hr>
                         <form action="{{ route('admin.pengurusan.pentadbir.process') }}" method="post">
@@ -57,7 +57,7 @@
                             <div class="card-body">
                                 <div class="container center z">
 
-                                    <div class="row" style="margin-top: 1% ">
+                                    <div class="row" style="margin-top: -1% ">
                                         <label for="fname"
                                             class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                             Nama</label>
@@ -91,7 +91,7 @@
                                     <div class="row" style="margin-top: 1% ">
                                         <label for="fname"
                                             class="text-right col-sm-4 control-label col-form-label required align-items-center">
-                                            <i>Username</i></label>
+                                            Username</label>
                                         <div class="col-md-6">
                                             <input type="text" id="username" class="form-control" placeholder="Username"
                                                 name="username" value="{{ old('username') }}">
@@ -109,11 +109,10 @@
                                             Kategori</label>
                                         <div class="col-md-6">
                                             @if (auth()->user()->role == 'Superadmin')
-
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="basicSelect" name="role"
                                                         value={{ old('role') }}>
-                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        <option selected hidden disabled>Sila Pilih Kategori</option>
                                                         <option value="Superadmin">Superadmin</option>
                                                         <option value="Manager">Manager</option>
                                                         <option value="Supervisor">Supervisor</option>
@@ -125,13 +124,11 @@
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror
-
                                             @elseif (auth()->user()->role == 'Manager')
-
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="basicSelect" name="role"
                                                         value={{ old('role') }}>
-                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        <option selected hidden disabled>Sila Pilih Kategori</option>
                                                         <option value="Manager">Manager</option>
                                                         <option value="Supervisor">Supervisor</option>
                                                         <option value="Admin">Admin</option>
@@ -142,13 +139,11 @@
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror
-
                                             @elseif (auth()->user()->role == 'Supervisor')
-
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="basicSelect" name="role"
                                                         value={{ old('role') }}>
-                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        <option selected hidden disabled>Sila Pilih Kategori</option>
                                                         <option value="Admin">Admin</option>
                                                         <option value="Supervisor">Supervisor</option>
                                                     </select>
@@ -158,13 +153,11 @@
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror
-
                                             @elseif (auth()->user()->role == 'Admin' || auth()->user()->role == '')
-
                                                 <fieldset class="form-group">
                                                     <select class="form-control" id="basicSelect" name="role"
                                                         value={{ old('role') }}>
-                                                        <option selected hidden disabled>Sila Pilih</option>
+                                                        <option selected hidden disabled>Sila Pilih Kategori</option>
                                                         <option value="Admin">Admin</option>
                                                     </select>
                                                 </fieldset>
@@ -173,13 +166,38 @@
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror
-
                                             @endif
 
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Sub
+                                            Kategori</label>
+                                        <div class="col-md-6">
 
+                                            <select multiple="multiple" size="10" class="duallistbox-no-filter" name="sub-cat[]">
+                                                <option value="PL91">Kilang Buah</option>
+                                                <option value="PL101">Kilang Penapis</option>
+                                                <option value="PL102">Kilang Isirung</option>
+                                                <option value="PL104">Kilang Oleokimia</option>
+                                                <option value="PL111">Pusat Simpanan</option>
+                                                <option value="PLBIO">Kilang Biodiesel</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row" style="margin-top:1%">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Status</label>
+                                        <div class="col-md-6">
 
+                                            <select class="form-control" name="status">
+                                                <option selected hidden disabled value="">Sila Pilih Status</option>
+                                                <option value="1">Aktif</option>
+                                                <option value="2">Tidak Aktif</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
 
 
@@ -238,7 +256,5 @@
 @endsection
 
 @section('scripts')
-    <script>
-
-    </script>
+    <script></script>
 @endsection
