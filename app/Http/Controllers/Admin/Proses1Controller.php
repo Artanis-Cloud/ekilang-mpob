@@ -43,7 +43,6 @@ class Proses1Controller extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Maklumat Asas Pelesen"],
             ['link' => route('admin.1daftarpelesen'), 'name' => "Daftar Pelesen Baru"],
         ];
 
