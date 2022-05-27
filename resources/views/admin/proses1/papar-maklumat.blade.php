@@ -54,10 +54,10 @@
                     <hr>
                     <form action="{{ route('admin.update.maklumat.asas.pelesen', [$pelesen->e_id] ) }}" method="post">
                         @csrf
-                        <div class="container center mt-5">
+                        <div class="container center mt-5 mb-2">
                             <div class="row">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-right col-sm-5 control-label col-form-label  align-items-center">
                                     Jenis Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
@@ -78,7 +78,7 @@
                                             @enderror --}}
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Status e-Kilang </label>
@@ -93,7 +93,7 @@
 
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row"  style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Status e-Mingguan </label>
@@ -107,7 +107,7 @@
 
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Status Direktori </label>
@@ -121,14 +121,25 @@
 
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kod Negeri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" name="kodpgw" id="kodpgw">
-                                            <option selected hidden disabled>{{ $pelesen->kodpgw ?? '' }}
+
+                                            <option {{ ($pelesen->kodpgw == 'JJ') ? 'selected' : '' }} value="JJ">JJ</option>
+                                            <option {{ ($pelesen->kodpgw == 'KB') ? 'selected' : '' }} value="KB">KB</option>
+                                            <option {{ ($pelesen->kodpgw == 'KK') ? 'selected' : '' }} value="KK">KK</option>
+                                            <option {{ ($pelesen->kodpgw == 'MM') ? 'selected' : '' }} value="MM">MM</option>
+                                            <option {{ ($pelesen->kodpgw == 'NS') ? 'selected' : '' }} value="NS">NS</option>
+                                            <option {{ ($pelesen->kodpgw == 'PH') ? 'selected' : '' }} value="PH">PH</option>
+                                            <option {{ ($pelesen->kodpgw == 'PK') ? 'selected' : '' }} value="PK">PK</option>
+                                            <option {{ ($pelesen->kodpgw == 'PP') ? 'selected' : '' }} value="PP">PP</option>
+                                            <option {{ ($pelesen->kodpgw == 'SA') ? 'selected' : '' }} value="SA">SA</option>
+
+                                            {{-- <option selected hidden disabled>{{ $pelesen->kodpgw ?? '' }}
                                             </option>
                                             <option value="JJ">JJ</option>
                                             <option value="KB">KB</option>
@@ -142,13 +153,13 @@
                                             <option value="SS">SS</option>
                                             <option value="SW">SW</option>
                                             <option value="TT">TT</option>
-                                            <option value="WP">WP</option>
+                                            <option value="WP">WP</option> --}}
                                         </select>
                                     </fieldset>
 
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Nombor Siri </label>
@@ -161,7 +172,7 @@
 
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Nombor Lesen </label>
@@ -174,7 +185,7 @@
 
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Nama Premis </label>
@@ -413,15 +424,15 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row mb-2">
+                            <div class="row">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Negeri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="negeri_id" name='e_negeri'
-                                            onchange="ajax_daerah(this);ajax_kawasan(this)">
-                                            <option selected hidden disabled>Sila Pilih</option>
+                                            onchange="ajax_daerah(this);ajax_kawasan(this)" value="{{ $negeri }}">
+                                            <option selected hidden disabled>{{ $pelesen->negeri->nama_negeri ?? 'Sila Pilih Negeri' }}</option>
                                             @foreach ($negeri as $data)
                                                 <option value="{{ $data->kod_negeri }}">
                                                     {{ $data->nama_negeri }}
@@ -432,7 +443,7 @@
 
                                 </div>
                             </div>
-                            <div class="row mb-2">
+                            <div class="row"  style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Daerah </label>
@@ -440,21 +451,25 @@
                                     <fieldset class="form-group">
                                         <select class="form-control" id="daerah_id" name='e_daerah'
                                             placeholder="Daerah">
-                                            <option selected hidden disabled>Sila Pilih Negeri Terlebih Dahulu
+                                            <option selected hidden disabled> {{  $pelesen->daerah->nama_daerah ?? 'Sila Pilih Negeri Terlebih Dahulu'}}
                                             </option>
+                                                        {{-- <option selected hidden disabled value="">POMA</option>
+                                            <option {{ $pelesen->e_daerah == 'Ya' ? 'selected' : '' }} value="Ya">
+                                                Ya</option>
+                                            <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }} value="Tidak">
+                                                Tidak</option> --}}
                                         </select>
                                     </fieldset>
                                 </div>
                             </div>
-                            <div class="row mb-2">
+                            <div class="row" style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kawasan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="kawasan_id" name='e_kawasan'>
-                                            <option value="" selected hidden disabled>Sila Pilih
-                                                Daerah Terlebih Dahulu</option>
+                                            <option value="" selected hidden disabled>{{  $pelesen->e_daerah ?? 'Sila Pilih Daerah Terlebih Dahulu'}}</option>
                                         </select>
                                     </fieldset>
 
@@ -485,16 +500,19 @@
                                     value="{{ $pelesen->e_year ?? '-' }}">
                                 </div>
                             </div>
-                            <div class="row mb-2">
+                            <div class="row">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kumpulan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="e_group" name="e_group">
-                                            <option selected hidden disabled>{{ $pelesen->e_group ?? 'Sila Pilih' }}</option>
-                                                <option value="Kerajaan">Kerajaan</option>
-                                                <option value="Swasta">Swasta</option>
+                                            <option selected   value="">Sila Pilih Kumpulan</option>
+
+                                            <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
+                                                Kerajaan</option>
+                                            <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
+                                                Swasta</option>
                                         </select>
                                     </fieldset>
                                     {{-- @error('alamat_kilang_1')
@@ -504,16 +522,17 @@
                                             @enderror --}}
                                 </div>
                             </div>
-                            <div class="row mb-2">
+                            <div class="row ,b-2" style="margin-top: -7px">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     POMA </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="e_poma" name="e_poma">
-                                            <option selected hidden disabled>{{ $pelesen->e_poma ?? 'Sila Pilih' }}</option>
-                                                <option value="Ya">Ya</option>
-                                                <option value="Tidak">Tidak</option>
+                                            <option {{ $pelesen->e_poma == 'Ya' ? 'selected' : '' }} value="Ya">
+                                                Ya</option>
+                                            <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }} value="Tidak">
+                                                Tidak</option>
                                         </select>
                                     </fieldset>
                                     {{-- @error('alamat_kilang_1')
@@ -1081,13 +1100,13 @@
     <script src="{{ asset('theme/extra-libs/toastr/toastr-init.js') }}"></script>
 
     {{-- toaster display --}}
-    <script>
+    {{-- <script>
         @if (Session::get('success'))
             toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
         @elseif ($message = Session::get('error'))
             toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
         @endif
-    </script>
+    </script> --}}
 
     <script>
         function validation_jumlah() {

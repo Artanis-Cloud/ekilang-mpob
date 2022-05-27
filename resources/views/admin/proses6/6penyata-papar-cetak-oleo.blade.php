@@ -77,7 +77,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
                             <div class="pl-3">
 
                                 <div class=" text-center">
@@ -150,8 +149,6 @@
                                 </section>
                             </div>
 
-
-                        </div>
                     </div>
                 </div>
             </div>

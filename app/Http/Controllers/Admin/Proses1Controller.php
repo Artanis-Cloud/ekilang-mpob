@@ -209,7 +209,7 @@ class Proses1Controller extends Controller
     {
 
         $reg_pelesen = RegPelesen::find($e_id);
-        $pelesen = Pelesen::where('e_nl', $reg_pelesen->e_nl)->first();
+        $pelesen = Pelesen::with('daerah')->where('e_nl', $reg_pelesen->e_nl)->first();
         // dd($pelesen);
         $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
         ($pelesen->bil_tangki_ppo ?? 0) +
@@ -339,8 +339,7 @@ class Proses1Controller extends Controller
         // dd($request->all());
         $penyata = Pelesen::findOrFail($id);
         $penyata->e_status = $request->e_status;
-
-        $penyata->directory = $request->directory;
+        // $penyata->directory = $request->directory;
         $penyata->kodpgw = $request->kodpgw;
         $penyata->nosiri = $request->nosiri;
         $penyata->e_nl = $request->e_nl;
@@ -385,8 +384,22 @@ class Proses1Controller extends Controller
         // $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
         $penyata->save();
 
+
+        $penyata2 = RegPelesen::findOrFail($id);
+        $penyata2->e_nl = $request->e_nl;
+        // $penyata2->e_kat = $request->e_kat;
+
+        $penyata2->nosiri = $request->nosiri;
+        $penyata2->kodpgw = $request->kodpgw;
+        $penyata2->e_status = $request->e_status;
+        $penyata2->e_stock = $request->e_stock;
+        $penyata2->directory = $request->directory;
+        $penyata2->save();
+
         
-        return redirect()->route('admin.proses1.papar-maklumat')
+
+
+        return redirect()->back()
             ->with('success', 'Maklumat telah dikemaskini');
     }
 
@@ -426,9 +439,15 @@ class Proses1Controller extends Controller
     {
         //test data
         // $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->where('e_id', 677)->get();
-        $pelesen = Pelesen::get('e_nl');
+        // $pbuah= RegPelesen::where('e_nl', '003483504002')->first();
+        $pbuah= RegPelesen::where('e_kat', 'PL91')->where('e_status', 1)->get();
+        $pelesen = Pelesen::where('e_nl', $pbuah[0]->e_nl)->get();
+
         // dd($pelesen);
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
+        if ($pelesen) {
+            # code...
+        }
         // dd($users);
         // $pelesen = Pelesen::get();
 
@@ -448,7 +467,7 @@ class Proses1Controller extends Controller
 
 
 
-        return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
+        return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users','pbuah','pelesen'));
     }
 
     public function admin_senaraipelesenpenapis()

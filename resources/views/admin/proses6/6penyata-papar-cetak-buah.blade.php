@@ -83,81 +83,78 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="pl-3">
+                        <div class="pl-3">
 
-                                <div class=" text-center">
-                                    {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Buah
-                                        - MPOB(EL) MF 4</h3>
-                                    <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata untuk
-                                        Paparan dan Cetakan</h5>
-                                    {{-- <p>Maklumat Kilang</p> --}}
-                                </div>
-                                <hr>
-
-
-                                <section class="section">
-                                    <div class="card">
-                                        <form action="{{ route('admin.6papar.buah.form') }}" method="post">
-                                            @csrf
-                                            <div class="table-responsive">
-                                                <table id="example" class="table table-striped table-bordered"
-                                                    style="width: 100%;">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Papar?</th>
-                                                            <th style="width: 5%">Sudah Cetak?<br></th>
-                                                            <th style="width: 11%">No. Lesen<br></th>
-                                                            <th>Nama Premis</th>
-                                                            <th>Kod Pegawai</th>
-                                                            <th>Email Pegawai</th>
-                                                            <th>No. Siri</th>
-                                                            <th>Tarikh Hantar</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody style="word-break: break-word; font-size:12px">
-                                                        @foreach ($users as $data)
-                                                            <tr>
-                                                                <td>
-                                                                    <input name="papar_ya[]" type="checkbox"
-                                                                        value="{{ $data->e91_reg }}">&nbspYa
-                                                                </td>
-                                                                <td>
-                                                                    x
-                                                                </td>
-                                                                <td>
-                                                                    {{-- <a href="#"> --}}
-                                                                    {{ $data->e_nl }}
-                                                                </td>
-                                                                <td>{{ $data->e_np ?? '-' }}</td>
-                                                                <td>{{ $data->kodpgw }}</td>
-
-                                                                <td>{{ $data->e_email ?? '-' }}</td>
-                                                                <td>{{ $data->nosiri }}</td>
-
-                                                                <td>{{ $data->sdate }}</td>
-
-                                                            </tr>
-                                                        @endforeach
-
-                                                    </tbody>
-
-                                                </table>
-                                                <div class="text-left col-md-8">
-                                                    <button type="submit" class="btn btn-primary ">Papar</button>
-
-
-
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </section>
+                            <div class=" text-center">
+                                {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Buah
+                                    - MPOB(EL) MF 4</h3>
+                                <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata untuk
+                                    Paparan dan Cetakan</h5>
+                                {{-- <p>Maklumat Kilang</p> --}}
                             </div>
+                            <hr>
 
 
+                            <section class="section">
+                                <div class="card">
+                                    <form action="{{ route('admin.6papar.buah.form') }}" method="post">
+                                        @csrf
+                                        <div class="table-responsive">
+                                            <table id="example" class="table table-striped table-bordered"
+                                                style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Papar?</th>
+                                                        <th style="width: 5%">Sudah Cetak?<br></th>
+                                                        <th style="width: 11%">No. Lesen<br></th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>Email Pegawai</th>
+                                                        <th>No. Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody style="word-break: break-word; font-size:12px">
+                                                    @foreach ($users as $data)
+                                                        <tr>
+                                                            <td>
+                                                                <input name="papar_ya[]" type="checkbox"
+                                                                    value="{{ $data->e91_reg }}">&nbspYa
+                                                            </td>
+                                                            <td>
+                                                                x
+                                                            </td>
+                                                            <td>
+                                                                {{-- <a href="#"> --}}
+                                                                {{ $data->e_nl }}
+                                                            </td>
+                                                            <td>{{ $data->e_np ?? '-' }}</td>
+                                                            <td>{{ $data->kodpgw }}</td>
+
+                                                            <td>{{ $data->e_email ?? '-' }}</td>
+                                                            <td>{{ $data->nosiri }}</td>
+
+                                                            <td>{{ $data->sdate }}</td>
+
+                                                        </tr>
+                                                    @endforeach
+
+                                                </tbody>
+
+                                            </table>
+                                            <div class="text-left col-md-8">
+                                                <button type="submit" class="btn btn-primary ">Papar</button>
+
+
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </section>
                         </div>
+
                     </div>
                 </div>
             </div>

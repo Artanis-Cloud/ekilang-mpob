@@ -6,7 +6,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Aktiviti Log</h4>
+                    <h4 class="page-title">Lain-lain</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -46,7 +46,7 @@
 
                         <div class=" text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Aktiviti Log Admin</h3>
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Audit Trail</h3>
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
@@ -62,12 +62,12 @@
                                             <tr class="text-center">
                                                 <th>Bil.</th>
                                                 <th>Tarikh</th>
-                                                <th>ID </th>
+                                                <th>Username</th>
                                                 <th>Aktiviti</th>
+                                                <th>Creator</th>
                                                 <th>IP Pengguna</th>
                                                 <th>Tindakan</th>
-                                                <th>Tindakan</th>
-                                                <th>Lanjut</th>
+                                                <th>Penerangan</th>
 
                                             </tr>
                                         </thead>
