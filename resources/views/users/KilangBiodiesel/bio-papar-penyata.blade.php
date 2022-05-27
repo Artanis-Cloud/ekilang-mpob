@@ -163,7 +163,7 @@
 
                                         <td width="35%">&nbsp;</td>
 
-                                        <td width="65%"><b>{{ $pelesen2->daerah_premis }}, &nbsp;
+                                        <td width="65%"><b>{{ $pelesen2->daerah_premis ?? ''   }}, &nbsp;
                                                 {{ $pelesen2->poskod_premis ?? ''  }} </b></td>
 
                                     </tr>
