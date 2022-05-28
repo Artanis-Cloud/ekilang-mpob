@@ -396,7 +396,7 @@ class Proses1Controller extends Controller
         $penyata2->directory = $request->directory;
         $penyata2->save();
 
-        
+
 
 
         return redirect()->back()
@@ -438,16 +438,10 @@ class Proses1Controller extends Controller
     public function admin_senaraipelesenbuah()
     {
         //test data
-        // $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->where('e_id', 677)->get();
-        // $pbuah= RegPelesen::where('e_nl', '003483504002')->first();
-        $pbuah= RegPelesen::where('e_kat', 'PL91')->where('e_status', 1)->get();
-        $pelesen = Pelesen::where('e_nl', $pbuah[0]->e_nl)->get();
 
         // dd($pelesen);
         $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
-        if ($pelesen) {
-            # code...
-        }
+
         // dd($users);
         // $pelesen = Pelesen::get();
 
@@ -467,7 +461,7 @@ class Proses1Controller extends Controller
 
 
 
-        return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users','pbuah','pelesen'));
+        return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
     }
 
     public function admin_senaraipelesenpenapis()

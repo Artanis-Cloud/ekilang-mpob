@@ -56,6 +56,20 @@
         color: red;
     }
 
+    tfoot {
+        display: table-header-group;
+    }
+
+    .no-sort::after {
+        display: none !important;
+    }
+
+    .no-sort {
+        pointer-events: none !important;
+        cursor: default !important;
+    }
+
+
 </style>
 
 <body>
@@ -1520,6 +1534,88 @@
             SessionTimeout.init()
         });
     </script>
+        {{-- <script>
+            $(document).ready(function() {
+                $('#example').DataTable({
+                    "language": {
+                        "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
+                        "zeroRecords": "Maaf, tiada rekod.",
+                        "info": "",
+                        "infoEmpty": "Tidak ada rekod yang tersedia",
+                        "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                        "search": "Carian",
+                        "previous": "Sebelum",
+                        "paginate": {
+                            "first": "Pertama",
+                            "last": "Terakhir",
+                            "next": "Seterusnya",
+                            "previous": "Sebelumnya"
+                        },
+                    },
+                    // 'processing': true,
+                    // 'serverSide': true,
+                    // 'serverMethod': 'POST',
+                    // 'columns': [{
+                    //         data: 'Bil.'
+                    //     }, /* index = 0 */
+                    //     {
+                    //         data: 'Nama Premis'
+                    //     }, /* index = 1 */
+                    //     {
+                    //         data: 'Emel'
+                    //     }, /* index = 2 */
+                    //     {
+                    //         data: 'No. Telefon'
+                    //     }, /* index = 3 */
+                    //     {
+                    //         data: 'Kod Pegawai'
+                    //     } /* index = 4 */ {
+                    //         data: 'No. Siri'
+                    //     } /* index = 5 */ {
+                    //         data: 'Status e-Kilang'
+                    //     } /* index = 6 */ {
+                    //         data: 'Status e-Stok'
+                    //     } /* index = 7 */ {
+                    //         data: 'Direktori'
+                    //     } /* index = 8 */ {
+                    //         data: 'Pretasi OER'
+                    //     } /* index = 9 */
+                    // ],
+                    "columnDefs": [{
+                        'targets': [0, 7, 8],
+                        /* column index */
+                        'orderable': false,
+                        /* true or false */
+                    }]
+
+                });
+            });
+            </script> --}}
+            <script>
+
+                // Setup - add a text input to each footer cell
+                $('#example tfoot th').each(function() {
+                    var title = $(this).text();
+                    $(this).html('<input type="text" class="form-control" placeholder="' + title + '" />');
+                });
+
+                // DataTable
+                var otable = $('#example').DataTable();
+
+                // Apply the search
+                otable.columns().every(function() {
+
+                    var that = this;
+                    $('input', this.footer()).on('keyup change', function() {
+                        if (that.search() !== this.value) {
+                            that
+                                .search(this.value)
+                                .draw();
+                        }
+                    });
+                });
+            </script>
+
 
     {{-- clock --}}
     <script type="text/javascript">
