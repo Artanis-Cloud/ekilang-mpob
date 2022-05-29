@@ -199,6 +199,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/senarai-pentadbir', [App\Http\Controllers\Admin\KonfigurasiController::class, 'admin_senarai_pentadbir'])->name('admin.senarai.pentadbir');
         Route::post('admin/edit-pentadbir/{Id}', [App\Http\Controllers\Admin\KonfigurasiController::class, 'admin_edit_pentadbir'])->name('admin.edit.pentadbir');
         Route::get('admin/delete-pentadbir/{id}', [App\Http\Controllers\Admin\KonfigurasiController::class, 'admin_delete_pentadbir'])->name('admin.delete.pentadbir');
+        Route::get('/notifikasi/papar/{id}', [App\Http\Controllers\Admin\KonfigurasiController::class, 'redirect_notification'])->name('notification.show');
 
 
         Route::get('admin/maklumat-penyata-bulanan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_maklumat_penyata_bulanan'])->name('admin.maklumat.penyata.bulanan');

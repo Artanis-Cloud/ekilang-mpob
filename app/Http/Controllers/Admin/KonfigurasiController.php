@@ -11,6 +11,7 @@ use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use App\Models\RegUser;
+use App\Notifications\Admin\DaftarPentadbirNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
@@ -47,8 +48,30 @@ class KonfigurasiController extends Controller
     {
         // dd($request->all());
         $this->validation_daftar_pentadbir($request->all())->validate();
-        $this->store_daftar_pentadbir($request->all());
+        $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
         $this->store_daftar_pentadbir2($request->all());
+
+
+        //notification kalau admin, manager dan supervisor daftar admin.
+        //kalau admin yg daftar untuk admin, notification akan masuk ke supervisor ke atas
+        //kalau supervisor daftar utk sv dan admin, noti masuk manager ke atas
+        //sama juga untuk manager
+        //notification in system dengan ke email sv, manager and superadmin
+
+        if($request->role == 'admin'){
+            if(auth()->user()->role == 'admin'){
+                $kepadas = User::where('role', 'supervisor')->orWhere('role', 'manager')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+            } //tambah untuk auth()->user()->role lain jugak
+        }
+        else{ // untuk role lain buat else if
+            if (auth()->user()->role == 'admin') {
+                $kepadas = User::where('role', 'supervisor')->orWhere('role', 'manager')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+            }
+        }
+
+        foreach ($kepadas as $kepada) {
+            $kepada->notify((new DaftarPentadbirNotification($kepada, $daripada)));
+        }
 
         return redirect()->route('admin.dashboard')->with('success', 'Maklumat Pentadbir sudah ditambah');
     }
@@ -94,13 +117,6 @@ class KonfigurasiController extends Controller
             // 'category' => $data['category'],
         ]);
     }
-
-    //notification kalau admin, manager dan supervisor daftar admin.
-    //kalau admin yg daftar untuk admin, notification akan masuk ke supervisor ke atas
-    //kalau supervisor daftar utk sv dan admin, noti masuk manager ke atas
-    //sama juga untuk manager
-    //notification in system dengan ke email sv, manager and superadmin
-
 
     public function admin_senarai_pentadbir()
     {
@@ -159,6 +175,16 @@ class KonfigurasiController extends Controller
         $penyata->delete();
         return redirect()->route('admin.senarai.pentadbir')
         ->with('success','Pentadbir Dihapuskan');
+    }
+
+    public function redirect_notification($id)
+    {
+        $notification = auth()->user()->notifications()->where('id', $id)->first();
+
+        if ($notification) {
+            $notification->markAsRead();
+            return redirect($notification->data['route']);
+        }
     }
 
 }

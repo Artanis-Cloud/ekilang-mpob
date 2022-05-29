@@ -251,7 +251,7 @@
                             <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
                                 <i class="mdi mdi-bell-outline font-22"></i>
-                                <span class="badge badge-pill badge-info noti">0</span>
+                                <span class="badge badge-pill badge-info noti">{{ auth()->user()->unreadNotifications->count() }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
                                 <span class="with-arrow">
@@ -260,23 +260,25 @@
                                 <ul class="list-style-none">
                                     <li>
                                         <div class="drop-title bg-primary text-white">
-                                            <h4 class="m-b-0 m-t-5">Tiada</h4>
+                                            <h4 class="m-b-0 m-t-5">Terdapat {{ auth()->user()->unreadNotifications->count() }}</h4>
                                             <span class="font-light">Notifikasi</span>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="message-center notifications">
                                             <!-- Message -->
-                                            {{-- <a href="javascript:void(0)" class="message-item">
+                                            @forelse (auth()->user()->unreadNotifications as $notification)
+                                            <a href="{{ route('notification.show', $notification->id) }}" class="message-item">
                                                 <span class="btn btn-danger btn-circle">
                                                     <i class="fa fa-link"></i>
                                                 </span>
                                                 <div class="mail-contnet">
-                                                    <h5 class="message-title">Luanch Admin</h5>
-                                                    <span class="mail-desc">Just see the my new admin!</span>
-                                                    <span class="time">9:30 AM</span>
+                                                    <h5 class="message-title">{{ $notification->data['tajuk'] }}</h5>
+                                                    <span class="time">{{ date('d-m-Y H:i:s', strtotime($notification->created_at)) }}</span>
                                                 </div>
-                                            </a> --}}
+                                            </a>
+                                            @empty
+                                            @endforelse
                                         </div>
                                     </li>
                                 </ul>
