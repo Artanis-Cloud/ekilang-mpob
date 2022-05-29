@@ -605,7 +605,7 @@ textarea {
 button,
 input {
   overflow: visible;
-  width: 100%; }
+ }
 
 button,
 select {

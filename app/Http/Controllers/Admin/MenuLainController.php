@@ -306,7 +306,7 @@ class MenuLainController extends Controller
         $this->store_tambah_pengumuman($request->all());
 
 
-        return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
+        return redirect()->back()->with('success', 'Pengumuman sudah ditambah');
     }
 
     protected function validation_tambah_pengumuman(array $data)

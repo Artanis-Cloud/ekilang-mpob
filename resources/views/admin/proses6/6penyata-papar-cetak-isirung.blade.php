@@ -95,10 +95,10 @@
                                     <form action="{{ route('admin.6papar.isirung.form') }}" method="post">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="example" class="table table-striped table-bordered"
+                                            <table id="example" class="table table-bordered"
                                                 style="width: 100%;">
                                                 <thead>
-                                                    <tr>
+                                                    <tr style="background-color: #e9ecefbd">
                                                         <th>Papar?</th>
                                                         <th>Sudah Cetak?<br></th>
                                                         <th>No. Lesen<br></th>
@@ -109,6 +109,18 @@
                                                         <th>Tarikh Hantar</th>
                                                     </tr>
                                                 </thead>
+                                                <tfoot>
+                                                    <tr style="background-color: #e9ecefbd">
+                                                        <th>Papar?</th>
+                                                        <th>Sudah Cetak?<br></th>
+                                                        <th>No. Lesen<br></th>
+                                                        <th>Nama Premis</th>
+                                                        <th>Kod Pegawai</th>
+                                                        <th>Email Pegawai</th>
+                                                        <th>No. Siri</th>
+                                                        <th>Tarikh Hantar</th>
+                                                    </tr>
+                                                </tfoot>
                                                 <tbody style="word-break: break-word; font-size:12px">
                                                     @foreach ($users as $data)
                                                         <tr>
@@ -159,7 +171,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
@@ -179,7 +191,7 @@
                 },
             });
         });
-    </script>
+    </script> --}}
     <script>
         function openInit(evt, cityName) {
             var i, tabcontent, tablinks;
