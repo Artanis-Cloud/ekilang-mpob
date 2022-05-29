@@ -54,7 +54,7 @@
                                 <div class=" text-center">
                                     <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Pengumuman</h3>
                                     {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                 
+
                                     {{-- <p>Maklumat Kilang</p> --}}
                                 </div>
                                 <hr>
@@ -141,7 +141,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
@@ -161,6 +161,6 @@
                 },
             });
         });
-    </script>
+    </script> --}}
 
 @endsection

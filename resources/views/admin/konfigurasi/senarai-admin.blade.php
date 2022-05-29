@@ -70,10 +70,10 @@
                                 </div>
 
                                 <div class="table-responsive" style="margin-top: -5%">
-                                    <table id="example" class="table table-striped table-bordered" style="width: 100%;">
+                                    <table id="example" class="table table-bordered" style="width: 100%;">
                                         <thead>
-                                            <tr class="text-center">
-                                                <th>Bil.</th>
+                                            <tr class="text-center" style="background-color: #e9ecefbd">
+                                                {{-- <th>Bil.</th> --}}
                                                 <th>Nama</th>
                                                 <th>Username</th>
                                                 <th>Alamat Emel</th>
@@ -84,10 +84,23 @@
                                                 <th>Hapus</th>
                                             </tr>
                                         </thead>
+                                        <tfoot>
+                                            <tr class="text-center" style="background-color: #e9ecefbd">
+                                                {{-- <th>Bil.</th> --}}
+                                                <th>Nama</th>
+                                                <th>Username</th>
+                                                <th>Alamat Emel</th>
+                                                <th>Kategori</th>
+                                                <th>Sub-Kategori</th>
+                                                <th>Status</th>
+                                                <th>Kemaskini</th>
+                                                <th>Hapus</th>
+                                            </tr>
+                                        </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
                                             @foreach ($admin as $data)
                                                 <tr class="text-left">
-                                                    <td>{{ $loop->iteration }}</td>
+                                                    {{-- <td>{{ $loop->iteration }}</td> --}}
                                                     {{-- <td>
                                                                 <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
                                                                         {{ $data->e_nl }}</u></a>
@@ -608,7 +621,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
@@ -628,5 +641,5 @@
                 },
             });
         });
-    </script>
+    </script> --}}
 @endsection

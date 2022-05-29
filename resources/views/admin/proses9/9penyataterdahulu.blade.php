@@ -191,7 +191,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
@@ -211,5 +211,5 @@
                 },
             });
         });
-    </script>
+    </script> --}}
 @endsection

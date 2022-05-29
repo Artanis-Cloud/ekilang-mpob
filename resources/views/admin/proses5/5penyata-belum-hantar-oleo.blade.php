@@ -105,8 +105,8 @@
                                                 <table id="example" class="table table-striped table-bordered"
                                                     style="width: 100%;">
                                                     <thead>
-                                                        <tr>
-                                                            <th>Bil</th>
+                                                        <tr style="background-color: #e9ecefbd">
+                                                            {{-- <th>Bil</th> --}}
                                                             <th>No. Lesen<br></th>
                                                             <th>Nama Premis</th>
                                                             <th>Kod Pegawai</th>
@@ -114,10 +114,20 @@
                                                             <th>No. Siri</th>
                                                         </tr>
                                                     </thead>
+                                                    <tfoot>
+                                                        <tr style="background-color: #e9ecefbd">
+                                                            {{-- <th>Bil</th> --}}
+                                                            <th>No. Lesen<br></th>
+                                                            <th>Nama Premis</th>
+                                                            <th>Kod Pegawai</th>
+                                                            <th>Email Pegawai</th>
+                                                            <th>No. Siri</th>
+                                                        </tr>
+                                                    </tfoot>
                                                     <tbody style="word-break: break-word; font-size:12px">
                                                         @foreach ($users as $data)
                                                             <tr>
-                                                                <td>{{ $loop->iteration }}</td>
+                                                                {{-- <td>{{ $loop->iteration }}</td> --}}
                                                                 {{-- <td>
                                                                 x
                                                             </td> --}}
@@ -163,7 +173,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
@@ -183,7 +193,7 @@
                 },
             });
         });
-    </script>
+    </script> --}}
     <script>
         function openInit(evt, cityName) {
             var i, tabcontent, tablinks;

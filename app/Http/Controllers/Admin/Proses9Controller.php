@@ -185,6 +185,7 @@ class Proses9Controller extends Controller
                                 and p.e_nl = k.e_nl
                                 and k.e_kat = 'PL91'
                                 order by k.kodpgw, k.nosiri");
+
             } elseif ($sektor == 'PL101') {
                 $tahun = H101Init::where('tahun', $request->e101_thn);
                 $bulan = H101Init::where('tahun', $request->e101_bln);
@@ -246,7 +247,7 @@ class Proses9Controller extends Controller
         }
 
 
-
+// dd($users);
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
@@ -261,7 +262,7 @@ class Proses9Controller extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor'));
+        return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor','users'));
     }
 
     // public function admin_9penyataterdahulu_process(Request $request)
