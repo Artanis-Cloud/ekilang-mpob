@@ -47,24 +47,17 @@ class KonfigurasiController extends Controller
 
     public function admin_pengurusan_pentadbir_process(Request $request)
     {
-
-        // dd($data['role']);
-
         // dd($request->all());
+
         // $this->validation_daftar_pentadbir($request->all())->validate();
         $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
         $this->store_daftar_pentadbir2($request->all());
-        // $laporan->data_laporan = json_encode($req)
-
+        // dd($daripada);
         //notification kalau admin, manager dan supervisor daftar admin.
         //kalau admin yg daftar untuk admin, notification akan masuk ke supervisor ke atas
         //kalau supervisor daftar utk sv dan admin, noti masuk manager ke atas
         //sama juga untuk manager
         //notification in system dengan ke email sv, manager and superadmin
-
-        // dd($kepadas);
-
-
         if ($request->role == 'Admin') {
             if (auth()->user()->role == 'Supervisor') {
                 $kepadas = User::Where('role', 'Manager')->orWhere('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
@@ -74,7 +67,7 @@ class KonfigurasiController extends Controller
             } else {
                 $kepadas = [];
             }
-        } // untuk role lain buat else if
+        }
         elseif ($request->role == 'Supervisor') {
             if (auth()->user()->role == 'Supervisor') {
                 $kepadas = User::Where('role', 'Manager')->orWhere('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
@@ -95,8 +88,6 @@ class KonfigurasiController extends Controller
             return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
         }
 
-        // dd($kepadas);
-
         foreach ($kepadas as $kepada) {
             if ($kepada->email != '-') {
                 $kepada->notify((new DaftarPentadbirNotification($kepada, $daripada)));
@@ -109,18 +100,18 @@ class KonfigurasiController extends Controller
         return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
     }
 
-    // protected function validation_daftar_pentadbir(array $data)
-    // {
-    //     return Validator::make($data, [
-    //         'name' => ['required', 'string'],
-    //         'email' => ['required', 'string'],
-    //         'username' => ['required', 'string'],
-    //         'role' => ['required', 'string'],
-    //         'sub_cat[]' => ['required', 'string'],
-    //         'status' => ['required', 'string'],
+    protected function validation_daftar_pentadbir(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string'],
+            'email' => ['required', 'string'],
+            'username' => ['required', 'string'],
+            'role' => ['required', 'string'],
+            'sub_cat[]' => ['required', 'string'],
+            'status' => ['required', 'string'],
 
-    //     ]);
-    // }
+        ]);
+    }
 
     protected function store_daftar_pentadbir(array $data)
     {
@@ -172,7 +163,13 @@ class KonfigurasiController extends Controller
         $layout = 'layouts.admin';
 
         $admin = User::where('category', 'Admin')->get();
+        // $admin = User::findOrFail('1686');
+
         // dd($admin);
+
+        // foreach (json_decode($admin->sub_cat) as $cat) {
+        //     dd($cat); //cara keluarkan category
+        // }
 
         return view('admin.konfigurasi.senarai-admin', compact('returnArr', 'layout', 'admin'));
     }

@@ -41,7 +41,7 @@ class DaftarPentadbirMail extends Mailable
         $perenggan_4 = "<br>";
 
         $returnArr = [
-            'user' => $this->kepada,
+            'user' => $this->daripada,
             'tajuk' => $tajuk,
 
             'perenggan_1' => $perenggan_1,
@@ -51,7 +51,7 @@ class DaftarPentadbirMail extends Mailable
 
             'route' => $route,
         ];
-
+        // dd($this->kepada);
         return $this->to($this->kepada->email, $this->kepada->name)
             ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
             ->subject($tajuk)
