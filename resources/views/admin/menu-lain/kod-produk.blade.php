@@ -42,64 +42,49 @@
                     </div>
 
                 </div>
-                <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
-                    <div class="col-1 align-self-center">
-                        <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
-                    </div>
-                    <div class="col-2 align-self-center">
-                        <button type="button" class="btn btn-primary "
-                                onclick="myPrint('myfrm')" value="print">Cetak</button>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
-        <div class="container-fluid">
+                <div class="container-fluid">
 
-                    <form method="get" action="" id="myfrm">
-
-            <div class="card" style="margin-right:2%; margin-left:2%">
-
-
-                            <div class="card-body">
-
-                                <div class="row">
-                                    {{-- <div class="col-md-4 col-12"> --}}
-                                    <div class="col-md-12" align="center" style="font-family:Rubik, sans-serif;">
-
-                            <body>
-
-
-                                <p align="center">
-                                    <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
-                                </p>
-                                {{-- <title>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</title> --}}
-                                <p align="center"><b>
-                                    <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB) </font><br>
-
-                                    <font size="4">Senarai Kod dan Nama Produk Sawit</font></b>
-
-                                </p>
-
-                            </body>
+                    <div class="card" style="margin-right:2%; margin-left:2%">
+                        <div class="row" style="padding: 10px; background-color: white; margin-right:2%; margin-left:1%">
+                            <div class="col-1 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
                         </div>
 
-
                         <section class="section">
+
                             <div class="card">
+                                <div class="card-body">
+
+                                    <body>
+
+                                        <p align="center">
+                                            <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
+                                        </p>
+                                        {{-- <title>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</title> --}}
+                                        <p align="center"><b>
+                                            <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB) </font><br>
+
+                                            <font size="4">Senarai Kod dan Nama Produk Sawit</font></b>
+
+                                        </p>
+
+                                    </body>
+
                                     <div class="row " style=" float:left">
                                         <div class="text-left col-md-1">
                                             <a href="{{ asset('manual/admin/Kod dan Nama Produk.pdf') }}" class="btn btn-primary ">
                                                 PDF
                                             </a>
                                         </div>
-                                        <div class="text-left col-md-2" style="margin-left: -3%">
+                                        <div class="text-left col-md-4" style="margin-left: 25%">
                                             <a href="{{ asset('manual/admin/Kod dan Nama Produk.xlsx') }}" class="btn btn-primary ">
                                                 EXCEL
                                             </a>
                                         </div>
-                                    </div><br>
+                                    </div><br><br>
 
                                     <div class="table-responsive">
                                         <table id="example" class="table table-striped table-bordered" style="width: 100%;">
@@ -135,16 +120,19 @@
                                         </table>
 
                                     </div>
+                                </div>
                             </div>
                         </section>
+
+
+
+                        </div>
                     </div>
 
-
                 </div>
+
             </div>
         </div>
-
-
 
 
     </div>
