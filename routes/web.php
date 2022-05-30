@@ -15,6 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
+//forget password
+Route::get('/terlupa-kata-laluan', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPassword'])->name('forget-password.show');
+
+Route::post('/terlupa-kata-laluan/submit', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPasswordSubmit'])->name('forget-password.submit');
+
+Route::post('/terlupa-kata-laluan/kemaskini-kata-laluan-baru', [App\Http\Controllers\ForgetPasswordController::class, 'customChangePassword'])->name('forget.password.update');
+
+Route::get('/password/resets/{token}/{email}', [App\Http\Controllers\Auth\ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+//end of forget password
+
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('pelesen.login');
 Route::get('/login-new', [App\Http\Controllers\Auth\LoginController::class, 'login_new'])->name('pelesen.login.new');
 Route::get('admin/dashboard/test', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard2'])->name('admin.dashboard2');

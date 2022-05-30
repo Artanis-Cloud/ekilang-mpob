@@ -14,7 +14,7 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <!-- Toaster CSS -->
-    {{-- <link href="{{ asset('toastr/toastr.min.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -44,21 +44,6 @@
 
 <body>
     <div class="main-wrapper">
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
-        {{-- <div class="preloader">
-            <div class="lds-ripple">
-                <div class="lds-pos"></div>
-                <div class="lds-pos"></div>
-            </div>
-        </div> --}}
-        <!-- ============================================================== -->
-        <!-- Preloader - style you can find in spinners.css -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Login box.scss -->
-        <!-- ============================================================== -->
         <div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
             style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover;">
             <div class="row" style="justify-content: right;">
@@ -124,41 +109,22 @@
                             Minyak Sawit Malaysia </h4>
                         <br>
                         <h4 class="text-center"
-                            style="color: white; font-size:20px; font-family:Trebuchet MS (sans-serif)">Terlupa Kata Laluan
+                            style="color: white; font-size:20px; font-family:Trebuchet MS (sans-serif)">Terlupa Kata
+                            Laluan
                         </h4>
                     </div>
                     <br>
 
                     <!-- Form -->
-                    {{-- <div class="row">
-                            <div class="col-12">
-                                <form method="POST" action="{{ route('login') }}" class="form-horizontal m-t-20"> --}}
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{ route('forget-password.submit') }}">
                         @csrf
-                        {{-- <div class="mb-3 input-group">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" id="basic-addon1"><i
-                                        class="fas fa-user"></i></i></span>
-                            </div>
-                            <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
-                                name="username" value="{{ old('username') }}" autocomplete="username"
-                                placeholder="No. Lesen">
-
-                            @error('username')
-                                <div class="col-12 alert alert-danger">
-                                    <strong>{{ $message }}</strong>
-                                </div>
-                            @enderror
-                            {{-- <input type="text" class="form-control form-control-lg" placeholder="ID KILANG (No.SSM)" name="email" aria-label="Username" aria-describedby="basic-addon1"> --}}
-                        {{-- </div> --}}
                         <div class="mb-3 input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon2"><i class="fa fa-envelope"></i></span>
                             </div>
                             {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
-                            <input id="email" type="email"
-                                class="form-control @error('email') is-invalid @enderror" name="email"
-                                placeholder="Sila Masukkan Emel">
+                            <input id="lesen" type="text" class="form-control @error('lesen') is-invalid @enderror"
+                                name="lesen" placeholder="Sila Masukkan No. Lesen">
 
                             @error('email')
                                 <div class="col-12 alert alert-danger">
@@ -167,79 +133,24 @@
                             @enderror
 
                         </div>
-
-                        {{-- <div class="text-center form-group"> --}}
-                        {{-- <div class="col-xs-12 p-b-20"> --}}
                         <button class="btn btn-block btn-lg mb-1 "
                             style="color: black; background-color: rgba(89, 194, 154, 0.801)" type="submit">
-                            Hantar Emel</button>
-                            <div class="mt-2" style="bottom:0; text-align:center">
-                                <p> <a href="{{ route('login') }}" style="color: #163a9f"><u> Kembali</u></a></p>
-                            </div>
-                        {{-- <div class="center">
-                            <p> <a href="{{ route('password.request') }}" style="color: #163a9f"><u> Terlupa Kata
-                                        Laluan?</u></a></p>
-                        </div> --}}
-                        {{-- @if (Route::has('password.request'))
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                            {{ __('Forgot Your Password?') }}
-                        </a>
-                    @endif --}}
+                            Hantar</button>
+
+                        <a class="btn btn-block btn-lg mb-1 " style="color: white; background-color: #163a9f"
+                            href="{{ route('login') }}">Kembali</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
-
-    {{-- </div> --}}
     </div>
-    </div>
-    <!-- ============================================================== -->
-    <!-- Login box.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- All Required js -->
-    <!-- ============================================================== -->
-    {{-- <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
 
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{ asset('nice-admin/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
+</body>
+    <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
 
-
-    <script src="{{ asset('nice-admin/assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script> --}}
-    <!-- ============================================================== -->
-    <!-- This page plugin js -->
-    <!-- ============================================================== -->
-    <script>
-        $('[data-toggle="tooltip"]').tooltip();
-        $(".preloader").fadeOut();
-        // ==============================================================
-        // Login and Recover Password
-        // ==============================================================
-        $('#to-recover').on("click", function() {
-            $("#loginform").slideUp();
-            $("#recoverform").fadeIn();
-        });
-    </script>
-
-    {{-- toaster --}}
-    {{-- <script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
-    <script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script> --}}
-
+    <script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
+    <script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
     {{-- toaster display --}}
     <script>
         @if (Session::get('success'))
@@ -252,6 +163,4 @@
             });
         @endif
     </script>
-</body>
-
 </html>
