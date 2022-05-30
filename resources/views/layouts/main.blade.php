@@ -1330,7 +1330,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('admin.log.superadmin') }}" class="sidebar-link">
                                                 <i class=" fas fa-clock" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Log </span>
+                                                <span class="hide-menu"> Audit Trail </span>
                                             </a>
                                         </li>
                                     @endif

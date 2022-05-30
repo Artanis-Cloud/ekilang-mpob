@@ -26,9 +26,10 @@
                             </div>
                             <hr>
 
-                            <form method="get" action="" id="myfrm">
-                                <section class="section">
-                                    <div class="card">
+
+                            <section class="section">
+                                <div class="card">
+                                    <form method="get" action="" id="myfrm">
                                         <div class="table-responsive">
                                             <table class="table table-bordered mb-0">
 
@@ -75,10 +76,10 @@
                                             </table>
 
                                         </div>
+                                    </form>
+                                </div>
+                            </section>
 
-                                    </div>
-                                </section>
-                            </form>
                         </div>
 
 

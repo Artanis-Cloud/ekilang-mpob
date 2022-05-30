@@ -64,77 +64,79 @@
                             </div>
                             <hr>
 
-                            <form method="get" action="" id="myfrm">
+
                                 <section class="section">
                                     <div class="card">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered mb-0">
+                                        <form method="get" action="" id="myfrm">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered mb-0">
 
-                                                <tr>
-                                                    <th>Tarikh</th>
-                                                    <td>{{ $emel->Date }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Nama Pelesen</th>
-                                                    <td>{{ $emel->FromName }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>No. Lesen</th>
-                                                    <td>{{ $emel->FromLicense }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Emel</th>
-                                                    <td>{{ $emel->FromEmail }}
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Kategori</th>
-                                                    <td>{{ $emel->Category }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Jenis Emel</th>
-                                                    <td>{{ $emel->TypeOfEmail }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Subjek</th>
-                                                    <td>{{ $emel->Subject }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Mesej</th>
-                                                    <td>{!! $emel->Message !!}
+                                                    <tr>
+                                                        <th>Tarikh</th>
+                                                        <td>{{ $emel->Date }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Nama Pelesen</th>
+                                                        <td>{{ $emel->FromName }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>No. Lesen</th>
+                                                        <td>{{ $emel->FromLicense }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Emel</th>
+                                                        <td>{{ $emel->FromEmail }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Kategori</th>
+                                                        <td>{{ $emel->Category }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Jenis Emel</th>
+                                                        <td>{{ $emel->TypeOfEmail }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Subjek</th>
+                                                        <td>{{ $emel->Subject }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Mesej</th>
+                                                        <td>{!! $emel->Message !!}
 
-                                                    </td>
-                                                </tr>
+                                                        </td>
+                                                    </tr>
 
-                                                <tr>
-                                                    <th>Lampiran</th>
-                                                    @if($emel->file_upload)
-                                                    <td><a target='_blank' href="{{ asset('storage/'.$emel->file_upload) }}">Fail</a></td>
-                                                    @else
-                                                    <td>-</td>
-                                                    @endif
-                                                </tr>
+                                                    <tr>
+                                                        <th>Lampiran</th>
+                                                        @if($emel->file_upload)
+                                                        <td><a target='_blank' href="{{ asset('storage/'.$emel->file_upload) }}">Fail</a></td>
+                                                        @else
+                                                        <td>-</td>
+                                                        @endif
+                                                    </tr>
 
-                                            </table>
+                                                </table>
 
-                                        </div>
-
+                                            </div>
+                                        </form>
                                     </div>
-                                    <div class="row form-group" style="padding-top: 10px; ">
 
-
-
-                                        <div class="text-right col-md-7 mb-2 ">
-                                            <button type="button" class="btn btn-primary " style="float: right"
-                                                onclick="myPrint('myfrm')" value="print">Cetak</button>
-                                        </div>
-
-                                    </div>
                                 </section>
-                            </form>
+
                         </div>
 
+                        <div class="row form-group" style="padding-top: 10px; ">
+
+
+
+                            <div class="text-right col-md-7 mb-2 ">
+                                <button type="button" class="btn btn-primary " style="float: right"
+                                    onclick="myPrint('myfrm')" value="print">Cetak</button>
+                            </div>
+
+                        </div>
 
                     </div>
                 </div>

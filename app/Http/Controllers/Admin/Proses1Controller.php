@@ -53,7 +53,6 @@ class Proses1Controller extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.admin';
-
         return view('admin.proses1.1daftarpelesen', compact('returnArr', 'layout', 'negeri'));
     }
 
@@ -105,7 +104,19 @@ class Proses1Controller extends Controller
             'e_group' => ['required', 'string'],
             'e_poma' => ['required', 'string'],
             'kap_proses' => ['required', 'string'],
-            'kap_tangki' => ['required', 'string'],
+            'bil_tangki_cpo' => ['required', 'string'],
+            'bil_tangki_ppo' => ['required', 'string'],
+            'bil_tangki_cpko' => ['required', 'string'],
+            'bil_tangki_ppko' => ['required', 'string'],
+            'bil_tangki_others' => ['required', 'string'],
+            'kap_tangki_cpo' => ['required', 'string'],
+            'kap_tangki_ppo' => ['required', 'string'],
+            'kap_tangki_cpko' => ['required', 'string'],
+            'kap_tangki_ppko' => ['required', 'string'],
+            'kap_tangki_others' => ['required', 'string'],
+
+
+            // 'kap_tangki' => ['required', 'string'],
 
         ]);
     }
@@ -146,7 +157,7 @@ class Proses1Controller extends Controller
             'e_npg' => $data['e_npg'],
             'e_jpg' => $data['e_jpg'],
             'e_notel_pg' => $data['e_notel_pg'],
-            'e_email_pg' => $data['e_email_pg'],
+            // 'e_email_pg' => $data['e_email_pg'],
             'kodpgw' => $data['kodpgw'],
             'nosiri' => $data['nosiri'],
             'e_npgtg' => $data['e_npgtg'],
@@ -160,7 +171,7 @@ class Proses1Controller extends Controller
             'e_year' => $data['e_year'],
             'e_email_pengurus' => $data['e_email_pengurus'],
             'kap_proses' => $data['kap_proses'],
-            'kap_tangki' => $data['kap_tangki'],
+            // 'kap_tangki' => $data['kap_tangki'],
             'bil_tangki_cpo' => $data['bil_tangki_cpo'],
             'bil_tangki_ppo' => $data['bil_tangki_ppo'],
             'bil_tangki_cpko' => $data['bil_tangki_cpko'],

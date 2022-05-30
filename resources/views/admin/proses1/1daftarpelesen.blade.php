@@ -64,7 +64,7 @@
                                         <label for="fname" class="control-label col-form-label required">
                                             Jenis Kilang</label>
                                         <fieldset class="form-group">
-                                            <select class="form-control" name="e_kat" required
+                                            <select class="form-control" name="e_kat" id="e_kat" required  onchange="showDetail()"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
                                                 <option selected hidden disabled value="">Sila Pilih Kilang</option>
@@ -458,10 +458,258 @@
                                         </fieldset>
                                     </div>
                                 </div>
+                                <div class="row ">
+                                    <div class="col-8 ml-auto mr-auto">
+                                        <label for="inputcom" class="control-label col-form-label required">
+                                        Kapasiti Pemprosesan / Tahun</label>
+
+                                        <input type="text" id="kap_proses" class="form-control"
+                                            placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            onkeypress="return isNumberKey(event)"
+                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                        required>
+
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div id="buah_container" style="display:none">
+                                        <div class="row mt-3 " style="text-align: center; font-size: 12px">
+                                            <div class="col-md-5">
+                                                <span></span>
+                                            </div>
+
+
+                                            <div class="col-md-1">
+                                                <span>CPO</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="row mt-3 text-right">
+                                            <div class="col-md-5">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Bilangan Tangki</label>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
+                                                    oninput="setCustomValidity('')" id="bil_tangki_cpo"
+                                                    title="Sila isikan butiran ini."
+                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    onkeypress="return isNumberKey(event)"
+                                                    >
+                                                @error('bil_tangki_cpo')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row mt-3 text-right">
+                                            <div class="col-md-5">
+                                                <label for="fname"
+                                                    class="text-right control-label col-form-label  align-items-center">
+                                                    Kapasiti Tangki Simpanan (Tan)</label>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%"
+                                                    oninput="setCustomValidity('')" id="kap_tangki_cpo"
+                                                    title="Sila isikan butiran ini."
+                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    onkeypress="return isNumberKey(event)"
+                                                    >
+                                                @error('kap_tangki_cpo')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div id="penapis_container" style="display:none">
+                                        <div class="row mt-2" style="text-align: center; font-size: 12px">
+                                            <div class="col-md-4">
+                                                <span></span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span></span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span>CPO</span>
+                                            </div>
+
+                                            <div class="col-md-1">
+                                                <span>PPO</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span>CPKO</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span>PPKO</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span>OTHERS</span>
+                                            </div>
+                                            {{-- <div class="col-md-1">
+                                                <span>JUMLAH</span>
+                                            </div> --}}
+                                        </div>
+                                        <div class="row mt-2 mb-4">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label  align-items-center">
+                                                Bilangan Tangki</label>
+
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%" oninput="setCustomValidity('')"
+                                                    size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_ppo' style="width:100%" oninput="setCustomValidity('')"
+                                                    size="15" id="bil_tangki_ppo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_cpko' style="width:100%" oninput="setCustomValidity('')"
+                                                    size="15" id="bil_tangki_cpko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_ppko' style="width:100%" oninput="setCustomValidity('')"
+                                                    size="15" id="bil_tangki_ppko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_others' style="width:100%" oninput="setCustomValidity('')"
+                                                    size="15" id="bil_tangki_others" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+
+                                            {{-- <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='bil_tangki_jumlah' style="width:100%" size="15"
+                                                        id="total"  value="{{ old('total') ?? number_format($jumlah ,2)  }}" readonly>
+
+                                                </div> --}}
+
+                                            {{-- <div class="col-md-1 text-center">
+                                                    <b><span id="bil_tangki_jumlah">
+                                                            {{ old('bil_tangki_jumlah') ?? number_format($jumlah, 2) }}
+                                                        </span>
+                                                    </b>
+
+
+                                            </div> --}}
+
+                                        </div>
+                                        <div class="row mt-2 mb-4">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label  align-items-center">
+                                                Kapasiti Tangki Simpanan (Tan)</label>
+
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%" oninput="setCustomValidity('')"
+                                                    id="kap_tangki_cpo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+
+
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_ppo' style="width:100%" oninput="setCustomValidity('')"
+                                                    id="kap_tangki_ppo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_cpko' style="width:100%" oninput="setCustomValidity('')"
+                                                    id="kap_tangki_cpko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_ppko' style="width:100%" oninput="setCustomValidity('')"
+                                                    id="kap_tangki_ppko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                                {{-- @error('alamat_kilang_1')
+                                                            <div class="alert alert-danger">
+                                                                <strong>{{ $message }}</strong>
+                                                            </div>
+                                                        @enderror --}}
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_others' style="width:100%" oninput="setCustomValidity('')"
+                                                    id="kap_tangki_others" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                            </div>
+                                            {{-- <div class="col-md-1 text-center">
+                                                    <b><span id="kap_tangki_jumlah">
+                                                            {{ old('kap_tangki_jumlah') ?? number_format($jumlah2, 2) }}
+                                                        </span>
+                                                    </b>
+
+                                            </div> --}}
+                                        </div>
+                                    </div>
+
+                                    <div id="lain_container" style="display:none">
+
+                                </div>
+                                <br><br>
                                 <div class="row form-group" style="padding-top: 10px; ">
-                                    <div class="text-right col-8 ml-auto mr-auto">
+                                    <div class="text-right col-1 ml-auto mr-auto">
                                         <button type="button" class="btn btn-primary " data-toggle="modal"
-                                            style="float: right;margin-left:44%" data-target="#myModal">Tambah</button>
+                                             data-target="#myModal">Tambah</button>
                                     </div>
                                 </div>
                                 {{-- <div class="row form-group" style="padding-top: 10px; ">
@@ -477,7 +725,7 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
-                                                <button type="button" class="close" data-dismiss="modal"
+                                                <button type="button" class="close" ata-bs-dismiss="modal"
                                                     aria-hidden="true">×</button>
                                             </div>
                                             <div class="modal-body">
@@ -490,7 +738,7 @@
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                 </button>
-                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                                <button type="submit" class="btn btn-primary ml-1" ata-bs-dismiss="modal">
                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Ya</span>
                                                 </button>
@@ -500,12 +748,11 @@
                                     </div>
                                     <!-- /.modal-dialog -->
                                 </div>
-
+                            </div>
                         </form>
 
                     </div>
                 </div>
-                </form>
             </div>
         </div>
         <!-- End row -->
@@ -519,7 +766,6 @@
         <!-- ============================================================== -->
         <!-- End Right sidebar -->
         <!-- ============================================================== -->
-    </div>
     </div>
 @endsection
 
@@ -602,6 +848,70 @@
             }, 5000); // 5 secs  (1 sec = 1000)
         });
     </script>
+
+    <script type="text/javascript">
+        function showDetail() {
+            var cat = $('#e_kat').val();
+            // console.log(oer);
+
+            if (cat == "PL91"  ) {
+                document.getElementById('buah_container').style.display = "block";
+                document.getElementById('lain_container').style.display = "block";
+            } else {
+                document.getElementById('buah_container').style.display = "none";
+                document.getElementById('lain_container').style.display = "block";
+
+            }
+
+            if (cat == "PL101"  ) {
+                document.getElementById('penapis_container').style.display = "block";
+                document.getElementById('lain_container').style.display = "block";
+            } else {
+                document.getElementById('penapis_container').style.display = "none";
+                document.getElementById('lain_container').style.display = "block";
+
+            }
+
+        }
+
+    </script>
+    {{-- <script>
+        function validation_jumlah() {
+            var bil_tangki_cpo = $("#bil_tangki_cpo").val();
+            var bil_tangki_ppo = $("#bil_tangki_ppo").val();
+            var bil_tangki_cpko = $("#bil_tangki_cpko").val();
+            var bil_tangki_ppko = $("#bil_tangki_ppko").val();
+            var bil_tangki_others = $("#bil_tangki_others").val();
+
+            var jumlah = $("#jumlah").val();
+            var jumlah_input = 0;
+
+            jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
+                parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
+                    bil_tangki_others));
+
+            document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script>
+    <script>
+        function validation_jumlah2() {
+            var kap_tangki_cpo = $("#kap_tangki_cpo").val();
+            var kap_tangki_ppo = $("#kap_tangki_ppo").val();
+            var kap_tangki_cpko = $("#kap_tangki_cpko").val();
+            var kap_tangki_ppko = $("#kap_tangki_ppko").val();
+            var kap_tangki_others = $("#kap_tangki_others").val();
+
+            var jumlah = $("#jumlah2").val();
+            var jumlah_input = 0;
+
+            jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
+                parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
+                    kap_tangki_others));
+
+            document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script> --}}
+
 
     {{-- toaster --}}
     <script src="{{ asset('theme/libs/toastr/build/toastr.min.js') }}"></script>
