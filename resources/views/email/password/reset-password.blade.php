@@ -25,7 +25,7 @@
                     <tr>
                         <td style="text-align:center;">
                           <a href="{{ route('admin.dashboard') }}" title="logo" target="_blank">
-                            <img src="{{ asset('mpob-text.png') }}" title="logo" alt="logo">
+                            <img src="{{ asset('mpob-text.png') }}" title="logo" alt="logo" style="width: 50%">
                           </a>
                         </td>
                     </tr>
