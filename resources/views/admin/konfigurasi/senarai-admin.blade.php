@@ -66,15 +66,18 @@
                             </div>
                             <hr>
                             <section class="section">
+                                <div class="col-md-12">
+                                    <a href="{{ route('admin.pengurusan.pentadbir') }}" class="btn btn-primary"
+                                        style="float: left"> Tambah Pentadbir Baru</a>
+                                </div>
                                 <div class="card">
-
                                 </div>
 
                                 <div class="table-responsive" style="margin-top: -7%">
-                                    <div class="col-md-3">
+                                    {{-- <div class="col-md-3">
                                         <a href="{{ route('admin.pengurusan.pentadbir') }}" class="btn btn-primary"
                                             style="margin-bottom:15px"> Tambah Pentadbir Baru</a>
-                                    </div>
+                                    </div> --}}
                                     <table id="example" class="table table-bordered" style="width: 100%;">
                                         <thead>
                                             <tr class="text-center" style="background-color: #e9ecefbd">

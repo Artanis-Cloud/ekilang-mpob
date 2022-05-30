@@ -60,7 +60,7 @@
                         <section class="section">
                             <div class="card">
                                 <div class="table-responsive">
-                                    <table id="example" class="table table-striped table-bordered" style="width: 100%;">
+                                    <table id="example2" class="table table-striped table-bordered" style="width: 100%;">
                                         <thead>
                                             <tr class="text-center">
                                                 <th>Bil.</th>
@@ -113,7 +113,7 @@
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $('#example').DataTable({
+            $('#example2').DataTable({
                 "language": {
                     "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
                     "zeroRecords": "Maaf, tiada rekod.",
