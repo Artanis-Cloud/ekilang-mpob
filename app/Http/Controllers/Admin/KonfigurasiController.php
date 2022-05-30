@@ -47,8 +47,11 @@ class KonfigurasiController extends Controller
 
     public function admin_pengurusan_pentadbir_process(Request $request)
     {
+
+        // dd($data['role']);
+
         // dd($request->all());
-        $this->validation_daftar_pentadbir($request->all())->validate();
+        // $this->validation_daftar_pentadbir($request->all())->validate();
         $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
         $this->store_daftar_pentadbir2($request->all());
         // $laporan->data_laporan = json_encode($req)
@@ -59,39 +62,71 @@ class KonfigurasiController extends Controller
         //sama juga untuk manager
         //notification in system dengan ke email sv, manager and superadmin
 
-        if($request->role == 'admin'){
-            if(auth()->user()->role == 'admin'){
-                $kepadas = User::where('role', 'supervisor')->orWhere('role', 'manager')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+        // dd($kepadas);
+
+
+        if ($request->role == 'Admin') {
+            if (auth()->user()->role == 'Supervisor') {
+                $kepadas = User::Where('role', 'Manager')->orWhere('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
             } //tambah untuk auth()->user()->role lain jugak
-        }
-        else{ // untuk role lain buat else if
-            if (auth()->user()->role == 'admin') {
-                $kepadas = User::where('role', 'supervisor')->orWhere('role', 'manager')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+            elseif (auth()->user()->role == 'Manager') {
+                $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+            } else {
+                $kepadas = [];
             }
+        } // untuk role lain buat else if
+        elseif ($request->role == 'Supervisor') {
+            if (auth()->user()->role == 'Supervisor') {
+                $kepadas = User::Where('role', 'Manager')->orWhere('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+            } //tambah untuk auth()->user()->role lain jugak
+            elseif (auth()->user()->role == 'Manager') {
+                $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+            } else {
+                $kepadas = [];
+            }
+        } elseif ($request->role == 'Manager') {
+            if (auth()->user()->role == 'Manager') {
+                $kepadas = User::Where('role', 'Superadmin')->get(); // nak hantar kepada siapa, ubah where tu ikut kehendak
+            } else {
+                $kepadas = [];
+            } //tambah untuk auth()->user()->role lain jugak
+
+        } else {
+            return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
         }
 
+        // dd($kepadas);
+
         foreach ($kepadas as $kepada) {
-            $kepada->notify((new DaftarPentadbirNotification($kepada, $daripada)));
+            if ($kepada->email != '-') {
+                $kepada->notify((new DaftarPentadbirNotification($kepada, $daripada)));
+            } else {
+                return redirect()->route('admin.senarai.pentadbir')
+                    ->with('success', 'Maklumat Pentadbir telah dikemaskini');
+            }
         }
 
         return redirect()->route('admin.dashboard')->with('success', 'Maklumat Pentadbir sudah ditambah');
     }
 
-    protected function validation_daftar_pentadbir(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string'],
-            'email' => ['required', 'string'],
-            'username' => ['required', 'string'],
-            'role' => ['required', 'string'],
-            'sub_cat' => ['required', 'string'],
-            'status' => ['required', 'string'],
+    // protected function validation_daftar_pentadbir(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'name' => ['required', 'string'],
+    //         'email' => ['required', 'string'],
+    //         'username' => ['required', 'string'],
+    //         'role' => ['required', 'string'],
+    //         'sub_cat[]' => ['required', 'string'],
+    //         'status' => ['required', 'string'],
 
-        ]);
-    }
+    //     ]);
+    // }
 
-    protected function store_daftar_pentadbir(array $data )
+    protected function store_daftar_pentadbir(array $data)
     {
+
+
+
         $password = Hash::make('admin123');
         return User::create([
             'name' => $data['name'],
@@ -100,9 +135,11 @@ class KonfigurasiController extends Controller
             'username' => $data['username'],
             'category' => 'admin',
             'role' => $data['role'],
-            'sub_cat' => json_encode($data['sub_cat[]']),
+            'sub_cat' => json_encode($data['sub_cat']),
             'status' => $data['status'],
-            'map_sdate' => now()
+            'map_sdate' => now(),
+
+
         ]);
     }
 
@@ -134,7 +171,7 @@ class KonfigurasiController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        $admin = User::where('category','Admin')->get();
+        $admin = User::where('category', 'Admin')->get();
         // dd($admin);
 
         return view('admin.konfigurasi.senarai-admin', compact('returnArr', 'layout', 'admin'));
@@ -176,7 +213,7 @@ class KonfigurasiController extends Controller
 
         $penyata->delete();
         return redirect()->route('admin.senarai.pentadbir')
-        ->with('success','Pentadbir Dihapuskan');
+            ->with('success', 'Pentadbir Dihapuskan');
     }
 
     public function redirect_notification($id)
@@ -188,5 +225,4 @@ class KonfigurasiController extends Controller
             return redirect($notification->data['route']);
         }
     }
-
 }

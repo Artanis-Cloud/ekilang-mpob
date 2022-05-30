@@ -133,7 +133,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
@@ -153,7 +153,7 @@
                 },
             });
         });
-    </script>
+    </script> --}}
     <script>
         function printWindow() {
             bV = parseInt(navigator.appVersion)

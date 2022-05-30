@@ -69,7 +69,7 @@
                                     </div>
                                 </div>
 
-                                <div class="table-responsive" style="margin-top: -5%">
+                                <div class="table-responsive" style="margin-top: -7%">
                                     <table id="example" class="table table-bordered" style="width: 100%;">
                                         <thead>
                                             <tr class="text-center" style="background-color: #e9ecefbd">
@@ -82,7 +82,7 @@
                                                 <th style="vertical-align:middle">Status</th>
                                                 <th style="vertical-align:middle" >Kemaskini</th>
                                                 <th style="vertical-align:middle" >Hapus</th>
-                                                
+
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -94,7 +94,8 @@
                                                 <th>Kategori</th>
                                                 <th>Sub-Kategori</th>
                                                 <th>Status</th>
-                                                {{-- <th>Kemaskini</th> --}}
+                                                <th>Kemaskini</th>
+                                                <th>Hapus</th>
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
