@@ -106,7 +106,7 @@ class KonfigurasiController extends Controller
             }
         }
 
-        return redirect()->route('admin.dashboard')->with('success', 'Maklumat Pentadbir sudah ditambah');
+        return redirect()->route('admin.senarai.pentadbir')->with('success', 'Maklumat Pentadbir sudah ditambah');
     }
 
     // protected function validation_daftar_pentadbir(array $data)

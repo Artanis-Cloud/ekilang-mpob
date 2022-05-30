@@ -4,33 +4,52 @@
 
     <div class="page-wrapper">
 
-        <div class="page-breadcrumb">
-            <div class="row">
-                <div class="col-5 align-self-center">
-                    <h4 class="page-title">Lain-lain</h4>
+        <div class="mt-3 mb-4 row">
+            <div class="col-md-12">
+
+                <div class="page-breadcrumb" style="padding: 0px; margin-left: 2%">
+                    <div class="pb-2 row">
+                        <div class="col-5 align-self-center">
+                            <h4 class="page-title">Kod & Nama Negara</h4>
+                        </div>
+
+                        <div class="col-7 align-self-center" style="margin-left:-1%;">
+                            <div class="d-flex align-items-center justify-content-end">
+                                <nav aria-label="breadcrumb">
+                                    <ol class="breadcrumb">
+                                        @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
+                                            @if (!$loop->last)
+                                                <li class="breadcrumb-item">
+                                                    <a href="{{ $breadcrumb['link'] }}"
+                                                        style="color: black !important;"
+                                                        onMouseOver="this.style.color='#25877b'"
+                                                        onMouseOut="this.style.color='black'">
+                                                        {{ $breadcrumb['name'] }}
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li class="breadcrumb-item active" aria-current="page"
+                                                    style="color: #25877b  !important;">
+                                                    {{ $breadcrumb['name'] }}
+                                                </li>
+                                            @endif
+                                        @endforeach
+
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
-                <div class="col-7 align-self-center">
-                    <div class="d-flex align-items-center justify-content-end">
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
-                                    @if (!$loop->last)
-                                        <li class="breadcrumb-item">
-                                            <a href="{{ $breadcrumb['link'] }}" style="color: rgb(64, 69, 68) !important;"
-                                                onMouseOver="this.style.color='#25877b'"
-                                                onMouseOut="this.style.color='grey'">
-                                                {{ $breadcrumb['name'] }}
-                                            </a>
-                                        </li>
-                                    @else
-                                        <li class="breadcrumb-item active" aria-current="page"
-                                            style="color: #25877b  !important;">
-                                            {{ $breadcrumb['name'] }}
-                                        </li>
-                                    @endif
-                                @endforeach
-                            </ol>
-                        </nav>
+                <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
+                    <div class="col-1 align-self-center">
+                        <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                    </div>
+                    <div class="col-2 align-self-center">
+                        <button type="button" class="btn btn-primary "
+                                onclick="myPrint('myfrm')" value="print">Cetak</button>
                     </div>
                 </div>
             </div>
@@ -39,7 +58,11 @@
 
         <div class="container-fluid">
 
-            <div class="card" style="margin-right:2%; margin-left:2%">
+                            <div class="card-body">
+
+                                <div class="row">
+                                    {{-- <div class="col-md-4 col-12"> --}}
+                                    <div class="col-md-12" align="center" style="font-family:Rubik, sans-serif;">
 
 
                 <div class="card-body">

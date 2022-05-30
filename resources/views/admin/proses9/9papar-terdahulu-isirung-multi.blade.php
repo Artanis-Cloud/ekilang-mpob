@@ -10,8 +10,7 @@
                 <div class="page-breadcrumb" style="padding: 0px">
                     <div class="pb-2 row">
                         <div class="col-5 align-self-center">
-                            <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                style="margin-left:5%; color:white; background-color:#25877bd1">Kembali</a>
+                            <h4 class="page-title" style="padding: 10px">Penyata Bulanan Terdahulu Kilang Isirung</h4>
                         </div>
                         <div class="col-7 align-self-center" style="margin-left:-1%;">
                             <div class="d-flex align-items-center justify-content-end">
@@ -41,14 +40,20 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="row" style="padding: 20px; background-color: white; margin-right:2%; margin-left:2%">
+                    <div class="col-1 align-self-center">
+                        <a href="javascript:history.back()"  class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                    </div>
+                    <div class="col-2 align-self-center">
+                        <button type="button" class="btn btn-primary "
+                                onclick="myPrint('myfrm')" value="print">Cetak</button>
+                    </div>
+                </div>
                 <form method="get" action="" id="myfrm">
 
                     <div class="card" style="margin-right:2%; margin-left:2%">
                         @foreach ($pelesens as $data)
 
-                            <br><br><hr>
-                            <br>
 
                             <div class="card-body">
                                 <div class="row">
@@ -795,19 +800,6 @@
             </div>
             <h1 style="page-break-before:always"></h1>
 
-            <div class="row form-group" style="padding-top: 10px; margin-left: 2% ">
-
-
-                <div class="text-left col-md-5">
-                    <a href="{{ route('admin.9penyataterdahuluisirung') }}" class="btn btn-primary"
-                    >Sebelumnya</a>
-                </div>
-                <div class="text-right col-md-7 mb-2 ">
-                    <button type="button" class="btn btn-primary " style="float: right; "
-                        onclick="myPrint('myfrm')" value="print">Cetak</button>
-                </div>
-
-            </div>
 
         </div>
 

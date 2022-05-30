@@ -39,6 +39,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
 
         <div class="container-fluid">
@@ -48,8 +49,13 @@
                     <form method="get" action="" id="myfrm">
 
                         <div class="card">
+                            <div class="row">
+                                <div class="col-1 align-self-center">
+                                    <a href="{{ $returnArr['kembali'] }}" class="btn" style="padding: 20px; color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                                </div>
+                            </div>
                             <div class=" text-center">
-                                <h4 style="color: rgb(39, 80, 71); margin-top:3%">Senarai Direktori</h4>
+                                <h4 style="color: rgb(39, 80, 71); ">Senarai Direktori</h4>
 
                             </div>
                             <hr>

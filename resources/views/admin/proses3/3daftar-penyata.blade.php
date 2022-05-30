@@ -84,7 +84,9 @@
 
 
         <div class="container-fluid">
+
             <div class="tab" style="margin-right:4%; margin-left:2%">
+
                 <a style="color:black; border-radius:unset; font-size:14.4px;" class="btn btn-work tablinks"
                     onclick="openInit(event, 'All')" id="defaultOpen">Initialize Semua Pelesen</a>
                 {{-- <button class="tablinks" onclick="openInit(event, 'One')"> --}}
@@ -94,6 +96,11 @@
 
             </div>
             <div class="card" style="margin-right:2%; margin-left:2%">
+                <div class="row" style="padding: 10px">
+                    <div class="col-1 align-self-center">
+                        <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                    </div>
+                </div>
 
                 {{-- tab for all pelesen --}}
                 <div id="All" class="tabcontent">
