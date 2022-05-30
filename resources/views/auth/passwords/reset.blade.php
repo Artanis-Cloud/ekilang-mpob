@@ -1,66 +1,169 @@
-@extends('layouts.main')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<!DOCTYPE html>
+<html dir="ltr">
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="target-densitydpi=device-dpi">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('theme/images/favicon.png') }}">
+    <title>Sistem e-Kilang</title>
+    <!-- Custom CSS -->
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    <!-- Toaster CSS -->
+    <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
+
+        <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <div class="auth-wrapper d-flex no-block justify-content-center align-items-center"
+            style="background:url({{ asset('theme/images/background/landing3.jpg') }});background-size:cover;">
+            <div class="row" style="justify-content: right;">
+                {{-- <div class="col-md-1"></div> --}}
+                <div class="col-md-9">
+                    <div class="border card-header" style="background-color:rgba(89, 194, 154, 0.801)">
+                        <h3 class="text-white m-b-0" style="text-align: center"><b>Pengumuman</b></h3>
+                    </div>
+                    <div class="container"
+                        style="opacity: 0.7;background: linear-gradient(135deg, #ffffff 0%, #ffffff 100%); height: 500px;">
+                        <div class="card-body">
+                            {{-- <h3 class="card-title">LOREM IPSUM:</h3> --}}
+                            <p class="card-text">
+                                <br>Sebarang pertanyaan sila hubungi :<br>
+                                <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b> - Pn. Nor Syaida (Emel:
+                                nor.syaida@mpob.gov.my atau Tel :
+                                03-7802 2917)<br>
+                                <b>Penyata Bulanan Kilang Buah - MPOB (EL) MF4</b> - En. Rominizam (Emel:
+                                rominizam@mpob.gov.my atau Tel :
+                                03-7802 2918)<br>
+                                <b>Penyata Bulanan Kilang Penapis - MPOB (EL) RF4</b> - Pn. Aziana (Emel:
+                                aziana.misnan@mpob.gov.my atau Tel :
+                                03-7802 2955)<br>
+                                <b>Penyata Bulanan Kilang Oleokimia - MPOB (EL) CM4</b> - Pn. Aziana (Emel:
+                                aziana.misnan@mpob.gov.my atau Tel :
+                                03-7802 2955)<br>
+                                <b>Penyata Bulanan Kilang Isirung - MPOB (EL) CF4</b> - Pn. Nor Baayah (Emel
+                                abby@mpob.gov.my atau Tel : 03-7802
+                                2865)<br>
+                                <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b> - Pn. Nor Baayah (Emel
+                                abby@mpob.gov.my atau Tel : 03-7802
+                                2865)<br>
+                                <b>No Faks bagi Penyata Bulanan</b> : 03-7803 2323 / 03-7803 1399<br>
+                                <br><mark><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA
+                                        MINGGUAN) melalui sistem
+                                        ekilang sebelum pukul 12.00 malam pada hari pertama setiap minggu
+                                        (ISNIN).</b><br></mark><br>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            {{-- <div class="col-md-2"> --}}
+            <div class="auth-box on-sidebar"
+                style=" padding-top:5%; background-color: rgba(89, 194, 154, 0.801) !important;">
+                <div id="loginform">
+
+                    <div class="logo">
+
+                        <span class="db"><img src="{{ asset('theme/images/mpob2.png') }}"
+                                class="brand-image img-circle elevation-3"
+                                style="height:120px; width:115px; margin-right:2% " alt="logo"></span>
+                        <br>
+                        <br>
+                        <h3 class="text-center"
+                            style="color:rgba(15, 15, 15, 0.801); font-size:25px; font-family:verdana"><b> Sistem
+                                e-Kilang </b></h3>
+                        <h4 class="text-center"
+                            style="color:rgba(15, 15, 15, 0.801); font-size:20px; font-family:Trebuchet MS (sans-serif)">
+                            Lembaga
+                            Minyak Sawit Malaysia </h4>
+                        <br>
+                        <h4 class="text-center"
+                            style="color: white; font-size:20px; font-family:Trebuchet MS (sans-serif)">Terlupa Kata
+                            Laluan
+                        </h4>
+                    </div>
+                    <br>
+
+                    <!-- Form -->
+                    <form method="POST" action="{{ route('forget.password.update') }}">
                         @csrf
 
                         <input type="hidden" name="token" value="{{ $token }}">
 
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="mb-3 input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">Emel</span>
                             </div>
+                            {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" readonly>
+
+                            @error('email')
+                                <div class="col-12 alert alert-danger">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                            @enderror
+
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                        <div class="mb-3 input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">Kata Laluan</span>
+                            </div>
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Kata Laluan Baharu">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                        <div class="mb-3 input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">Kata Laluan</span>
                             </div>
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Sahkan Kata Laluan Baharu">
                         </div>
+                        <button class="btn btn-block btn-lg mb-1 "
+                            style="color: black; background-color: rgba(89, 194, 154, 0.801)" type="submit">
+                            Hantar</button>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                           
-                        </div>
+                        <a class="btn btn-block btn-lg mb-1 " style="color: white; background-color: #163a9f"
+                            href="{{ route('login') }}">Kembali</a>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+    </div>
+
+</body>
+    <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+
+    <script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
+    <script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
+    {{-- toaster display --}}
+    <script>
+        @if (Session::get('success'))
+            toastr.success('{{ session('success') }}', 'Berjaya', {
+                "progressBar": true
+            });
+        @elseif ($message = Session::get('error'))
+            toastr.error('{{ session('error') }}', 'Ralat', {
+                "progressBar": true
+            });
+        @endif
+    </script>
+</html>

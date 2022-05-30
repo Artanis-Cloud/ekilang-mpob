@@ -14,7 +14,8 @@
     <!-- Custom CSS -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <!-- Toaster CSS -->
-    {{-- <link href="{{ asset('toastr/toastr.min.css') }}" rel="stylesheet"> --}}
+    <link href="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.css') }}" rel="stylesheet">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -174,10 +175,9 @@
                         <button class="btn btn-block btn-lg mb-1 "
                             style="color: black; background-color: rgba(89, 194, 154, 0.801)" type="submit">
                             Log Masuk</button>
-                        <div class="mt-2" style="bottom:0; text-align:center">
-                            <p> <a href="{{ route('password.request') }}" style="color: #163a9f"><u> Terlupa Kata
-                                        Laluan?</u></a></p>
-                        </div>
+
+                        <a class="btn btn-block btn-lg mb-1 " style="color: white; background-color: #163a9f"
+                            href="{{ route('forget-password.show') }}">Terlupa Kata Laluan?</a>
                         {{-- @if (Route::has('password.request'))
                         <a class="btn btn-link" href="{{ route('password.request') }}">
                             {{ __('Forgot Your Password?') }}
@@ -190,38 +190,15 @@
     </div>
 
 
-    {{-- </div> --}}
     </div>
     </div>
-    <!-- ============================================================== -->
-    <!-- Login box.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Page wrapper scss in scafholding.scss -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Right Sidebar -->
-    <!-- ============================================================== -->
-    </div>
-    <!-- ============================================================== -->
-    <!-- All Required js -->
-    <!-- ============================================================== -->
-    {{-- <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
-
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{ asset('nice-admin/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
-
-
-    <script src="{{ asset('nice-admin/assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script> --}}
     <!-- ============================================================== -->
     <!-- This page plugin js -->
     <!-- ============================================================== -->
+    <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+
+    <script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
+    <script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
     <script>
         $('[data-toggle="tooltip"]').tooltip();
         $(".preloader").fadeOut();
@@ -244,7 +221,7 @@
             toastr.success('{{ session('success') }}', 'Berjaya', {
                 "progressBar": true
             });
-        @elseif ($message = Session::get('error'))
+        @elseif($message = Session::get('error'))
             toastr.error('{{ session('error') }}', 'Ralat', {
                 "progressBar": true
             });
