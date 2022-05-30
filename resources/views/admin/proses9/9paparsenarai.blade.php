@@ -66,7 +66,7 @@
                                     <form action="{{ route('admin.9papar-terdahulu-buah.form') }}" method="post">
                                         @csrf
                                         <div class="table-responsive">
-                                            <table id="example" class="table table-bordered"
+                                            <table id="example22" class="table table-bordered"
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
@@ -123,7 +123,7 @@
                                 <form action="{{ route('admin.9papar-terdahulu-penapis.form') }}" method="post">
                                     @csrf
                                     <div class="table-responsive">
-                                        <table id="example" class="table table-striped table-bordered"
+                                        <table id="example22" class="table table-striped table-bordered"
                                             style="width: 100%;">
                                             <thead>
                                                 <tr>
@@ -170,7 +170,7 @@
                                 <form action="{{ route('admin.9papar-terdahulu-isirung.form') }}" method="post">
                                     @csrf
                                     <div class="table-responsive">
-                                        <table id="example" class="table table-striped table-bordered"
+                                        <table id="example22" class="table table-striped table-bordered"
                                             style="width: 100%;">
                                             <thead>
                                                 <tr>
@@ -217,7 +217,7 @@
                                 <form action="{{ route('admin.9papar-terdahulu-oleo.form') }}" method="post">
                                     @csrf
                                     <div class="table-responsive">
-                                        <table id="example" class="table table-striped table-bordered"
+                                        <table id="example22" class="table table-striped table-bordered"
                                             style="width: 100%;">
                                             <thead>
                                                 <tr>
@@ -264,7 +264,7 @@
                                 <form action="{{ route('admin.9papar-terdahulu-simpanan.form') }}" method="post">
                                     @csrf
                                     <div class="table-responsive">
-                                        <table id="example" class="table table-striped table-bordered"
+                                        <table id="example22" class="table table-striped table-bordered"
                                             style="width: 100%;">
                                             <thead>
                                                 <tr>
@@ -367,7 +367,7 @@
 @endsection
 
 @section('scripts')
-    {{-- <script>
+    <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
@@ -387,5 +387,5 @@
                 },
             });
         });
-    </script> --}}
+    </script>
 @endsection
