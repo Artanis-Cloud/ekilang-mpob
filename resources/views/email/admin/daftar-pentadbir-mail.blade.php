@@ -57,56 +57,64 @@
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Appointment ID:</td>
+                                                        Nama:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        ABC-101</td>
+                                                        Syazwani</td>
                                                 </tr>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Patient ID:</td>
+                                                        Username:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        XYZ-101</td>
+                                                        syn995</td>
                                                 </tr>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Department:</td>
+                                                        Alamat Emel:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        Endoscopy</td>
+                                                        syazwanisaliman77@gmail.com</td>
                                                 </tr>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed;border-right: 1px solid #ededed; width: 35%; font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Doctor Name:</td>
+                                                        Kategori:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        Russell Walker</td>
+                                                        Admin</td>
                                                 </tr>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px;  border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%;font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Appointment Date:</td>
+                                                        Sub-Kategori:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        12<sup>th</sup> April 2019</td>
+                                                       PLBIO</td>
                                                 </tr>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%;font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Appointment Time:</td>
+                                                        Status:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056; ">
-                                                        11:00 AM</td>
+                                                       Aktif</td>
+                                                </tr>
+                                                <tr>
+                                                    <td
+                                                        style="padding: 10px; border-bottom: 1px solid #ededed; border-right: 1px solid #ededed; width: 35%;font-weight:500; color:rgba(0,0,0,.64)">
+                                                        Tarikh dan Jam:</td>
+                                                    <td
+                                                        style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056; ">
+                                                        12th April 2019 &nbsp; 11:00 a.m</td>
                                                 </tr>
                                                 <tr>
                                                     <td
                                                         style="padding: 10px; border-right: 1px solid #ededed; width: 35%;font-weight:500; color:rgba(0,0,0,.64)">
-                                                        Reason:</td>
-                                                    <td style="padding: 10px; color: #455056;">During an upper endoscopy, an endoscope is easily passed through the mouth and throat and into the esophagus, allowing the doctor to view the esophagus, stomach, and upper part of the small intestine.</td>
+                                                        Ditambah Oleh:</td>
+                                                    <td style="padding: 10px; color: #455056;">Nama : Ansar <br> Username : Ansar97 <br> Kategori : Supervisor </td>
                                                 </tr>
                                             </tbody>
                                         </table>

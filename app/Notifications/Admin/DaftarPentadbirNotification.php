@@ -42,10 +42,19 @@ class DaftarPentadbirNotification extends Notification
      */
     public function toMail($notifiable)
     {
+
         $daripada = $this->daripada;
         $kepada = $this->kepada;
 
-        return (new DaftarPentadbirMail($daripada, $kepada, $notifiable->created_at))->to($kepada['email']);
+        // if ($kepada['email'] != '-') {
+                return (new DaftarPentadbirMail($daripada, $kepada, $notifiable->created_at))->to($kepada['email']);
+        // }else{
+        //     return redirect()->route('admin.senarai.pentadbir')
+        //     ->with('error', 'Maklumat telah dikemaskini');
+        // }
+
+
+
     }
 
     public function toDatabase($notifiable)
