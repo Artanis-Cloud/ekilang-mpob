@@ -72,7 +72,7 @@
                                                     </a>
 
                                                 </div>
-                                        </div>
+                                            </div>
                                         <br>
                                             <div class="table-responsive">
                                                 <table id="example" class="table table-striped table-bordered"
