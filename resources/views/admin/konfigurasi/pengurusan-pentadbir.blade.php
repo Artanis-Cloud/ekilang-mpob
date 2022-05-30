@@ -47,9 +47,14 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
+                        <div class="row">
+                            <div class="col-1 align-self-center">
+                                <a href="javascript:history.back()" class="btn" style="color:rgb(64, 69, 68); padding: 20px"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
+                        </div>
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%">Pengurusan Pentadbir</h3>
-                            <h4 style="color: rgb(39, 80, 71); margin-top:1%">Daftar Akaun Pentadbir</h4>
+                            <h3 style="color: rgb(39, 80, 71); ">Pengurusan Pentadbir</h3>
+                            <h4 style="color: rgb(39, 80, 71); margin-top:3%">Daftar Akaun Pentadbir</h4>
                         </div>
                         <hr>
                         <form action="{{ route('admin.pengurusan.pentadbir.process') }}" method="post">

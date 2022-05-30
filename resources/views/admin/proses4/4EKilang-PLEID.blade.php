@@ -46,8 +46,13 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
+                        <div class="row">
+                            <div class="col-1 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68); padding: 20px"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
+                        </div>
                         <div class=" text-center">
-                            <h4 style="color: rgb(39, 80, 71); margin-bottom:1%; margin-top:3%">Pindahan Penyata Bulanan dari e-Kilang ke
+                            <h4 style="color: rgb(39, 80, 71); margin-bottom:1%;">Pindahan Penyata Bulanan dari e-Kilang ke
                                 PLEID </h4>
                             <h6 style="color: rgb(242, 68, 68)"><i>
                                     Perhatian: Proses ini akan memindahkan semua penyata yang telah dihantar ke sistem

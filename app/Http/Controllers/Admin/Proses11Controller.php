@@ -77,7 +77,7 @@ class Proses11Controller extends Controller
 
         ];
 
-        $kembali = route('admin.dashboard');
+        $kembali = route('admin.11emel');
 
         $returnArr = [
             'breadcrumbs' => $breadcrumbs,

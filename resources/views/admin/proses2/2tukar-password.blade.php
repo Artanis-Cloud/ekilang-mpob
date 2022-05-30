@@ -46,8 +46,13 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
+                        <div class="row" style="padding: 20px">
+                            <div class="col-1 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
+                        </div>
                         <div class=" text-center">
-                            <h4 style="color: rgb(39, 80, 71); margin-top:3%">Tukar Kata Laluan</h4>
+                            <h4 style="color: rgb(39, 80, 71);">Tukar Kata Laluan</h4>
                         </div>
                         <hr>
 

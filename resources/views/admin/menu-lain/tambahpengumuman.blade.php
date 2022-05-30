@@ -12,7 +12,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Konfigurasi</h4>
+                    <h4 class="page-title">Konfigurasi</h4><br>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -47,8 +47,13 @@
                 <div class="row">
                     <div class="col-sm-12 col-lg-12">
                         <div class="card">
+                            <div class="row" style="padding: 20px">
+                                <div class="col-1 align-self-center">
+                                    <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                                </div>
+                            </div>
                             <div class=" text-center">
-                                <h4 style="color: rgb(39, 80, 71); margin-top:3%">Tambah Pengumuman</h4>
+                                <h4 style="color: rgb(39, 80, 71);">Tambah Pengumuman</h4>
                             </div>
                             <hr>
 

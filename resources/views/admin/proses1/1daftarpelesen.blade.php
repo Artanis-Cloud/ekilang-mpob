@@ -44,11 +44,16 @@
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
+                        <div class="row" style="padding: 20px">
+                            <div class="col-1 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
+                        </div>
                         <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class=" text-center">
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Daftar Pelesen Baru</h3><br>
+                                    <h3 style="color: rgb(39, 80, 71);">Daftar Pelesen Baru</h3><br>
                                 </div>
                                 <hr>
                                 <div class="row">

@@ -47,17 +47,30 @@
 
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-1 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
+                        </div>
                         {{-- <div class="col-md-4 col-12"> --}}
                         <div class="pl-3">
 
-                            <div class=" text-center">
-                                {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Pengurusan Pentadbir
-                                </h3>
-                                <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pentadbir
-                                </h4>
-                                {{-- <p>Maklumat Kilang</p> --}}
-                            </div> <div class="card">
+                        <div class=" text-center">
+                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                            <h3 style="color: rgb(39, 80, 71); ">Pengurusan Pentadbir
+                            </h3>
+                            <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pentadbir
+                            </h4>
+                            {{-- <p>Maklumat Kilang</p> --}}
+                        </div>
+                        <hr>
+
+
+                            <section class="section">
+                                <div class="card">
+                                    {{-- <div class="card-header">
+                                                                Simple Datatable
+                                                            </div> --}}
                                     <div class="col-md-12">
                                         <a href="{{ route('admin.pengurusan.pentadbir') }}" class="btn btn-primary"
                                             style="float: left"> Tambah Pentadbir Baru</a>

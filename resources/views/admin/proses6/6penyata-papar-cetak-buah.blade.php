@@ -63,7 +63,10 @@
 
                     <div class="card-body">
                         <div class="row">
-                            <div class="dropdown" style="margin-bottom: 2%">
+                            <div class="col-1 align-self-center">
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            </div>
+                            <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" style="background-color: rgb(238, 70, 70)"
                                     type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
