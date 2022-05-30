@@ -472,7 +472,195 @@
 
                                     </div>
                                 </div>
-                               
+                                <div class="col-12">
+                                    <div id="buah_container" style="display:none">
+                                        <div class="row mt-3 " style="text-align: center; font-size: 12px">
+                                            <div class="col-md-5">
+                                                <span></span>
+                                            </div>
+
+
+                                            <div class="col-md-1">
+                                                <span>CPO</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="row mt-3 text-right">
+                                            <div class="col-md-5">
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                                    Bilangan Tangki</label>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
+                                                    oninput="setCustomValidity('')" id="bil_tangki_cpo"
+                                                    title="Sila isikan butiran ini."
+                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    onkeypress="return isNumberKey(event)"
+                                                    >
+
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row mt-3 text-right">
+                                            <div class="col-md-5">
+                                                <label for="fname"
+                                                    class="text-right control-label col-form-label  align-items-center">
+                                                    Kapasiti Tangki Simpanan (Tan)</label>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%"
+                                                    oninput="setCustomValidity('')" id="kap_tangki_cpo"
+                                                    title="Sila isikan butiran ini."
+                                                    oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    onkeypress="return isNumberKey(event)"
+                                                    >
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div id="penapis_container" style="display:none">
+                                        <div class="row mt-2" style="text-align: center; font-size: 12px">
+                                            <div class="col-md-4">
+                                                <span></span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span></span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span>CPO</span>
+                                            </div>
+
+                                            <div class="col-md-1">
+                                                <span>PPO</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span>CPKO</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span>PPKO</span>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <span>OTHERS</span>
+                                            </div>
+                                            {{-- <div class="col-md-1">
+                                                <span>JUMLAH</span>
+                                            </div> --}}
+                                        </div>
+                                        <div class="row mt-2 mb-4">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label  align-items-center">
+                                                Bilangan Tangki</label>
+
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%" oninput="setCustomValidity('')"
+                                                    size="15" id="bil_tangki_cpo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+
+                                            </div>
+
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_ppo' style="width:100%" oninput="setCustomValidity('')"
+                                                    size="15" id="bil_tangki_ppo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_cpko' style="width:100%" oninput="setCustomValidity('')"
+                                                    size="15" id="bil_tangki_cpko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_ppko' style="width:100%" oninput="setCustomValidity('')"
+                                                    size="15" id="bil_tangki_ppko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='bil_tangki_others' style="width:100%" oninput="setCustomValidity('')"
+                                                    size="15" id="bil_tangki_others" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+
+                                            </div>
+
+                                            {{-- <div class="col-md-1">
+                                                    <input type="text" class="form-control" name='bil_tangki_jumlah' style="width:100%" size="15"
+                                                        id="total"  value="{{ old('total') ?? number_format($jumlah ,2)  }}" readonly>
+
+                                                </div> --}}
+
+                                            {{-- <div class="col-md-1 text-center">
+                                                    <b><span id="bil_tangki_jumlah">
+                                                            {{ old('bil_tangki_jumlah') ?? number_format($jumlah, 2) }}
+                                                        </span>
+                                                    </b>
+
+
+                                            </div> --}}
+
+                                        </div>
+                                        <div class="row mt-2 mb-4">
+                                            <label for="fname"
+                                                class="text-right col-sm-5 control-label col-form-label  align-items-center">
+                                                Kapasiti Tangki Simpanan (Tan)</label>
+
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_cpo' style="width:100%" oninput="setCustomValidity('')"
+                                                    id="kap_tangki_cpo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+
+                                            </div>
+
+
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_ppo' style="width:100%" oninput="setCustomValidity('')"
+                                                    id="kap_tangki_ppo" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_cpko' style="width:100%" oninput="setCustomValidity('')"
+                                                    id="kap_tangki_cpko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_ppko' style="width:100%" oninput="setCustomValidity('')"
+                                                    id="kap_tangki_ppko" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+
+                                            </div>
+                                            <div class="col-md-1">
+                                                <input type="text" class="form-control" name='kap_tangki_others' style="width:100%" oninput="setCustomValidity('')"
+                                                    id="kap_tangki_others" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                    title="Sila isikan butiran ini."
+                                                    >
+                                            </div>
+                                            {{-- <div class="col-md-1 text-center">
+                                                    <b><span id="kap_tangki_jumlah">
+                                                            {{ old('kap_tangki_jumlah') ?? number_format($jumlah2, 2) }}
+                                                        </span>
+                                                    </b>
+
+                                            </div> --}}
+                                        </div>
+                                    </div>
+
+                                    <div id="lain_container" style="display:none">
+
+                                </div>
                                 <br><br>
                                 <div class="row form-group" style="padding-top: 10px; ">
                                     <div class="text-right col-1 ml-auto mr-auto">

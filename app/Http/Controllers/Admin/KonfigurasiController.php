@@ -126,7 +126,7 @@ class KonfigurasiController extends Controller
             'username' => $data['username'],
             'category' => 'admin',
             'role' => $data['role'],
-            'sub_cat' => json_encode($data['sub_cat']),
+            'sub_category' => json_encode($data['sub_cat']),
             'status' => $data['status'],
             'map_sdate' => now(),
 
