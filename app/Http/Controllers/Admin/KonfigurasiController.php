@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 
 use DB;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class KonfigurasiController extends Controller
 {
@@ -50,7 +51,7 @@ class KonfigurasiController extends Controller
         $this->validation_daftar_pentadbir($request->all())->validate();
         $daripada = $this->store_daftar_pentadbir($request->all()); // data created user masuk dalam variable $daripada
         $this->store_daftar_pentadbir2($request->all());
-
+        // $laporan->data_laporan = json_encode($req)
 
         //notification kalau admin, manager dan supervisor daftar admin.
         //kalau admin yg daftar untuk admin, notification akan masuk ke supervisor ke atas
@@ -83,16 +84,15 @@ class KonfigurasiController extends Controller
             'email' => ['required', 'string'],
             'username' => ['required', 'string'],
             'role' => ['required', 'string'],
-            'sub-cat[]' => ['required', 'string'],
+            'sub_cat' => ['required', 'string'],
             'status' => ['required', 'string'],
 
         ]);
     }
 
-    protected function store_daftar_pentadbir(array $data)
+    protected function store_daftar_pentadbir(array $data )
     {
         $password = Hash::make('admin123');
-
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -100,7 +100,7 @@ class KonfigurasiController extends Controller
             'username' => $data['username'],
             'category' => 'admin',
             'role' => $data['role'],
-            'sub_cat[]' => $data['sub_cat[]'],
+            'sub_cat' => json_encode($data['sub_cat[]']),
             'status' => $data['status'],
             'map_sdate' => now()
         ]);
@@ -149,7 +149,9 @@ class KonfigurasiController extends Controller
         $penyata->name = $request->name;
         $penyata->email = $request->email;
         $penyata->username = $request->username;
+        $penyata->sub_category = $request->sub_category;
         $penyata->role = $request->role;
+        $penyata->status = $request->status;
         $penyata->save();
 
 

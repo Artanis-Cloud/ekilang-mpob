@@ -58,11 +58,14 @@ class LaporanController extends Controller
     public function admin_kapasiti()
     {
 
+        // $pelesen = Pelesen::find($id);
+        // $pelesen = Pelesen::with('regpelesen')->where('e_nl', $reg_pelesen[0]->e_nl)->get();
+        // dd($pelesen);
         // $date= date("m");
 
-        $reg_pelesen = RegPelesen::where('e_kat','PLBIO')->get('e_nl');
-        $pelesen = Pelesen::with('regpelesen')->where('e_nl', $reg_pelesen[0]->e_nl)->get();
-        // dd($pelesen);
+        $reg_pelesen = RegPelesen::with('pelesen')->where('e_kat','PLBIO')->get();
+        // $pelesen = Pelesen::with('regpelesen')->where('e_nl', $reg_pelesen[0]->e_nl)->get();
+        // dd($reg_pelesen);
 
 
         $breadcrumbs    = [
@@ -78,16 +81,14 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.kapasiti', compact('returnArr', 'layout','reg_pelesen','pelesen'));
+        return view('admin.laporan_dq.kapasiti', compact('returnArr', 'layout','reg_pelesen'));
     }
 
-    public function admin_edit_kapasiti()
+    public function admin_edit_kapasiti($id, Pelesen $pelesen)
     {
 
-        // $date= date("m");
-
-        $reg_pelesen = RegPelesen::where('e_kat','PLBIO')->get('e_nl');
-        $pelesen = Pelesen::with('regpelesen')->where('e_nl', $reg_pelesen[0]->e_nl)->get();
+        $pelesen = Pelesen::find($id);
+        // $pelesen = Pelesen::with('regpelesen')->where('e_nl', $reg_pelesen[0]->e_nl)->get();
         // dd($pelesen);
 
         $bulan = Bulan::get();
@@ -95,7 +96,8 @@ class LaporanController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "Kapasiti Kilang Biodiesel"],
+            ['link' => route('admin.kapasiti'), 'name' => "Kapasiti Kilang Biodiesel"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Kemaskini Kapasiti"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -106,7 +108,23 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.edit-kapasiti', compact('returnArr', 'layout','reg_pelesen','pelesen','bulan'));
+        return view('admin.laporan_dq.edit-kapasiti', compact('returnArr', 'layout','pelesen'));
+
+    }
+
+
+    public function admin_edit_kapasiti_proses(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Pelesen::findOrFail($id);
+        $pelesen->tahun = $request->tahun;
+        $pelesen->bulan = $request->bulan;
+        $pelesen->kap_proses = $request->kap_proses;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
     }
 
     public function admin_laporan_tahunan()

@@ -55,7 +55,8 @@
                         <hr>
 
                         <div class="card-body">
-
+                            <form action="{{ route('admin.edit.kapasiti.proses', $pelesen->e_id) }}" method="post">
+                                @csrf
                             <div class="container center">
 
                                 <div class="row ml-auto" style="margin-top:-1%">
@@ -64,8 +65,8 @@
                                         Premis
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="No. Lesen"
-                                            value="{{ $pelesen[0]->e_np }}" readonly>
+                                        <input type="text" class="form-control" placeholder="Nama Premis"
+                                            value="{{ $pelesen->e_np ?? ''}}" readonly>
 
                                     </div>
                                 </div>
@@ -74,8 +75,8 @@
                                         class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
                                     </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="No. Lesen"
-                                            value="{{ $pelesen[0]->e_negeri }}" readonly>
+                                        <input type="text" class="form-control" placeholder="Negeri"
+                                            value="{{ $pelesen->e_negeri ?? ''}}" readonly>
 
                                     </div>
                                 </div>
@@ -83,39 +84,39 @@
                                     <div class="col-md-5 ml-auto">
                                         <label class="control-label">Bulan</label>
                                         <select class="form-control" name="bulan">
-                                            <option {{ $pelesen[0]->bulan == '01' ? 'selected' : '' }} value="01">
+                                            <option {{ $pelesen->bulan == '01' ? 'selected' : '' }} value="01">
                                                 JANUARI</option>
-                                            <option {{ $pelesen[0]->bulan == '02' ? 'selected' : '' }} value="02">
+                                            <option {{ $pelesen->bulan == '02' ? 'selected' : '' }} value="02">
                                                 FEBRUARI</option>
-                                            <option {{ $pelesen[0]->bulan == '03' ? 'selected' : '' }} value="03">
+                                            <option {{ $pelesen->bulan == '03' ? 'selected' : '' }} value="03">
                                                 MAC</option>
-                                            <option {{ $pelesen[0]->bulan == '04' ? 'selected' : '' }} value="04">
+                                            <option {{ $pelesen->bulan == '04' ? 'selected' : '' }} value="04">
                                                 APRIL</option>
-                                            <option {{ $pelesen[0]->bulan == '05' ? 'selected' : '' }} value="05">
+                                            <option {{ $pelesen->bulan == '05' ? 'selected' : '' }} value="05">
                                                 MEI</option>
-                                            <option {{ $pelesen[0]->bulan == '06' ? 'selected' : '' }} value="06">
+                                            <option {{ $pelesen->bulan == '06' ? 'selected' : '' }} value="06">
                                                 JUN</option>
-                                            <option {{ $pelesen[0]->bulan == '07' ? 'selected' : '' }} value="07">
+                                            <option {{ $pelesen->bulan == '07' ? 'selected' : '' }} value="07">
                                                 JULAI</option>
-                                            <option {{ $pelesen[0]->bulan == '08' ? 'selected' : '' }} value="08">
+                                            <option {{ $pelesen->bulan == '08' ? 'selected' : '' }} value="08">
                                                 OGOS</option>
-                                            <option {{ $pelesen[0]->bulan == '09' ? 'selected' : '' }} value="09">
+                                            <option {{ $pelesen->bulan == '09' ? 'selected' : '' }} value="09">
                                                 SEPTEMBER</option>
-                                            <option {{ $pelesen[0]->bulan == '10' ? 'selected' : '' }} value="10">
+                                            <option {{ $pelesen->bulan == '10' ? 'selected' : '' }} value="10">
                                                 OKTOBER</option>
-                                            <option {{ $pelesen[0]->bulan == '11' ? 'selected' : '' }} value="11">
+                                            <option {{ $pelesen->bulan == '11' ? 'selected' : '' }} value="11">
                                                 NOVEMBER</option>
-                                            <option {{ $pelesen[0]->bulan == '12' ? 'selected' : '' }} value="12">
+                                            <option {{ $pelesen->bulan == '12' ? 'selected' : '' }} value="12">
                                                 DISEMBER</option>
-                                            <option selected hidden disabled>Sila Pilih Bulan</option>
+                                            {{-- <option selected hidden disabled>Sila Pilih Bulan</option> --}}
                                         </select>
                                     </div>
                                     <!--/span-->
                                     <div class="col-md-5 mr-auto">
                                         <div class="form-group has-danger">
                                             <label class="control-label">Tahun</label>
-                                            <input type="text" id="lastName" class="form-control form-control-danger"
-                                                placeholder="Tahun" value="{{ $pelesen[0]->tahun }}">
+                                            <input type="text" id="lastName" name="tahun" class="form-control form-control-danger"
+                                                placeholder="Tahun" value="{{ $pelesen->tahun ?? '' }}">
                                         </div>
                                     </div>
                                     <!--/span-->
@@ -133,8 +134,8 @@
                                     <div class="col-md-5 mr-auto">
                                         <div class="form-group has-danger">
                                             <label class="control-label">Kapasiti</label>
-                                            <input type="text" id="lastName" class="form-control form-control-danger"
-                                                placeholder="0.00">
+                                            <input type="text" id="lastName" name='kap_proses' class="form-control form-control-danger"
+                                                placeholder="0.00" value="{{ $pelesen->kap_proses ?? '' }}">
                                         </div>
                                     </div>
                                     <!--/span-->
@@ -147,10 +148,11 @@
                                 {{-- </div> --}}
                                 {{-- <div class="text-right ml-auto"> --}}
 
-                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    <button type="submit" class="btn btn-primary" data-toggle="modal"
                                         data-target="#next">Simpan</button>
                                 {{-- </div> --}}
                             </div>
+                            </form>
 
 
                         </div>

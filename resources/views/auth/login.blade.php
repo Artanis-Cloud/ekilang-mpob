@@ -142,7 +142,8 @@
                                         class="fas fa-user"></i></i></span>
                             </div>
                             <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
-                                name="username" value="{{ old('username') }}" autocomplete="username" placeholder="No. Lesen">
+                                name="username" value="{{ old('username') }}" autocomplete="username"
+                                placeholder="No. Lesen">
 
                             @error('username')
                                 <div class="col-12 alert alert-danger">
@@ -170,10 +171,18 @@
 
                         {{-- <div class="text-center form-group"> --}}
                         {{-- <div class="col-xs-12 p-b-20"> --}}
-                        <button class="btn btn-block btn-lg "
+                        <button class="btn btn-block btn-lg mb-1 "
                             style="color: black; background-color: rgba(89, 194, 154, 0.801)" type="submit">
                             Log Masuk</button>
-
+                        <div class="mt-2" style="bottom:0; text-align:center">
+                            <p> <a href="{{ route('password.request') }}" style="color: #163a9f"><u> Terlupa Kata
+                                        Laluan?</u></a></p>
+                        </div>
+                        {{-- @if (Route::has('password.request'))
+                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                            {{ __('Forgot Your Password?') }}
+                        </a>
+                    @endif --}}
                     </form>
                 </div>
             </div>
@@ -232,9 +241,13 @@
     {{-- toaster display --}}
     <script>
         @if (Session::get('success'))
-            toastr.success('{{ session('success') }}', 'Berjaya', { "progressBar": true });
+            toastr.success('{{ session('success') }}', 'Berjaya', {
+                "progressBar": true
+            });
         @elseif ($message = Session::get('error'))
-            toastr.error('{{ session('error') }}', 'Ralat', { "progressBar": true });
+            toastr.error('{{ session('error') }}', 'Ralat', {
+                "progressBar": true
+            });
         @endif
     </script>
 </body>

@@ -83,6 +83,7 @@ class DashboardAdminController extends Controller
             where p.e_nl = e.e102_nl
             and p.e_nl = r.e_nl
             and r.e_kat = 'PL102'
+            -- and e.e102_flg = '2'
             and e.e102_sdate is not null
             and DAY(e.e102_sdate) = '$i'
             group by e.e102_sdate
