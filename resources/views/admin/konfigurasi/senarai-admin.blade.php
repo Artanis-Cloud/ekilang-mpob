@@ -57,12 +57,7 @@
                                 <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pentadbir
                                 </h4>
                                 {{-- <p>Maklumat Kilang</p> --}}
-                            </div>
-                            <hr>
-
-
-                            <section class="section">
-                                <div class="card">
+                            </div> <div class="card">
                                     <div class="col-md-12">
                                         <a href="{{ route('admin.pengurusan.pentadbir') }}" class="btn btn-primary"
                                             style="float: left"> Tambah Pentadbir Baru</a>

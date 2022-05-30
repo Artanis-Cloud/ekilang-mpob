@@ -101,7 +101,7 @@
                                                 <thead>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar?</th>
-                                                        <th>Sudah Cetak?<br></th>
+                                                        {{-- <th>Sudah Cetak?<br></th> --}}
                                                         <th>No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
@@ -113,7 +113,7 @@
                                                 <tfoot>
                                                     <tr style="background-color: #e9ecefbd">
                                                         <th>Papar?</th>
-                                                        <th>Sudah Cetak?<br></th>
+                                                        {{-- <th>Sudah Cetak?<br></th> --}}
                                                         <th>No. Lesen<br></th>
                                                         <th>Nama Premis</th>
                                                         <th>Kod Pegawai</th>
@@ -129,9 +129,9 @@
                                                                 <input name="papar_ya[]" type="checkbox"
                                                                     value="{{ $data->e07_reg }}">&nbspYa
                                                             </td>
-                                                            <td>
+                                                            {{-- <td>
                                                                 x
-                                                            </td>
+                                                            </td> --}}
                                                             <td>
                                                                 {{-- <a href="#"> --}}
                                                                 {{ $data->e_nl }}

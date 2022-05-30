@@ -55,9 +55,9 @@
                                 </p>
                                 {{-- <title>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</title> --}}
                                 <p align="center"><b>
-                                    <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
+                                    <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB) </font><br>
 
-                                    </font>Senarai Kod dan Nama Produk Sawit<br></b>
+                                    <font size="4">Senarai Kod dan Nama Produk Sawit</font></b>
 
                                 </p>
 
@@ -67,8 +67,19 @@
 
                         <section class="section">
                             <div class="card">
-                                <form action="{{ route('admin.6papar.buah.form') }}" method="post">
-                                    @csrf
+                                    <div class="row " style=" float:left">
+                                        <div class="text-left col-md-1">
+                                            <a href="{{ asset('manual/admin/Kod dan Nama Produk.pdf') }}" class="btn btn-primary ">
+                                                PDF
+                                            </a>
+                                        </div>
+                                        <div class="text-left col-md-2" style="margin-left: -3%">
+                                            <a href="{{ asset('manual/admin/Kod dan Nama Produk.xlsx') }}" class="btn btn-primary ">
+                                                EXCEL
+                                            </a>
+                                        </div>
+                                    </div><br>
+
                                     <div class="table-responsive">
                                         <table id="example" class="table table-striped table-bordered" style="width: 100%;">
 
@@ -103,7 +114,6 @@
                                         </table>
 
                                     </div>
-                                </form>
                             </div>
                         </section>
                     </div>
@@ -113,43 +123,7 @@
             </div>
         </div>
 
-        <form method="get" action="" id="myfrm">
 
-            <div class="card" style="margin-right:2%; margin-left:2%">
-
-                <div class="card-body">
-
-                        {{-- <div class="col-md-4 col-12"> --}}
-                    <div class="col-md-12" align="center" style="font-family:Rubik, sans-serif;">
-
-                        <body>
-
-
-                            <p align="center">
-                                <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
-                            </p>
-                            {{-- <title>PENYATA BULANAN KILANG BUAH - MPOB (EL) MF 4</title> --}}
-                            <p align="center"><b>
-                                <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
-
-                                </font>Senarai Kod dan Nama Produk Sawit<br>
-
-                            </p>
-
-
-                            <div class="table-responsive">
-                                <table id="example" class="table table-striped table-bordered" style="width: 100%;">
-
-                                </table>
-                            </div>
-
-
-                        </body>
-                    </div>
-                </div>
-            </div>
-
-        </form>
 
 
     </div>
@@ -161,7 +135,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
@@ -189,6 +163,6 @@
             newwin.print();
             newwin.close();
         }
-    </script>
+    </script> --}}
 
 @endsection
