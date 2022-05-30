@@ -1131,7 +1131,7 @@
                                     </li>
                                 </ul>
                             </li>
-                            @if (auth()->user()->sub_category == 'PLBIO')
+                            @if (auth()->user()->sub_category == 'PLBIO' || auth()->user()->role == 'Superadmin')
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
@@ -1478,6 +1478,7 @@
     {{-- datatable --}}
     <script src="{{ asset('nice-admin/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
     <script src="{{ asset('nice-admin/dist/js/pages/datatable/datatable-basic.init.js') }}"></script>
+
 
     {{-- plotly --}}
     <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>

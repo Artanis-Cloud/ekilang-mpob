@@ -56,66 +56,72 @@
 
                         <div class="card-body">
 
-                            <div class="container center">
-
-                                <div class="row ml-auto" style="margin-top:-1%">
-                                    <label for="fname"
-                                        class="text-right col-sm-4 control-label col-form-label  align-items-center">No.
-                                        Lesen
-                                    </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="No. Lesen">
-
-                                    </div>
-                                </div>
-                                <div class="row mt-2 ml-auto">
-                                    <label
-                                        class="text-right col-sm-4 control-label col-form-label  align-items-center">Bulan
-                                    </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="No. Lesen">
-
-                                    </div>
-                                </div>
-                                <div class="row mt-2 ml-auto">
-                                    <label for="fname"
-                                        class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
-                                    </label>
-                                    <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder="No. Lesen">
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="text-right col-md-6 mb-4 mt-4">
-                                <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                    data-target="#next">Cari</button>
-                            </div>
-                            <hr>
-                            <div class="row">
+                            <div class="row" style="margin-top:-3%">
                                 <div class="col-8 mr-auto ml-auto">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="table-responsive">
-                                                <table id="zero_config" class="table table-bordered">
+                                                <table id="example" class="table table-bordered">
                                                     <thead>
-                                                        <tr>
-                                                            <th>Bil.</th>
+                                                        <tr style="background-color: #e9ecefbd">
+                                                            {{-- <th>Bil.</th> --}}
                                                             <th>No. Lesen</th>
                                                             <th>Bulan</th>
                                                             <th>Tahun</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        @foreach ($pelesen as $data)
-
-                                                        <tr>
-                                                            <td>{{ $loop->iteration }}</td>
-                                                            <td><a href="{{ route('admin.edit.kapasiti') }}"><u>{{ $data->e_nl }}</u></a></td>
-                                                            <td>{{ $data->bulan }}</td>
-                                                            <td>{{ $data->tahun }}</td>
+                                                    <tfoot>
+                                                        <tr style="background-color: #e9ecefbd">
+                                                            {{-- <th>Bil.</th> --}}
+                                                            <th>No. Lesen</th>
+                                                            <th>Bulan</th>
+                                                            <th>Tahun</th>
                                                         </tr>
+                                                    </tfoot>
+                                                    <tbody>
+                                                        @foreach ($reg_pelesen as $data)
+                                                            @if ($data->pelesen)
+                                                                <tr>
+                                                                    <td><a
+                                                                            href="{{ route('admin.edit.kapasiti', $data->pelesen->e_id) }}"><u>{{ $data->e_nl }}</u></a>
+                                                                    </td>
+                                                                    @if ($data->pelesen->bulan == '01')
+
+                                                                        <td>JANUARI</td>
+
+                                                                    @else
+                                                                        <td>JANUARI</td>
+
+
+                                                                    @endif
+
+                                                                    {{-- @elseif ($data->pelesen->bulan == '02')
+                                                                        <td>FEBRUARI</td>
+                                                                    @elseif ($data->pelesen->bulan == '03')
+                                                                        <td>MAC</td>
+                                                                    @elseif ($data->pelesen->bulan == '04')
+                                                                        <td>APRIL</td>
+                                                                    @elseif ($data->pelesen->bulan == '05')
+                                                                        <td>MEI</td>
+                                                                    @elseif ($data->pelesen->bulan == '06')
+                                                                        <td>JUN</td>
+                                                                    @elseif ($data->pelesen->bulan == '07')
+                                                                        <td>JULAI</td>
+                                                                    @elseif ($data->pelesen->bulan == '08')
+                                                                        <td>OGOS</td>
+                                                                    @elseif ($data->pelesen->bulan == '09')
+                                                                        <td>SEPTEMBER</td>
+                                                                    @elseif ($data->pelesen->bulan == '10')
+                                                                        <td>OKTOBER</td>
+                                                                    @elseif ($data->pelesen->bulan == '11')
+                                                                        <td>NOVEMBER</td>
+                                                                    @elseif ($data->pelesen->bulan == '12')
+                                                                        <td>DISEMBER</td>
+                                                                    @endif --}}
+                                                                    {{-- <td>{{ $data->pelesen->tahun }}</td> --}}
+                                                                    <td>{{ $data->pelesen->tahun }}</td>
+                                                                </tr>
+                                                            @endif
                                                         @endforeach
                                                     </tbody>
 
@@ -144,7 +150,7 @@
 @endsection
 
 @section('scripts')
-    <script>
+    {{-- <script>
         $(document).ready(function() {
             $('#example').DataTable({
                 "language": {
@@ -171,5 +177,5 @@
 
             });
         });
-    </script>
+    </script> --}}
 @endsection

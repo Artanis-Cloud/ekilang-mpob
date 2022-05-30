@@ -74,14 +74,15 @@
                                         <thead>
                                             <tr class="text-center" style="background-color: #e9ecefbd">
                                                 {{-- <th>Bil.</th> --}}
-                                                <th>Nama</th>
-                                                <th>Username</th>
-                                                <th>Alamat Emel</th>
-                                                <th>Kategori</th>
-                                                <th>Sub-Kategori</th>
-                                                <th>Status</th>
-                                                <th>Kemaskini</th>
-                                                <th>Hapus</th>
+                                                <th style="vertical-align:middle">Nama</th>
+                                                <th style="vertical-align:middle">Username</th>
+                                                <th style="vertical-align:middle">Alamat Emel</th>
+                                                <th style="vertical-align:middle">Kategori</th>
+                                                <th style="vertical-align:middle">Sub-Kategori</th>
+                                                <th style="vertical-align:middle">Status</th>
+                                                <th style="vertical-align:middle" >Kemaskini</th>
+                                                <th style="vertical-align:middle" >Hapus</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tfoot>
@@ -93,8 +94,7 @@
                                                 <th>Kategori</th>
                                                 <th>Sub-Kategori</th>
                                                 <th>Status</th>
-                                                <th>Kemaskini</th>
-                                                <th>Hapus</th>
+                                                {{-- <th>Kemaskini</th> --}}
                                             </tr>
                                         </tfoot>
                                         <tbody style="word-break: break-word; font-size:12px">
@@ -109,7 +109,7 @@
                                                     <td>{{ $data->username ?? '-' }}</td>
                                                     <td>{{ $data->email ?? '-' }}</td>
                                                     <td>{{ $data->role }}</td>
-                                                    <td>{{ $data->sub_category }}</td>
+                                                    <td>{{ $data->sub_category ?? '-'}}</td>
                                                     @if ($data->status == '1')
                                                         <td>Aktif</td>
                                                     @else
@@ -203,13 +203,20 @@
                                                                                 </div>
                                                                                 <label>Sub-Kategori </label>
                                                                                 <div class="form-group">
-                                                                                    <select multiple="multiple" size="10" class="duallistbox-no-filter" name="sub-category">
-                                                                                        <option value="PL91">Kilang Buah</option>
-                                                                                        <option value="PL101">Kilang Penapis</option>
-                                                                                        <option value="PL102">Kilang Isirung</option>
-                                                                                        <option value="PL104">Kilang Oleokimia</option>
-                                                                                        <option value="PL111">Pusat Simpanan</option>
-                                                                                        <option value="PLBIO">Kilang Biodiesel</option>
+                                                                                    <select name="sub-category">
+                                                                                        {{-- multiple="multiple" size="10" class="duallistbox-no-filter" --}}
+                                                                                        <option value="PL91">Kilang Buah
+                                                                                        </option>
+                                                                                        <option value="PL101">Kilang Penapis
+                                                                                        </option>
+                                                                                        <option value="PL102">Kilang Isirung
+                                                                                        </option>
+                                                                                        <option value="PL104">Kilang
+                                                                                            Oleokimia</option>
+                                                                                        <option value="PL111">Pusat Simpanan
+                                                                                        </option>
+                                                                                        <option value="PLBIO">Kilang
+                                                                                            Biodiesel</option>
                                                                                     </select>
                                                                                 </div>
 
@@ -218,12 +225,25 @@
                                                                                     <fieldset class="form-group">
                                                                                         <select class="form-control"
                                                                                             name="status">
+                                                                                            @if ($data->status == null)
+                                                                                                <option hidden selected
+                                                                                                    disabled>
+                                                                                                    Sila Pilih Status
+                                                                                                </option>
+                                                                                            @else
+                                                                                                <option hidden selected
+                                                                                                    disabled>
+                                                                                                    {{ $data->status }}
+                                                                                                </option>
+                                                                                            @endif
                                                                                             <option
-                                                                                                {{ $data->status == '1' ? 'selected' : '' }} value="1">
+                                                                                                {{ $data->status == '1' ? 'selected' : '' }}
+                                                                                                value="1">
                                                                                                 Aktif</option>
                                                                                             {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
                                                                                             <option
-                                                                                                {{ $data->status == '2' ? 'selected' : '' }} value="2">
+                                                                                                {{ $data->status == '2' ? 'selected' : '' }}
+                                                                                                value="2">
                                                                                                 Tidak Aktif</option>
                                                                                         </select>
                                                                                     </fieldset>
