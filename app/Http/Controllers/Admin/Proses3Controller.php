@@ -474,6 +474,7 @@ class Proses3Controller extends Controller
         $e102_init = E102Init::where('e102_nl', $request->e_initlesen)->first();
         $e104_init = E104Init::where('e104_nl', $request->e_initlesen)->first();
         $e07_init = E07Init::where('e07_nl', $request->e_initlesen)->first();
+        $ebio_init = EBioInit::where('ebio_nl', $request->e_initlesen)->first();
 
         if ($reg_pelesen->e_kat == 'PL91') {
             if ($e91_init) {
@@ -683,6 +684,32 @@ class Proses3Controller extends Controller
                     'e07_npg' => NULL,
                     'e07_jpg' => NULL,
                     'e07_flagcetak' => NULL,
+                ]);
+            }
+        }
+             elseif ($reg_pelesen->e_kat == 'PLBIO')
+            {
+                if ($ebio_init) {
+                    return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
+                }   else{
+                $count = EBioInit::max('ebio_reg');
+
+                $query = EBioInit::create([
+                    'ebio_reg' => $count + 1,
+                    'ebio_nl' => $request->e_initlesen,
+                    'ebio_bln' => now()->month,
+                    'ebio_thn' => now()->year,
+                    'ebio_flg' => '1',
+                    'ebio_sdate' => NULL,
+                    'ebio_ddate' => $request->e_ddate,
+                    'ebio_a5' => NULL,
+                    'ebio_a6' => NULL,
+                    'ebio_npg' => NULL,
+                    'ebio_jpg' => NULL,
+                    'ebio_notel' => NULL,
+                    'ebio_flagcetak' => NULL,
+                    'created_at' => NULL,
+                    'updated_at' => NULL,
                 ]);
             }
         }
