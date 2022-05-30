@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en-US">
 
@@ -8,7 +7,10 @@
     <meta name="description" content="Appointment Reminder Email Template">
 </head>
 <style>
-    a:hover {text-decoration: underline !important;}
+    a:hover {
+        text-decoration: underline !important;
+    }
+
 </style>
 
 <body marginheight="0" topmargin="0" marginwidth="0" style="margin: 0px; background-color: #f2f3f8;" leftmargin="0">
@@ -24,9 +26,9 @@
                     <!-- Logo -->
                     <tr>
                         <td style="text-align:center;">
-                          <a href="{{ route('admin.dashboard') }}" title="logo" target="_blank">
-                            <img src="{{ asset('mpob-text.png') }}" title="logo" alt="logo">
-                          </a>
+                            <a href="{{ route('admin.dashboard') }}" title="logo" target="_blank">
+                                <img src="{{ asset('mpob-text.png') }}" title="logo" alt="logo" style="width: 50%">
+                            </a>
                         </td>
                     </tr>
                     <tr>
@@ -43,7 +45,9 @@
                                 <!-- Title -->
                                 <tr>
                                     <td style="padding:0 15px; text-align:center;">
-                                        <h1 style="color:#1e1e2d; font-weight:400; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">{{ $tajuk }}</h1>
+                                        <h1
+                                            style="color:#1e1e2d; font-weight:400; margin:0;font-size:32px;font-family:'Rubik',sans-serif;">
+                                            {{ $tajuk }}</h1>
                                         <span style="display:inline-block; vertical-align:middle; margin:29px 0 26px; border-bottom:1px solid #cecece;
                                         width:100px;"></span>
                                     </td>
@@ -60,7 +64,7 @@
                                                         Nama:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        Syazwani</td>
+                                                        {{ $user->name }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td
@@ -68,7 +72,7 @@
                                                         Username:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        syn995</td>
+                                                        {{ $user->username }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td
@@ -76,7 +80,7 @@
                                                         Alamat Emel:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        syazwanisaliman77@gmail.com</td>
+                                                        {{ $user->email }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td
@@ -84,7 +88,7 @@
                                                         Kategori:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                        Admin</td>
+                                                        {{ $user->category }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td
@@ -92,7 +96,16 @@
                                                         Sub-Kategori:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                       PLBIO</td>
+                                                        @if ($user->sub_cat)
+                                                            <ul>
+                                                                @foreach (json_decode($user->sub_cat) as $sub)
+                                                                    <li>{{ $sub }}</li>
+                                                                @endforeach
+                                                            </ul>
+                                                        @else
+                                                            -
+                                                        @endif
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td
@@ -100,7 +113,7 @@
                                                         Status:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056; ">
-                                                       Aktif</td>
+                                                        {{ $user->status == 1 ? 'Aktif' : 'Tidak Aktif' }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td
@@ -108,14 +121,15 @@
                                                         Tarikh dan Jam:</td>
                                                     <td
                                                         style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056; ">
-                                                        12th April 2019 &nbsp; 11:00 a.m</td>
+                                                        {{ date('d-m-Y', strtotime($user->created_at)) }} &nbsp;
+                                                        {{ date('H:i:s', strtotime($user->created_at)) }}</td>
                                                 </tr>
-                                                <tr>
+                                                {{-- <tr>
                                                     <td
                                                         style="padding: 10px; border-right: 1px solid #ededed; width: 35%;font-weight:500; color:rgba(0,0,0,.64)">
                                                         Ditambah Oleh:</td>
                                                     <td style="padding: 10px; color: #455056;">Nama : Ansar <br> Username : Ansar97 <br> Kategori : Supervisor </td>
-                                                </tr>
+                                                </tr> --}}
                                             </tbody>
                                         </table>
                                     </td>
@@ -131,7 +145,9 @@
                     </tr>
                     <tr>
                         <td style="text-align:center;">
-                                <p style="font-size:14px; color:#455056bd; line-height:18px; margin:0 0 0;">&copy; <strong>www.rakeshmandal.com</strong></p>
+                            <p style="font-size:14px; color:#455056bd; line-height:18px; margin:0 0 0;">&copy;
+                                <strong>https://www.mpob.gov.my</strong>
+                            </p>
                         </td>
                     </tr>
                 </table>
