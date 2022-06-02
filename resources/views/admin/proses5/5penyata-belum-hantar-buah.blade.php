@@ -153,7 +153,7 @@
                                             </div>
                                             <div class="text-left col-md-8">
                                                 <button class="btn btn-primary"
-                                                    onclick="exportTableToExcel('tblData')">Excel</button>
+                                                    onclick="exportTableToExcel('example')">Excel</button>
                                             </div>
                                         </div>
                                     {{-- </form> --}}

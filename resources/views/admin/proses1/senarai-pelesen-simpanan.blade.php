@@ -99,7 +99,7 @@
                                     </div>
                                     <br>
                                     <div class="table-responsive">
-                                        <table id="example" class="table table-bordered" style="width: 100%;">
+                                        <table id="example" class="table table-bordered text-center" style="width: 100%;">
                                             <thead>
                                                 <tr style="background-color: #e9ecefbd">
                                                     {{-- <th>Bil.</th> --}}
@@ -141,28 +141,28 @@
                                                         <td>{{ $data->pelesen->e_np ?? '-' }}</td>
                                                         <td>{{ $data->pelesen->e_email ?? '-' }}</td>
                                                         <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
-                                                        <td>{{ $data->kodpgw }}</td>
-                                                        <td>{{ $data->nosiri }}</td>
+                                                        <td style="text-align: center">{{ $data->kodpgw }}</td>
+                                                        <td style="text-align: center">{{ $data->nosiri }}</td>
                                                         @if ($data->e_status == 1)
-                                                            <td>Aktif</td>
+                                                            <td style="text-align: center">Aktif</td>
                                                         @elseif ($data->e_status == 2)
-                                                            <td>Tidak Aktif</td>
+                                                            <td style="text-align: center">Tidak Aktif</td>
                                                         @else
-                                                            <td>-</td>
+                                                            <td style="text-align: center">-</td>
                                                         @endif
                                                         @if ($data->e_stock == 1)
-                                                            <td>Aktif</td>
+                                                            <td style="text-align: center">Aktif</td>
                                                         @elseif ($data->e_stock == 2)
-                                                            <td>Tidak Aktif</td>
+                                                            <td style="text-align: center">Tidak Aktif</td>
                                                         @else
-                                                            <td>-</td>
+                                                            <td style="text-align: center">-</td>
                                                         @endif
                                                         @if ($data->directory == 'Y')
-                                                            <td>Ya</td>
+                                                            <td style="text-align: center">Ya</td>
                                                         @elseif ($data->directory == 'N')
-                                                            <td>Tidak</td>
+                                                            <td style="text-align: center">Tidak</td>
                                                         @else
-                                                            <td>-</td>
+                                                            <td style="text-align: center">-</td>
                                                         @endif
 
                                                         {{-- <td>-</td> --}}

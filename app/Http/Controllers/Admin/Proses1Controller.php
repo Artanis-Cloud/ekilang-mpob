@@ -236,6 +236,22 @@ class Proses1Controller extends Controller
         ($pelesen->kap_tangki_ppko ?? 0) +
         ($pelesen->kap_tangki_others ?? 0);
 
+        $jumlah3 = ($pelesen->bil_tangki_cpo ?? 0) +
+        ($pelesen->bil_tangki_ppo ?? 0) +
+        ($pelesen->bil_tangki_cpko ?? 0) +
+        ($pelesen->bil_tangki_ppko ?? 0) +
+        ($pelesen->bil_tangki_oleo ?? 0) +
+        ($pelesen->bil_tangki_others ?? 0);
+
+        $jumlah4 = ($pelesen->kap_tangki_cpo ?? 0) +
+        ($pelesen->kap_tangki_ppo ?? 0) +
+        ($pelesen->kap_tangki_cpko ?? 0) +
+        ($pelesen->kap_tangki_ppko ?? 0) +
+        ($pelesen->kap_tangki_oleo ?? 0) +
+        ($pelesen->kap_tangki_others ?? 0);
+
+
+
         if ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PL91') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -306,22 +322,23 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
+
+
+        } elseif($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PLBIO'){
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Penapis"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
+        } elseif($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PLBIO'){
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.senaraipelesenbatalpenapis'), 'name' => "Senarai Pelesen Penapis Dibatalkan"],
+                ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
+
+            ];
         }
-        // } elseif($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PLBIO'){
-        //     $breadcrumbs    = [
-        //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        //         ['link' => route('admin.senaraipelesen'), 'name' => "Senarai Pelesen Penapis"],
-        //         ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
-
-        //     ];
-        // } elseif($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PLBIO'){
-        //     $breadcrumbs    = [
-        //         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-        //         ['link' => route('admin.senaraipelesenbatalpenapis'), 'name' => "Senarai Pelesen Penapis Dibatalkan"],
-        //         ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
-
-        //     ];
-        // }
 
 
         $kembali = route('admin.dashboard');
@@ -342,7 +359,8 @@ class Proses1Controller extends Controller
         // $pengumuman = \DB::table('pengumuman')->get();
         // dd($id);
 
-        return view('admin.proses1.papar-maklumat', compact('returnArr', 'layout', 'pelesen', 'negeri', 'reg_pelesen', 'jumlah', 'jumlah2'));
+        return view('admin.proses1.papar-maklumat', compact('returnArr', 'layout', 'pelesen', 'negeri', 'reg_pelesen', 'jumlah', 'jumlah2'
+        , 'jumlah3', 'jumlah4'));
 
         // return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
     }
@@ -382,17 +400,18 @@ class Proses1Controller extends Controller
         $penyata->e_year = $request->e_year;
         $penyata->e_email_pengurus = $request->e_email_pengurus;
         $penyata->kap_proses = $request->kap_proses;
-        $penyata->kap_tangki = $request->kap_tangki;
         $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
         $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
         $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
         $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
+        $penyata->bil_tangki_oleo = $request->bil_tangki_oleo;
         $penyata->bil_tangki_others = $request->bil_tangki_others;
         $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
         $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
         $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
         $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
         $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
+        $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
         $penyata->kap_tangki_others = $request->kap_tangki_others;
         // $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
         $penyata->save();
@@ -569,6 +588,7 @@ class Proses1Controller extends Controller
 
     public function admin_senaraipelesenbio()
     {
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->where('e_status', 1)->get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -585,7 +605,7 @@ class Proses1Controller extends Controller
 
 
 
-        return view('admin.proses1.senarai-pelesen-bio', compact('returnArr', 'layout'));
+        return view('admin.proses1.senarai-pelesen-bio', compact('returnArr', 'layout', 'users'));
     }
 
     public function admin_senaraipelesenbatalbuah()
