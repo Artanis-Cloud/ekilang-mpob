@@ -45,8 +45,7 @@
                         </h5>
                     </div>
                     <hr>
-                    <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b style="color: red"> *
-                    </b><i>'</i>
+                    <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b style="color: red"> *</b><i>'</i>
                     <form action="{{ route('buah.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
                         @csrf
                         <div class="container center mt-5">

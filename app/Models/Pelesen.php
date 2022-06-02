@@ -67,7 +67,6 @@ class Pelesen extends Model
         'e_status',
         'e_email_pengurus',
         'kap_proses',
-        'kap_tangki',
         'bil_tangki_cpo',
         'bil_tangki_ppo',
         'bil_tangki_cpko',

@@ -93,7 +93,7 @@
                                     </div>
                                     <br>
                                     <div class="table-responsive">
-                                        <table id="example" class="table table-bordered" style="width: 100%;">
+                                        <table id="example" class="table table-bordered text-center" style="width: 100%;">
                                             <thead>
                                                 <tr style="background-color: #e9ecefbd">
                                                     {{-- <th>Bil.</th> --}}
@@ -124,40 +124,46 @@
                                             </tfoot>
                                             <tbody style= "max-width: 100px;
                                             word-break: break-word;">
-                                                <tr>
-                                                    <td>
-                                                        x
-                                                    </td>
-                                                    <td >
-                                                        x
-                                                    </td>
-                                                    <td >
-                                                        x
-                                                    </td>
-                                                    <td>
-                                                        x
-                                                    </td>
-                                                    <td >
-                                                        x
-                                                    </td>
-                                                    <td >
-                                                        x
-                                                    </td>
-                                                    <td>
-                                                        x
-                                                    </td>
-                                                    <td >
-                                                        x
-                                                    </td>
-                                                    <td >
-                                                        x
-                                                    </td>
-                                                    <td >
-                                                        x
-                                                    </td>
+                                                 @foreach ($users as $data)
+                                                 @if ($data->pelesen)
 
+                                                     <tr class="text-left">
+                                                         {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                         <td>
+                                                             <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
+                                                                     {{ $data->e_nl }}</u></a>
+                                                         </td>
+                                                         <td>{{ $data->pelesen->e_np ?? '-' }}</td>
+                                                         <td>{{ $data->pelesen->e_email ?? '-' }}</td>
+                                                         <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
+                                                         <td style="text-align: center">{{ $data->kodpgw }}</td>
+                                                         <td style="text-align: center">{{ $data->nosiri }}</td>
+                                                         @if ($data->e_status == 1)
+                                                             <td style="text-align: center">Aktif</td>
+                                                         @elseif ($data->e_status == 2)
+                                                             <td style="text-align: center">Tidak Aktif</td>
+                                                         @else
+                                                             <td style="text-align: center">-</td>
+                                                         @endif
+                                                         @if ($data->e_stock == 1)
+                                                             <td style="text-align: center">Aktif</td>
+                                                         @elseif ($data->e_stock == 2)
+                                                             <td style="text-align: center">Tidak Aktif</td>
+                                                         @else
+                                                             <td style="text-align: center">-</td>
+                                                         @endif
+                                                         @if ($data->directory == 'Y')
+                                                             <td style="text-align: center">Ya</td>
+                                                         @elseif ($data->directory == 'N')
+                                                             <td style="text-align: center">Tidak</td>
+                                                         @else
+                                                             <td style="text-align: center">-</td>
+                                                         @endif
 
-                                                </tr>
+                                                         {{-- <td>-</td> --}}
+                                                     </tr>
+                                                     @endif
+                                                 @endforeach
 
 
                                             </tbody>
