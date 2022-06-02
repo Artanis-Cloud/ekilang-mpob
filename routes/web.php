@@ -228,6 +228,9 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_minyak_sawit_diproses'])->name('admin.minyak.sawit.diproses');
         Route::get('admin/tambah-minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_proses'])->name('admin.tambah.proses');
         Route::get('admin/validasi-minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_minyak_sawit_diproses'])->name('admin.validasi.minyak.sawit.diproses');
+
+
+        Route::get('admin/activities-by-licensee', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_licensee'])->name('admin.activities.by.licensee');
     });
 
     Route::get('try3', [App\Http\Controllers\Admin\KilangController::class, 'try3'])->name('try3');

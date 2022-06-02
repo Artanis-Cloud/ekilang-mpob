@@ -285,6 +285,26 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.validasi-minyak-sawit-diproses', compact('returnArr', 'layout','bulan'));
     }
 
+    public function admin_activities_by_licensee()
+    {
+        // $bulan=Bulan::get();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.activities.by-licensee', compact('returnArr', 'layout'));
+    }
+
 
     public function admin_kilangbuah()
     {
