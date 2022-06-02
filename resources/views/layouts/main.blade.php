@@ -1204,6 +1204,223 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <li class="sidebar-item">
+                                        <a class="sidebar-link has-arrow " style=" margin-right:5%"
+                                            aria-expanded="false">
+                                            <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Oleochemical </span>
+                                            {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                        </a>
+                                        <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link has-arrow " style=" margin-right:5%"
+                                                    aria-expanded="false">
+                                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Activites </span>
+                                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                                </a>
+                                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.activities.by.licensee') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">OA1 - Activities <br> By Licensee</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.stok.akhir') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> OA2 - Activities <br> By State </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">OA3 - Activities <br> By District</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> OA4 - Activities <br> By Region</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">OA5 - Activities <br> By Product</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">OA6 - Activities <br> By Product Group</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link has-arrow " style=" margin-right:5%"
+                                                    aria-expanded="false">
+                                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Monthly </span>
+                                                </a>
+                                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.stok.akhir') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Monthly By Licensee</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.stok.akhir') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Monthly By State </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Monthly By District</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Monthly By Region</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Monthly By Product</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Monthly By <br> Product Group</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link has-arrow " style=" margin-right:5%"
+                                                    aria-expanded="false">
+                                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Quarterly </span>
+                                                </a>
+                                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.stok.akhir') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Quarterly By Licensee</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.stok.akhir') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Quarterly By State </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Quarterly By District</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Quarterly By Region</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> OQT1- Quarterly By <br> Product</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> OQG1- Quarterly By <br> Product Group</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a class="sidebar-link has-arrow " style=" margin-right:5%"
+                                                    aria-expanded="false">
+                                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Yearly </span>
+                                                </a>
+                                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.stok.akhir') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Yearly By Licensee</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.stok.akhir') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Yearly By State </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Yearly By District</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu">Yearly By Region</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> Yearly By Product</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> Yearly By <br> Product Group</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> Yearly By <br> Parent Company</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> Yearly By Parent <br> Company Group</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> Yearly By Month</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> OE1 - Export/Import</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             @else

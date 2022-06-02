@@ -101,26 +101,9 @@
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity('')">
                                                     <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                    <option>2003</option>
-                                                    <option>2004</option>
-                                                    <option>2005</option>
-                                                    <option>2006</option>
-                                                    <option>2007</option>
-                                                    <option>2008</option>
-                                                    <option>2009</option>
-                                                    <option>2010</option>
-                                                    <option>2011</option>
-                                                    <option>2012</option>
-                                                    <option>2013</option>
-                                                    <option>2014</option>
-                                                    <option>2015</option>
-                                                    <option>2016</option>
-                                                    <option>2017</option>
-                                                    <option>2018</option>
-                                                    <option>2019</option>
-                                                    <option>2020</option>
-                                                    <option>2021</option>
-                                                    <option>2022</option>
+                                                    @for ($i = 2003; $i <= date('Y'); $i++)
+                                                        <option>{{ $i }}</option>
+                                                    @endfor
                                                 </select>
                                             </fieldset>
                                         </div>
