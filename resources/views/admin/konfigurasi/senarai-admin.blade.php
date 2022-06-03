@@ -224,21 +224,16 @@
                                                                                 </div>
                                                                                 <label>Sub-Kategori </label>
                                                                                 <div class="form-group">
-                                                                                    <select name="sub-category">
-                                                                                        {{-- multiple="multiple" size="10" class="duallistbox-no-filter" --}}
-                                                                                        <option value="PL91">Kilang Buah
-                                                                                        </option>
-                                                                                        <option value="PL101">Kilang Penapis
-                                                                                        </option>
-                                                                                        <option value="PL102">Kilang Isirung
-                                                                                        </option>
-                                                                                        <option value="PL104">Kilang
-                                                                                            Oleokimia</option>
-                                                                                        <option value="PL111">Pusat Simpanan
-                                                                                        </option>
-                                                                                        <option value="PLBIO">Kilang
-                                                                                            Biodiesel</option>
+                                                                                    <fieldset class="form-group">
+                                                                                    <select multiple="multiple" size="10" class="duallistbox-no-filter" name="sub_cat[]">
+                                                                                        <option value="PL91">Kilang Buah</option>
+                                                                                        <option value="PL101">Kilang Penapis</option>
+                                                                                        <option value="PL102">Kilang Isirung</option>
+                                                                                        <option value="PL104">Kilang Oleokimia</option>
+                                                                                        <option value="PL111">Pusat Simpanan</option>
+                                                                                        <option value="PLBIO">Kilang Biodiesel</option>
                                                                                     </select>
+                                                                                    </fieldset>
                                                                                 </div>
 
                                                                                 <label>Status </label>

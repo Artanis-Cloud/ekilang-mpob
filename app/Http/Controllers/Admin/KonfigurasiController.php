@@ -183,7 +183,7 @@ class KonfigurasiController extends Controller
         $penyata->name = $request->name;
         $penyata->email = $request->email;
         $penyata->username = $request->username;
-        $penyata->sub_category = $request->sub_category;
+        $penyata->sub_cat = json_encode($request['sub_cat']);
         $penyata->role = $request->role;
         $penyata->status = $request->status;
         $penyata->save();

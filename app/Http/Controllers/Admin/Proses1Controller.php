@@ -41,6 +41,8 @@ class Proses1Controller extends Controller
     {
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
 
+        $user = User::where('category', 'Admin')->get();
+        // dd($user[3]->sub_cat);
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.1daftarpelesen'), 'name' => "Daftar Pelesen Baru"],
@@ -53,7 +55,7 @@ class Proses1Controller extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.admin';
-        return view('admin.proses1.1daftarpelesen', compact('returnArr', 'layout', 'negeri'));
+        return view('admin.proses1.1daftarpelesen', compact('returnArr', 'layout', 'negeri', 'user'));
     }
 
     public function admin_1daftarpelesen_proses(Request $request)

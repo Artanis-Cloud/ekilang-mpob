@@ -46,7 +46,8 @@
                     <div class="card">
                         <div class="row" style="padding: 20px">
                             <div class="col-1 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                                <a href="{{ $returnArr['kembali'] }}" class="btn"
+                                    style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
                         <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post">
@@ -64,16 +65,49 @@
                                         <label for="fname" class="control-label col-form-label required">
                                             Jenis Kilang</label>
                                         <fieldset class="form-group">
-                                            <select class="form-control" name="e_kat" id="e_kat" required  onchange="showDetail()"
+                                            <select class="form-control" name="e_kat" id="e_kat" required
+                                                onchange="showDetail()"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
                                                 <option selected hidden disabled value="">Sila Pilih Kilang</option>
-                                                <option value="PL91">Kilang Buah</option>
-                                                <option value="PL101">Kilang Penapis</option>
-                                                <option value="PL102">Kilang Isirung</option>
-                                                <option value="PL104">Kilang Oleokimia</option>
-                                                <option value="PL111">Pusat Simpanan</option>
-                                                <option value="PLBIO">Kilang Biodiesel</option>
+                                                @if (auth()->user()->sub_cat)
+                                                    @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                                        @if ($cat == 'PL91')
+                                                            <option value="PL91">Kilang Buah</option>
+                                                        @endif
+                                                        @if ($cat == 'PL101')
+                                                            <option value="PL101">Kilang Penapis</option>
+                                                        @endif
+                                                        @if ($cat == 'PL102')
+                                                            <option value="PL102">Kilang Isirung</option>
+                                                        @endif
+                                                        @if ($cat == 'PL104')
+                                                            <option value="PL104">Kilang Oleokimia</option>
+                                                        @endif
+                                                        @if ($cat == 'PL111')
+                                                            <option value="PL111">Pusat Simpanan</option>
+                                                        @endif
+                                                        @if ($cat == 'PLBIO')
+                                                            <option value="PLBIO">Kilang Biodiesel</option>
+                                                        @endif
+                                                        @if ($cat == null)
+                                                            <option value="PL91">Kilang Buah</option>
+                                                            <option value="PL101">Kilang Penapis</option>
+                                                            <option value="PL102">Kilang Isirung</option>
+                                                            <option value="PL104">Kilang Oleokimia</option>
+                                                            <option value="PL111">Pusat Simpanan</option>
+                                                            <option value="PL102">Kilang Biodiesel</option>
+                                                        @endif
+                                                    @endforeach
+                                                @else
+                                                    <option value="PL91">Kilang Buah</option>
+                                                    <option value="PL101">Kilang Penapis</option>
+                                                    <option value="PL102">Kilang Isirung</option>
+                                                    <option value="PL104">Kilang Oleokimia</option>
+                                                    <option value="PL111">Pusat Simpanan</option>
+                                                    <option value="PL102">Kilang Biodiesel</option>
+                                                @endif
+
                                             </select>
                                         </fieldset>
                                     </div>
@@ -461,23 +495,22 @@
                                 <div class="row ">
                                     <div class="col-8 ml-auto mr-auto">
                                         <label for="inputcom" class="control-label col-form-label required">
-                                        Kapasiti Pemprosesan / Tahun</label>
+                                            Kapasiti Pemprosesan / Tahun</label>
 
                                         <input type="text" id="kap_proses" class="form-control"
                                             placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             onkeypress="return isNumberKey(event)"
-                                            oninput="validate_two_decimal(this);setCustomValidity('')"
-                                        required>
+                                            oninput="validate_two_decimal(this);setCustomValidity('')" required>
 
                                     </div>
                                 </div>
-                               
+
                                 <br><br>
                                 <div class="row form-group" style="padding-top: 10px; ">
                                     <div class="text-right col-1 ml-auto mr-auto">
                                         <button type="button" class="btn btn-primary " data-toggle="modal"
-                                             data-target="#myModal">Tambah</button>
+                                            data-target="#myModal">Tambah</button>
                                     </div>
                                 </div>
                                 {{-- <div class="row form-group" style="padding-top: 10px; ">
@@ -622,7 +655,7 @@
             var cat = $('#e_kat').val();
             // console.log(oer);
 
-            if (cat == "PL91"  ) {
+            if (cat == "PL91") {
                 document.getElementById('buah_container').style.display = "block";
                 document.getElementById('lain_container').style.display = "block";
             } else {
@@ -631,7 +664,7 @@
 
             }
 
-            if (cat == "PL101"  ) {
+            if (cat == "PL101") {
                 document.getElementById('penapis_container').style.display = "block";
                 document.getElementById('lain_container').style.display = "block";
             } else {
@@ -641,7 +674,6 @@
             }
 
         }
-
     </script>
     {{-- <script>
         function validation_jumlah() {
