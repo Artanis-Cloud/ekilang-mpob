@@ -48,25 +48,63 @@
 
                     <div class="row">
                         <div class="col-1 align-self-center">
-                            <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                            <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i
+                                    class="fa fa-angle-left">&ensp;</i>Kembali</a>
                         </div>
-                        <div class="dropdown">
+                        <div class=" dropdown">
                             <button class="btn btn-secondary dropdown-toggle"
-                                style="background-color: rgb(238, 70, 70)" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Pusat Simpanan
+                                style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
+                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Kilang Isirung
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang
-                                    Buah</a>
-                                <a class="dropdown-item" href="{{ route('admin.senaraipelesenpenapis') }}">Kilang
-                                    Penapis</a>
-                                <a class="dropdown-item" href="{{ route('admin.senaraipelesenisirung') }}">Kilang
-                                    Isirung</a>
-                                <a class="dropdown-item"
-                                    href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang Oleokimia</a>
-                                <a class="dropdown-item"
-                                    href="{{ route('admin.senaraipelesenbio') }}">Kilang Biodiesel</a>
+                                @if (auth()->user()->sub_cat)
+                                    @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                        @if ($cat == 'PL91')
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senaraipelesenbuah') }}">Kilang
+                                                Buah</a>
+                                        @endif
+                                        @if ($cat == 'PL101')
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senaraipelesenpenapis') }}">Kilang
+                                                Penapis</a>
+                                        @endif
+                                        @if ($cat == 'PL102')
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senaraipelesenisirung') }}">Kilang
+                                                Isirung</a>
+                                        @endif
+                                        @if ($cat == 'PL104')
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang
+                                                Oleokimia</a>
+                                        @endif
+                                        @if ($cat == 'PL111')
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senaraipelesensimpanan') }}">Pusat
+                                                Simpanan</a>
+                                        @endif
+                                        @if ($cat == 'PLBIO')
+                                            <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">Kilang
+                                                Biodiesel</a>
+                                        @endif
+                                    @endforeach
+                                @else
+                                    <a class="dropdown-item" href="{{ route('admin.senaraipelesenbuah') }}">Kilang
+                                        Buah</a>
+                                    <a class="dropdown-item" href="{{ route('admin.senaraipelesenpenapis') }}">Kilang
+                                        Penapis</a>
+                                    <a class="dropdown-item" href="{{ route('admin.senaraipelesenisirung') }}">Kilang
+                                        Isirung</a>
+                                    <a class="dropdown-item" href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang
+                                        Oleokimia</a>
+                                    <a class="dropdown-item" href="{{ route('admin.senaraipelesensimpanan') }}">Pusat
+                                        Simpanan</a>
+                                    <a class="dropdown-item" href="{{ route('admin.senaraipelesenbio') }}">Kilang
+                                        Biodiesel</a>
+                                @endif
+
                             </div>
                         </div>
                     </div>
@@ -90,8 +128,8 @@
                                                             Simple Datatable
                                                         </div> --}}
                                     <div class="text-left col-md-7">
-                                        <a href="{{ route('admin.senarai.pelesen.batal.simpanan') }}" class="btn btn-primary"
-                                            style="float: left; margin-right:2%">Senarai
+                                        <a href="{{ route('admin.senarai.pelesen.batal.simpanan') }}"
+                                            class="btn btn-primary" style="float: left; margin-right:2%">Senarai
                                             Pelesen Batal</a>
 
                                         <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
@@ -130,43 +168,43 @@
                                             </tfoot>
                                             <tbody style="word-break: break-word; font-size:12px">
                                                 @foreach ($users as $data)
-                                                @if ($data->pelesen)
+                                                    @if ($data->pelesen)
+                                                        <tr class="text-left">
+                                                            {{-- <td>{{ $loop->iteration }}</td> --}}
+                                                            <td>
+                                                                <a
+                                                                    href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
+                                                                        {{ $data->e_nl }}</u></a>
+                                                            </td>
+                                                            <td>{{ $data->pelesen->e_np ?? '-' }}</td>
+                                                            <td>{{ $data->pelesen->e_email ?? '-' }}</td>
+                                                            <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
+                                                            <td style="text-align: center">{{ $data->kodpgw }}</td>
+                                                            <td style="text-align: center">{{ $data->nosiri }}</td>
+                                                            @if ($data->e_status == 1)
+                                                                <td style="text-align: center">Aktif</td>
+                                                            @elseif ($data->e_status == 2)
+                                                                <td style="text-align: center">Tidak Aktif</td>
+                                                            @else
+                                                                <td style="text-align: center">-</td>
+                                                            @endif
+                                                            @if ($data->e_stock == 1)
+                                                                <td style="text-align: center">Aktif</td>
+                                                            @elseif ($data->e_stock == 2)
+                                                                <td style="text-align: center">Tidak Aktif</td>
+                                                            @else
+                                                                <td style="text-align: center">-</td>
+                                                            @endif
+                                                            @if ($data->directory == 'Y')
+                                                                <td style="text-align: center">Ya</td>
+                                                            @elseif ($data->directory == 'N')
+                                                                <td style="text-align: center">Tidak</td>
+                                                            @else
+                                                                <td style="text-align: center">-</td>
+                                                            @endif
 
-                                                    <tr class="text-left">
-                                                        {{-- <td>{{ $loop->iteration }}</td> --}}
-                                                        <td>
-                                                            <a href="{{ route('admin.papar.maklumat', $data->e_id) }}"><u>
-                                                                    {{ $data->e_nl }}</u></a>
-                                                        </td>
-                                                        <td>{{ $data->pelesen->e_np ?? '-' }}</td>
-                                                        <td>{{ $data->pelesen->e_email ?? '-' }}</td>
-                                                        <td>{{ $data->pelesen->e_notel ?? '-' }}</td>
-                                                        <td style="text-align: center">{{ $data->kodpgw }}</td>
-                                                        <td style="text-align: center">{{ $data->nosiri }}</td>
-                                                        @if ($data->e_status == 1)
-                                                            <td style="text-align: center">Aktif</td>
-                                                        @elseif ($data->e_status == 2)
-                                                            <td style="text-align: center">Tidak Aktif</td>
-                                                        @else
-                                                            <td style="text-align: center">-</td>
-                                                        @endif
-                                                        @if ($data->e_stock == 1)
-                                                            <td style="text-align: center">Aktif</td>
-                                                        @elseif ($data->e_stock == 2)
-                                                            <td style="text-align: center">Tidak Aktif</td>
-                                                        @else
-                                                            <td style="text-align: center">-</td>
-                                                        @endif
-                                                        @if ($data->directory == 'Y')
-                                                            <td style="text-align: center">Ya</td>
-                                                        @elseif ($data->directory == 'N')
-                                                            <td style="text-align: center">Tidak</td>
-                                                        @else
-                                                            <td style="text-align: center">-</td>
-                                                        @endif
-
-                                                        {{-- <td>-</td> --}}
-                                                    </tr>
+                                                            {{-- <td>-</td> --}}
+                                                        </tr>
                                                     @endif
                                                 @endforeach
 
