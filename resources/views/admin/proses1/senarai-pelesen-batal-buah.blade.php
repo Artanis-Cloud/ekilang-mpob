@@ -61,12 +61,14 @@
                                 @if (auth()->user()->sub_cat)
                                     @foreach (json_decode(auth()->user()->sub_cat) as $cat)
                                         @if ($cat == 'PL91')
-                                            <option value="PL91">Kilang Buah</option>
-                                        @endif
-                                        @if ($cat == 'PL101')
                                             <a class="dropdown-item"
                                                 href="{{ route('admin.senarai.pelesen.batal.buah') }}">Kilang
                                                 Buah</a>
+                                        @endif
+                                        @if ($cat == 'PL101')
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang
+                                                Penapis</a>
                                         @endif
                                         @if ($cat == 'PL102')
                                             <a class="dropdown-item"
