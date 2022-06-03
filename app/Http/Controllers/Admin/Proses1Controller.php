@@ -227,30 +227,30 @@ class Proses1Controller extends Controller
         $pelesen = Pelesen::with('daerah')->where('e_nl', $reg_pelesen->e_nl)->first();
         // dd($pelesen);
         $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
-        ($pelesen->bil_tangki_ppo ?? 0) +
-        ($pelesen->bil_tangki_cpko ?? 0) +
-        ($pelesen->bil_tangki_ppko ?? 0) +
-        ($pelesen->bil_tangki_others ?? 0);
+            ($pelesen->bil_tangki_ppo ?? 0) +
+            ($pelesen->bil_tangki_cpko ?? 0) +
+            ($pelesen->bil_tangki_ppko ?? 0) +
+            ($pelesen->bil_tangki_others ?? 0);
 
         $jumlah2 = ($pelesen->kap_tangki_cpo ?? 0) +
-        ($pelesen->kap_tangki_ppo ?? 0) +
-        ($pelesen->kap_tangki_cpko ?? 0) +
-        ($pelesen->kap_tangki_ppko ?? 0) +
-        ($pelesen->kap_tangki_others ?? 0);
+            ($pelesen->kap_tangki_ppo ?? 0) +
+            ($pelesen->kap_tangki_cpko ?? 0) +
+            ($pelesen->kap_tangki_ppko ?? 0) +
+            ($pelesen->kap_tangki_others ?? 0);
 
         $jumlah3 = ($pelesen->bil_tangki_cpo ?? 0) +
-        ($pelesen->bil_tangki_ppo ?? 0) +
-        ($pelesen->bil_tangki_cpko ?? 0) +
-        ($pelesen->bil_tangki_ppko ?? 0) +
-        ($pelesen->bil_tangki_oleo ?? 0) +
-        ($pelesen->bil_tangki_others ?? 0);
+            ($pelesen->bil_tangki_ppo ?? 0) +
+            ($pelesen->bil_tangki_cpko ?? 0) +
+            ($pelesen->bil_tangki_ppko ?? 0) +
+            ($pelesen->bil_tangki_oleo ?? 0) +
+            ($pelesen->bil_tangki_others ?? 0);
 
         $jumlah4 = ($pelesen->kap_tangki_cpo ?? 0) +
-        ($pelesen->kap_tangki_ppo ?? 0) +
-        ($pelesen->kap_tangki_cpko ?? 0) +
-        ($pelesen->kap_tangki_ppko ?? 0) +
-        ($pelesen->kap_tangki_oleo ?? 0) +
-        ($pelesen->kap_tangki_others ?? 0);
+            ($pelesen->kap_tangki_ppo ?? 0) +
+            ($pelesen->kap_tangki_cpko ?? 0) +
+            ($pelesen->kap_tangki_ppko ?? 0) +
+            ($pelesen->kap_tangki_oleo ?? 0) +
+            ($pelesen->kap_tangki_others ?? 0);
 
 
 
@@ -324,16 +324,14 @@ class Proses1Controller extends Controller
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-
-
-        } elseif($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PLBIO'){
+        } elseif ($reg_pelesen->e_status == '1' && $reg_pelesen->e_kat == 'PLBIO') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senaraipelesenbio'), 'name' => "Senarai Pelesen Penapis"],
                 ['link' => route('admin.1daftarpelesen'), 'name' => "Maklumat Asas Pelesen"],
 
             ];
-        } elseif($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PLBIO'){
+        } elseif ($reg_pelesen->e_status == '2' && $reg_pelesen->e_kat == 'PLBIO') {
             $breadcrumbs    = [
                 ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
                 ['link' => route('admin.senaraipelesenbatalpenapis'), 'name' => "Senarai Pelesen Penapis Dibatalkan"],
@@ -361,8 +359,17 @@ class Proses1Controller extends Controller
         // $pengumuman = \DB::table('pengumuman')->get();
         // dd($id);
 
-        return view('admin.proses1.papar-maklumat', compact('returnArr', 'layout', 'pelesen', 'negeri', 'reg_pelesen', 'jumlah', 'jumlah2'
-        , 'jumlah3', 'jumlah4'));
+        return view('admin.proses1.papar-maklumat', compact(
+            'returnArr',
+            'layout',
+            'pelesen',
+            'negeri',
+            'reg_pelesen',
+            'jumlah',
+            'jumlah2',
+            'jumlah3',
+            'jumlah4'
+        ));
 
         // return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
     }
@@ -472,30 +479,53 @@ class Proses1Controller extends Controller
     public function admin_senaraipelesenbuah()
     {
         //test data
-
-        // dd($pelesen);
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
-
-        // dd($users);
-        // $pelesen = Pelesen::get();
-
-
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen"],
-        ];
-
-        $kembali = route('admin.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
+        // dd(auth()->user()->sub_cat);
+        if (auth()->user()->sub_cat) {
+            foreach (json_decode(auth()->user()->sub_cat) as $cat) {
+                // if ($cat == 'PL91'){
+                //     return redirect()->route('admin.senaraipelesenbuah');
+                // } else
+                if ($cat == 'PL101') {
+                    return redirect()->route('admin.senaraipelesenpenapis');
+                } elseif ($cat == 'PL102') {
+                    return redirect()->route('admin.senaraipelesenisirung');
+                } elseif ($cat == 'PL104') {
+                    return redirect()->route('admin.senaraipelesenoleokimia');
+                } elseif ($cat == 'PL111') {
+                    return redirect()->route('admin.senaraipelesensimpanan');
+                } elseif ($cat == 'PLBIO') {
+                    return redirect()->route('admin.senaraipelesenbio');
+                }else{
 
 
+                    // dd($pelesen);
+                    $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
 
-        return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
+                    // dd($users);
+                    // $pelesen = Pelesen::get();
+
+
+                    $breadcrumbs    = [
+                        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                        ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen"],
+                    ];
+
+                    $kembali = route('admin.dashboard');
+
+                    $returnArr = [
+                        'breadcrumbs' => $breadcrumbs,
+                        'kembali'     => $kembali,
+                    ];
+                    $layout = 'layouts.admin';
+
+
+
+                    return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
+                }
+            }
+        }
+
+
     }
 
     public function admin_senaraipelesenpenapis()
