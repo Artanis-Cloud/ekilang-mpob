@@ -497,13 +497,10 @@ class Proses1Controller extends Controller
                     return redirect()->route('admin.senaraipelesenbio');
                 }else{
 
-
                     // dd($pelesen);
                     $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
-
                     // dd($users);
                     // $pelesen = Pelesen::get();
-
 
                     $breadcrumbs    = [
                         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -518,12 +515,35 @@ class Proses1Controller extends Controller
                     ];
                     $layout = 'layouts.admin';
 
-
-
                     return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
+
                 }
             }
-        }
+            }
+             else {
+                # code...// dd($pelesen);
+               $users = RegPelesen::with('pelesen')->where('e_kat', 'PL91')->where('e_status', 1)->get();
+               // dd($users);
+               // $pelesen = Pelesen::get();
+
+               $breadcrumbs    = [
+                   ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                   ['link' => route('admin.senaraipelesenbuah'), 'name' => "Senarai Pelesen"],
+               ];
+
+               $kembali = route('admin.dashboard');
+
+               $returnArr = [
+                   'breadcrumbs' => $breadcrumbs,
+                   'kembali'     => $kembali,
+               ];
+               $layout = 'layouts.admin';
+
+               return view('admin.proses1.senarai-pelesen-buah', compact('returnArr', 'layout', 'users'));
+            }
+
+
+        
 
 
     }
