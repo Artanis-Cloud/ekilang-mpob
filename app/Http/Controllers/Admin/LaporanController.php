@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\Bulan;
 use App\Models\Daerah;
 use App\Models\H91Init;
+use App\Models\KumpProduk;
 use App\Models\Produk;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
+use App\Models\ProdukSubgroup;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
 use DB;
@@ -309,6 +311,14 @@ class LaporanController extends Controller
     public function admin_bulanan_lesen()
     {
         $bulan=Bulan::get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $daerah=Daerah::get();
+        $subproduct=ProdukSubgroup::get();
+        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $users = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $pelesen2=Pelesen::orderBy('e_np')->get();
+
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
@@ -322,7 +332,8 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.oleochemical-monthly.by-licensee', compact('returnArr', 'layout','bulan'));
+        return view('admin.laporan_dq.oleochemical-monthly.by-licensee', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
+        'users', 'pelesen2'));
     }
 
 }

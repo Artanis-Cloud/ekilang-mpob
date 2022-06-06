@@ -132,7 +132,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Alamat Emel Kilang</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" oninvalid="setCustomValidity('Sila isi Alamat Emel Kilang dengan betul')"
                                         name="e_email" value="{{ $pelesen->e_email }}" required oninput="setCustomValidity('')">
                                 </div>
                             </div>
