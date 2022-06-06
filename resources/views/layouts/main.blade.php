@@ -1266,7 +1266,7 @@
                                                 </a>
                                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.stok.akhir') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.carian.bulanan') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu">Monthly By Licensee</span>
                                                         </a>
