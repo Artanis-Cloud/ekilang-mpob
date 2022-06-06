@@ -1167,7 +1167,10 @@ class KilangPenapisController extends Controller
         $pelesen2 = E101Init::where('e101_nl', auth()->user()->username)->first('e101_reg');
 
         if ($pelesen2) {
-            $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->get();
+            $penyatai = E101B::with('e101init', 'produk')->where('e101_reg', $pelesen2->e101_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', 01);
+            })->get();
+
             // dd($penyatai);
 
             $totalib5 = DB::table("e101_b")

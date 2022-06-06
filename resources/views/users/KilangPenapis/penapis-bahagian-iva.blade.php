@@ -103,7 +103,7 @@
 
 
                             <div class="row mt-3">
-                                <div class="col-md-3">
+                                <div class="col-md-3 required">
                                     <span class="">Stok Awal Di Premis </span>
                                 </div>
                                 <div class="col-md-3">
@@ -178,7 +178,7 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 required">
                                     <span class="">Stok Akhir Di Premis</span>
                                 </div>
                                 <div class="col-md-3">
@@ -193,7 +193,8 @@
                                 </div>
 
                             </div>
-                        </div>
+                        </div><br>
+                        <p><i><b>Nota :&nbsp; *&nbsp; Termasuk di Pusat Simpanan dan/atau gudang</b></i></p>
                         <div class="row form-group" style="margin-top: 5%; ">
                             <div class="text-right col-md-6 mb-4 ">
                                 <button type="submit" class="btn btn-primary" style="margin-left:96%">Tambah</button>
@@ -201,6 +202,7 @@
 
                         </div>
                     </div>
+                </div>
 
 
             </form>
