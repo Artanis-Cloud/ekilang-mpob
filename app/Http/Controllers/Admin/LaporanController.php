@@ -307,16 +307,8 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.activities.by-licensee', compact('returnArr', 'layout'));
     }
 
-
-    public function admin_bulanan_lesen()
+    public function admin_carian_bulanan_lesen()
     {
-        $bulan=Bulan::get();
-        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-        $daerah=Daerah::get();
-        $subproduct=ProdukSubgroup::get();
-        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
-        $users = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
-        $pelesen2=Pelesen::orderBy('e_np')->get();
 
 
         $breadcrumbs    = [
@@ -332,8 +324,66 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.oleochemical-monthly.by-licensee', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
-        'users', 'pelesen2'));
+        return view('admin.laporan_dq.oleochemical-monthly.list-laporan', compact('returnArr', 'layout'));
     }
+
+    public function admin_bulanan_lesen()
+    {
+        $bulan=Bulan::get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $daerah=Daerah::get();
+        $subproduct=ProdukSubgroup::get();
+        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.oleochemical-monthly.by-licensee', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
+        'users2',));
+    }
+
+    public function admin_bulanan_lesen_process(Request $request)
+    {
+        dd($request->all());
+        $tahun = $request->tahun;
+        $kump_produk = $request->kump_produk;
+
+        $test = DB::select("SELECT e.ebio_nl,e.ebio_reg ,p.e_nl
+        FROM pelesen p, e_bio_inits e
+        WHERE e.ebio_thn = '$request->tahun'
+        and p.e_nl = e.ebio_nl
+        and e.ebio_nl = e.ebio_reg
+        and e.ebio_b4 =  '$request->kump_produk'");
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.oleochemical-monthly.table-senarai-lesen', compact('returnArr', 'layout', 'test'));
+    }
+
+
 
 }

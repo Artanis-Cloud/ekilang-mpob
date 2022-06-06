@@ -52,181 +52,194 @@
                             <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Bulanan Mengikut Pelesen</h5>
                         </div>
                         <hr>
+                        <form action="{{ route('admin.laporan.bulanan.process') }}" method="get">
+                            @csrf
+                            <div class="card-body">
 
-                        <div class="card-body">
+                                <div class="container center">
 
-                            <div class="container center">
+                                    <div class="row">
+                                        <div class="col-md-4 ml-auto">
 
-                                <div class="row">
-                                    <div class="col-md-4 ml-auto">
-
-                                        <div class="form-group">
-                                            <label>Tahun</label>
-                                            <div class="row">
-                                                <select class="form-control col-5 ml-2" name="e_kat">
+                                            <div class="form-group">
+                                                <label>Tahun</label>
+                                                <div class="row">
+                                                    <select class="form-control col-5 ml-2" name="tahun">
+                                                        <option selected hidden disabled value="">Sila Pilih Tahun</option>
+                                                        @for ($i = 2003; $i <= date('Y'); $i++)
+                                                            <option>{{ $i }}</option>
+                                                        @endfor
+                                                    </select>
+                                                <input type="text" class="form-control col-5 ml-2" placeholder="Tahun">
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mr-auto" >
+                                            <div class="form-group">
+                                                <label>Kumpulan Produk</label>
+                                                <select class="form-control" name="kump_prod">
                                                     <option selected hidden disabled>Sila Pilih</option>
-                                                    <option value="equal">Equal</option>
-                                                </select>
-                                            <input type="text" class="form-control col-5 ml-2" placeholder="Tahun">
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mr-auto" >
-                                        <div class="form-group">
-                                            <label>Kumpulan Produk</label>
-                                            <select class="form-control" name="e_kat">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                <option value="between">Between</option>
-                                                @foreach ($kumpproduk as $data)
-                                                    <option value="{{ $data->kumpulan }}">
-                                                        {{ $data->nama_kumpulan }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 ml-auto">
-
-                                        <div class="form-group">
-                                            <label>Bulan</label>
-                                            <div class="row">
-                                                <select class="form-control col-5 ml-2" name="e_kat">
-                                                    <option selected hidden disabled>Sila Pilih</option>
-                                                    <option value="between">Between</option>
-                                                </select>
-                                            <input type="text" class="form-control col-5 ml-2" placeholder="Month">
-                                        </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mr-auto">
-                                        <div class="form-group">
-                                            <label>Sub-Kumpulan Produk</label>
-                                            <select class="form-control" name="e_kat">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                <option selected hidden disabled value="">Sila Pilih</option>
-                                                @foreach ($subproduct as $data)
-                                                    <option value="{{ $data->kod_subgroup }}">
-                                                        {{ $data->nama_subgroup }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 ml-auto">
-
-                                        <div class="form-group">
-                                            <label>Negeri</label>
-                                            <select class="form-control col-11" name="e_kat">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                <option value="between">Between</option>
-                                            </select>
-                                            <fieldset class="form-group">
-                                                <select class="form-control" id="negeri_id" name="e_negeri"
-                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                    oninput="setCustomValidity('')"
-                                                    onchange="ajax_daerah(this);ajax_kawasan(this)" required>
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
-                                                    @foreach ($negeri as $data)
-                                                        <option value="{{ $data->kod_negeri }}">
-                                                            {{ $data->nama_negeri }}
+                                                    @foreach ($kumpproduk as $data)
+                                                        <option value="{{ $data->kumpulan }}">
+                                                            {{ $data->nama_kumpulan }}
                                                         </option>
                                                     @endforeach
                                                 </select>
-                                            </fieldset>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mr-auto">
-                                        <div class="form-group">
-                                            <label>Produk</label>
-                                            <select class="form-control" name="e_kat">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                <option value="between">Between</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-4 ml-auto">
 
-                                <div class="row">
-                                    <div class="col-md-4 ml-auto">
+                                            <div class="form-group">
+                                                <label>Bulan</label>
+                                                <div class="row">
+                                                    <select class="form-control col-5 ml-2" name="e_kat">
+                                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                        <option value="01">Januari</option>
+                                                        <option value="02">Februari</option>
+                                                        <option value="03">Mac</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">Mei</option>
+                                                        <option value="06">Jun</option>
+                                                        <option value="07">Julai</option>
+                                                        <option value="08">Ogos</option>
+                                                        <option value="09">September</option>
+                                                        <option value="10">Oktober</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">Disember</option>
+                                                    </select>
+                                                <input type="text" class="form-control col-5 ml-2" placeholder="Month">
+                                            </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mr-auto">
+                                            <div class="form-group">
+                                                <label>Sub-Kumpulan Produk</label>
+                                                <select class="form-control" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    @foreach ($subproduct as $data)
+                                                        <option value="{{ $data->kod_subgroup }}">
+                                                            {{ $data->nama_subgroup }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 ml-auto">
 
-                                        <div class="form-group">
-                                            <label>Daerah</label>
-                                            <select class="form-control" id="daerah_id" name='e_daerah' required
-                                                placeholder="Daerah"
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity('')">
-                                                <option selected hidden disabled value="">Sila Pilih Negeri Terlebih Dahulu
-                                                </option>
-                                            </select>
+                                            <div class="form-group">
+                                                <label>Negeri</label>
+                                                {{-- <select class="form-control col-11" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option value="between">Between</option>
+                                                </select> --}}
+                                                <fieldset class="form-group">
+                                                    <select class="form-control" id="negeri_id" name="e_negeri"
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                        oninput="setCustomValidity('')"
+                                                        onchange="ajax_daerah(this);ajax_kawasan(this)">
+                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        @foreach ($negeri as $data)
+                                                            <option value="{{ $data->kod_negeri }}">
+                                                                {{ $data->nama_negeri }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </fieldset>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mr-auto">
+                                            <div class="form-group">
+                                                <label>Produk</label>
+                                                <select class="form-control" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option value="between">Between</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mr-auto">
-                                        <div class="form-group">
-                                            <label>Kategori Produk</label>
-                                            <select class="form-control" name="e_kat">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                <option value="between">Between</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 ml-auto">
 
-                                        <div class="form-group">
-                                            <label>Kawasan</label>
-                                            <select class="form-control" id="kawasan_id" name='e_kawasan' required
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity('')">
-                                                <option value="" selected hidden disabled>Sila Pilih
-                                                    Daerah Terlebih Dahulu</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mr-auto">
-                                        <div class="form-group">
-                                            <label>No. Lesen</label>
-                                            <select class="form-control" name="e_nl">
-                                                <option selected hidden disabled value="">Sila Pilih</option>
-                                                @foreach ($users as $data)
-                                                    <option value="{{ $data->e_nl }}">
-                                                        {{ $data->e_nl }} - {{ $data->e_np }}
+                                    <div class="row">
+                                        <div class="col-md-4 ml-auto">
+
+                                            <div class="form-group">
+                                                <label>Daerah</label>
+                                                <select class="form-control" id="daerah_id" name='e_daerah'
+                                                    placeholder="Daerah"
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option selected hidden disabled value="">Sila Pilih Negeri Terlebih Dahulu
                                                     </option>
-                                                @endforeach
-                                            </select>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mr-auto">
+                                            <div class="form-group">
+                                                <label>Kategori Produk</label>
+                                                <select class="form-control" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option value="between">Between</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4" style="margin-left: 8.5%">
+                                    <div class="row">
+                                        <div class="col-md-4 ml-auto">
 
-                                        <div class="form-group">
-                                            <label>Nama Pelesen</label>
-                                            <select class="form-control" name="e_np">
-                                                <option selected hidden disabled value="">Sila Pilih</option>
-                                                @foreach ($pelesen2 as $data)
-                                                    <option value="{{ $data->e_nl }}">
-                                                        {{ $data->e_np }} - {{ $data->e_nl }}
-                                                    </option>
-                                                @endforeach
-                                            </select>
+                                            <div class="form-group">
+                                                <label>Kawasan</label>
+                                                <select class="form-control" id="kawasan_id" name='e_kawasan'
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option value="" selected hidden disabled>Sila Pilih
+                                                        Daerah Terlebih Dahulu</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mr-auto">
+                                            <div class="form-group">
+                                                <label>No. Lesen</label>
+                                                <select class="form-control" name="e_nl">
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    @foreach ($users2 as $data)
+                                                        <option value="{{ $data->e_nl }}">
+                                                            {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-4" style="margin-left: 8.5%">
+
+                                            <div class="form-group">
+                                                <label>Nama Pelesen</label>
+                                                <select class="form-control" name="e_np">
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    @foreach ($users2 as $data)
+                                                        <option value="{{ $data->e_nl }}">
+                                                            {{ $data->pelesen->e_np }} - {{ $data->e_nl }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
 
                                 </div>
-
-
+                                <div class="text-right col-md-6 mb-4 mt-4">
+                                    <button type="submit" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                                        >Cari</button>
+                                </div>
                             </div>
-                            <div class="text-right col-md-6 mb-4 mt-4">
-                                <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                    data-target="#next">Cari</button>
-                            </div>
-                        </div>
-
+                        </form>
 
                     </div>
                 </div>
