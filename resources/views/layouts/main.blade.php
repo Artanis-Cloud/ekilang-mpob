@@ -1130,7 +1130,8 @@
                                     </li>
                                 </ul>
                             </li>
-                            @if (auth()->user()->sub_category == 'PLBIO' || auth()->user()->role == 'Superadmin')
+                            @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                            @if ($cat == 'PLBIO' || auth()->user()->role == 'Superadmin')
                             <li class="sidebar-item">
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
@@ -1425,6 +1426,7 @@
                             </li>
                             @else
                             @endif
+                            @endforeach
                             @if (auth()->user()->role != 'Admin')
                                 <li class="sidebar-item">
                                     <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"

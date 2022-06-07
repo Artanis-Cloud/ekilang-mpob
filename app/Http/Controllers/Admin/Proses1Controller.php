@@ -150,7 +150,7 @@ class Proses1Controller extends Controller
         //
         return Pelesen::create([
             'e_id' => $count++,
-            'e_nl' => $data['e_nl'],
+            'e_nl' => $data['e_nl']->unique(),
             'e_np' => $data['e_np'],
             'e_ap1' => $data['e_ap1'],
             'e_ap2' => $data['e_ap2'],
@@ -199,7 +199,7 @@ class Proses1Controller extends Controller
         $custom_pass = Str::random(8);
 
         $reg_pelesen = RegPelesen::create([
-            'e_nl' => $data['e_nl'],
+            'e_nl' => $data['e_nl']->unique(),
             'e_kat' => $data['e_kat'],
             'e_pwd' => Hash::make($custom_pass),
             'kodpgw' => $data['kodpgw'],
@@ -217,7 +217,7 @@ class Proses1Controller extends Controller
             'name' => $data['e_np'],
             'email' => $data['e_email'],
             'password' => Hash::make($custom_pass),
-            'username' => $data['e_nl'],
+            'username' => $data['e_nl']->unique(),
             'category' => $data['e_kat'],
             'kod_pegawai' => $data['kodpgw'],
             'no_siri' => $data['nosiri'],
