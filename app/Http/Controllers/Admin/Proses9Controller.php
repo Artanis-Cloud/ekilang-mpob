@@ -34,20 +34,56 @@ class Proses9Controller extends Controller
     public function admin_9penyataterdahulu()
     {
 
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
-        ];
+        if (auth()->user()->sub_cat) {
+            foreach (json_decode(auth()->user()->sub_cat) as $cat) {
+                // if ($cat == 'PL91'){
+                //     return redirect()->route('admin.senaraipelesenbuah');
+                // } else
+                if ($cat == 'PL101') {
+                    return redirect()->route('admin.9penyataterdahulupenapis');
+                } elseif ($cat == 'PL102') {
+                    return redirect()->route('admin.9penyataterdahuluisirung');
+                } elseif ($cat == 'PL104') {
+                    return redirect()->route('admin.9penyataterdahuluoleo');
+                } elseif ($cat == 'PL111') {
+                    return redirect()->route('admin.9penyataterdahulusimpanan');
+                } elseif ($cat == 'PLBIO') {
+                    return redirect()->route('admin.9penyataterdahulubio');
+                } else {
 
-        $kembali = route('admin.dashboard');
+                    $breadcrumbs    = [
+                        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                        ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+                    ];
 
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
+                    $kembali = route('admin.dashboard');
 
-        return view('admin.proses9.9penyataterdahulu', compact('returnArr', 'layout'));
+                    $returnArr = [
+                        'breadcrumbs' => $breadcrumbs,
+                        'kembali'     => $kembali,
+                    ];
+                    $layout = 'layouts.admin';
+
+                    return view('admin.proses9.9penyataterdahulu', compact('returnArr', 'layout'));
+                }
+            }
+        } else {
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+            ];
+
+            $kembali = route('admin.dashboard');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
+
+            return view('admin.proses9.9penyataterdahulu', compact('returnArr', 'layout'));
+        }
     }
 
     public function admin_9penyataterdahulupenapis()
@@ -143,7 +179,6 @@ class Proses9Controller extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.proses9.9penyataterdahulubiodiesel', compact('returnArr', 'layout'));
-
     }
 
 
@@ -185,7 +220,6 @@ class Proses9Controller extends Controller
                                 and p.e_nl = k.e_nl
                                 and k.e_kat = 'PL91'
                                 order by k.kodpgw, k.nosiri");
-
             } elseif ($sektor == 'PL101') {
                 $tahun = H101Init::where('tahun', $request->e101_thn);
                 $bulan = H101Init::where('tahun', $request->e101_bln);
@@ -262,7 +296,7 @@ class Proses9Controller extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor','users'));
+        return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users'));
     }
 
     // public function admin_9penyataterdahulu_process(Request $request)

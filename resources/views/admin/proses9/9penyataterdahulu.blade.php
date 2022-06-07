@@ -80,13 +80,43 @@
                                                     oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                     oninput="setCustomValidity('')">
                                                     <option selected hidden disabled value="">Sila Pilih Sektor</option>
-
+                                                    @if (auth()->user()->sub_cat)
+                                                    @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                                        @if ($cat == 'PL91')
+                                                            <option value="PL91">Kilang Buah</option>
+                                                        @endif
+                                                        @if ($cat == 'PL101')
+                                                            <option value="PL101">Kilang Penapis</option>
+                                                        @endif
+                                                        @if ($cat == 'PL102')
+                                                            <option value="PL102">Kilang Isirung</option>
+                                                        @endif
+                                                        @if ($cat == 'PL104')
+                                                            <option value="PL104">Kilang Oleokimia</option>
+                                                        @endif
+                                                        @if ($cat == 'PL111')
+                                                            <option value="PL111">Pusat Simpanan</option>
+                                                        @endif
+                                                        @if ($cat == 'PLBIO')
+                                                            <option value="PLBIO">Kilang Biodiesel</option>
+                                                        @endif
+                                                        @if ($cat == null)
+                                                            <option value="PL91">Kilang Buah</option>
+                                                            <option value="PL101">Kilang Penapis</option>
+                                                            <option value="PL102">Kilang Isirung</option>
+                                                            <option value="PL104">Kilang Oleokimia</option>
+                                                            <option value="PL111">Pusat Simpanan</option>
+                                                            <option value="PL102">Kilang Biodiesel</option>
+                                                        @endif
+                                                    @endforeach
+                                                @else
                                                     <option value="PL91">Kilang Buah</option>
                                                     <option value="PL101">Kilang Penapis</option>
                                                     <option value="PL102">Kilang Isirung</option>
                                                     <option value="PL104">Kilang Oleokimia</option>
                                                     <option value="PL111">Pusat Simpanan</option>
-                                                    <option value="PLBIO">Kilang Biodiesel</option>
+                                                    <option value="PL102">Kilang Biodiesel</option>
+                                                @endif
                                                 </select>
                                             </fieldset>
                                         </div>
