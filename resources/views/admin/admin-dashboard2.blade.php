@@ -645,8 +645,8 @@
                                     </div>
 
                                     <div class="row icon-boxes" style="display: flex;
-                                justify-content: center;
-                                flex-direction: row; margin-top: -5%; margin-bottom:8%">
+                                    justify-content: center;
+                                    flex-direction: row; margin-top: -5%; margin-bottom:8%">
                                         <div class="col-md-4 col-lg-4 d-flex align-items-stretch mb-5 mb-lg-0"
                                             data-aos="zoom-in" data-aos-delay="500">
                                             <div class="icon-box">

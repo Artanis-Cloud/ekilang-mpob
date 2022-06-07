@@ -94,7 +94,7 @@
                                             <div class="form-group">
                                                 <label>Bulan</label>
                                                 <div class="row">
-                                                    <select class="form-control col-5 ml-2" name="e_kat">
+                                                    <select class="form-control col-5 ml-2" name="bulan">
                                                         <option selected hidden disabled value="">Sila Pilih Bulan</option>
                                                         <option value="01">Januari</option>
                                                         <option value="02">Februari</option>
@@ -116,9 +116,8 @@
                                         <div class="col-md-6 mr-auto">
                                             <div class="form-group">
                                                 <label>Sub-Kumpulan Produk</label>
-                                                <select class="form-control" name="e_kat">
+                                                <select class="form-control" name="sub_prod">
                                                     <option selected hidden disabled>Sila Pilih</option>
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($subproduct as $data)
                                                         <option value="{{ $data->kod_subgroup }}">
                                                             {{ $data->nama_subgroup }}
@@ -155,9 +154,15 @@
                                         <div class="col-md-6 mr-auto">
                                             <div class="form-group">
                                                 <label>Produk</label>
-                                                <select class="form-control" name="e_kat">
+                                                <select class="form-control" name="produk">
                                                     <option selected hidden disabled>Sila Pilih</option>
-                                                    <option value="between">Between</option>
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    @foreach ($produk as $data)
+                                                        <option value="{{ $data->namapanjang_produk }}">
+                                                            {{ $data->namapanjang_produk }}
+                                                        </option>
+                                                    @endforeach
+
                                                 </select>
                                             </div>
                                         </div>
@@ -180,9 +185,13 @@
                                         <div class="col-md-6 mr-auto">
                                             <div class="form-group">
                                                 <label>Kategori Produk</label>
-                                                <select class="form-control" name="e_kat">
+                                                <select class="form-control" name="prod_cat">
                                                     <option selected hidden disabled>Sila Pilih</option>
-                                                    <option value="between">Between</option>
+                                                    @foreach ($prodcat as $data)
+                                                        <option value="{{ $data->ProductGroupName }}">
+                                                            {{ $data->ProductGroupName }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -231,7 +240,6 @@
                                         </div>
 
                                     </div>
-
 
                                 </div>
                                 <div class="text-right col-md-6 mb-4 mt-4">
