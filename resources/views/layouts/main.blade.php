@@ -1228,31 +1228,31 @@
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.stok.akhir') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.activities.by.state') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu"> OA2 - Activities <br> By State </span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.activities.by.district') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu">OA3 - Activities <br> By District</span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.activities.by.region') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu"> OA4 - Activities <br> By Region</span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.activities.by.product') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu">OA5 - Activities <br> By Product</span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.activities.by.productgroup') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu">OA6 - Activities <br> By Product Group</span>
                                                         </a>

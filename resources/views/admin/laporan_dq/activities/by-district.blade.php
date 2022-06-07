@@ -48,8 +48,8 @@
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OCA1::OLEOKIMIA</h3>
-                            <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Aktiviti Mengikut Pelesen</h5>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OCA3::OLEOKIMIA</h3>
+                            <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Aktiviti Mengikut Daerah</h5>
                         </div>
                         <hr>
 
@@ -73,11 +73,11 @@
                                     </div>
                                     <div class="col-md-6 mr-auto">
                                         <div class="form-group">
-                                            <label>No. Lesen</label>
+                                            <label>Kumpulan Produk</label>
                                             <select class="form-control" name="e_kat">
                                                 <option selected hidden disabled>Sila Pilih</option>
-                                                @foreach ($users as $user)
-                                                    <option value="">{{ $user->username }} - {{ $user->name }}</option>
+                                                @foreach ($prodcat as $prodcats)
+                                                    <option value="">{{ $prodcats->prodcat_name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -99,11 +99,11 @@
                                     </div>
                                     <div class="col-md-6 mr-auto">
                                         <div class="form-group">
-                                            <label>Nama Pelesen</label>
+                                            <label>Sub-Kumpulan Produk</label>
                                             <select class="form-control" name="e_kat">
                                                 <option selected hidden disabled>Sila Pilih</option>
-                                                @foreach ($users as $user)
-                                                    <option value="">{{ $user->username }} - {{ $user->name }}</option>
+                                                @foreach ($prodsubgroup as $prodsubgroups)
+                                                    <option value="">{{ $prodsubgroups->nama_subgroup }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -129,15 +129,16 @@
                                     </div>
                                     <div class="col-md-6 mr-auto">
                                         <div class="form-group">
-                                            <label>Kumpulan Produk</label>
+                                            <label>Produk</label>
                                             <select class="form-control" name="e_kat">
                                                 <option selected hidden disabled>Sila Pilih</option>
-                                                @foreach ($prodcat as $prodcats)
-                                                    <option value="">{{ $prodcats->prodcat_name }}</option>
+                                                @foreach ($produk as $produks)
+                                                    <option value="">{{ $produks->proddesc }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
                                     </div>
+
                                 </div>
 
                                 <div class="row">
@@ -156,45 +157,6 @@
                                     </div>
                                     <div class="col-md-6 mr-auto">
                                         <div class="form-group">
-                                            <label>Sub-Kumpulan Produk</label>
-                                            <select class="form-control" name="e_kat">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                @foreach ($prodsubgroup as $prodsubgroups)
-                                                    <option value="">{{ $prodsubgroups->nama_subgroup }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 ml-auto">
-
-                                        <div class="form-group">
-                                            <label>Kawasan</label>
-                                            <select class="form-control" id="kawasan_id" name='e_kawasan' required
-                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
-                                                oninput="setCustomValidity('')">
-                                                <option value="" selected hidden disabled>Sila Pilih
-                                                    Daerah Terlebih Dahulu</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mr-auto">
-                                        <div class="form-group">
-                                            <label>Produk</label>
-                                            <select class="form-control" name="e_kat">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                @foreach ($produk as $produks)
-                                                    <option value="">{{ $produks->proddesc }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4 ml-auto">
-
-                                        <div class="form-group">
                                             <div class="form-group">
                                                 <label>Kategori Produk </label>
                                                 <select class="form-control" name="e_kat">
@@ -206,10 +168,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6 mr-auto">
 
-                                    </div>
                                 </div>
+                      
 
 
                             </div>

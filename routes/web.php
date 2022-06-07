@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 //forget password
+Route::get('/testing3', [App\Http\Controllers\tryController::class, 'testing3'])->name('testing3');
 Route::get('/terlupa-kata-laluan', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPassword'])->name('forget-password.show');
 
 Route::post('/terlupa-kata-laluan/submit', [App\Http\Controllers\ForgetPasswordController::class, 'forgetPasswordSubmit'])->name('forget-password.submit');
@@ -27,7 +28,7 @@ Route::get('/password/resets/{token}/{email}', [App\Http\Controllers\Auth\ResetP
 
 Route::get('/', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('pelesen.login');
 Route::get('/login-new', [App\Http\Controllers\Auth\LoginController::class, 'login_new'])->name('pelesen.login.new');
-Route::get('admin/dashboard/test', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard2'])->name('admin.dashboard2');
+Route::get('/dashboard/test', [App\Http\Controllers\Admin\DashboardAdminController::class, 'admin_dashboard2'])->name('admin.dashboard2');
 
 
 Route::middleware('auth')->group(function () {
@@ -236,6 +237,11 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('admin/activities-by-licensee', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_licensee'])->name('admin.activities.by.licensee');
+        Route::get('admin/activities-by-state', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_state'])->name('admin.activities.by.state');
+        Route::get('admin/activities-by-district', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_district'])->name('admin.activities.by.district');
+        Route::get('admin/activities-by-region', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_region'])->name('admin.activities.by.region');
+        Route::get('admin/activities-by-product', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_product'])->name('admin.activities.by.product');
+        Route::get('admin/activities-by-productgroup', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_productgroup'])->name('admin.activities.by.productgroup');
     });
 
     Route::get('try3', [App\Http\Controllers\Admin\KilangController::class, 'try3'])->name('try3');

@@ -13,6 +13,9 @@ class tryController extends Controller
     public function tryArx(){
         return view('loginArx');
     }
+    public function testing3(){
+        return view('users.users-dashboard');
+    }
 
     // public function register2(){
     //     return view('auth/registerrrrrrrr');

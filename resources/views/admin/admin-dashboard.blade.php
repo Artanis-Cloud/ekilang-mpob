@@ -97,7 +97,7 @@
 
                             <ul class="submenu " style="margin-left:-5%" aria-labelledby="dropdownMenuLink">
                                 <li>
-                                    <a href="{{ route('admin.senaraipelesenbuah') }}">
+                                    {{-- <a href="{{ route('admin.senaraipelesenbuah') }}"> --}}
                                         <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="file-text" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Daftar Pelesen Baru</span>
@@ -105,7 +105,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('admin.2tukarpassword') }}">
+                                    {{-- <a href="{{ route('admin.2tukarpassword') }}"> --}}
                                         <i class="fas fa-filter" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="layout" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Tukar Kata Laluan</span>
@@ -292,7 +292,7 @@
                                     {{-- @foreach ($collection as $object) --}}
                                     {{-- {{ $object->title }} --}}
 
-                                    <a href="{{ route('admin.akaun.pentadbir', [$user->id]) }}">
+                                    {{-- <a href="{{ route('admin.akaun.pentadbir', [$user->id]) }}"> --}}
                                         <i class="fas fa-leaf" style="color:rgb(54, 51, 41) "> </i>
                                         {{-- <i data-feather="user" width="20"></i> --}}
                                         <span style="color: rgb(0, 0, 0); ">Akaun Pentadbir</span>
@@ -394,7 +394,7 @@
                                 {{-- <div class="avatar me-1">
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
                                 </div> --}}
-                                <div class="d-none d-md-block d-lg-inline-block">{{ auth()->user()->username }}</div>
+                                {{-- <div class="d-none d-md-block d-lg-inline-block">{{ auth()->user()->username }}</div> --}}
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i data-feather="user"></i> Akaun Pengguna</a>
@@ -479,7 +479,7 @@
                                 </div>
                             </div>
 
-                           
+
                         </div>
                         <div class="col-md-4">
                             <div class="card ">
