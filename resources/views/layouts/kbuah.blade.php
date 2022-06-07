@@ -234,7 +234,7 @@
 
                 <span class="mx-2 mt-1 mb-1 text-center navbar-brand h1"
                     style="color: black; text-align:center; margin-left:20%; font-family:verdana; color: rgba(47, 112, 88, 0.726)"><b
-                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;"> {{ auth()->user()->name }} </b>
+                    style="font-family: Poppins, sans-serif; font-size:15px; margin-left:10%;">  </b>
                 </span>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -283,7 +283,7 @@
                                 {{-- <div class="avatar me-1">
                                     <img src="{{ asset('theme/images/avatar/avatar-girl.png') }}" alt="" srcset="">
                                 </div> --}}
-                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%">{{ auth()->user()->username }}</div>
+                                <div class="d-none d-md-block d-lg-inline-block mt-1" style="margin-right: 10%"></div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <a class="dropdown-item" href="#"><i class="fa fa-user"></i>&nbsp Akaun
