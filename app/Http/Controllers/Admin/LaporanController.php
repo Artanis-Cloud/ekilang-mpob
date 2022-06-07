@@ -461,7 +461,36 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.activities.by-productgroup', compact('returnArr', 'layout','prodgroup', 'prodcat','prodsubgroup', 'produk'));
     }
 
-    public function admin_carian_bulanan_lesen()
+    public function admin_yearly_by_licensee()
+    {
+        $prodgroup=ProdukGroup::get();
+        $prodcat=ProdukCategory::get();
+        // $users = User::where('category', 'PLBIO')->get();
+        $prodsubgroup = ProdukSubgroup::get();
+        $produk = Produk::where('prodcat', '')->get();
+        // $kawasan = Region::get();
+
+
+        // dd($produk);
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.yearly.by-licensee', compact('returnArr', 'layout','prodgroup', 'prodcat','prodsubgroup', 'produk'));
+    }
+
+    public function admin_yearly_by_state()
     {
 
 
@@ -478,10 +507,10 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.oleochemical-monthly.list-laporan', compact('returnArr', 'layout'));
+        return view('admin.laporan_dq.yearly.by-state', compact('returnArr', 'layout'));
     }
 
-    public function admin_bulanan_lesen()
+    public function admin_yearly_by_district()
     {
         $bulan=Bulan::get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
@@ -507,7 +536,127 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.oleochemical-monthly.by-licensee', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
+        return view('admin.laporan_dq.yearly.by-district', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
+        'users2', 'produk', 'prodcat'));
+    }
+
+    public function admin_yearly_by_region()
+    {
+        $bulan=Bulan::get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $daerah=Daerah::get();
+        $subproduct=ProdukSubgroup::get();
+        $prodcat=ProdukGroup::get();
+        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk=DB::connection('mysql2')->select("SELECT * FROM produk");
+
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.yearly.by-region', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
+        'users2', 'produk', 'prodcat'));
+    }
+
+    public function admin_yearly_by_product()
+    {
+        $bulan=Bulan::get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $daerah=Daerah::get();
+        $subproduct=ProdukSubgroup::get();
+        $prodcat=ProdukGroup::get();
+        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk=DB::connection('mysql2')->select("SELECT * FROM produk");
+
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.yearly.by-product', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
+        'users2', 'produk', 'prodcat'));
+    }
+
+    public function admin_yearly_by_productgroup()
+    {
+        $bulan=Bulan::get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $daerah=Daerah::get();
+        $subproduct=ProdukSubgroup::get();
+        $prodcat=ProdukGroup::get();
+        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk=DB::connection('mysql2')->select("SELECT * FROM produk");
+
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.yearly.by-productgroup', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
+        'users2', 'produk', 'prodcat'));
+    }
+
+    public function admin_yearly_by_month()
+    {
+        $bulan=Bulan::get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $daerah=Daerah::get();
+        $subproduct=ProdukSubgroup::get();
+        $prodcat=ProdukGroup::get();
+        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk=DB::connection('mysql2')->select("SELECT * FROM produk");
+
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.yearly.by-month', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
         'users2', 'produk', 'prodcat'));
     }
 
