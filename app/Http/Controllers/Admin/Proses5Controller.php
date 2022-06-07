@@ -76,6 +76,31 @@ class Proses5Controller extends Controller
                     return view('admin.proses5.5penyata-belum-hantar-buah', compact('returnArr', 'layout', 'users'));
                 }
             }
+        } else {
+            $users = DB::select("SELECT p.e_nl, p.e_np, p.e_email,  r.kodpgw, r.nosiri, e.e91_flg, e.e91_reg
+            FROM pelesen p, e91_init e, reg_pelesen r
+            WHERE p.e_nl = e.e91_nl
+            and p.e_nl = r.e_nl
+            and r.e_kat = 'PL91'
+            and e.e91_flg = '1'
+            order by p.e_nl");
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.5penyatabelumhantarbuah'), 'name' => "Penyata Bulanan Kilang Buah"],
+            ];
+
+            $kembali = route('admin.dashboard');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
+
+
+
+            return view('admin.proses5.5penyata-belum-hantar-buah', compact('returnArr', 'layout', 'users'));
         }
     }
 

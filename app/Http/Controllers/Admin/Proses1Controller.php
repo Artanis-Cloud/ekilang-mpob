@@ -11,10 +11,12 @@ use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
 use App\Models\User;
+use App\Notifications\Pelesen\HantarPendaftaranPelesenNotification;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class Proses1Controller extends Controller
 {
@@ -65,8 +67,10 @@ class Proses1Controller extends Controller
         $this->validation_daftar_pelesen($request->all())->validate();
 
         $this->store_daftar_pelesen($request->all());
-        $this->store_daftar_pelesen2($request->all());
-        $this->store_daftar_pelesen3($request->all());
+        $custom_pass = $this->store_daftar_pelesen2($request->all());
+        $pelesen = $this->store_daftar_pelesen3($request->all(), $custom_pass);
+
+        $pelesen->notify((new HantarPendaftaranPelesenNotification($custom_pass)));
 
         return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
     }
@@ -174,6 +178,8 @@ class Proses1Controller extends Controller
             'e_year' => $data['e_year'],
             'e_email_pengurus' => $data['e_email_pengurus'],
             'kap_proses' => $data['kap_proses'],
+            'tahun' => date("Y"),
+            'bulan' => date("m"),
             // 'kap_tangki' => $data['kap_tangki'],
             // 'bil_tangki_cpo' => $data['bil_tangki_cpo'],
             // 'bil_tangki_ppo' => $data['bil_tangki_ppo'],
@@ -190,25 +196,27 @@ class Proses1Controller extends Controller
     }
     protected function store_daftar_pelesen2(array $data)
     {
-        return RegPelesen::create([
+        $custom_pass = Str::random(8);
+
+        $reg_pelesen = RegPelesen::create([
             'e_nl' => $data['e_nl'],
             'e_kat' => $data['e_kat'],
-            'e_pwd' => '12345',
+            'e_pwd' => Hash::make($custom_pass),
             'kodpgw' => $data['kodpgw'],
             'nosiri' => $data['nosiri'],
             'e_status' => $data['e_status'],
             'e_stock' => $data['e_stock'],
             'directory' => $data['directory'],
         ]);
-    }
-    protected function store_daftar_pelesen3(array $data)
-    {
-        $password = Hash::make('12345');
 
+        return $custom_pass;
+    }
+    protected function store_daftar_pelesen3(array $data, $custom_pass)
+    {
         return User::create([
             'name' => $data['e_np'],
             'email' => $data['e_email'],
-            'password' => $password,
+            'password' => Hash::make($custom_pass),
             'username' => $data['e_nl'],
             'category' => $data['e_kat'],
             'kod_pegawai' => $data['kodpgw'],
@@ -543,7 +551,7 @@ class Proses1Controller extends Controller
             }
 
 
-        
+
 
 
     }
