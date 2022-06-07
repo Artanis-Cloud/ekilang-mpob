@@ -284,4 +284,22 @@ class DataMigrationController extends Controller
 
         }
     }
+
+    public function transfer_reguser_to_users()
+    {
+        $reg_users = RegUser::get();
+
+        foreach ($reg_users as $reg_user) {
+            $user = User::where('username', $reg_user->e_userid)->first();
+
+            $e_kat = array($reg_user->e_kat);
+
+            if($user){
+                if(!$user->sub_cat){
+                    $user->sub_cat = json_encode($e_kat);
+                    $user->save();
+                }
+            }
+        }
+    }
 }
