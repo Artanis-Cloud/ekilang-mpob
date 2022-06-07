@@ -11,6 +11,7 @@ use App\Models\Produk;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
+use App\Models\ProdukGroup;
 use App\Models\ProdukSubgroup;
 use App\Models\RegPelesen;
 use Illuminate\Http\Request;
@@ -333,7 +334,9 @@ class LaporanController extends Controller
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
         $daerah=Daerah::get();
         $subproduct=ProdukSubgroup::get();
+        $prodcat=ProdukGroup::get();
         $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk=DB::connection('mysql2')->select("SELECT * FROM produk");
 
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
@@ -352,21 +355,21 @@ class LaporanController extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.laporan_dq.oleochemical-monthly.by-licensee', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
-        'users2',));
+        'users2', 'produk', 'prodcat'));
     }
 
     public function admin_bulanan_lesen_process(Request $request)
     {
         dd($request->all());
         $tahun = $request->tahun;
-        $kump_produk = $request->kump_produk;
+        $produk = $request->produk;
 
-        $test = DB::select("SELECT e.ebio_nl,e.ebio_reg ,p.e_nl
-        FROM pelesen p, e_bio_inits e
+        $test = DB::select("SELECT e.ebio_nl,e.ebio_reg ,p.e_nl, b.ebio_b1
+        FROM pelesen p, e_bio_inits e, e_bio_b_s b
         WHERE e.ebio_thn = '$request->tahun'
         and p.e_nl = e.ebio_nl
         and e.ebio_nl = e.ebio_reg
-        and e.ebio_b4 =  '$request->kump_produk'");
+        and e.ebio_b5 =  '$request->produk'");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
