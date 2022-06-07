@@ -123,7 +123,7 @@ class KonfigurasiController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $password,
-            'username' => $data['username'],
+            'username' => $data['username']->unique(),
             'category' => 'admin',
             'role' => $data['role'],
             'sub_cat' => json_encode($data['sub_cat']),
@@ -142,7 +142,7 @@ class KonfigurasiController extends Controller
             // 'email' => $data['email'],
             // 'e_pwd' => $password,
             'e_userid' => $data['username'],
-            // 'category' => $data['category'],
+            'e_kat' => json_encode($data['sub_cat']),
         ]);
     }
 

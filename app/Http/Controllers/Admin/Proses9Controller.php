@@ -34,22 +34,22 @@ class Proses9Controller extends Controller
     public function admin_9penyataterdahulu()
     {
 
-        if (auth()->user()->sub_cat) {
-            foreach (json_decode(auth()->user()->sub_cat) as $cat) {
-                // if ($cat == 'PL91'){
-                //     return redirect()->route('admin.senaraipelesenbuah');
-                // } else
-                if ($cat == 'PL101') {
-                    return redirect()->route('admin.9penyataterdahulupenapis');
-                } elseif ($cat == 'PL102') {
-                    return redirect()->route('admin.9penyataterdahuluisirung');
-                } elseif ($cat == 'PL104') {
-                    return redirect()->route('admin.9penyataterdahuluoleo');
-                } elseif ($cat == 'PL111') {
-                    return redirect()->route('admin.9penyataterdahulusimpanan');
-                } elseif ($cat == 'PLBIO') {
-                    return redirect()->route('admin.9penyataterdahulubio');
-                } else {
+        // if (auth()->user()->sub_cat) {
+        //     foreach (json_decode(auth()->user()->sub_cat) as $cat) {
+        //         // if ($cat == 'PL91'){
+        //         //     return redirect()->route('admin.senaraipelesenbuah');
+        //         // } else
+        //         if ($cat == 'PL101') {
+        //             return redirect()->route('admin.9penyataterdahulupenapis');
+        //         } elseif ($cat == 'PL102') {
+        //             return redirect()->route('admin.9penyataterdahuluisirung');
+        //         } elseif ($cat == 'PL104') {
+        //             return redirect()->route('admin.9penyataterdahuluoleo');
+        //         } elseif ($cat == 'PL111') {
+        //             return redirect()->route('admin.9penyataterdahulusimpanan');
+        //         } elseif ($cat == 'PLBIO') {
+        //             return redirect()->route('admin.9penyataterdahulubio');
+        //         } else {
 
                     $breadcrumbs    = [
                         ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -66,25 +66,25 @@ class Proses9Controller extends Controller
 
                     return view('admin.proses9.9penyataterdahulu', compact('returnArr', 'layout'));
                 }
-            }
-        } else {
+            // }
+    //     } else {
 
-            $breadcrumbs    = [
-                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
-            ];
+    //         $breadcrumbs    = [
+    //             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+    //             ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+    //         ];
 
-            $kembali = route('admin.dashboard');
+    //         $kembali = route('admin.dashboard');
 
-            $returnArr = [
-                'breadcrumbs' => $breadcrumbs,
-                'kembali'     => $kembali,
-            ];
-            $layout = 'layouts.admin';
+    //         $returnArr = [
+    //             'breadcrumbs' => $breadcrumbs,
+    //             'kembali'     => $kembali,
+    //         ];
+    //         $layout = 'layouts.admin';
 
-            return view('admin.proses9.9penyataterdahulu', compact('returnArr', 'layout'));
-        }
-    }
+    //         return view('admin.proses9.9penyataterdahulu', compact('returnArr', 'layout'));
+    //     }
+    // }
 
     public function admin_9penyataterdahulupenapis()
     {
