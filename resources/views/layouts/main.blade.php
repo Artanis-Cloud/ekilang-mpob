@@ -1219,7 +1219,7 @@
                                                     <span class="hide-menu"> Aktiviti</span>
                                                 </a>
                                             </li>
-                                           
+
                                             <li class="sidebar-item">
                                                 <a class="sidebar-link has-arrow " style=" margin-right:5%"
                                                     aria-expanded="false">
@@ -1274,9 +1274,9 @@
                                                 </a>
                                             </li>
                                             <li class="sidebar-item">
-                                                <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                <a href="{{ route('admin.eksport') }}" class="sidebar-link">
                                                     <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> OE1 - Export/Import</span>
+                                                    <span class="hide-menu"> OE1 - Export</span>
                                                 </a>
                                             </li>
                                         </ul>

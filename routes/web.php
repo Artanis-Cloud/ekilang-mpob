@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
     //AJAX
     Route::get('/ajax/fetch-daerah/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_daerah'])->name('ajax-daerah');
     Route::get('/ajax/fetch-kawasan/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_kawasan'])->name('ajax-kawasan');
+    Route::get('/ajax/fetch-pelesen/{id}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_pelesen'])->name('ajax-pelesen');
 
     Route::group(['middleware' => ['admin']], function () {
         //Admin
@@ -243,6 +244,8 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/activities-by-region', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_region'])->name('admin.activities.by.region');
         Route::get('admin/activities-by-product', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_product'])->name('admin.activities.by.product');
         Route::get('admin/activities-by-productgroup', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_productgroup'])->name('admin.activities.by.productgroup');
+
+        Route::get('admin/eksport', [App\Http\Controllers\Admin\LaporanController::class, 'admin_oleo_export'])->name('admin.eksport');
 
         Route::get('admin/monthly-by-licensee', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_by_licensee'])->name('admin.monthly.by.licensee');
         Route::get('admin/monthly-by-state', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_by_state'])->name('admin.monthly.by.state');
