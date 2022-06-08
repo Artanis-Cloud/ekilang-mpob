@@ -1267,37 +1267,37 @@
                                                 </a>
                                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.carian.bulanan') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.monthly.by.licensee') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu">Bulanan Mengikut <br> Pelesen</span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.stok.akhir') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.monthly.by.state') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu">Bulanan Mengikut <br> Negeri </span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.monthly.by.district') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu">Bulanan Mengikut <br> Daerah</span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.monthly.by.region') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu">Bulanan Mengikut <br> Kawasan</span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.monthly.by.product') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu">Bulanan Mengikut <br> Produk</span>
                                                         </a>
                                                     </li>
                                                     <li class="sidebar-item">
-                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                        <a href="{{ route('admin.monthly.by.productgroup') }}" class="sidebar-link">
                                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
                                                             <span class="hide-menu">Bulanan Mengikut <br> Kumpulan Produk</span>
                                                         </a>

@@ -12,7 +12,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Oleochemical
+                    <h4 class="page-title">Oleokimia
                     </h4>
                 </div>
                 <div class="col-7 align-self-center">
@@ -48,7 +48,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover"  onclick="window.location='{{ URL::route('admin.laporan.bulanan'); }}'">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 1</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 1</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Awal Di Premis</h5>
                         </div>
                         <br>
@@ -58,7 +58,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 2</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 2</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Awal Di Pusat Simpanan</h5>
                         </div>
                         <br>
@@ -68,7 +68,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 3</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 3</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Belian/Terimaan</h5>
                         </div>
                         <br>
@@ -78,7 +78,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 4</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 4</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Import</h5>
                         </div>
                         <br>
@@ -88,7 +88,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 5</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 5</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Pengeluaran</h5>
                         </div>
                         <br>
@@ -98,7 +98,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 6</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 6</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses</h5>
                         </div>
                         <br>
@@ -110,8 +110,8 @@
                 <div class="col-sm-2">
                     <div class="card card-hover" onclick="window.location='{{ URL::route('admin.laporan.bulanan'); }}'">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 7</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Jualan / Edaran Dalam Negeri</h5>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 7</h3><hr>
+                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Jualan / Edaran Tempatan</h5>
                         </div>
                         <br>
                     </div>
@@ -120,7 +120,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 8</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 8</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Eksport</h5>
                         </div>
                         <br>
@@ -130,7 +130,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 9</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 9</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir di Premis</h5>
                         </div>
                         <br>
@@ -140,7 +140,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 10</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 10</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir di Pusat Simpanan</h5>
                         </div>
                         <br>
@@ -150,7 +150,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 11</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 11</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses CPO+CPKO</h5>
                         </div>
                         <br>
@@ -160,7 +160,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 12</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 12</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses PPO</h5>
                         </div>
                         <br>
@@ -172,7 +172,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover" onclick="window.location='{{ URL::route('admin.laporan.bulanan'); }}'">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 13</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 13</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses PPKO</h5>
                         </div>
                         <br>
@@ -182,7 +182,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 14</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 14</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses CPO+CPKO+PPO+PPKO</h5>
                         </div>
                         <br>
@@ -192,7 +192,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 15</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 15</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">CPO Ultirate</h5>
                         </div>
                         <br>
@@ -202,7 +202,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 16</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 16</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">CPKO Ultirate</h5>
                         </div>
                         <br>
@@ -212,7 +212,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 17</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 17</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">CPO+CPKO Ultirate</h5>
                         </div>
                         <br>
@@ -222,7 +222,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 18</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 18</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">PPO Ultirate</h5>
                         </div>
                         <br>
@@ -235,7 +235,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover" onclick="window.location='{{ URL::route('admin.laporan.bulanan'); }}'">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 19</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 19</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">PPKO Ultirate</h5>
                         </div>
                         <br>
@@ -245,7 +245,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 20</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 20</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">CPO+CPKO+PPO+PPKO Ultirate</h5>
                         </div>
                         <br>
@@ -255,7 +255,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 21</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 21</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">All Ultirate</h5>
                         </div>
                         <br>
@@ -265,7 +265,7 @@
                 <div class="col-sm-2">
                     <div class="card card-hover">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">QML 22</h3><hr>
+                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OML 22</h3><hr>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Capacity</h5>
                         </div>
                         <br>
@@ -285,80 +285,6 @@
 @endsection
 
 @section('scripts')
-
-    <script>
-        function ajax_daerah(select) {
-            negeri = select.value;
-            console.log(negeri);
-            //clear jenis_data selection
-            $("#daerah_id").empty();
-            //initialize selection
-            $("#daerah_id").append('<option value="" selected disabled hidden>Sila Pilih Daerah</option>');
-
-            $.ajax({
-                type: "get",
-                url: "/ajax/fetch-daerah/" + negeri, //penting
-
-                success: function(respond) {
-                    //fetch data (id) from DB Senarai Harga
-                    // console.log(respond);
-                    //loop for data
-                    var x = 0;
-                    respond.forEach(function() { //penting
-
-                        // console.log(respond[x]);
-                        $("#daerah_id").append('<option value="' + respond[x].kod_daerah + '">' +
-                            respond[x]
-                            .nama_daerah + '</option>');
-                        x++;
-                    });
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log("Status: " + textStatus);
-                    console.log("Error: " + errorThrown);
-                }
-            });
-        }
-    </script>
-
-    <script>
-        function ajax_kawasan(select) {
-            negeri = select.value;
-            console.log(negeri);
-            //clear jenis_data selection
-            $("#kawasan_id").empty();
-            //initialize selection
-            $("#kawasan_id").append('<option value="" selected disabled hidden>Sila Pilih Kawasan</option>');
-
-            $.ajax({
-                type: "get",
-                url: "/ajax/fetch-kawasan/" + negeri, //penting
-
-                success: function(respond) {
-                    //fetch data (id) from DB Senarai Harga
-                    // console.log(respond);
-                    //loop for data
-                    var x = 0;
-                    respond.forEach(function() { //penting
-
-                        // console.log(respond[x]);
-                        $("#kawasan_id").append('<option value="' + respond[x].kod_region + '">' +
-                            respond[x]
-                            .nama_region + '</option>');
-                        x++;
-                    });
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log("Status: " + textStatus);
-                    console.log("Error: " + errorThrown);
-                }
-            });
-        }
-    </script>
-
-
-
-  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 
 

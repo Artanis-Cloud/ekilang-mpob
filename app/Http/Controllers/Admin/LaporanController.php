@@ -461,6 +461,7 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.activities.by-productgroup', compact('returnArr', 'layout','prodgroup', 'prodcat','prodsubgroup', 'produk'));
     }
 
+
     public function admin_yearly_by_licensee()
     {
         $prodgroup=ProdukGroup::get();
