@@ -43,182 +43,228 @@
         </div>
 
         <div class="container-fluid">
+            
             <!-- row -->
             <div class="row">
-                <div class="col-sm-2">
-                    <div class="card card-hover"  onclick="window.location='{{ URL::route('admin.laporan.bulanan'); }}'">
+                <div class="col-sm-12 col-lg-12">
+                    <div class="card">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%;">OYL 1</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Awal Di Premis</h5>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Oleokimia</h3>
+                            <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Laporan Tahunan Mengikut
+                                Pelesen</h5>
                         </div>
-                        <br>
-                    </div>
-                </div>
+                        <hr>
 
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 2</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Awal Di Pusat Simpanan</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
+                        <div class="card-body">
 
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 3</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Belian/Terimaan</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
+                            <div class="container center">
 
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 4</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Import</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
+                                <div class="row">
+                                    <div class="col-md-4 ml-auto">
 
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 5</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Pengeluaran</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
+                                        <div class="form-group">
+                                            <label>Laporan Tahunan</label>
+                                            <div class="row col-12">
+                                                <select class="form-control" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option value="OYL1">OYL1 - Stok Awal Di Premis</option>
+                                                    <option value="OYL2">OYL2 - Stok Awal Di Pusat Simpanan</option>
+                                                    <option value="OYL3">OYL3 - Belian/Terimaan</option>
+                                                    <option value="OYL4">OYL4 - Import</option>
+                                                    <option value="OYL5">OYL5 - Pengeluaran</option>
+                                                    <option value="OYL6">OYL6 - Diproses</option>
+                                                    <option value="OYL7">OYL7 - Jualan/Edaran Tempatan</option>
+                                                    <option value="OYL8">OYL8 - Eksport</option>
+                                                    <option value="OYL9">OYL9 - Stok Akhir Di Premis</option>
+                                                    <option value="OYL10">OYL10 - Stok Akhir Di Pusat Simpanan</option>
+                                                    <option value="OYL11">OYL11 - CPO + CPKO Diproses</option>
+                                                    <option value="OYL12">OYL12 - CPO Utilrate</option>
+                                                    <option value="OYL13">OYL13 - CPKO Utilrate</option>
+                                                    <option value="OYL14">OYL14 - CPO + CPKO Utilrate</option>
+                                                    <option value="OYL15">OYL15 - Utilrate Keseluruhan</option>
+                                                    <option value="OYL16">OYL16 - Kapasiti</option>
+                                                </select>
 
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 6</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mr-auto">
+                                        <div class="form-group">
+                                            <label>Kumpulan Produk</label>
+                                            <select class="form-control" name="e_kat">
+                                                <option selected hidden disabled>Sila Pilih</option>
+                                                @foreach ($prodcat as $prodcats)
+                                                    <option value="">{{ $prodcats->prodcat_name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 ml-auto">
+                                        <div class="form-group">
+                                            <label>Tahun</label>
+                                            <div class="row">
+                                                <select class="form-control col-5 ml-2" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option value="equal">Equal</option>
+                                                </select>
+                                                <input type="text" class="form-control col-5 ml-3" placeholder="Month">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mr-auto">
+                                        <div class="form-group">
+                                            <label>Sub-Kumpulan Produk</label>
+                                            <select class="form-control" name="e_kat">
+                                                <option selected hidden disabled>Sila Pilih</option>
+                                                @foreach ($prodsubgroup as $prodsubgroups)
+                                                    <option value="">{{ $prodsubgroups->nama_subgroup }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 ml-auto">
+                                        <div class="form-group">
+                                            <label>Bulan</label>
+                                            <div class="row">
+                                                <select class="form-control col-5 ml-2" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option value="between">Between</option>
+                                                </select>
+                                                <input type="text" class="form-control col-5 ml-3" placeholder="Month">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mr-auto">
+                                        <div class="form-group">
+                                            <label>Produk</label>
+                                            <select class="form-control" name="e_kat">
+                                                <option selected hidden disabled>Sila Pilih</option>
+                                                @foreach ($produk as $produks)
+                                                    <option value="">{{ $produks->proddesc }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4 ml-auto">
+                                        <div class="form-group">
+                                            <label>Negeri</label>
+                                            <div class="row col-12">
+                                            <select class="form-control" id="negeri_id" name="e_negeri"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')"
+                                                onchange="ajax_daerah(this);ajax_kawasan(this)" required>
+                                                <option selected hidden disabled value="">Sila Pilih</option>
+                                                @foreach ($negeri as $data)
+                                                    <option value="{{ $data->kod_negeri }}">
+                                                        {{ $data->nama_negeri }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mr-auto">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label>Kategori Produk </label>
+                                                <select class="form-control" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    @foreach ($prodgroup as $prodgroups)
+                                                        <option value="">{{ $prodgroups->ProductGroupName }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 ml-auto">
+                                        <div class="form-group">
+                                            <label>Daerah</label>
+                                            <div class="row col-12">
+
+                                            <select class="form-control" id="daerah_id" name='e_daerah' required
+                                                placeholder="Daerah"
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                <option selected hidden disabled value="">Sila Pilih Negeri Terlebih Dahulu
+                                                </option>
+                                            </select>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mr-auto">
+                                        <div class="form-group">
+                                            <div class="form-group">
+                                                <label>No. Lesen </label>
+                                                <select class="form-control" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    @foreach ($users as $user)
+                                                        <option value="">{{ $user->username }} - {{ $user->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 ml-auto">
+                                        <div class="form-group">
+                                            <label>Kawasan</label>
+                                            <div class="row col-12">
+                                            <select class="form-control" id="kawasan_id" name='e_kawasan' required
+                                                oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')">
+                                                <option value="" selected hidden disabled>Sila Pilih
+                                                    Daerah Terlebih Dahulu</option>
+                                            </select>
+                                        </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mr-auto">
+                                        <div class="form-group">
+                                            <label>Nama Pelesen</label>
+                                            <select class="form-control" name="e_kat">
+                                                <option selected hidden disabled>Sila Pilih</option>
+                                                @foreach ($users as $user)
+                                                    <option value="">{{ $user->username }} - {{ $user->name }}
+                                                    </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                            <div class="text-right col-md-6 mb-4 mt-4">
+                                <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                                    data-target="#next">Cari</button>
+                            </div>
                         </div>
-                        <br>
+
+
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="card card-hover" onclick="window.location='{{ URL::route('admin.laporan.bulanan'); }}'">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 7</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Jualan / Edaran Tempatan</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 8</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Eksport</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 9</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir di Premis</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 10</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir di Pusat Simpanan</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 11</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses CPO+CPKO</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 12</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">CPO Utilrate</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="card card-hover" onclick="window.location='{{ URL::route('admin.laporan.bulanan'); }}'">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 13</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">CPKO Utilrate</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 14</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">CPO+CPKO Utilrate</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 15</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Utilrate Keseluruhan</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYL 16</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Kapasiti</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-
-
-            </div>
-
-
-
-
-
-            </div>
-
         </div>
 
     </div>
@@ -230,7 +276,6 @@
 @endsection
 
 @section('scripts')
-
     <script>
         function ajax_daerah(select) {
             negeri = select.value;
@@ -265,7 +310,6 @@
             });
         }
     </script>
-
     <script>
         function ajax_kawasan(select) {
             negeri = select.value;
@@ -302,9 +346,11 @@
     </script>
 
 
-
-  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-
-
+    <script type="text/javascript">
+        $("document").ready(function() {
+            setTimeout(function() {
+                $("#message").remove(); //tambah untuk remove flash message
+            }, 5000); // 5 secs  (1 sec = 1000)
+        });
+    </script>
 @endsection

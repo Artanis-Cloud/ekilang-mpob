@@ -45,170 +45,146 @@
         <div class="container-fluid">
             <!-- row -->
             <div class="row">
-                <div class="col-sm-2">
-                    <div class="card card-hover"  onclick="window.location='{{ URL::route('admin.laporan.bulanan'); }}'">
+                <div class="col-sm-12 col-lg-12">
+                    <div class="card">
                         <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%;">OYS 1</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Awal Di Premis</h5>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Oleokimia</h3>
+                            <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Laporan Tahunan Mengikut
+                                Negeri</h5>
                         </div>
-                        <br>
-                    </div>
-                </div>
+                        <hr>
 
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 2</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Awal Di Pusat Simpanan</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
+                        <div class="card-body">
 
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 3</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Belian/Terimaan</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
+                            <div class="container center">
 
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 4</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Import</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
+                                <div class="row">
+                                    <div class="col-md-6 ml-auto mr-auto">
 
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 5</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Pengeluaran</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
+                                        <div class="form-group">
+                                            <label>Laporan Tahunan</label>
+                                            <div class="row">
+                                                <select class="form-control" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option value="OYS1">OYS1 - Stok Awal Di Premis</option>
+                                                    <option value="OYS2">OYS2 - Stok Awal Di Pusat Simpanan</option>
+                                                    <option value="OYS3">OYS3 - Belian/Terimaan</option>
+                                                    <option value="OYS4">OYS4 - Import</option>
+                                                    <option value="OYS5">OYS5 - Pengeluaran</option>
+                                                    <option value="OYS6">OYS6 - Diproses</option>
+                                                    <option value="OYS7">OYS7 - Jualan/Edaran Tempatan</option>
+                                                    <option value="OYS8">OYS8 - Eksport</option>
+                                                    <option value="OYS9">OYS9 - Stok Akhir Di Premis</option>
+                                                    <option value="OYS10">OYS10 - Stok Akhir Di Pusat Simpanan</option>
+                                                    <option value="OYS11">OYS11 - CPO + CPKO Diproses</option>
+                                                    <option value="OYS12">OYS12 - CPO Utilrate</option>
+                                                    <option value="OYS13">OYS13 - CPKO Utilrate</option>
+                                                    <option value="OYS14">OYS14 - CPO + CPKO Utilrate</option>
+                                                    <option value="OYS15">OYS15 - Kapasiti</option>
+                                                </select>
 
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 6</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 ml-auto">
+                                        <div class="form-group">
+                                            <label>Tahun</label>
+                                            <div class="row">
+                                                <select class="form-control col-5 ml-2" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option value="equal">Equal</option>
+                                                </select>
+                                                <input type="text" class="form-control col-5 ml-3" placeholder="Month">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mr-auto">
+                                        <div class="form-group">
+                                            <label>Kumpulan Produk</label>
+                                            <select class="form-control" name="e_kat">
+                                                <option selected hidden disabled>Sila Pilih</option>
+                                                @foreach ($prodcat as $prodcats)
+                                                    <option value="">{{ $prodcats->prodcat_name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4 ml-auto">
+                                        <div class="form-group">
+                                            <label>Bulan</label>
+                                            <div class="row">
+                                                <select class="form-control col-5 ml-2" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    <option value="between">Between</option>
+                                                </select>
+                                                <input type="text" class="form-control col-5 ml-3" placeholder="Month">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-6 mr-auto">
+                                        <div class="form-group">
+                                            <label>Sub-Kumpulan Produk</label>
+                                            <select class="form-control" name="e_kat">
+                                                <option selected hidden disabled>Sila Pilih</option>
+                                                @foreach ($prodsubgroup as $prodsubgroups)
+                                                    <option value="">{{ $prodsubgroups->nama_subgroup }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-4 ml-auto">
+                                        <div class="form-group">
+                                            <label>Kategori Produk </label>
+                                            <div class="row col-12">
+                                                <select class="form-control" name="e_kat">
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    @foreach ($prodgroup as $prodgroups)
+                                                        <option value="">{{ $prodgroups->ProductGroupName }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mr-auto">
+                                        <div class="form-group">
+                                            <label>Produk</label>
+                                            <select class="form-control" name="e_kat">
+                                                <option selected hidden disabled>Sila Pilih</option>
+                                                @foreach ($produk as $produks)
+                                                    <option value="">{{ $produks->proddesc }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+                            </div>
+                            <div class="text-right col-md-6 mb-4 mt-4">
+                                <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                                    data-target="#next">Cari</button>
+                            </div>
                         </div>
-                        <br>
+
+
                     </div>
                 </div>
             </div>
-
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="card card-hover" onclick="window.location='{{ URL::route('admin.laporan.bulanan'); }}'">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 7</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Jualan / Edaran Tempatan</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 8</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Eksport</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 9</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir di Premis</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 10</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Stok Akhir di Pusat Simpanan</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 11</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Proses CPO+CPKO</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 12</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">CPO Utilrate</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-2">
-                    <div class="card card-hover" onclick="window.location='{{ URL::route('admin.laporan.bulanan'); }}'">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 13</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">CPKO Utilrate</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 14</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">CPO+CPKO Utilrate</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-                <div class="col-sm-2">
-                    <div class="card card-hover">
-                        <div class=" text-center">
-                            <h5 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OYS 15</h3><hr>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Kapasiti</h5>
-                        </div>
-                        <br>
-                    </div>
-                </div>
-
-
-
-            </div>
-
-
-
-
-
-            </div>
-
         </div>
 
     </div>
@@ -220,7 +196,6 @@
 @endsection
 
 @section('scripts')
-
     <script>
         function ajax_daerah(select) {
             negeri = select.value;
@@ -255,7 +230,6 @@
             });
         }
     </script>
-
     <script>
         function ajax_kawasan(select) {
             negeri = select.value;
@@ -292,9 +266,11 @@
     </script>
 
 
-
-  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-
-
+    <script type="text/javascript">
+        $("document").ready(function() {
+            setTimeout(function() {
+                $("#message").remove(); //tambah untuk remove flash message
+            }, 5000); // 5 secs  (1 sec = 1000)
+        });
+    </script>
 @endsection
