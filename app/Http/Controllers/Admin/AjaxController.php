@@ -10,6 +10,7 @@ use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
+use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 
@@ -33,8 +34,21 @@ class AjaxController extends Controller
         // $list_daerah = Negeri::where('negeri', $kod_negeri)->get();
 
         $list_kawasan = Negeri::where('kod_negeri', $kod_negeri)->distinct()->orderBy('nama_region')->get();
+        // dd($list_kawasan);
 
         return json_decode($list_kawasan);
+        exit;
+    }
+
+    public function fetch_pelesen($id)
+    {
+
+        // $list_daerah = Negeri::where('negeri', $kod_negeri)->get();
+
+        $list_pelesen = User::where('id', $id)->get('name');
+        // dd($list_pelesen);
+
+        return json_decode($list_pelesen);
         exit;
     }
 

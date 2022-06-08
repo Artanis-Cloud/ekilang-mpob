@@ -7,6 +7,7 @@ use App\Models\Bulan;
 use App\Models\Daerah;
 use App\Models\H91Init;
 use App\Models\KumpProduk;
+use App\Models\Negara;
 use App\Models\Produk;
 use App\Models\Negeri;
 use App\Models\Pelesen;
@@ -289,6 +290,37 @@ class LaporanController extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.laporan_dq.validasi-minyak-sawit-diproses', compact('returnArr', 'layout','bulan'));
+    }
+
+    public function admin_oleo_export()
+    {
+        $prodgroup=ProdukGroup::get();
+        $prodcat=ProdukCategory::get();
+        $users = User::where('category', 'PLBIO')->get();
+        $prodsubgroup = ProdukSubgroup::get();
+        $produk = Produk::where('prodcat', '')->get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $negara = Negara::distinct()->orderBy('namanegara')->get();
+
+        // $list_pelesen = User::where('id', '942')->get('name');
+
+        // dd($list_pelesen);
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.eksport.eksport', compact('returnArr', 'layout','prodgroup', 'prodcat', 'negeri','negara','users','prodsubgroup', 'produk'));
     }
 
     public function admin_activities_by_licensee()
