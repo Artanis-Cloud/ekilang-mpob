@@ -1214,51 +1214,12 @@
                                         </a>
                                         <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                             <li class="sidebar-item">
-                                                <a class="sidebar-link has-arrow " style=" margin-right:5%"
-                                                    aria-expanded="false">
-                                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Aktiviti </span>
-                                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                                <a href="{{ route('admin.activities.all') }}" class="sidebar-link">
+                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Aktiviti</span>
                                                 </a>
-                                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.activities.by.licensee') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu">OA1 - Aktiviti <br> Mengikut Pelesen</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.activities.by.state') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu"> OA2 - Aktiviti <br> Mengikut Negeri </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.activities.by.district') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu">OA3 - Aktiviti <br> Mengikut Daerah</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.activities.by.region') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu"> OA4 - Aktiviti <br> Mengikut Kawasan</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.activities.by.product') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu">OA5 - Aktiviti <br> Mengikut Produk</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.activities.by.productgroup') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu">OA6 - Aktiviti Mengikut<br> Kumpulan Produk</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </li>
+                                           
                                             <li class="sidebar-item">
                                                 <a class="sidebar-link has-arrow " style=" margin-right:5%"
                                                     aria-expanded="false">
@@ -1305,59 +1266,13 @@
                                                 </ul>
                                             </li>
 
+
                                             <li class="sidebar-item">
-                                                <a class="sidebar-link has-arrow " style=" margin-right:5%"
-                                                    aria-expanded="false">
-                                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Tahunan </span>
+                                                <a href="{{ route('admin.yearly.all') }}" class="sidebar-link">
+                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Tahunan</span>
                                                 </a>
-                                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.yearly.all') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu">Tahunan Mengikut <br> Pelesen</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.yearly.by.state') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu">Tahunan Mengikut <br> Negeri </span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.yearly.by.district') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu">Tahunan Mengikut <br> Daerah</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.yearly.by.region') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu">Tahunan Mengikut <br> Kawasan</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.yearly.by.product') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu"> Tahunan Mengikut <br> Produk</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.yearly.by.productgroup') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu"> Tahunan Mengikut <br> Kumpulan Produk</span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="sidebar-item">
-                                                        <a href="{{ route('admin.yearly.by.month') }}" class="sidebar-link">
-                                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                            <span class="hide-menu"> Tahunan Mengikut <br> Bulan</span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </li>
-
-
                                             <li class="sidebar-item">
                                                 <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
                                                     <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>

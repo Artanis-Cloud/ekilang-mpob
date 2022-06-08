@@ -320,6 +320,37 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.activities.by-licensee', compact('returnArr', 'layout','prodgroup', 'prodcat', 'negeri','users','prodsubgroup', 'produk'));
     }
 
+    public function admin_activities_all()
+    {
+        $prodgroup=ProdukGroup::get();
+        $prodcat=ProdukCategory::get();
+        $users = User::where('category', 'PLBIO')->get();
+        $prodsubgroup = ProdukSubgroup::get();
+        $produk = Produk::where('prodcat', '')->get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $kawasan = Region::get();
+
+
+
+        // dd($produk);
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Aktiviti"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.activities.activities-all', compact('returnArr', 'layout','prodgroup', 'prodcat', 'negeri','users','prodsubgroup', 'produk','kawasan'));
+    }
+
     public function admin_activities_by_state()
     {
         $prodgroup=ProdukGroup::get();
