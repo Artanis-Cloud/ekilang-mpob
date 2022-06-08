@@ -72,7 +72,7 @@
                                         <li class="breadcrumb-item active" aria-current="page"
                                             style="color: #25877b  !important;">
                                             {{ $breadcrumb['name'] }}
-                                        </li>
+                                        </li> 
                                     @endif
                                 @endforeach
                             </ol>
