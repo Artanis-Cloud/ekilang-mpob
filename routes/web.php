@@ -236,6 +236,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/validasi-minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_minyak_sawit_diproses'])->name('admin.validasi.minyak.sawit.diproses');
 
 
+        Route::get('admin/activities', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_all'])->name('admin.activities.all');
         Route::get('admin/activities-by-licensee', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_licensee'])->name('admin.activities.by.licensee');
         Route::get('admin/activities-by-state', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_state'])->name('admin.activities.by.state');
         Route::get('admin/activities-by-district', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_district'])->name('admin.activities.by.district');
