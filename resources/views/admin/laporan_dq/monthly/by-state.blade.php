@@ -12,7 +12,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Oleochemical
+                    <h4 class="page-title">Oleokimia
                     </h4>
                 </div>
                 <div class="col-7 align-self-center">
@@ -49,7 +49,7 @@
                     <div class="card">
                         <div class=" text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">OCA1::OLEOKIMIA</h3>
-                            <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Bulanan Mengikut Pelesen</h5>
+                            <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Bulanan Mengikut Negeri</h5>
                         </div>
                         <hr>
                         <form action="{{ route('admin.laporan.bulanan.process') }}" method="get">

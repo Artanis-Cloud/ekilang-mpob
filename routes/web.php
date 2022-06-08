@@ -243,6 +243,13 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/activities-by-product', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_product'])->name('admin.activities.by.product');
         Route::get('admin/activities-by-productgroup', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_by_productgroup'])->name('admin.activities.by.productgroup');
 
+        Route::get('admin/monthly-by-licensee', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_by_licensee'])->name('admin.monthly.by.licensee');
+        Route::get('admin/monthly-by-state', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_by_state'])->name('admin.monthly.by.state');
+        Route::get('admin/monthly-by-district', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_by_district'])->name('admin.monthly.by.district');
+        Route::get('admin/monthly-by-region', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_by_region'])->name('admin.monthly.by.region');
+        Route::get('admin/monthly-by-product', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_by_product'])->name('admin.monthly.by.product');
+        Route::get('admin/monthly-by-productgroup', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_by_productgroup'])->name('admin.monthly.by.productgroup');
+
         Route::get('admin/yearly-by-licensee', [App\Http\Controllers\Admin\YearlyController::class, 'admin_yearly_by_licensee'])->name('admin.yearly.by.licensee');
         Route::get('admin/yearly-by-state', [App\Http\Controllers\Admin\YearlyController::class, 'admin_yearly_by_state'])->name('admin.yearly.by.state');
         Route::get('admin/yearly-by-district', [App\Http\Controllers\Admin\YearlyController::class, 'admin_yearly_by_district'])->name('admin.yearly.by.district');
