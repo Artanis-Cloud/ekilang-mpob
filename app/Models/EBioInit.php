@@ -41,4 +41,8 @@ class EBioInit extends Model
     return $this->hasOne(EBioCC::class,'ebio_reg', 'ebio_reg');
 }
 
+  public function users(){
+    return $this->hasOne(User::class,'ebio_nl', 'username');
+}
+
 }

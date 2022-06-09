@@ -217,6 +217,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('admin/maklumat-penyata-bulanan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_maklumat_penyata_bulanan'])->name('admin.maklumat.penyata.bulanan');
         Route::get('admin/pl-lewat', [App\Http\Controllers\Admin\LaporanController::class, 'admin_pl_lewat'])->name('admin.pl.lewat');
+        Route::get('admin/pl-lewat/process', [App\Http\Controllers\Admin\LaporanController::class, 'admin_pl_lewat_process'])->name('admin.pl.lewat.process');
         Route::get('admin/kapasiti', [App\Http\Controllers\Admin\LaporanController::class, 'admin_kapasiti'])->name('admin.kapasiti');
         Route::get('admin/edit-kapasiti/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti'])->name('admin.edit.kapasiti');
         Route::post('admin/edit-kapasiti/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_proses'])->name('admin.edit.kapasiti.proses');

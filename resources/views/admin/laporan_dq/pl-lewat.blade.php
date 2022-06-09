@@ -48,11 +48,13 @@
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Penerimaan Lewat Borang PL</h3>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%"> Tarikh Penerimaan Borang PL</h3>
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5> --}}
                         </div>
                         <hr>
-
+                        <form action="{{ route('admin.pl.lewat.process') }}"
+                        method="GET">
+                        @csrf
                         <div class="card-body">
 
                             <div class="container center">
@@ -61,26 +63,35 @@
 
                                         <div class="form-group">
                                             <label>Kategori</label>
-                                            <fieldset class="form-group">
-                                                <select class="form-control" name="e_kat">
-                                                    <option selected hidden disabled>Sila Pilih Kategori</option>
-                                                    <option value="PLBIO">Kilang Biodiesel</option>
-                                                </select>
-                                            </fieldset>
+                                            <input type="text" class="form-control" value="Kilang Biodiesel" readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-5 mr-auto">
                                         <div class="form-group">
-                                            <label>Tarikh Lewat Terima (PL)</label>
-                                            <input type="date" class="form-control" placeholder="No. Lesen">
+                                            <label>Tarikh Terima PL</label>
+                                            <fieldset class="form-group">
+                                                <select class="form-control" name="kategori">
+                                                    <option selected hidden disabled>Sila Pilih Kategori</option>
+                                                    <option value="tepat">Penerimaan Sebelum 7hb </option>
+                                                    <option value="lewat">Penerimaan Selepas 7hb</option>
+                                                    <option value="all">Keseluruhan</option>
+                                                </select>
+                                            </fieldset>
                                         </div>
                                     </div>
+                                    {{-- <div class="col-md-5 mr-auto">
+                                        <div class="form-group">
+                                            <label>Tarikh Terima PL</label>
+                                            <input type="date" class="form-control" placeholder="No. Lesen">
+                                        </div>
+                                    </div> --}}
                                 </div>
                             <div class="text-right col-md-6 mb-4 mt-4">
-                                <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                                <button type="submit" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
                                     data-target="#next">Cari</button>
                             </div>
                         </div>
+                    </form>
 
 
                     </div>
