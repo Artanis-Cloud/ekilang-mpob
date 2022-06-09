@@ -12,7 +12,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Laporan Dynamic Query
+                    <h4 class="page-title">Dynamic Query Biodiesel
                     </h4>
                 </div>
                 <div class="col-7 align-self-center">
@@ -57,21 +57,33 @@
 
                             <div class="container center">
                                 <div class="row" style="margin-top:-2%">
-                                    <div class="col-md-5 ml-auto">
+                                    <div class="col-md-4 ml-auto">
 
                                         <div class="form-group">
                                             <label>Jenis Laporan</label>
                                             <fieldset class="form-group">
                                                 <select class="form-control" name="laporan">
                                                     <option selected hidden disabled>Sila Pilih Jenis Laporan</option>
-                                                    <option value="PLBIO">Senarai Tahunan Negeri</option>
+                                                    <option value="kapasiti">Laporan Tahunan Kapasiti</option>
+                                                    <option value="beroperasi">Kilang Biodiesel Beroperasi</option>
+                                                    <option value="pengeluaran">Pengeluaran Produk Biodiesel</option>
+                                                    <option value="eksport">Eksport Produk Biodiesel</option>
                                                 </select>
                                             </fieldset>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 mr-auto">
+                                    <div class="col-md-3 ">
                                         <div class="form-group">
                                             <label>Tahun</label>
+                                                <select class="form-control" name="laporan" id="date-dropdown">
+                                                    <option selected hidden disabled>Sila Pilih Tahun</option>
+                                                </select>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 mr-auto">
+                                        <div class="form-group">
+                                            <label>Bulan</label>
                                             <input type="tex" class="form-control" placeholder="Tahun">
                                         </div>
                                     </div>
@@ -97,5 +109,17 @@
 @endsection
 
 @section('scripts')
+<script>
+    let dateDropdown = document.getElementById('date-dropdown');
 
+    let currentYear = new Date().getFullYear();
+    let earliestYear = 2011;
+    while (currentYear >= earliestYear) {
+      let dateOption = document.createElement('option');
+      dateOption.text = currentYear;
+      dateOption.value = currentYear;
+      dateDropdown.add(dateOption);
+      currentYear -= 1;
+    }
+  </script>
 @endsection
