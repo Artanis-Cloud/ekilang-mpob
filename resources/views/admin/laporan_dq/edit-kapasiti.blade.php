@@ -12,7 +12,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Laporan Dynamic Query
+                    <h4 class="page-title">Dynamic Query Biodiesel
                     </h4>
                 </div>
                 <div class="col-7 align-self-center">

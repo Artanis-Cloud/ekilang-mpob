@@ -1136,7 +1136,7 @@
                                 <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                     aria-expanded="false">
                                     <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Laporan Dynamic <br> Query </span>
+                                    <span class="hide-menu font-weight-bold"> Dynamic Query<br>Biodiesel  </span>
                                     {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
