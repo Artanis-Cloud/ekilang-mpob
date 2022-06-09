@@ -1150,7 +1150,7 @@
                                     <li class="sidebar-item">
                                         <a href="{{ route('admin.pl.lewat') }}" class="sidebar-link">
                                             <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> PL Lewat </span>
+                                            <span class="hide-menu"> Tarikh Penerimaan <br> Borang PL </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">

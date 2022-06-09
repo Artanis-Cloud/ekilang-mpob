@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Bulan;
 use App\Models\Daerah;
+use App\Models\EBioInit;
 use App\Models\H91Init;
 use App\Models\KumpProduk;
 use App\Models\Negara;
@@ -48,7 +49,7 @@ class LaporanController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "PL Lewat"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Tarikh Penerimaan PL"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -62,6 +63,72 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.pl-lewat', compact('returnArr', 'layout'));
     }
 
+    public function admin_pl_lewat_process(Request $request)
+    {
+        $kategori = $request->kategori;
+        // dd($kategori);
+        // $date_tepat = EBioInit::where(date())
+
+        // $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+        // FROM e_bio_inits e
+        // LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
+        // LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
+        // WHERE DAY(e.ebio_sdate) BETWEEN 1 AND 10");
+        // dd($list_penyata);
+
+        if ($kategori == "tepat") {
+            $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+                FROM e_bio_inits e
+                LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
+                LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
+                WHERE DAY(e.ebio_sdate) BETWEEN 1 AND 7");
+        // dd($list_penyata);
+
+        }elseif ($kategori == "lewat") {
+            $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+                FROM e_bio_inits e
+                LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
+                LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
+                WHERE DAY(e.ebio_sdate) BETWEEN 8 AND 10");
+        }else{
+            $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+                FROM e_bio_inits e
+                LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
+                LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
+                WHERE DAY(e.ebio_sdate) BETWEEN 1 AND 10");
+        }
+        // dd($list_penyata);
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.pl.lewat'), 'name' => "Tarikh Penerimaan PL"],
+            ['link' => route('admin.pl.lewat'), 'name' => "Senarai Penerimaan PL"],
+
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        $array = [
+            'kategori' => $kategori,
+            'list_penyata' => $list_penyata,
+
+            'breadcrumbs' => $breadcrumbs,
+            'kembali' => $kembali,
+
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+
+        return view('admin.laporan_dq.pl-lewat-proses', $array);
+    }
+
     public function admin_kapasiti()
     {
 
@@ -70,7 +137,7 @@ class LaporanController extends Controller
         // dd($pelesen);
         // $date= date("m");
 
-        $reg_pelesen = RegPelesen::with('pelesen')->where('e_kat','PLBIO')->get();
+        $reg_pelesen = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         // $pelesen = Pelesen::with('regpelesen')->where('e_nl', $reg_pelesen[0]->e_nl)->get();
         // dd($reg_pelesen);
 
@@ -88,7 +155,7 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.kapasiti', compact('returnArr', 'layout','reg_pelesen'));
+        return view('admin.laporan_dq.kapasiti', compact('returnArr', 'layout', 'reg_pelesen'));
     }
 
     public function admin_edit_kapasiti($id, Pelesen $pelesen)
@@ -115,8 +182,7 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.edit-kapasiti', compact('returnArr', 'layout','pelesen'));
-
+        return view('admin.laporan_dq.edit-kapasiti', compact('returnArr', 'layout', 'pelesen'));
     }
 
 
@@ -174,7 +240,7 @@ class LaporanController extends Controller
 
     public function admin_tambah_stok_akhir()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -189,12 +255,12 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.tambah-stok-akhir', compact('returnArr', 'layout','bulan'));
+        return view('admin.laporan_dq.tambah-stok-akhir', compact('returnArr', 'layout', 'bulan'));
     }
 
     public function admin_validasi_stok_akhir()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -209,12 +275,12 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.validasi-stok-akhir', compact('returnArr', 'layout','bulan'));
+        return view('admin.laporan_dq.validasi-stok-akhir', compact('returnArr', 'layout', 'bulan'));
     }
 
     public function admin_validasi_stok_akhir_ikut_produk()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -229,12 +295,12 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.validasi-stok-akhir-ikut-produk', compact('returnArr', 'layout','bulan'));
+        return view('admin.laporan_dq.validasi-stok-akhir-ikut-produk', compact('returnArr', 'layout', 'bulan'));
     }
 
     public function admin_minyak_sawit_diproses()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -249,12 +315,12 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.minyak-sawit-diproses', compact('returnArr', 'layout','bulan'));
+        return view('admin.laporan_dq.minyak-sawit-diproses', compact('returnArr', 'layout', 'bulan'));
     }
 
     public function admin_tambah_proses()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -269,12 +335,12 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.tambah-proses', compact('returnArr', 'layout','bulan'));
+        return view('admin.laporan_dq.tambah-proses', compact('returnArr', 'layout', 'bulan'));
     }
 
     public function admin_validasi_minyak_sawit_diproses()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -289,13 +355,13 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.validasi-minyak-sawit-diproses', compact('returnArr', 'layout','bulan'));
+        return view('admin.laporan_dq.validasi-minyak-sawit-diproses', compact('returnArr', 'layout', 'bulan'));
     }
 
     public function admin_oleo_export()
     {
-        $prodgroup=ProdukGroup::get();
-        $prodcat=ProdukCategory::get();
+        $prodgroup = ProdukGroup::get();
+        $prodcat = ProdukCategory::get();
         $users = User::where('category', 'PLBIO')->get();
         $prodsubgroup = ProdukSubgroup::get();
         $produk = Produk::where('prodcat', '')->get();
@@ -320,13 +386,13 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.eksport.eksport', compact('returnArr', 'layout','prodgroup', 'prodcat', 'negeri','negara','users','prodsubgroup', 'produk'));
+        return view('admin.laporan_dq.eksport.eksport', compact('returnArr', 'layout', 'prodgroup', 'prodcat', 'negeri', 'negara', 'users', 'prodsubgroup', 'produk'));
     }
 
     public function admin_activities_by_licensee()
     {
-        $prodgroup=ProdukGroup::get();
-        $prodcat=ProdukCategory::get();
+        $prodgroup = ProdukGroup::get();
+        $prodcat = ProdukCategory::get();
         $users = User::where('category', 'PLBIO')->get();
         $prodsubgroup = ProdukSubgroup::get();
         $produk = Produk::where('prodcat', '')->get();
@@ -349,13 +415,13 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.activities.by-licensee', compact('returnArr', 'layout','prodgroup', 'prodcat', 'negeri','users','prodsubgroup', 'produk'));
+        return view('admin.laporan_dq.activities.by-licensee', compact('returnArr', 'layout', 'prodgroup', 'prodcat', 'negeri', 'users', 'prodsubgroup', 'produk'));
     }
 
     public function admin_activities_all()
     {
-        $prodgroup=ProdukGroup::get();
-        $prodcat=ProdukCategory::get();
+        $prodgroup = ProdukGroup::get();
+        $prodcat = ProdukCategory::get();
         $users = User::where('category', 'PLBIO')->get();
         $prodsubgroup = ProdukSubgroup::get();
         $produk = Produk::where('prodcat', '')->get();
@@ -380,12 +446,12 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.activities.activities-all', compact('returnArr', 'layout','prodgroup', 'prodcat', 'negeri','users','prodsubgroup', 'produk','kawasan'));
+        return view('admin.laporan_dq.activities.activities-all', compact('returnArr', 'layout', 'prodgroup', 'prodcat', 'negeri', 'users', 'prodsubgroup', 'produk', 'kawasan'));
     }
 
     public function admin_activities_by_state()
     {
-        $prodgroup=ProdukGroup::get();
+        $prodgroup = ProdukGroup::get();
         $prodsubgroup = ProdukSubgroup::get();
 
 
@@ -405,13 +471,13 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.activities.by-state', compact('returnArr', 'layout','prodgroup','prodsubgroup'));
+        return view('admin.laporan_dq.activities.by-state', compact('returnArr', 'layout', 'prodgroup', 'prodsubgroup'));
     }
 
     public function admin_activities_by_district()
     {
-        $prodgroup=ProdukGroup::get();
-        $prodcat=ProdukCategory::get();
+        $prodgroup = ProdukGroup::get();
+        $prodcat = ProdukCategory::get();
         $users = User::where('category', 'PLBIO')->get();
         $prodsubgroup = ProdukSubgroup::get();
         $produk = Produk::where('prodcat', '')->get();
@@ -434,13 +500,13 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.activities.by-district', compact('returnArr', 'layout','prodgroup', 'prodcat', 'negeri','users','prodsubgroup', 'produk'));
+        return view('admin.laporan_dq.activities.by-district', compact('returnArr', 'layout', 'prodgroup', 'prodcat', 'negeri', 'users', 'prodsubgroup', 'produk'));
     }
 
     public function admin_activities_by_region()
     {
-        $prodgroup=ProdukGroup::get();
-        $prodcat=ProdukCategory::get();
+        $prodgroup = ProdukGroup::get();
+        $prodcat = ProdukCategory::get();
         $users = User::where('category', 'PLBIO')->get();
         $prodsubgroup = ProdukSubgroup::get();
         $produk = Produk::where('prodcat', '')->get();
@@ -463,13 +529,13 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.activities.by-region', compact('returnArr', 'layout','prodgroup', 'prodcat', 'kawasan','users','prodsubgroup', 'produk'));
+        return view('admin.laporan_dq.activities.by-region', compact('returnArr', 'layout', 'prodgroup', 'prodcat', 'kawasan', 'users', 'prodsubgroup', 'produk'));
     }
 
     public function admin_activities_by_product()
     {
-        $prodgroup=ProdukGroup::get();
-        $prodcat=ProdukCategory::get();
+        $prodgroup = ProdukGroup::get();
+        $prodcat = ProdukCategory::get();
         // $users = User::where('category', 'PLBIO')->get();
         $prodsubgroup = ProdukSubgroup::get();
         $produk = Produk::where('prodcat', '')->get();
@@ -492,13 +558,13 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.activities.by-product', compact('returnArr', 'layout','prodgroup', 'prodcat','prodsubgroup', 'produk'));
+        return view('admin.laporan_dq.activities.by-product', compact('returnArr', 'layout', 'prodgroup', 'prodcat', 'prodsubgroup', 'produk'));
     }
 
     public function admin_activities_by_productgroup()
     {
-        $prodgroup=ProdukGroup::get();
-        $prodcat=ProdukCategory::get();
+        $prodgroup = ProdukGroup::get();
+        $prodcat = ProdukCategory::get();
         // $users = User::where('category', 'PLBIO')->get();
         $prodsubgroup = ProdukSubgroup::get();
         $produk = Produk::where('prodcat', '')->get();
@@ -521,14 +587,14 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.activities.by-productgroup', compact('returnArr', 'layout','prodgroup', 'prodcat','prodsubgroup', 'produk'));
+        return view('admin.laporan_dq.activities.by-productgroup', compact('returnArr', 'layout', 'prodgroup', 'prodcat', 'prodsubgroup', 'produk'));
     }
 
 
     public function admin_yearly_by_licensee()
     {
-        $prodgroup=ProdukGroup::get();
-        $prodcat=ProdukCategory::get();
+        $prodgroup = ProdukGroup::get();
+        $prodcat = ProdukCategory::get();
         // $users = User::where('category', 'PLBIO')->get();
         $prodsubgroup = ProdukSubgroup::get();
         $produk = Produk::where('prodcat', '')->get();
@@ -551,7 +617,7 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.yearly.by-licensee', compact('returnArr', 'layout','prodgroup', 'prodcat','prodsubgroup', 'produk'));
+        return view('admin.laporan_dq.yearly.by-licensee', compact('returnArr', 'layout', 'prodgroup', 'prodcat', 'prodsubgroup', 'produk'));
     }
 
     public function admin_yearly_by_state()
@@ -576,13 +642,13 @@ class LaporanController extends Controller
 
     public function admin_yearly_by_district()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-        $daerah=Daerah::get();
-        $subproduct=ProdukSubgroup::get();
-        $prodcat=ProdukGroup::get();
-        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
-        $produk=DB::connection('mysql2')->select("SELECT * FROM produk");
+        $daerah = Daerah::get();
+        $subproduct = ProdukSubgroup::get();
+        $prodcat = ProdukGroup::get();
+        $kumpproduk = DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk = DB::connection('mysql2')->select("SELECT * FROM produk");
 
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
@@ -600,19 +666,28 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.yearly.by-district', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
-        'users2', 'produk', 'prodcat'));
+        return view('admin.laporan_dq.yearly.by-district', compact(
+            'returnArr',
+            'layout',
+            'bulan',
+            'negeri',
+            'subproduct',
+            'kumpproduk',
+            'users2',
+            'produk',
+            'prodcat'
+        ));
     }
 
     public function admin_yearly_by_region()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-        $daerah=Daerah::get();
-        $subproduct=ProdukSubgroup::get();
-        $prodcat=ProdukGroup::get();
-        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
-        $produk=DB::connection('mysql2')->select("SELECT * FROM produk");
+        $daerah = Daerah::get();
+        $subproduct = ProdukSubgroup::get();
+        $prodcat = ProdukGroup::get();
+        $kumpproduk = DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk = DB::connection('mysql2')->select("SELECT * FROM produk");
 
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
@@ -630,19 +705,28 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.yearly.by-region', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
-        'users2', 'produk', 'prodcat'));
+        return view('admin.laporan_dq.yearly.by-region', compact(
+            'returnArr',
+            'layout',
+            'bulan',
+            'negeri',
+            'subproduct',
+            'kumpproduk',
+            'users2',
+            'produk',
+            'prodcat'
+        ));
     }
 
     public function admin_yearly_by_product()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-        $daerah=Daerah::get();
-        $subproduct=ProdukSubgroup::get();
-        $prodcat=ProdukGroup::get();
-        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
-        $produk=DB::connection('mysql2')->select("SELECT * FROM produk");
+        $daerah = Daerah::get();
+        $subproduct = ProdukSubgroup::get();
+        $prodcat = ProdukGroup::get();
+        $kumpproduk = DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk = DB::connection('mysql2')->select("SELECT * FROM produk");
 
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
@@ -660,19 +744,28 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.yearly.by-product', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
-        'users2', 'produk', 'prodcat'));
+        return view('admin.laporan_dq.yearly.by-product', compact(
+            'returnArr',
+            'layout',
+            'bulan',
+            'negeri',
+            'subproduct',
+            'kumpproduk',
+            'users2',
+            'produk',
+            'prodcat'
+        ));
     }
 
     public function admin_yearly_by_productgroup()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-        $daerah=Daerah::get();
-        $subproduct=ProdukSubgroup::get();
-        $prodcat=ProdukGroup::get();
-        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
-        $produk=DB::connection('mysql2')->select("SELECT * FROM produk");
+        $daerah = Daerah::get();
+        $subproduct = ProdukSubgroup::get();
+        $prodcat = ProdukGroup::get();
+        $kumpproduk = DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk = DB::connection('mysql2')->select("SELECT * FROM produk");
 
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
@@ -690,19 +783,28 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.yearly.by-productgroup', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
-        'users2', 'produk', 'prodcat'));
+        return view('admin.laporan_dq.yearly.by-productgroup', compact(
+            'returnArr',
+            'layout',
+            'bulan',
+            'negeri',
+            'subproduct',
+            'kumpproduk',
+            'users2',
+            'produk',
+            'prodcat'
+        ));
     }
 
     public function admin_yearly_by_month()
     {
-        $bulan=Bulan::get();
+        $bulan = Bulan::get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-        $daerah=Daerah::get();
-        $subproduct=ProdukSubgroup::get();
-        $prodcat=ProdukGroup::get();
-        $kumpproduk=DB::connection('mysql2')->select("SELECT * FROM kump_produk");
-        $produk=DB::connection('mysql2')->select("SELECT * FROM produk");
+        $daerah = Daerah::get();
+        $subproduct = ProdukSubgroup::get();
+        $prodcat = ProdukGroup::get();
+        $kumpproduk = DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk = DB::connection('mysql2')->select("SELECT * FROM produk");
 
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         // $users = Pelesen::where('e_nl', $users2->e_nl)->orderBy('e_np')->first();
@@ -720,8 +822,17 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.yearly.by-month', compact('returnArr', 'layout','bulan', 'negeri', 'subproduct', 'kumpproduk',
-        'users2', 'produk', 'prodcat'));
+        return view('admin.laporan_dq.yearly.by-month', compact(
+            'returnArr',
+            'layout',
+            'bulan',
+            'negeri',
+            'subproduct',
+            'kumpproduk',
+            'users2',
+            'produk',
+            'prodcat'
+        ));
     }
 
     public function admin_bulanan_lesen_process(Request $request)
@@ -752,7 +863,4 @@ class LaporanController extends Controller
 
         return view('admin.laporan_dq.oleochemical-monthly.table-senarai-lesen', compact('returnArr', 'layout', 'test'));
     }
-
-
-
 }

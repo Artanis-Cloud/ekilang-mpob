@@ -792,7 +792,7 @@
                                                         <font size="3">2. Estet Luar</font>
                                                     </td>
                                                     <td width="158" style="text-align: center; vertical-align:middle">
-                                                        <font size="3">{{ number_format($penyata->e91_ai ?? 0, 2) }}
+                                                        <font size="3">{{ number_format($penyata->e91_ai2 ?? 0, 2) }}
                                                         </font>
                                                     </td>
                                                 </tr>
