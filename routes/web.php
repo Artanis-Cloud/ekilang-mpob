@@ -257,6 +257,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/monthly-by-product', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_by_product'])->name('admin.monthly.by.product');
         Route::get('admin/monthly-by-productgroup', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_by_productgroup'])->name('admin.monthly.by.productgroup');
         Route::get('admin/monthly', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_monthly_all'])->name('admin.monthly.all');
+        Route::get('admin/senarai-laporan', [App\Http\Controllers\Admin\MonthlyController::class, 'admin_senarai_laporan'])->name('admin.senarai.monthly');
 
         Route::get('admin/yearly-by-licensee', [App\Http\Controllers\Admin\YearlyController::class, 'admin_yearly_by_licensee'])->name('admin.yearly.by.licensee');
         Route::get('admin/yearly-by-state', [App\Http\Controllers\Admin\YearlyController::class, 'admin_yearly_by_state'])->name('admin.yearly.by.state');

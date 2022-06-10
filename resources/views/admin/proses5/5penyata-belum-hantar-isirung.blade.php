@@ -65,89 +65,101 @@
                             <div class="col-1 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
-                            <div class=" dropdown">
-                                <button class="btn btn-secondary dropdown-toggle"
-                                    style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Kilang Isirung
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    @if (auth()->user()->sub_cat)
-                                        @foreach (json_decode(auth()->user()->sub_cat) as $cat)
 
-                                            @if ($cat == 'PL91')
+                        </div>
+                            <div class="pl-3">
+
+                                <div class="row">
+
+                                    <div class=" dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle"
+                                            style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Kilang Isirung
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            @if (auth()->user()->sub_cat)
+                                                @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+
+                                                    @if ($cat == 'PL91')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.5penyatabelumhantarbuah') }}">Kilang
+                                                            Buah</a>
+                                                    @endif
+                                                    @if ($cat == 'PL101')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.5penyatabelumhantarpenapis') }}">Kilang
+                                                            Penapis</a>
+                                                    @endif
+                                                    @if ($cat == 'PL102')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.5penyatabelumhantarisirung') }}">Kilang
+                                                            Isirung</a>
+                                                    @endif
+                                                    @if ($cat == 'PL104')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.5penyatabelumhantaroleo') }}">Kilang
+                                                            Oleokimia</a>
+                                                    @endif
+                                                    @if ($cat == 'PL111')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.5penyatabelumhantarsimpanan') }}">Pusat
+                                                            Simpanan</a>
+                                                    @endif
+                                                    @if ($cat == 'PLBIO')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.5penyatabelumhantarbio') }}">Kilang
+                                                            Biodiesel</a>
+                                                    @endif
+                                                @endforeach
+                                            @else
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.5penyatabelumhantarbuah') }}">Kilang
                                                     Buah</a>
-                                            @endif
-                                            @if ($cat == 'PL101')
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.5penyatabelumhantarpenapis') }}">Kilang
                                                     Penapis</a>
-                                            @endif
-                                            @if ($cat == 'PL102')
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.5penyatabelumhantarisirung') }}">Kilang
                                                     Isirung</a>
-                                            @endif
-                                            @if ($cat == 'PL104')
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.5penyatabelumhantaroleo') }}">Kilang
                                                     Oleokimia</a>
-                                            @endif
-                                            @if ($cat == 'PL111')
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.5penyatabelumhantarsimpanan') }}">Pusat
                                                     Simpanan</a>
-                                            @endif
-                                            @if ($cat == 'PLBIO')
                                                 <a class="dropdown-item"
                                                     href="{{ route('admin.5penyatabelumhantarbio') }}">Kilang
                                                     Biodiesel</a>
                                             @endif
-                                        @endforeach
-                                    @else
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.5penyatabelumhantarbuah') }}">Kilang
-                                            Buah</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.5penyatabelumhantarpenapis') }}">Kilang
-                                            Penapis</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.5penyatabelumhantarisirung') }}">Kilang
-                                            Isirung</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.5penyatabelumhantaroleo') }}">Kilang
-                                            Oleokimia</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.5penyatabelumhantarsimpanan') }}">Pusat
-                                            Simpanan</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.5penyatabelumhantarbio') }}">Kilang
-                                            Biodiesel</a>
-                                    @endif
 
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-8 text-center">
+                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+
+                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Isirung -
+                                            MPOB(EL) CF 4</h3>
+                                        <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
+                                            Dihantar Sehingga Tarikh
+                                            <p><span id="datetime"></span></p>
+                                            <script>
+                                                var dt = new Date();
+                                                document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
+                                                    1)).slice(-2)) + "/" + (dt.getFullYear());
+                                            </script>
+                                        </h5>
+                                        {{-- <p>Maklumat Kilang</p> --}}
+                                    </div>
+                                    <div class="text-right col-md-2">
+                                        <button style="font-size:12px"
+                                        onclick="exportTableToCSV('Senarai Penyata Belum Hantar Kilang Isirung.csv')">Excel <i class="fa fa-file-excel" style="color: #319f57"></i></button>
+
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                            <div class="pl-3">
 
-                                <div class=" text-center">
-                                    {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-
-                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:2%">Penyata Bulanan Kilang Isirung -
-                                        MPOB(EL) CF 4</h3>
-                                    <h5 style="color: rgb(39, 80, 71); margin-bottom:2%">Senarai Penyata Belum
-                                        Dihantar Sehingga Tarikh
-                                        <p><span id="datetime"></span></p>
-                                        <script>
-                                            var dt = new Date();
-                                            document.getElementById("datetime").innerHTML = (("0" + dt.getDate()).slice(-2)) + "/" + (("0" + (dt.getMonth() +
-                                                1)).slice(-2)) + "/" + (dt.getFullYear());
-                                        </script>
-                                    </h5>
-                                    {{-- <p>Maklumat Kilang</p> --}}
-                                </div>
                                 <hr>
 
 
@@ -203,13 +215,7 @@
 
                                                 </table>
                                             </div>
-                                                <div class="text-left col-md-8">
-                                                    <button class="btn btn-primary"
-                                                    onclick="exportTableToExcel('tblData')">Excel</button>
 
-
-
-                                                </div>
                                             </div>
                                         {{-- </form> --}}
                                     </div>
@@ -268,35 +274,37 @@
         document.getElementById("defaultOpen").click();
     </script>
     <script>
-        function exportTableToExcel(tableID, filename = '') {
+        //user-defined function to download CSV file
+        function downloadCSV(csv, filename) {
+            var csvFile;
             var downloadLink;
-            var dataType = 'application/vnd.ms-excel';
-            var tableSelect = document.getElementById(tableID);
-            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
 
-            // Specify file name
-            filename = filename ? filename + '.xls' : 'senarai-penyata-belum-hantar.xls';
-
-            // Create download link element
+            //define the file type to text/csv
+            csvFile = new Blob([csv], {type: 'text/csv'});
             downloadLink = document.createElement("a");
+            downloadLink.download = filename;
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+            downloadLink.style.display = "none";
 
             document.body.appendChild(downloadLink);
+            downloadLink.click();
+        }
 
-            if (navigator.msSaveOrOpenBlob) {
-                var blob = new Blob(['\ufeff', tableHTML], {
-                    type: dataType
-                });
-                navigator.msSaveOrOpenBlob(blob, filename);
-            } else {
-                // Create a link to the file
-                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+        //user-defined function to export the data to CSV file format
+        function exportTableToCSV(filename) {
+        //declare a JavaScript variable of array type
+        var csv = [];
+        var rows = document.querySelectorAll("table tr");
 
-                // Setting the file name
-                downloadLink.download = filename;
-
-                //triggering the function
-                downloadLink.click();
-            }
+        //merge the whole data in tabular form
+        for(var i=0; i<rows.length; i++) {
+            var row = [], cols = rows[i].querySelectorAll("td, th");
+            for( var j=0; j<cols.length; j++)
+            row.push(cols[j].innerText);
+            csv.push(row.join(","));
+        }
+        //call the function to download the CSV file
+        downloadCSV(csv.join("\n"), filename);
         }
     </script>
 @endsection

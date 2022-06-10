@@ -184,7 +184,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox" required
+                                                                <input name="papar_ya[]" type="checkbox" 
                                                                     value="{{ $data->e102_reg }}">&nbspYa
                                                             </td>
                                                             {{-- <td>

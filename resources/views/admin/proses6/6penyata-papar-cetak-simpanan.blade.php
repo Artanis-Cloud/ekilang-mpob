@@ -192,7 +192,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox" required
+                                                                <input name="papar_ya[]" type="checkbox" 
                                                                  {{-- oninvalid="setCustomValidity('Sila tandakan kotak ini')" --}}
                                                                     value="{{ $data->e07_reg }}">&nbspYa
                                                             </td>

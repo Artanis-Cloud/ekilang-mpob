@@ -50,81 +50,87 @@
                             <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i
                                     class="fa fa-angle-left">&ensp;</i>Kembali</a>
                         </div>
-                        <div class=" dropdown">
-                            <button class="btn btn-secondary dropdown-toggle"
-                                style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
-                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Kilang Isirung
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                @if (auth()->user()->sub_cat)
-                                    @foreach (json_decode(auth()->user()->sub_cat) as $cat)
-                                        @if ($cat == 'PL91')
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.senarai.pelesen.batal.buah') }}">Kilang
-                                                Buah</a>
-                                        @endif
-                                        @if ($cat == 'PL101')
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang
-                                                Penapis</a>
-                                        @endif
-                                        @if ($cat == 'PL102')
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.senarai.pelesen.batal.isirung') }}">Kilang
-                                                Isirung</a>
-                                        @endif
-                                        @if ($cat == 'PL104')
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.senarai.pelesen.batal.oleokimia') }}">Kilang
-                                                Oleokimia</a>
-                                        @endif
-                                        @if ($cat == 'PL111')
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.senarai.pelesen.batal.simpanan') }}">Pusat
-                                                Simpanan</a>
-                                        @endif
-                                        @if ($cat == 'PLBIO')
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.senarai.pelesen.batal.bio') }}">Kilang
-                                                Biodiesel</a>
-                                        @endif
-                                    @endforeach
-                                @else
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.senarai.pelesen.batal.buah') }}">Kilang
-                                        Buah</a>
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang
-                                        Penapis</a>
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.senarai.pelesen.batal.isirung') }}">Kilang
-                                        Isirung</a>
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.senarai.pelesen.batal.oleokimia') }}">Kilang
-                                        Oleokimia</a>
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.senarai.pelesen.batal.simpanan') }}">Pusat
-                                        Simpanan</a>
-                                    <a class="dropdown-item"
-                                        href="{{ route('admin.senarai.pelesen.batal.bio') }}">Kilang
-                                        Biodiesel</a>
-                                @endif
 
-                            </div>
-                        </div>
                     </div>
                     <div class="row">
                         {{-- <div class="col-md-4 col-12"> --}}
                         <div class="pl-3">
 
-                            <div class=" text-center">
-                                {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Dibatalkan
-                                </h3>
-                                <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>Kilang Isirung</b></h4>
-                                {{-- <p>Maklumat Kilang</p> --}}
+                            <div class="row">
+
+                                <div class=" dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle"
+                                        style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
+                                        id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Kilang Isirung
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        @if (auth()->user()->sub_cat)
+                                            @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                                @if ($cat == 'PL91')
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senarai.pelesen.batal.buah') }}">Kilang
+                                                        Buah</a>
+                                                @endif
+                                                @if ($cat == 'PL101')
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang
+                                                        Penapis</a>
+                                                @endif
+                                                @if ($cat == 'PL102')
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senarai.pelesen.batal.isirung') }}">Kilang
+                                                        Isirung</a>
+                                                @endif
+                                                @if ($cat == 'PL104')
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senarai.pelesen.batal.oleokimia') }}">Kilang
+                                                        Oleokimia</a>
+                                                @endif
+                                                @if ($cat == 'PL111')
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senarai.pelesen.batal.simpanan') }}">Pusat
+                                                        Simpanan</a>
+                                                @endif
+                                                @if ($cat == 'PLBIO')
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senarai.pelesen.batal.bio') }}">Kilang
+                                                        Biodiesel</a>
+                                                @endif
+                                            @endforeach
+                                        @else
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senarai.pelesen.batal.buah') }}">Kilang
+                                                Buah</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang
+                                                Penapis</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senarai.pelesen.batal.isirung') }}">Kilang
+                                                Isirung</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senarai.pelesen.batal.oleokimia') }}">Kilang
+                                                Oleokimia</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senarai.pelesen.batal.simpanan') }}">Pusat
+                                                Simpanan</a>
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.senarai.pelesen.batal.bio') }}">Kilang
+                                                Biodiesel</a>
+                                        @endif
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-8 text-center">
+                                    {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Senarai Pelesen Dibatalkan
+                                    </h3>
+                                    <h4 style="color: rgb(39, 80, 71); font-size:18px;"><b>Kilang Isirung</b></h4>
+                                    {{-- <p>Maklumat Kilang</p> --}}
+                                </div>
                             </div>
+
                             <hr>
 
 
