@@ -75,79 +75,86 @@
                                                             Simple Datatable
                                                         </div> --}}
                                 <div class="row">
-                                    <div class=" dropdown">
-                                        <button class="btn btn-secondary dropdown-toggle"
-                                            style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
-                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                            aria-expanded="false">
-                                            Kilang Buah
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            @if (auth()->user()->sub_cat)
-                                                @foreach (json_decode(auth()->user()->sub_cat) as $cat)
-                                                    @if ($cat == 'PL91')
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('admin.senaraipelesenbuah') }}">Kilang
-                                                            Buah</a>
-                                                    @endif
-                                                    @if ($cat == 'PL101')
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('admin.senaraipelesenpenapis') }}">Kilang
-                                                            Penapis</a>
-                                                    @endif
-                                                    @if ($cat == 'PL102')
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('admin.senaraipelesenisirung') }}">Kilang
-                                                            Isirung</a>
-                                                    @endif
-                                                    @if ($cat == 'PL104')
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang
-                                                            Oleokimia</a>
-                                                    @endif
-                                                    @if ($cat == 'PL111')
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('admin.senaraipelesensimpanan') }}">Pusat
-                                                            Simpanan</a>
-                                                    @endif
-                                                    @if ($cat == 'PLBIO')
-                                                        <a class="dropdown-item"
-                                                            href="{{ route('admin.senaraipelesenbio') }}">Kilang
-                                                            Biodiesel</a>
-                                                    @endif
-                                                @endforeach
-                                            @else
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.senaraipelesenbuah') }}">Kilang
-                                                    Buah</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.senaraipelesenpenapis') }}">Kilang
-                                                    Penapis</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.senaraipelesenisirung') }}">Kilang
-                                                    Isirung</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang
-                                                    Oleokimia</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.senaraipelesensimpanan') }}">Pusat
-                                                    Simpanan</a>
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.senaraipelesenbio') }}">Kilang
-                                                    Biodiesel</a>
-                                            @endif
+                                    <div class="col-md-6">
+                                        <div class=" dropdown">
+                                            <button class="btn btn-secondary dropdown-toggle"
+                                                style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
+                                                id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                aria-expanded="false">
+                                                Kilang Buah
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                @if (auth()->user()->sub_cat)
+                                                    @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+                                                        @if ($cat == 'PL91')
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('admin.senaraipelesenbuah') }}">Kilang
+                                                                Buah</a>
+                                                        @endif
+                                                        @if ($cat == 'PL101')
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('admin.senaraipelesenpenapis') }}">Kilang
+                                                                Penapis</a>
+                                                        @endif
+                                                        @if ($cat == 'PL102')
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('admin.senaraipelesenisirung') }}">Kilang
+                                                                Isirung</a>
+                                                        @endif
+                                                        @if ($cat == 'PL104')
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang
+                                                                Oleokimia</a>
+                                                        @endif
+                                                        @if ($cat == 'PL111')
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('admin.senaraipelesensimpanan') }}">Pusat
+                                                                Simpanan</a>
+                                                        @endif
+                                                        @if ($cat == 'PLBIO')
+                                                            <a class="dropdown-item"
+                                                                href="{{ route('admin.senaraipelesenbio') }}">Kilang
+                                                                Biodiesel</a>
+                                                        @endif
+                                                    @endforeach
+                                                @else
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senaraipelesenbuah') }}">Kilang
+                                                        Buah</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senaraipelesenpenapis') }}">Kilang
+                                                        Penapis</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senaraipelesenisirung') }}">Kilang
+                                                        Isirung</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senaraipelesenoleokimia') }}">Kilang
+                                                        Oleokimia</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senaraipelesensimpanan') }}">Pusat
+                                                        Simpanan</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.senaraipelesenbio') }}">Kilang
+                                                        Biodiesel</a>
+                                                @endif
 
+                                            </div>
                                         </div>
+
+                                        {{-- <div class="col-md-8 text-left "> --}}
+                                        <a href="{{ route('admin.senaraipelesenbatalbuah') }}" class="btn btn-primary"
+                                            style="float: left; margin-right:2%">Senarai
+                                            Pelesen Batal</a>
+
+                                        <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
+                                            style="float: left"> Tambah Pelesen Baru</a>
                                     </div>
 
-                                    {{-- <div class="col-md-8 text-left "> --}}
-                                    <a href="{{ route('admin.senaraipelesenbatalbuah') }}" class="btn btn-primary"
-                                        style="float: left; margin-right:2%">Senarai
-                                        Pelesen Batal</a>
+                                    <div class="text-right col-md-6 auto" style="float: right">
+                                        <button style="font-size:12px"
+                                            onclick="exportTableToCSV('Jadual Penerimaan PL Semua Sektor.csv')">Excel <i class="fa fa-file-excel" style="color: #319f57"></i></button>
 
-                                    <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
-                                        style="float: left"> Tambah Pelesen Baru</a>
-                                    {{-- </div> --}}
+                                    </div>
                                 </div>
 
                                 <br>

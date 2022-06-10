@@ -270,7 +270,8 @@
                     </div>
                     <div class="modal-body">
                         <div class="text-right col-md-12">
-                            <button style="font-size:12px" onclick="exportTableToExcel('cuba')">Excel <i class="fa fa-file-excel" style="color: #319f57"></i></button>
+                            {{-- <button onclick="exportTableToCSV('Jadual Penerimaan PL Semua Sektor.csv')">EXCEL</button> --}}
+                            <button style="font-size:12px" onclick="exportTableToCSV('Jadual Penerimaan PL Semua Sektor.csv')">Excel <i class="fa fa-file-excel" style="color: #319f57"></i></button>
                         </div><br>
                         <div class="table-responsive">
                             <table class="table table-bordered mb-0" id="cuba" style="font-size: 13px">
@@ -920,36 +921,40 @@
             }
         });
     </script>
+
     <script>
-        function exportTableToExcel(tableID, filename = '') {
+        //user-defined function to download CSV file
+        function downloadCSV(csv, filename) {
+            var csvFile;
             var downloadLink;
-            var dataType = 'application/vnd.ms-excel';
-            var tableSelect = document.getElementById(tableID);
-            var tableHTML = tableSelect.outerHTML.replace(/ /g, '%20');
 
-            // Specify file name
-            filename = filename ? filename + '.xls' : 'Belumhantar.xls';
-
-            // Create download link element
+            //define the file type to text/csv
+            csvFile = new Blob([csv], {type: 'text/csv'});
             downloadLink = document.createElement("a");
+            downloadLink.download = filename;
+            downloadLink.href = window.URL.createObjectURL(csvFile);
+            downloadLink.style.display = "none";
 
             document.body.appendChild(downloadLink);
+            downloadLink.click();
+        }
 
-            if (navigator.msSaveOrOpenBlob) {
-                var blob = new Blob(['\ufeff', tableHTML], {
-                    type: dataType
-                });
-                navigator.msSaveOrOpenBlob(blob, filename);
-            } else {
-                // Create a link to the file
-                downloadLink.href = 'data:' + dataType + ', ' + tableHTML;
+        //user-defined function to export the data to CSV file format
+        function exportTableToCSV(filename) {
+        //declare a JavaScript variable of array type
+        var csv = [];
+        var rows = document.querySelectorAll("table tr");
 
-                // Setting the file name
-                downloadLink.download = filename;
-
-                //triggering the function
-                downloadLink.click();
-            }
+        //merge the whole data in tabular form
+        for(var i=0; i<rows.length; i++) {
+            var row = [], cols = rows[i].querySelectorAll("td, th");
+            for( var j=0; j<cols.length; j++)
+            row.push(cols[j].innerText);
+            csv.push(row.join(","));
+        }
+        //call the function to download the CSV file
+        downloadCSV(csv.join("\n"), filename);
         }
     </script>
+
 @endsection

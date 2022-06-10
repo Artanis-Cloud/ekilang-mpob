@@ -103,8 +103,10 @@
 
 
                             <div class="row mt-3">
-                                <div class="col-md-3 required">
-                                    <span class="">Stok Awal Di Premis </span>
+                                <div class="col-md-3">
+                                    <span class="">Stok Awal Di Premis  &nbsp;<i class="fa fa-exclamation-circle"
+                                        style="color: red; cursor: pointer;"
+                                        title="Termasuk di Pusat Simpanan dan/atau Gudang"></i></span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_c5' style="width: 50%" id="e101_c5" oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -178,8 +180,10 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-3 required">
-                                    <span class="">Stok Akhir Di Premis</span>
+                                <div class="col-md-3">
+                                    <span class="">Stok Akhir Di Premis &nbsp;<i class="fa fa-exclamation-circle"
+                                        style="color: red; cursor: pointer;"
+                                        title="Termasuk di Pusat Simpanan dan/atau Gudang"></i></span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e101_c10' style="width: 50%" oninvalid="setCustomValidity('Sila isi butiran ini')"
@@ -194,13 +198,7 @@
 
                             </div>
                         </div><br>
-                        <p><i><b>Nota :&nbsp; *&nbsp; Termasuk di Pusat Simpanan dan/atau gudang</b></i></p>
-                        <div class="row form-group" style="margin-top: 5%; ">
-                            <div class="text-right col-md-6 mb-4 ">
-                                <button type="submit" class="btn btn-primary" style="margin-left:96%">Tambah</button>
-                            </div>
 
-                        </div>
                     </div>
                 </div>
 
