@@ -466,7 +466,7 @@ class Proses3Controller extends Controller
     public function admin_initialize_satu(Request $request)
     {
         // dd($request->e_tahun);
-        $reg_pelesen = RegPelesen::where('e_nl', $request->e_initlesen)->where('e_status', '1')->first();
+        $reg_pelesen = RegPelesen::where('e_nl', $request->e_initlesen)->first();
         // dd($reg_pelesen);
         // $count = RegPelesen::count();
         $e91_init = E91Init::where('e91_nl', $request->e_initlesen)->first();
@@ -476,7 +476,9 @@ class Proses3Controller extends Controller
         $e07_init = E07Init::where('e07_nl', $request->e_initlesen)->first();
         $ebio_init = EBioInit::where('ebio_nl', $request->e_initlesen)->first();
 
-        if ($reg_pelesen->e_kat == 'PL91') {
+
+        if ($reg_pelesen->e_status == '1') {
+            if ($reg_pelesen->e_kat == 'PL91') {
             if ($e91_init) {
                 return redirect()->back()->with('error', 'Pelesen ini sudah diinitialize');
             }   else{
@@ -713,6 +715,10 @@ class Proses3Controller extends Controller
                 ]);
             }
         }
+        } elseif ($reg_pelesen->e_status == '2') {
+            return redirect()->back()->with('error', 'Pelesen tidak aktif');
+        }
+
 
         // $this->initialize_proses_plbio($request->e_tahun, $e_bulan, $e_ddate);
         return redirect()->back()->with('success', 'Penyata pelesen ini telah diinitialize');
