@@ -143,10 +143,10 @@
                                     <div class="col-md-6 mr-auto">
                                         <div class="form-group">
                                             <label>No. Lesen</label>
-                                            <select class="form-control" name="e_kat">
+                                            <select class="form-control" name="e_kat" onchange="ajax_pelesen(this)" >
                                                 <option selected hidden disabled>Sila Pilih</option>
                                                 @foreach ($users as $user)
-                                                    <option value="">{{ $user->username }} - {{ $user->name }}</option>
+                                                    <option value="{{ $user->id }}">{{ $user->username }} - {{ $user->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -169,11 +169,8 @@
                                     <div class="col-md-6 mr-auto">
                                         <div class="form-group">
                                             <label>Nama Pelesen</label>
-                                            <select class="form-control" name="e_kat">
-                                                <option selected hidden disabled>Sila Pilih</option>
-                                                @foreach ($users as $user)
-                                                    <option value="">{{ $user->username }} - {{ $user->name }}</option>
-                                                @endforeach
+                                            <select class="form-control" name="nama_pelesen" id="nama_pelesen" disabled>
+                                                <option></option>
                                             </select>
                                         </div>
                                     </div>
@@ -889,6 +886,42 @@
 @endsection
 
 @section('scripts')
+
+<script>
+    function ajax_pelesen(select) {
+        users = select.value;
+        console.log(users);
+        //clear jenis_data selection
+        $("#nama_pelesen").empty();
+        //initialize selection
+        $("#nama_pelesen").append('<input value="" selected disabled hidden>Sila Pilih Nama Pelesen</option>');
+
+        $.ajax({
+            type: "get",
+            url: "/ajax/fetch-pelesen/" + users, //penting
+
+            success: function(respond) {
+                //fetch data (id) from DB Senarai Harga
+                // console.log(respond);
+                //loop for data
+                var x = 0;
+                respond.forEach(function() { //penting
+
+                    console.log(respond[x]);
+                    $("#nama_pelesen").append('<option value="' + respond[x].id + '">' +
+                        respond[x]
+                        .name + '</option>' );
+                    x++;
+                });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("Status: " + textStatus);
+                console.log("Error: " + errorThrown);
+            }
+        });
+    }
+</script>
+
 <script>
     function openInit(evt, cityName) {
         var i, tabcontent, tablinks;

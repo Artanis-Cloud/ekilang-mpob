@@ -1144,7 +1144,7 @@
                                         <a href="{{ route('admin.maklumat.penyata.bulanan') }}"
                                             class="sidebar-link">
                                             <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Maklumat Penyata Bulanan </span>
+                                            <span class="hide-menu"> Maklumat Penyata <br> Bulanan </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
