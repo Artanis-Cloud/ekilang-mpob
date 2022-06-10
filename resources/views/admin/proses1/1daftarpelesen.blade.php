@@ -205,7 +205,7 @@
                                                 value="{{ old('nombor_lesen') }}">
                                             @error('e_nl')
                                                 <div class="col-12 alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
+                                                    <strong>No. lesen sudah wujud!</strong>
                                                 </div>
                                             @enderror
                                         </div>
