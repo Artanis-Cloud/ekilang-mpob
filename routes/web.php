@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/ajax/fetch-daerah/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_daerah'])->name('ajax-daerah');
     Route::get('/ajax/fetch-kawasan/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_kawasan'])->name('ajax-kawasan');
     Route::get('/ajax/fetch-pelesen/{id}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_pelesen'])->name('ajax-pelesen');
+    Route::get('/ajax/fetch-email/{e_nl}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_email'])->name('ajax-email');
 
     Route::group(['middleware' => ['admin']], function () {
         //Admin
@@ -86,6 +87,7 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('admin/2-tukar-password', [App\Http\Controllers\Admin\Proses2Controller::class, 'admin_2tukarpassword'])->name('admin.2tukarpassword');
+        Route::post('admin/2-tukar-password/process', [App\Http\Controllers\Admin\Proses2Controller::class, 'admin_tukarpass_process'])->name('admin.2tukarpassword.process');
 
 
         Route::get('admin/3-daftar-penyata-buah', [App\Http\Controllers\Admin\Proses3Controller::class, 'admin_3daftarpenyata'])->name('admin.3daftarpenyata');
@@ -487,7 +489,7 @@ Route::middleware('auth')->group(function () {
         Route::get('pusatsimpan/dashboard', [App\Http\Controllers\Users\DashboardUserController::class, 'pusatsimpan_dashboard'])->name('pusatsimpan.dashboard');
 
         Route::get('pusatsimpan/maklumat-asas-pelesen', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_maklumatasaspelesen'])->name('pusatsimpan.maklumatasaspelesen');
-        Route::post('pusatsimpan/updatmaklumat-asas-pelesen/{Id}', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_update_maklumat_asas_pelesen'])->name('pusatsimpan.update.maklumat.asas.pelesen');
+        Route::post('pusatsimpan/updatmaklumat-asas-pelesen', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_update_maklumat_asas_pelesen'])->name('pusatsimpan.update.maklumat.asas.pelesen');
 
         Route::get('pusatsimpan/tukar-password', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_tukarpassword'])->name('pusatsimpan.tukarpassword');
         Route::post('pusatsimpan/update-password/{Id}', [App\Http\Controllers\Users\PusatSimpanan\PusatSimpananController::class, 'pusatsimpan_update_password'])->name('pusatsimpan.update.password');

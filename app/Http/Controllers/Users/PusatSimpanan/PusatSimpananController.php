@@ -64,48 +64,141 @@ class PusatSimpananController extends Controller
         return view('users.PusatSimpanan.pusatsimpan-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
     }
 
-    public function pusatsimpan_update_maklumat_asas_pelesen(Request $request, $id)
+    public function pusatsimpan_update_maklumat_asas_pelesen(Request $request)
     {
-        // dd($request->all());
-        $penyata = Pelesen::findOrFail($id);
-        $penyata->e_ap1 = $request->e_ap1;
-        $penyata->e_ap2 = $request->e_ap2;
-        $penyata->e_ap3 = $request->e_ap3;
-        $penyata->e_as1 = $request->e_as1;
-        $penyata->e_as2 = $request->e_as2;
-        $penyata->e_as3 = $request->e_as3;
-        $penyata->e_notel = $request->e_notel;
-        $penyata->e_nofax = $request->e_nofax;
-        $penyata->e_email = $request->e_email;
-        $penyata->e_npg = $request->e_npg;
-        $penyata->e_jpg = $request->e_jpg;
-        $penyata->e_notel_pg = $request->e_notel_pg;
-        $penyata->e_email_pg = $request->e_email_pg;
-        $penyata->e_npgtg = $request->e_npgtg;
-        $penyata->e_jpgtg = $request->e_jpgtg;
-        $penyata->e_syktinduk = $request->e_syktinduk;
-        $penyata->e_group = $request->e_group;
-        $penyata->e_email_pengurus = $request->e_email_pengurus;
-        $penyata->kap_proses = $request->kap_proses;
-        $penyata->kap_tangki = $request->kap_tangki;
-        $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
-        $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
-        $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
-        $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
-        $penyata->bil_tangki_oleo = $request->bil_tangki_oleo;
-        $penyata->bil_tangki_others = $request->bil_tangki_others;
-        $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
-        $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
-        $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
-        $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
-        $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
-        $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
-        $penyata->kap_tangki_others = $request->kap_tangki_others;
-        $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
+        //  dd($request->all());
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // dd( $pelesen);
 
-        $penyata->save();
+        $this->validation_daftar_pelesen($request->all())->validate();
 
-        $map = User::where('username',$penyata->e_nl)->first();
+        if ($pelesen) {
+        $this->update_pelesen($request);
+        }else{
+        $this->store_pelesen($request->all());
+        }
+
+        return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
+    }
+
+    protected function validation_daftar_pelesen(array $data)
+    {
+        return Validator::make($data, [
+            // 'e_nl' => ['required', 'string', 'unique:pelesen'],
+            // 'e_np' => ['required', 'string'],
+            'e_ap1' => ['required', 'string'],
+            'e_ap2' => ['required', 'string'],
+            'e_ap3' => ['required', 'string'],
+            'e_as1' => ['required', 'string'],
+            'e_as2' => ['required', 'string'],
+            'e_as3' => ['required', 'string'],
+            'e_notel' => ['required', 'string'],
+            'e_nofax' => ['required', 'string'],
+            'e_email' => ['required', 'string'],
+            'e_npg' => ['required', 'string'],
+            'e_jpg' => ['required', 'string'],
+            'e_notel_pg' => ['required', 'string'],
+            'e_email_pg' => ['required', 'string'],
+            'e_npgtg' => ['required', 'string'],
+            'e_jpgtg' => ['required', 'string'],
+            'e_email_pengurus' => ['required', 'string'],
+            // 'e_negeri' => ['required', 'string'],
+            // 'e_daerah' => ['required', 'string'],
+            // 'e_kawasan' => ['required', 'string'],
+            'e_syktinduk' => ['required', 'string'],
+            // 'e_year' => ['required', 'string'],
+            'e_group' => ['required', 'string'],
+            // 'e_poma' => ['required', 'string'],
+            'kap_proses' => ['required', 'string'],
+
+        ]);
+    }
+
+
+    protected function store_pelesen(array $data)
+    {
+// dd($data);
+        $count = Pelesen::count();
+        //
+        return Pelesen::create([
+            'e_id' => $count++,
+            // 'e_nl' => $data['e_nl'],
+            // 'e_np' => $data['e_np'],
+            'e_ap1' => $data['e_ap1'],
+            'e_ap2' => $data['e_ap2'],
+            'e_ap3' => $data['e_ap3'],
+            'e_as1' => $data['e_as1'],
+            'e_as2' => $data['e_as2'],
+            'e_as3' => $data['e_as3'],
+            'e_notel' => $data['e_notel'],
+            'e_nofax' => $data['e_nofax'],
+            'e_email' => $data['e_email'],
+            'e_npg' => $data['e_npg'],
+            'e_jpg' => $data['e_jpg'],
+            'e_notel_pg' => $data['e_notel_pg'],
+            'e_email_pg' => $data['e_email_pg'],
+            // 'kodpgw' => $data['kodpgw'],
+            // 'nosiri' => $data['nosiri'],
+            'e_npgtg' => $data['e_npgtg'],
+            'e_jpgtg' => $data['e_jpgtg'],
+            // 'e_negeri' => $data['e_negeri'],
+            // 'e_daerah' => $data['e_daerah'],
+            // 'e_kawasan' => $data['e_kawasan'],
+            'e_syktinduk' => $data['e_syktinduk'],
+            'e_group' => $data['e_group'],
+            // 'e_poma' => $data['e_poma'],
+            // 'e_year' => $data['e_year'],
+            'e_email_pengurus' => $data['e_email_pengurus'],
+            'kap_proses' => $data['kap_proses'],
+            'tahun' => date("Y"),
+            'bulan' => date("m"),
+
+        ]);
+    }
+
+    public function update_pelesen(Request $request)
+    {
+
+            # code...// dd($request->all());
+            $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+            $penyata->e_ap1 = $request->e_ap1;
+            $penyata->e_ap2 = $request->e_ap2;
+            $penyata->e_ap3 = $request->e_ap3;
+            $penyata->e_as1 = $request->e_as1;
+            $penyata->e_as2 = $request->e_as2;
+            $penyata->e_as3 = $request->e_as3;
+            $penyata->e_notel = $request->e_notel;
+            $penyata->e_nofax = $request->e_nofax;
+            $penyata->e_email = $request->e_email;
+            $penyata->e_npg = $request->e_npg;
+            $penyata->e_jpg = $request->e_jpg;
+            $penyata->e_notel_pg = $request->e_notel_pg;
+            $penyata->e_email_pg = $request->e_email_pg;
+            $penyata->e_npgtg = $request->e_npgtg;
+            $penyata->e_jpgtg = $request->e_jpgtg;
+            $penyata->e_syktinduk = $request->e_syktinduk;
+            $penyata->e_group = $request->e_group;
+            $penyata->e_email_pengurus = $request->e_email_pengurus;
+            $penyata->kap_proses = $request->kap_proses;
+            $penyata->kap_tangki = $request->kap_tangki;
+            $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
+            $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
+            $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
+            $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
+            $penyata->bil_tangki_oleo = $request->bil_tangki_oleo;
+            $penyata->bil_tangki_others = $request->bil_tangki_others;
+            $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
+            $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
+            $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
+            $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
+            $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
+            $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
+            $penyata->kap_tangki_others = $request->kap_tangki_others;
+            $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
+
+            $penyata->save();
+
+        $map = User::where('username', $penyata->e_nl)->first();
         $map->map_flg = '1';
         $map->map_sdate = now();
         $map->save();
@@ -114,7 +207,7 @@ class PusatSimpananController extends Controller
             ->with('success', 'Maklumat telah dikemaskini');
     }
 
-
+// --500488007000
 
     public function pusatsimpan_tukarpassword()
     {
@@ -196,7 +289,9 @@ class PusatSimpananController extends Controller
                 'total2',
                 'total3',
                 'total4',
-                'total5','bulan','tahun',
+                'total5',
+                'bulan',
+                'tahun',
             ));
         } else {
             return redirect()->back()
