@@ -13,7 +13,8 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Papar Penyata</h4>
+                    <h4 class="page-title">Oleokimia - Laporan Tahunan
+                    </h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -58,7 +59,7 @@
 
                         <div class=" text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Paparan Senarai Penyata Bulan Terdahulu
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Paparan Laporan Tahunan Mengikut Pelesen
                             </h3>
                             <h5 style="color: rgb(39, 80, 71); font-size:14px;">Bulan: &nbsp; Tahun: &nbsp; </h5>
                             {{-- <p>Maklumat Kilang</p> --}}
