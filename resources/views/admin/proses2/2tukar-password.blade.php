@@ -48,69 +48,89 @@
                     <div class="card">
                         <div class="row" style="padding: 20px">
                             <div class="col-1 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                                <a href="{{ $returnArr['kembali'] }}" class="btn"
+                                    style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
                         <div class=" text-center">
                             <h4 style="color: rgb(39, 80, 71);">Tukar Kata Laluan</h4>
                         </div>
                         <hr>
+                        @if ($errors->any())
+                                        {{ implode('', $errors->all('<div>:message</div>')) }}
+                                        @endif
+                        <form action="{{ route('admin.2tukarpassword.process') }}" method="post">
+                            @csrf
+                            <div class="card-body">
+                                <div class="container center ">
 
-                        <div class="card-body">
-                            <div class="container center ">
-
-                                <div class="row" style="margin-top:-2%">
-                                    <label for="fname"
-                                        class="text-right col-sm-4 control-label col-form-label required align-items-center">
-                                        No. Lesen</label>
-                                    <div class="col-md-6">
-                                        <input type="text" id="company-column" class="form-control"
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                            oninput="setCustomValidity('')" required placeholder=" No. Lesen"
-                                            name="e_nl">
-                                    </div>
-                                </div>
-                                <div class="text-right col-md-6 mb-4 mt-4">
-                                    <button type="button" class="btn btn-primary" style="margin-left:90%"
-                                        data-toggle="modal" data-target="#myModal">Tukar Kata Laluan</button>
-                                </div>
-                                <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-hidden="true">×</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>
-                                                    Anda pasti mahu menukar kata laluan pelesen ini?
-                                                </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                </button>
-                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Ya</span>
-                                                </button>
-                                            </div>
+                                    <div class="row" style="margin-top:-2%">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">
+                                            No. Lesen</label>
+                                        <div class="col-md-6">
+                                            <input type="text" id="username" class="form-control" onblur="getVal()"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninput="setCustomValidity('')" required placeholder=" No. Lesen"
+                                                name="username">
                                         </div>
-                                        <!-- /.modal-content -->
                                     </div>
-                                    <!-- /.modal-dialog -->
-                                </div>
+                                    <div class="row" style="margin-top:1%">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">
+                                            Alamat Emel Kilang</label>
+                                            <div class="col-md-6">
+                                            <select class="form-control" name="e_email" id="e_email" disabled>
+                                                <option></option>
+                                            </select>
 
-                            </div>
-                        </div>
+                                            {{-- <input type="text" id="e_email" class="form-control" required
+                                                placeholder="Alamat Emel Kilang" name="e_email" readonly> --}}
+                                        </div>
+                                    </div>
+                                    <div class="text-right col-md-6 mb-4 mt-4">
+                                        <button type="button" class="btn btn-primary" style="margin-left:90%"
+                                            data-toggle="modal" data-target="#myModal">Tukar Kata Laluan</button>
+                                    </div>
+                                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">×</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                        Anda pasti mahu menukar kata laluan pelesen ini?
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light-secondary"
+                                                        data-dismiss="modal">
+                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block">Ya</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                        </form>
+
                     </div>
                 </div>
             </div>
-
         </div>
+    </div>
+
+    </div>
 
 
 
@@ -120,24 +140,39 @@
 
 @section('scripts')
     <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman  ",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
+        // e_nl = select.value;
+        function getVal() {
+            const val = document.getElementById("username").value;
+            console.log(val);
+
+            //clear jenis_data selection
+            $("#e_email").empty();
+            //initialize selection
+            $("#e_email").append('<input value="" selected disabled hidden>Sila Pilih Nama Pelesen</option>');
+
+            $.ajax({
+                type: "get",
+                url: "/ajax/fetch-email/" + val, //penting
+
+                success: function(respond) {
+                    //fetch data (id) from DB Senarai Harga
+                    // console.log(respond);
+                    //loop for data
+                    var x = 0;
+                    respond.forEach(function() { //penting
+
+                        console.log(respond[x]);
+                        $("#e_email").append('<option value="' + respond[x].e_nl + '">' +
+                            respond[x]
+                            .e_email + '</option>');
+                        x++;
+                    });
                 },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log("Status: " + textStatus);
+                    console.log("Error: " + errorThrown);
+                }
             });
-        });
+        }
     </script>
 @endsection

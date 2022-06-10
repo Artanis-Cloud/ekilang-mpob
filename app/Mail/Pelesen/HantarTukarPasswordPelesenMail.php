@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class HantarPendaftaranPelesenMail extends Mailable
+class HantarTukarPasswordPelesenMail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -56,6 +56,6 @@ class HantarPendaftaranPelesenMail extends Mailable
 
         return $this->to($this->pelesen->email, $this->pelesen->name)
         ->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'))
-        ->subject('Pendaftaran Pelesen Berjaya '. $this->pelesen->username)
+        ->subject('Tukar Kata Laluan '. $this->pelesen->username)
         ->view('email.pelesen.pendaftaran', compact('pelesen', 'password', 'route'));    }
 }

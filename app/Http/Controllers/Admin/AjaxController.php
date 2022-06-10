@@ -52,6 +52,16 @@ class AjaxController extends Controller
         exit;
     }
 
+    public function fetch_email($e_nl)
+    {
+
+        $email = Pelesen::where('e_nl', $e_nl)->get('e_email');
+        // dd($list_pelesen);
+
+        return json_decode($email);
+        exit;
+    }
+
     public function jumlah_penyata_dashboard()
     {
         $PL101 = DB::select("SELECT date_format(e.e101_sdate,'%d-%m-%Y') as date, count(p.e_nl) as number_submit
