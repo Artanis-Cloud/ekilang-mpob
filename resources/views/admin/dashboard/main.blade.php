@@ -568,7 +568,9 @@
                     'Belum Hantar'
                 ],
                 datasets: [{
-                    data: [{{ $total_overall }}, {{ $total_overall_1 }}],
+                    data: [{{ $total_overall }}, {{ $total_overall_1 }}
+                    ],
+                    // data: [{{ $total_overall }}, {{ $total_overall_1 }}],
                     backgroundColor: [
                         'rgb(0, 36, 255, 1)',
                         'rgb(255, 0, 0, 1)',

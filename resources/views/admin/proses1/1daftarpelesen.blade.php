@@ -203,6 +203,11 @@
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 oninput="setCustomValidity('')" placeholder="Nombor Lesen" name="e_nl"
                                                 value="{{ old('nombor_lesen') }}">
+                                            @error('e_nl')
+                                                <div class="col-12 alert alert-danger">
+                                                    <strong>{{ $message }}</strong>
+                                                </div>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>

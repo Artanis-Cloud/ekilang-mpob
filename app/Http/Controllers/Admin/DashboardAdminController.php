@@ -187,8 +187,10 @@ class DashboardAdminController extends Controller
         $total111_1 = E07Init::where('e07_flg', '1')->count();
         $totalBIO_1 = EBioInit::where('ebio_flg', '1')->count();
 
+
         $total_overall_1 = ($total91_1 + $total101_1 + $total102_1 + $total104_1 + $total111_1 + $totalBIO_1);
 
+        // dd($total_overall_1);
 
         // total pelesen aktif setiap sektor
         $PC91 = DB::select("SELECT count(e_nl) as pelesen
