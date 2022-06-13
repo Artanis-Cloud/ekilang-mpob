@@ -72,32 +72,32 @@
                                             @foreach (json_decode(auth()->user()->sub_cat) as $cat)
                                                 @if ($cat == 'PL91')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senarai.pelesen.batal.buah') }}">Kilang
+                                                        href="{{ route('admin.senaraipelesenbatalbuah') }}">Kilang
                                                         Buah</a>
                                                 @endif
                                                 @if ($cat == 'PL101')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang
+                                                        href="{{ route('admin.senaraipelesenbatalpenapis') }}">Kilang
                                                         Penapis</a>
                                                 @endif
                                                 @if ($cat == 'PL102')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senarai.pelesen.batal.isirung') }}">Kilang
+                                                        href="{{ route('admin.senaraipelesenbatalisirung') }}">Kilang
                                                         Isirung</a>
                                                 @endif
                                                 @if ($cat == 'PL104')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senarai.pelesen.batal.oleokimia') }}">Kilang
+                                                        href="{{ route('admin.senaraipelesenbataloleokimia') }}">Kilang
                                                         Oleokimia</a>
                                                 @endif
                                                 @if ($cat == 'PL111')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senarai.pelesen.batal.simpanan') }}">Pusat
+                                                        href="{{ route('admin.senaraipelesenbatalsimpanan') }}">Pusat
                                                         Simpanan</a>
                                                 @endif
                                                 @if ($cat == 'PLBIO')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senarai.pelesen.batal.bio') }}">Kilang
+                                                        href="{{ route('admin.senaraipelesenbatalbio') }}">Kilang
                                                         Biodiesel</a>
                                                 @endif
                                             @endforeach
