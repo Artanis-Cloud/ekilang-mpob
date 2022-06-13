@@ -119,16 +119,19 @@
                                                     <td>{{ $data->email ?? '-' }}</td>
                                                     <td>{{ $data->role }}</td>
                                                     <td>
-                                                        @if ($data->sub_cat)
-                                                            {{-- <ul>
-                                                                @forelse (json_decode($data->sub_cat) as $cat)
-                                                                    <li>{{ $cat }}</li>
-                                                                @empty
+                                                        @if (is_array(json_decode($data->sub_cat)) || is_object(json_decode($data->sub_cat)))
+                                                            @if ($data->sub_cat)
+                                                                <ul>
+                                                                    @forelse (json_decode($data->sub_cat) as $cat)
+                                                                        <li>{{ $cat }}</li>
+                                                                    @empty
                                                                     -
-                                                                @endforelse
-                                                            </ul> --}}
-                                                        @else
-                                                            -
+                                                                    @endforelse
+                                                                </ul>
+                                                            @else
+                                                                -
+                                                            @endif
+                                                        
                                                         @endif
                                                     </td>
                                                     @if ($data->status == '1')
@@ -225,14 +228,23 @@
                                                                                 <label>Sub-Kategori </label>
                                                                                 <div class="form-group">
                                                                                     <fieldset class="form-group">
-                                                                                    <select multiple="multiple" size="10" class="duallistbox-no-filter" name="sub_cat[]">
-                                                                                        <option value="PL91">Kilang Buah</option>
-                                                                                        <option value="PL101">Kilang Penapis</option>
-                                                                                        <option value="PL102">Kilang Isirung</option>
-                                                                                        <option value="PL104">Kilang Oleokimia</option>
-                                                                                        <option value="PL111">Pusat Simpanan</option>
-                                                                                        <option value="PLBIO">Kilang Biodiesel</option>
-                                                                                    </select>
+                                                                                        <select multiple="multiple"
+                                                                                            size="10"
+                                                                                            class="duallistbox-no-filter"
+                                                                                            name="sub_cat[]">
+                                                                                            <option value="PL91">Kilang Buah
+                                                                                            </option>
+                                                                                            <option value="PL101">Kilang
+                                                                                                Penapis</option>
+                                                                                            <option value="PL102">Kilang
+                                                                                                Isirung</option>
+                                                                                            <option value="PL104">Kilang
+                                                                                                Oleokimia</option>
+                                                                                            <option value="PL111">Pusat
+                                                                                                Simpanan</option>
+                                                                                            <option value="PLBIO">Kilang
+                                                                                                Biodiesel</option>
+                                                                                        </select>
                                                                                     </fieldset>
                                                                                 </div>
 

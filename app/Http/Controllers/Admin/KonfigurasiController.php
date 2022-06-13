@@ -165,7 +165,7 @@ class KonfigurasiController extends Controller
         $admin = User::where('category', 'Admin')->get();
         // $admin = User::findOrFail('1686');
 
-        // dd($admin);
+        // dd(json_decode($admin[0]->sub_cat));
 
         // foreach (json_decode($admin->sub_cat) as $cat) {
         //     dd($cat); //cara keluarkan category
