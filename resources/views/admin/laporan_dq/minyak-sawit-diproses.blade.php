@@ -81,16 +81,16 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        {{-- @foreach ($pelesen as $data) --}}
+                                                        @foreach ($hebahan as $data)
 
                                                         <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $data->tahun }}</td>
+                                                            <td>{{ $data->bulan }}</td>
+                                                            <td>{{ $data->cpo_msia }}</td>
+                                                            <td>{{ $data->ppo_msia }}</td>
+                                                            <td>{{ $data->cpko_msia }}</td>
+                                                            <td>{{ $data->ppko_msia }}</td>
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
                                                                     <a href="#" type="button" data-toggle="modal"
@@ -122,7 +122,7 @@
 
                                                             </div></td>
                                                         </tr>
-                                                        {{-- @endforeach --}}
+                                                        @endforeach
                                                     </tbody>
 
                                                 </table>

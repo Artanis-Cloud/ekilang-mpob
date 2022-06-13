@@ -306,6 +306,8 @@ class LaporanController extends Controller
     {
         $bulan = Bulan::get();
 
+        $hebahan = DB::connection('mysql2')->select("SELECT* FROM hebahan_proses");
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
@@ -319,7 +321,7 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.minyak-sawit-diproses', compact('returnArr', 'layout', 'bulan'));
+        return view('admin.laporan_dq.minyak-sawit-diproses', compact('returnArr', 'layout', 'bulan', 'hebahan'));
     }
 
     public function admin_tambah_proses()
