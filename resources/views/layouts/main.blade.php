@@ -1244,7 +1244,6 @@
                                     </li>
                                 </ul>
                             </li>
-                            @else
                             @endif
                             @endforeach
                             @if (auth()->user()->role != 'Admin')

@@ -50,9 +50,11 @@
                             <h4 style="color: rgb(39, 80, 71); margin-top:3%">Maklumat Akaun Pentadbir</h4>
                         </div>
                         <hr>
-
+                        <form action="{{ route('admin.akaun.pentadbir.process', $user->id) }}" method="post">
+                            @csrf
                         <div class="card-body">
                             <div class="container center" style="margin-top: -1%">
+
 
                                 <div class="row">
                                     <label for="fname"
@@ -88,7 +90,7 @@
                                 <div class="row" style="margin-top: 1%">
                                     <label for="fname"
                                         class="text-right col-sm-4 control-label col-form-label required align-items-center">
-                                        <i>Username</i></label>
+                                        Username</label>
                                     <div class="col-md-6">
                                         <input type="text" id="username" class="form-control" placeholder="Username"
                                             name="username" value="{{ auth()->user()->username }}">
@@ -127,42 +129,76 @@
                                     </div>
                                 </div>
 
-                                <div class="row form-group mt-2" style="padding-top: 10px; ">
-                                    <div class="text-right col-md-12 center">
-                                        <button type="submit" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#myModal">Kemaskini</button>
-                                        {{-- <button type="submit">YA</button> --}}
-                                    </div>
-                                </div>
+                                    <div class="row">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Sub
+                                            Kategori</label>
+                                        <div class="col-md-6">
 
-                                <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
-                                    aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-hidden="true">×</button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>
-                                                    Anda pasti mahu mengemaskini maklumat ini?
-                                                </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                </button>
-                                                <button type="submit" class="btn btn-primary ml-1">
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Ya</span>
-                                                </button>
-                                            </div>
+                                            <select multiple="multiple" size="10" class="duallistbox-no-filter" name="sub_cat[]">
+                                                <option value="PL91">Kilang Buah</option>
+                                                <option value="PL101">Kilang Penapis</option>
+                                                <option value="PL102">Kilang Isirung</option>
+                                                <option value="PL104">Kilang Oleokimia</option>
+                                                <option value="PL111">Pusat Simpanan</option>
+                                                <option value="PLBIO">Kilang Biodiesel</option>
+                                            </select>
                                         </div>
-                                        <!-- /.modal-content -->
                                     </div>
-                                    <!-- /.modal-dialog -->
+                                    <div class="row" style="margin-top:1%">
+                                        <label for="fname"
+                                            class="text-right col-sm-4 control-label col-form-label required align-items-center">Status</label>
+                                        <div class="col-md-6">
+
+                                            <select class="form-control" name="status">
+                                                <option selected hidden disabled value="">Sila Pilih Status</option>
+                                                <option value="1">Aktif</option>
+                                                <option value="2">Tidak Aktif</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="row form-group mt-2" style="padding-top: 10px; ">
+                                        <div class="text-right col-md-12 center">
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#myModal">Kemaskini</button>
+                                            {{-- <button type="submit">YA</button> --}}
+                                        </div>
+                                    </div>
+
+                                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
+                                        aria-labelledby="myModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title" id="myModalLabel">PENGESAHAN</h4>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-hidden="true">×</button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>
+                                                        Anda pasti mahu mengemaskini maklumat ini?
+                                                    </p>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                    </button>
+                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block">Ya</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- /.modal-content -->
+                                        </div>
+                                        <!-- /.modal-dialog -->
+                                    </div>
+                                </form>
+
+
+
                                 </div>
 
 

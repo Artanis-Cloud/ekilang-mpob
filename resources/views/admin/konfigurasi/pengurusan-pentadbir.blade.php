@@ -60,7 +60,7 @@
                         <form action="{{ route('admin.pengurusan.pentadbir.process') }}" method="post">
                             @csrf
                             <div class="card-body">
-                                <div class="container center z">
+                                <div class="container center">
 
                                     <div class="row" style="margin-top: -1% ">
                                         <label for="fname"
