@@ -66,7 +66,7 @@
                             <div class="col-1 align-self-center">
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
-                         
+
                             <div class=" dropdown">
                                 <button class="btn btn-secondary dropdown-toggle"
                                     style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
@@ -266,4 +266,24 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
+
+    <script>
+            $(function(){
+
+        var requiredCheckboxes = $(':checkbox[required]');
+
+        requiredCheckboxes.change(function(){
+
+            if(requiredCheckboxes.is(':checked')) {
+                requiredCheckboxes.removeAttr('required');
+            }
+
+            else {
+                requiredCheckboxes.attr('required', 'required');
+            }
+        });
+
+        });
+    </script>
+
 @endsection
