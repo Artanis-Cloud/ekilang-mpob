@@ -123,7 +123,7 @@ class KonfigurasiController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => $password,
-            'username' => $data['username']->unique(),
+            'username' => $data['username'],
             'category' => 'admin',
             'role' => $data['role'],
             'sub_cat' => json_encode($data['sub_cat']),

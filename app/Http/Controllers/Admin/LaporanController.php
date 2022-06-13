@@ -222,6 +222,10 @@ class LaporanController extends Controller
     public function admin_stok_akhir()
     {
 
+        $stok_akhir = DB::connection('mysql2')->select("SELECT * FROM hebahan_stok_akhir
+        order by tahun, bulan");
+
+
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
@@ -235,7 +239,7 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.stok-akhir', compact('returnArr', 'layout'));
+        return view('admin.laporan_dq.stok-akhir', compact('returnArr', 'layout','stok_akhir'));
     }
 
     public function admin_tambah_stok_akhir()

@@ -120,13 +120,13 @@
                                                     <td>{{ $data->role }}</td>
                                                     <td>
                                                         @if ($data->sub_cat)
-                                                            <ul>
+                                                            {{-- <ul>
                                                                 @forelse (json_decode($data->sub_cat) as $cat)
                                                                     <li>{{ $cat }}</li>
                                                                 @empty
                                                                     -
                                                                 @endforelse
-                                                            </ul>
+                                                            </ul> --}}
                                                         @else
                                                             -
                                                         @endif
