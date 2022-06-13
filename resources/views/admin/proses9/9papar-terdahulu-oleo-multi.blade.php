@@ -768,28 +768,28 @@
                                                     @foreach ($iv as $data)
                                                     <tr>
                                                         <td align="left">
-                                                            <font size="2">{{  $data->produk->prodname }}</font>
+                                                            <font size="2">{{  $data->produk->prodname ?? ''}}</font>
                                                         </td>
                                                         <td align="left">
-                                                            <font size="2">{{ $data->produk->prodid }}</font>
+                                                            <font size="2">{{ $data->produk->prodid ?? ''}}</font>
                                                         </td>
                                                         <td style="text-align: center; vertical-align:middle">
-                                                            <font size="2">{{ $data->e104_d5 }}</font>
+                                                            <font size="2">{{ $data->e104_d5  ?? ''}}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ $formatteddat2 }}</font>
+                                                            <font size="2">{{ $formatteddat2 ?? '' }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ number_format($data->e104_d7 ??  0,2) }}</font>
+                                                            <font size="2">{{ number_format($data->e104_d7 ??  0,2) ?? '' }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{number_format ($data->e104_d8 ??  0,2) }}</font>
+                                                            <font size="2">{{number_format ($data->e104_d8 ??  0,2) ?? '' }}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{ $data->e104_d9 }}</font>
+                                                            <font size="2">{{ $data->e104_d9  ?? ''}}</font>
                                                         </td>
                                                         <td align="right">
-                                                            <font size="2">{{$data->negara->namanegara}}</font>
+                                                            <font size="2">{{$data->negara->namanegara ?? ''}}</font>
                                                         </td>
                                                     </tr>
                                                     @endforeach

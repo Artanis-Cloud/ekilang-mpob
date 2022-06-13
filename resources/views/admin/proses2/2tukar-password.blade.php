@@ -80,7 +80,7 @@
                                             class="text-right col-sm-4 control-label col-form-label required align-items-center">
                                             Alamat Emel Kilang</label>
                                             <div class="col-md-6">
-                                            <select class="form-control" name="e_email" id="e_email" disabled>
+                                            <select class="form-control" name="email" id="email" disabled>
                                                 <option></option>
                                             </select>
 
@@ -146,9 +146,9 @@
             console.log(val);
 
             //clear jenis_data selection
-            $("#e_email").empty();
+            $("#email").empty();
             //initialize selection
-            $("#e_email").append('<input value="" selected disabled hidden>Sila Pilih Nama Pelesen</option>');
+            $("#email").append('<input value="" selected disabled hidden>Sila Pilih Nama Pelesen</option>');
 
             $.ajax({
                 type: "get",
@@ -162,9 +162,9 @@
                     respond.forEach(function() { //penting
 
                         console.log(respond[x]);
-                        $("#e_email").append('<option value="' + respond[x].e_nl + '">' +
+                        $("#email").append('<option value="' + respond[x].username + '">' +
                             respond[x]
-                            .e_email + '</option>');
+                            .email + '</option>');
                         x++;
                     });
                 },

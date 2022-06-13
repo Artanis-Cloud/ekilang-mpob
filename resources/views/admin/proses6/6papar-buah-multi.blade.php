@@ -1082,15 +1082,18 @@
                                                 <p><b>Saya mengaku bahawa maklumat yang diberikan sepanjang pengetahuan saya
                                                     adalah tepat, benar, lengkap dan selaras dengan rekod harian.</b></p>
 
+                                                <p>Tarikh Penghantaran: &nbsp;&nbsp;
+                                                    {{ $formatteddate }}
+                                                </p>
                                                 <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                    {{ $data->e91_npg }}
+                                                    {{ $penyata->e91_npg }}
                                                 </p>
                                                 <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                    {{ $data->e91_jpg }}
+                                                    {{ $penyata->e91_jpg }}
                                                 </p>
                                                 <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                                    {{ $data->e91_notel }}
+                                                    {{ $penyata->e91_notel }}
                                                 </p>
 
 

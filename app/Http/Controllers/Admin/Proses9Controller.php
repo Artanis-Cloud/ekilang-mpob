@@ -51,22 +51,22 @@ class Proses9Controller extends Controller
         //             return redirect()->route('admin.9penyataterdahulubio');
         //         } else {
 
-                    $breadcrumbs    = [
-                        ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-                        ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
-                    ];
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
+        ];
 
-                    $kembali = route('admin.dashboard');
+        $kembali = route('admin.dashboard');
 
-                    $returnArr = [
-                        'breadcrumbs' => $breadcrumbs,
-                        'kembali'     => $kembali,
-                    ];
-                    $layout = 'layouts.admin';
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
 
-                    return view('admin.proses9.9penyataterdahulu', compact('returnArr', 'layout'));
-                }
-            // }
+        return view('admin.proses9.9penyataterdahulu', compact('returnArr', 'layout'));
+    }
+    // }
     //     } else {
 
     //         $breadcrumbs    = [
@@ -207,13 +207,15 @@ class Proses9Controller extends Controller
 
         // dd($sektor);
 
-
+        $tahun1 = $request->tahun;
+        $bulan1 = $request->bulan;
 
         if ($data == 'ekilang') {
             if ($sektor == 'PL91') {
                 $tahun = H91Init::where('e91_thn', $request->tahun);
                 $bulan = H91Init::where('e91_bln', $request->bulan);
 
+                // dd($bulan);
                 $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, e.e91_nobatch,  date_format(e91_sdate,'%d-%m-%Y') as sdate
                                 FROM pelesen p, h91_init e, reg_pelesen k
                                 WHERE e.e91_thn = '$request->tahun'
@@ -299,7 +301,8 @@ class Proses9Controller extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users', 'tahuns', 'bulans'));
+        // return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users', 'tahuns', 'bulans'));
+        return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users', 'tahun1', 'bulan1'));
     }
 
     // public function admin_9penyataterdahulu_process(Request $request)
@@ -364,13 +367,17 @@ class Proses9Controller extends Controller
             $pelesens[$key] = (object)[];
             $penyata = H91Init::find($e91_nobatch);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata->e91_nl)->first();
+
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e91_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
         }
 
         $layout = 'layouts.main';
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor'));
+        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor','myDateTime','formatteddate'));
     }
 
     public function process_admin_9penyataterdahulu_penapis_form(Request $request)
@@ -652,17 +659,28 @@ class Proses9Controller extends Controller
             $totaliii8 = DB::table("h104_c")->where('e104_nobatch', $penyata->e104_nobatch)->sum('e104_c8');
 
             $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->get();
+
+             if ($iv) {
             $totaliv7 = DB::table("h104_d")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->sum('e104_d7');
             $totaliv8 = DB::table("h104_d")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->sum('e104_d8');
+
+            // dd($penyata->e014_nobatch = '062019CA0004');
+
+                // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv->e104_d6);
+                // $formatteddat2 = $myDateTime2->format('d-m-Y');
+            } else {
+                $myDateTime2 = [];
+                $formatteddat2 = [];
+            }
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e104_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
         }
 
-        $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv[0]->e104_d6);
-        $formatteddat2 = $myDateTime2->format('d-m-Y');
-        $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e104_sdate);
-        $formatteddate = $myDateTime->format('d-m-Y');
+
         $layout = 'layouts.main';
 
-        // dd($penyata);
+        // dd($tahun);
         // $data = DB::table('pelesen')->get();
         return view('admin.proses9.9papar-terdahulu-oleo-multi', compact(
             'returnArr',
@@ -711,10 +729,10 @@ class Proses9Controller extends Controller
             'totaliii8',
             'totaliv7',
             'totaliv8',
-            'myDateTime',
-            'myDateTime2',
-            'formatteddat2',
-            'formatteddate',
+            // 'myDateTime',/
+            // 'myDateTime2',
+            // 'formatteddat2',
+            // 'formatteddate',
         ));
     }
 
