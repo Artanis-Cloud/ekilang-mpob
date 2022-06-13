@@ -89,24 +89,48 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        {{-- @foreach ($pelesen as $data) --}}
+                                                        @foreach ($stok_akhir as $data)
 
                                                         <tr>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $data->tahun }}</td>
+                                                            @if ($data->bulan == 1)
+                                                                <td>Januari</td>
+                                                            @elseif ($data->bulan == 2)
+                                                                <td>Februari</td>
+                                                            @elseif ($data->bulan == 3)
+                                                                <td>Mac</td>
+                                                            @elseif ($data->bulan == 4)
+                                                                <td>April</td>
+                                                            @elseif ($data->bulan == 5)
+                                                                <td>Mei</td>
+                                                            @elseif ($data->bulan == 6)
+                                                                <td>Jun</td>
+                                                            @elseif ($data->bulan == 7)
+                                                                <td>Julai</td>
+                                                            @elseif ($data->bulan == 8)
+                                                                <td>Ogos</td>
+                                                            @elseif ($data->bulan == 9)
+                                                                <td>September</td>
+                                                            @elseif ($data->bulan == 10)
+                                                                <td>Oktober</td>
+                                                            @elseif ($data->bulan == 11)
+                                                                <td>November</td>
+                                                            @elseif ($data->bulan == 12)
+                                                                <td>Disember</td>
+                                                            @endif
+                                                            <td>{{ number_format($data->cpo_sm ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppo_sm ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpko_sm ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppko_sm ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpo_sbh ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppo_sbh ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpko_sbh ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppko_sbh ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpo_srwk ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppo_srwk ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->cpko_srwk ?? 0, 2) }}</td>
+                                                            <td>{{ number_format($data->ppko_srwk ?? 0, 2) }}</td>
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
                                                                     <a href="#" type="button" data-toggle="modal"
@@ -138,7 +162,7 @@
 
                                                             </div></td>
                                                         </tr>
-                                                        {{-- @endforeach --}}
+                                                        @endforeach
                                                     </tbody>
 
                                                 </table>

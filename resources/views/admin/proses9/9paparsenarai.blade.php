@@ -289,8 +289,6 @@
                                                 style="width: 100%;">
                                                 <thead>
                                                     <tr>
-                                                 
-
                                                         <th>Papar</th>
                                                         <th>No Lesen</th>
                                                         <th>Nama Premis</th>
