@@ -192,7 +192,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox" 
+                                                                <input name="papar_ya[]" type="checkbox" required
                                                                  {{-- oninvalid="setCustomValidity('Sila tandakan kotak ini')" --}}
                                                                     value="{{ $data->e07_reg }}">&nbspYa
                                                             </td>
@@ -278,4 +278,24 @@
         // Get the element with id="defaultOpen" and click on it
         document.getElementById("defaultOpen").click();
     </script>
+
+    <script>
+            $(function(){
+
+        var requiredCheckboxes = $(':checkbox[required]');
+
+        requiredCheckboxes.change(function(){
+
+            if(requiredCheckboxes.is(':checked')) {
+                requiredCheckboxes.removeAttr('required');
+            }
+
+            else {
+                requiredCheckboxes.attr('required', 'required');
+            }
+        });
+
+        });
+    </script>
+
 @endsection

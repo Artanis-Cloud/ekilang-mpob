@@ -202,6 +202,9 @@ class Proses9Controller extends Controller
         // dd($request->all());
         $sektor = $request->sektor;
         $data = $request->data;
+        $tahuns = $request->tahun;
+        $bulans = $request->bulan;
+
         // dd($sektor);
 
 
@@ -296,7 +299,7 @@ class Proses9Controller extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users'));
+        return view('admin.proses9.9paparsenarai', compact('returnArr', 'layout', 'sektor', 'users', 'tahuns', 'bulans'));
     }
 
     // public function admin_9penyataterdahulu_process(Request $request)

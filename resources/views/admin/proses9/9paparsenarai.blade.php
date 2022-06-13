@@ -60,7 +60,7 @@
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Paparan Senarai Penyata Bulan Terdahulu
                             </h3>
-                            <h5 style="color: rgb(39, 80, 71); font-size:14px;">Bulan: &nbsp; Tahun: &nbsp; </h5>
+                            <h5 style="color: rgb(39, 80, 71); font-size:14px;">Bulan:  {{ $bulans }}&nbsp; Tahun: {{ $tahuns }} &nbsp; </h5>
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
@@ -238,7 +238,7 @@
                                                 @foreach ($users as $data)
                                                     <tr>
                                                         <td>
-                                                            <input name="papar_ya[]" type="checkbox" 
+                                                            <input name="papar_ya[]" type="checkbox"
                                                                 value="{{ $data->e104_nobatch }}">&nbspYa
                                                         </td>
                                                         <td>{{ $data->e_nl }}</td>
@@ -285,7 +285,7 @@
                                                 @foreach ($users as $data)
                                                     <tr>
                                                         <td>
-                                                            <input name="papar_ya[]" type="checkbox"
+                                                            <input name="papar_ya[]" type="checkbox" required
                                                                 value="{{ $data->e07_nobatch }}">&nbspYa
                                                         </td>
                                                         <td>{{ $data->e_nl }}</td>
@@ -393,4 +393,24 @@
             });
         });
     </script>
+
+    <script>
+            $(function(){
+
+        var requiredCheckboxes = $(':checkbox[required]');
+
+        requiredCheckboxes.change(function(){
+
+            if(requiredCheckboxes.is(':checked')) {
+                requiredCheckboxes.removeAttr('required');
+            }
+
+            else {
+                requiredCheckboxes.attr('required', 'required');
+            }
+        });
+
+        });
+    </script>
+
 @endsection
