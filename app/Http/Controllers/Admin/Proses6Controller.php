@@ -25,6 +25,7 @@ use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
 use App\Models\RegPelesen;
+use DateTime;
 use Illuminate\Http\Request;
 use DB;
 
@@ -132,12 +133,17 @@ class Proses6Controller extends Controller
             $pelesens[$key] = (object)[];
             $penyata = E91Init::find($e91_reg);
             $pelesens[$key] = Pelesen::where('e_nl', $penyata->e91_nl)->first();
+
+            // dd($penyata);
+
+            $myDateTime = DateTime::createFromFormat('Y-m-d', $penyata->e91_sdate);
+            $formatteddate = $myDateTime->format('d-m-Y');
         }
         $layout = 'layouts.main';
 
         // dd($pelesens);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses6.6papar-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata'));
+        return view('admin.proses6.6papar-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata','myDateTime','formatteddate'));
     }
 
     // public function show_admin_6penyatapaparcetakbuah($e91_reg , E91Init $penyata )

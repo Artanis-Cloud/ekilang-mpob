@@ -52,10 +52,10 @@ class AjaxController extends Controller
         exit;
     }
 
-    public function fetch_email($e_nl)
+    public function fetch_email($username)
     {
 
-        $email = Pelesen::where('e_nl', $e_nl)->get('e_email');
+        $email = User::where('username', $username)->get('email');
         // dd($list_pelesen);
 
         return json_decode($email);

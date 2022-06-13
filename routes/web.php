@@ -46,7 +46,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/ajax/fetch-daerah/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_daerah'])->name('ajax-daerah');
     Route::get('/ajax/fetch-kawasan/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_kawasan'])->name('ajax-kawasan');
     Route::get('/ajax/fetch-pelesen/{id}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_pelesen'])->name('ajax-pelesen');
-    Route::get('/ajax/fetch-email/{e_nl}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_email'])->name('ajax-email');
+    Route::get('/ajax/fetch-email/{username}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_email'])->name('ajax-email');
 
     Route::group(['middleware' => ['admin']], function () {
         //Admin
