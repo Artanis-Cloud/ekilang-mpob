@@ -7,6 +7,7 @@ use App\Models\Bulan;
 use App\Models\Daerah;
 use App\Models\EBioInit;
 use App\Models\H91Init;
+use App\Models\HebahanProses;
 use App\Models\KumpProduk;
 use App\Models\Negara;
 use App\Models\Produk;
@@ -22,6 +23,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
 use Svg\Tag\Rect;
+use Illuminate\Support\Facades\Validator;
 
 class LaporanController extends Controller
 {
@@ -875,9 +877,49 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.minyak-sawit-diproses', compact('returnArr', 'layout', 'bulan', 'hebahan'));
     }
 
+    public function admin_edit_minyak_sawit_diproses(Request $request, $id)
+    {
+        // $hebahan = DB::connection('mysql2')->select("SELECT $id FROM hebahan_proses");
+
+        $tahun = $request->input('tahun');
+        $bulan = $request->input('bulan');
+        $cpo_msia = $request->input('cpo_msia');
+        $ppo_msia = $request->input('ppo_msia');
+        $cpko_msia = $request->input('cpko_msia');
+        $ppko_msia = $request->input('ppko_msia');
+        DB::connection('mysql2')->select("UPDATE hebahan_proses SET tahun = '$tahun', bulan='$bulan',
+        cpo_msia= '$cpo_msia',ppo_msia='$ppo_msia',cpko_msia ='$cpko_msia',ppko_msia='$ppko_msia'
+        WHERE id='$id'");
+
+        // $hebahan = DB::connection('mysql2')->table('hebahan_proses')->where('id', $id)->update(array('cpko_msia' => $cpko_msia));
+
+
+        // $hebahan = DB::connection('mysql2')->select("SELECT * FROM hebahan_proses WHERE id='$id");
+        // $hebahan->tahun = $request->tahun;
+        // $hebahan->bulan = $request->bulan;
+        // $hebahan->cpo_msia = $request->cpo_msia;
+        // $hebahan->ppo_msia = $request->ppo_msia;
+        // $hebahan->cpko_msia = $request->cpko_msia;
+        // $hebahan->ppko_msia = $request->ppko_msia;
+        // $hebahan->save();
+
+
+        return redirect()->route('admin.minyak.sawit.diproses')
+            ->with('success', 'Maklumat telah disimpan');
+    }
+
+    public function admin_delete_minyak_sawit_diproses($id)
+    {
+        DB::connection('mysql2')->select("delete from hebahan_proses where id = '$id'");
+
+        return redirect()->route('admin.minyak.sawit.diproses')
+            ->with('success', 'Maklumat Dihapuskan');
+    }
+
+
     public function admin_tambah_proses()
     {
-        $bulan = Bulan::get();
+        $data = DB::connection('mysql2')->select("SELECT* FROM hebahan_proses");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -892,7 +934,42 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.tambah-proses', compact('returnArr', 'layout', 'bulan'));
+        return view('admin.laporan_dq.tambah-proses', compact('returnArr', 'layout', 'data'));
+    }
+
+    public function admin_add_minyak_sawit_diproses(Request $request)
+    {
+        // dd($request->all());
+        $this->validation_tambah_minyak($request->all())->validate();
+        $this->store_tambah_minyak($request->all());
+
+        return redirect()->back()->with('success', 'Minyak Sawit diproses sudah ditambah');
+    }
+
+    protected function validation_tambah_minyak(array $data)
+    {
+        return Validator::make($data, [
+            // 'Id' => ['required', 'string'],
+            'tahun' => ['required', 'string'],
+            'bulan' => ['required', 'string'],
+            'cpo_msia' => ['required', 'string'],
+            'ppo_msia' => ['required', 'string'],
+            'cpko_msia' => ['required', 'string'],
+            'ppko_msia' => ['required', 'string'],
+        ]);
+    }
+
+    protected function store_tambah_minyak(array $data)
+    {
+        return HebahanProses::create([
+            // 'Id' => $data['Id'],
+            'tahun' => $data['tahun'],
+            'bulan' => $data['bulan'],
+            'cpo_msia' => $data['cpo_msia'],
+            'ppo_msia' => $data['ppo_msia'],
+            'cpko_msia' => $data['cpko_msia'],
+            'ppko_msia' => $data['ppko_msia'],
+        ]);
     }
 
     public function admin_validasi_minyak_sawit_diproses()

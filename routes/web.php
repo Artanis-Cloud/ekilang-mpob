@@ -230,7 +230,6 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/laporan-bulanan-lesen/process', [App\Http\Controllers\Admin\LaporanController::class, 'admin_bulanan_lesen_process'])->name('admin.laporan.bulanan.process');
 
 
-
         Route::get('admin/stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_stok_akhir'])->name('admin.stok.akhir');
         Route::get('admin/tambah-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir'])->name('admin.tambah.stok.akhir');
         Route::get('admin/validasi-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir'])->name('admin.validasi.stok.akhir');
@@ -238,6 +237,10 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/validasi-stok-akhir-ikut-produk', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir_ikut_produk'])->name('admin.validasi.stok.akhir.ikut.produk');
 
         Route::get('admin/minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_minyak_sawit_diproses'])->name('admin.minyak.sawit.diproses');
+        Route::post('admin/minyak-sawit-diproses/edit/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_minyak_sawit_diproses'])->name('admin.edit.minyak.sawit.diproses');
+        Route::get('admin/minyak-sawit-diproses/delete/{id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_delete_minyak_sawit_diproses'])->name('admin.delete.minyak.sawit.diproses');
+        Route::post('admin/minyak-sawit-diproses/add', [App\Http\Controllers\Admin\LaporanController::class, 'admin_add_minyak_sawit_diproses'])->name('admin.add.minyak.sawit.diproses');
+
         Route::get('admin/tambah-minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_proses'])->name('admin.tambah.proses');
         Route::get('admin/validasi-minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_minyak_sawit_diproses'])->name('admin.validasi.minyak.sawit.diproses');
 
