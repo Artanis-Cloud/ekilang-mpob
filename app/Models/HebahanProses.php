@@ -17,6 +17,9 @@ class HebahanProses extends Model
      *
      */
     protected $table = 'hebahan_proses';
+    protected $connection = 'mysql2';
+    protected $primaryKey = 'id';
+    public $timestamps = false;
 
     protected $fillable = [
         'id',
@@ -26,7 +29,7 @@ class HebahanProses extends Model
         'ppo_msia',
         'cpko_msia',
         'ppko_msia',
-     
+
 
     ];
 }
