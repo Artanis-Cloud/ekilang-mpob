@@ -188,7 +188,7 @@
                                             <label for="inputcom" class="control-label col-form-label required">Nombor
                                                 Siri</label>
                                             <input type="text" id="nombor_siri" class="form-control" required
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="4"
                                                 oninput="setCustomValidity('')" placeholder="Nombor Siri" name="nosiri"
                                                 value="{{ old('nombor_siri') }}">
                                         </div>
@@ -200,7 +200,7 @@
                                             <label for="inputcom" class="control-label col-form-label required">Nombor
                                                 Lesen</label>
                                             <input type="text" id="nombor_lesen" class="form-control" required
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="12"
                                                 oninput="setCustomValidity('')" placeholder="Nombor Lesen" name="e_nl"
                                                 value="{{ old('nombor_lesen') }}">
                                             @error('e_nl')
