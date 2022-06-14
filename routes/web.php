@@ -234,6 +234,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_stok_akhir'])->name('admin.stok.akhir');
         Route::get('admin/tambah-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir'])->name('admin.tambah.stok.akhir');
         Route::get('admin/validasi-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir'])->name('admin.validasi.stok.akhir');
+        Route::get('admin/validasi-stok-akhir/proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir_proses'])->name('admin.validasi.stok.akhir.proses');
         Route::get('admin/validasi-stok-akhir-ikut-produk', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir_ikut_produk'])->name('admin.validasi.stok.akhir.ikut.produk');
 
         Route::get('admin/minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_minyak_sawit_diproses'])->name('admin.minyak.sawit.diproses');
