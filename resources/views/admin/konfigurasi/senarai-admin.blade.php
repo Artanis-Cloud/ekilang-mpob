@@ -125,19 +125,20 @@
                                                                     @forelse (json_decode($data->sub_cat) as $cat)
                                                                         <li>{{ $cat }}</li>
                                                                     @empty
-                                                                    -
+                                                                        -
                                                                     @endforelse
                                                                 </ul>
                                                             @else
                                                                 -
                                                             @endif
-                                                        
                                                         @endif
                                                     </td>
                                                     @if ($data->status == '1')
                                                         <td>Aktif</td>
-                                                    @else
+                                                    @elseif ($data->status == '2')
                                                         <td>Tidak Aktif</td>
+                                                    @else
+                                                    <td></td>
                                                     @endif
 
                                                     <td>
@@ -222,6 +223,11 @@
                                                                                             <option
                                                                                                 {{ $data->role == 'Supervisor' ? 'selected' : '' }}>
                                                                                                 Supervisor</option>
+                                                                                                <option hidden disabled
+                                                                                                    {{ $data->role == '' ? 'selected' : '' }}
+                                                                                                    value="">
+                                                                                                    Sila Pilih Kategori
+                                                                                                </option>
                                                                                         </select>
                                                                                     </fieldset>
                                                                                 </div>
@@ -253,7 +259,7 @@
                                                                                     <fieldset class="form-group">
                                                                                         <select class="form-control"
                                                                                             name="status">
-                                                                                            @if ($data->status == null)
+                                                                                            {{-- @if ($data->status == null)
                                                                                                 <option hidden selected
                                                                                                     disabled>
                                                                                                     Sila Pilih Status
@@ -263,7 +269,7 @@
                                                                                                     disabled>
                                                                                                     {{ $data->status }}
                                                                                                 </option>
-                                                                                            @endif
+                                                                                            @endif --}}
                                                                                             <option
                                                                                                 {{ $data->status == '1' ? 'selected' : '' }}
                                                                                                 value="1">
@@ -273,6 +279,11 @@
                                                                                                 {{ $data->status == '2' ? 'selected' : '' }}
                                                                                                 value="2">
                                                                                                 Tidak Aktif</option>
+                                                                                                <option hidden disabled
+                                                                                                    {{ $data->status == '' ? 'selected' : '' }}
+                                                                                                    value="">
+                                                                                                    Sila Pilih Status
+                                                                                                </option>
                                                                                         </select>
                                                                                     </fieldset>
                                                                                 </div>
@@ -353,9 +364,72 @@
                                                                                                 <option
                                                                                                     {{ $data->role == 'Supervisor' ? 'selected' : '' }}>
                                                                                                     Supervisor</option>
+                                                                                                <option hidden disabled
+                                                                                                    {{ $data->role == '' ? 'selected' : '' }}
+                                                                                                    value="">
+                                                                                                    Sila Pilih Kategori
+                                                                                                </option>
                                                                                             </select>
                                                                                         </fieldset>
                                                                                     </div>
+                                                                                    <label>Sub-Kategori </label>
+                                                                                    <div class="form-group">
+                                                                                        <fieldset class="form-group">
+                                                                                            <select multiple="multiple"
+                                                                                                size="10"
+                                                                                                class="duallistbox-no-filter"
+                                                                                                name="sub_cat[]">
+                                                                                                <option value="PL91">Kilang
+                                                                                                    Buah
+                                                                                                </option>
+                                                                                                <option value="PL101">Kilang
+                                                                                                    Penapis</option>
+                                                                                                <option value="PL102">Kilang
+                                                                                                    Isirung</option>
+                                                                                                <option value="PL104">Kilang
+                                                                                                    Oleokimia</option>
+                                                                                                <option value="PL111">Pusat
+                                                                                                    Simpanan</option>
+                                                                                                <option value="PLBIO">Kilang
+                                                                                                    Biodiesel</option>
+                                                                                            </select>
+                                                                                        </fieldset>
+                                                                                    </div>
+
+                                                                                    <label>Status </label>
+                                                                                    <div class="form-group">
+                                                                                        <fieldset class="form-group">
+                                                                                            <select class="form-control"
+                                                                                                name="status">
+                                                                                                {{-- @if ($data->status == null)
+                                                                                                    <option hidden selected
+                                                                                                        disabled>
+                                                                                                        Sila Pilih Status
+                                                                                                    </option>
+                                                                                                @else
+                                                                                                    <option hidden selected
+                                                                                                        disabled>
+                                                                                                        {{ $data->status }}
+                                                                                                    </option>
+                                                                                                @endif --}}
+                                                                                                <option
+                                                                                                    {{ $data->status == '1' ? 'selected' : '' }}
+                                                                                                    value="1">
+                                                                                                    Aktif</option>
+                                                                                                {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
+                                                                                                <option
+                                                                                                    {{ $data->status == '2' ? 'selected' : '' }}
+                                                                                                    value="2">
+                                                                                                    Tidak Aktif</option>
+                                                                                                <option hidden disabled
+                                                                                                    {{ $data->status == '' ? 'selected' : '' }}
+                                                                                                    value="">
+                                                                                                    Sila Pilih Status
+                                                                                                </option>
+                                                                                            </select>
+                                                                                        </fieldset>
+                                                                                    </div>
+
 
 
                                                                                 </div>
@@ -426,6 +500,8 @@
                                                                             </div>
 
 
+
+
                                                                         </div>
 
                                                                     </div>
@@ -479,9 +555,72 @@
                                                                                                 <option
                                                                                                     {{ $data->role == 'Supervisor' ? 'selected' : '' }}>
                                                                                                     Supervisor</option>
+                                                                                                <option hidden disabled
+                                                                                                    {{ $data->role == '' ? 'selected' : '' }}
+                                                                                                    value="">
+                                                                                                    Sila Pilih Kategori
+                                                                                                </option>
                                                                                             </select>
                                                                                         </fieldset>
                                                                                     </div>
+                                                                                    <label>Sub-Kategori </label>
+                                                                                    <div class="form-group">
+                                                                                        <fieldset class="form-group">
+                                                                                            <select multiple="multiple"
+                                                                                                size="10"
+                                                                                                class="duallistbox-no-filter"
+                                                                                                name="sub_cat[]">
+                                                                                                <option value="PL91">Kilang
+                                                                                                    Buah
+                                                                                                </option>
+                                                                                                <option value="PL101">Kilang
+                                                                                                    Penapis</option>
+                                                                                                <option value="PL102">Kilang
+                                                                                                    Isirung</option>
+                                                                                                <option value="PL104">Kilang
+                                                                                                    Oleokimia</option>
+                                                                                                <option value="PL111">Pusat
+                                                                                                    Simpanan</option>
+                                                                                                <option value="PLBIO">Kilang
+                                                                                                    Biodiesel</option>
+                                                                                            </select>
+                                                                                        </fieldset>
+                                                                                    </div>
+
+                                                                                    <label>Status </label>
+                                                                                    <div class="form-group">
+                                                                                        <fieldset class="form-group">
+                                                                                            <select class="form-control"
+                                                                                                name="status">
+                                                                                                {{-- @if ($data->status == null)
+                                                                                                    <option hidden selected
+                                                                                                        disabled>
+                                                                                                        Sila Pilih Status
+                                                                                                    </option>
+                                                                                                @else
+                                                                                                    <option hidden selected
+                                                                                                        disabled>
+                                                                                                        {{ $data->status }}
+                                                                                                    </option>
+                                                                                                @endif --}}
+                                                                                                <option
+                                                                                                    {{ $data->status == '1' ? 'selected' : '' }}
+                                                                                                    value="1">
+                                                                                                    Aktif</option>
+                                                                                                {{-- <option {{ ($data->role == 'Kerani') ? 'selected' : '' }}>Kerani</option> --}}
+                                                                                                <option
+                                                                                                    {{ $data->status == '2' ? 'selected' : '' }}
+                                                                                                    value="2">
+                                                                                                    Tidak Aktif</option>
+                                                                                                <option hidden disabled
+                                                                                                    {{ $data->status == '' ? 'selected' : '' }}
+                                                                                                    value="">
+                                                                                                    Sila Pilih Status
+                                                                                                </option>
+                                                                                            </select>
+                                                                                        </fieldset>
+                                                                                    </div>
+
 
 
                                                                                 </div>
