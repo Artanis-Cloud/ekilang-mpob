@@ -75,7 +75,7 @@
                                         <button class="btn btn-secondary dropdown-toggle"
                                             style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
                                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Kilang Isirung
+                                            Pusat Simpanan
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                             @if (auth()->user()->sub_cat)
