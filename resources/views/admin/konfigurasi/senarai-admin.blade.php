@@ -238,17 +238,17 @@
                                                                                             size="10"
                                                                                             class="duallistbox-no-filter"
                                                                                             name="sub_cat[]">
-                                                                                            <option value="PL91">Kilang Buah
+                                                                                            <option value="PL91" {{ json_encode($data->sub_cat) == 'PL91' ? 'selected' : '' }}>Kilang Buah
                                                                                             </option>
-                                                                                            <option value="PL101">Kilang
+                                                                                            <option value="PL101" {{ json_encode($data->sub_cat) == 'PL101' ? 'selected' : '' }}>Kilang
                                                                                                 Penapis</option>
-                                                                                            <option value="PL102">Kilang
+                                                                                            <option value="PL102" {{ json_encode($data->sub_cat) == 'PL102' ? 'selected' : '' }}>Kilang
                                                                                                 Isirung</option>
-                                                                                            <option value="PL104">Kilang
+                                                                                            <option value="PL104" {{ json_encode($data->sub_cat) == 'PL104' ? 'selected' : '' }}>Kilang
                                                                                                 Oleokimia</option>
-                                                                                            <option value="PL111">Pusat
+                                                                                            <option value="PL111" {{ json_encode($data->sub_cat) == 'PL111' ? 'selected' : '' }}>Pusat
                                                                                                 Simpanan</option>
-                                                                                            <option value="PLBIO">Kilang
+                                                                                            <option value="PLBIO" {{ json_encode($data->sub_cat) == 'PLBIO' ? 'selected' : '' }}>Kilang
                                                                                                 Biodiesel</option>
                                                                                         </select>
                                                                                     </fieldset>
