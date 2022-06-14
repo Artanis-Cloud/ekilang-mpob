@@ -50,7 +50,7 @@
                             <h4 style="color: rgb(39, 80, 71); margin-top:3%">Maklumat Akaun Pentadbir</h4>
                         </div>
                         <hr>
-                        <form action="{{ route('admin.akaun.pentadbir.process', $user->id) }}" method="post">
+                        <form action="{{ route('admin.akaun.pentadbir.process') }}" method="post">
                             @csrf
                         <div class="card-body">
                             <div class="container center" style="margin-top: -1%">

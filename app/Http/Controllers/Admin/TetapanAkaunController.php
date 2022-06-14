@@ -38,15 +38,14 @@ class TetapanAkaunController extends Controller
         return view('admin.tetapan-akaun.akaun-pentadbir', compact('returnArr', 'layout','user'));
     }
 
-    public function admin_akaun_pentadbir_process(Request $request, $id)
+    public function admin_akaun_pentadbir_process(Request $request)
     {
 
-        // dd($id);
-        $admin = User::findOrFail($id);
+        // dd($request->all());
+        $admin = User::where('username', auth()->user()->username)->first();
         $admin->name = $request->name;
         $admin->email = $request->email;
         $admin->username = $request->username;
-        $admin->category = $request->category;
         $admin->sub_cat =  json_encode($request['sub_cat']);
         $admin->status = $request->status;
         $admin->save();
@@ -65,4 +64,3 @@ class TetapanAkaunController extends Controller
     }
 
 }
-    
