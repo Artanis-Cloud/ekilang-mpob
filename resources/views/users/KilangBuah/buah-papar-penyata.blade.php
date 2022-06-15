@@ -57,7 +57,7 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                            <p align="left"><b>MPOB(EL) PX 4-M </b></p>
+                                                            <p align="left"><b>MPOB(EL)PX-MF</b></p>
                                                         </td>
                                                     </tr>
 

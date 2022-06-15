@@ -322,13 +322,22 @@ class KilangBuahController extends Controller
 
         $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
         // $oer->assign('checked_flag', $db_data=='0'  ? '' : 'checked');
+        if ($penyata->e91_ac1 != NULL || $penyata->e91_ac1 != 0) {
+            $oer = $penyata->e91_ad1 / $penyata->e91_ac1;
+            $ker = $penyata->e91_ad2 / $penyata->e91_ac1;
+        } else {
+            $oer = 0;
+            $ker = 0;
+        }
+
+        // dd($oer);
 
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
 
         if  ($penyata){
-            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun',));
+            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun', 'oer','ker'));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -413,7 +422,7 @@ class KilangBuahController extends Controller
 
         if ($calculate != $request->jumlah) {
             return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Tidak Sama dengan Jumlah Bahagian I (FFB)!');
+                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian I (FFB)!');
         }
         $penyata = E91Init::findOrFail($id);
         $penyata->e91_ai1 = $request->e91_ai1;
@@ -492,7 +501,7 @@ class KilangBuahController extends Controller
 
         if ($calculate != $request->jumlah) {
             return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Tidak Sama dengan Jumlah Bahagian I (CPO)');
+                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian I (CPO)');
         }
 
 
@@ -565,7 +574,7 @@ class KilangBuahController extends Controller
 
         if ($calculate != $request->jumlah) {
             return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Tidak Sama dengan Jumlah Bahagian I (PK)');
+                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian I (PK)');
         }
 
         $penyata = E91Init::findOrFail($id);
