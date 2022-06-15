@@ -50,25 +50,117 @@ class KilangBuahController extends Controller
     }
 
 
-    public function buah_update_maklumat_asas_pelesen2($id)
+    // public function buah_update_maklumat_asas_pelesencuba(Request $request)
+    // {
+    //     //  dd($request->all());
+    //     $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+    //     // dd( $pelesen);
+
+    //     $this->validation_daftar_pelesen($request->all())->validate();
+
+    //     if ($pelesen) {
+    //         $this->buah_update_maklumat_asas_pelesen($request);
+    //     // }else{
+    //     //     dd($request->all());
+    //         $this->store_pelesen($request->all());
+    //     }
+
+    //     return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
+    // }
+
+    protected function validation_daftar_pelesen(array $data)
     {
+        return Validator::make($data, [
+            // 'e_nl' => ['required', 'string', 'unique:pelesen'],
+            // 'e_np' => ['required', 'string'],
+            'e_ap1' => ['required', 'string'],
+            // 'e_ap2' => ['required', 'string'],
+            // 'e_ap3' => ['required', 'string'],
+            'e_as1' => ['required', 'string'],
+            // 'e_as2' => ['required', 'string'],
+            // 'e_as3' => ['required', 'string'],
+            'e_notel' => ['required', 'string'],
+            // 'e_nofax' => ['required', 'string'],
+            'e_email' => ['required', 'string'],
+            'e_npg' => ['required', 'string'],
+            'e_jpg' => ['required', 'string'],
+            'e_notel_pg' => ['required', 'string'],
+            'e_email_pg' => ['required', 'string'],
+            'e_npgtg' => ['required', 'string'],
+            'e_jpgtg' => ['required', 'string'],
+            'e_email_pengurus' => ['required', 'string'],
+            // 'e_negeri' => ['required', 'string'],
+            // 'e_daerah' => ['required', 'string'],
+            // 'e_kawasan' => ['required', 'string'],
+            'e_syktinduk' => ['required', 'string'],
+            // 'e_year' => ['required', 'string'],
+            'e_group' => ['required', 'string'],
+            // 'e_poma' => ['required', 'string'],
+            'kap_proses' => ['required', 'string'],
 
-        $penyata = User::findOrFail($id);
-        $penyata->map_flg = '1';
-        $penyata->map_sdate = now();
-
-        $penyata->save();
-
-
-        return redirect()->route('buah.maklumatasaspelesen')
-            ->with('success', 'Maklumat telah dikemaskini');
+        ]);
     }
 
 
-    public function buah_update_maklumat_asas_pelesen(Request $request, $id)
+    protected function store_pelesen(array $data)
+    {
+        $count = Pelesen::max('e_id');
+
+        return Pelesen::create([
+            'e_id' => $count + 1,
+            // 'e_nl' => $data['e_nl'],
+            // 'e_np' => $data['e_np'],
+            'e_ap1' => $data['e_ap1'],
+            'e_ap2' => $data['e_ap2'],
+            'e_ap3' => $data['e_ap3'],
+            'e_as1' => $data['e_as1'],
+            'e_as2' => $data['e_as2'],
+            'e_as3' => $data['e_as3'],
+            'e_notel' => $data['e_notel'],
+            'e_nofax' => $data['e_nofax'],
+            'e_email' => $data['e_email'],
+            'e_npg' => $data['e_npg'],
+            'e_jpg' => $data['e_jpg'],
+            'e_notel_pg' => $data['e_notel_pg'],
+            'e_email_pg' => $data['e_email_pg'],
+            // 'kodpgw' => $data['kodpgw'],
+            // 'nosiri' => $data['nosiri'],
+            'e_npgtg' => $data['e_npgtg'],
+            'e_jpgtg' => $data['e_jpgtg'],
+            // 'e_negeri' => $data['e_negeri'],
+            // 'e_daerah' => $data['e_daerah'],
+            // 'e_kawasan' => $data['e_kawasan'],
+            'e_syktinduk' => $data['e_syktinduk'],
+            'e_group' => $data['e_group'],
+            // 'e_poma' => $data['e_poma'],
+            // 'e_year' => $data['e_year'],
+            'e_email_pengurus' => $data['e_email_pengurus'],
+            'kap_proses' => $data['kap_proses'],
+            'tahun' => date("Y"),
+            'bulan' => date("m"),
+
+        ]);
+    }
+
+    // public function buah_update_maklumat_asas_pelesen2($id)
+    // {
+
+    //     $penyata = User::where('username', $penyata->e_nl)->first();
+    //     $penyata->map_flg = '1';
+    //     $penyata->map_sdate = now();
+
+    //     $penyata->save();
+
+
+    //     return redirect()->route('buah.maklumatasaspelesen')
+    //         ->with('success', 'Maklumat telah dikemaskini');
+    // }
+
+
+    public function buah_update_maklumat_asas_pelesen(Request $request)
     {
         // dd($id);
-        $penyata = Pelesen::findOrFail($id);
+        $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
         $penyata->e_ap1 = $request->e_ap1;
         $penyata->e_ap2 = $request->e_ap2;
         $penyata->e_ap3 = $request->e_ap3;
