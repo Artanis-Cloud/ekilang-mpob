@@ -76,11 +76,15 @@
                         <hr>
 
 
-
-                        <div class=" mt-2" style="text-align: right">
+                        <div class="row col-12 mt-3">
+                            <div class="mb-2 col-8" style="text-align: left">
+                                <p><i>Nota: Sila isikan butiran bawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                            </div>
+                        <div class=" mt-2 col-4" style="text-align: right">
                             <a href="{{ asset('manual/kilangbuah/2.pdf') }}" target="_blank"
                                 style="text-align:right"><i><u>Panduan
                                         Mengisi Maklumat Bahagian 2</u></i></a>
+                        </div>
                         </div>
                         <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}" method="post">
                             @csrf
@@ -109,7 +113,7 @@
                                         <input type="text" class="form-control" name='e91_ah2' oninput="validate_two_decimal(this);setCustomValidity('')"
                                             style="width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             id="kadar_perahan_mksm" required title="Sila isikan butiran ini."
-                                            value="{{ $penyata->e91_ah2 ?? 0 }}">
+                                            value="{{ number_format($oer ?? 0, 2)}}">
                                             @error('e91_ah2')
                                             <div class="alert alert-danger">
                                                 <strong>Sila isi butiran ini</strong>
@@ -125,7 +129,7 @@
                                         <input type="text" class="form-control" name='e91_ah3' oninput="validate_two_decimal(this);setCustomValidity('')"
                                             style="width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             id="kadar_perolehan_isirung" required title="Sila isikan butiran ini."
-                                            value="{{ $penyata->e91_ah3 ?? 0 }}">
+                                            value="{{ number_format($ker ?? 0, 2)}}">
                                             @error('e91_ah3')
                                             <div class="alert alert-danger">
                                                 <strong>Sila isi butiran ini</strong>
@@ -136,7 +140,7 @@
                                 <div class="row mt-2">
                                     <label for="fname"
                                         class="text-right col-sm-5 control-label col-form-label align-items-center">iv.
-                                        Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
+                                        Harga Purata Belian Buah Tandan Segar (FFB)</label>
                                     <div class="col-md-6">
                                         <input type="text" class="form-control" name='e91_ah4' oninput="validate_two_decimal(this);setCustomValidity('')"
                                             style=" width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"

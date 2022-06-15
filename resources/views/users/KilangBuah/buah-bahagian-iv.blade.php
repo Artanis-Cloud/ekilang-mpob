@@ -89,7 +89,11 @@
 
                                 <div class="card-content">
 
-
+                                    <div class="row col-12 mt-1">
+                                        <div class=" col-8" style="text-align: left">
+                                            <p><i>Nota: Sila isikan butiran bawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                                        </div>
+                                    </div>
                                     <div class="table-responsive">
                                         <table class="table table-bordered mb-0">
                                             <thead style="text-align: center">

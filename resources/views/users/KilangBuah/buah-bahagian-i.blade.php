@@ -74,10 +74,16 @@
 
 
                     <div class="col-12 mt-3">
-                        <div class="mb-2" style="text-align: right">
+                        <div class="row col-12">
+                            <div class="mb-2 col-8" style="text-align: left">
+                                <p><i>Nota: Sila isikan butiran bawah dan tekan butang ‘Simpan & Seterusnya’</i></p>
+                            </div>
+                        <div class="mb-2 col-4" style="text-align: right">
                             <a href="{{ asset('manual/kilangbuah/1.pdf') }}" target="_blank"
                                 style="text-align:right"><i><u>Panduan
                                         Mengisi Maklumat Bahagian I</u></i></a>
+                        </div>
+
                         </div>
                         <form action="{{ route('buah.update.bahagian.i', $kilang->e91_reg) }}" method="post">
                             @csrf
@@ -91,7 +97,7 @@
                                             <thead style="text-align: center">
                                                 <tr>
                                                     <th>Butiran</th>
-                                                    <th>Buah Kelapa Sawit (FFB) <br>
+                                                    <th>Buah Tandan Segar (FFB) <br>
                                                         Kod 52</th>
                                                     <th>Minyak Sawit Mentah (CPO)
                                                         <br> Kod 01
