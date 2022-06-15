@@ -48,12 +48,13 @@
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Validasi Stok Akhir
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Validasi Stok Akhir Ikut Produk
                             </h3>
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Validasi Stok Akhir</h5> --}}
                         </div>
                         <hr>
-
+                        <form action="{{ route('admin.validasi.stok.akhir.ikut.produk') }}" method="get">
+                            @csrf
                         <div class="card-body">
 
                             <div class="container center">
@@ -63,21 +64,21 @@
                                         class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
                                     </label>
                                     <div class="col-md-4">
-                                        <select class="form-control" name="bulan">
-                                            <option  value="01">2011</option>
-                                            <option  value="02">2012</option>
-                                            <option  value="03">2013</option>
-                                            <option  value="04">2014</option>
-                                            <option  value="05">2015</option>
-                                            <option  value="06">2016</option>
-                                            <option  value="07">2017</option>
-                                            <option  value="08">2018</option>
-                                            <option  value="09">2019</option>
-                                            <option  value="10">2020</option>
-                                            <option  value="11">2021</option>
-                                            <option  value="12">2022</option>
-                                            <option  value="12">2023</option>
-                                            <option  value="12">2024</option>
+                                        <select class="form-control" name="tahun">
+                                            <option  value="2011">2011</option>
+                                            <option  value="2012">2012</option>
+                                            <option  value="2013">2013</option>
+                                            <option  value="2014">2014</option>
+                                            <option  value="2015">2015</option>
+                                            <option  value="2016">2016</option>
+                                            <option  value="2017">2017</option>
+                                            <option  value="2018">2018</option>
+                                            <option  value="2019">2019</option>
+                                            <option  value="2020">2020</option>
+                                            <option  value="2021">2021</option>
+                                            <option  value="2022">2022</option>
+                                            <option  value="2023">2023</option>
+                                            <option  value="2024">2024</option>
 
 
                                             <option selected hidden disabled>Sila Pilih Tahun</option>
@@ -116,17 +117,26 @@
                                     </label>
                                     <div class="col-md-4">
                                         <select class="form-control" name="produk">
-                                            <option selected >Sila Pilih Produk</option>
+                                            <option selected hidden disabled >Sila Pilih Produk</option>
+                                            <option value="RBDPO">RBDPO</option>
+                                            <option value="RBDPL">RBDPL</option>
+                                            <option value="RBDPS">RBDPS</option>
+                                            <option value="PFAD">PFAD</option>
+                                            <option value="RBDPKO">RBDPKO</option>
+                                            <option value="RBDPKL">RBDPKL</option>
+                                            <option value="RBDPKS">RBDPKS</option>
+                                            <option value="PKFAD">PKFAD</option>
                                         </select>
 
                                     </div>
                                 </div>
                                 <div class="col-12 mb-4 mt-4" style="margin-left:47%">
 
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        <button type="submit" class="btn btn-primary" data-toggle="modal"
                                             data-target="#next">Query</button>
                                     {{-- </div> --}}
                                 </div>
+                            </form>
                                 <hr>
                                 <div class="col-12 mt-2 mb-2" style="background-color:lightgrey"><b>Semenanjung Malaysia</b></div>
                                 <div class="row">
@@ -153,25 +163,49 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                </tr>
+                                                @php
+                                                    $total_besar = 0;
+                                                    $total_stok_akhir = 0;
+                                                @endphp
+                                                @if ($ppo_sem)
+                                                    @if (is_array($ppo_sem) || is_object($ppo_sem))
+                                                        @foreach ($ppo_sem as $data)
+                                                            <tr class="text-right">
+                                                                <td scope="row" class="text-left">{{ $data->lesen }}
+                                                                </td>
+                                                                <td class="text-left">{{ $data->kilang }}</td>
+                                                                <td class="text-left">{{ $data->negeri }}</td>
+                                                                <td>{{ number_format($data->ppo_hasil ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->stok_awal ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->bekalan_belian ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->bekalan_penerimaan ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($data->bekalan_import ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($total_3a_3b = $data->stok_awal + $data->bekalan_belian + $data->bekalan_penerimaan + $data->bekalan_import ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($data->ppo_proses ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->jualan_jualan ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->jualan_edaran ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->jualan_eksport ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($total_3c_3d = $data->ppo_proses + $data->jualan_jualan + $data->jualan_edaran + $data->jualan_eksport ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($total = $data->ppo_hasil + ($total_3a_3b - $total_3c_3d) ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($data->stok_akhir ?? 0, 2) }}</td>
+                                                            </tr>
+                                                            @php
+                                                            $total_besar += $total;
+                                                            $total_stok_akhir += $data->stok_akhir;
+                                                        @endphp
+                                                        @endforeach
+                                                    @endif
+                                                @endif
 
+                                                <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                    <th colspan="14">Jumlah</th>
+                                                    <td>{{ number_format($total_besar ?? 0, 2) }}</td>
+                                                    <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -203,25 +237,49 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                </tr>
+                                                @php
+                                                    $total_besar = 0;
+                                                    $total_stok_akhir = 0;
+                                                @endphp
+                                                @if ($ppo_sabah)
+                                                    @if (is_array($ppo_sabah) || is_object($ppo_sabah))
+                                                        @foreach ($ppo_sabah as $data)
+                                                            <tr class="text-right">
+                                                                <td scope="row" class="text-left">{{ $data->lesen }}
+                                                                </td>
+                                                                <td class="text-left">{{ $data->kilang }}</td>
+                                                                <td class="text-left">{{ $data->negeri }}</td>
+                                                                <td>{{ number_format($data->ppo_hasil ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->stok_awal ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->bekalan_belian ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->bekalan_penerimaan ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($data->bekalan_import ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($total_3a_3b = $data->stok_awal + $data->bekalan_belian + $data->bekalan_penerimaan + $data->bekalan_import ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($data->ppo_proses ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->jualan_jualan ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->jualan_edaran ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->jualan_eksport ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($total_3c_3d = $data->ppo_proses + $data->jualan_jualan + $data->jualan_edaran + $data->jualan_eksport ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($total = $data->ppo_hasil + ($total_3a_3b - $total_3c_3d) ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($data->stok_akhir ?? 0, 2) }}</td>
+                                                            </tr>
+                                                            @php
+                                                            $total_besar += $total;
+                                                            $total_stok_akhir += $data->stok_akhir;
+                                                        @endphp
+                                                        @endforeach
+                                                    @endif
+                                                @endif
 
+                                                <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                    <th colspan="14">Jumlah</th>
+                                                    <td>{{ number_format($total_besar ?? 0, 2) }}</td>
+                                                    <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
@@ -253,25 +311,49 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                    <td>Table cell</td>
-                                                </tr>
+                                                @php
+                                                    $total_besar = 0;
+                                                    $total_stok_akhir = 0;
+                                                @endphp
+                                                @if ($ppo_srwk)
+                                                    @if (is_array($ppo_srwk) || is_object($ppo_srwk))
+                                                        @foreach ($ppo_srwk as $data)
+                                                            <tr class="text-right">
+                                                                <td scope="row" class="text-left">{{ $data->lesen }}
+                                                                </td>
+                                                                <td class="text-left">{{ $data->kilang }}</td>
+                                                                <td class="text-left">{{ $data->negeri }}</td>
+                                                                <td>{{ number_format($data->ppo_hasil ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->stok_awal ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->bekalan_belian ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->bekalan_penerimaan ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($data->bekalan_import ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($total_3a_3b = $data->stok_awal + $data->bekalan_belian + $data->bekalan_penerimaan + $data->bekalan_import ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($data->ppo_proses ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->jualan_jualan ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->jualan_edaran ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($data->jualan_eksport ?? 0, 2) }}</td>
+                                                                <td>{{ number_format($total_3c_3d = $data->ppo_proses + $data->jualan_jualan + $data->jualan_edaran + $data->jualan_eksport ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($total = $data->ppo_hasil + ($total_3a_3b - $total_3c_3d) ?? 0, 2) }}
+                                                                </td>
+                                                                <td>{{ number_format($data->stok_akhir ?? 0, 2) }}</td>
+                                                            </tr>
+                                                            @php
+                                                            $total_besar += $total;
+                                                            $total_stok_akhir += $data->stok_akhir;
+                                                        @endphp
+                                                        @endforeach
+                                                    @endif
+                                                @endif
 
+                                                <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                                    <th colspan="14">Jumlah</th>
+                                                    <td>{{ number_format($total_besar ?? 0, 2) }}</td>
+                                                    <td>{{ number_format($total_stok_akhir ?? 0, 2) }}</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
