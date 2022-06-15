@@ -70,9 +70,9 @@
 
                                 <div class="row">
 
-                                    <div class=" dropdown">
+                                    <div class=" dropdown" style="margin: 1%">
                                         <button class="btn btn-secondary dropdown-toggle"
-                                            style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
+                                            style="background-color: rgb(238, 70, 70); " type="button"
                                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                                             aria-expanded="false">
                                             Kilang Penapis
@@ -137,16 +137,16 @@
                                     </div>
 
                                     <a href="{{ route('admin.senarai.pelesen.batal.penapis') }}" class="btn btn-primary"
-                                        style="float: left; margin-right:2%">Senarai
+                                        style="margin: 1%">Senarai
                                         Pelesen Batal</a>
 
                                     <a href="{{ route('admin.1daftarpelesen') }}" class="btn btn-primary"
-                                        style="float: left"> Tambah Pelesen Baru</a>
+                                        style="margin: 1%"> Tambah Pelesen Baru</a>
 
 
-                                    <div class="text-right col-md-6" style="float: right">
-                                        <button style="font-size:12px"
-                                            onclick="exportTableToCSV('Senarai Pelesen Berdaftar Kilang Penapis.csv')">Excel <i class="fa fa-file-excel" style="color: #319f57"></i></button>
+                                    <div class="text-right col-5" style="margin: 1%">
+                                        <button style="font-size:14px; background-color:#265960;color: white; border: 0px; border-radius: 2px; padding:7px 35px;"
+                                            onclick="exportTableToCSV('Senarai Pelesen Berdaftar Kilang Penapis.csv')">Excel <i class="fa fa-file-excel" style="color: white"></i></button>
 
                                     </div>
 
