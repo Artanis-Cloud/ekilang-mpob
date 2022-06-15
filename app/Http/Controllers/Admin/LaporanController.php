@@ -378,6 +378,8 @@ class LaporanController extends Controller
               `penyata`.`kod_produk` =`produk`.`nama_produk`
               GROUP by lesen");
 
+            //   dd($cpo_sem);
+
         $total_3a_3b = 0;
         $total_3c_3d = 0;
         $total = 0;
@@ -424,6 +426,7 @@ class LaporanController extends Controller
                      `penyata`.`kuantiti` <>  0 AND
                      `penyata`.`kod_produk` =`produk`.`nama_produk`
                      GROUP by lesen");
+
 
         //cpo sarawak
         $cpo_srwk = DB::connection('mysql2')->select(" SELECT lesen,e_np as kilang,negeri.nama_negeri as negeri,
@@ -835,9 +838,133 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.validasi-stok-akhir', $array);
     }
 
-    public function admin_validasi_stok_akhir_ikut_produk()
+    public function admin_validasi_stok_akhir_ikut_produk(Request $request)
     {
-        $bulan = Bulan::get();
+        $tahun = $request->tahun;
+        $bulan = $request->bulan;
+        $produk = $request->produk;
+
+        if (($produk == 'RBDPO3') ||  ($produk == 'RBDPL') ||  ($produk == 'RBDPS') || ($produk == 'PFAD'))
+            $sqlstmt1 = "`produk`.`kumpulan_produk` = '1' AND";
+        else
+            $sqlstmt1 = "`produk`.`kumpulan_produk` = '2' AND";
+
+        if ($produk == 'OTHERS')
+            $sqlstmt2 = "`penyata`.`kod_produk` NOT IN('RBDPO3','RBDPL','RBDPS','PFAD') AND `penyata`.`kod_produk` <> 'CPO' AND";
+        else
+            $sqlstmt2 = "`penyata`.`kod_produk`= '$produk' AND ";
+
+        //RBDPO - SEMENANJUNG MALAYSIA
+
+        $ppo_sem = DB::connection('mysql2')->select("SELECT lesen,e_np as kilang,negeri.nama_negeri as negeri,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_hasil' and `penyata`.`menu` in ('cpo_cpko') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_hasil,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_awal' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_awal,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_belian' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_belian,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_penerimaan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_penerimaan,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_import' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_import,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_proses' and `penyata`.`menu` in ('ppo')THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_proses,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_jualan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_jualan,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_edaran' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_edaran,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_eksport' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_eksport,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_akhir' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_akhir
+        FROM
+            penyata,
+            kilang,
+            negeri,
+            produk,
+            profile_bulanan
+
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` in ('ppo','cpo_cpko') AND
+             negeri.nama_negeri not in ( 'SABAH','SARAWAK') AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND" . $sqlstmt1 .
+            "`kilang`.`jenis` <>  'dummy' AND" . $sqlstmt2 .
+            "`penyata`.`kuantiti` <>  0 AND
+              `penyata`.`kod_produk` =`produk`.`nama_produk`
+              GROUP by lesen");
+
+            //   dd($ppo_sem);
+
+        //RBDPO - SABAH
+
+        $ppo_sabah = DB::connection('mysql2')->select("SELECT lesen,e_np as kilang,negeri.nama_negeri as negeri,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_hasil' and `penyata`.`menu` in ('cpo_cpko') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_hasil,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_awal' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_awal,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_belian' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_belian,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_penerimaan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_penerimaan,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_import' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_import,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_proses' and `penyata`.`menu` in ('ppo')THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_proses,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_jualan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_jualan,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_edaran' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_edaran,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_eksport' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_eksport,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_akhir' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_akhir
+        FROM
+            penyata,
+            kilang,
+            negeri,
+            produk,
+            profile_bulanan
+
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` in ('ppo','cpo_cpko') AND
+             negeri.nama_negeri in ('SABAH') AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND".$sqlstmt1.
+             "`kilang`.`jenis` <>  'dummy' AND".$sqlstmt2.
+              "`penyata`.`kuantiti` <>  0 AND
+              `penyata`.`kod_produk` =`produk`.`nama_produk`
+              GROUP by lesen");
+
+            //   dd($ppo_sem);
+
+        //RBDPO - SARAWAK
+
+        $ppo_srwk = DB::connection('mysql2')->select("SELECT lesen,e_np as kilang,negeri.nama_negeri as negeri,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_hasil' and `penyata`.`menu` in ('cpo_cpko') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_hasil,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_awal' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_awal,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_belian' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_belian,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_penerimaan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_penerimaan,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'bekalan_import' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS bekalan_import,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'ppo_proses' and `penyata`.`menu` in ('ppo')THEN  `penyata`.`kuantiti` ELSE NULL END)  AS ppo_proses,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_jualan' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_jualan,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_edaran' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_edaran,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'jualan_eksport' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS jualan_eksport,
+        SUM(CASE  WHEN `penyata`.`penyata`  = 'stok_akhir' and `penyata`.`menu` in ('ppo') THEN  `penyata`.`kuantiti` ELSE NULL END)  AS stok_akhir
+        FROM
+            penyata,
+            kilang,
+            negeri,
+            produk,
+            profile_bulanan
+
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` in ('ppo','cpo_cpko') AND
+             negeri.nama_negeri in ( 'SARAWAK') AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND".$sqlstmt1.
+             "`produk`.`kumpulan_produk` = '1' AND
+             `kilang`.`jenis` <>  'dummy' AND".$sqlstmt2.
+              "`penyata`.`kuantiti` <>  0 AND
+              `penyata`.`kod_produk` =`produk`.`nama_produk`
+              GROUP by lesen");
+
+            //   dd($ppo_sem);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -852,7 +979,27 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.validasi-stok-akhir-ikut-produk', compact('returnArr', 'layout', 'bulan'));
+
+        $array = [
+            'tahun' => $tahun,
+            'bulan' => $bulan,
+            'produk' => $produk,
+
+            'ppo_sem' => $ppo_sem,
+            'ppo_sabah' => $ppo_sabah,
+            'ppo_srwk' => $ppo_srwk,
+
+
+            'breadcrumbs' => $breadcrumbs,
+            'kembali' => $kembali,
+
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+
+
+        return view('admin.laporan_dq.validasi-stok-akhir-ikut-produk', $array);
     }
 
     public function admin_minyak_sawit_diproses()
