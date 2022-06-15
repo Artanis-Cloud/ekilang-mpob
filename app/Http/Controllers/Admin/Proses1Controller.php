@@ -146,10 +146,12 @@ class Proses1Controller extends Controller
         //     'directory' => $data['directory'],
         // ]);
 
-        $count = Pelesen::count();
+        // $count = Pelesen::count();
+        $count = Pelesen::max('e_id');
+
         //
         return Pelesen::create([
-            'e_id' => $count++,
+            'e_id' => $count+ 1,
             'e_nl' => $data['e_nl'],
             'e_np' => $data['e_np'],
             'e_ap1' => $data['e_ap1'],

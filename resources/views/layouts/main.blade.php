@@ -1749,7 +1749,7 @@
                         $('#map-message-warning').click(function() {
                             swal({
                                 title: "Perhatian!",
-                                text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen. Sistem akan membawa anda ke halaman tersebut dalam masa 5 saat",
+                                text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen.",
                                 type: "warning",
                                 showCancelButton: false,
                                 showConfirmButton: false,
@@ -1777,7 +1777,7 @@
 
                     setTimeout(function() {
                         document.getElementById('map-flag-redirect').click();
-                    }, 5100);
+                    }, 7100);
     </script>
     @endif
     @endif
