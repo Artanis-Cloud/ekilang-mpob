@@ -67,71 +67,7 @@
                                 <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
 
-                            <div class=" dropdown">
-                                <button class="btn btn-secondary dropdown-toggle"
-                                    style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Kilang Biodiesel
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    @if (auth()->user()->sub_cat)
-                                        @foreach (json_decode(auth()->user()->sub_cat) as $cat)
 
-                                            @if ($cat == 'PL91')
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.6penyatapaparcetakbuah') }}">Kilang
-                                                    Buah</a>
-                                            @endif
-                                            @if ($cat == 'PL101')
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.6penyatapaparcetakpenapis') }}">Kilang
-                                                    Penapis</a>
-                                            @endif
-                                            @if ($cat == 'PL102')
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.6penyatapaparcetakisirung') }}">Kilang
-                                                    Isirung</a>
-                                            @endif
-                                            @if ($cat == 'PL104')
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.6penyatapaparcetakoleo') }}">Kilang
-                                                    Oleokimia</a>
-                                            @endif
-                                            @if ($cat == 'PL111')
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.6penyatapaparcetaksimpanan') }}">Pusat
-                                                    Simpanan</a>
-                                            @endif
-                                            @if ($cat == 'PLBIO')
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.6penyatapaparcetakbio') }}">Kilang
-                                                    Biodiesel</a>
-                                            @endif
-                                        @endforeach
-                                    @else
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.6penyatapaparcetakbuah') }}">Kilang
-                                            Buah</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.6penyatapaparcetakpenapis') }}">Kilang
-                                            Penapis</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.6penyatapaparcetakisirung') }}">Kilang
-                                            Isirung</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.6penyatapaparcetakoleo') }}">Kilang
-                                            Oleokimia</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.6penyatapaparcetaksimpanan') }}">Pusat
-                                            Simpanan</a>
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.6penyatapaparcetakbio') }}">Kilang
-                                            Biodiesel</a>
-                                    @endif
-
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="pl-3">
 
@@ -148,6 +84,71 @@
 
                             <section class="section">
                                 <div class="card">
+                                    <div class=" dropdown">
+                                        <button class="btn btn-secondary dropdown-toggle"
+                                            style="background-color: rgb(238, 70, 70); margin-right:20px" type="button"
+                                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Kilang Biodiesel
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            @if (auth()->user()->sub_cat)
+                                                @foreach (json_decode(auth()->user()->sub_cat) as $cat)
+
+                                                    @if ($cat == 'PL91')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.6penyatapaparcetakbuah') }}">Kilang
+                                                            Buah</a>
+                                                    @endif
+                                                    @if ($cat == 'PL101')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.6penyatapaparcetakpenapis') }}">Kilang
+                                                            Penapis</a>
+                                                    @endif
+                                                    @if ($cat == 'PL102')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.6penyatapaparcetakisirung') }}">Kilang
+                                                            Isirung</a>
+                                                    @endif
+                                                    @if ($cat == 'PL104')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.6penyatapaparcetakoleo') }}">Kilang
+                                                            Oleokimia</a>
+                                                    @endif
+                                                    @if ($cat == 'PL111')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.6penyatapaparcetaksimpanan') }}">Pusat
+                                                            Simpanan</a>
+                                                    @endif
+                                                    @if ($cat == 'PLBIO')
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('admin.6penyatapaparcetakbio') }}">Kilang
+                                                            Biodiesel</a>
+                                                    @endif
+                                                @endforeach
+                                            @else
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.6penyatapaparcetakbuah') }}">Kilang
+                                                    Buah</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.6penyatapaparcetakpenapis') }}">Kilang
+                                                    Penapis</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.6penyatapaparcetakisirung') }}">Kilang
+                                                    Isirung</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.6penyatapaparcetakoleo') }}">Kilang
+                                                    Oleokimia</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.6penyatapaparcetaksimpanan') }}">Pusat
+                                                    Simpanan</a>
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.6penyatapaparcetakbio') }}">Kilang
+                                                    Biodiesel</a>
+                                            @endif
+
+                                        </div>
+                                    </div>
+                                </div>
                                     <form action="#" method="post">
                                         @csrf
                                         <div class="table-responsive">
