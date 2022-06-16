@@ -1068,97 +1068,105 @@ class KilangBiodieselController extends Controller
         $user = EBioInit::where('ebio_nl', auth()->user()->username)->first();
         // dd($user);
 
-        
+        if ($user) {
+            $ia = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
+                return $query->where('prodcat', '=', '01');
+            })->get();
 
-        $ia = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->whereHas('produk', function ($query) {
-            return $query->where('prodcat', '=', '01');
-        })->get();
+
+            $ib = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->get();
+            // dd($ii);
+
+            $ic = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
+            // dd($ic);
+
+            $ii = Hari::where('lesen', auth()->user()->username)->first();
+            // dd($ii);
+
+            $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
+
+            $totaliab5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b5');
+            $totaliab6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b6');
+            $totaliab7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b7');
+            $totaliab8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b8');
+            $totaliab9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b9');
+            $totaliab10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b10');
+            $totaliab11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b11');
+
+            $totalibb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b5');
+            $totalibb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b6');
+            $totalibb7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b7');
+            $totalibb8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b8');
+            $totalibb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b9');
+            $totalibb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b10');
+            $totalibb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b11');
+
+            $totalicb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b5');
+            $totalicb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b6');
+            $totalicb7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b7');
+            $totalicb8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b8');
+            $totalicb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b9');
+            $totalicb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b10');
+            $totalicb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b11');
+
+            $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
+            $totaliiic5 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c5');
+            $totaliiic6 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c6');
+            $totaliiic7 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c7');
+            $totaliiic8 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c8');
+            $totaliiic9 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c9');
+            $totaliiic10 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c10');
+
+            return view('users.KilangBiodiesel.bio-papar-penyata', compact(
+                'layout',
+                'returnArr',
+                'pelesen',
+                'pelesen2',
+                'user',
+                'ia',
+                'ib',
+                'ic',
+                'ii',
+                'iii',
+                'totaliab5',
+                'totaliab6',
+                'totaliab7',
+                'totaliab8',
+                'totaliab9',
+                'totaliab10',
+                'totaliab11',
+                'totalibb5',
+                'totalibb6',
+                'totalibb7',
+                'totalibb8',
+                'totalibb9',
+                'totalibb10',
+                'totalibb11',
+                'totalicb5',
+                'totalicb6',
+                'totalicb7',
+                'totalicb8',
+                'totalicb9',
+                'totalicb10',
+                'totalicb11',
+                'totaliiic4',
+                'totaliiic5',
+                'totaliiic6',
+                'totaliiic7',
+                'totaliiic8',
+                'totaliiic9',
+                'totaliiic10',
+                'bulan',
+                'tahun'
+            ));
+            } else {
+                return redirect()->back()
+                    ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+            }
 
 
-        $ib = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->get();
-        // dd($ii);
 
-        $ic = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
-        // dd($ic);
 
-        $ii = Hari::where('lesen', auth()->user()->username)->first();
-
-        $iii = EBioC::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->get();
-
-        $totaliab5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b5');
-        $totaliab6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b6');
-        $totaliab7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b7');
-        $totaliab8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b8');
-        $totaliab9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b9');
-        $totaliab10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b10');
-        $totaliab11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '1')->sum('ebio_b11');
-
-        $totalibb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b5');
-        $totalibb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b6');
-        $totalibb7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b7');
-        $totalibb8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b8');
-        $totalibb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b9');
-        $totalibb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b10');
-        $totalibb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '2')->sum('ebio_b11');
-
-        $totalicb5 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b5');
-        $totalicb6 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b6');
-        $totalicb7 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b7');
-        $totalicb8 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b8');
-        $totalicb9 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b9');
-        $totalicb10 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b10');
-        $totalicb11 = DB::table("e_bio_b_s")->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->sum('ebio_b11');
-
-        $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
-        $totaliiic5 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c5');
-        $totaliiic6 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c6');
-        $totaliiic7 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c7');
-        $totaliiic8 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c8');
-        $totaliiic9 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c9');
-        $totaliiic10 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c10');
-
-        return view('users.KilangBiodiesel.bio-papar-penyata', compact(
-            'layout',
-            'returnArr',
-            'pelesen',
-            'pelesen2',
-            'user',
-            'ia',
-            'ib',
-            'ic',
-            'ii',
-            'iii',
-            'totaliab5',
-            'totaliab6',
-            'totaliab7',
-            'totaliab8',
-            'totaliab9',
-            'totaliab10',
-            'totaliab11',
-            'totalibb5',
-            'totalibb6',
-            'totalibb7',
-            'totalibb8',
-            'totalibb9',
-            'totalibb10',
-            'totalibb11',
-            'totalicb5',
-            'totalicb6',
-            'totalicb7',
-            'totalicb8',
-            'totalicb9',
-            'totalicb10',
-            'totalicb11',
-            'totaliiic4',
-            'totaliiic5',
-            'totaliiic6',
-            'totaliiic7',
-            'totaliiic8',
-            'totaliiic9',
-            'totaliiic10',
-            'bulan',
-            'tahun'
-        ));
     }
 
     public function bio_update_papar_penyata(Request $request, $id)

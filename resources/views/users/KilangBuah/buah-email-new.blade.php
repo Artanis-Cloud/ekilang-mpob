@@ -1,5 +1,16 @@
 @extends('layouts.main')
 
+<style>
+    .error {
+        color: red;
+        size: 80%
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
 @section('content')
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
@@ -50,7 +61,7 @@
                 {{-- <div class="col-md-4 col-12"> --}}
                 <div class="pl-3">
                     <form action="{{ route('buah.send.email.proses') }}" enctype="multipart/form-data" method="post"
-                        onsubmit="return Validate(this);">
+                        id="myform" onsubmit="return Validate(this);check()">
                         @csrf
                         <div class="text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -91,7 +102,7 @@
                             </div>
 
 
-                            <div class="row">
+                            {{-- <div class="row">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                     Daripada (Alamat Emel)</label>
@@ -103,8 +114,8 @@
                                                         <strong>{{ $message }}</strong>
                                                     </div>
                                                 @enderror --}}
-                                </div>
-                            </div>
+                            {{-- </div>
+                            </div> --}}
                             <div class="row">
                                 <label for="fname"
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
@@ -131,177 +142,217 @@
 
                                 <div class="col-md-6">
 
-                                    <div id="editor" oninput="add_message()">
+                                    <div id="editor" aria-required="true" oninput="add_message()">
                                         {{ old('Message') }}
                                     </div>
+                                    {{-- @error('Message')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror --}}
+
 
                                 </div>
-
-                                <input type="hidden" id="quill_html" name="Message" value="{{ old('Message') }}">
-
-
+                                <div id="phone_error" class="error hidden">Please enter a valid phone number</div>
                             </div>
-                            <br>
-                            <div class="row" style=" margin-top:-1%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
-                                </label>
-                                <div class="col-md-6">
-                                    <div class="form-file">
-                                        <input type="file" class="form-file-input" id="file" name="file_upload">
+
+                            <input type="hidden" id="quill_html" name="Message" id="editor"
+                                oninvalid="setCustomValidity('Sila isi butiran ini')" title="Sila isikan butiran ini."
+                                oninput="setCustomValidity('')" required value="{{ old('Message') }}">
+
+
+                        </div>
+                        <br>
+                        <div class="row" style=" margin-top:-1%">
+                            <label for="fname"
+                                class="text-right col-sm-5 control-label col-form-label align-items-center">
+                            </label>
+                            <div class="col-md-6">
+                                <div class="form-file">
+                                    <input type="file" class="form-file-input" id="file" name="file_upload">
+                                    <label class="form-file-label" for="file">
                                         <label class="form-file-label" for="file">
-                                            <label class="form-file-label" for="file">
-                                                <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
-                                                    dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg dan .png
-                                                    sahaja</i>
-                                            </label>
-
+                                            <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
+                                                dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg dan .png
+                                                sahaja</i>
                                         </label>
-                                    </div>
 
+                                    </label>
                                 </div>
+
                             </div>
                         </div>
                 </div>
-
-
-
-
-                {{-- </div> --}}
-
-                <div class="row form-group" style="margin-top: 3%; ">
-
-
-
-                    <div class="text-right col-md-6 mb-4 ">
-                        <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                            data-target="#emel">Hantar</button>
-                    </div>
-
-                </div>
-
-                <!-- Vertically Centered modal Modal -->
-                <div class="modal fade" id="emel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                        role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                    PENGESAHAN</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                    <i data-feather="x"></i>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p>
-                                    Anda pasti mahu menghantar emel ini?
-                                </p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block" style="color:#275047">Kembali</span>
-                                </button>
-                                <button type="submit" class="btn btn-primary ml-1">
-                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                    <span class="d-none d-sm-block">Hantar</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </form>
             </div>
 
-@endsection
-@section('scripts')
-    <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
 
-    <script>
-        var quill = new Quill('#editor', {
-            theme: 'snow'
-        });
 
-        function add_message() {
-            // var content = document.querySelector("#snow").innerHTML;
-            // alert(quill.getContents());
-            quill.on('text-change', function(delta, oldDelta, source) {
-                document.getElementById("quill_html").value = quill.root.innerHTML;
+
+            {{-- </div> --}}
+
+            <div class="row form-group" style="margin-top: 3%; ">
+
+
+
+                <div class="text-right col-md-6 mb-4 ">
+                    <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                        data-target="#emel">Hantar</button>
+                </div>
+
+            </div>
+
+            <!-- Vertically Centered modal Modal -->
+            <div class="modal fade" id="emel" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                    role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                PENGESAHAN</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <i data-feather="x"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Anda pasti mahu menghantar emel ini?
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                <i class="bx bx-x d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block" style="color:#275047">Kembali</span>
+                            </button>
+                            <button type="submit" class="btn btn-primary ml-1">
+                                <i class="bx bx-check d-block d-sm-none"></i>
+                                <span class="d-none d-sm-block">Hantar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    @endsection
+    @section('scripts')
+        <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
+
+        <script>
+            var quill = new Quill('#editor', {
+                theme: 'snow'
             });
-        }
-    </script>
-    <script>
-        var uploadField = document.getElementById('file');
-        var fileInput = document.getElementById('file');
-        var filePath = fileInput.value;
-        var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
-        uploadField.onchange = function() {
-            if (this.files[0].size > 3145728) {
-                toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
-                    "progressBar": true
+
+            function add_message() {
+                // var content = document.querySelector("#snow").innerHTML;
+                // alert(quill.getContents());
+                quill.on('text-change', function(delta, oldDelta, source) {
+                    document.getElementById("quill_html").value = quill.root.innerHTML;
                 });
-
-                this.value = "";
-            };
-        };
-        uploadField.onchange = function() {
-        elseif(!allowedExtensions.exec(filePath)) {
-            toastr.error(
-                'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
-                'Ralat!', {
-                    "progressBar": true
-                });
-            fileInput.value = '';
-            return false;
-        };
-    };
-
-
-
-        // uploadField.onchange = function() {
-        //     var fileInput = document.getElementById('file');
-        //     var filePath = fileInput.value;
-        //     var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
-        //     if (!allowedExtensions.exec(filePath)) {
-        //         toastr.error(
-        //             'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
-        //             'Ralat!', {
-        //                 "progressBar": true
-        //             });
-        //         fileInput.value = '';
-        //         return false;
-        //     }
-        // }
-    </script>
-    <script>
-
-var uploadField = document.getElementById('file');
-        uploadField.onchange = function() {
-
-            if (this.files[0].size > 3145728) {
-                toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
-                    "progressBar": true
-                });
-
-                this.value = "";
-            };
-        };
-
-        uploadField.onchange = function() {
+            }
+        </script>
+        <script>
+            var uploadField = document.getElementById('file');
             var fileInput = document.getElementById('file');
             var filePath = fileInput.value;
             var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
-            if (!allowedExtensions.exec(filePath)) {
-                toastr.error(
-                    'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
-                    'Ralat!', {
+            uploadField.onchange = function() {
+                if (this.files[0].size > 3145728) {
+                    toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
                         "progressBar": true
                     });
-                fileInput.value = '';
-                return false;
-            }
-        }
-    </script>
 
-@endsection
+                    this.value = "";
+                };
+            };
+            uploadField.onchange = function() {
+                elseif(!allowedExtensions.exec(filePath)) {
+                    toastr.error(
+                        'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
+                        'Ralat!', {
+                            "progressBar": true
+                        });
+                    fileInput.value = '';
+                    return false;
+                };
+            };
+
+
+
+            // uploadField.onchange = function() {
+            //     var fileInput = document.getElementById('file');
+            //     var filePath = fileInput.value;
+            //     var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
+            //     if (!allowedExtensions.exec(filePath)) {
+            //         toastr.error(
+            //             'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
+            //             'Ralat!', {
+            //                 "progressBar": true
+            //             });
+            //         fileInput.value = '';
+            //         return false;
+            //     }
+            // }
+        </script>
+        <script>
+            var uploadField = document.getElementById('file');
+            uploadField.onchange = function() {
+
+                if (this.files[0].size > 3145728) {
+                    toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
+                        "progressBar": true
+                    });
+
+                    this.value = "";
+                };
+            };
+
+            uploadField.onchange = function() {
+                var fileInput = document.getElementById('file');
+                var filePath = fileInput.value;
+                var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
+                if (!allowedExtensions.exec(filePath)) {
+                    toastr.error(
+                        'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
+                        'Ralat!', {
+                            "progressBar": true
+                        });
+                    fileInput.value = '';
+                    return false;
+                }
+            }
+        </script>
+
+        <script>
+            function check() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
+
+                field = document.getElementById("editor");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                    console.log(error);
+                }
+
+                // function validateForm(event) {
+                //     var phone = document.getElementById('myform_phone').value;
+                //     if (!validatePhoneNumber(phone)) {
+                //         document.getElementById('phone_error').classList.remove('hidden');
+                //     } else {
+                //         document.getElementById('phone_error').classList.add('hidden');
+                //         alert("validation success")
+                //     }
+                //     event.preventDefault();
+                // }
+
+                // (B4) RESULT
+                if (error == "") {
+                    document.getElementById('phone_error').classList.remove('hidden');
+                } else {
+                    document.getElementById('phone_error').classList.add('hidden');
+                    // return false;
+                }
+            }
+        </script>
+    @endsection

@@ -55,9 +55,9 @@
                                     Sila Pilih Tahun</label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="tahun">
+                                        <select class="form-control" id="date-dropdown" name="tahun">
                                             <option selected hidden disabled>Sila Pilih Tahun</option>
-                                            <option>2004</option>
+                                            {{-- <option>2004</option>
                                             <option>2005</option>
                                             <option>2006</option>
                                             <option>2007</option>
@@ -74,7 +74,7 @@
                                             <option>2018</option>
                                             <option>2019</option>
                                             <option>2020</option>
-                                            <option>2021</option>
+                                            <option>2021</option> --}}
 
                                         </select>
                                     </fieldset>
@@ -141,42 +141,24 @@
                     class="bi bi-arrow-up-short"></i></a>
         @endsection
         @section('scripts')
-            <script>
-                $(document).ready(function() {
-                    var table = $('#example').DataTable({
-                        "language": {
-                            "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                            "zeroRecords": "Maaf, tiada rekod.",
-                            "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                            "infoEmpty": "Tidak ada rekod yang tersedia",
-                            "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                            "search": "Carian",
-                            "previous": "Sebelum",
-                            "paginate": {
-                                "first": "Pertama",
-                                "last": "Terakhir",
-                                "next": "Seterusnya",
-                                "previous": "Sebelumnya"
-                            },
-                        },
-                    });
-                });
+   
+          <script type="text/javascript">
+            window.onload = function () {
+                //Reference the DropDownList.
+                var ddlYears = document.getElementById("date-dropdown");
 
-                $(window).on('changed', (e) => {
-                    // if($('#example').DataTable().clear().destroy()){
-                    // $('#example').DataTable();
-                    // }
-                });
+                //Determine the Current Year.
+                var currentYear = (new Date()).getFullYear();
 
-                // document.getElementById("form_type").onchange = function() {
-                //     myFunction()
-                // };
-
-                // function myFunction() {
-                //     console.log('asasa');
-                //     table.clear().draw();
-                // }
-            </script>
+                //Loop and add the Year values to DropDownList.
+                for (var i = 2004; i <= currentYear; i++) {
+                    var option = document.createElement("OPTION");
+                    option.innerHTML = i;
+                    option.value = i;
+                    ddlYears.appendChild(option);
+                }
+            };
+        </script>
         @endsection
     </div>
 </div>

@@ -562,11 +562,11 @@
                                 <tbody>
                                     <tr>
                                         <td width="60%">Jumlah Hari Kilang Beroperasi Sebulan</td>
-                                        <td width="62%"><b>{{ $ii->hari_operasi }} Hari</b></td>
+                                        <td width="62%"><b>{{ $ii->hari_operasi ?? '' }} Hari</b></td>
                                     </tr>
                                     <tr>
                                         <td width="60%">Kadar Penggunaan Kapasiti Sebulan</td>
-                                        <td width="62%"><b>{{ $ii->kapasiti }} %</b></td>
+                                        <td width="62%"><b>{{ $ii->kapasiti ?? ''}} %</b></td>
                                     </tr>
                                 </tbody>
                             </table>

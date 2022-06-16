@@ -42,6 +42,8 @@
     {{-- SweetAlert2 --}}
     <link href="{{ asset('nice-admin/assets/libs/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -456,9 +458,9 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('buah.paparpenyata') }}" class="sidebar-link">
+                                            <a href="{{ route('buah.paparpenyata') }}" class="sidebar-link " >
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -466,7 +468,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('buah.hantar.penyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -590,7 +592,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('penapis.paparpenyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -598,7 +600,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('penapis.hantar.penyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu">Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu">Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -710,7 +712,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('isirung.paparpenyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -718,7 +720,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('isirung.hantar.penyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu">Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu">Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -829,7 +831,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('oleo.paparpenyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -837,7 +839,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('oleo.hantar.penyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu">Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu">Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -918,7 +920,7 @@
                                             <a href="{{ route('pusatsimpan.paparpenyata') }}"
                                                 class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -927,7 +929,7 @@
                                             <a href="{{ route('pusatsimpan.hantar.penyata') }}"
                                                 class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu">Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu">Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -1038,7 +1040,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('bio.paparpenyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu"> Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -1046,7 +1048,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('bio.hantar.penyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                                <span class="hide-menu">Papar & Hantar Penyata <br> Bulanan
+                                                <span class="hide-menu">Semak & Hantar Penyata <br> Bulanan
                                                 </span>
                                             </a>
                                         </li>
@@ -1740,7 +1742,12 @@
             e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
         }
     </script>
+    {{-- <script>
+            $('#sa-title').click(function(){
+        swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.")
+    });
 
+        </script> --}}
         @yield('scripts')
         @if ($map_url)
             @if ($not_admin)

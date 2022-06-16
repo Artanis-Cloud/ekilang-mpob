@@ -259,8 +259,8 @@ class KilangBuahController extends Controller
         $kilang = E91Init::where('e91_nl', auth()->user()->username)->first();
         // $kilang = E91Init::where('e91_nl', '500028104000')->first();
 
-        if  ($kilang){
-            return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'kilang','bulan','tahun',));
+        if ($kilang) {
+            return view('users.KilangBuah.buah-bahagian-i', compact('returnArr', 'layout', 'kilang', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -336,8 +336,8 @@ class KilangBuahController extends Controller
         $tahun = date("Y");
 
 
-        if  ($penyata){
-            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata','bulan','tahun', 'oer','ker'));
+        if ($penyata) {
+            return view('users.KilangBuah.buah-bahagian-ii', compact('returnArr', 'layout', 'penyata', 'bulan', 'tahun', 'oer', 'ker'));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -403,8 +403,8 @@ class KilangBuahController extends Controller
             ($penyata->e91_ai6 ?? 0);
 
 
-        if  ($penyata){
-            return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'jumlah','bulan','tahun',));
+        if ($penyata) {
+            return view('users.KilangBuah.buah-bahagian-iii', compact('returnArr', 'layout', 'penyata', 'jumlah', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -477,9 +477,8 @@ class KilangBuahController extends Controller
         $jumlah = ($penyata->e91_aj1 ?? 0) + ($penyata->e91_aj2 ?? 0) + ($penyata->e91_aj3 ?? 0) +
             ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
 
-        if  ($penyata){
-            return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah','bulan','tahun',));
-
+        if ($penyata) {
+            return view('users.KilangBuah.buah-bahagian-iv', compact('returnArr', 'layout', 'penyata', 'jumlah', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -556,8 +555,8 @@ class KilangBuahController extends Controller
 
         $jumlah = ($penyata->e91_ak1 ?? 0) + ($penyata->e91_ak2 ?? 0) + ($penyata->e91_ak3 ?? 0);
 
-        if  ($penyata){
-            return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata', 'jumlah','bulan','tahun',));
+        if ($penyata) {
+            return view('users.KilangBuah.buah-bahagian-v', compact('returnArr', 'layout', 'penyata', 'jumlah', 'bulan', 'tahun',));
         } else {
             return redirect()->back()
                 ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
@@ -613,7 +612,7 @@ class KilangBuahController extends Controller
     public function buah_paparpenyata()
     {
         //semak jumlah bahagian v
-        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+        $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
         // dd($penyata);
 
         $jumlah_3 = ($penyata->e91_ai1 ?? 0) +
@@ -633,7 +632,7 @@ class KilangBuahController extends Controller
             return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian I (FFB)!');
         } elseif ($jumlah_4 != $penyata->e91_ae2) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian I (CPO)!');
-        } elseif($jumlah_5 != $penyata->e91_ae3) {
+        } elseif ($jumlah_5 != $penyata->e91_ae3) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian I (PK)!');
         }
         //end of semak jumlah bahagian v
@@ -678,18 +677,24 @@ class KilangBuahController extends Controller
         }
     }
 
-    public function buah_update_papar_penyata(Request $request, $id)
+    public function buah_update_papar_penyata(Request $request)
     {
         // dd($request->all());
 
 
-        $penyata = E91Init::findOrFail($id);
-        $penyata->e91_flg = '2';
-        $penyata->e91_sdate = date("Y-m-d");
-        $penyata->e91_npg = $request->e91_npg;
-        $penyata->e91_jpg = $request->e91_jpg;
-        $penyata->e91_notel = $request->e91_notel;
+        $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $penyata->e_npg = $request->e_npg;
+        $penyata->e_jpg = $request->e_jpg;
+        $penyata->e_notel_pg = $request->e_notel_pg;
         $penyata->save();
+
+        $penyata2 = E91Init::where('e91_nl', auth()->user()->username)->first();
+        $penyata2->e91_flg = '2';
+        $penyata2->e91_sdate = date("Y-m-d");
+        $penyata2->e91_npg = $request->e_npg;
+        $penyata2->e91_jpg = $request->e_jpg;
+        $penyata2->e91_notel = $request->e_notel_pg;
+        $penyata2->save();
 
 
         return redirect()->route('buah.hantar.penyata')
@@ -776,10 +781,10 @@ class KilangBuahController extends Controller
         return Validator::make($data, [
             // 'Id' => ['required', 'string'],
             'TypeOfEmail' => ['required', 'string'],
-            'FromEmail' => ['required', 'string'],
+            // 'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
-            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
+            // 'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
 
 
         ]);
@@ -787,8 +792,9 @@ class KilangBuahController extends Controller
 
     protected function store_send_email(array $data)
     {
-
+        // dd($data['file_upload']);
         //store file
+
         if ($data['file_upload']) {
             $file = $data['file_upload']->store('email/attachement', 'public');
         }
@@ -799,7 +805,7 @@ class KilangBuahController extends Controller
             'FromName' => auth()->user()->name,
             'FromLicense' => auth()->user()->username,
             'TypeOfEmail' => $data['TypeOfEmail'],
-            'FromEmail' => $data['FromEmail'],
+            'FromEmail' => auth()->user()->email,
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
