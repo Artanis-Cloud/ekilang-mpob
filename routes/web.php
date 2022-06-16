@@ -240,9 +240,11 @@ Route::middleware('auth')->group(function () {
         Route::post('admin/minyak-sawit-diproses/edit/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_minyak_sawit_diproses'])->name('admin.edit.minyak.sawit.diproses');
         Route::get('admin/minyak-sawit-diproses/delete/{id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_delete_minyak_sawit_diproses'])->name('admin.delete.minyak.sawit.diproses');
         Route::post('admin/minyak-sawit-diproses/add', [App\Http\Controllers\Admin\LaporanController::class, 'admin_add_minyak_sawit_diproses'])->name('admin.add.minyak.sawit.diproses');
+        Route::get('admin/validasi-minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_minyak_sawit_diproses'])->name('admin.validasi.minyak.sawit.diproses');
+        // Route::get('admin/validasi-minyak-sawit/proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_minyak_sawit_proses'])->name('admin.validasi.minyak.sawit.proses');
+
 
         Route::get('admin/tambah-minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_proses'])->name('admin.tambah.proses');
-        Route::get('admin/validasi-minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_minyak_sawit_diproses'])->name('admin.validasi.minyak.sawit.diproses');
 
 
         Route::get('admin/activities', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_all'])->name('admin.activities.all');

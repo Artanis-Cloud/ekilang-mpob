@@ -1006,7 +1006,8 @@ class LaporanController extends Controller
     {
         $bulan = Bulan::get();
 
-        $hebahan = DB::connection('mysql2')->select("SELECT* FROM hebahan_proses");
+        $hebahan = DB::connection('mysql2')->select("SELECT* FROM hebahan_proses
+        order by tahun, bulan");
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -1119,9 +1120,11 @@ class LaporanController extends Controller
         ]);
     }
 
-    public function admin_validasi_minyak_sawit_diproses()
+    public function admin_validasi_minyak_sawit_diproses(Request $request)
     {
-        $bulan = Bulan::get();
+
+        $tahun = $request->tahun;
+        $bulan = $request->bulan;
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -1136,8 +1139,116 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.validasi-minyak-sawit-diproses', compact('returnArr', 'layout', 'bulan'));
+        //--> cpo
+        $querycpo1 = DB::connection('mysql2')->select("SELECT e_nl as lesen, e_np as kilang, negeri.nama_negeri as negeri, sum(`penyata`.`kuantiti`) as cpo_msia_1
+        FROM `penyata` ,produk, kilang,negeri
+        WHERE
+        `penyata`.`tahun` =  '$tahun' AND
+        `penyata`.`bulan` =  '$bulan' AND
+        `penyata`.`menu` = 'cpo_cpko' AND
+        `penyata`.`penyata` in  ('cpo_proses') AND
+        `produk`.`kumpulan_produk` =  '1' AND
+        `penyata`.`kod_produk` = 'CPO' AND
+        `kilang`.`jenis` <>  'dummy' AND
+        `penyata`.`lesen` = `kilang`.`e_nl` AND
+        kilang.e_apnegeri = negeri.id_negeri AND
+        `penyata`.`kod_produk` =`produk`.`nama_produk`
+        group by e_nl, e_np");
+
+        //--> ppo
+        $queryppo1 = DB::connection('mysql2')->select("SELECT e_nl as lesen, e_np as kilang,negeri.nama_negeri as negeri, sum(`penyata`.`kuantiti`) as ppo_msia_1
+        FROM `penyata` ,  kilang, produk,negeri
+        WHERE
+        `penyata`.`tahun` =  '$tahun' AND
+        `penyata`.`bulan` =  '$bulan' AND
+        `penyata`.`menu` = 'ppo' AND
+        `penyata`.`penyata` in  ('ppo_proses') AND
+        `produk`.`kumpulan_produk` =  '1' AND
+        `penyata`.`kod_produk` <> 'CPO' AND
+        `kilang`.`jenis` <>  'dummy' AND
+        `penyata`.`lesen` = `kilang`.`e_nl` AND
+        kilang.e_apnegeri = negeri.id_negeri AND
+        `penyata`.`kod_produk` =`produk`.`nama_produk`
+        group by e_nl, e_np");
+
+        //--> cpko
+        $querycpko1 = DB::connection('mysql2')->select("SELECT e_nl as lesen, e_np as kilang,nama_negeri as negeri, sum(`penyata`.`kuantiti`) as cpko_msia_1
+        FROM `penyata` ,  kilang, produk, negeri
+        WHERE
+        `penyata`.`tahun` =  '$tahun' AND
+        `penyata`.`bulan` =  '$bulan' AND
+        `penyata`.`menu` = 'cpo_cpko' AND
+        `penyata`.`penyata` in  ('cpo_proses') AND
+        `penyata`.`kod_produk` = 'CPKO' AND
+        `kilang`.`jenis` <>  'dummy' AND
+        `penyata`.`lesen` = `kilang`.`e_nl` AND
+        kilang.e_apnegeri = negeri.id_negeri AND
+        `penyata`.`kod_produk` =`produk`.`nama_produk`
+        group by e_nl, e_np");
+
+        //--> ppko
+        $queryppko1 = DB::connection('mysql2')->select("SELECT e_nl as lesen, e_np as kilang,nama_negeri as negeri, sum(`penyata`.`kuantiti`) as ppko_msia_1
+        FROM `penyata` ,kilang,produk, negeri
+        WHERE
+        `penyata`.`tahun` =  '$tahun' AND
+        `penyata`.`bulan` =  '$bulan' AND
+        `penyata`.`menu` = 'ppo' AND
+        `penyata`.`penyata` in  ('ppo_proses') AND
+        `penyata`.`kod_produk` <> 'CPKO' AND
+        `kilang`.`jenis` <>  'dummy' AND
+        `penyata`.`lesen` = `kilang`.`e_nl` AND
+        kilang.e_apnegeri = negeri.id_negeri AND
+        `produk`.`kumpulan_produk` =  '2' AND
+        `penyata`.`kod_produk` =`produk`.`nama_produk`
+        group by e_nl, e_np");
+
+
+        $total_cpo = DB::connection('mysql2')->table("penyata")->where('tahun', $tahun)->where('bulan', $bulan)->where('penyata', 'cpo_proses')->sum('kuantiti');
+        $total_ppo = DB::connection('mysql2')->table("penyata")->where('tahun', $tahun)->where('bulan', $bulan)->where('penyata', 'ppo_proses')->where('penyata', 'ppo_proses')->sum('kuantiti');
+        $total_cpko = DB::connection('mysql2')->table("penyata")->where('tahun', $tahun)->where('bulan', $bulan)->where('penyata', 'cpko_proses')->sum('kuantiti');
+        $total_ppko = DB::connection('mysql2')->table("penyata")->where('tahun', $tahun)->where('bulan', $bulan)->where('penyata', 'ppko_proses')->sum('kuantiti');
+
+        // $total_cpo =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`)
+        // FROM 'penyata'
+        // WHERE
+        // `penyata`.`tahun` =  '$tahun' AND
+        // `penyata`.`bulan` =  '$bulan'");
+
+
+
+        // foreach ($querycpo1 as $data) {
+        //     $total_cpo = ($data->stok_awal) + ($data->bekalan_belian) + ($data->bekalan_penerimaan) + ($data->bekalan_import);
+
+        //     $total += $total_3a_3b + $total_3c_3d;
+        //     $total_all_sem += $total;
+        // }
+
+        $array = [
+            'tahun' => $tahun,
+            'bulan' => $bulan,
+
+            'querycpo1' => $querycpo1,
+            'queryppo1' => $queryppo1,
+            'querycpko1' => $querycpko1,
+            'queryppko1' => $queryppko1,
+            'total_cpo' => $total_cpo,
+            'total_ppo' => $total_ppo,
+            'total_cpko' => $total_cpko,
+            'total_ppko' => $total_ppko,
+
+            'breadcrumbs' => $breadcrumbs,
+            'kembali' => $kembali,
+
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+
+
+        return view('admin.laporan_dq.validasi-minyak-sawit-diproses', $array);
     }
+
+
 
     public function admin_oleo_export()
     {

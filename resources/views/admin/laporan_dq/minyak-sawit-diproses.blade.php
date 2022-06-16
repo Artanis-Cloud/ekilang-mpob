@@ -82,10 +82,10 @@
                                                             <th>Port</th>
                                                         </tr>
                                                     </thead>
-                                                    @foreach ($hebahan as $data)
-                                                        <tbody>
 
+                                                    <tbody>
 
+                                                        @foreach ($hebahan as $data)
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $data->tahun }}</td>
@@ -125,157 +125,156 @@
 
                                                                 </div></td>
                                                             </tr>
+                                                            <div class="col-md-6 col-12">
 
-                                                        </tbody>
-                                                        <div class="col-md-6 col-12">
+                                                                <!--scrolling content Modal -->
+                                                                <div class="modal fade" id="modal{{ $data->id }}" tabindex="-1"
+                                                                    role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <h5 class="modal-title" id="exampleModalScrollableTitle">
+                                                                                    Kemaskini Biodiesel diproses </h5>
+                                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                                    aria-label="Close">
+                                                                                    <i data-feather="x"></i>
+                                                                                </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <form
+                                                                                    action="{{ route('admin.edit.minyak.sawit.diproses', [$data->id]) }}"
+                                                                                    method="post">
+                                                                                    @csrf
+                                                                                    <div class="modal-body">
+                                                                                        <label class="required">Tahun</label>
+                                                                                        <div class="form-group">
+                                                                                            <fieldset class="form-group">
+                                                                                                <select class="form-control" id="tahun"
+                                                                                                    name="tahun">
+                                                                                                    <option hidden value="{{ $data->tahun }}">
+                                                                                                        @for ($i = 2003; $i <= date('Y'); $i++)
+                                                                                                        <option >{{ $i }}</option>
+                                                                                                    @endfor
 
-                                                            <!--scrolling content Modal -->
-                                                            <div class="modal fade" id="modal{{ $data->id }}" tabindex="-1"
-                                                                role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                                                                </select>
+                                                                                            </fieldset>
+                                                                                            {{-- <input type="text" name='e101_d3'
+                                                                                                                        class="form-control"
+                                                                                                                        value="{{ $data->kodsl[0]->catname }}"
+                                                                                                                        readonly> --}}
+
+                                                                                        </div>
+                                                                                        <label class="required">Bulan </label>
+                                                                                        <div class="form-group">
+                                                                                            <fieldset class="form-group">
+                                                                                                <select class="form-control" id="bulan"
+                                                                                                    name="bulan">
+                                                                                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                                                        <option {{ ($data->bulan == '01') ? 'selected' : '' }} value="01">Januari</option>
+                                                                                                        <option {{ ($data->bulan == '02') ? 'selected' : '' }}  value="02">Februari</option>
+                                                                                                        <option {{ ($data->bulan == '03') ? 'selected' : '' }}  value="03">Mac</option>
+                                                                                                        <option {{ ($data->bulan == '04') ? 'selected' : '' }}  value="04">April</option>
+                                                                                                        <option {{ ($data->bulan == '05') ? 'selected' : '' }}  value="05">Mei</option>
+                                                                                                        <option {{ ($data->bulan == '06') ? 'selected' : '' }}  value="06">Jun</option>
+                                                                                                        <option {{ ($data->bulan == '07') ? 'selected' : '' }}  value="07">Julai</option>
+                                                                                                        <option {{ ($data->bulan == '08') ? 'selected' : '' }}  value="08">Ogos</option>
+                                                                                                        <option {{ ($data->bulan == '09') ? 'selected' : '' }}  value="09">September</option>
+                                                                                                        <option {{ ($data->bulan == '10') ? 'selected' : '' }}  value="10">Oktober</option>
+                                                                                                        <option {{ ($data->bulan == '11') ? 'selected' : '' }}  value="11">November</option>
+                                                                                                        <option {{ ($data->bulan == '12') ? 'selected' : '' }}  value="12">Disember</option>
+                                                                                                </select>
+                                                                                            </fieldset>
+
+                                                                                        </div>
+                                                                                        <label class="required">CPO MSIA</label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='cpo_msia'
+                                                                                                onkeypress="return isNumberKey(event)"
+                                                                                                class="form-control" id='cpo_msia' oninput="validate_two_decimal(this)"
+                                                                                                value="{{ old('cpo_msia') ?? $data->cpo_msia }}">
+                                                                                        </div>
+                                                                                        <label class="required">PPO MSIA</label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='ppo_msia'
+                                                                                                onkeypress="return isNumberKey(event)"
+                                                                                                class="form-control" id='ppo_msia' oninput="validate_two_decimal(this)"
+                                                                                                value="{{ old('ppo_msia') ?? $data->ppo_msia }}">
+                                                                                        </div>
+                                                                                        <label class="required">CPKO MSIA</label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='cpko_msia'
+                                                                                                onkeypress="return isNumberKey(event)"
+                                                                                                class="form-control" id='cpko_msia' oninput="validate_two_decimal(this)"
+                                                                                                value="{{ old('cpko_msia') ?? $data->cpko_msia }}">
+                                                                                        </div>
+                                                                                        <label class="required">PPKO MSIA</label>
+                                                                                        <div class="form-group">
+                                                                                            <input type="text" name='ppko_msia'
+                                                                                                onkeypress="return isNumberKey(event)"
+                                                                                                class="form-control" id='ppko_msia' oninput="validate_two_decimal(this)"
+                                                                                                value="{{ old('ppko_msia') ?? $data->ppko_msia }}">
+                                                                                        </div>
+                                                                                    </div>
+
+
+                                                                            </div>
+
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-light-secondary"
+                                                                                    data-dismiss="modal">
+                                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                                    <span class="d-none d-sm-block">Batal</span>
+                                                                                </button>
+                                                                                <button type="submit" class="btn btn-primary ml-1">
+                                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                                    <span class="d-none d-sm-block">Kemaskini</span>
+                                                                                </button>
+                                                                            </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="modal fade" id="next2{{ $data->id }}" tabindex="-1"
+                                                                role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                                    role="document">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalScrollableTitle">
-                                                                                Kemaskini Biodiesel diproses </h5>
+                                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                                PENGESAHAN</h5>
                                                                             <button type="button" class="close" data-dismiss="modal"
                                                                                 aria-label="Close">
                                                                                 <i data-feather="x"></i>
                                                                             </button>
                                                                         </div>
                                                                         <div class="modal-body">
-                                                                            <form
-                                                                                action="{{ route('admin.edit.minyak.sawit.diproses', [$data->id]) }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                <div class="modal-body">
-                                                                                    <label class="required">Tahun</label>
-                                                                                    <div class="form-group">
-                                                                                        <fieldset class="form-group">
-                                                                                            <select class="form-control" id="tahun"
-                                                                                                name="tahun">
-                                                                                                <option hidden value="{{ $data->tahun }}">
-                                                                                                    @for ($i = 2003; $i <= date('Y'); $i++)
-                                                                                                    <option >{{ $i }}</option>
-                                                                                                @endfor
-
-                                                                                            </select>
-                                                                                        </fieldset>
-                                                                                        {{-- <input type="text" name='e101_d3'
-                                                                                                                    class="form-control"
-                                                                                                                    value="{{ $data->kodsl[0]->catname }}"
-                                                                                                                    readonly> --}}
-
-                                                                                    </div>
-                                                                                    <label class="required">Bulan </label>
-                                                                                    <div class="form-group">
-                                                                                        <fieldset class="form-group">
-                                                                                            <select class="form-control" id="bulan"
-                                                                                                name="bulan">
-                                                                                                    <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                                                    <option {{ ($data->bulan == '01') ? 'selected' : '' }} value="01">Januari</option>
-                                                                                                    <option {{ ($data->bulan == '02') ? 'selected' : '' }}  value="02">Februari</option>
-                                                                                                    <option {{ ($data->bulan == '03') ? 'selected' : '' }}  value="03">Mac</option>
-                                                                                                    <option {{ ($data->bulan == '04') ? 'selected' : '' }}  value="04">April</option>
-                                                                                                    <option {{ ($data->bulan == '05') ? 'selected' : '' }}  value="05">Mei</option>
-                                                                                                    <option {{ ($data->bulan == '06') ? 'selected' : '' }}  value="06">Jun</option>
-                                                                                                    <option {{ ($data->bulan == '07') ? 'selected' : '' }}  value="07">Julai</option>
-                                                                                                    <option {{ ($data->bulan == '08') ? 'selected' : '' }}  value="08">Ogos</option>
-                                                                                                    <option {{ ($data->bulan == '09') ? 'selected' : '' }}  value="09">September</option>
-                                                                                                    <option {{ ($data->bulan == '10') ? 'selected' : '' }}  value="10">Oktober</option>
-                                                                                                    <option {{ ($data->bulan == '11') ? 'selected' : '' }}  value="11">November</option>
-                                                                                                    <option {{ ($data->bulan == '12') ? 'selected' : '' }}  value="12">Disember</option>
-                                                                                            </select>
-                                                                                        </fieldset>
-
-                                                                                    </div>
-                                                                                    <label class="required">CPO MSIA</label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='cpo_msia'
-                                                                                            onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control" id='cpo_msia' oninput="validate_two_decimal(this)"
-                                                                                            value="{{ old('cpo_msia') ?? $data->cpo_msia }}">
-                                                                                    </div>
-                                                                                    <label class="required">PPO MSIA</label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='ppo_msia'
-                                                                                            onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control" id='ppo_msia' oninput="validate_two_decimal(this)"
-                                                                                            value="{{ old('ppo_msia') ?? $data->ppo_msia }}">
-                                                                                    </div>
-                                                                                    <label class="required">CPKO MSIA</label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='cpko_msia'
-                                                                                            onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control" id='cpko_msia' oninput="validate_two_decimal(this)"
-                                                                                            value="{{ old('cpko_msia') ?? $data->cpko_msia }}">
-                                                                                    </div>
-                                                                                    <label class="required">PPKO MSIA</label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" name='ppko_msia'
-                                                                                            onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control" id='ppko_msia' oninput="validate_two_decimal(this)"
-                                                                                            value="{{ old('ppko_msia') ?? $data->ppko_msia }}">
-                                                                                    </div>
-                                                                                </div>
-
-
+                                                                            <p>
+                                                                                Anda pasti mahu menghapus maklumat ini?
+                                                                            </p>
                                                                         </div>
-
                                                                         <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-light-secondary"
+                                                                            <button type="button" class="btn btn-primary ml-1"
                                                                                 data-dismiss="modal">
-                                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                                <span class="d-none d-sm-block">Batal</span>
-                                                                            </button>
-                                                                            <button type="submit" class="btn btn-primary ml-1">
                                                                                 <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                <span class="d-none d-sm-block">Kemaskini</span>
+                                                                                <span class="d-none d-sm-block">Tidak</span>
                                                                             </button>
+                                                                            <a href="{{ route('admin.delete.minyak.sawit.diproses', [$data->id]) }}"
+                                                                                type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
+
+                                                                                <i class="bx bx-x d-block d-sm-none" ></i>
+                                                                                <span class="d-none d-sm-block" >Ya</span>
+                                                                            </a>
                                                                         </div>
-                                                                        </form>
+
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                        @endforeach
+                                                    </tbody>
 
-                                                        </div>
-
-                                                        <div class="modal fade" id="next2{{ $data->id }}" tabindex="-1"
-                                                            role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                                role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                            PENGESAHAN</h5>
-                                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                            aria-label="Close">
-                                                                            <i data-feather="x"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <p>
-                                                                            Anda pasti mahu menghapus maklumat ini?
-                                                                        </p>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-primary ml-1"
-                                                                            data-dismiss="modal">
-                                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                                            <span class="d-none d-sm-block">Tidak</span>
-                                                                        </button>
-                                                                        <a href="{{ route('admin.delete.minyak.sawit.diproses', [$data->id]) }}"
-                                                                            type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
-
-                                                                            <i class="bx bx-x d-block d-sm-none" ></i>
-                                                                            <span class="d-none d-sm-block" >Ya</span>
-                                                                        </a>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                    @endforeach
                                                 </table>
                                             </div>
                                         </div>
