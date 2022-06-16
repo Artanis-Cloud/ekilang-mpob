@@ -67,6 +67,39 @@ class KilangPenapisController extends Controller
         return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
     }
 
+    protected function validation_daftar_pelesen(array $data)
+    {
+        return Validator::make($data, [
+            // 'e_nl' => ['required', 'string', 'unique:pelesen'],
+            // 'e_np' => ['required', 'string'],
+            'e_ap1' => ['required', 'string'],
+            // 'e_ap2' => ['required', 'string'],
+            // 'e_ap3' => ['required', 'string'],
+            'e_as1' => ['required', 'string'],
+            // 'e_as2' => ['required', 'string'],
+            // 'e_as3' => ['required', 'string'],
+            'e_notel' => ['required', 'string'],
+            // 'e_nofax' => ['required', 'string'],
+            'e_email' => ['required', 'string'],
+            'e_npg' => ['required', 'string'],
+            'e_jpg' => ['required', 'string'],
+            'e_notel_pg' => ['required', 'string'],
+            'e_email_pg' => ['required', 'string'],
+            'e_npgtg' => ['required', 'string'],
+            'e_jpgtg' => ['required', 'string'],
+            'e_email_pengurus' => ['required', 'string'],
+            // 'e_negeri' => ['required', 'string'],
+            // 'e_daerah' => ['required', 'string'],
+            // 'e_kawasan' => ['required', 'string'],
+            'e_syktinduk' => ['required', 'string'],
+            // 'e_year' => ['required', 'string'],
+            'e_group' => ['required', 'string'],
+            // 'e_poma' => ['required', 'string'],
+            'kap_proses' => ['required', 'string'],
+
+        ]);
+    }
+
     public function penapis_update_maklumat_asas_pelesen(Request $request, $id)
     {
         // dd($request->all());
