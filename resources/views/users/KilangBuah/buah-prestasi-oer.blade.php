@@ -38,50 +38,52 @@
                         <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                     </div> --}}
 
-            <div class="card-body">
-                {{-- <div class="row"> --}}
-                {{-- <div class="col-md-4 col-12"> --}}
-                <div class="pl-3">
+                    <div class="card-body">
+                        {{-- <div class="row"> --}}
+                            {{-- <div class="col-md-4 col-12"> --}}
+                            <div class="">
 
-                    <div class="text-center">
-                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                        <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Prestasi OER</h3>
-                        <h5 style="color: rgb(39, 80, 71); font-size:14px"">Laporan Prestasi OER Kilang Buah</h5>
-                        {{-- <p>Maklumat Kilang</p> --}}
-                    </div>
-                    <hr>
-                    <h6 style="color: rgb(39, 80, 71, 0.8);">
+                                <div class="text-center">
+                                    {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                                    <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Prestasi OER</h3>
+                                    <h5 style="color: rgb(39, 80, 71); font-size:14px">Laporan Prestasi OER Kilang Buah</h5>
+                                    {{-- <p>Maklumat Kilang</p> --}}
+                                </div>
+                                <hr>
+                                <h6 style="color: rgb(39, 80, 71, 0.8);">
 
-                        <b><i> Nota :</i></b>
-                        <ul>
-                            <li>
-                                <p><i> Data yang dikeluarkan adalah data 36 bulan terdahulu dari tahun yang
-                                        diminta.</i></p>
-                            </li>
-                            <li>
-                                <p><i> Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai
-                                        lebih daripada tiga pelesen.</i></p>
-                            </li>
-                            <li>
-                                <p><i> Paparan hanya dapat dilakukan bermula dari tahun 2000 sahaja.</i></p>
-                            </li>
-                        </ul>
-
-
-
-                    </h6>
+                                    <b><i> Nota :</i></b>
+                                    <ul>
+                                        <li>
+                                            <p><i> Data yang dikeluarkan adalah data 36 bulan terdahulu dari tahun yang
+                                                    diminta.</i></p>
+                                        </li>
+                                        <li>
+                                            <p><i> Data bagi daerah hanya dikeluarkan sekiranya daerah itu mempunyai
+                                                    lebih daripada tiga pelesen.</i></p>
+                                        </li>
+                                        <li>
+                                            <p><i> Paparan hanya dapat dilakukan bermula dari tahun 2000 sahaja.</i></p>
+                                        </li>
+                                    </ul>
 
 
-                    <div class="container center mt-4">
-                        <div class="row" style="margin-bottom:2%;">
-                            <label for="fname"
-                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                Sila Pilih Tahun Yang Diminta</label>
-                            <div class="col-md-6">
-                                <fieldset class="form-group">
-                                    <select class="form-control" id="date-dropdown">
-                                        <option selected hidden disabled>Sila Pilih Tahun</option>
-                                        {{-- <option>2000</option>
+
+                                </h6>
+
+
+                                <div class="container center mt-4">
+                                    <div class="row justify-content-center" style="margin:20px 0px">
+                                        <div class="col-sm-3 form-group" style="margin: 0px">
+                                           <label for="fname"
+                                            class="control-label col-form-label required">
+                                            Sila Pilih Tahun Yang Diminta</label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <fieldset class="form-group">
+                                                <select class="form-control" id="basicSelect">
+                                                    <option selected hidden disabled>Sila Pilih Tahun</option>
+                                                    <option>2000</option>
                                                     <option>2001</option>
                                                     <option>2002</option>
                                                     <option>2003</option>
@@ -116,21 +118,14 @@
 
 
 
+
+                            <div class="row justify-content-center form-group" >
+                                <button type="submit" class="btn btn-primary ">Papar Data</button>
+
+                            </div>
                     </div>
                 </div>
 
-
-
-
-                <div class="row form-group">
-
-
-
-                    <div class="text-right col-md-12  ">
-                        <button type="submit" class="btn btn-primary " style="margin-right:48%">Papar Data</button>
-                    </div>
-
-                </div>
 
 
 

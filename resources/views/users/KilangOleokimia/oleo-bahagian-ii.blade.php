@@ -70,7 +70,7 @@
                             <div class="card-body">
                                 {{-- <div class="row"> --}}
                                     {{-- <div class="col-md-4 col-12"> --}}
-                                    <div class="pl-3">
+                                    <div class="">
 
                                         <div class="text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -81,12 +81,14 @@
                                         <hr>
 
                                             <div class="container center mt-3">
-                                                <div class="row">
-                                                    <label for="fname"
-                                                        class="text-right col-sm-5 control-label col-form-label align-items-center">i.
+                                                <div class="row justify-content-center" style="margin:20px 0px">
+                                                    <div class="col-sm-4 form-group" style="margin: 0px">
+                                                        <label for="fname"
+                                                        class="control-label col-form-label">i.
                                                         Jumlah Hari Kilang Beroperasi Sebulan </label>
-                                                    <div class="col-md-6">
-                                                        <input type="text" class="form-control" name='e104_a5' style="margin-left:42%; width:40%; text-align:right"
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <input type="text" class="form-control" name='e104_a5'
                                                             onkeypress="return isNumberKey(event)" id="e104_a5" required
                                                             title="Sila isikan butiran ini." value="{{ old('e104_a5') ?? $penyata->e104_a5 }}">
                                                         @error('e104_a5')
@@ -99,12 +101,15 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="row mt-2">
-                                                    <label for="fname"
-                                                        class="text-right col-sm-5 control-label col-form-label align-items-center">ii.
+
+                                                <div class="row justify-content-center" style="margin:20px 0px">
+                                                    <div class="col-sm-4 form-group" style="margin: 0px">
+                                                        <label for="fname"
+                                                        class="control-label col-form-label">ii.
                                                         Kadar Penggunaan Kapasiti Sebulan (%)	</label>
-                                                    <div class="col-md-6">
-                                                        <input type="text" class="form-control" name='e104_a6' style="margin-left:42%; width:40%; text-align:right"
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <input type="text" class="form-control" name='e104_a6'
                                                             onkeypress="return isNumberKey(event)" id="e104_a6" oninput="validate_two_decimal(this)"
                                                             required title="Sila isikan butiran ini." value="{{ $penyata->e104_a6 }}">
                                                         @error('e104_a6')
@@ -114,24 +119,14 @@
                                                     @enderror
                                                     </div>
                                                 </div>
-
-
                                             </div>
 
-
-                                            <div class="row form-group" style="margin-top:200px">
-
-
-                                                <div class="text-left col-md-5" style="margin-left:2%">
-                                                    <a href="{{ route('oleo.bahagianic') }}" class="btn btn-primary"
-                                                        style="float: left">Sebelumnya</a>
-                                                </div>
-                                                <div class="text-right col-md-6" style="margin-left:4%">
-                                                    <button type="button" class="btn btn-primary " data-toggle="modal"
-                                                        style="float: right" data-target="#next">Simpan &
-                                                        Seterusnya</button>
-                                                </div>
-
+                                            <div class="form-group" style="margin-top:200px">
+                                                <a href="{{ route('oleo.bahagianic') }}" class="btn btn-primary"
+                                                    style="float: left">Sebelumnya</a>
+                                                <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                    style="float: right" data-target="#next">Simpan &
+                                                    Seterusnya</button>
                                             </div>
 
                                         <!-- Vertically Centered modal Modal -->

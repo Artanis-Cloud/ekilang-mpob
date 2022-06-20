@@ -104,7 +104,7 @@
                                     <span class="">Ke:</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-control" id="e102_b5" style=" margin-left:-30%; width:50%"
+                                    <select class="form-control" id="e102_b5" style=" width:50%"
                                         name="e102_b5" required>
                                         <option selected hidden disabled>Sila Pilih</option>
 
@@ -141,12 +141,9 @@
                         </div>
 
 
-                        <div class="row form-group" style="margin-top: 2%; ">
+                        <div class="row justify-content-center form-group" style="margin-top: 3%; ">
 
-
-
-                            <div class="text-right col-md-6 mb-4 ">
-                                <button type="submit" class="btn btn-primary" style="margin-left:96%">Tambah</button>
+                                <button type="submit" class="btn btn-primary">Tambah</button>
                             </div>
 
                         </div>
@@ -557,17 +554,10 @@
 
 
 
-        <div class="row form-group" style="padding-top: 10px; ">
-
-
-            <div class="text-left col-md-5">
-                <a href="{{ route('isirung.bahagianiv') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
-            </div>
-            <div class="text-right col-md-7 mb-4 ">
-                <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                    data-target="#next">Simpan & Seterusnya</button>
-            </div>
-
+        <div class="form-group" style="padding: 20px; ">
+            <a href="{{ route('isirung.bahagianiv') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
+            <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                data-target="#next">Simpan & Seterusnya</button>
         </div>
 
         <!-- Vertically Centered modal Modal -->

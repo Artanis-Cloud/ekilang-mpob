@@ -63,7 +63,7 @@
         </div>
                 <div class="card" style="margin-right:2%; margin-left:2%">
                     <div class="card-body">
-                            <div class="pl-3">
+                            <div class="">
                                 <form action="{{ route('oleo.add.bahagian.ia') }}" method="post">
                                     @csrf
                                     <div class="mb-4 text-center">
@@ -239,12 +239,10 @@
                                     </div>
                                     <br>
 
-                                    <div class="row form-group" style="margin-left:45%">
-                                        <div class="row form-group" >
-                                            <div class="text-right col-md-12 mb-4 " >
-                                                <button type="submit" class="btn btn-primary ">Tambah</button>
-                                            </div>
-                                        </div>
+                                    <div class="row justify-content-center form-group" >
+
+                                        <button type="submit" class="btn btn-primary ">Tambah</button>
+
                                     </div>
 
                                 </form>
@@ -531,18 +529,16 @@
 
 
 
-                            <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                <div class="text-left col-md-5">
-                                    {{-- <a href="{{ route('oleo.dashboard') }}" class="btn btn-primary"
-                                        style="float: left">Sebelumnya</a> --}}
+                            <div class="form-group" style="padding-top: 10px; ">
+                                {{-- <div class="text-left col-md-5">
+                                    <a href="{{ route('oleo.dashboard') }}" class="btn btn-primary"
+                                        style="float: left">Sebelumnya</a>
                                 </div>
-                                <div class="text-right col-md-7 mb-4 ">
+                                <div class="text-right col-md-7 mb-4 "> --}}
                                     <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                         style="float: right" data-bs-target="#next">Simpan &
                                         Seterusnya</button>
-                                </div>
+                                {{-- </div> ---}}
 
                             </div>
 

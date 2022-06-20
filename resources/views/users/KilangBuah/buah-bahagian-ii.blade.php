@@ -37,7 +37,7 @@
                         @endif  {{ $tahun }}</h4>
                 </div>
                 <div class="col-7 align-self-center">
-                    <div class="d-flex align-items-center justify-content-end">
+                    <div class="d-flex justify-content-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
@@ -62,10 +62,10 @@
                 </div>
             </div>
         </div>
-                <div class="card" style="margin-right:2%; margin-left:2%;">
-                    <div class="card-body">
-                        <div class="col-md-12">
-                            <div class="pl-3">
+
+            <div class="card" style="margin-right:2%; margin-left:2%;">
+                <div class="card-body">
+                    <div class="col-md-12">
 
                         <div class="text-center">
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h3>
@@ -88,13 +88,16 @@
                         </div>
                         <form action="{{ route('buah.update.bahagian.ii', [$penyata->e91_reg]) }}" method="post">
                             @csrf
-                            <div class="container center mt-3" style="margin-left:15%">
-                                <div class="row">
-                                    <label for="fname" class="text-right col-sm-5 align-items-center">i.
+                            <div class="container center " >
+
+                                <div class="row justify-content-center" style="margin:20px 0px">
+                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <label for="fname" class="align-items-center">i.
                                         Jumlah Jam Pengilangan</label>
-                                    <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-3">
                                         <input type="text" class="form-control" name='e91_ah1'  oninput="validate_two_decimal(this);setCustomValidity('')"
-                                            style=" width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            style="  text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             id="jam_pengilangan" required title="Sila isikan butiran ini."
                                             value="{{ $penyata->e91_ah1 ?? 0 }}">
                                             @error('e91_ah1')
@@ -104,14 +107,16 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-2">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label align-items-center">ii.
+                                <div class="row justify-content-center" style="margin:20px 0px">
+                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <label for="fname"
+                                        class="control-label col-form-label">ii.
                                         Kadar
                                         Perahan MSM (OER) Yang Diperolehi</label>
-                                    <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-3">
                                         <input type="text" class="form-control" name='e91_ah2' oninput="validate_two_decimal(this);setCustomValidity('')"
-                                            style="width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            style=" text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             id="kadar_perahan_mksm" required title="Sila isikan butiran ini."
                                             value="{{ number_format($oer ?? 0, 2)}}">
                                             @error('e91_ah2')
@@ -121,13 +126,15 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-2">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label align-items-center">iii.
+                                <div class="row justify-content-center" style="margin:20px 0px">
+                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <label for="fname"
+                                        class="control-label col-form-label">iii.
                                         Kadar Perolehan Isirung (KER)</label>
-                                    <div class="col-md-6">
+                                    </div>
+                                    <div class="col-md-3">
                                         <input type="text" class="form-control" name='e91_ah3' oninput="validate_two_decimal(this);setCustomValidity('')"
-                                            style="width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            style=" text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             id="kadar_perolehan_isirung" required title="Sila isikan butiran ini."
                                             value="{{ number_format($ker ?? 0, 2)}}">
                                             @error('e91_ah3')
@@ -137,13 +144,15 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row mt-2">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label align-items-center">iv.
-                                        Harga Purata Belian Buah Tandan Segar (FFB)</label>
-                                    <div class="col-md-6">
+                                <div class="row justify-content-center" style="margin:20px 0px">
+                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <label for="fname"
+                                        class="control-label col-form-label">iv.
+                                        Harga Purata Belian Buah Kelapa Sawit (FFB)</label>
+                                    </div>
+                                    <div class="col-md-3">
                                         <input type="text" class="form-control" name='e91_ah4' oninput="validate_two_decimal(this);setCustomValidity('')"
-                                            style=" width:40%; text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            style="  text-align:right" onkeypress="return isNumberKey(event)" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                             id="harga_purata_buah_sawit" placeholder="RM" required
                                             title="Sila isikan butiran ini." value="{{ $penyata->e91_ah4 ?? 0 }}">
                                         <p><i>(1% Kadar Perahan)</i></p>
@@ -154,12 +163,14 @@
                                         @enderror
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label align-items-center">v.
+                                <div class="row justify-content-center" style="margin:20px 0px">
+                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                        <label for="fname"
+                                        class="control-label col-form-label">v.
                                         Prestasi OER</label>
+                                    </div>
                                     <div class="col-md-3">
-                                        <fieldset class="form-group" style=" width: 85%" >
+                                        <fieldset class="form-group">
                                             <select name="kadar_oer" class="form-control" id="kadar_oer" required
                                                 onchange="showTable()" oninput="setCustomValidity('')" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
                                                 <option selected hidden disabled value="">Sila Pilih Prestasi OER</option>
@@ -427,20 +438,12 @@
                                 </div>
                             </div>
 
-                            <div class="row form-group" style="margin-bottom: 70px">
-
-
-                                <div class="text-left col-md-5">
+                            <div class="form-group" style="margin-bottom: 70px; width: 100%">
                                     <a href="{{ route('buah.bahagiani') }}" class="btn btn-primary"
-                                        style="float: left">Sebelumnya</a>
-                                </div>
+                                       >Sebelumnya</a>
 
-                                <div class="text-right col-md-7 ">
                                     <button type="submit" class="btn btn-primary" style="float: right">Simpan &
                                         Seterusnya</button>
-                                </div>
-
-
                             </div>
 
                             <!-- Vertically Centered modal Modal -->
@@ -487,7 +490,7 @@
 
 
         {{-- <div id="preloader"></div> --}}
-        <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        <a href="#" class="back-to-top d-flex justify-content-center"><i
                 class="bi bi-arrow-up-short"></i></a>
 
 

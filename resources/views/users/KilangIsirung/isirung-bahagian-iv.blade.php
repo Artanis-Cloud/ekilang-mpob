@@ -72,7 +72,7 @@
             <form action="{{ route('isirung.add.bahagian.iv') }}" method="post">
                 @csrf
                 <div class="card-body">
-                    <div class="pl-3">
+                    <div class="" style="padding: 2%">
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                             <h3 style="color: rgb(39, 80, 71);">Bahagian 4</h3>
@@ -82,7 +82,7 @@
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
-                        <div class="container center mt-3" style="margin-left: 4%">
+                        <div class="container center mt-3" >
                             <div class="row mt-3">
                                 <div class="col-md-3">
                                     <span class="">Jualan/Edaran:</span>
@@ -103,11 +103,13 @@
                                         </div>
                                     @enderror
                                 </div>
+
+
                                 <div class="col-md-3">
                                     <span class="">Ke:</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <select class="form-control" id="e102_b5" style=" margin-left:-30%; width:50%"
+                                    <select class="form-control" id="e102_b5" style=" width:50%"
                                         required name="e102_b5">
                                         <option selected hidden disabled>Sila Pilih</option>
 
@@ -146,14 +148,9 @@
                             </div>
 
                         </div>
-                        <div class="row form-group" style="margin-top: 3%; ">
 
-
-
-                            <div class="text-right col-md-6 mb-4 ">
-                                <button type="submit" class="btn btn-primary" style="margin-left:96%">Tambah</button>
-                            </div>
-
+                        <div class="row justify-content-center form-group" style="margin-top: 3%; ">
+                                <button type="submit" class="btn btn-primary">Tambah</button>
                         </div>
 
             </form>
@@ -567,13 +564,9 @@
 
 
 
-        <div class="row form-group" style="padding-top: 10px; ">
-
-
-            <div class="text-left col-md-5">
+        <div class="form-group" style="padding: 10px; ">
                 <a href="{{ route('isirung.bahagianii') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
-            </div>
-            <div class="text-right col-md-7 mb-4 ">
+
                 <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                     data-target="#next">Simpan &
                     Seterusnya</button>

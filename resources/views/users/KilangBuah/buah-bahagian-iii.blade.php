@@ -249,15 +249,11 @@
                 <br>
 
 
-                <div class="row form-group" style="margin-top:30px">
-                    <div class="text-left col-md-5">
+                <div class="form-group" style="padding: 10px">
                         <a href="{{ route('buah.bahagianii') }}" class="btn btn-primary"
                             style="float: left">Sebelumnya</a>
-                    </div>
-                    <div class="text-right col-md-7">
                         <button type="SUBMIT" class="btn btn-primary" style="float: right" id="go">Simpan &
                             Seterusnya</button>
-                    </div>
                 </div>
 
                 <!-- Vertically Centered modal Modal -->

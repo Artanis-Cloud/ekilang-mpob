@@ -62,7 +62,7 @@
             <form action="{{ route('oleo.add.bahagian.ib') }}" method="post">
                 @csrf
                 <div class="card-body">
-                    <div class="pl-3">
+                    <div class="">
 
                         <div class="mb-4 text-center">
                             <h3 style="color: rgb(39, 80, 71); ">Bahagian 1(b)</h3>
@@ -71,7 +71,7 @@
                         </div>
                         <hr>
 
-                        <div class="container center mt-4" style="margin-left:4%">
+                        <div class="container center mt-4" >
 
                             <div class="row">
                                 <div class="col-md-3">
@@ -232,12 +232,8 @@
                         </div>
                         <br>
 
-                        <div class="row form-group" style="margin-left:45%">
-                            <div class="row form-group">
-                                <div class="text-right col-md-12 mb-4 ">
-                                    <button type="submit" class="btn btn-primary ">Tambah</button>
-                                </div>
-                            </div>
+                        <div class="row justify-content-center form-group" >
+                            <button type="submit" class="btn btn-primary ">Tambah</button>
                         </div>
             </form>
 
@@ -492,13 +488,8 @@
 
         </div>
 
-        <div class="row form-group" style="padding-top: 10px; ">
-
-
-            <div class="text-left col-md-5">
+        <div class="form-group" style="padding: 10px; ">
                 <a href="{{ route('oleo.bahagiania') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
-            </div>
-            <div class="text-right col-md-7 mb-4 ">
                 <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
                     data-bs-target="#next">Simpan &
                     Seterusnya</button>

@@ -73,20 +73,20 @@
 
 
             <div class="card-body">
-                <div class="pl-3">
+                <div class="">
 
                     <form action="{{ route('bio.add.bahagian.iii') }}" method="post">
                         @csrf
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                            <h3 style="color: rgb(39, 80, 71); ">Bahagian III</h3>
+                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 3</h3>
                             <h5 style="color: rgb(39, 80, 71)">Ringkasan Produk Biodiesel dan Glycerine
                             </h5>
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
 
-                        <div class="container center mt-4" style="margin-left:4%">
+                        <div class="container center mt-4">
 
                             <div class="row">
                                 <div class="col-md-3">
@@ -235,14 +235,9 @@
                         </div>
                                 <br>
 
-                                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                    <div class="row form-group" style="margin-left: 45%;">
-                                        <div class="text-right col-md-12 mb-4 ">
-                                            <button type="submit" class="btn btn-primary ">Tambah</button>
-                                        </div>
-                                    </div>
+                        <div class="row justify-content-center form-group" style="margin: 3%;">
+                            <button type="submit" class="btn btn-primary ">Tambah</button>
+                        </div>
 
                     </form>
                     <section class="section">
@@ -646,18 +641,11 @@
                     data-target="#123">cuba</button>
             </div> --}}
 
-                <div class="row form-group">
-
-
-                    <div class="text-left col-md-5">
+                <div class="form-group">
                         <a href="{{ route('bio.bahagianii') }}" class="btn btn-primary"
                             style="float: left">Sebelumnya</a>
-                    </div>
-                    <div class="text-right col-md-7">
                         <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                             data-target="#next">Hantar Penyata</button>
-                    </div>
-
                 </div>
 
                 <!-- Pengesahan Modal -->
@@ -750,7 +738,7 @@
             <input type="hidden" name="nama_syarikat1[]">
             </form>
 
-        </div>
+
     @endsection
     @section('scripts')
         <script>

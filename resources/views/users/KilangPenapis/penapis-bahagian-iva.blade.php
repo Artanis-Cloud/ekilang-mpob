@@ -65,11 +65,11 @@
                 </div>
             </div>
         </div>
-        <div class="card" style="margin-right:2%; margin-left:2%">
+        <div class="card" style="margin-right:2%; margin-left:2%; padding: 2%">
             <form action="{{ route('penapis.add.bahagian.iva') }}" method="post">
                 @csrf
                 <div class="card-body">
-                    <div class="pl-3">
+                    <div class="" >
                         <div class="mb-4 text-center">
                             <h3 style="color: rgb(39, 80, 71);">Bahagian 4 (a)</h3>
                             <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan
@@ -77,7 +77,7 @@
                                 - Bahan Makanan</h5>
                         </div>
                         <hr>
-                        <div class="container center mt-4" style="margin-left:4%">
+                        <div class="container center mt-4" >
 
                             <div class="row">
                                 <div class="col-md-3">
@@ -197,10 +197,14 @@
                                 </div>
 
                             </div>
+
                         </div><br>
 
+
                     </div>
-                </div>
+                    <div class="row justify-content-center form-group" style="margin-top: 5%; ">
+                                <button type="submit" class="btn btn-primary">Tambah</button>
+                            </div>
 
 
             </form>
@@ -418,19 +422,13 @@
 
                     </div>
                 </div>
-                <div class="row form-group" style="padding-top: 10px; ">
 
-
-                    <div class="text-left col-md-5">
-                        <a href="{{ route('penapis.bahagianiii') }}" class="btn btn-primary"
-                            style="float: left">Sebelumnya</a>
-                    </div>
-                    <div class="text-right col-md-7">
-                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                            data-target="#next">Simpan &
-                            Seterusnya</button>
-                    </div>
-
+                <div class="form-group" style="padding-top: 10px; ">
+                    <a href="{{ route('penapis.bahagianiii') }}" class="btn btn-primary"
+                        style="float: left">Sebelumnya</a>
+                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                        data-target="#next">Simpan &
+                        Seterusnya</button>
                 </div>
 
                 <!-- Vertically Centered modal Modal -->

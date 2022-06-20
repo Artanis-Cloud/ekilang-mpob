@@ -69,10 +69,11 @@
             {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-            <form action="{{ route('penapis.add.bahagian.ivb') }}" method="post">
+            <div class="card-body">
+                <form action="{{ route('penapis.add.bahagian.ivb') }}" method="post">
                 @csrf
-                <div class="card-body">
-                    <div class="pl-3">
+
+
                         <div class="mb-4 text-center">
                             <h3 style="color: rgb(39, 80, 71);">Bahagian 4 (b)</h3>
                             <h5 style="color: rgb(39, 80, 71)">Produk Akhir Berasaskan Minyak Sawit dan
@@ -200,16 +201,8 @@
 
 
                         </div>
-
-
-                        <div class="row form-group" style="margin-top: 5%; ">
-
-
-
-                            <div class="text-right col-md-6 mb-4 ">
-                                <button type="submit" class="btn btn-primary" style="margin-left:96%">Tambah</button>
-                            </div>
-
+                        <div class="row justify-content-center form-group" style="margin-top: 5%; ">
+                                <button type="submit" class="btn btn-primary">Tambah</button>
                         </div>
             </form>
 
@@ -438,19 +431,12 @@
 
 
 
-                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                    <div class="text-left col-md-5">
+                <div class="form-group" style="padding-top: 10px; ">
                         <a href="{{ route('penapis.bahagianiva') }}" class="btn btn-primary"
                             style="float: left">Sebelumnya</a>
-                    </div>
-                    <div class="text-right col-md-7">
                         <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                             data-target="#next">Simpan &
                             Seterusnya</button>
-                    </div>
-
                 </div>
 
                 <!-- Vertically Centered modal Modal -->
@@ -488,7 +474,7 @@
         </div>
         </form>
 
-    </div>
+    
     <br>
     </section><!-- End Hero -->
     </main><!-- End #main -->

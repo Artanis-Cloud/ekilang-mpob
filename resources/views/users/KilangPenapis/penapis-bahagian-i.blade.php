@@ -70,8 +70,7 @@
             <form action="{{ route('penapis.add.bahagian.i') }}" method="post">
                 @csrf
                 <div class="card-body">
-                    <div class="pl-3">
-
+                    <div class="" style="padding: 2%">
                         <div class="mb-4 text-center">
                             <h3 style="color: rgb(39, 80, 71); ">Bahagian 1</h3>
                             <h5 style="color: rgb(39, 80, 71)">Produk Minyak Sawit
@@ -79,7 +78,7 @@
                         </div>
                         <hr>
 
-                        <div class="container center mt-4" style="margin-left:4%">
+                        <div class="container center mt-4" >
 
                             <div class="row">
                                 <div class="col-md-3">
@@ -176,8 +175,7 @@
                             <div class="row mt-3">
                                 <div class="col-md-3">
                                     <span class=""> Belian/Terimaan</span>
-                                    <i class="fa fa-exclamation-circle" style="color: red" title="Sekiranya ada maklumat import,
-sila campurkan (+) dengan maklumat Belian/Terimaan.">
+                                    <i class="fa fa-exclamation-circle" style="color: red" title="Sekiranya ada maklumat import, sila campurkan (+) dengan maklumat Belian/Terimaan.">
                                     </i>
                                 </div>
                                 <div class="col-md-3">
@@ -262,24 +260,12 @@ sila campurkan (+) dengan maklumat Belian/Terimaan.">
                                     @enderror
                                 </div>
                             </div>
-
-
-
                         </div>
-
-
-
                     </div>
 
 
-                    <div class="row form-group" style="margin-top: 5%; ">
-
-
-
-                        <div class="text-right col-md-6 mb-4 ">
-                            <button type="submit" class="btn btn-primary" style="margin-left:90%">Tambah</button>
-                        </div>
-
+                    <div class="row justify-content-center form-group" style="margin-top: 5%; ">
+                        <button type="submit" class="btn btn-primary" >Tambah</button>
                     </div>
                     <input type="hidden" name="hidDelete" id="hidDelete" value="" />
 

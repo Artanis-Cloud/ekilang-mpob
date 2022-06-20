@@ -38,7 +38,7 @@
 
             <div class="card-body">
 
-                <div class="pl-3">
+                <div class="">
                     <form action="{{ route('buah.penyata.dahulu.process') }}" method="post">
                         @csrf
                         <div class="text-center">
@@ -49,10 +49,11 @@
                         </div>
                         <hr>
                         <div class="container center mt-2">
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-2" style="margin: 0px">                                <label for="fname"
+                                    class="control-label col-form-label required">
                                     Sila Pilih Tahun</label>
+                                </div>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="date-dropdown" name="tahun">
@@ -86,10 +87,12 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">Bulan
-                                </label>
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-2" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">Bulan
+                                    </label>
+                                </div>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="basicSelect" name="bulan">
@@ -121,18 +124,12 @@
 
                         </div>
 
-                        <div class="row form-group" style="padding-top: 20px; ">
-
-                            <div class="text-right col-md-12 mb-4 ">
-                                <button type="submit" class="btn btn-primary " style="margin-right: 48%">Papar
+                        <div class="row justify-content-center form-group" style="padding-top: 20px; margin-bottom: 12%">
+                            <button type="submit" class="btn btn-primary ">Papar
                                     Penyata</button>
-                            </div>
-
                         </div>
-
                     </form>
                     <br>
-
                 </div> <br><br>
             </div>
 

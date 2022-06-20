@@ -898,20 +898,13 @@
 
                                             <h1 style="page-break-before:always"></h1>
 
-                                            <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                                <div class="text-left col-md-5">
+                                            <div class="form-group" style="padding-top: 10px; ">
                                                     <a href="{{ route('isirung.bahagianv') }}" class="btn btn-primary"
                                                         style="float: left">Sebelumnya</a>
-                                                </div>
-                                                <div class="text-right col-md-7 mb-4 ">
                                                     <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                                                         data-target="#next">Hantar</button>
                                                     {{-- <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
                                                         onclick="myPrint('myfrm')" value="print">Cetak</button> --}}
-                                                </div>
-
                                             </div>
 
                                             <!-- Vertically Centered modal Modal -->
