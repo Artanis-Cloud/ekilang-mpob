@@ -67,7 +67,7 @@
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
             <div class="card-body">
-                <div class="pl-3">
+                <div class="">
                     <form action="{{ route('pusatsimpan.add.bahagian.a') }}" method="post">
                         @csrf
                         <div class="mb-4 text-center">
@@ -119,7 +119,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3">
-                                    <span">Eksport</span>
+                                    <span>Eksport</span>
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e07bt_eksport' style="width: 50%"
@@ -208,11 +208,8 @@
 
                         </div>
                         <br>
-                        <div class="row form-group" style="margin-top: 1%; ">
-                            <div class="text-right col-md-6 mb-4 ">
-                                <button type="submit" class="btn btn-primary" style="margin-left:90%" >Tambah</button>
-                            </div>
-
+                        <div class="row justify-content-center form-group" style="margin-top: 1%; ">
+                            <button type="submit" class="btn btn-primary" >Tambah</button>
                         </div>
                     </form>
 
@@ -445,18 +442,14 @@
 
                                 </div>
 
-                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                    <div class="text-left col-md-5">
-                        {{-- <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
-                            style="float: left">Sebelumnya</a> --}}
+                <div class="form-group" style="padding-top: 20px; ">
+                    {{--<div class="text-left col-md-5">
+                         <a href="{{ route('buah.bahagianv') }}" class="btn btn-primary"
+                            style="float: left">Sebelumnya</a>
                     </div>
-                    <div class="text-right col-md-7">
-                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
-                            data-target="#next">Simpan & Seterusnya</button>
-                    </div>
-
+                    <div class="text-right col-md-7">--}}
+                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                        data-target="#next">Simpan & Seterusnya</button>
                 </div>
 
                 <!-- Vertically Centered modal Modal -->

@@ -69,7 +69,7 @@
             <form action="{{ route('penapis.add.bahagian.ii') }}" method="post">
                 @csrf
                 <div class="card-body">
-                    <div class="pl-3">
+                    <div style="padding: 2%">
 
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -169,9 +169,7 @@
                             <div class="row mt-3">
                                 <div class="col-md-3">
                                     <span class=""> Belian/Terimaan</span>
-                                    <i class="fa fa-exclamation-circle" style="color: red"
-                                        title="Sekiranya ada maklumat import,
-sila campurkan (+) dengan maklumat Belian/Terimaan.">
+                                    <i class="fa fa-exclamation-circle" style="color: red" title="Sekiranya ada maklumat import, sila campurkan (+) dengan maklumat Belian/Terimaan.">
                                     </i>
                                 </div>
                                 <div class="col-md-3">
@@ -262,15 +260,11 @@ sila campurkan (+) dengan maklumat Belian/Terimaan.">
                         </div>
 
 
-                        <div class="row form-group" style="margin-top: 5%; ">
-
-
-
-                            <div class="text-right col-md-6 mb-4 ">
-                                <button type="submit" class="btn btn-primary" style="margin-left:96%">Tambah</button>
-                            </div>
-
+                        <div class="row justify-content-center form-group" style="margin-top: 5%; ">
+                            <button type="submit" class="btn btn-primary">Tambah</button>
                         </div>
+
+                    </div>
             </form>
 
             <hr>
@@ -549,20 +543,13 @@ sila campurkan (+) dengan maklumat Belian/Terimaan.">
                 </div>
 
 
-                <div class=" row form-group" style="padding-top: 10px; ">
-
-
-                    <div class="text-left col-md-5">
+                <div class="form-group" style="padding: 10px; ">
                         <a href="{{ route('penapis.bahagiani') }}" class="btn btn-primary"
                             style="float: left">Sebelumnya</a>
-                    </div>
-                    <div class="text-right col-md-7  ">
                         <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                             data-target="#next">Simpan &
                             Seterusnya</button>
-                    </div>
-
-                </div>
+                 </div>
 
                 <!-- Vertically Centered modal Modal -->
                 <div class="modal fade" id="next" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -602,7 +589,7 @@ sila campurkan (+) dengan maklumat Belian/Terimaan.">
         {{-- <br> --}}
         </form>
 
-    </div>
+
 
     {{-- </div> --}}
 

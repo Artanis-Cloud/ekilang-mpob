@@ -15,7 +15,7 @@
                     <h4 class="page-title">Maklumat Pelesen</h4>
                 </div>
                 <div class="col-7 align-self-center">
-                    <div class="d-flex align-items-center justify-content-end">
+                    <div class="d-flex justify-content-end">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
@@ -47,7 +47,7 @@
             <div class="card-body">
                 {{-- <div class="row"> --}}
                 {{-- <div class="col-md-4 col-12"> --}}
-                <div class="pl-3">
+                <div class="" style="padding: 2%">
 
                     <div class=" text-center">
                         {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -60,13 +60,15 @@
                     <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> * </b><i>'</i>
                     <form action="{{ route('isirung.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
                         @csrf
-                        <div class="container center mt-5">
-                            <div class="row" style="margin-bottom:2.5%; margin-top:-2%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label required col-form-label align-items-center">
+                        <div class="container center mt-5" >
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label required col-form-label">
                                     Alamat Premis Berlesen</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_ap1" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="e_ap1" class="form-control" maxlength="60"
                                         placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}"
                                         required>
                                     @error('e_ap1')
@@ -74,18 +76,16 @@
                                             <strong>{{ $message }}</strong>
                                         </div>
                                     @enderror
-                                </div>
-                                <div class="col-md-6" style="margin-left: 41.6%; ">
-                                    <input type="text" id="e_ap2" class="form-control"
+
+                                    <input type="text" id="e_ap2" class="form-control" maxlength="60"
                                         placeholder="Alamat Premis Berlesen 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}">
                                     @error('e_ap2')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
                                         </div>
                                     @enderror
-                                </div>
-                                <div class="col-md-6" style="margin-left: 41.6%;">
-                                    <input type="text" id="e_ap3" class="form-control"
+
+                                    <input type="text" id="e_ap3" class="form-control" maxlength="60"
                                         placeholder="Alamat Premis Berlesen 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}">
                                     @error('e_ap3')
                                         <div class="alert alert-danger">
@@ -95,12 +95,14 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="margin-bottom:2.5%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Alamat Surat Menyurat</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_as1" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="e_as1" class="form-control" maxlength="60"
                                         placeholder="Alamat Surat Menyurat 1" name="e_as1"
                                         value="{{ $pelesen->e_as1 }}" required>
                                     @error('e_as1')
@@ -108,9 +110,8 @@
                                                     <strong>{{ $message }}</strong>
                                                 </div>
                                             @enderror
-                                </div>
-                                <div class="col-md-6" style="margin-left: 41.6%">
-                                    <input type="text" id="e_as2" class="form-control"
+
+                                    <input type="text" id="e_as2" class="form-control" maxlength="60"
                                         placeholder="Alamat Surat Menyurat 2" name="e_as2"
                                         value="{{ $pelesen->e_as2 }}">
                                         @error('e_as2')
@@ -118,9 +119,8 @@
                                                     <strong>{{ $message }}</strong>
                                                 </div>
                                             @enderror
-                                </div>
-                                <div class="col-md-6" style="margin-left: 41.6%">
-                                    <input type="text" id="e_as3" class="form-control"
+
+                                    <input type="text" id="e_as3" class="form-control" maxlength="60"
                                         placeholder="Alamat Surat Menyurat 3" name="e_as3"
                                         value="{{ $pelesen->e_as3 }}">
                                         @error('e_as3')
@@ -132,12 +132,14 @@
 
                             </div>
 
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     No. Telefon (Pejabat / Kilang)</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_notel" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="e_notel" class="form-control" maxlength="40"
                                         placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
                                         value="{{ $pelesen->e_notel }}" onkeypress="return isNumberKey(event)" required>
                                     @error('e_notel')
@@ -148,12 +150,14 @@
                                 </div>
 
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     No. Faks</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks" maxlength="40" onkeypress="return isNumberKey(event)"
                                         name="e_nofax" value="{{ $pelesen->e_nofax }}" required>
                                     @error('e_nofax')
                                         <div class="alert alert-danger">
@@ -162,12 +166,15 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Alamat Emel Kilang</label>
-                                <div class="col-md-6">
-                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="60"
                                         name="e_email" value="{{ $pelesen->e_email }}" required>
                                     @error('e_email')
                                                 <div class="alert alert-danger">
@@ -176,12 +183,15 @@
                                             @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Nama Pegawai Melapor</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_npg" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="e_npg" class="form-control" maxlength="60"
                                         placeholder="Nama Pegawai Melapor" name="e_npg"
                                         value="{{ $pelesen->e_npg }}" required>
                                     @error('e_npg')
@@ -191,12 +201,15 @@
                                             @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Jawatan Pegawai Melapor</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_jpg" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="e_jpg" class="form-control" maxlength="60"
                                         placeholder="Jawatan Pegawai Melapor" name="e_jpg"
                                         value="{{ $pelesen->e_jpg }}" required>
                                     @error('e_jpg')
@@ -206,12 +219,15 @@
                                             @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     No. Telefon Pegawai Melapor</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control" maxlength="40"
                                         placeholder="No. Telefon Pegawai Melapor"
                                         name="e_notel_pg"
                                         onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}" required>
@@ -222,14 +238,17 @@
                                             @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Alamat Emel Pegawai Melapor</label>
-                                <div class="col-md-6">
-                                    <input type="email" id="no-tel-pegawai-melapor" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="email" id="no-tel-pegawai-melapor" class="form-control" maxlength="100"
                                             placeholder="Alamat Emel Pegawai Melapor"
-                                            name="e_email_pg" value="{{ $pelesen->e_email_pg }}" required>
+                                            name="e_email_pg" value="{{ $pelesen->e_email_pg }}" required multiple>
                                     @error('e_email_pg')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>
@@ -237,12 +256,15 @@
                                             @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Nama Pegawai Bertanggungjawab</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_npgtg" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="e_npgtg" class="form-control" maxlength="60"
                                         placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
                                         value="{{ $pelesen->e_npgtg }}" required>
                                     @error('e_npgtg')
@@ -252,13 +274,16 @@
                                             @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Jawatan Pegawai
                                     Bertanggungjawab</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="e_jpgtg" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
                                         placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
                                         value="{{ $pelesen->e_jpgtg }}" required>
                                     @error('e_jpgtg')
@@ -268,14 +293,17 @@
                                             @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Alamat Emel Pengurus</label>
-                                <div class="col-md-6">
-                                    <input type="email" id="e_email_pengurus" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="email" id="e_email_pengurus" class="form-control" maxlength="100"
                                         placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                        value="{{ $pelesen->e_email_pengurus  }}" required>
+                                        value="{{ $pelesen->e_email_pengurus  }}" required multiple>
 
 
                                     @error('e_email_pengurus')
@@ -285,12 +313,15 @@
                                             @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Syarikat Induk</label>
-                                <div class="col-md-6">
-                                    <input type="text" id="syarikat_induk" class="form-control"
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="text" id="syarikat_induk" class="form-control" maxlength="60"
                                         placeholder="Syarikat Induk" name="e_syktinduk"
                                         value="{{ $pelesen->e_syktinduk}}" required>
                                     @error('e_syktinduk')
@@ -300,11 +331,14 @@
                                         @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Kumpulan </label>
-                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-7">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="e_group" name="e_group" required>
                                             <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
@@ -321,11 +355,13 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="margin-top:-1%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Kapasiti Pemprosesan / Tahun</label>
-                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-7">
                                     <input type="text" id="kap_proses" class="form-control"
                                         placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}">
@@ -337,27 +373,26 @@
                                     @enderror
                                 </div>
                             </div>
-                            
 
-                            <div class="row mt-3" style="text-align: center; font-size: 12px">
-                                <div class="col-md-5">
+
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
                                     <span></span>
                                 </div>
-
-
-                                <div class="col-md-1">
+                                <div class="col-md-7">
                                     <span>CPKO</span>
                                 </div>
-
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                    Bilangan Tangki</label>
 
-                                <div class="col-md-1">
-                                    <input type="text" class="form-control" name='bil_tangki_cpko' style="width:100%"
-                                        id="bil_tangki_cpko" title="Sila isikan butiran ini."
+                             <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname" class="control-label col-form-label required">
+                                    Bilangan Tangki</label>
+                                </div>
+
+                                <div class="col-md-7">
+                                    <input type="number" class="form-control" name='bil_tangki_cpko' style="width:20%"
+                                        id="bil_tangki_cpko" title="Sila isikan butiran ini."  min="1"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpko  }}" required>
                                     @error('bil_tangki_cpko')
                                         <div class="alert alert-danger">
@@ -365,24 +400,25 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="row mt-2">
+                             </div>
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
                                     <label for="fname"
-                                        class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                        Kapasiti Tangki Simpanan (Tan)</label>
-
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" name='kap_tangki_cpko'
-                                            style="width:100%" id="kap_tangki_cpko"
-                                            title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
-                                            onkeypress="return isNumberKey(event)"  value="{{ $pelesen->bil_tangki_cpko  }}" required>
-                                        @error('kap_tangki_cpko')
-                                                <div class="alert alert-danger">
-                                                    <strong>{{ $message }}</strong>
-                                                </div>
-                                            @enderror
-                                    </div>
-
-
+                                    class="control-label col-form-label required">
+                                    Kapasiti Tangki Simpanan (Tan)</label>
+                                </div>
+                                <div class="col-md-7">
+                                    <input type="number" class="form-control" name='kap_tangki_cpko'
+                                        style="width:20%" id="kap_tangki_cpko"  min="1"
+                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
+                                        onkeypress="return isNumberKey(event)"  value="{{ $pelesen->bil_tangki_cpko  }}" required>
+                                    @error('kap_tangki_cpko')
+                                            <div class="alert alert-danger">
+                                                <strong>{{ $message }}</strong>
+                                            </div>
+                                        @enderror
+                                </div>
+                            </div>
 
                                 <br><br>
                                 <div class="row ">
@@ -391,17 +427,13 @@
                                         bilangan dan kapasiti tangki dan lapor dalam kategori Others
                                     </i>
                                 </div>
-
-
-
                             </div>
                         </div>
 
 
-                        <div class="row form-group" style="margin-top: 2%">
-                            <div class="text-right col-md-6">
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#next">Simpan</button>
+                        <div class="row justify-content-center form-group" style="margin-top: 2%">
+                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                data-target="#next">Simpan</button>
                             </div>
 
                         </div>
@@ -438,21 +470,15 @@
                             </div>
                         </div>
                     </form>
-                </div>
+
+
                 {{-- </div> --}}
-
-
-
-
-            </div>
-            </div>
-
 
     <br>
     </section><!-- End Hero -->
 
     {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+    <a href="#" class="back-to-top d-flex justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
 
@@ -527,6 +553,6 @@
 
     </html>
 @endsection
-
+            </div>
         </div>
     </div>

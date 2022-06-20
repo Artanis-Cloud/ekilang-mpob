@@ -63,7 +63,7 @@
             <form action="{{ route('oleo.add.bahagian.ic') }}" method="post">
                 @csrf
                 <div class="card-body">
-                    <div class="pl-3">
+                    <div class="">
 
                         <div class="mb-4 text-center">
                             <h3 style="color: rgb(39, 80, 71); ">Bahagian 1(c)</h3>
@@ -233,12 +233,8 @@
                         </div>
                         <br>
 
-                        <div class="row form-group" style="margin-left:45%">
-                            <div class="row form-group">
-                                <div class="text-right col-md-12 mb-4 ">
-                                    <button type="submit" class="btn btn-primary ">Tambah</button>
-                                </div>
-                            </div>
+                        <div class="row justify-content-center form-group" >
+                            <button type="submit" class="btn btn-primary ">Tambah</button>
                         </div>
                     </div>
             </form>
@@ -481,18 +477,11 @@
 
 
         </div>
-        <div class="row form-group" style="margin-top:-2%">
-
-
-            <div class="text-left col-md-5" style="margin-left:2%">
-                <a href="{{ route('oleo.bahagianib') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
-            </div>
-            <div class="text-right col-md-6 mb-4 " style="margin-left:4%">
-                <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
+        <div class="form-group" style="margin: 20px">
+            <a href="{{ route('oleo.bahagianib') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
+            <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
                     data-bs-target="#next">Simpan &
                     Seterusnya</button>
-            </div>
-
         </div>
 
         <!-- Vertically Centered modal Modal -->

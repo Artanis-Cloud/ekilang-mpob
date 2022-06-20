@@ -72,19 +72,19 @@
 
 
                         <div class="card-body">
-                                <div class="pl-3">
+                                <div class="">
                                     <form action="{{ route('bio.add.bahagian.ic') }}" method="post">
                                         @csrf
                                         <div class="mb-4 text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                            <h3 style="color: rgb(39, 80, 71); ">Bahagian I (c)</h3>
-                                            <h5 style="color: rgb(39, 80, 71)">Minyak-Minyak Lain
+                                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 1 (c)</h3>
+                                            <h5 style="color: rgb(39, 80, 71)">Lain-Lain Minyak
                                             </h5>
                                             {{-- <p>Maklumat Kilang</p> --}}
                                         </div>
                                         <hr>
 
-                                        <div class="container center mt-4" style="margin-left:4%">
+                                        <div class="container center mt-4">
 
                                             <div class="row">
                                                 <div class="col-md-3">
@@ -223,23 +223,13 @@
                                                 </div>
                                             </div>
 
-
-
-
-
-
-
                                         </div>
                                         <br>
 
-                                        <div class="row form-group" style="padding-top: 10px; ">
 
-
-                                            <div class="row form-group" style="margin-left: 45%;">
-                                                <div class="text-right col-md-12 mb-4 ">
-                                                    <button type="submit" class="btn btn-primary ">Tambah</button>
-                                                </div>
-                                            </div>
+                                        <div class="row form-group justify-content-center"  style="margin: 3%">
+                                            <button type="submit" class="btn btn-primary ">Tambah</button>
+                                        </div>
 
                                     </form>
                                     <section class="section">
@@ -248,7 +238,7 @@
                                     <br>
 
 
-                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Minyak-Minyak Lain</h5>
+                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Lain-Lain Minyak</h5>
                                     <br>
                                     <section class="section">
                                         <div class="card">
@@ -529,23 +519,12 @@
 
                                 </div>
 
-
-
-
-
-                                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                    <div class="text-left col-md-5">
+                                <div class="form-group" style="padding-top: 10px; ">
                                         <a href="{{ route('bio.bahagianib') }}" class="btn btn-primary"
                                             style="float: left">Sebelumnya</a>
-                                    </div>
-                                    <div class="text-right col-md-7 mb-4 ">
                                         <button type="button" class="btn btn-primary " data-toggle="modal"
                                             style="float: right" data-target="#next">Simpan &
                                             Seterusnya</button>
-                                    </div>
-
                                 </div>
 
                                 <!-- Vertically Centered modal Modal -->

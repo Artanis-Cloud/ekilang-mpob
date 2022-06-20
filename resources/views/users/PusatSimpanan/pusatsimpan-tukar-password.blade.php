@@ -38,7 +38,7 @@
             <!-- row -->
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card">
+                    <div class="card" style="padding: 2%">
                         <div class=" text-center">
                             <h4 style="color: rgb(39, 80, 71); margin-top:3%">Tukar Kata Laluan</h4>
                         </div>
@@ -47,12 +47,14 @@
                         <form method="POST" action="{{ route('pusatsimpan.update.password', [$user[0]->id]) }}">
                             {{ csrf_field() }}
 
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">Kata
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">Kata
                                     Laluan Terdahulu <i>(8 Aksara)</i></label>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name='old_password' id="myInput"  maxlength="8"
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="password" class="form-control" name='old_password' id="myInput"
                                         placeholder="Kata Laluan Terdahulu" required title="Sila isikan butiran ini.">
                                     @error('old_password')
                                         <div class="alert alert-danger">
@@ -61,52 +63,54 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">Kata
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                 <label for="fname"
+                                    class="control-label col-form-label required">Kata
                                     Laluan Baru <i>(8 Aksara)</i></label>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name='new_password' id="myInput2"  maxlength="8"
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8"
                                         placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                     @error('new_password')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">Sahkan
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">Sahkan
                                     Kata Laluan Baru <i>(8 Aksara)</i></label>
-                                <div class="col-md-6">
-                                    <input type="password" class="form-control" name='password_confirmation' id="myInput3"  maxlength="8"
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="password" class="form-control" name='password_confirmation' id="myInput3"  minlength="8"
                                         placeholder="Sahkan Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                     @error('password_confirmation')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label align-items-center"></i></label>
-                                <div class="col-md-6">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label align"></label>
+                                </div>
+                                <div class="col-md-4">
                                     <input type="checkbox" onclick="myFunction()">&nbsp;Tunjuk Kata Laluan
                                 </div>
                             </div>
 
 
-                            <div class="text-right col-md-6 mb-4 mt-4">
-                                <button type="button" class="btn btn-primary" style="margin-left:90%"
+                            <div class="row justify-content-center">
+                                <button type="button" class="btn btn-primary"
                                     data-toggle="modal" data-target="#next">Tukar Kata Laluan</button>
                             </div>
                     </div>
-
-
-
-
 
 
                 <!-- Vertically Centered modal Modal -->
@@ -174,5 +178,5 @@
                 }
             </script>
         @endsection
-        
+
 

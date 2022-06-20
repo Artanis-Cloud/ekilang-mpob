@@ -245,42 +245,23 @@
                                 </div>
                             </div>
 
-
-
-
-
-
-
-
-
-
-
                         </div>
                 </div>
                 <br>
 
 
-
-
-
-                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                    <div class="text-left col-md-5">
-                        <a href="{{ route('buah.bahagianiii') }}" class="btn btn-primary"
-                            style="float: left">Sebelumnya</a>
-                    </div>
+                <div class="form-group"  style="padding: 10px">
+                    <a href="{{ route('buah.bahagianiii') }}" class="btn btn-primary"
+                    style="float: left">Sebelumnya</a>
                     {{-- <div class="text-right col-md-7 mb-2 ">
-                                                <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                                    style="float: right" data-bs-target="#exampleModalCenter">Simpan &
-                                                    Seterusnya</button>
-                                            </div> --}}
-                                            <div class="text-right col-md-7 mb-4 ">
-                                                <button type="submit" class="btn btn-primary " style="float: right;">Simpan
-                                                    & Seterusnya</button>
-                                            </div>
+                        <button type="button" class="btn btn-primary " data-bs-toggle="modal"
+                            style="float: right" data-bs-target="#exampleModalCenter">Simpan &
+                            Seterusnya</button>
+                    </div> --}}
 
-                                        </div>
+                    <button type="submit" class="btn btn-primary " style="float: right;">Simpan
+                            & Seterusnya</button>
+                </div>
 
                                         <!-- Vertically Centered modal Modal -->
                                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"

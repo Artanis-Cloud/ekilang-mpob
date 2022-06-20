@@ -43,7 +43,7 @@
         <div class="card" style="margin-right:2%; margin-left:2%">
 
             <div class="card-body">
-                <div class="pl-3">
+                <div class="">
                     <form action="{{ route('pusatsimpan.penyata.dahulu.process') }}" method="post">
                         @csrf
                         <div class="text-center">
@@ -54,13 +54,14 @@
                         </div>
                         <hr>
 
-
                         <div class="container center mt-2">
-                            <div class="row" style="margin-right:4%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-2 form-group" style="margin: 0px">
+                                     <label for="fname"
+                                    class="control-label col-form-label required">
                                     Sila Pilih Tahun</label>
-                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-3">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="basicSelect" name="tahun">
                                             <option selected hidden disabled>Sila Pilih Tahun</option>
@@ -93,11 +94,13 @@
                                 </div>
                             </div>
 
-                            <div class="row" style="margin-right:4%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">Bulan
-                                </label>
-                                <div class="col-md-6">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-2 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                        class="control-label col-form-label required">Bulan
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="basicSelect" name="bulan">
                                             <option selected hidden disabled>Sila Pilih Bulan</option>
@@ -113,9 +116,6 @@
                                             <option value="10">Oktober</option>
                                             <option value="11">November</option>
                                             <option value="12">Disember</option>
-
-
-
                                         </select>
                                     </fieldset>
                                     @error('bulan')
@@ -129,12 +129,9 @@
 
                 </div>
 
-                                    <div class="row form-group" style="margin-top: 1%;">
-                                        <div class="text-right col-md-6">
-                                            <button type="submit" class="btn btn-primary" style="margin-left:90%" >Papar Penyata</button>
-                                        </div>
-
-                </div>
+                    <div class="row justify-content-center form-group" style="margin-top: 1%;">
+                        <button type="submit" class="btn btn-primary">Papar Penyata</button>
+                    </div>
                 </form>
 
 

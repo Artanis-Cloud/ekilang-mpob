@@ -62,17 +62,17 @@
             <form action="{{ route('oleo.add.bahagian.iii') }}" method="post">
                 @csrf
                 <div class="card-body">
-                    <div class="pl-3">
+                    <div class="">
                         <div class="mb-4 text-center">
                             <h3 style="color: rgb(39, 80, 71);">Bahagian 3</h3>
                             <h5 style="color: rgb(39, 80, 71)">Ringkasan Produk Oleokimia</h5>
                         </div>
                         <hr>
-                        <div class="container center mt-4" style="margin-left:4%">
+                        <div class="container center mt-4">
 
                             <div class="row">
                                 <div class="col-md-3">
-                                    <span class="">Nama Produk dan Kod</span>
+                                    <span>Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-3">
                                     <select class="form-control" id="produk" name="e104_c3" style="width: 50%">
@@ -165,12 +165,8 @@
                         </div><br>
 
 
-                        <div class="row form-group" style="margin-left:45%">
-                            <div class="row form-group">
-                                <div class="text-right col-md-12 mb-4 ">
-                                    <button type="submit" class="btn btn-primary ">Tambah</button>
-                                </div>
-                            </div>
+                        <div class="row justify-content-center form-group">
+                            <button type="submit" class="btn btn-primary ">Tambah</button>
                         </div>
                     </div>
 
@@ -377,17 +373,11 @@
 
 
 
-        <div class="row form-group" style="padding-top: 10px; ">
-
-
-            <div class="text-left col-md-5">
+        <div class="form-group" style="padding: 20px; ">
                 <a href="{{ route('oleo.bahagianii') }}" class="btn btn-primary"
-                    style="float: left; margin-left:10%">Sebelumnya</a>
-            </div>
-            <div class="text-right col-md-7 mb-4 ">
-                <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right; margin-right:7%"
+                    style="float: left;">Sebelumnya</a>
+                <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right; "
                     data-target="#next">Simpan & Seterusnya</button>
-            </div>
 
         </div>
 

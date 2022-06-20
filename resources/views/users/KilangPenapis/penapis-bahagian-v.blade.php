@@ -68,9 +68,8 @@
         <div class="card" style="margin-right:2%; margin-left:2%">
             <form action="{{ route('penapis.add.bahagian.v') }}" method="post">
                 @csrf
-                <div class="card-body">
-                    <div class="pl-3">
-                        <div class="mb-4 text-center">
+                <div class="card-body" style="padding: 2%">
+                    <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                             <h3 style="color: rgb(39, 80, 71);">Bahagian 5 (a) & (b)</h3>
                             <h5 style="color: rgb(39, 80, 71)">Belian/Terimaan Bekalan Produk Sawit (Sendiri dan Luar)</h5>
@@ -182,15 +181,11 @@
                             </div>
                         </div>
 
-                        <div class="row form-group" style="margin-top: 5%; ">
-
-
-
-                            <div class="text-right col-md-6 mb-4 ">
-                                <button type="submit" class="btn btn-primary" style="margin-left:96%">Tambah</button>
-                            </div>
-
+                        <div class="row justify-content-center form-group" style="margin-top: 5%; ">
+                            <button type="submit" class="btn btn-primary">Tambah</button>
                         </div>
+
+
             </form>
             <hr>
             <h5 style="color: rgb(39, 80, 71); text-align:center; margin-top:3%; margin-bottom:3%">Senarai Belian/Terimaan
@@ -391,7 +386,7 @@
                                 @endforeach
                                 <tr>
 
-                                    <td colspan="2"><b>JUMLAH</b></td>
+                                    <td colspan="2"><b>JUMLAH (SENDIRI)</b></td>
                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                     <td style="text-align: right"><b>{{ number_format($totala ?? 0, 2) }}</b></td>
                                     <td style="text-align: right"><b>{{ number_format($totala2 ?? 0, 2) }}</b></td>
@@ -570,7 +565,7 @@
                                 @endforeach
                                 <tr>
 
-                                    <td colspan="2"><b>JUMLAH</b></td>
+                                    <td colspan="2"><b>JUMLAH (LUAR)</b></td>
                                     {{-- <td>{{ $data->e102_b5 }}</td> --}}
                                     <td style="text-align: right"><b>{{ number_format($totalb ?? 0, 2) }}</b></td>
                                     <td style="text-align: right"><b>{{ number_format($totalb2 ?? 0, 2) }}</b></td>
@@ -589,18 +584,12 @@
 
                     </div>
                 </div>
-                <div class="row form-group" style="padding-top: 10px; ">
 
-
-                    <div class="text-left col-md-5">
-                        <a href="{{ route('penapis.bahagianivb') }}" class="btn btn-primary"
-                            style="float: left">Sebelumnya</a>
-                    </div>
-                    <div class="text-right col-md-7">
-                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                <div class="form-group" style="padding:10px">
+                    <a href="{{ route('penapis.bahagianivb') }}" class="btn btn-primary"
+                        style="float: left">Sebelumnya</a>
+                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                             data-target="#next">Simpan & Seterusnya</button>
-                    </div>
-
                 </div>
 
                 <!-- Vertically Centered modal Modal -->
@@ -636,14 +625,7 @@
                         </div>
                     </div>
                 </div>
-
-
-
         </div>
-        </form>
-
-    </div>
-
 
 
     </section><!-- End Hero -->

@@ -853,19 +853,12 @@
 
                 <h1 style="page-break-before:always"></h1>
 
-                <div class="row form-group" style="padding-top: 10px; ">
-
-
-                    <div class="text-left col-md-5">
+                <div class="form-group" style="padding: 20px; ">
                         <a href="{{ route('oleo.bahagianiii') }}" class="btn btn-primary"
-                            style="float: left; margin-left:5%">Sebelumnya</a>
-                    </div>
-                    <div class="text-right col-md-7">
-                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right; margin-right:3% "
+                            style="float: left;">Sebelumnya</a>
+
+                        <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right; "
                             data-target="#next">Hantar</button>
-
-                    </div>
-
                 </div>
 
                 <!-- Vertically Centered modal Modal -->

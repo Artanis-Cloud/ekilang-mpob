@@ -48,7 +48,7 @@
 
             <div class="card-body">
                 <div class="row">
-                    <div class="pl-3">
+                    <div class="" style="padding: 2%">
                         <div align="right">
                             <table border="0" width="25%">
                                 <tbody>
@@ -289,7 +289,7 @@
                             {{-- <tbody> --}}
                                 <tr>
                                     <th width="13%" style="text-align: center; vertical-align:middle"><b>
-                                            <font size="2">Produk Minyak Sawit</font><b></b>
+                                            <font size="2">Produk Sawit</font><b></b>
                                         </b></th>
                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font><b></b>
@@ -410,13 +410,13 @@
                         </table>
                         <p><b>
                                 <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp; PRODUK
-                                    ISIRUNG MINYAK SAWIT</font>
+                                    MINYAK ISIRUNG SAWIT</font>
                             </b> </p>
                         <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                             <tbody>
                                 <tr>
                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                            <font size="2">Produk Minyak Sawit</font>
+                                            <font size="2">Produk Sawit</font>
                                         </b></td>
                                     <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
@@ -569,7 +569,7 @@
                             <tbody>
                                 <tr>
                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                            <font size="2">Produk Minyak Sawit</font>
+                                            <font size="2">Produk Sawit</font>
                                         </b></td>
                                     <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
@@ -661,7 +661,7 @@
                             <tbody>
                                 <tr style="padding: 0.2rem 0.3rem">
                                     <td width="13%" style="text-align: center; vertical-align:middle"><b>
-                                            <font size="2">Produk Minyak Sawit</font>
+                                            <font size="2">Produk Sawit</font>
                                         </b></td>
                                     <td width="10%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
@@ -872,7 +872,7 @@
                             <tbody>
                                 <tr>
                                     <td width="14%" style="text-align: center; vertical-align:middle"><b>
-                                            <font size="2">Produk Minyak Sawit</font>
+                                            <font size="2">Produk Sawit</font>
                                         </b></td>
                                     <td width="7%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
@@ -934,7 +934,7 @@
                             <tbody>
                                 <tr>
                                     <td width="14%" style="text-align: center; vertical-align:middle"><b>
-                                            <font size="2">Produk Minyak Sawit</font>
+                                            <font size="2">Produk Sawit</font>
                                         </b></td>
                                     <td width="7%" style="text-align: center; vertical-align:middle"><b>
                                             <font size="2">Kod Produk</font>
@@ -1001,20 +1001,13 @@
 
                             <h1 style="page-break-before:always"></h1>
 
-                            <div class="row form-group" style="padding-top: 10px; ">
-
-
-                                <div class="text-left col-md-5">
+                            <div class="form-group" style="padding-top: 10px; ">
                                     <a href="{{ route('penapis.bahagianv') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
-                                </div>
-                                <div class="text-right col-md-7">
                                     <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                                         data-target="#next">Hantar</button>
                                     {{-- <button type="button" class="btn btn-primary " style="float: right; margin-right:1%"
                                                         onclick="myPrint('myfrm')" value="print">Cetak</button> --}}
-                                </div>
-
                             </div>
 
                             <!-- Vertically Centered modal Modal -->
@@ -1053,18 +1046,8 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-        </script>
-
-
-
-        <script>
+       
             function myPrint(myfrm) {
                 var printdata = document.getElementById(myfrm);
                 newwin = window.open("");

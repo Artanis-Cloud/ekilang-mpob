@@ -571,7 +571,7 @@
                                         <li class="sidebar-item">
                                             <a href="{{ route('penapis.bahagianv') }}" class="sidebar-link">
                                                 <i class="far fa-file-alt" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Bahagian 5 </span>
+                                                <span class="hide-menu"> Bahagian 5 (a) & (b) </span>
                                             </a>
                                         </li>
                                         <li class="sidebar-item">

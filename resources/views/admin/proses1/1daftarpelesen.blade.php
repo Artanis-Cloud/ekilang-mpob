@@ -236,14 +236,14 @@
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 10px;">
                                         <div class="form-group" style="margin-bottom: 10px">
-                                            <input type="text" id="alamat_premis_1" class="form-control"
+                                            <input type="text" id="alamat_premis_1" maxlength=60 class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 oninput="setCustomValidity('')" placeholder="Alamat Premis 1" name="e_ap1"
                                                 required value="{{ old('alamat_premis_1') }}">
                                         </div>
                                         <div class="form-group" style="margin-bottom: 10px">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
-                                            <input type="text" id="alamat_premis_1" class="form-control"
+                                            <input type="text" id="alamat_premis_1" maxlength=60 class="form-control"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 oninput="setCustomValidity('')" placeholder="Alamat Premis 2" name="e_ap2"
                                                 required value="{{ old('alamat_premis_1') }}">

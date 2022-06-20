@@ -42,7 +42,7 @@
         </div>
         <div class="card" style="margin-right:2%; margin-left:2%">
             <div class="card-body">
-                <div class="pl-3">
+                <div class="">
                     <form action="{{ route('isirung.penyata.dahulu.process') }}" method="post">
                         @csrf
                         <div class="text-center">
@@ -51,11 +51,13 @@
                         </div>
                         <hr>
                         <div class="container center mt-2">
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                    Sila Pilih Tahun</label>
-                                <div class="col-md-6">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-2 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                        class="control-label col-form-label required">
+                                        Sila Pilih Tahun</label>
+                                </div>
+                                <div class="col-md-3">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="basicSelect" name="tahun" required>
                                             <option selected hidden disabled>Sila Pilih Tahun</option>
@@ -89,11 +91,13 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">Bulan
-                                </label>
-                                <div class="col-md-6">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-2 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                        class="control-label col-form-label required">Bulan
+                                    </label>
+                                </div>
+                                <div class="col-md-3">
                                     <fieldset class="form-group">
                                         <select class="form-control" id="basicSelect" name="bulan" required>
                                             <option selected hidden disabled>Sila Pilih Bulan</option>
@@ -134,11 +138,10 @@
                                             </div>
 
                                     </div> --}}
-                <div class="row form-group" style="margin-top: 1%; ">
-                    <div class="text-right col-md-6 ">
-                        <button type="submit" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                <div class="row justify-content-center form-group" style="margin-top:20px; ">
+                        <button type="submit" class="btn btn-primary" data-toggle="modal"
                             data-target="#next">Papar Penyata</button>
-                    </div>
+
 
                 </div>
                 </form><br><br>

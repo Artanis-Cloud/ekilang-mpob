@@ -66,11 +66,11 @@
                 </div>
             </div>
         </div>
-        <div class="card" style="margin-right:5%; margin-left:5%">
+        <div class="card" style="margin-right:2%; margin-left:2%">
             <form action="{{ route('penapis.update.bahagian.iii', [$penyata->e101_reg]) }}" method="post">
                 @csrf
                 <div class="card-body">
-                    <div class="pl-3">
+                    <div class="" style="padding: 2%">
 
                         <div class="mb-4 text-center">
                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
@@ -82,12 +82,14 @@
                         </div>
                         <hr>
 
-                        <div class="container center mt-4" style="margin-left:9%">
+                        <div class="container center mt-4">
 
-                            <div class="row">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-5 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label">
                                     Jumlah Hari Kilang Beroperasi Sebulan</label>
+                                </div>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a1'
                                         oninput="setCustomValidity('')" id="e101_a1" required
@@ -101,10 +103,12 @@
                                                 @enderror --}}
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-5 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label">
                                     Kadar Penggunaan Kapasiti(Refining) Sebulan</label>
+                                </div>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a2'
                                         id="nombor_borang_kastam" required onkeypress="return isNumberKey(event)"
@@ -119,10 +123,13 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
+
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-5 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label">
                                     Kadar Penggunaan Kapasiti(Fractionation) Sebulan</label>
+                                </div>
                                 <div class="col-md-2">
                                     <input type="text" class="form-control" style="text-align:right" name='e101_a3'
                                         id="kuantiti" onkeypress="return isNumberKey(event)" required
@@ -138,16 +145,11 @@
                                 </div>
                             </div>
 
-                            <div class="row form-group" style="margin-top: 30px">
-                                <div class="text-left col-md-5">
+                            <div class="form-group" style="padding: 2%; margin-bottom: 15%">
                                     <a href="{{ route('penapis.bahagianii') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
-                                </div>
-                                <div class="text-right col-md-5">
                                     <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                                         data-target="#next">Simpan & Seterusnya</button>
-                                </div>
-
                             </div>
 
                             <!-- Vertically Centered modal Modal -->

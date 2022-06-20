@@ -195,19 +195,17 @@
 
 
 
-                                    <div class="row form-group">
-                                        <div class="text-left col-md-5">
-                                            <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
-                                                style="float: left">Sebelumnya</a>
-                                        </div>
+                                    <div class="form-group" style="padding: 10px ; margin-bottom: 17%">
+                                        <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
+                                            style="float: left">Sebelumnya</a>
+
                                         {{-- <div class="text-right col-md-7 mb-2 ">
                                             <button type="button" class="btn btn-primary " data-bs-toggle="modal"
                                                 style="float: right"
                                                 data-bs-target="#exampleModalCenter">Hantar</button>
                                         </div> --}}
-                                        <div class="text-right col-md-7">
-                                            <button type="submit" class="btn btn-primary " style="float: right;">Simpan & Seterusnya</button>
-                                        </div>
+
+                                        <button type="submit" class="btn btn-primary " style="float: right;">Simpan & Seterusnya</button>
                                     </div>
 
 
