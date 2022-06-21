@@ -1131,7 +1131,7 @@
         </div>
         </div>
 
-        <div class="page-breadcrumb">
+        {{-- <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-12 align-self-center">
                     <h4 class="page-title">Pertukaran No Lesen Lama Ke
@@ -1140,13 +1140,12 @@
             </div>
         </div>
         <hr>
-        <div class="container-fluid">
+        <div class="container-fluid"> --}}
             <!-- row -->
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
-                        {{-- <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post">
-                            @csrf --}}
+
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12 col-md-6">
@@ -1214,12 +1213,12 @@
                                         </fieldset>
                                 </div>
 
-                                {{-- <div class="row form-group center-block" style="padding-top: 10px;"> --}}
+
                                     <div class="text-right col-md-12 mb-4 " >
                                         <button type="button" class="btn btn-primary " style="margin-left:64%" data-toggle="modal"
                                             data-target="#myModal">Tukar No Lesen</button>
                                     </div>
-                                {{-- </div> --}}
+
 
                                 <div id="myModal" class="modal fade" tabindex="-1" role="dialog"
                                     aria-labelledby="myModalLabel" aria-hidden="true">
@@ -1246,17 +1245,18 @@
                                                 </button>
                                             </div>
                                         </div>
-                                        <!-- /.modal-content -->
+
                                     </div>
-                                    <!-- /.modal-dialog -->
+
                                 </div>
 
-                        </form>
+
                             </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
             <!-- End row -->
             <!-- ============================================================== -->

@@ -1394,7 +1394,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">PERHATIAN</h4>
+                        <h4 class="modal-title" id="myModalLabel">MAKLUMAN</h4>
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </div>
                     <div class="modal-body">
@@ -1755,7 +1755,7 @@
                     <script >
                         $('#map-message-warning').click(function() {
                             swal({
-                                title: "Perhatian!",
+                                title: "Makluman!",
                                 text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen.",
                                 type: "warning",
                                 showCancelButton: false,

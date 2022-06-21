@@ -69,7 +69,7 @@
                                             @foreach (json_decode(auth()->user()->sub_cat) as $cat)
                                                 @if ($cat == 'PL91')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senarai.pelesen.batal.buah') }}">Kilang
+                                                        href="{{ route('admin.senaraipelesenbatalbuah') }}">Kilang
                                                         Buah</a>
                                                 @endif
                                                 @if ($cat == 'PL101')
@@ -100,7 +100,7 @@
                                             @endforeach
                                         @else
                                             <a class="dropdown-item"
-                                                href="{{ route('admin.senarai.pelesen.batal.buah') }}">Kilang
+                                                href="{{ route('admin.senaraipelesenbatalbuah') }}">Kilang
                                                 Buah</a>
                                             <a class="dropdown-item"
                                                 href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang

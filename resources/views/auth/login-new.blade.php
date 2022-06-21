@@ -184,6 +184,8 @@
                                 <b>Penyata Bulanan Pusat Simpanan - MPOB (EL) KS4</b> - Pn. Nor Baayah (Emel
                                 abby@mpob.gov.my atau Tel : 03-7802
                                 2865)<br>
+                                <b>Penyata Bulanan Kilang Oleokimia (Biodiesel) - MPOB EL (CM4)</b> - Cik Rohidayati Sukhaila
+                                 (Emel: rohidayati@mpob.gov.my atau Tel: 03-78022991)<br>
                                 <b>No Faks bagi Penyata Bulanan</b> : 03-7803 2323 / 03-7803 1399<br>
                                 <br><mark><b>PERINGATAN : Pihak tuan/puan dikehendaki melapor maklumat mingguan (PENYATA
                                         MINGGUAN) melalui sistem

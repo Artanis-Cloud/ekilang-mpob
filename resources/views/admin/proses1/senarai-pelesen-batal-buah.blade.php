@@ -77,33 +77,33 @@
                                                 @endif
                                                 @if ($cat == 'PL101')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senaraipelesenbatalpenapis') }}">Kilang
+                                                        href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang
                                                         Penapis</a>
                                                 @endif
                                                 @if ($cat == 'PL102')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senaraipelesenbatalisirung') }}">Kilang
+                                                        href="{{ route('admin.senarai.pelesen.batal.isirung') }}">Kilang
                                                         Isirung</a>
                                                 @endif
                                                 @if ($cat == 'PL104')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senaraipelesenbataloleokimia') }}">Kilang
+                                                        href="{{ route('admin.senarai.pelesen.batal.oleokimia') }}">Kilang
                                                         Oleokimia</a>
                                                 @endif
                                                 @if ($cat == 'PL111')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senaraipelesenbatalsimpanan') }}">Pusat
+                                                        href="{{ route('admin.senarai.pelesen.batal.simpanan') }}">Pusat
                                                         Simpanan</a>
                                                 @endif
                                                 @if ($cat == 'PLBIO')
                                                     <a class="dropdown-item"
-                                                        href="{{ route('admin.senaraipelesenbatalbio') }}">Kilang
+                                                        href="{{ route('admin.senarai.pelesen.batal.bio') }}">Kilang
                                                         Biodiesel</a>
                                                 @endif
                                             @endforeach
                                         @else
                                             <a class="dropdown-item"
-                                                href="{{ route('admin.senarai.pelesen.batal.buah') }}">Kilang
+                                                href="{{ route('admin.senaraipelesenbatalbuah') }}">Kilang
                                                 Buah</a>
                                             <a class="dropdown-item"
                                                 href="{{ route('admin.senarai.pelesen.batal.penapis') }}">Kilang

@@ -68,7 +68,7 @@
                                     Alamat Premis Berlesen</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_ap1" class="form-control" maxlength="60"
+                                    <input type="text" id="e_ap1" class="form-control" maxlength="60" autocomplete="off"
                                         placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}"
                                         required>
                                     @error('e_ap1')
@@ -77,7 +77,7 @@
                                         </div>
                                     @enderror
 
-                                    <input type="text" id="e_ap2" class="form-control" maxlength="60"
+                                    <input type="text" id="e_ap2" class="form-control" maxlength="60" autocomplete="off"
                                         placeholder="Alamat Premis Berlesen 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}">
                                     @error('e_ap2')
                                         <div class="alert alert-danger">
@@ -95,14 +95,29 @@
                                 </div>
                             </div>
 
-                            <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px">
-                                    <label for="fname"
-                                    class="control-label col-form-label required">
-                                    Alamat Surat Menyurat</label>
+                            <div class="row">
+                                <div class="col-md-5"></div>
+                                <div class="col-md-6">
+
+                                    <label class="">
+                                        <div class="custom-control custom-checkbox mr-sm-2">
+                                            <input onchange="alamat();"
+                                                type="checkbox" class="custom-control-input"
+                                                id="alamat_sama" name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
+                                            <label class="custom-control-label"
+                                                for="alamat_sama">Alamat sama seperti di
+                                                atas</label>
+                                        </div>
+                                    </label>
                                 </div>
-                                <div class="col-md-7">
-                                    <input type="text" id="e_as1" class="form-control" maxlength="60"
+                            </div>
+
+                            <div class="row" style="margin-bottom:2.5%">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Alamat Surat Menyurat</label>
+                                <div class="col-md-6">
+                                    <input type="text" id="e_as1" class="form-control" autocomplete="off"
                                         placeholder="Alamat Surat Menyurat 1" name="e_as1"
                                         value="{{ $pelesen->e_as1 }}" required>
                                     @error('e_as1')
@@ -111,7 +126,7 @@
                                                 </div>
                                             @enderror
 
-                                    <input type="text" id="e_as2" class="form-control" maxlength="60"
+                                    <input type="text" id="e_as2" class="form-control" maxlength="60" autocomplete="off"
                                         placeholder="Alamat Surat Menyurat 2" name="e_as2"
                                         value="{{ $pelesen->e_as2 }}">
                                         @error('e_as2')
@@ -549,10 +564,85 @@
         });
     </script>
 
+    {{-- <script>
+        function readonlyalamat() {
+            // var checkedValue = $('#alamat_sama').val();
+            var x = $("#alamat_sama").is(":checked");
+
+            if (x == true) {
+
+                //Get
+                var bla = $('#e_ap1').val();
+                //Set
+                $('#e_as1').val(bla).attr("disabled", "disabled");
+                $('#e_as1').val("");
+                //get
+                var bla = $('#e_ap2').val();
+                //Set
+                $('#e_as2').val(bla).attr("disabled", "disabled");
+                $('#e_as2').val("");
+
+                //get
+
+            } else {
+                // document.getElementById("#alamat_surat_menyurat_1").readOnly = false;
+                $('#e_as1').attr("disabled", false)
+                $('#e_as2').attr("disabled", false)
+
+
+
+            }
+        }
+    </script> --}}
+
+    <script>
+        function alamat() {
+            var x = $("#alamat_sama").is(":checked");
+
+            if (x == true) {
+                //Get
+                var bla = $('#e_ap1').val();
+                //Set
+                $('#e_as1').val(bla).attr("disabled", "disabled");
+                $('#e_as1').val("");
+                //get
+                var bla = $('#e_ap2').val();
+                //Set
+                $('#e_as2').val(bla).attr("disabled", "disabled");
+                $('#e_as2').val("");
+
+                var bla = $('#e_ap3').val();
+                //Set
+                $('#e_as3').val(bla).attr("disabled", "disabled");
+                $('#e_as3').val("");
+
+                // $("#alamat_surat_menyurat_daerah").remove();
+                // $("#test1").append(html);
+
+            } else {
+                // document.getElementById("#alamat_surat_menyurat_1").readOnly = false;
+
+                $('#e_as1').attr("disabled", false)
+                $('#e_as2').attr("disabled", false)
+                $('#e_as3').attr("disabled", false)
+
+            }
+                var e_ap1 = document.getElementById("e_ap1"),
+                e_as1 = document.getElementById("e_as1");
+                e_as1.value = e_ap1.value;
+
+                var e_ap2 = document.getElementById("e_ap2"),
+                e_as2 = document.getElementById("e_as2");
+                e_as2.value = e_ap2.value;
+
+                var e_ap3 = document.getElementById("e_ap3"),
+                e_as3 = document.getElementById("e_as3");
+                e_as3.value = e_ap3.value;
+
+
+        }
+    </script>
     </body>
 
     </html>
 @endsection
-            </div>
-        </div>
-    </div>
