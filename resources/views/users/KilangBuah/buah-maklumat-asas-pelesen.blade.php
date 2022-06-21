@@ -372,11 +372,11 @@
                                                 Kerajaan</option>
                                             <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
                                                 Swasta</option>
-                                        @else
+                                        {{-- @else
                                             <option selected hidden disabled>Sila Pilih</option>
                                             <option value="GOV">Kerajaan</option>
                                             <option value="IND"> Swasta
-                                        @endif
+                                        @endif --}}
                                     </select>
                                 </fieldset>
                                 @error('e_group')
