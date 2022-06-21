@@ -160,30 +160,59 @@ class KilangBuahController extends Controller
     public function buah_update_maklumat_asas_pelesen(Request $request)
     {
         // dd($id);
-        $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
-        $penyata->e_ap1 = $request->e_ap1;
-        $penyata->e_ap2 = $request->e_ap2;
-        $penyata->e_ap3 = $request->e_ap3;
-        $penyata->e_as1 = $request->e_as1;
-        $penyata->e_as2 = $request->e_as2;
-        $penyata->e_as3 = $request->e_as3;
-        $penyata->e_notel = $request->e_notel;
-        $penyata->e_nofax = $request->e_nofax;
-        $penyata->e_email = $request->e_email;
-        $penyata->e_npg = $request->e_npg;
-        $penyata->e_jpg = $request->e_jpg;
-        $penyata->e_notel_pg = $request->e_notel_pg;
-        $penyata->e_email_pg = $request->e_email_pg;
-        $penyata->e_npgtg = $request->e_npgtg;
-        $penyata->e_jpgtg = $request->e_jpgtg;
-        $penyata->e_email_pengurus = $request->e_email_pengurus;
-        $penyata->e_syktinduk = $request->e_syktinduk;
-        $penyata->e_group = $request->e_group;
-        $penyata->e_poma = $request->e_poma;
-        $penyata->kap_proses = $request->kap_proses;
-        $penyata->kap_tangki = $request->kap_tangki;
-        $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
-        $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
+        if(isset($request['alamat_sama'])){
+            $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+            $penyata->e_ap1 = $request->e_ap1;
+            $penyata->e_ap2 = $request->e_ap2;
+            $penyata->e_ap3 = $request->e_ap3;
+            $penyata->e_as1 = $request->e_ap1;
+            $penyata->e_as2 = $request->e_ap2;
+            $penyata->e_as3 = $request->e_ap3;
+            $penyata->e_notel = $request->e_notel;
+            $penyata->e_nofax = $request->e_nofax;
+            $penyata->e_email = $request->e_email;
+            $penyata->e_npg = $request->e_npg;
+            $penyata->e_jpg = $request->e_jpg;
+            $penyata->e_notel_pg = $request->e_notel_pg;
+            $penyata->e_email_pg = $request->e_email_pg;
+            $penyata->e_npgtg = $request->e_npgtg;
+            $penyata->e_jpgtg = $request->e_jpgtg;
+            $penyata->e_email_pengurus = $request->e_email_pengurus;
+            $penyata->e_syktinduk = $request->e_syktinduk;
+            $penyata->e_group = $request->e_group;
+            $penyata->e_poma = $request->e_poma;
+            $penyata->kap_proses = $request->kap_proses;
+            $penyata->kap_tangki = $request->kap_tangki;
+            $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
+            $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
+
+        }
+        else{
+            $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+            $penyata->e_ap1 = $request->e_ap1;
+            $penyata->e_ap2 = $request->e_ap2;
+            $penyata->e_ap3 = $request->e_ap3;
+            $penyata->e_as1 = $request->e_as1;
+            $penyata->e_as2 = $request->e_as2;
+            $penyata->e_as3 = $request->e_as3;
+            $penyata->e_notel = $request->e_notel;
+            $penyata->e_nofax = $request->e_nofax;
+            $penyata->e_email = $request->e_email;
+            $penyata->e_npg = $request->e_npg;
+            $penyata->e_jpg = $request->e_jpg;
+            $penyata->e_notel_pg = $request->e_notel_pg;
+            $penyata->e_email_pg = $request->e_email_pg;
+            $penyata->e_npgtg = $request->e_npgtg;
+            $penyata->e_jpgtg = $request->e_jpgtg;
+            $penyata->e_email_pengurus = $request->e_email_pengurus;
+            $penyata->e_syktinduk = $request->e_syktinduk;
+            $penyata->e_group = $request->e_group;
+            $penyata->e_poma = $request->e_poma;
+            $penyata->kap_proses = $request->kap_proses;
+            $penyata->kap_tangki = $request->kap_tangki;
+            $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
+            $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
+        }
         $penyata->save();
 
         $map = User::where('username', $penyata->e_nl)->first();

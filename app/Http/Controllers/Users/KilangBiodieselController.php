@@ -116,8 +116,6 @@ class KilangBiodieselController extends Controller
         $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
         $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
         $penyata->kap_tangki_others = $request->kap_tangki_others;
-        $penyata->tahun = date("Y");
-        $penyata->bulan = date("m");
 
         $penyata->save();
 
@@ -518,7 +516,7 @@ class KilangBiodieselController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $produk = Produk::where('prodcat', '08')->orderBy('prodname')->get();
+        $produk = Produk::whereIn('prodcat', ['03','06','08'])->orderBy('prodname')->get();
 
         if ($user) {
             $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
@@ -770,7 +768,7 @@ class KilangBiodieselController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $produk = Produk::where('prodcat', [3,6,8,12])->orderBy('prodname')->get();
+        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('prodname')->get();
         if ($user) {
             $penyata = EBioC::with('ebioinit', 'produk', 'ebiocc')->where('ebio_reg', $user->ebio_reg)->get();
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
