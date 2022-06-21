@@ -65,11 +65,10 @@
                 </div>
             </div>
         </div>
-        <div class="card" style="margin-right:2%; margin-left:2%">
+        <div class="card" style="margin: 2%">
             <form action="{{ route('isirung.update.bahagian.ii', [$penyata->e102_reg]) }}" method="post">
                 @csrf
-                <div class="card-body">
-                    <div class="">
+                <div class="card-body" >
 
                         <div class="mb-4 text-center">
                             <h3 style="color: rgb(39, 80, 71); ">Bahagian 2</h3>
@@ -157,9 +156,9 @@
                                         </div>
                                     @enderror
                                 </div>
-                            </div><br><br><br><br><br>
+                            </div><br><br><br><br>
 
-                            <div class=" form-group" style="padding-top: 3%; ">
+                            <div class="form-group" style="padding: 3%; ">
                                     <a href="{{ route('isirung.bahagiani') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
 
@@ -201,7 +200,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </div>
             </form>
             <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
@@ -217,7 +215,6 @@
                 });
             </script>
 
-        </div>
 
-    </div>
+
  @endsection
