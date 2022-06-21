@@ -98,26 +98,26 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-5"></div>
-                                <div class="col-md-6">
-
-                                    <label class="">
-                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                            <input onchange="alamat();"
-                                                type="checkbox" class="custom-control-input"
-                                                id="alamat_sama" name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
-                                            <label class="custom-control-label"
-                                                for="alamat_sama">Alamat sama seperti di
-                                                atas</label>
-                                        </div>
-                                    </label>
+                            <div class="row justify-content-center" style="margin:0px">
+                                <div class="col-sm-3 " style="margin: 0px">
+                                    <label for="fname" class="control-label col-form-label"></i></label>
+                                </div>
+                                <div class="custom-control custom-checkbox col-md-7">
+                                    <input onchange="alamat();"
+                                        type="checkbox" class="custom-control-input"
+                                        id="alamat_sama" name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
+                                    <label class="custom-control-label"
+                                        for="alamat_sama">Alamat sama seperti di
+                                        atas</label>
                                 </div>
                             </div>
 
-                            <div class="row" style="margin-bottom:2.5%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+
+
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                     <label for="fname"
+                                    class="control-label col-form-label required">
                                     Alamat Surat Menyurat</label>
                                 </div>
                                 <div class="col-md-7">
@@ -329,12 +329,14 @@
                                         name="e_email_pengurus" value="{{ $pelesen->e_email_pengurus }}" required multiple>
 
 
-                                @error('e_email_pengurus')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
+                                    @error('e_email_pengurus')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
+
                             <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-3 form-group" style="margin: 0px">
                                     <label for="fname"
@@ -357,7 +359,7 @@
 
                             <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
+                                     <label for="fname"
                                     class=" control-label col-form-label required">
                                     Kumpulan </label>
                                 </div>
@@ -377,16 +379,17 @@
                                             <option value="GOV">Kerajaan</option>
                                             <option value="IND"> Swasta
                                         @endif --}}
-                                    </select>
-                                </fieldset>
-                                @error('e_group')
-                                    <div class="alert alert-danger">
-                                        <strong>Sila buat pilihan di bahagian ini</strong>
-                                    </div>
-                                @enderror
+                                        </select>
+                                    </fieldset>
+                                    @error('e_group')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
 
-                            <div class="row justify-content-center" style="margin:20px 0px">
+                           {{--  <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-3 form-group" style="margin: 0px">
                                     <label for="fname"
                                     class=" control-label col-form-label required">
@@ -397,7 +400,7 @@
                                         <select class="form-control" id="e_poma" name="e_poma" required
                                             oninput="setCustomValidity('')"
                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
-                                            {{-- <option selected hidden disabled value="">POMA</option>
+                                            <option selected hidden disabled value="">POMA</option>
                                             <option {{ $pelesen->e_poma == 'Ya' ? 'selected' : '' }} value="Ya">
                                                 Ya</option>
                                             <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }} value="Tidak">
@@ -414,7 +417,7 @@
                                         <strong>Sila buat pilihan di bahagian ini</strong>
                                     </div>
                                 @enderror
-                            </div>
+                            </div>---}}
 
                             <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-3 form-group" style="margin: 0px">
@@ -430,17 +433,14 @@
                                         oninput="validate_two_decimal(this);setCustomValidity('')""
                                                 value=" {{ $pelesen->kap_proses }}" required>
 
-                                @error('kap_proses')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
+                                    @error('kap_proses')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-                        <div class="row mt-3 " style="text-align: center; font-size: 12px">
-                            <div class="col-md-5">
-                                <span></span>
-                            </div>
+
 
                             <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-3 form-group" style="margin: 0px">
@@ -450,25 +450,9 @@
                                     <span>CPO</span>
                                 </div>
 
-                        </div>
-                        <div class="row mt-3 text-right">
-                            <div class="col-md-5">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                    Bilangan Tangki</label>
                             </div>
-                            <div class="col-md-1">
-                                <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
-                                    oninput="setCustomValidity('')" id="bil_tangki_cpo" required
-                                    title="Sila isikan butiran ini." oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                    onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpo ?? '' }}"
-                                    required>
-                                @error('bil_tangki_cpo')
-                                    <div class="alert alert-danger">
-                                        <strong>{{ $message }}</strong>
-                                    </div>
-                                @enderror
-                            </div>
+
+
 
                             <div class="row justify-content-center" style="margin:0px">
                                 <div class="col-sm-3 form-group" style="margin: 0px">
@@ -520,13 +504,7 @@
                                     bilangan dan kapasiti tangki dan lapor dalam kategori Others
                                 </i>
                             </div>
-                        </div>
-                        <div class="row mx-3" style="margin-left:14%">
-                            <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
-                                khusus untuk sesuatu produk. Sila campurkan kesemua
-                                bilangan dan kapasiti tangki dan lapor dalam kategori Others
-                            </i>
-                        </div>
+                        
                 </div>
 
 

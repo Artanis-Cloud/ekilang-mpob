@@ -95,28 +95,25 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-md-5"></div>
-                                <div class="col-md-6">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px"></div>
+                                <div class="col-md-7">
+                                    <input onchange="alamat();"
+                                        type="checkbox" class="custom-control-input"
+                                        id="alamat_sama" name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
+                                    <label class="custom-control-label"
+                                        for="alamat_sama">Alamat sama seperti di
+                                        atas</label>
 
-                                    <label class="">
-                                        <div class="custom-control custom-checkbox mr-sm-2">
-                                            <input onchange="alamat();"
-                                                type="checkbox" class="custom-control-input"
-                                                id="alamat_sama" name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
-                                            <label class="custom-control-label"
-                                                for="alamat_sama">Alamat sama seperti di
-                                                atas</label>
-                                        </div>
-                                    </label>
                                 </div>
                             </div>
-
-                            <div class="row" style="margin-bottom:2.5%">
-                                <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label required">
                                     Alamat Surat Menyurat</label>
-                                <div class="col-md-6">
+                                </div>
+                                <div class="col-md-7">
                                     <input type="text" id="e_as1" class="form-control" autocomplete="off"
                                         placeholder="Alamat Surat Menyurat 1" name="e_as1"
                                         value="{{ $pelesen->e_as1 }}" required>
