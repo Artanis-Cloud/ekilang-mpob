@@ -111,8 +111,42 @@
                             <!-- Logo text -->
                             <span class="logo-text">
                                 <!-- Light Logo text -->
-                                <img src="{{ asset('mpob-text.png') }}" alt="homepage" class="light-logo"
-                                    style="padding-top:10px;height:90%; width:70%; margin-left:10%">
+                                @if (auth()->user()->category == 'PL91')
+                                    <a href="{{ route('buah.dashboard') }}">
+                                        <img src="{{ asset('mpob-text.png') }}" alt="homepage" class="light-logo"
+                                            style="padding-top:10px;height:90%; width:70%; margin-left:10%">
+                                    </a>
+                                @elseif (auth()->user()->category == 'PL101')
+                                    <a href="{{ route('penapis.dashboard') }}">
+                                        <img src="{{ asset('mpob-text.png') }}" alt="homepage" class="light-logo"
+                                            style="padding-top:10px;height:90%; width:70%; margin-left:10%">
+                                    </a>
+                                @elseif (auth()->user()->category == 'PL102')
+                                    <a href="{{ route('isirung.dashboard') }}">
+                                        <img src="{{ asset('mpob-text.png') }}" alt="homepage" class="light-logo"
+                                            style="padding-top:10px;height:90%; width:70%; margin-left:10%">
+                                    </a>
+                                @elseif (auth()->user()->category == 'PL104')
+                                    <a href="{{ route('oleo.dashboard') }}">
+                                        <img src="{{ asset('mpob-text.png') }}" alt="homepage" class="light-logo"
+                                            style="padding-top:10px;height:90%; width:70%; margin-left:10%">
+                                    </a>
+                                @elseif (auth()->user()->category == 'PL111')
+                                    <a href="{{ route('pusatsimpan.dashboard') }}">
+                                        <img src="{{ asset('mpob-text.png') }}" alt="homepage" class="light-logo"
+                                            style="padding-top:10px;height:90%; width:70%; margin-left:10%">
+                                    </a>
+                                @elseif (auth()->user()->category == 'PLBIO')
+                                    <a href="{{ route('bio.dashboard') }}">
+                                        <img src="{{ asset('mpob-text.png') }}" alt="homepage" class="light-logo"
+                                            style="padding-top:10px;height:90%; width:70%; margin-left:10%">
+                                    </a>
+                                @elseif (auth()->user()->category == 'admin')
+                                    <a href="{{ route('admin.dashboard') }}">
+                                        <img src="{{ asset('mpob-text.png') }}" alt="homepage" class="light-logo"
+                                            style="padding-top:10px;height:90%; width:70%; margin-left:10%">
+                                    </a>
+                                @endif
                             </span>
                         </a>
                         <a class="sidebartoggler d-none d-md-block" href="javascript:void(0)"
@@ -1143,11 +1177,26 @@
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                     <li class="sidebar-item">
-                                        <a href="{{ route('admin.maklumat.penyata.bulanan') }}"
-                                            class="sidebar-link">
-                                            <i class="fas fa-seedling" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Maklumat Penyata <br> Bulanan </span>
+                                        <a class="sidebar-link has-arrow " style=" margin-right:5%"
+                                            aria-expanded="false">
+                                            <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu">Penyata Bulanan</span>
+                                            {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                         </a>
+                                        <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.maklumat.penyata.bulanan') }}" class="sidebar-link">
+                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Maklumat Penyata <br> Bulanan</span>
+                                                </a>
+                                            </li>
+                                            <li class="sidebar-item">
+                                                <a href="{{ route('admin.ringkasan.bahagian1') }}" class="sidebar-link">
+                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu">Bahagian 1</span>
+                                                </a>
+                                            </li>
+                                        </ul>
                                     </li>
                                     <li class="sidebar-item">
                                         <a href="{{ route('admin.pl.lewat') }}" class="sidebar-link">

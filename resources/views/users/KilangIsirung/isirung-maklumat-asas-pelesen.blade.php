@@ -258,9 +258,9 @@
                                     Alamat Emel Pegawai Melapor</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="email" id="no-tel-pegawai-melapor" class="form-control" maxlength="100"
+                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control" maxlength="100"
                                             placeholder="Alamat Emel Pegawai Melapor"
-                                            name="e_email_pg" value="{{ $pelesen->e_email_pg }}" required multiple>
+                                            name="e_email_pg" value="{{ $pelesen->e_email_pg }}" required >
                                     @error('e_email_pg')
                                                 <div class="alert alert-danger">
                                                     <strong>{{ $message }}</strong>

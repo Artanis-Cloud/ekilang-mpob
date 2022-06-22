@@ -46,9 +46,9 @@
             <!-- row -->
             <div class="row">
                 <div class="col-sm-12 col-lg-12">
-                    <div class="card">
+                    <div class="card"><br>
                         <div class=" text-center">
-                            <h2 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Hebahan 10hb - Biodiesel diproses</h2>
+                            {{-- <h2 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Hebahan 10hb - Biodiesel diproses</h2> --}}
                             <h3 style="color: rgb(39, 80, 71); margin-top:1%; margin-bottom:1%">
                                 Minyak Sawit Diproses
                             </h3>
