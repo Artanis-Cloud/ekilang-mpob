@@ -72,7 +72,7 @@
             </div> --}}
 
             <div class="card-body">
-                <div class="pl-3">
+                <div class="">
                     @if (!$penyata)
                         <form action="{{ route('bio.add.bahagian.ii') }}" method="post">
                             @csrf
@@ -93,13 +93,14 @@
                     </div>
                     <hr>
                     <div class="container center mt-3">
-                        <div class="row">
-                            <label for="fname"
-                                class="text-left col-sm-5 control-label col-form-label align-items-center">i.
+                        <div class="row justify-content-center" style="margin:20px 0px">
+                            <div class="col-sm-4 form-group" style="margin: 0px">
+                                <label for="fname"
+                                class="control-label col-form-label">i.
                                 Jumlah Hari Kilang Beroperasi Sebulan </label>
-                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-3">
                                 <input type="text" class="form-control" name='hari_operasi'
-                                    style="margin-left:42%; width:40%"
                                     onkeypress="return isNumberKey(event)" id="hari_operasi"  oninput="validate_two_decimal(this)"
                                     required
                                     title="Sila isikan butiran ini." value="{{ $penyata->hari_operasi ?? 0 }}">
@@ -109,17 +110,17 @@
                                     </div>
                                 @enderror
                             </div>
-                            <div>
 
-                            </div>
                         </div>
-                        <div class="row mt-2">
-                            <label for="fname"
-                                class="text-left col-sm-5 control-label col-form-label align-items-center">ii.
+
+                        <div class="row justify-content-center" style="margin:20px 0px">
+                            <div class="col-sm-4 form-group" style="margin: 0px">
+                                <label for="fname"
+                                class="control-label col-form-label">ii.
                                 Kadar Penggunaan Kapasiti Sebulan </label>
-                            <div class="col-md-6">
+                            </div>
+                            <div class="col-md-3">
                                 <input type="text" class="form-control" name='kapasiti'
-                                    style="margin-left:42%; width:40%"
                                     onkeypress="return isNumberKey(event)" id="kapasiti" oninput="validate_two_decimal(this)"
                                     required
                                     title="Sila isikan butiran ini." value="{{ $penyata->kapasiti ?? 0 }}">
@@ -134,20 +135,13 @@
 
                     </div>
 
-
-                    <div class="row form-group" style="margin-top:4%; margin-bottom: 250px">
-
-
-                        <div class="text-left col-md-5" style="margin-left:2%">
+                    <div class="form-group" style="margin-top:4%; margin-bottom: 250px">
                             <a href="{{ route('bio.bahagianiii') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
-                        </div>
-                        <div class="text-right col-md-6" style="margin-left:4%">
+
                             <button type="button" class="btn btn-primary " data-toggle="modal"
                                 style="float: right" data-target="#next">Simpan &
                                 Seterusnya</button>
-                        </div>
-
                     </div>
 
                     <!-- Vertically Centered modal Modal -->
@@ -186,6 +180,5 @@
                     </form>
                 </div>
             </div>
-        </div>
-    </div>
+ 
 @endsection

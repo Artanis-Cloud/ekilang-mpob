@@ -193,7 +193,7 @@
                                     <span>Import</span>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e104_b8' placeholder="Import"
+                                    <input type="text" class="form-control" name='e104_b8' placeholder=""
                                         onkeypress="return isNumberKey(event)" style="width:50%" id="e104_b8" required
                                         title="Sila isikan butiran ini." readonly>
                                 </div>
@@ -250,7 +250,7 @@
                         <table class="table table-bordered " style="font-size: 13px">
                             <thead style="text-align: center">
                                 <tr>
-                                    <th>Nama Produk</th>
+                                    <th>Minyak Sawit Lain</th>
                                     <th>Kod Produk</th>
                                     <th>Stok Awal Di Premis</th>
                                     <th>Stok Awal Di Pusat Simpanan</th>

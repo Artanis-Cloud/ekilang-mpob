@@ -49,12 +49,12 @@
 
                             <div class="container center mt-2">
                                 <div class="row justify-content-center" style="margin:20px 0px">
-                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <div class="col-sm-2 form-group" style="margin: 0px">
                                         <label for="fname"
                                         class="control-label col-form-label required">
                                         Sila Pilih Tahun</label>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <fieldset class="form-group">
                                             <select class="form-control" id="basicSelect">
                                                 <option selected hidden disabled>Sila Pilih Tahun</option>
@@ -87,12 +87,12 @@
                                     </div>
                                 </div>
                                 <div class="row justify-content-center" style="margin:20px 0px">
-                                    <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <div class="col-sm-2 form-group" style="margin: 0px">
                                             <label for="fname"
                                         class="control-label col-form-label required">Bulan
                                             </label>
                                     </div>
-                                    <div class="col-md-6">
+                                    <div class="col-md-3">
                                         <fieldset class="form-group">
                                             <select class="form-control" id="basicSelect" name="bulan">
                                                 <option selected hidden disabled>Sila Pilih Bulan</option>

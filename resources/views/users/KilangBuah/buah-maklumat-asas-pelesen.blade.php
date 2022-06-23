@@ -175,13 +175,13 @@
                             <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-3 form-group" style="margin: 0px">
                                     <label for="fname"
-                                    class=" control-label col-form-label required">
+                                    class=" control-label col-form-label ">
                                     No. Faks</label>
                                 </div>
                                 <div class="col-md-7">
                                     <input type="tel" id="e_nofax" class="form-control" maxlength=40 placeholder="No. Faks"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')" name="e_nofax"
-                                        value="{{ $pelesen->e_nofax }}" required oninput="setCustomValidity('')" onkeypress="return isNumberKey(event)">
+                                        value="{{ $pelesen->e_nofax }}"  oninput="setCustomValidity('')" onkeypress="return isNumberKey(event)">
                                     @error('e_nofax')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -504,7 +504,7 @@
                                     bilangan dan kapasiti tangki dan lapor dalam kategori Others
                                 </i>
                             </div>
-                        
+
                 </div>
 
 

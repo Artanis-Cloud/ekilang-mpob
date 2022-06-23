@@ -149,12 +149,12 @@
                                 <div class="row justify-content-center" style="margin:20px 0px">
                                     <div class="col-sm-3 form-group" style="margin: 0px">
                                         <label for="fname"
-                                        class="control-label col-form-label required">
+                                        class="control-label col-form-label">
                                         No. Faks</label>
                                     </div>
                                     <div class="col-md-7">
                                         <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks" maxlength="40"
-                                            name="e_nofax" value="{{ $pelesen->e_nofax ?? '' }}" required onkeypress="return isNumberKey(event)">
+                                            name="e_nofax" value="{{ $pelesen->e_nofax ?? '' }}" onkeypress="return isNumberKey(event)">
                                         @error('e_nofax')
                                             <div class="alert alert-danger">
                                                 <strong>Sila isi butiran ini</strong>
@@ -306,7 +306,7 @@
                                         @enderror
                                     </div>
                                 </div>
-                                
+
                                 <div class="row justify-content-center" style="margin:20px 0px">
                                     <div class="col-sm-3 form-group" style="margin: 0px">
                                         <label for="fname"

@@ -170,7 +170,7 @@ class KilangOleokimiaController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('oleo.bahagiania'), 'name' => "Bahagian Ia"],
+            ['link' => route('oleo.bahagiania'), 'name' => "Bahagian 1 (a)"],
         ];
 
         $kembali = route('oleo.dashboard');
@@ -339,7 +339,7 @@ class KilangOleokimiaController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('oleo.bahagianib'), 'name' => "Bahagian Ib"],
+            ['link' => route('oleo.bahagianib'), 'name' => "Bahagian 1 (b)"],
         ];
 
         $kembali = route('oleo.bahagiania');
@@ -516,7 +516,7 @@ class KilangOleokimiaController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('oleo.bahagianic'), 'name' => "Bahagian Ic"],
+            ['link' => route('oleo.bahagianic'), 'name' => "Bahagian 1 (c)"],
         ];
 
         $kembali = route('oleo.bahagianib');
@@ -692,7 +692,7 @@ class KilangOleokimiaController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('oleo.bahagianii'), 'name' => "Bahagian II"],
+            ['link' => route('oleo.bahagianii'), 'name' => "Bahagian 2"],
         ];
 
         $kembali = route('oleo.bahagianic');
@@ -737,7 +737,7 @@ class KilangOleokimiaController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('oleo.bahagianiii'), 'name' => "Bahagian III"],
+            ['link' => route('oleo.bahagianiii'), 'name' => "Bahagian 3"],
         ];
 
         $kembali = route('oleo.bahagianii');
@@ -879,7 +879,7 @@ class KilangOleokimiaController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('oleo.bahagianiv'), 'name' => "Bahagian IV"],
+            ['link' => route('oleo.bahagianiv'), 'name' => "Bahagian 4"],
         ];
 
         $kembali = route('oleo.bahagianiii');

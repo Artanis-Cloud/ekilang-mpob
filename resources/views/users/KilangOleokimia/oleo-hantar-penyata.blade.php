@@ -535,7 +535,7 @@
                             </table>
 
                             <p><b>
-                                <font color="#0000FF">BAHAGIAN 1(c) :&nbsp;&nbsp;&nbsp;&nbsp; Minyak-Minyak Lain</font>
+                                <font color="#0000FF">BAHAGIAN 1(c) :&nbsp;&nbsp;&nbsp;&nbsp;MINYAK-MINYAK LAIN</font>
                             </b></p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
                                 class="table table-bordered">
@@ -806,7 +806,7 @@
 
                         </body>
                     </div>
-        
+
                 </form>
             </div>
 

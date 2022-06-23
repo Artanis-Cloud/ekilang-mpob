@@ -120,13 +120,14 @@
                             </div>
 
                             <div class="row justify-content-center" style="margin:20px 0px">
-                                <div class="col-sm-3 form-group" style="margin: 0px">                                <label for="fname"
-                                    class="control-label col-form-label required">
+                                <div class="col-sm-3 form-group" style="margin: 0px">
+                                    <label for="fname"
+                                    class="control-label col-form-label">
                                     No. Faks</label>
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_nofax" class="form-control" maxlength=40 placeholder="No. Faks" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        name="e_nofax" value="{{ $pelesen->e_nofax }}" onkeypress="return isNumberKey(event)" required oninput="setCustomValidity('')">
+                                        name="e_nofax" value="{{ $pelesen->e_nofax }}" onkeypress="return isNumberKey(event)"  oninput="setCustomValidity('')">
                                 </div>
                             </div>
 

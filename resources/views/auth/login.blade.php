@@ -145,7 +145,7 @@
                                         class="fas fa-user"></i></i></span>
                             </div>
                             <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
-                                name="username" value="{{ old('username') }}" autocomplete="username"
+                                name="username" value="{{ old('username') }}" autocomplete="username" maxlength="12"
                                 placeholder="No. Lesen">
 
                             @error('username')

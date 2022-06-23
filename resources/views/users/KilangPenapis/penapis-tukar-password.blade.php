@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input type="password" class="form-control" name='new_password' id="myInput2"
-                                         placeholder="Kata Laluan Baru" required pattern="\d{8}"
+                                         placeholder="Kata Laluan Baru" required
                                          oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
                                          oninput="this.setCustomValidity('')" minlength="8"
                                         title="Sila isikan butiran ini.">
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input type="password" class="form-control" name='password_confirmation' id="myInput3"
-                                        minlength="8" placeholder="Sahkan Kata Laluan Baru" required  minlength="8"
+                                        minlength="8" placeholder="Sahkan Kata Laluan Baru" required
                                         oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
                                         oninput="this.setCustomValidity('')"
                                         title="Sila isikan butiran ini.">
@@ -161,6 +161,20 @@
         @endsection
         @section('scripts')
             <script>
+                var password = document.getElementById("myInput2"), confirm_password = document.getElementById("myInput3");
+
+                function validatePassword(){
+                if(password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords Don't Match");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+                }
+
+                password.onchange = validatePassword;
+                confirm_password.onkeyup = validatePassword;
+
+
                 function myFunction() {
                     var x = document.getElementById("myInput");
                     if (x.type === "password") {

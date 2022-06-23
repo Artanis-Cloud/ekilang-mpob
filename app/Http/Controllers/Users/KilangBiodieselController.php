@@ -171,7 +171,7 @@ class KilangBiodieselController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('bio.bahagiania'), 'name' => "Bahagian I(a)"],
+            ['link' => route('bio.bahagiania'), 'name' => "Bahagian 1 (a)"],
         ];
 
         $kembali = route('bio.dashboard');
@@ -336,7 +336,7 @@ class KilangBiodieselController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('bio.bahagianib'), 'name' => "Bahagian I(b)"],
+            ['link' => route('bio.bahagianib'), 'name' => "Bahagian 1 (b)"],
         ];
 
         $kembali = route('bio.dashboard');
@@ -500,7 +500,7 @@ class KilangBiodieselController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('bio.bahagianic'), 'name' => "Bahagian I(c)"],
+            ['link' => route('bio.bahagianic'), 'name' => "Bahagian 1 (c)"],
         ];
 
         $kembali = route('bio.dashboard');
@@ -654,7 +654,7 @@ class KilangBiodieselController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('bio.bahagianii'), 'name' => "Bahagian II"],
+            ['link' => route('bio.bahagianii'), 'name' => "Bahagian 2"],
         ];
 
         $kembali = route('bio.bahagianic');
@@ -752,7 +752,7 @@ class KilangBiodieselController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('bio.bahagianiii'), 'name' => "Bahagian III"],
+            ['link' => route('bio.bahagianiii'), 'name' => "Bahagian 3"],
         ];
 
         $kembali = route('bio.bahagianii');
@@ -1017,7 +1017,7 @@ class KilangBiodieselController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('bio.bahagianiv'), 'name' => "Bahagian IV"],
+            ['link' => route('bio.bahagianiv'), 'name' => "Bahagian 4"],
         ];
 
         $kembali = route('bio.bahagianiii');

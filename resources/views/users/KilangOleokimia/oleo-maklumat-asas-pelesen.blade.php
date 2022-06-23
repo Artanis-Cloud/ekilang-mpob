@@ -134,12 +134,12 @@
                              <div class="row justify-content-center" style="margin:20px 0px">
                                 <div class="col-sm-3 form-group" style="margin: 0px">
                                     <label for="fname"
-                                    class="control-label col-form-label required">
+                                    class="control-label col-form-label ">
                                     No. Faks</label>
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks" maxlength="60"
-                                        name="e_nofax" value="{{ $pelesen->e_nofax }}" onkeypress="return isNumberKey(event)" required>
+                                        name="e_nofax" value="{{ $pelesen->e_nofax }}" onkeypress="return isNumberKey(event)" >
                                     @error('e_nofax')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -206,7 +206,7 @@
                                     <input type="text" id="no-tel-pegawai-melapor" class="form-control" maxlength="40"
                                         placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->e_notel_pg }}"
-                                        required>
+                                        required multiple>
                                     @error('e_notel_pg')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -221,7 +221,7 @@
                                     Alamat Emel Pegawai Melapor</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="email" id="e_email_pg" class="form-control" maxlength="100"
+                                    <input type="text" id="e_email_pg" class="form-control" maxlength="100"
                                         placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
                                         value="{{ $pelesen->e_email_pg }}" required multiple>
                                     @error('e_email_pg')
@@ -276,7 +276,7 @@
                                     Alamat Emel Pengurus</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="email" id="e_email_pengurus" class="form-control" maxlength="60"
+                                    <input type="text" id="e_email_pengurus" class="form-control" maxlength="60"
                                         placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
                                         value="{{ $pelesen->e_email_pengurus }}" required multiple>
                                     @error('e_email_pengurus')

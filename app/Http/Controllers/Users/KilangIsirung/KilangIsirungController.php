@@ -175,7 +175,7 @@ class KilangIsirungController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.bahagiani'), 'name' => "Bahagian I"],
+            ['link' => route('isirung.bahagiani'), 'name' => "Bahagian 1"],
         ];
 
         $kembali = route('isirung.dashboard');
@@ -245,7 +245,7 @@ class KilangIsirungController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.bahagianii'), 'name' => "Bahagian II"],
+            ['link' => route('isirung.bahagianii'), 'name' => "Bahagian 2"],
         ];
 
         $kembali = route('isirung.bahagiani');
@@ -289,7 +289,7 @@ class KilangIsirungController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.bahagianii'), 'name' => "Bahagian II"],
+            ['link' => route('isirung.bahagianii'), 'name' => "Bahagian 2"],
         ];
 
         $kembali = route('isirung.bahagiani');
@@ -311,7 +311,7 @@ class KilangIsirungController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.bahagianiii'), 'name' => "Bahagian III"],
+            ['link' => route('isirung.bahagianiii'), 'name' => "Bahagian 3"],
         ];
 
         $kembali = route('isirung.dashboard');
@@ -483,7 +483,7 @@ class KilangIsirungController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.bahagianiv'), 'name' => "Bahagian IV"],
+            ['link' => route('isirung.bahagianiv'), 'name' => "Bahagian 4"],
         ];
 
         $kembali = route('isirung.bahagianiii');
@@ -639,7 +639,7 @@ class KilangIsirungController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.bahagianv'), 'name' => "Bahagian V"],
+            ['link' => route('isirung.bahagianv'), 'name' => "Bahagian 5"],
         ];
 
         $kembali = route('isirung.bahagianiv');
@@ -793,7 +793,7 @@ class KilangIsirungController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.bahagianvi'), 'name' => "Bahagian VI"],
+            ['link' => route('isirung.bahagianvi'), 'name' => "Bahagian 6"],
         ];
 
         $kembali = route('isirung.bahagianv');
@@ -907,7 +907,7 @@ class KilangIsirungController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('isirung.bahagianvii'), 'name' => "Bahagian VII"],
+            ['link' => route('isirung.bahagianvii'), 'name' => "Bahagian 7"],
         ];
 
         $kembali = route('isirung.bahagianvi');

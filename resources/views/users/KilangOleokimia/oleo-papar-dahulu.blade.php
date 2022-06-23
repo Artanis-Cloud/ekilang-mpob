@@ -607,7 +607,7 @@
                             </table>
 
                             <p><b>
-                                    <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; HARI BEROPERASI DAN PENGGUNAAN KADAR KAPASITI
                                     </font>
                                 </b> </p>
                             <table border="0" width="100%" cellspacing="0" cellpadding="0">

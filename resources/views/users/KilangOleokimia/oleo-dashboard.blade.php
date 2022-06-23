@@ -10,8 +10,17 @@
         <!-- ============================================================== -->
         <div class="page-breadcrumb">
             <div class="row">
-                <div class="col-9 align-self-center mt-2">
+                <div class="col-5 align-self-center mt-2">
                     <h4 class="page-title">PENYATA BULANAN KILANG OLEOKIMIA</h4>
+                </div>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                              Laman Utama
+                            </ol>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
