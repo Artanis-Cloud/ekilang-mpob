@@ -1841,6 +1841,26 @@ class LaporanController extends Controller
     }
 
 
+    public function test(Request $request)
+    {
+       if($request->tahun){
+        $tahun_sql = "tahun = '$request->tahun'";
+       }else{
+        $tahun_sql = "";
+       }
 
+       if($request->bulan){
+        $bulan_sql = "bulan = '$request->bulan'";
+       }else{
+        $bulan_sql = "";
+       }
+
+       $query = DB::select("SELECT e.ebio_nl,e.ebio_reg ,p.e_nl, b.ebio_b1
+        FROM pelesen p, e_bio_inits e, e_bio_b_s b
+        WHERE $tahun_sql
+        AND
+        $bulan_sql'");
+
+    }
 
 }
