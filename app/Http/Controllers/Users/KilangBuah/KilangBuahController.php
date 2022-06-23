@@ -271,7 +271,7 @@ class KilangBuahController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagiani'), 'name' => "Bahagian I"],
+            ['link' => route('buah.bahagiani'), 'name' => "Bahagian 1"],
         ];
 
         $kembali = route('buah.dashboard');
@@ -338,7 +338,7 @@ class KilangBuahController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianii'), 'name' => "Bahagian II"],
+            ['link' => route('buah.bahagianii'), 'name' => "Bahagian 2"],
         ];
 
         $kembali = route('buah.bahagiani');
@@ -408,7 +408,7 @@ class KilangBuahController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianiii'), 'name' => "Bahagian III"],
+            ['link' => route('buah.bahagianiii'), 'name' => "Bahagian 3"],
         ];
 
         $kembali = route('buah.bahagianii');
@@ -451,7 +451,7 @@ class KilangBuahController extends Controller
 
         if ($calculate != $request->jumlah) {
             return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian I (FFB)!');
+                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian 1 (FFB)!');
         }
         $penyata = E91Init::findOrFail($id);
         $penyata->e91_ai1 = $request->e91_ai1;
@@ -482,12 +482,12 @@ class KilangBuahController extends Controller
         //
 
         if ($jumlah != $penyata->e91_ab1) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian I (FFB)!');
+            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (FFB)!');
         }
         //end of semak jumlah bahagian iii
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianiv'), 'name' => "Bahagian IV"],
+            ['link' => route('buah.bahagianiv'), 'name' => "Bahagian 4"],
         ];
 
         $kembali = route('buah.bahagianiii');
@@ -529,7 +529,7 @@ class KilangBuahController extends Controller
 
         if ($calculate != $request->jumlah) {
             return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian I (CPO)');
+                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian 1 (CPO)');
         }
 
 
@@ -560,13 +560,13 @@ class KilangBuahController extends Controller
             ($penyata->e91_aj4 ?? 0) + ($penyata->e91_aj5 ?? 0) + ($penyata->e91_aj8 ?? 0);
 
         if ($jumlah != $penyata->e91_ae2) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian I (CPO)!');
+            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPO)!');
         }
         //end of semak jumlah bahagian iv
 
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianv'), 'name' => "Bahagian V"],
+            ['link' => route('buah.bahagianv'), 'name' => "Bahagian 5"],
         ];
 
         $kembali = route('buah.bahagianiv');
@@ -602,7 +602,7 @@ class KilangBuahController extends Controller
 
         if ($calculate != $request->jumlah) {
             return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian I (PK)');
+                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian 1 (PK)');
         }
 
         $penyata = E91Init::findOrFail($id);
@@ -622,7 +622,7 @@ class KilangBuahController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('buah.bahagianvi'), 'name' => "Bahagian VI"],
+            ['link' => route('buah.bahagianvi'), 'name' => "Bahagian 6"],
         ];
 
         $kembali = route('buah.bahagianv');
@@ -658,11 +658,11 @@ class KilangBuahController extends Controller
 
 
         if ($jumlah_3 != $penyata->e91_ab1) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian I (FFB)!');
+            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (FFB)!');
         } elseif ($jumlah_4 != $penyata->e91_ae2) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian I (CPO)!');
+            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPO)!');
         } elseif ($jumlah_5 != $penyata->e91_ae3) {
-            return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian I (PK)!');
+            return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
         }
         //end of semak jumlah bahagian v
 

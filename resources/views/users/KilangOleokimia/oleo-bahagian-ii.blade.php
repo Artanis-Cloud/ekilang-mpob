@@ -75,7 +75,7 @@
                                         <div class="text-center">
                                             {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
                                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 2</h3>
-                                            <h5 style="color: rgb(39, 80, 71); font-size:14px">Hari Beroperasi dan Kadar Penggunaan Kapasiti</h5>
+                                            <h5 style="color: rgb(39, 80, 71); font-size:14px">Hari Beroperasi dan Kadar Penggunaan Kapasiti Pemprosesan</h5>
                                             {{-- <p>Maklumat Kilang</p> --}}
                                         </div>
                                         <hr>
@@ -88,7 +88,7 @@
                                                         Jumlah Hari Kilang Beroperasi Sebulan </label>
                                                     </div>
                                                     <div class="col-md-2">
-                                                        <input type="text" class="form-control" name='e104_a5'
+                                                        <input type="number" class="form-control" name='e104_a5' max="31" oninvalid="this.setCustomValidity('Sila pastikan tidah melebihi 31 hari')"
                                                             onkeypress="return isNumberKey(event)" id="e104_a5" required
                                                             title="Sila isikan butiran ini." value="{{ old('e104_a5') ?? $penyata->e104_a5 }}">
                                                         @error('e104_a5')
@@ -149,11 +149,11 @@
                                                         </p>
                                                     </div>
                                                     <div class="modal-footer">
-                                                        <button type="button" class="btn btn-light-secondary"
-                                                            data-bs-dismiss="modal">
+                                                        <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                                                             <i class="bx bx-x d-block d-sm-none"></i>
                                                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                         </button>
+
                                                         <button type="submit" class="btn btn-primary ml-1"
                                                             data-bs="modal">
                                                             <i class="bx bx-check d-block d-sm-none"></i>

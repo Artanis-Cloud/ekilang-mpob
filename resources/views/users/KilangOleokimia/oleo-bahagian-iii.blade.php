@@ -184,7 +184,7 @@
                             <table class="table table-bordered mb-0" style="font-size: 13px">
                                 <thead>
                                     <tr style="text-align: center">
-                                        <th>Nama Produk</th>
+                                        <th>Produk Oleokimia</th>
                                         <th>Kod Produk</th>
                                         <th>Belian/Terimaan</th>
                                         <th>Pengeluaran</th>
@@ -251,39 +251,39 @@
                                                                     <label class="required">Nama Produk </label>
                                                                     <div class="form-group">
                                                                         <input type="text" name='e104_c3'
-                                                                            class="form-control"
+                                                                            class="form-control" required
                                                                             value="{{ $data->produk->prodname }}"
                                                                             readonly>
                                                                     </div>
-                                                                    <label class="required">Belian/Terimaan </label>
+                                                                    <label class="">Belian/Terimaan </label>
                                                                     <div class="form-group">
                                                                         <input type="text" name='e104_c4' oninput="validate_two_decimal(this)"
                                                                             onkeypress="return isNumberKey(event)"
                                                                             class="form-control"
                                                                             value="{{ $data->e104_c4 }}">
                                                                     </div>
-                                                                    <label class="required">Pengeluaran </label>
+                                                                    <label class="">Pengeluaran </label>
                                                                     <div class="form-group">
                                                                         <input type="text" name='e104_c5' oninput="validate_two_decimal(this)"
                                                                             onkeypress="return isNumberKey(event)"
                                                                             class="form-control"
                                                                             value="{{ $data->e104_c5 }}">
                                                                     </div>
-                                                                    <label class="required">Jualan/Edaran Tempatan </label>
+                                                                    <label class="">Jualan/Edaran Tempatan </label>
                                                                     <div class="form-group">
                                                                         <input type="text" name='e104_c6' oninput="validate_two_decimal(this)"
                                                                             onkeypress="return isNumberKey(event)"
                                                                             class="form-control"
                                                                             value="{{ $data->e104_c6 }}">
                                                                     </div>
-                                                                    <label class="required">Eksport </label>
+                                                                    <label class="">Eksport </label>
                                                                     <div class="form-group">
                                                                         <input type="text" name='e104_c7' oninput="validate_two_decimal(this)"
                                                                             onkeypress="return isNumberKey(event)"
                                                                             class="form-control"
                                                                             value="{{ $data->e104_c7 }}">
                                                                     </div>
-                                                                    <label class="required">Stok Akhir</label>
+                                                                    <label class="">Stok Akhir</label>
                                                                     <div class="form-group">
                                                                         <input type="text" name='e104_c8' oninput="validate_two_decimal(this)"
                                                                             onkeypress="return isNumberKey(event)"
@@ -295,7 +295,7 @@
 
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-light-secondary"
-                                                                        data-bs-dismiss="modal">
+                                                                        data-dismiss="modal">
                                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                                         <span class="d-none d-sm-block">Batal</span>
                                                                     </button>

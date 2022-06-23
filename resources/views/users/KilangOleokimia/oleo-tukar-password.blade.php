@@ -73,10 +73,10 @@
                                 <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8"
                                     placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                 @error('new_password')
-                                                        <div class="alert alert-danger">
-                                                            <strong>{{ $message }}</strong>
-                                                        </div>
-                                                    @enderror
+                                    <div class="alert alert-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="row justify-content-center" style="margin:20px 0px">
@@ -95,6 +95,7 @@
                                 @enderror
                             </div>
                         </div>
+
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
                                 <label for="fname"
@@ -160,6 +161,23 @@
         @endsection
         @section('scripts')
             <script>
+                var password = document.getElementById("myInput2"), confirm_password = document.getElementById("myInput3");
+
+                function validatePassword(){
+                if(password.value != confirm_password.value) {
+                    confirm_password.setCustomValidity("Passwords Don't Match");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+                }
+
+                password.onchange = validatePassword;
+                confirm_password.onkeyup = validatePassword;
+
+
+
+
+
                 function myFunction() {
                     var x = document.getElementById("myInput");
                     if (x.type === "password") {

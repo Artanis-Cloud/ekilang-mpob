@@ -189,7 +189,7 @@ class KilangPenapisController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagiani'), 'name' => "Bahagian I"],
+            ['link' => route('penapis.bahagiani'), 'name' => "Bahagian 1"],
         ];
 
         $kembali = route('penapis.dashboard');
@@ -386,7 +386,7 @@ class KilangPenapisController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianii'), 'name' => "Bahagian II"],
+            ['link' => route('penapis.bahagianii'), 'name' => "Bahagian 2"],
         ];
 
         $kembali = route('penapis.bahagiani');
@@ -569,7 +569,7 @@ class KilangPenapisController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianiii'), 'name' => "Bahagian III"],
+            ['link' => route('penapis.bahagianiii'), 'name' => "Bahagian 3"],
         ];
 
         $kembali = route('penapis.bahagianii');
@@ -613,7 +613,7 @@ class KilangPenapisController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianiva'), 'name' => "Bahagian IV(a)"],
+            ['link' => route('penapis.bahagianiva'), 'name' => "Bahagian 4 (a)"],
         ];
 
         $kembali = route('penapis.bahagianiii');
@@ -766,7 +766,7 @@ class KilangPenapisController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianivb'), 'name' => "Bahagian IV (b)"],
+            ['link' => route('penapis.bahagianivb'), 'name' => "Bahagian 4 (b)"],
         ];
 
         $kembali = route('penapis.bahagianiva');
@@ -918,7 +918,7 @@ class KilangPenapisController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianv'), 'name' => "Bahagian V"],
+            ['link' => route('penapis.bahagianv'), 'name' => "Bahagian 5 (a) & (b)"],
         ];
 
         $kembali = route('penapis.bahagianivb');
@@ -1077,7 +1077,7 @@ class KilangPenapisController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('penapis.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('penapis.bahagianvi'), 'name' => "Bahagian VI"],
+            ['link' => route('penapis.bahagianvi'), 'name' => "Bahagian 6"],
         ];
 
         $kembali = route('penapis.bahagianv');
