@@ -240,8 +240,11 @@ class KilangIsirungController extends Controller
             ->with('success', 'Maklumat telah disimpan');
     }
 
-    public function isirung_bahagianii()
+
+
+    public function isirung_bahagianii(Request $request)
     {
+
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
@@ -268,8 +271,21 @@ class KilangIsirungController extends Controller
         }
     }
 
+
+
+    protected function validation_bahagian_ii(array $data)
+    {
+        return Validator::make($data, [
+            'e102_al1' => ['required', 'numeric', 'max:99'],
+        ]);
+    }
+
+
     public function isirung_update_bahagian_ii(Request $request, $id)
     {
+        $this->validation_bahagian_ii($request->all())->validate();
+
+
         // dd($request->all());
         $penyata = E102Init::findOrFail($id);
         $penyata->e102_al1 = $request->e102_al1;
