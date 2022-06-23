@@ -682,9 +682,6 @@
                     error += "Name must be 2-4 characters\r\n";
                 }
 
-
-
-
                 // (B4) RESULT
                 if (error == "") {
                     return true;

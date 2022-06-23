@@ -55,9 +55,10 @@
                         <hr>
 
                         <div class="card-body">
-
+                            {{-- <form action="{{ route('admin.edit.kapasiti.proses', $pelesen->e_id) }}" method="post">
+                                @csrf --}}
                             <div class="row" style="margin-top:-3%">
-                                <div class="col-8 mr-auto ml-auto">
+                                <div class="col-10 mr-auto ml-auto">
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="table-responsive">
@@ -66,36 +67,31 @@
                                                         <tr style="background-color: #e9ecefbd">
                                                             {{-- <th>Bil.</th> --}}
                                                             <th>No. Lesen</th>
+                                                            <th>Nama Pelesen</th>
                                                             <th>Bulan</th>
                                                             <th>Tahun</th>
+                                                            <th>Kapasiti</th>
                                                         </tr>
                                                     </thead>
                                                     <tfoot>
                                                         <tr style="background-color: #e9ecefbd">
                                                             {{-- <th>Bil.</th> --}}
                                                             <th>No. Lesen</th>
+                                                            <th>Nama Pelesen</th>
                                                             <th>Bulan</th>
                                                             <th>Tahun</th>
+                                                            <th>Kapasiti</th>
                                                         </tr>
                                                     </tfoot>
                                                     <tbody>
                                                         @foreach ($reg_pelesen as $data)
                                                             @if ($data->pelesen)
                                                                 <tr>
-                                                                    <td><a
-                                                                            href="{{ route('admin.edit.kapasiti', $data->pelesen->e_id) }}"><u>{{ $data->e_nl }}</u></a>
-                                                                    </td>
-                                                                    @if ($data->pelesen->bulan == '01')
-
+                                                                    <td>{{ $data->e_nl }}</td>
+                                                                    <td>{{ $data->pelesen->e_np }}</td>
+                                                                     @if ($data->pelesen->bulan == '01')
                                                                         <td>JANUARI</td>
-
-                                                                    @else
-                                                                        <td>JANUARI</td>
-
-
-                                                                    @endif
-
-                                                                    {{-- @elseif ($data->pelesen->bulan == '02')
+                                                                    @elseif ($data->pelesen->bulan == '02')
                                                                         <td>FEBRUARI</td>
                                                                     @elseif ($data->pelesen->bulan == '03')
                                                                         <td>MAC</td>
@@ -117,15 +113,31 @@
                                                                         <td>NOVEMBER</td>
                                                                     @elseif ($data->pelesen->bulan == '12')
                                                                         <td>DISEMBER</td>
-                                                                    @endif --}}
-                                                                    {{-- <td>{{ $data->pelesen->tahun }}</td> --}}
-                                                                    <td>{{ $data->pelesen->tahun }}</td>
+                                                                    @else
+                                                                        <td></td>
+
+                                                                    @endif
+                                                                    <td>{{ $data->pelesen->tahun ?? '' }}</td>
+                                                                    <td><input type="text" size="15" style="text-align: center; width:100%" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                                        oninput="validate_two_decimal(this);setCustomValidity('')" name='kap_proses' class="center mr-auto ml-auto"
+                                                                        onkeypress="return isNumberKey(event)" required
+                                                                        value="{{ $data->pelesen->kap_proses}}"></td>
                                                                 </tr>
                                                             @endif
                                                         @endforeach
                                                     </tbody>
 
                                                 </table>
+                                                <div class="col-12 mb-4 mt-4" >
+                                                    {{-- <div class="text-left"> --}}
+                                                        <a href="{{ route('admin.kapasiti') }}" type="button" class="btn btn-primary">Kembali</a>
+                                                    {{-- </div> --}}
+                                                    {{-- <div class="text-right ml-auto"> --}}
+
+                                                        <button type="submit" class="btn btn-primary float-right" data-toggle="modal"
+                                                            data-target="#next">Simpan</button>
+                                                    {{-- </div> --}}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
