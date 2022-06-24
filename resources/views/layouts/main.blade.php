@@ -1177,26 +1177,10 @@
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                     <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow " style=" margin-right:5%"
-                                            aria-expanded="false">
-                                            <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu">Penyata Bulanan</span>
-                                            {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                        <a href="{{ route('admin.ringkasan.penyata') }}" class="sidebar-link">
+                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu">Ringkasan Penyata Bulanan <br>  </span>
                                         </a>
-                                        <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.maklumat.penyata.bulanan') }}" class="sidebar-link">
-                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Maklumat Penyata <br> Bulanan</span>
-                                                </a>
-                                            </li>
-                                            <li class="sidebar-item">
-                                                <a href="{{ route('admin.ringkasan.bahagian1') }}" class="sidebar-link">
-                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu">Bahagian 1</span>
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </li>
                                     <li class="sidebar-item">
                                         <a href="{{ route('admin.pl.lewat') }}" class="sidebar-link">

@@ -49,7 +49,7 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.maklumat-penyata-bulanan', compact('returnArr', 'layout'));
     }
 
-    public function admin_ringkasan_bahagian1()
+    public function admin_ringkasan_penyata()
     {
 
         $breadcrumbs    = [
@@ -71,10 +71,10 @@ class LaporanController extends Controller
 
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.ringkasan-bahagian1', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
+        return view('admin.laporan_dq.ringkasan-penyata', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
     }
 
-    public function admin_ringkasan_bahagian1_process()
+    public function admin_ringkasan_penyata_process()
     {
 
         $tahun = H91Init::where('e91_thn', $request->tahun);
@@ -103,7 +103,7 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.ringkasan-bahagian1', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
+        return view('admin.laporan_dq.ringkasan-penyata', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
     }
 
     public function admin_laporan_ringkasan()

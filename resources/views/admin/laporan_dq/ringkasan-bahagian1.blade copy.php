@@ -51,13 +51,13 @@
                             <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Ringkasan Penyata Maklumat Bulanan</h3>
                             <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 1</h5>
                         </div>
-                        <hr>
+                        <hr><br>
 
                         <div class="card-body">
 
                             <div class="container center">
-                                <div class="row" style="margin-top:-2%">
-                                    <div class="col-md-3 ml-auto">
+                                <div class="row" style="margin-top:-2%;">
+                                    <div class="col-md-2">
 
                                         <div class="form-group">
                                             <label>Tahun</label>
@@ -94,31 +94,98 @@
                                                 {{-- @endif --}}
 
 
-
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 ">
+                                    <div class="col-md-2 ">
                                         <div class="form-group">
                                             <label>Bulan</label>
-                                            <select class="form-control" name="bulan">
-                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                <option value="01">Januari</option>
-                                                <option value="02">Februari</option>
-                                                <option value="03">Mac</option>
-                                                <option value="04">April</option>
-                                                <option value="05">Mei</option>
-                                                <option value="06">Jun</option>
-                                                <option value="07">Julai</option>
-                                                <option value="08">Ogos</option>
-                                                <option value="09">September</option>
-                                                <option value="10">Oktober</option>
-                                                <option value="11">November</option>
-                                                <option value="12">Disember</option>
+                                            <select class="form-control" name="bulan"  id="bulan" onchange="showTable()">
+                                                <option selected hidden disabled value="">Sila Pilih</option>
+                                                <option value="equal">Equal</option>
+                                                <option value="between">Between</option>
                                             </select>
+
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mr-auto">
+                                    <div id="equal_container" style="display:none">
+                                        <div class="row">
+                                            <div class="col-md-12 ">
+                                                <div class="form-group">
+                                                    <label>&nbsp;</label>
+                                                    <select class="form-control" name="bulan" >
+                                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                        <option value="01">Januari</option>
+                                                        <option value="02">Februari</option>
+                                                        <option value="03">Mac</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">Mei</option>
+                                                        <option value="06">Jun</option>
+                                                        <option value="07">Julai</option>
+                                                        <option value="08">Ogos</option>
+                                                        <option value="09">September</option>
+                                                        <option value="10">Oktober</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">Disember</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="between_container" style="display:none">
+                                        <div class="row">
+                                            <div class="col-md-6 ">
+                                                <div class="form-group">
+                                                    <label>Dari</label>
+                                                    <select class="form-control" name="bulan">
+                                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                        <option value="01">Januari</option>
+                                                        <option value="02">Februari</option>
+                                                        <option value="03">Mac</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">Mei</option>
+                                                        <option value="06">Jun</option>
+                                                        <option value="07">Julai</option>
+                                                        <option value="08">Ogos</option>
+                                                        <option value="09">September</option>
+                                                        <option value="10">Oktober</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">Disember</option>
+                                                    </select>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <div class="form-group">
+                                                    <label>Ke</label>
+                                                    <select class="form-control" name="bulan">
+                                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                        <option value="01">Januari</option>
+                                                        <option value="02">Februari</option>
+                                                        <option value="03">Mac</option>
+                                                        <option value="04">April</option>
+                                                        <option value="05">Mei</option>
+                                                        <option value="06">Jun</option>
+                                                        <option value="07">Julai</option>
+                                                        <option value="08">Ogos</option>
+                                                        <option value="09">September</option>
+                                                        <option value="10">Oktober</option>
+                                                        <option value="11">November</option>
+                                                        <option value="12">Disember</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="lain_container" style="display:none">
+                                    </div>
+
+
+                                </div><br>
+                                <div class="row">
+                                    <div class="col-md-2">
 
                                         <div class="form-group">
                                             <label>Negeri</label>
@@ -132,10 +199,7 @@
                                         </select>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row">
-
-                                    <div class="col-md-3 ml-auto">
+                                    <div class="col-md-2">
                                         <div class="form-group">
                                             <label>No. Pelesen</label>
                                             <select class="form-control" name="e_np">
@@ -148,7 +212,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-2 ">
                                         <div class="form-group">
                                             <label>Kod Produk</label>
                                             <select class="form-control" id="ebio_c3" name="ebio_c3" style="width: 100%" >
@@ -162,7 +226,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mr-auto">
+                                    <div class="col-md- mr-auto">
                                         <div class="form-group">
                                             <label>Data</label>
                                             <fieldset class="form-group">
@@ -252,4 +316,30 @@
 
 @section('scripts')
 
+    <script type="text/javascript">
+        function showTable() {
+            var bulan = $('#bulan').val();
+            // console.log(oer);
+
+            if (bulan == "equal") {
+                document.getElementById('equal_container').style.display = "block";
+                document.getElementById('lain_container').style.display = "block";
+            } else {
+                document.getElementById('equal_container').style.display = "none";
+                document.getElementById('lain_container').style.display = "block";
+
+            }
+
+            if (bulan == "between") {
+                document.getElementById('between_container').style.display = "block";
+                document.getElementById('lain_container').style.display = "block";
+
+            } else {
+                document.getElementById('between_container').style.display = "none";
+                document.getElementById('lain_container').style.display = "block";
+
+            }
+        }
+
+    </script>
 @endsection
