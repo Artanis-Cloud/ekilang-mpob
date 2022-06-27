@@ -112,149 +112,168 @@
                                     <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                                 </div>
                             </div>
-                            <div class=" text-center">
-                                <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Maklumat Penyata</h3>
-                                <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5>
-                            </div>
-                            <hr>
+                            <form action="{{ route('admin.ringkasan.process') }}" method="post">
+                                @csrf
+                                <div class=" text-center">
+                                    <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Maklumat Penyata</h3>
+                                    <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5>
+                                </div>
+                                <hr>
 
-                            <div class="card-body">
+                                <div class="card-body">
 
-                                <div class="container center">
+                                    <div class="container center">
 
-                                    <div class="row">
-                                        <div class="col-md-4 ml-auto">
-                                            <div class="form-group">
-                                                <label>Tahun</label>
-                                                <select class="form-control" name="tahun">
-                                                    <option selected hidden disabled>Sila Pilih Tahun</option>
-                                                    <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
-                                                    </option>
-                                                    <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
-                                                    </option>
-                                                    <option value="2013" {{ old('tahun') == '2013' ? 'selected' : '' }}>2013
-                                                    </option>
-                                                    <option value="2014" {{ old('tahun') == '2014' ? 'selected' : '' }}>2014
-                                                    </option>
-                                                    <option value="2015" {{ old('tahun') == '2015' ? 'selected' : '' }}>2015
-                                                    </option>
-                                                    <option value="2016" {{ old('tahun') == '2016' ? 'selected' : '' }}>2016
-                                                    </option>
-                                                    <option value="2017" {{ old('tahun') == '2017' ? 'selected' : '' }}>2017
-                                                    </option>
-                                                    <option value="2018" {{ old('tahun') == '2018' ? 'selected' : '' }}>2018
-                                                    </option>
-                                                    <option value="2019" {{ old('tahun') == '2019' ? 'selected' : '' }}>2019
-                                                    </option>
-                                                    <option value="2020" {{ old('tahun') == '2020' ? 'selected' : '' }}>2020
-                                                    </option>
-                                                    <option value="2021" {{ old('tahun') == '2021' ? 'selected' : '' }}>2021
-                                                    </option>
-                                                    <option value="2022" {{ old('tahun') == '2022' ? 'selected' : '' }}>2022
-                                                    </option>
-                                                    <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023
-                                                    </option>
-                                                    <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
-                                                    </option>
-                                                    {{-- @endif --}}
-
-
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Negeri</label>
-                                                <select class="form-control" id="negeri_id" name="e_negeri">
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
-                                                    @foreach ($negeri as $data)
-                                                        <option value="{{ $data->kod_negeri }}">
-                                                            {{ $data->nama_negeri }}
+                                        <div class="row">
+                                            <div class="col-md-4 ml-auto">
+                                                <div class="form-group">
+                                                    <label>Tahun</label>
+                                                    <select class="form-control" name="tahun">
+                                                        <option selected hidden disabled>Sila Pilih Tahun</option>
+                                                        <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
                                                         </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Daerah</label>
-                                                <input type="text" class="form-control" placeholder="Negeri">
-                                            </div>
-
-                                        </div>
-
-                                        <div class="col-md-5 mr-auto ">
-                                            <div class="form-group">
-                                                <label>No. Pelesen</label>
-                                                <select class="form-control" name="e_np">
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
-                                                    @foreach ($users2 as $data)
-                                                        <option value="{{ $data->e_nl }}">
-                                                            {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
+                                                        <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
                                                         </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Data</label>
-                                                <fieldset class="form-group">
-                                                    <select class="form-control" name="laporan">
-                                                        <option selected hidden disabled>Sila Pilih Jenis Data</option>
-                                                        <option value="ebio_b5">Stok Awal Di Premis</option>
-                                                        <option value="ebio_b6">Belian / Terimaan</option>
-                                                        <option value="ebio_b7">Pengeluaran</option>
-                                                        <option value="ebio_b8">Digunakan Untuk Proses Selanjutnya</option>
-                                                        <option value="ebio_b9">Jualan / Edaran Tempatan</option>
-                                                        <option value="ebio_b10">Eksport</option>
-                                                        <option value="ebio_b11">Stok Akhir Dilapor</option>
+                                                        <option value="2013" {{ old('tahun') == '2013' ? 'selected' : '' }}>2013
+                                                        </option>
+                                                        <option value="2014" {{ old('tahun') == '2014' ? 'selected' : '' }}>2014
+                                                        </option>
+                                                        <option value="2015" {{ old('tahun') == '2015' ? 'selected' : '' }}>2015
+                                                        </option>
+                                                        <option value="2016" {{ old('tahun') == '2016' ? 'selected' : '' }}>2016
+                                                        </option>
+                                                        <option value="2017" {{ old('tahun') == '2017' ? 'selected' : '' }}>2017
+                                                        </option>
+                                                        <option value="2018" {{ old('tahun') == '2018' ? 'selected' : '' }}>2018
+                                                        </option>
+                                                        <option value="2019" {{ old('tahun') == '2019' ? 'selected' : '' }}>2019
+                                                        </option>
+                                                        <option value="2020" {{ old('tahun') == '2020' ? 'selected' : '' }}>2020
+                                                        </option>
+                                                        <option value="2021" {{ old('tahun') == '2021' ? 'selected' : '' }}>2021
+                                                        </option>
+                                                        <option value="2022" {{ old('tahun') == '2022' ? 'selected' : '' }}>2022
+                                                        </option>
+                                                        <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023
+                                                        </option>
+                                                        <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
+                                                        </option>
+                                                        {{-- @endif --}}
+
+
                                                     </select>
-                                                </fieldset>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Negeri</label>
+                                                    <select class="form-control" id="negeri_id" name="e_negeri"
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                        oninput="setCustomValidity('')"
+                                                        onchange="ajax_daerah(this);ajax_kawasan(this)" >
+                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        @foreach ($negeri as $data)
+                                                            <option value="{{ $data->kod_negeri }}">
+                                                                {{ $data->nama_negeri }}
+                                                            </option>
+                                                        @endforeach
+                                                </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Daerah</label>
+                                                    <select class="form-control" id="daerah_id" name='e_daerah'
+                                                        placeholder="Daerah"
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                        oninput="setCustomValidity('')">
+                                                        <option selected hidden disabled value="">Sila Pilih Negeri Terlebih Dahulu
+                                                        </option>
+                                                </select>
+                                                </div>
+
                                             </div>
 
+                                            <div class="col-md-5 mr-auto ">
+                                                <div class="form-group">
+                                                    <label>No. Pelesen</label>
+                                                    <select class="form-control" name="e_np">
+                                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                                        @foreach ($users2 as $data)
+                                                            <option value="{{ $data->e_nl }}">
+                                                                {{ $data->e_nl }} - {{ $data->pelesen->e_np }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                {{-- <div class="form-group">
+                                                    <label>Data</label>
+                                                    <fieldset class="form-group">
+                                                        <select class="form-control" name="laporan">
+                                                            <option selected hidden disabled>Sila Pilih Jenis Data</option>
+                                                            <option value="ebio_b5">Stok Awal Di Premis</option>
+                                                            <option value="ebio_b6">Belian / Terimaan</option>
+                                                            <option value="ebio_b7">Pengeluaran</option>
+                                                            <option value="ebio_b8">Digunakan Untuk Proses Selanjutnya</option>
+                                                            <option value="ebio_b9">Jualan / Edaran Tempatan</option>
+                                                            <option value="ebio_b10">Eksport</option>
+                                                            <option value="ebio_b11">Stok Akhir Dilapor</option>
+                                                        </select>
+                                                    </fieldset>
+                                                </div> --}}
+
+
+                                            </div>
 
                                         </div>
 
+
                                     </div>
+                                    <div class="text-right col-md-6 mb-4 mt-4">
+                                        <button type="submit" class="btn btn-primary" style="margin-left:90%">Cari</button>
+                                    </div>
+                                    <div class="text-right col-md-6 mb-4 mt-4"><a href="{{ route('admin.laporan.ringkasan') }}">
+                                        <button type="button"  class="btn btn-primary" data-toggle="modal"
+                                           >Cari</button>
+                                           </a>
+                                    </div>
+                                    <section class="section"><hr>
+                                        <div class="card"><br>
+
+                                            <h6 style="color: rgb(30, 28, 28); margin-left:40%">Stok Awal Bulan Di Premis</h6>
+                                            <div class="table-responsive " id="example1">
+                                                <table id="example" class="table table-bordered text-center" style="width: 100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col" style="vertical-align: middle">Bil.</th>
+                                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                            <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
+                                                            <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                            <th scope="col" style="vertical-align: middle">Daerah</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {{-- @if ($users) --}}
+                                                        @foreach ($users as $data)
+                                                            <tr>
+                                                                <td>{{ $loop->iteration }}</td>
+                                                                <td>{{ $data->ebio_nl }}</td>
+                                                                <td>{{ $data->ebio_np }}</td>
+                                                                <td>{{ $data->negeri }}</td>
+                                                                <th>{{ $data->daerah }}</th>
 
 
-                                </div>
-                                <div class="text-right col-md-6 mb-4 mt-4">
-                                    <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                        data-target="#next">Cari</button>
-                                </div>
+                                                            </tr>
+                                                        @endforeach
+                                                    {{-- @else
 
-                                <section class="section"><hr>
-                                    <div class="card"><br>
+                                                    @endif --}}
 
-                                        <h6 style="color: rgb(30, 28, 28); margin-left:40%">Stok Awal Bulan Di Premis</h6>
-                                        <div class="table-responsive " id="example1">
-                                            <table id="example" class="table table-bordered text-center" style="width: 100%;">
-                                                <thead>
-                                                    <tr>
-                                                        <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                        <th scope="col" style="vertical-align: middle">Kod Produk</th>
-                                                        <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Negeri</th>
-                                                        <th scope="col" style="vertical-align: middle">Daerah</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-
-                                                    <tr>
-                                                        <th>-</th>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <th>-</th>
-                                                        <td>-</td>
-
-                                                    </tr>
-
-                                                </tbody>
-                                            </table>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            {{-- </div> --}}
                                         </div>
-                                        {{-- </div> --}}
-                                    </div>
 
-                                </section>
-                            </div>
+                                    </section>
+                                </div>
+                            </form>
                         </div>
 
                         <div id="bahagian1" class="tabcontent">
@@ -514,7 +533,8 @@
                                 <div class="container center">
 
                                     <div class="row">
-                                        <div class="col-md-4 ml-auto">
+                                        <div class="col-md-4 ml-auto ">
+
                                             <div class="form-group">
                                                 <label>Tahun</label>
                                                 <select class="form-control" name="tahun">
@@ -553,6 +573,88 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
+                                                <label>Bulan</label>
+                                                <select class="form-control" name="bulan"  id="bulan" onchange="showTable()">
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    <option value="equal">Equal</option>
+                                                    <option value="between">Between</option>
+                                                </select>
+
+                                            </div>
+                                            <div id="equal_container" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-md-12 ">
+                                                        <div class="form-group">
+                                                            <label>&nbsp;</label>
+                                                            <select class="form-control" name="bulan" >
+                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                <option value="01">Januari</option>
+                                                                <option value="02">Februari</option>
+                                                                <option value="03">Mac</option>
+                                                                <option value="04">April</option>
+                                                                <option value="05">Mei</option>
+                                                                <option value="06">Jun</option>
+                                                                <option value="07">Julai</option>
+                                                                <option value="08">Ogos</option>
+                                                                <option value="09">September</option>
+                                                                <option value="10">Oktober</option>
+                                                                <option value="11">November</option>
+                                                                <option value="12">Disember</option>
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="between_container" style="display:none">
+                                                <div class="row">
+                                                    <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>Dari</label>
+                                                            <select class="form-control" name="bulan">
+                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                <option value="01">Januari</option>
+                                                                <option value="02">Februari</option>
+                                                                <option value="03">Mac</option>
+                                                                <option value="04">April</option>
+                                                                <option value="05">Mei</option>
+                                                                <option value="06">Jun</option>
+                                                                <option value="07">Julai</option>
+                                                                <option value="08">Ogos</option>
+                                                                <option value="09">September</option>
+                                                                <option value="10">Oktober</option>
+                                                                <option value="11">November</option>
+                                                                <option value="12">Disember</option>
+                                                            </select>
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 ">
+                                                        <div class="form-group">
+                                                            <label>Ke</label>
+                                                            <select class="form-control" name="bulan">
+                                                                <option selected hidden disabled value="">Sila Pilih Bulan</option>
+                                                                <option value="01">Januari</option>
+                                                                <option value="02">Februari</option>
+                                                                <option value="03">Mac</option>
+                                                                <option value="04">April</option>
+                                                                <option value="05">Mei</option>
+                                                                <option value="06">Jun</option>
+                                                                <option value="07">Julai</option>
+                                                                <option value="08">Ogos</option>
+                                                                <option value="09">September</option>
+                                                                <option value="10">Oktober</option>
+                                                                <option value="11">November</option>
+                                                                <option value="12">Disember</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div id="lain_container" style="display:none">
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Negeri</label>
                                                 <select class="form-control" id="negeri_id" name="e_negeri">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
@@ -563,14 +665,10 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Daerah</label>
-                                                <input type="text" class="form-control" placeholder="Negeri">
-                                            </div>
 
                                         </div>
 
-                                        <div class="col-md-5 mr-auto ">
+                                        <div class="col-md-5 mr-auto">
                                             <div class="form-group">
                                                 <label>No. Pelesen</label>
                                                 <select class="form-control" name="e_np">
@@ -583,26 +681,30 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
+                                                <label>Kod Produk</label>
+                                                <select class="form-control" id="ebio_c3" name="ebio_c3" style="width: 100%" >
+                                                    <option selected hidden disabled>Sila Pilih</option>
+                                                    @foreach ($produk as $data)
+                                                        <option value="{{ $data->prodid }}">
+                                                            {{ $data->proddesc }} - {{ $data->prodid }}
+                                                        </option>
+                                                    @endforeach
+
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Data</label>
                                                 <fieldset class="form-group">
                                                     <select class="form-control" name="laporan">
-                                                        <option selected hidden disabled>Sila Pilih Jenis Data</option>
-                                                        <option value="ebio_b5">Stok Awal Di Premis</option>
-                                                        <option value="ebio_b6">Belian / Terimaan</option>
-                                                        <option value="ebio_b7">Pengeluaran</option>
-                                                        <option value="ebio_b8">Digunakan Untuk Proses Selanjutnya</option>
-                                                        <option value="ebio_b9">Jualan / Edaran Tempatan</option>
-                                                        <option value="ebio_b10">Eksport</option>
-                                                        <option value="ebio_b11">Stok Akhir Dilapor</option>
+                                                        <option selected hidden disabled>Semua Jenis Data</option>
+                                                        <option value="hari_operasi">Jumlah Hari Kilang Beroperasi Sebulan</option>
+                                                        <option value="kapasiti">Kadar Penggunaan Kapasiti Sebulan</option>
                                                     </select>
                                                 </fieldset>
                                             </div>
 
-
                                         </div>
-
                                     </div>
-
 
                                 </div>
                                 <div class="text-right col-md-6 mb-4 mt-4">

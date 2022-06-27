@@ -221,6 +221,9 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/maklumat-penyata-bulanan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_maklumat_penyata_bulanan'])->name('admin.maklumat.penyata.bulanan');
         Route::get('admin/ringkasan-penyata', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_penyata'])->name('admin.ringkasan.penyata');
         Route::get('admin/laporan-ringkasan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_ringkasan'])->name('admin.laporan.ringkasan');
+        Route::get('admin/laporan-ringkasan-bahagian1', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_ringkasan_bahagian1'])->name('admin.laporan.ringkasan1');
+        Route::post('admin/laporan-ringkasan/process', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_penyata_process'])->name('admin.ringkasan.process');
+
 
         Route::get('admin/pl-lewat', [App\Http\Controllers\Admin\LaporanController::class, 'admin_pl_lewat'])->name('admin.pl.lewat');
         Route::get('admin/pl-lewat/process', [App\Http\Controllers\Admin\LaporanController::class, 'admin_pl_lewat_process'])->name('admin.pl.lewat.process');

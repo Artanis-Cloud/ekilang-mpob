@@ -7,6 +7,7 @@ use App\Models\Bulan;
 use App\Models\Daerah;
 use App\Models\EBioInit;
 use App\Models\H91Init;
+use App\Models\HBioInit;
 use App\Models\HebahanProses;
 use App\Models\Kapasiti;
 use App\Models\KumpProduk;
@@ -47,15 +48,15 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.maklumat-penyata-bulanan', compact('returnArr', 'layout'));
+        return view('admin.laporan_dq.ringkasan.maklumat-penyata-bulanan', compact('returnArr', 'layout'));
     }
 
-    public function admin_ringkasan_penyata()
+    public function admin_ringkasan_penyata(Request $request)
     {
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "Maklumat Penyata Bulanan"],
+            ['link' => route('admin.ringkasan.penyata'), 'name' => "Maklumat Penyata Bulanan"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -64,36 +65,44 @@ class LaporanController extends Controller
             'breadcrumbs' => $breadcrumbs,
             'kembali'     => $kembali,
         ];
-
 
         $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
 
+        $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, e.ebio_bln , e.ebio_thn, p.e_negeri, p.e_daerah
+        FROM pelesen p, h_bio_inits e
+        WHERE e.ebio_thn = '$request->tahun' AND
+        p.e_negeri = '$request->e_negeri' AND
+        p.e_daerah = '$request->e_daerah' AND
+        p.e_nl = '$request->e_nl' AND
+        p.e_nl = e.ebio_nl
+        order by p.e_nl");
+
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.ringkasan-penyata', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
+        return view('admin.laporan_dq.ringkasan.ringkasan-penyata', compact('returnArr', 'layout', 'users', 'produk', 'users2', 'negeri'));
     }
 
-    public function admin_ringkasan_penyata_process()
+    public function admin_ringkasan_penyata_process(Request $request)
     {
 
-        $tahun = H91Init::where('e91_thn', $request->tahun);
-        $bulan = H91Init::where('e91_bln', $request->bulan);
-
-        // dd($bulan);
-        $users = DB::select("SELECT e.e91_nl, p.e_nl, p.e_np, k.kodpgw, k.nosiri, e.e91_nobatch,  date_format(e91_sdate,'%d-%m-%Y') as sdate
-                        FROM pelesen p, h91_init e, reg_pelesen k
-                        WHERE e.e91_thn = '$request->tahun'
-                        and e.e91_bln = '$request->bulan'
-                        and p.e_nl = e.e91_nl
-                        and e.e91_flg = '3'
-                        and p.e_nl = k.e_nl
-                        and k.e_kat = 'PL91'
-                        order by k.kodpgw, k.nosiri");
-         $breadcrumbs    = [
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
+        $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch
+                        FROM pelesen p, h_bio_inits e
+                        WHERE e.ebio_thn = '$request->tahun' AND
+                        p.e_negeri = '$request->e_negeri' AND
+                        p.e_daerah = '$request->e_daerah' AND
+                        p.e_nl = '$request->e_nl' AND
+                        p.e_nl = e.ebio_nl
+                        order by p.e_nl");
+        // dd($users);
+        // dd($request->all());
+        $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "Maklumat Penyata Bulanan"],
+            ['link' => route('admin.ringkasan.penyata'), 'name' => "Ringkasan"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -104,7 +113,7 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.ringkasan-penyata', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
+        return view('admin.laporan_dq..ringkasan.ringkasan-penyata', compact('returnArr', 'layout', 'users', 'negeri', 'users2','produk'));
     }
 
     public function admin_laporan_ringkasan()
@@ -129,7 +138,32 @@ class LaporanController extends Controller
 
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.laporan-ringkasan-penyata', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
+        return view('admin.laporan_dq.ringkasan.laporan-ringkasan-penyata', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
+    }
+
+    public function admin_laporan_ringkasan_bahagian1()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Maklumat Penyata Bulanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+
+        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.ringkasan.laporan-ringkasan-1', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
     }
 
     public function admin_pl_lewat()
