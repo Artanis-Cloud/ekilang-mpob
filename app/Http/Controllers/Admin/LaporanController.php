@@ -8,6 +8,7 @@ use App\Models\Daerah;
 use App\Models\EBioInit;
 use App\Models\H91Init;
 use App\Models\HebahanProses;
+use App\Models\Kapasiti;
 use App\Models\KumpProduk;
 use App\Models\Negara;
 use App\Models\Produk;
@@ -224,9 +225,10 @@ class LaporanController extends Controller
         // dd($pelesen);
         // $date= date("m");
 
-        $reg_pelesen = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        // $reg_pelesen = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $kapasiti = Kapasiti::with('pelesen')->get();
         // $pelesen = Pelesen::with('regpelesen')->where('e_nl', $reg_pelesen[0]->e_nl)->get();
-        // dd($reg_pelesen);
+        // dd($kapasiti);
 
 
         $breadcrumbs    = [
@@ -242,7 +244,7 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.kapasiti', compact('returnArr', 'layout', 'reg_pelesen'));
+        return view('admin.laporan_dq.kapasiti', compact('returnArr', 'layout', 'kapasiti'));
     }
 
     public function admin_edit_kapasiti($id, Pelesen $pelesen)
@@ -273,13 +275,143 @@ class LaporanController extends Controller
     }
 
 
-    public function admin_edit_kapasiti_proses(Request $request, $id)
+    public function admin_edit_kapasiti_jan(Request $request, $id)
     {
         // dd($request->all());
-        $pelesen = Pelesen::findOrFail($id);
-        $pelesen->tahun = $request->tahun;
-        $pelesen->bulan = $request->bulan;
-        $pelesen->kap_proses = $request->kap_proses;
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->jan = $request->jan;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_feb(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->feb = $request->feb;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_mac(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->mac = $request->mac;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_apr(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->apr = $request->apr;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_mei(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->mei = $request->mei;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_jun(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->jun = $request->jun;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_jul(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->jul = $request->jul;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_ogs(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->ogs = $request->ogs;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_sept(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->sept = $request->sept;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_okt(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->okt = $request->okt;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_nov(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->nov = $request->nov;
+        $pelesen->save();
+
+
+        return redirect()->back()
+            ->with('success', 'Maklumat Kapasiti telah dikemaskini');
+    }
+
+    public function admin_edit_kapasiti_dec(Request $request, $id)
+    {
+        // dd($request->all());
+        $pelesen = Kapasiti::findOrFail($id);
+        $pelesen->dec = $request->dec;
         $pelesen->save();
 
 

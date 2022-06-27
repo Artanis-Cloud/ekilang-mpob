@@ -224,9 +224,22 @@ Route::middleware('auth')->group(function () {
 
         Route::get('admin/pl-lewat', [App\Http\Controllers\Admin\LaporanController::class, 'admin_pl_lewat'])->name('admin.pl.lewat');
         Route::get('admin/pl-lewat/process', [App\Http\Controllers\Admin\LaporanController::class, 'admin_pl_lewat_process'])->name('admin.pl.lewat.process');
+
         Route::get('admin/kapasiti', [App\Http\Controllers\Admin\LaporanController::class, 'admin_kapasiti'])->name('admin.kapasiti');
         Route::get('admin/edit-kapasiti/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti'])->name('admin.edit.kapasiti');
-        Route::post('admin/edit-kapasiti/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_proses'])->name('admin.edit.kapasiti.proses');
+        Route::post('admin/edit-kapasiti-jan/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_jan'])->name('admin.edit.kapasiti.jan');
+        Route::post('admin/edit-kapasiti-feb/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_feb'])->name('admin.edit.kapasiti.feb');
+        Route::post('admin/edit-kapasiti-mac/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_mac'])->name('admin.edit.kapasiti.mac');
+        Route::post('admin/edit-kapasiti-apr/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_apr'])->name('admin.edit.kapasiti.apr');
+        Route::post('admin/edit-kapasiti-mei/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_mei'])->name('admin.edit.kapasiti.mei');
+        Route::post('admin/edit-kapasiti-jun/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_jun'])->name('admin.edit.kapasiti.jun');
+        Route::post('admin/edit-kapasiti-jul/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_jul'])->name('admin.edit.kapasiti.jul');
+        Route::post('admin/edit-kapasiti-ogs/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_ogs'])->name('admin.edit.kapasiti.ogs');
+        Route::post('admin/edit-kapasiti-sept/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_sept'])->name('admin.edit.kapasiti.sept');
+        Route::post('admin/edit-kapasiti-okt/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_okt'])->name('admin.edit.kapasiti.okt');
+        Route::post('admin/edit-kapasiti-nov/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_nov'])->name('admin.edit.kapasiti.nov');
+        Route::post('admin/edit-kapasiti-dec/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_dec'])->name('admin.edit.kapasiti.dec');
+
         Route::get('admin/laporan-tahunan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_tahunan'])->name('admin.laporan.tahunan');
         Route::get('admin/laporan-bulanan-lesen', [App\Http\Controllers\Admin\LaporanController::class, 'admin_bulanan_lesen'])->name('admin.laporan.bulanan');
         Route::get('admin/carian-bulanan-lesen', [App\Http\Controllers\Admin\LaporanController::class, 'admin_carian_bulanan_lesen'])->name('admin.carian.bulanan');
