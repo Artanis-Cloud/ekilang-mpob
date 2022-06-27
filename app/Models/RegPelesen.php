@@ -42,4 +42,5 @@ class RegPelesen extends Authenticatable
     }
 
 
+
 }

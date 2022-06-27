@@ -81,6 +81,8 @@ class Pelesen extends Model
         'kap_tangki_oleo',
         'kap_tangki_others',
         'kap_tangki_jumlah',
+        'tahun',
+        'bulan',
 
     ];
 

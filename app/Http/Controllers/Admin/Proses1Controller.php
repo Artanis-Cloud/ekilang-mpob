@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Daerah;
 use App\Models\H91Init;
 use App\Models\Ekmessage;
+use App\Models\Kapasiti;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
@@ -67,6 +68,7 @@ class Proses1Controller extends Controller
         $this->validation_daftar_pelesen($request->all())->validate();
 
         $this->store_daftar_pelesen($request->all());
+        $this->store_kapasiti($request->all());
         $custom_pass = $this->store_daftar_pelesen2($request->all());
         $pelesen = $this->store_daftar_pelesen3($request->all(), $custom_pass);
 
@@ -131,22 +133,6 @@ class Proses1Controller extends Controller
     protected function store_daftar_pelesen(array $data)
     {
 
-        // $count = RegPelesen::count();
-
-
-        // return RegPelesen::create([
-        //     // 'e_id' => $count++,
-        //     'e_nl' => $data['e_nl'],
-        //     'e_kat' => $data['e_kat'],
-        //     'e_pwd' => '12345',
-        //     'kodpgw' => $data['kodpgw'],
-        //     'nosiri' => $data['nosiri'],
-        //     'e_status' => $data['e_status'],
-        //     'e_stock' => $data['e_stock'],
-        //     'directory' => $data['directory'],
-        // ]);
-
-        // $count = Pelesen::count();
         $count = Pelesen::max('e_id');
 
         //
@@ -193,6 +179,32 @@ class Proses1Controller extends Controller
             // 'kap_tangki_cpko' => $data['kap_tangki_cpko'],
             // 'kap_tangki_ppko' => $data['kap_tangki_ppko'],
             // 'kap_tangki_others' => $data['kap_tangki_others'],
+
+        ]);
+    }
+
+    protected function store_kapasiti(array $data)
+    {
+
+        // $count = Kapasiti::max('id');
+
+        //
+        return Kapasiti::create([
+            // 'id' => $count+ 1,
+            'e_nl' => $data['e_nl'],
+            'tahun' => date("Y"),
+            '01' => $data['kap_proses'],
+            '02' => $data['kap_proses'],
+            '03' => $data['kap_proses'],
+            '04' => $data['kap_proses'],
+            '05' => $data['kap_proses'],
+            '06' => $data['kap_proses'],
+            '07' => $data['kap_proses'],
+            '08' => $data['kap_proses'],
+            '09' => $data['kap_proses'],
+            '10' => $data['kap_proses'],
+            '11' => $data['kap_proses'],
+            '12' => $data['kap_proses'],
 
         ]);
     }
