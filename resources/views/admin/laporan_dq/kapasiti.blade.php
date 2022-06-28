@@ -143,7 +143,7 @@
                                                                                         <div class="icon" style="text-align: center">
                                                                                             <a href="#" type="button"
                                                                                                 data-toggle="modal"
-                                                                                                data-target="#modal{{ $key }}">
+                                                                                                data-target="#mac{{ $key }}">
                                                                                                 <i class="fas fa-edit fa-lg"
                                                                                                     style="color: #ffc107">
                                                                                                 </i>
@@ -163,7 +163,7 @@
                                                                                         <div class="icon" style="text-align: center">
                                                                                             <a href="#" type="button"
                                                                                                 data-toggle="modal"
-                                                                                                data-target="#modal{{ $key }}">
+                                                                                                data-target="#apr{{ $key }}">
                                                                                                 <i class="fas fa-edit fa-lg"
                                                                                                     style="color: #ffc107">
                                                                                                 </i>
@@ -182,7 +182,7 @@
                                                                                         <div class="icon" style="text-align: center">
                                                                                             <a href="#" type="button"
                                                                                                 data-toggle="modal"
-                                                                                                data-target="#modal{{ $key }}">
+                                                                                                data-target="#mei{{ $key }}">
                                                                                                 <i class="fas fa-edit fa-lg"
                                                                                                     style="color: #ffc107">
                                                                                                 </i>
@@ -202,7 +202,7 @@
                                                                                         <div class="icon" style="text-align: center">
                                                                                             <a href="#" type="button"
                                                                                                 data-toggle="modal"
-                                                                                                data-target="#modal{{ $key }}">
+                                                                                                data-target="#jun{{ $key }}">
                                                                                                 <i class="fas fa-edit fa-lg"
                                                                                                     style="color: #ffc107">
                                                                                                 </i>
@@ -222,7 +222,7 @@
                                                                                         <div class="icon" style="text-align: center">
                                                                                             <a href="#" type="button"
                                                                                                 data-toggle="modal"
-                                                                                                data-target="#modal{{ $key }}">
+                                                                                                data-target="#jul{{ $key }}">
                                                                                                 <i class="fas fa-edit fa-lg"
                                                                                                     style="color: #ffc107">
                                                                                                 </i>
@@ -242,7 +242,7 @@
                                                                                         <div class="icon" style="text-align: center">
                                                                                             <a href="#" type="button"
                                                                                                 data-toggle="modal"
-                                                                                                data-target="#modal{{ $key }}">
+                                                                                                data-target="#ogs{{ $key }}">
                                                                                                 <i class="fas fa-edit fa-lg"
                                                                                                     style="color: #ffc107">
                                                                                                 </i>
@@ -262,7 +262,7 @@
                                                                                         <div class="icon" style="text-align: center">
                                                                                             <a href="#" type="button"
                                                                                                 data-toggle="modal"
-                                                                                                data-target="#modal{{ $key }}">
+                                                                                                data-target="#sept{{ $key }}">
                                                                                                 <i class="fas fa-edit fa-lg"
                                                                                                     style="color: #ffc107">
                                                                                                 </i>
@@ -282,7 +282,7 @@
                                                                                         <div class="icon" style="text-align: center">
                                                                                             <a href="#" type="button"
                                                                                                 data-toggle="modal"
-                                                                                                data-target="#modal{{ $key }}">
+                                                                                                data-target="#okt{{ $key }}">
                                                                                                 <i class="fas fa-edit fa-lg"
                                                                                                     style="color: #ffc107">
                                                                                                 </i>
@@ -302,7 +302,7 @@
                                                                                         <div class="icon" style="text-align: center">
                                                                                             <a href="#" type="button"
                                                                                                 data-toggle="modal"
-                                                                                                data-target="#modal{{ $key }}">
+                                                                                                data-target="#nov{{ $key }}">
                                                                                                 <i class="fas fa-edit fa-lg"
                                                                                                     style="color: #ffc107">
                                                                                                 </i>
@@ -322,7 +322,7 @@
                                                                                         <div class="icon" style="text-align: center">
                                                                                             <a href="#" type="button"
                                                                                                 data-toggle="modal"
-                                                                                                data-target="#modal{{ $key }}">
+                                                                                                data-target="#dec{{ $key }}">
                                                                                                 <i class="fas fa-edit fa-lg"
                                                                                                     style="color: #ffc107">
                                                                                                 </i>
@@ -848,7 +848,7 @@
                                                                                 name="bulan"
                                                                                 class="form-control form-control-danger"
                                                                                 placeholder="Bulan" readonly
-                                                                                value="JANUARI"
+                                                                                value="FEBRUARI"
                                                                                 >
                                                                             </div>
                                                                             <div class="col-md-5 mr-auto">
@@ -884,6 +884,2682 @@
                                                                                         class="form-control form-control-danger"
                                                                                         placeholder="0.00"
                                                                                         value="{{ $data->feb ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+                                                <!-- MAC -->
+                                                @foreach ($kapasiti as $key => $data)
+                                                    <div class="modal fade bs-example-modal-lg"
+                                                        id="mac{{ $key }}" tabindex="-1" role="dialog"
+                                                        aria-labelledby="myLargeModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myLargeModalLabel">
+                                                                        Kemaskini Maklumat Kapasiti</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('admin.edit.kapasiti.mac', $data->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <div class="row ml-auto" style="margin-top:-1%">
+                                                                            <label for="fname"
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Nama
+                                                                                Premis
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Nama Premis"
+                                                                                    value="{{ $data->pelesen->e_np ?? '' }}"
+                                                                                    readonly>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="JOHOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KEDAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KELANTAN"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="MELAKA"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="NEGERI SEMBILAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PAHANG"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERLIS"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="PULAU PINANG" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SELANGOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="TERENGGANU" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="WILAYAH PERSEKUTUAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SABAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SARAWAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="-"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="row p-t-20">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <label class="control-label">Bulan</label>
+                                                                                <input type="text" id="lastName"
+                                                                                name="bulan"
+                                                                                class="form-control form-control-danger"
+                                                                                placeholder="Bulan" readonly
+                                                                                value="MAC"
+                                                                                >
+                                                                            </div>
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Tahun</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name="tahun"
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="Tahun" readonly
+                                                                                        value="{{ $data->tahun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row ">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="control-label">Kategori</label>
+                                                                                    <input type="text" id="firstName"
+                                                                                        class="form-control"
+                                                                                        value='KILANG BIODIESEL' readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/span-->
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Kapasiti</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name='mac'
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="0.00"
+                                                                                        value="{{ $data->mac ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+                                                <!-- APRIL -->
+                                                @foreach ($kapasiti as $key => $data)
+                                                    <div class="modal fade bs-example-modal-lg"
+                                                        id="apr{{ $key }}" tabindex="-1" role="dialog"
+                                                        aria-labelledby="myLargeModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myLargeModalLabel">
+                                                                        Kemaskini Maklumat Kapasiti</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('admin.edit.kapasiti.apr', $data->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <div class="row ml-auto" style="margin-top:-1%">
+                                                                            <label for="fname"
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Nama
+                                                                                Premis
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Nama Premis"
+                                                                                    value="{{ $data->pelesen->e_np ?? '' }}"
+                                                                                    readonly>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="JOHOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KEDAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KELANTAN"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="MELAKA"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="NEGERI SEMBILAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PAHANG"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERLIS"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="PULAU PINANG" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SELANGOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="TERENGGANU" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="WILAYAH PERSEKUTUAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SABAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SARAWAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="-"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="row p-t-20">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <label class="control-label">Bulan</label>
+                                                                                <input type="text" id="lastName"
+                                                                                name="bulan"
+                                                                                class="form-control form-control-danger"
+                                                                                placeholder="Bulan" readonly
+                                                                                value="APRIL"
+                                                                                >
+                                                                            </div>
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Tahun</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name="tahun"
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="Tahun" readonly
+                                                                                        value="{{ $data->tahun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row ">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="control-label">Kategori</label>
+                                                                                    <input type="text" id="firstName"
+                                                                                        class="form-control"
+                                                                                        value='KILANG BIODIESEL' readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/span-->
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Kapasiti</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name='apr'
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="0.00"
+                                                                                        value="{{ $data->apr ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+                                                <!-- MEI -->
+                                                @foreach ($kapasiti as $key => $data)
+                                                    <div class="modal fade bs-example-modal-lg"
+                                                        id="mei{{ $key }}" tabindex="-1" role="dialog"
+                                                        aria-labelledby="myLargeModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myLargeModalLabel">
+                                                                        Kemaskini Maklumat Kapasiti</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('admin.edit.kapasiti.mei', $data->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <div class="row ml-auto" style="margin-top:-1%">
+                                                                            <label for="fname"
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Nama
+                                                                                Premis
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Nama Premis"
+                                                                                    value="{{ $data->pelesen->e_np ?? '' }}"
+                                                                                    readonly>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="JOHOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KEDAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KELANTAN"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="MELAKA"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="NEGERI SEMBILAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PAHANG"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERLIS"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="PULAU PINANG" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SELANGOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="TERENGGANU" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="WILAYAH PERSEKUTUAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SABAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SARAWAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="-"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="row p-t-20">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <label class="control-label">Bulan</label>
+                                                                                <input type="text" id="lastName"
+                                                                                name="bulan"
+                                                                                class="form-control form-control-danger"
+                                                                                placeholder="Bulan" readonly
+                                                                                value="MEI"
+                                                                                >
+                                                                            </div>
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Tahun</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name="tahun"
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="Tahun" readonly
+                                                                                        value="{{ $data->tahun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row ">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="control-label">Kategori</label>
+                                                                                    <input type="text" id="firstName"
+                                                                                        class="form-control"
+                                                                                        value='KILANG BIODIESEL' readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/span-->
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Kapasiti</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name='mei'
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="0.00"
+                                                                                        value="{{ $data->mei ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+                                                <!-- JUN -->
+                                                @foreach ($kapasiti as $key => $data)
+                                                    <div class="modal fade bs-example-modal-lg"
+                                                        id="jun{{ $key }}" tabindex="-1" role="dialog"
+                                                        aria-labelledby="myLargeModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myLargeModalLabel">
+                                                                        Kemaskini Maklumat Kapasiti</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('admin.edit.kapasiti.jun', $data->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <div class="row ml-auto" style="margin-top:-1%">
+                                                                            <label for="fname"
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Nama
+                                                                                Premis
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Nama Premis"
+                                                                                    value="{{ $data->pelesen->e_np ?? '' }}"
+                                                                                    readonly>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="JOHOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KEDAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KELANTAN"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="MELAKA"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="NEGERI SEMBILAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PAHANG"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERLIS"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="PULAU PINANG" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SELANGOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="TERENGGANU" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="WILAYAH PERSEKUTUAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SABAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SARAWAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="-"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="row p-t-20">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <label class="control-label">Bulan</label>
+                                                                                <input type="text" id="lastName"
+                                                                                name="bulan"
+                                                                                class="form-control form-control-danger"
+                                                                                placeholder="Bulan" readonly
+                                                                                value="JUN"
+                                                                                >
+                                                                            </div>
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Tahun</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name="tahun"
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="Tahun" readonly
+                                                                                        value="{{ $data->tahun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row ">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="control-label">Kategori</label>
+                                                                                    <input type="text" id="firstName"
+                                                                                        class="form-control"
+                                                                                        value='KILANG BIODIESEL' readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/span-->
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Kapasiti</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name='jun'
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="0.00"
+                                                                                        value="{{ $data->jun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+
+                                                <!-- JULAI -->
+                                                @foreach ($kapasiti as $key => $data)
+                                                    <div class="modal fade bs-example-modal-lg"
+                                                        id="jul{{ $key }}" tabindex="-1" role="dialog"
+                                                        aria-labelledby="myLargeModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myLargeModalLabel">
+                                                                        Kemaskini Maklumat Kapasiti</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('admin.edit.kapasiti.jul', $data->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <div class="row ml-auto" style="margin-top:-1%">
+                                                                            <label for="fname"
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Nama
+                                                                                Premis
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Nama Premis"
+                                                                                    value="{{ $data->pelesen->e_np ?? '' }}"
+                                                                                    readonly>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="JOHOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KEDAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KELANTAN"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="MELAKA"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="NEGERI SEMBILAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PAHANG"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERLIS"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="PULAU PINANG" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SELANGOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="TERENGGANU" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="WILAYAH PERSEKUTUAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SABAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SARAWAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="-"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="row p-t-20">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <label class="control-label">Bulan</label>
+                                                                                <input type="text" id="lastName"
+                                                                                name="bulan"
+                                                                                class="form-control form-control-danger"
+                                                                                placeholder="Bulan" readonly
+                                                                                value="JULAI"
+                                                                                >
+                                                                            </div>
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Tahun</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name="tahun"
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="Tahun" readonly
+                                                                                        value="{{ $data->tahun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row ">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="control-label">Kategori</label>
+                                                                                    <input type="text" id="firstName"
+                                                                                        class="form-control"
+                                                                                        value='KILANG BIODIESEL' readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/span-->
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Kapasiti</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name='jul'
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="0.00"
+                                                                                        value="{{ $data->jul ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+
+                                                <!-- OGOS -->
+                                                @foreach ($kapasiti as $key => $data)
+                                                    <div class="modal fade bs-example-modal-lg"
+                                                        id="ogs{{ $key }}" tabindex="-1" role="dialog"
+                                                        aria-labelledby="myLargeModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myLargeModalLabel">
+                                                                        Kemaskini Maklumat Kapasiti</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('admin.edit.kapasiti.ogs', $data->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <div class="row ml-auto" style="margin-top:-1%">
+                                                                            <label for="fname"
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Nama
+                                                                                Premis
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Nama Premis"
+                                                                                    value="{{ $data->pelesen->e_np ?? '' }}"
+                                                                                    readonly>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="JOHOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KEDAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KELANTAN"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="MELAKA"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="NEGERI SEMBILAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PAHANG"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERLIS"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="PULAU PINANG" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SELANGOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="TERENGGANU" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="WILAYAH PERSEKUTUAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SABAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SARAWAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="-"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="row p-t-20">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <label class="control-label">Bulan</label>
+                                                                                <input type="text" id="lastName"
+                                                                                name="bulan"
+                                                                                class="form-control form-control-danger"
+                                                                                placeholder="Bulan" readonly
+                                                                                value="OGOS"
+                                                                                >
+                                                                            </div>
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Tahun</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name="tahun"
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="Tahun" readonly
+                                                                                        value="{{ $data->tahun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row ">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="control-label">Kategori</label>
+                                                                                    <input type="text" id="firstName"
+                                                                                        class="form-control"
+                                                                                        value='KILANG BIODIESEL' readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/span-->
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Kapasiti</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name='ogs'
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="0.00"
+                                                                                        value="{{ $data->ogs ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+
+                                                <!-- SEPTEMBER -->
+                                                @foreach ($kapasiti as $key => $data)
+                                                    <div class="modal fade bs-example-modal-lg"
+                                                        id="sept{{ $key }}" tabindex="-1" role="dialog"
+                                                        aria-labelledby="myLargeModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myLargeModalLabel">
+                                                                        Kemaskini Maklumat Kapasiti</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('admin.edit.kapasiti.sept', $data->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <div class="row ml-auto" style="margin-top:-1%">
+                                                                            <label for="fname"
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Nama
+                                                                                Premis
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Nama Premis"
+                                                                                    value="{{ $data->pelesen->e_np ?? '' }}"
+                                                                                    readonly>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="JOHOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KEDAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KELANTAN"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="MELAKA"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="NEGERI SEMBILAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PAHANG"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERLIS"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="PULAU PINANG" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SELANGOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="TERENGGANU" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="WILAYAH PERSEKUTUAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SABAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SARAWAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="-"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="row p-t-20">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <label class="control-label">Bulan</label>
+                                                                                <input type="text" id="lastName"
+                                                                                name="bulan"
+                                                                                class="form-control form-control-danger"
+                                                                                placeholder="Bulan" readonly
+                                                                                value="SEPTEMBER"
+                                                                                >
+                                                                            </div>
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Tahun</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name="tahun"
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="Tahun" readonly
+                                                                                        value="{{ $data->tahun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row ">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="control-label">Kategori</label>
+                                                                                    <input type="text" id="firstName"
+                                                                                        class="form-control"
+                                                                                        value='KILANG BIODIESEL' readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/span-->
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Kapasiti</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name='sept'
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="0.00"
+                                                                                        value="{{ $data->sept ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+
+                                                <!-- OKTOBER -->
+                                                @foreach ($kapasiti as $key => $data)
+                                                    <div class="modal fade bs-example-modal-lg"
+                                                        id="okt{{ $key }}" tabindex="-1" role="dialog"
+                                                        aria-labelledby="myLargeModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myLargeModalLabel">
+                                                                        Kemaskini Maklumat Kapasiti</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('admin.edit.kapasiti.okt', $data->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <div class="row ml-auto" style="margin-top:-1%">
+                                                                            <label for="fname"
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Nama
+                                                                                Premis
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Nama Premis"
+                                                                                    value="{{ $data->pelesen->e_np ?? '' }}"
+                                                                                    readonly>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="JOHOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KEDAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KELANTAN"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="MELAKA"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="NEGERI SEMBILAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PAHANG"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERLIS"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="PULAU PINANG" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SELANGOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="TERENGGANU" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="WILAYAH PERSEKUTUAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SABAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SARAWAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="-"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="row p-t-20">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <label class="control-label">Bulan</label>
+                                                                                <input type="text" id="lastName"
+                                                                                name="bulan"
+                                                                                class="form-control form-control-danger"
+                                                                                placeholder="Bulan" readonly
+                                                                                value="OKTOBER"
+                                                                                >
+                                                                            </div>
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Tahun</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name="tahun"
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="Tahun" readonly
+                                                                                        value="{{ $data->tahun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row ">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="control-label">Kategori</label>
+                                                                                    <input type="text" id="firstName"
+                                                                                        class="form-control"
+                                                                                        value='KILANG BIODIESEL' readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/span-->
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Kapasiti</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name='okt'
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="0.00"
+                                                                                        value="{{ $data->okt ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+
+                                                <!-- NOVEMBER -->
+                                                @foreach ($kapasiti as $key => $data)
+                                                    <div class="modal fade bs-example-modal-lg"
+                                                        id="nov{{ $key }}" tabindex="-1" role="dialog"
+                                                        aria-labelledby="myLargeModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myLargeModalLabel">
+                                                                        Kemaskini Maklumat Kapasiti</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('admin.edit.kapasiti.nov', $data->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <div class="row ml-auto" style="margin-top:-1%">
+                                                                            <label for="fname"
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Nama
+                                                                                Premis
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Nama Premis"
+                                                                                    value="{{ $data->pelesen->e_np ?? '' }}"
+                                                                                    readonly>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="JOHOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KEDAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KELANTAN"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="MELAKA"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="NEGERI SEMBILAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PAHANG"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERLIS"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="PULAU PINANG" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SELANGOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="TERENGGANU" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="WILAYAH PERSEKUTUAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SABAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SARAWAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="-"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="row p-t-20">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <label class="control-label">Bulan</label>
+                                                                                <input type="text" id="lastName"
+                                                                                name="bulan"
+                                                                                class="form-control form-control-danger"
+                                                                                placeholder="Bulan" readonly
+                                                                                value="NOVEMBER"
+                                                                                >
+                                                                            </div>
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Tahun</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name="tahun"
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="Tahun" readonly
+                                                                                        value="{{ $data->tahun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row ">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="control-label">Kategori</label>
+                                                                                    <input type="text" id="firstName"
+                                                                                        class="form-control"
+                                                                                        value='KILANG BIODIESEL' readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/span-->
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Kapasiti</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name='nov'
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="0.00"
+                                                                                        value="{{ $data->nov ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                @endforeach
+
+
+                                                <!-- DISEMBER -->
+                                                @foreach ($kapasiti as $key => $data)
+                                                    <div class="modal fade bs-example-modal-lg"
+                                                        id="dec{{ $key }}" tabindex="-1" role="dialog"
+                                                        aria-labelledby="myLargeModalLabel" aria-hidden="true"
+                                                        style="display: none;">
+                                                        <div class="modal-dialog modal-lg">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="myLargeModalLabel">
+                                                                        Kemaskini Maklumat Kapasiti</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('admin.edit.kapasiti.dec', $data->id) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                    <div class="modal-body">
+                                                                        <div class="row ml-auto" style="margin-top:-1%">
+                                                                            <label for="fname"
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Nama
+                                                                                Premis
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Nama Premis"
+                                                                                    value="{{ $data->pelesen->e_np ?? '' }}"
+                                                                                    readonly>
+
+                                                                            </div>
+                                                                        </div>
+                                                                        @if ($data->pelesen->e_negeri == '01')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="JOHOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '02')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KEDAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '03')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="KELANTAN"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '04')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="MELAKA"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '05')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="NEGERI SEMBILAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '06')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PAHANG"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '07')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '08')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="PERLIS"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '09')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="PULAU PINANG" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '10')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SELANGOR"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '11')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="TERENGGANU" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '12')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri"
+                                                                                    value="WILAYAH PERSEKUTUAN" readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '13')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SABAH"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @elseif ($data->pelesen->e_negeri == '14')
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="SARAWAK"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @else
+                                                                        <div class="row mt-2 ml-auto">
+                                                                            <label
+                                                                                class="text-right col-sm-4 control-label col-form-label  align-items-center">Negeri
+                                                                            </label>
+                                                                            <div class="col-md-4">
+                                                                                <input type="text" class="form-control"
+                                                                                    placeholder="Negeri" value="-"
+                                                                                    readonly>
+                                                                            </div>
+                                                                        </div>
+                                                                        @endif
+                                                                        <div class="row p-t-20">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <label class="control-label">Bulan</label>
+                                                                                <input type="text" id="lastName"
+                                                                                name="bulan"
+                                                                                class="form-control form-control-danger"
+                                                                                placeholder="Bulan" readonly
+                                                                                value="DISEMBER"
+                                                                                >
+                                                                            </div>
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Tahun</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name="tahun"
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="Tahun" readonly
+                                                                                        value="{{ $data->tahun ?? '' }}"
+                                                                                        >
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row ">
+                                                                            <div class="col-md-5 ml-auto">
+                                                                                <div class="form-group">
+                                                                                    <label
+                                                                                        class="control-label">Kategori</label>
+                                                                                    <input type="text" id="firstName"
+                                                                                        class="form-control"
+                                                                                        value='KILANG BIODIESEL' readonly>
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--/span-->
+                                                                            <div class="col-md-5 mr-auto">
+                                                                                <div class="form-group has-danger">
+                                                                                    <label
+                                                                                        class="control-label">Kapasiti</label>
+                                                                                    <input type="text" id="lastName"
+                                                                                        name='dec'
+                                                                                        class="form-control form-control-danger"
+                                                                                        placeholder="0.00"
+                                                                                        value="{{ $data->dec ?? '' }}"
                                                                                         >
                                                                                 </div>
                                                                             </div>
