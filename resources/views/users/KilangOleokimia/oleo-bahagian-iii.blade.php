@@ -71,11 +71,11 @@
                         <div class="container center mt-4">
 
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-3 mt-3">
                                     <span>Nama Produk dan Kod</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <select class="form-control" id="produk" name="e104_c3" style="width: 50%">
+                                <div class="col-md-3 mt-3">
+                                    <select class="form-control" id="produk" name="e104_c3" style="width: 70%">
                                         <option selected hidden disabled>Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
@@ -90,27 +90,11 @@
                                         </div>
                                     @enderror
                                 </div>
-
-                                <div class="col-md-3">
-                                    <span class="">Jualan/Edaran Tempatan</span>
-                                </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e104_c6' style="width: 50%" id="e104_c6" oninput="validate_two_decimal(this)"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
-                                        @error('e104_c3')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="row mt-3">
-                                <div class="col-md-3">
+                                <div class="col-md-3 mt-3">
                                     <span class="">Belian/Terimaan</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e104_c4' style="width:50%" id="e104_c4" oninput="validate_two_decimal(this)"
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e104_c4' style="width:70%" id="e104_c4" oninput="validate_two_decimal(this)"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
                                         @error('e104_c4')
                                         <div class="alert alert-danger">
@@ -118,13 +102,30 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-3">
-                                    <span class="">Eksport</span>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Pengeluaran</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e104_c7' style="width: 50%" id="e104_c7" oninput="validate_two_decimal(this)"
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e104_c5' style="width:70%" id="e104_c5" oninput="validate_two_decimal(this)"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
-                                        @error('e104_c7')
+                                        @error('e104_c5')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Jualan/Edaran Tempatan</span>
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e104_c6' style="width: 70%" id="e104_c6" oninput="validate_two_decimal(this)"
+                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
+                                        @error('e104_c3')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
                                         </div>
@@ -133,25 +134,24 @@
 
                             </div>
 
-                            <div class="row mt-3">
-                                <div class="col-md-3">
-                                    <span class="">Pengeluaran</span>
+                            <div class="row">
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Eksport</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e104_c5' style="width:50%" id="e104_c5" oninput="validate_two_decimal(this)"
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e104_c7' style="width: 70%" id="e104_c7" oninput="validate_two_decimal(this)"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
-                                        @error('e104_c5')
+                                        @error('e104_c7')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
                                         </div>
                                     @enderror
                                 </div>
-
-                                <div class="col-md-3">
+                                <div class="col-md-3 mt-3">
                                     <span class="">Stok Akhir</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e104_c8' style="width:50%" id="e104_c8" oninput="validate_two_decimal(this)"
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e104_c8' style="width:70%" id="e104_c8" oninput="validate_two_decimal(this)"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
                                         @error('e104_c8')
                                         <div class="alert alert-danger">
