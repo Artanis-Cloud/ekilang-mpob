@@ -52,7 +52,8 @@
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5> --}}
                         </div>
                         <hr>
-
+                        <form action="{{ route('admin.laporan.tahunan.proses') }}" method="get">
+                            @csrf
                         <div class="card-body">
 
                             <div class="container center">
@@ -75,7 +76,7 @@
                                     <div class="col-md-3 ">
                                         <div class="form-group">
                                             <label>Tahun</label>
-                                                <select class="form-control" name="laporan" id="date-dropdown">
+                                                <select class="form-control" name="tahun" id="date-dropdown">
                                                     <option selected hidden disabled>Sila Pilih Tahun</option>
                                                 </select>
 
@@ -84,15 +85,30 @@
                                     <div class="col-md-3 mr-auto">
                                         <div class="form-group">
                                             <label>Bulan</label>
-                                            <input type="tex" class="form-control" placeholder="Tahun">
+                                            <select class="form-control" name="bulan">
+                                                <option selected hidden disabled>Sila Pilih Bulan</option>
+                                                <option value="01">JANUARI</option>
+                                                <option value="02">FEBRUARI</option>
+                                                <option value="03">MAC</option>
+                                                <option value="04">APRIL</option>
+                                                <option value="05">MEI</option>
+                                                <option value="06">JUN</option>
+                                                <option value="07">JULAI</option>
+                                                <option value="08">OGOS</option>
+                                                <option value="09">SEPTEMBER</option>
+                                                <option value="10">OKTOBER</option>
+                                                <option value="11">NOVEMBER</option>
+                                                <option value="12">DISEMBER</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                             <div class=" col-md-12 mb-4 mt-4">
-                                <button type="button" class="btn btn-primary" style="margin-left:47%" data-toggle="modal"
+                                <button type="submit" class="btn btn-primary" style="margin-left:47%" data-toggle="modal"
                                     data-target="#next">Cari</button>
                             </div>
                         </div>
+                        <form>
 
 
                     </div>
@@ -109,7 +125,24 @@
 @endsection
 
 @section('scripts')
-<script>
+<script type="text/javascript">
+    window.onload = function () {
+        //Reference the DropDownList.
+        var ddlYears = document.getElementById("date-dropdown");
+
+        //Determine the Current Year.
+        var currentYear = (new Date()).getFullYear();
+
+        //Loop and add the Year values to DropDownList.
+        for (var i = 2011; i <= currentYear; i++) {
+            var option = document.createElement("OPTION");
+            option.innerHTML = i;
+            option.value = i;
+            ddlYears.appendChild(option);
+        }
+    };
+</script>
+{{-- <script>
     let dateDropdown = document.getElementById('date-dropdown');
 
     let currentYear = new Date().getFullYear();
@@ -121,5 +154,5 @@
       dateDropdown.add(dateOption);
       currentYear -= 1;
     }
-  </script>
+  </script> --}}
 @endsection

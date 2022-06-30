@@ -66,7 +66,7 @@ class LaporanController extends Controller
             'kembali'     => $kembali,
         ];
 
-        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
 
@@ -89,7 +89,7 @@ class LaporanController extends Controller
 
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
         $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch
                         FROM pelesen p, h_bio_inits e
                         WHERE e.ebio_thn = '$request->tahun' AND
@@ -113,7 +113,7 @@ class LaporanController extends Controller
         ];
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq..ringkasan.ringkasan-penyata', compact('returnArr', 'layout', 'users', 'negeri', 'users2','produk'));
+        return view('admin.laporan_dq..ringkasan.ringkasan-penyata', compact('returnArr', 'layout', 'users', 'negeri', 'users2', 'produk'));
     }
 
     public function admin_laporan_ringkasan()
@@ -132,7 +132,7 @@ class LaporanController extends Controller
         ];
 
 
-        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
 
@@ -157,7 +157,7 @@ class LaporanController extends Controller
         ];
 
 
-        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
 
@@ -472,6 +472,177 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.laporan-tahunan', compact('returnArr', 'layout'));
     }
 
+
+    public function admin_laporan_tahunan_proses(Request $request)
+    {
+
+        $laporan = $request->laporan;
+        $tahun = $request->tahun;
+
+        if ($request->tahun) {
+            $tahun_sql = "k.tahun = $request->tahun";
+        } else {
+            $tahun_sql = "";
+        }
+
+           if($request->bulan){
+            $bulan_sql = "bulan = '$request->bulan'";
+           }else{
+            $bulan_sql = "";
+           }
+        if ($laporan == 'kapasiti') {
+
+
+            $kapasiti_johor = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '01'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_kedah = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '02'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_kelantan = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '03'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_melaka = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '04'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_n9 = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '05'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_pahang = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '06'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_perak = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '07'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_perlis = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '08'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_penang = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '09'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_selangor = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '10'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_terengganu = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '11'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_wp = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '12'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_sabah = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '13'");
+            // dd($kapasiti_kedah);
+
+            $kapasiti_sarawak = DB::select("SELECT k.e_nl, k.tahun, k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, p.e_np, p.e_nl, p.e_negeri
+        FROM kapasiti k, pelesen p
+        WHERE $tahun_sql
+        AND k.e_nl = p.e_nl
+        AND p.e_negeri = '14'");
+            // dd($kapasiti_kedah);
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
+                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Tahunan Kapasiti"],
+
+            ];
+
+            $kembali = route('admin.dashboard');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
+
+            $array = [
+                'laporan' => $laporan,
+                'tahun_sql' => $tahun_sql,
+                'tahun' => $tahun,
+
+                'kapasiti_kedah' => $kapasiti_kedah,
+                'kapasiti_johor' => $kapasiti_johor,
+                'kapasiti_kelantan' => $kapasiti_kelantan,
+                'kapasiti_melaka' => $kapasiti_melaka,
+                'kapasiti_n9' => $kapasiti_n9,
+                'kapasiti_pahang' => $kapasiti_pahang,
+                'kapasiti_perak' => $kapasiti_perak,
+                'kapasiti_perlis' => $kapasiti_perlis,
+                'kapasiti_selangor' => $kapasiti_selangor,
+                'kapasiti_terengganu' => $kapasiti_terengganu,
+                'kapasiti_wp' => $kapasiti_wp,
+                'kapasiti_sabah' => $kapasiti_sabah,
+                'kapasiti_sarawak' => $kapasiti_sarawak,
+                'kapasiti_penang' => $kapasiti_penang,
+
+                'breadcrumbs' => $breadcrumbs,
+                'kembali' => $kembali,
+
+                'returnArr' => $returnArr,
+                'layout' => $layout,
+
+            ];
+
+            return view('admin.laporan_dq.laporan-kapasiti', $array);
+        } elseif ($laporan == 'beroperasi') {
+            return view('admin.laporan_dq.laporan-operasi');
+        } else {
+            return redirect()->back()
+                ->with('error', 'Penyata Tidak Wujud!');
+        }
+    }
+
     public function admin_stok_akhir()
     {
 
@@ -628,7 +799,7 @@ class LaporanController extends Controller
               `penyata`.`kod_produk` =`produk`.`nama_produk`
               GROUP by lesen");
 
-            //   dd($cpo_sem);
+        //   dd($cpo_sem);
 
         $total_3a_3b = 0;
         $total_3c_3d = 0;
@@ -1139,7 +1310,7 @@ class LaporanController extends Controller
               `penyata`.`kod_produk` =`produk`.`nama_produk`
               GROUP by lesen");
 
-            //   dd($ppo_sem);
+        //   dd($ppo_sem);
 
         //RBDPO - SABAH
 
@@ -1170,13 +1341,13 @@ class LaporanController extends Controller
              negeri.nama_negeri in ('SABAH') AND
              `penyata`.`lesen` = `kilang`.`e_nl` AND
              kilang.e_apnegeri = negeri.id_negeri AND
-             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND".$sqlstmt1.
-             "`kilang`.`jenis` <>  'dummy' AND".$sqlstmt2.
-              "`penyata`.`kuantiti` <>  0 AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND" . $sqlstmt1 .
+            "`kilang`.`jenis` <>  'dummy' AND" . $sqlstmt2 .
+            "`penyata`.`kuantiti` <>  0 AND
               `penyata`.`kod_produk` =`produk`.`nama_produk`
               GROUP by lesen");
 
-            //   dd($ppo_sem);
+        //   dd($ppo_sem);
 
         //RBDPO - SARAWAK
 
@@ -1207,14 +1378,14 @@ class LaporanController extends Controller
              negeri.nama_negeri in ( 'SARAWAK') AND
              `penyata`.`lesen` = `kilang`.`e_nl` AND
              kilang.e_apnegeri = negeri.id_negeri AND
-             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND".$sqlstmt1.
-             "`produk`.`kumpulan_produk` = '1' AND
-             `kilang`.`jenis` <>  'dummy' AND".$sqlstmt2.
-              "`penyata`.`kuantiti` <>  0 AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND" . $sqlstmt1 .
+            "`produk`.`kumpulan_produk` = '1' AND
+             `kilang`.`jenis` <>  'dummy' AND" . $sqlstmt2 .
+            "`penyata`.`kuantiti` <>  0 AND
               `penyata`.`kod_produk` =`produk`.`nama_produk`
               GROUP by lesen");
 
-            //   dd($ppo_sem);
+        //   dd($ppo_sem);
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -2009,24 +2180,22 @@ class LaporanController extends Controller
 
     public function test(Request $request)
     {
-       if($request->tahun){
-        $tahun_sql = "tahun = '$request->tahun'";
-       }else{
-        $tahun_sql = "";
-       }
+        if ($request->tahun) {
+            $tahun_sql = "tahun = '$request->tahun'";
+        } else {
+            $tahun_sql = "";
+        }
 
-       if($request->bulan){
-        $bulan_sql = "bulan = '$request->bulan'";
-       }else{
-        $bulan_sql = "";
-       }
+        if ($request->bulan) {
+            $bulan_sql = "bulan = '$request->bulan'";
+        } else {
+            $bulan_sql = "";
+        }
 
-       $query = DB::select("SELECT e.ebio_nl,e.ebio_reg ,p.e_nl, b.ebio_b1
+        $query = DB::select("SELECT e.ebio_nl,e.ebio_reg ,p.e_nl, b.ebio_b1
         FROM pelesen p, e_bio_inits e, e_bio_b_s b
         WHERE $tahun_sql
         AND
         $bulan_sql'");
-
     }
-
 }
