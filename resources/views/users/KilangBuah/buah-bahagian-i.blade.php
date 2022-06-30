@@ -285,7 +285,7 @@
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ag3'
                                                             onkeypress="return isNumberKey(event)" required
-                                                            onchange="setTwoNumberDecimal"
+                                                            onchange="setTwoNumberDecimal()"
                                                             value="{{ $kilang->e91_ag3 ?? 0 }}">
                                                     </td>
                                                     <td style="text-align:center;">

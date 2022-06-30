@@ -244,6 +244,7 @@ Route::middleware('auth')->group(function () {
         Route::post('admin/edit-kapasiti-dec/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_kapasiti_dec'])->name('admin.edit.kapasiti.dec');
 
         Route::get('admin/laporan-tahunan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_tahunan'])->name('admin.laporan.tahunan');
+        Route::get('admin/laporan-tahunan-proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_tahunan_proses'])->name('admin.laporan.tahunan.proses');
         Route::get('admin/laporan-bulanan-lesen', [App\Http\Controllers\Admin\LaporanController::class, 'admin_bulanan_lesen'])->name('admin.laporan.bulanan');
         Route::get('admin/carian-bulanan-lesen', [App\Http\Controllers\Admin\LaporanController::class, 'admin_carian_bulanan_lesen'])->name('admin.carian.bulanan');
         Route::get('admin/laporan-bulanan-lesen/process', [App\Http\Controllers\Admin\LaporanController::class, 'admin_bulanan_lesen_process'])->name('admin.laporan.bulanan.process');
