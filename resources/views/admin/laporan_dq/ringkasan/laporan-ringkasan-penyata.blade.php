@@ -81,13 +81,13 @@
                                                     <thead style="text-align: center">
                                                         <tr>
                                                             <th>Nama Syarikat</th>
-                                                            <th>-</th>
+                                                            <th>CAROTECH BERHAD (CHEMOR PLANT)</th>
                                                             <th>No. Lesen</th>
-                                                            <th>-</th>
+                                                            <th>500403125000</th>
                                                             <th>Negeri</th>
-                                                            <th>-</th>
+                                                            <th>PERAK</th>
                                                             <th>Daerah</th>
-                                                            <th>-</th>
+                                                            <th>KUALA KANGSAR</th>
 
                                                         </tr>
                                                     </thead>
@@ -122,15 +122,15 @@
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                         </tr>
 
@@ -169,15 +169,15 @@
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
@@ -234,15 +234,15 @@
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
@@ -299,15 +299,15 @@
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
@@ -364,15 +364,15 @@
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
@@ -429,15 +429,15 @@
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
@@ -494,15 +494,15 @@
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
@@ -559,15 +559,15 @@
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
+                                                            <td>-</td>
                                                             <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>

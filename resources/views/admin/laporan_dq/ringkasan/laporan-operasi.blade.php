@@ -107,26 +107,7 @@
                                                             <th scope="col" style="vertical-align: middle">Dis</th>
                                                         </tr>
 
-                                                        {{-- <tr>
-                                                            <th rowspan="2">No.</th>
-                                                            <th rowspan="2">Syarikat</th>
-                                                            <th rowspan="2">Kapasiti Biodiesel(Tan/Tahun)</th>
-                                                            <th rowspan="2">Lokasi</th>
-                                                            <th>Tahun: &nbsp; (Tumbuhan yang mengeluarkan biodiesel)*
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                            </th>
-                                                        </tr> --}}
+                                           
                                                     </thead>
                                                     <tbody>
 
