@@ -24,6 +24,7 @@ use App\Models\RegPelesen;
 use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
+use FontLib\Table\Type\post;
 use Svg\Tag\Rect;
 use Illuminate\Support\Facades\Validator;
 
@@ -66,55 +67,80 @@ class LaporanController extends Controller
             'kembali'     => $kembali,
         ];
 
-        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
+        // $result = HBioInit::leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+        // ->where('ebio_thn','LIKE','%'.$request->tahun.'%')->orWhere('e_negeri','LIKE','%',$request->e_negeri.'%')->get();
+
+        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
 
-        $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, e.ebio_bln , e.ebio_thn, p.e_negeri, p.e_daerah
-        FROM pelesen p, h_bio_inits e
-        WHERE e.ebio_thn = '$request->tahun' AND
-        p.e_negeri = '$request->e_negeri' AND
-        p.e_daerah = '$request->e_daerah' AND
-        p.e_nl = '$request->e_nl' AND
-        p.e_nl = e.ebio_nl
-        order by p.e_nl");
+        // $result =HBioInit::leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->get();
+        $tahun = $request->tahun;
+        $negeri2 = $request->e_negeri;
+        // $tahun = $request->tahun;
+        // $tahun = $request->tahun;
+        // $tahun = $request->tahun;
+
+        $result = HBioInit::with('pelesen')->where('ebio_nl', 'e_nl')->get();
+        // $result2 = Pelesen::with('h_bio_inits')->where('e_nl', 'ebio_nl')->get();
+        if($request->filled('e_np')){
+            $result = HBioInit::where('ebio_nl', '=', $request->e_np);
+        }
+// dd($request->all());
+// dd($result);
+        // $result = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, p.e_negeri, p.e_daerah, nama_negeri
+        //                 FROM pelesen p, h_bio_inits e, negeri n
+        //                 WHERE
+        //                 p.e_nl = e.ebio_nl");
+
+        // if($request->tahun)
+        // {
+        //     $result = HBioInit::where('ebio_thn','LIKE','%'.$request->tahun.'%')->get();
+        // }
+        // if($request->e_negeri)
+        // {
+        //     $result = Pelesen::where('e_negeri','LIKE','%',$request->e_negeri.'%')->get();
+        // }
+        // if($request->e_daerah)
+        // {
+        //     $result = Pelesen::where('e_daerah','LIKE','%',$request->e_daerah.'%')->get();
+        // }
+        // if($request->e_nl)
+        // {
+        //     $result = Pelesen::where('e_nl','LIKE','%',$request->e_nl.'%')->get();
+        // }
+
 
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.ringkasan.ringkasan-penyata', compact('returnArr', 'layout', 'users', 'produk', 'users2', 'negeri'));
+        $array = [
+            'produk' => $produk,
+            'users2' => $users2,
+
+            'negeri' => $negeri,
+            'result' => $result,
+
+            'kembali' => $kembali,
+
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+        // $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch
+        //                 FROM pelesen p, h_bio_inits e
+        //                 WHERE e.ebio_thn = '$request->tahun' AND
+        //                 p.e_negeri = '$request->e_negeri' AND
+        //                 p.e_daerah = '$request->e_daerah' AND
+        //                 p.e_nl = '$request->e_nl' AND
+        //                 p.e_nl = e.ebio_nl
+        //                 order by p.e_nl");;
+
+
+
+        return view('admin.laporan_dq.ringkasan.ringkasan-penyata', $array);
     }
 
-    public function admin_ringkasan_penyata_process(Request $request)
-    {
 
-        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
-        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
-        $users = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch
-                        FROM pelesen p, h_bio_inits e
-                        WHERE e.ebio_thn = '$request->tahun' AND
-                        p.e_negeri = '$request->e_negeri' AND
-                        p.e_daerah = '$request->e_daerah' AND
-                        p.e_nl = '$request->e_nl' AND
-                        p.e_nl = e.ebio_nl
-                        order by p.e_nl");
-        // dd($users);
-        // dd($request->all());
-        $breadcrumbs    = [
-            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.ringkasan.penyata'), 'name' => "Ringkasan"],
-        ];
-
-        $kembali = route('admin.dashboard');
-
-        $returnArr = [
-            'breadcrumbs' => $breadcrumbs,
-            'kembali'     => $kembali,
-        ];
-        $layout = 'layouts.admin';
-
-        return view('admin.laporan_dq..ringkasan.ringkasan-penyata', compact('returnArr', 'layout', 'users', 'negeri', 'users2', 'produk'));
-    }
 
     public function admin_laporan_ringkasan()
     {
@@ -132,7 +158,7 @@ class LaporanController extends Controller
         ];
 
 
-        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
+        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
 
@@ -141,7 +167,7 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.ringkasan.laporan-ringkasan-penyata', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
     }
 
-    public function admin_laporan_ringkasan_bahagian1()
+    public function admin_laporan_ringkasan_operasi()
     {
 
         $breadcrumbs    = [
@@ -163,7 +189,32 @@ class LaporanController extends Controller
 
         $layout = 'layouts.admin';
 
-        return view('admin.laporan_dq.ringkasan.laporan-ringkasan-1', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
+        return view('admin.laporan_dq.ringkasan.laporan-operasi', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
+    }
+
+    public function admin_laporan_ringkasan_jualan_bio()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Maklumat Penyata Bulanan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
+        $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
+        $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
+
+        $layout = 'layouts.admin';
+
+        return view('admin.laporan_dq.ringkasan.laporan-jualan-bio', compact('returnArr', 'layout', 'produk', 'users2', 'negeri'));
     }
 
     public function admin_pl_lewat()

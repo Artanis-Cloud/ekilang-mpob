@@ -68,8 +68,8 @@
                                             <p align="center"><b>
                                                     <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
-                                                    </font>RINGKASAN MAKLUMAT PENYATA BULANAN BIODIESEL<br>
-                                                    <font size="2">BAHAGIAN 1<br>
+                                                    </font>RINGKASAN MAKLUMAT OPERASI<br>
+                                                    {{-- <font size="2">BAHAGIAN 1<br> --}}
 
                                                     </font>
 
@@ -81,38 +81,17 @@
                                             <div class="table-responsive">
                                                 <table class="table table-bordered mb-0" style="font-size: 13px">
                                                     <thead style="text-align: center">
-                                                        <tr>
-                                                            <th>No.</th>
-                                                            <th>Syarikat</th>
-                                                            <th>Kapasiti Biodiesel(Tan/Tahun)</th>
-                                                            <th>Lokasi</th>
-                                                            <th colspan="12">Tahun: &nbsp; (Tumbuhan yang mengeluarkan biodiesel)*
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                                <td>JAN</td>
-                                                            </th>
 
+
+                                                        <tr>
+                                                            <th rowspan="2" style="vertical-align: middle">No.</th>
+                                                            <th rowspan="2" style="vertical-align: middle; width:20%">Syarikat</th>
+                                                            <th rowspan="2" style="vertical-align: middle; width:2%">Kapasiti Biodiesel(Tan/Tahun)</th>
+                                                            <th rowspan="2" style="vertical-align: middle">Lokasi</th>
+                                                            <th colspan="12">Tahun: &nbsp; (Tumbuhan yang mengeluarkan biodiesel)*</th>
 
                                                         </tr>
-                                                    </thead>
 
-                                                </table>
-                                            </div><br>
-                                            <p align="center">
-                                            <font size="2">TARIKH TERIMA PENYATA BULANAN<br></font>
-                                            </p>
-                                            <div class="col-12 table-responsive ">
-                                                <table class="table table-bordered table-responsive-lg">
-                                                    <thead>
                                                         <tr>
                                                             <th scope="col" style="vertical-align: middle">Jan</th>
                                                             <th scope="col" style="vertical-align: middle">Feb</th>
@@ -126,34 +105,59 @@
                                                             <th scope="col" style="vertical-align: middle">Okt</th>
                                                             <th scope="col" style="vertical-align: middle">Nov</th>
                                                             <th scope="col" style="vertical-align: middle">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle">Jumlah</th>
                                                         </tr>
+
+                                                        {{-- <tr>
+                                                            <th rowspan="2">No.</th>
+                                                            <th rowspan="2">Syarikat</th>
+                                                            <th rowspan="2">Kapasiti Biodiesel(Tan/Tahun)</th>
+                                                            <th rowspan="2">Lokasi</th>
+                                                            <th>Tahun: &nbsp; (Tumbuhan yang mengeluarkan biodiesel)*
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                                <td>JAN</td>
+                                                            </th>
+                                                        </tr> --}}
                                                     </thead>
                                                     <tbody>
 
                                                         <tr>
-                                                            <th>-</th>
+
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
-                                                            <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
-                                                            <th>-</th>
                                                             <td>-</td>
                                                             <td>-</td>
-                                                            <td class=text-right>-</td>
-                                                            <th>-</th>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+                                                            <td>-</td>
+
                                                         </tr>
 
 
 
                                                     </tbody>
+
                                                 </table>
                                             </div><br>
 
-                                            </div>
                                         </body>
                                     </div>
 
