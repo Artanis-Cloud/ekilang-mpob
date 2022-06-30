@@ -115,8 +115,8 @@
                             <form action="{{ route('admin.ringkasan.penyata') }}" method="get">
                                 @csrf
                                 <div class=" text-center">
-                                    <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Maklumat Penyata</h3>
-                                    <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5>
+                                    <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Urusniaga Maklumat Penyata Bulanan</h3>
+                                    {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5> --}}
                                 </div>
                                 <hr>
 
@@ -226,17 +226,18 @@
 
                                     </div>
                                     <div class="text-right col-md-6 mb-4 mt-4">
-                                        <button type="submit" class="btn btn-primary" style="margin-left:90%">Cari</button>
+                                        <button type="submit" class="btn btn-primary" style="margin-left:90%">Carian</button>
                                     </div>
                                     {{-- <div class="text-right col-md-6 mb-4 mt-4"><a href="{{ route('admin.laporan.ringkasan') }}">
                                         <button type="button"  class="btn btn-primary" data-toggle="modal"
-                                           >Cari</button>
+                                           >Carian</button>
                                            </a>
                                     </div> --}}
                                     <section class="section"><hr>
                                         <div class="card"><br>
 
-                                            <h6 style="color: rgb(30, 28, 28); margin-left:40%">Stok Awal Bulan Di Premis</h6>
+                                            <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Urusniaga Maklumat Penyata Bulanan <br>Tahun: 2020</h6>
+
                                             <div class="table-responsive " id="example1">
                                                 <table id="example" class="table table-bordered text-center" style="width: 100%;">
                                                     <thead>
@@ -249,8 +250,7 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                    {{-- @if ($users) --}}
-                                                        @foreach ($result as $data)
+                                                        {{-- @foreach ($result as $data)
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $data->e_nl }}</td>
@@ -260,15 +260,21 @@
 
 
                                                             </tr>
-                                                        @endforeach
-                                                    {{-- @else
+                                                        @endforeach --}}
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td><a href="{{ route('admin.laporan.ringkasan') }}">500403125000</a></td>
+                                                            <td>CAROTECH BERHAD (CHEMOR PLANT)</td>
+                                                            <td>PERAK</td>
+                                                            <td>KUALA KANGSAR</td>
 
-                                                    @endif --}}
+
+                                                        </tr>
 
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            {{-- </div> --}}
+
                                         </div>
 
                                     </section>
@@ -283,8 +289,8 @@
                                 </div>
                             </div>
                             <div class=" text-center">
-                                <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Penyata Maklumat Bulanan</h3>
-                                <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 1</h5>
+                                <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Bahagian 1</h3>
+                                {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">Bahagian 1</h5> --}}
                             </div>
                             <hr>
 
@@ -474,33 +480,47 @@
                                 </div>
                                 <div class="text-right col-md-6 mb-4 mt-4">
                                     <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                        data-target="#next">Cari</button>
+                                        data-target="#next">Carian</button>
                                 </div>
 
                                 <section class="section"><hr>
                                     <div class="card"><br>
 
-                                        <h6 style="color: rgb(30, 28, 28); margin-left:40%">Stok Awal Bulan Di Premis</h6>
+                                        <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Bahagian 1</h6>
                                         <div class="table-responsive " id="example1">
                                             <table id="example" class="table table-bordered text-center" style="width: 100%;">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                        <th scope="col" style="vertical-align: middle">Kod Produk</th>
-                                                        <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Negeri</th>
-                                                        <th scope="col" style="vertical-align: middle">Daerah</th>
+                                                        <th scope="col" style="vertical-align: middle">Pelesen</th>
+                                                        <th scope="col" style="vertical-align: middle">Jan</th>
+                                                        <th scope="col" style="vertical-align: middle">Feb</th>
+                                                        <th scope="col" style="vertical-align: middle">Mac</th>
+                                                        <th scope="col" style="vertical-align: middle">Jun</th>
+                                                        <th scope="col" style="vertical-align: middle">Jul</th>
+                                                        <th scope="col" style="vertical-align: middle">Ogos</th>
+                                                        <th scope="col" style="vertical-align: middle">Sep</th>
+                                                        <th scope="col" style="vertical-align: middle">Okt</th>
+                                                        <th scope="col" style="vertical-align: middle">Nov</th>
+                                                        <th scope="col" style="vertical-align: middle">Dis</th>
+                                                        <th scope="col" style="vertical-align: middle">Jumlah</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
                                                     <tr>
-                                                        <th>-</th>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <th>-</th>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
                                                         <td>-</td>
 
                                                     </tr>
@@ -698,33 +718,47 @@
                                 </div>
                                 <div class="text-right col-md-6 mb-4 mt-4">
                                     <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                        data-target="#next">Cari</button>
+                                        data-target="#next">Carian</button>
                                 </div>
 
                                 <section class="section"><hr>
                                     <div class="card"><br>
 
-                                        <h6 style="color: rgb(30, 28, 28); margin-left:40%">Stok Awal Bulan Di Premis</h6>
+                                        <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Maklumat Operasi</h6>
                                         <div class="table-responsive " id="example1">
                                             <table id="example" class="table table-bordered text-center" style="width: 100%;">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                        <th scope="col" style="vertical-align: middle">Kod Produk</th>
-                                                        <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Negeri</th>
-                                                        <th scope="col" style="vertical-align: middle">Daerah</th>
+                                                        <th scope="col" style="vertical-align: middle">Pelesen</th>
+                                                        <th scope="col" style="vertical-align: middle">Jan</th>
+                                                        <th scope="col" style="vertical-align: middle">Feb</th>
+                                                        <th scope="col" style="vertical-align: middle">Mac</th>
+                                                        <th scope="col" style="vertical-align: middle">Jun</th>
+                                                        <th scope="col" style="vertical-align: middle">Jul</th>
+                                                        <th scope="col" style="vertical-align: middle">Ogos</th>
+                                                        <th scope="col" style="vertical-align: middle">Sep</th>
+                                                        <th scope="col" style="vertical-align: middle">Okt</th>
+                                                        <th scope="col" style="vertical-align: middle">Nov</th>
+                                                        <th scope="col" style="vertical-align: middle">Dis</th>
+                                                        <th scope="col" style="vertical-align: middle">Jumlah</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
                                                     <tr>
-                                                        <th>-</th>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <th>-</th>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
                                                         <td>-</td>
 
                                                     </tr>
@@ -937,33 +971,47 @@
                                 </div>
                                 <div class="text-right col-md-6 mb-4 mt-4">
                                     <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                        data-target="#next">Cari</button>
+                                        data-target="#next">Carian</button>
                                 </div>
 
                                 <section class="section"><hr>
                                     <div class="card"><br>
 
-                                        <h6 style="color: rgb(30, 28, 28); margin-left:40%">Stok Awal Bulan Di Premis</h6>
+                                        <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Produk Biodiesel dan Glycerine</h6>
                                         <div class="table-responsive " id="example1">
                                             <table id="example" class="table table-bordered text-center" style="width: 100%;">
                                                 <thead>
                                                     <tr>
                                                         <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                        <th scope="col" style="vertical-align: middle">Kod Produk</th>
-                                                        <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Negeri</th>
-                                                        <th scope="col" style="vertical-align: middle">Daerah</th>
+                                                        <th scope="col" style="vertical-align: middle">Pelesen</th>
+                                                        <th scope="col" style="vertical-align: middle">Jan</th>
+                                                        <th scope="col" style="vertical-align: middle">Feb</th>
+                                                        <th scope="col" style="vertical-align: middle">Mac</th>
+                                                        <th scope="col" style="vertical-align: middle">Jun</th>
+                                                        <th scope="col" style="vertical-align: middle">Jul</th>
+                                                        <th scope="col" style="vertical-align: middle">Ogos</th>
+                                                        <th scope="col" style="vertical-align: middle">Sep</th>
+                                                        <th scope="col" style="vertical-align: middle">Okt</th>
+                                                        <th scope="col" style="vertical-align: middle">Nov</th>
+                                                        <th scope="col" style="vertical-align: middle">Dis</th>
+                                                        <th scope="col" style="vertical-align: middle">Jumlah</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
                                                     <tr>
-                                                        <th>-</th>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <th>-</th>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
                                                         <td>-</td>
 
                                                     </tr>
@@ -1088,7 +1136,7 @@
                                 </div>
                                 <div class="text-right col-md-6 mb-4 mt-4">
                                     <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                        data-target="#next">Cari</button>
+                                        data-target="#next">Carian</button>
                                 </div>
 
                                 <section class="section"><hr>
@@ -1100,21 +1148,35 @@
                                                 <thead>
                                                     <tr>
                                                         <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                        <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Negeri</th>
-                                                        <th scope="col" style="vertical-align: middle">Pembeli</th>
-                                                        <th scope="col" style="vertical-align: middle">Kuantiti</th>
+                                                        <th scope="col" style="vertical-align: middle">Pelesen</th>
+                                                        <th scope="col" style="vertical-align: middle">Jan</th>
+                                                        <th scope="col" style="vertical-align: middle">Feb</th>
+                                                        <th scope="col" style="vertical-align: middle">Mac</th>
+                                                        <th scope="col" style="vertical-align: middle">Jun</th>
+                                                        <th scope="col" style="vertical-align: middle">Jul</th>
+                                                        <th scope="col" style="vertical-align: middle">Ogos</th>
+                                                        <th scope="col" style="vertical-align: middle">Sep</th>
+                                                        <th scope="col" style="vertical-align: middle">Okt</th>
+                                                        <th scope="col" style="vertical-align: middle">Nov</th>
+                                                        <th scope="col" style="vertical-align: middle">Dis</th>
+                                                        <th scope="col" style="vertical-align: middle">Jumlah</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
                                                     <tr>
-                                                        <th>-</th>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-                                                        <th>-</th>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
+                                                        <td>-</td>
                                                         <td>-</td>
 
                                                     </tr>
