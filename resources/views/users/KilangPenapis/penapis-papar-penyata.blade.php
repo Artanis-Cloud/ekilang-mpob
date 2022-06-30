@@ -1030,7 +1030,7 @@
                                             </p>
                                         </div>
                                         <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                            <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
                                                 <i class="bx bx-x d-block d-sm-none"></i>
                                                 <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                             </button>
@@ -1047,7 +1047,7 @@
                 </div>
             </div>
         <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js" />
-       
+
             function myPrint(myfrm) {
                 var printdata = document.getElementById(myfrm);
                 newwin = window.open("");

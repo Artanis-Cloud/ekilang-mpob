@@ -76,14 +76,14 @@
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
-                        <div class="container center mt-4" style="margin-left:4%">
+                        <div class="container center mt-4">
 
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-3 mt-3">
                                     <span class="">Sendiri/Luar</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <select class="form-control" id="e101_d3" name="e101_d3" style="width: 50%" required>
+                                <div class="col-md-3 mt-3">
+                                    <select class="form-control" id="e101_d3" name="e101_d3" style="width: 70%" required>
                                         <option selected hidden disabled>Sila Pilih</option>
                                         <option value="1"> SENDIRI </option>
                                         <option value="2"> LUAR </option>
@@ -95,11 +95,11 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-3 mt-3">
                                     <span class="">PPO</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e101_d6' style="width: 50%" id="e101_d6"
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e101_d6' style="width: 70%" id="e101_d6"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this)">
                                     @error('e101_d6')
@@ -111,12 +111,12 @@
                             </div>
 
 
-                            <div class="row mt-3">
-                                <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-3 mt-3">
                                     <span class="">Belian/Terimaan Dari</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <select class="form-control" id="e101_d4" style="width:50%" name="e101_d4" required>
+                                <div class="col-md-3 mt-3">
+                                    <select class="form-control" id="e101_d4" style="width:70%" name="e101_d4" required>
                                         <option selected hidden disabled>Sila Pilih</option>
                                         <option value="1">KILANG BUAH</option>
                                         <option value="2">KILANG PENAPIS</option>
@@ -133,11 +133,11 @@
                                     @enderror
                                 </div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-3 mt-3">
                                     <span class="">CPKO</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e101_d7' style="width: 50%" id="e101_d7"
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e101_d7' style="width: 70%" id="e101_d7"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this)">
                                     @error('e101_d7')
@@ -150,12 +150,12 @@
 
 
 
-                            <div class="row mt-3">
-                                <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-3 mt-3">
                                     <span class="">CPO</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e101_d5' style="width: 50%" id="e101_d5"
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e101_d5' style="width: 70%" id="e101_d5"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this)">
                                     @error('e101_d5')
@@ -164,11 +164,11 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 mt-3">
                                     <span class="">PPKO</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e101_d8' style="width: 50%" id="e101_d8"
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e101_d8' style="width: 70%" id="e101_d8"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
                                         oninput="validate_two_decimal(this)">
                                     @error('e101_d8')
