@@ -66,20 +66,26 @@
                                     Alamat Premis Berlesen</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_ap1" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}" oninput="setCustomValidity('')"
-                                        required>
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-
+                                    <input type="text" id="e_ap1" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                        placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}" oninput="setCustomValidity('')">
                                     <input type="text" id="e_ap2" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                         placeholder="Alamat Premis Berlesen 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}" oninput="setCustomValidity('')">
-
                                     <input type="text" id="e_ap3" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                         placeholder="Alamat Premis Berlesen 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}" oninput="setCustomValidity('')">
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center" style="margin:0px">
+                                <div class="col-sm-3 " style="margin: 0px">
+                                    <label for="fname" class="control-label col-form-label"></i></label>
+                                </div>
+                                <div class="custom-control custom-checkbox col-md-7">
+                                    <input onchange="alamat();"
+                                        type="checkbox" class="custom-control-input"
+                                        id="alamat_sama" name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
+                                    <label class="custom-control-label"
+                                        for="alamat_sama">Alamat sama seperti di
+                                        atas</label>
                                 </div>
                             </div>
 
@@ -92,15 +98,8 @@
                                 <div class="col-md-7">
                                     <input type="text" id="e_as1" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}" required oninput="setCustomValidity('')">
-                                    {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-
                                     <input type="text" id="e_as2" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                         placeholder="Alamat Surat Menyurat 2" name="e_as2" value="{{ $pelesen->e_as2 }}" oninput="setCustomValidity('')">
-
                                     <input type="text" id="e_as3" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                         placeholder="Alamat Surat Menyurat 3" name="e_as3" value="{{ $pelesen->e_as3 }}" oninput="setCustomValidity('')">
                                 </div>
@@ -625,7 +624,56 @@
                         //         //     $("#deliveryadd").show();
                         //         // }
                         //     }
+
             </script>
+            <script>
+            function alamat() {
+
+            var x = $("#alamat_sama").is(":checked");
+
+            if (x == true) {
+                //Get
+                var bla = $('#e_ap1').val();
+                //Set
+                $('#e_as1').val(bla).attr("disabled", "disabled");
+                $('#e_as1').val("");
+                //get
+                var bla = $('#e_ap2').val();
+                //Set
+                $('#e_as2').val(bla).attr("disabled", "disabled");
+                $('#e_as2').val("");
+
+                var bla = $('#e_ap3').val();
+                //Set
+                $('#e_as3').val(bla).attr("disabled", "disabled");
+                $('#e_as3').val("");
+
+                // $("#alamat_surat_menyurat_daerah").remove();
+                // $("#test1").append(html);
+
+            } else {
+                // document.getElementById("#alamat_surat_menyurat_1").readOnly = false;
+
+                $('#e_as1').attr("disabled", false)
+                $('#e_as2').attr("disabled", false)
+                $('#e_as3').attr("disabled", false)
+
+            }
+                var e_ap1 = document.getElementById("e_ap1"),
+                e_as1 = document.getElementById("e_as1");
+                e_as1.value = e_ap1.value;
+
+                var e_ap2 = document.getElementById("e_ap2"),
+                e_as2 = document.getElementById("e_as2");
+                e_as2.value = e_ap2.value;
+
+                var e_ap3 = document.getElementById("e_ap3"),
+                e_as3 = document.getElementById("e_as3");
+                e_as3.value = e_ap3.value;
+
+
+            }
+        </script>
 
             <!-- (B) FORM CHECK -->
             {{-- <script>

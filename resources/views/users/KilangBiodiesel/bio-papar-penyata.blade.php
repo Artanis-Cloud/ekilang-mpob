@@ -361,7 +361,7 @@
                             </table>
                             <p><b>
                                     <font color="#0000FF">BAHAGIAN 1 (b) :&nbsp;&nbsp;&nbsp;&nbsp;
-                                        PRODUK MINYAK ISIRONG SAWIT</font>
+                                        PRODUK MINYAK ISIRUNG SAWIT</font>
                                 </b> </p>
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
                                 <tbody>
@@ -555,8 +555,8 @@
                                 </tbody>
                             </table>
                             <p><b>
-                                    <font color="#0000FF">BAHAGIAN 2 : HARI BEROPERASI DAN KADAR
-                                        PENGGUNAAN KAPASITI &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font>
+                                    <font color="#0000FF">BAHAGIAN 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HARI BEROPERASI DAN KADAR
+                                        PENGGUNAAN KAPASITI </font>
                                 </b> </p>
                             <table border="0" width="90%" cellspacing="0" cellpadding="0">
                                 <tbody>
@@ -573,7 +573,7 @@
                             <br>
                             <p><b>
                                     <font color="#0000FF">BAHAGIAN 3 :&nbsp;&nbsp;&nbsp;&nbsp;
-                                        RINGKASAN PRODUK OLEOKIMIA</font>
+                                        RINGKASAN PRODUK BIODIESEL DAN GLYCERINE</font>
                                 </b></p>
 
                             <table border="1" width="100%" cellspacing="0" cellpadding="0" class="table table-bordered">
