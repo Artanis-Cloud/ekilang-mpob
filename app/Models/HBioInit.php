@@ -19,6 +19,7 @@ class HBioInit extends Model
     protected $table = 'h_bio_inits'; //penyata bulanan terkini - kilang oleokimia (initialize - proses 3)
     protected $primaryKey = 'ebio_nobatch';
     public $timestamps = false;
+    protected $keyType = 'string';
 
     protected $fillable = [
 

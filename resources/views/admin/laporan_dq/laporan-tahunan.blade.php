@@ -54,69 +54,71 @@
                         <hr>
                         <form action="{{ route('admin.laporan.tahunan.proses') }}" method="get">
                             @csrf
-                        <div class="card-body">
+                            <div class="card-body">
 
-                            <div class="container center">
-                                <div class="row" style="margin-top:-2%">
-                                    <div class="col-md-4 ml-auto">
+                                <div class="container center">
+                                    <div class="row" style="margin-top:-2%">
+                                        <div class="col-md-4 ml-auto">
 
-                                        <div class="form-group">
-                                            <label>Jenis Laporan</label>
-                                            <fieldset class="form-group">
-                                                <select class="form-control" name="laporan">
-                                                    <option selected hidden disabled>Sila Pilih Jenis Laporan</option>
-                                                    <option value="kapasiti">Laporan Tahunan Kapasiti</option>
-                                                    <option value="beroperasi">Kilang Biodiesel Beroperasi</option>
-                                                    <option value="pengeluaran">Pengeluaran Produk Biodiesel</option>
-                                                    <option value="eksport">Eksport Produk Biodiesel</option>
-                                                </select>
-                                            </fieldset>
+                                            <div class="form-group">
+                                                <label>Jenis Laporan</label>
+                                                <fieldset class="form-group">
+                                                    <select class="form-control" name="laporan" onclick="laporan_check(this)">
+                                                        <option selected hidden disabled>Sila Pilih Jenis Laporan</option>
+                                                        <option value="kapasiti"  onclick="laporan_check(this)">Laporan Tahunan Kapasiti
+                                                        </option>
+                                                        <option value="beroperasi" onclick="laporan_check(this)">Kilang Biodiesel
+                                                            Beroperasi</option>
+                                                        <option value="pengeluaran" onclick="laporan_check(this)">Pengeluaran Produk Biodiesel</option>
+                                                        <option value="eksport" onclick="laporan_check(this)">Eksport Produk Biodiesel</option>
+                                                    </select>
+                                                </fieldset>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3 ">
-                                        <div class="form-group">
-                                            <label>Tahun</label>
+                                        <div class="col-md-3 ">
+                                            <div class="form-group">
+                                                <label>Tahun</label>
                                                 <select class="form-control" name="tahun" id="date-dropdown">
                                                     <option selected hidden disabled>Sila Pilih Tahun</option>
                                                 </select>
 
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mr-auto">
+                                            <div class="form-group">
+                                                <label>Bulan</label>
+                                                <select class="form-control" name="bulan" id="bulan">
+                                                    <option selected hidden disabled>Sila Pilih Bulan</option>
+                                                    <option value="01">JANUARI</option>
+                                                    <option value="02">FEBRUARI</option>
+                                                    <option value="03">MAC</option>
+                                                    <option value="04">APRIL</option>
+                                                    <option value="05">MEI</option>
+                                                    <option value="06">JUN</option>
+                                                    <option value="07">JULAI</option>
+                                                    <option value="08">OGOS</option>
+                                                    <option value="09">SEPTEMBER</option>
+                                                    <option value="10">OKTOBER</option>
+                                                    <option value="11">NOVEMBER</option>
+                                                    <option value="12">DISEMBER</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3 mr-auto">
-                                        <div class="form-group">
-                                            <label>Bulan</label>
-                                            <select class="form-control" name="bulan">
-                                                <option selected hidden disabled>Sila Pilih Bulan</option>
-                                                <option value="01">JANUARI</option>
-                                                <option value="02">FEBRUARI</option>
-                                                <option value="03">MAC</option>
-                                                <option value="04">APRIL</option>
-                                                <option value="05">MEI</option>
-                                                <option value="06">JUN</option>
-                                                <option value="07">JULAI</option>
-                                                <option value="08">OGOS</option>
-                                                <option value="09">SEPTEMBER</option>
-                                                <option value="10">OKTOBER</option>
-                                                <option value="11">NOVEMBER</option>
-                                                <option value="12">DISEMBER</option>
-                                            </select>
-                                        </div>
+                                    <div class=" col-md-12 mb-4 mt-4">
+                                        <button type="submit" class="btn btn-primary" style="margin-left:47%"
+                                            data-toggle="modal" data-target="#next">Cari</button>
                                     </div>
                                 </div>
-                            <div class=" col-md-12 mb-4 mt-4">
-                                <button type="submit" class="btn btn-primary" style="margin-left:47%" data-toggle="modal"
-                                    data-target="#next">Cari</button>
+                                <form>
+
+
                             </div>
-                        </div>
-                        <form>
-
-
                     </div>
                 </div>
             </div>
-        </div>
 
-    </div>
+        </div>
 
 
 
@@ -125,24 +127,34 @@
 @endsection
 
 @section('scripts')
-<script type="text/javascript">
-    window.onload = function () {
-        //Reference the DropDownList.
-        var ddlYears = document.getElementById("date-dropdown");
+    <script type="text/javascript">
+        window.onload = function() {
+            //Reference the DropDownList.
+            var ddlYears = document.getElementById("date-dropdown");
 
-        //Determine the Current Year.
-        var currentYear = (new Date()).getFullYear();
+            //Determine the Current Year.
+            var currentYear = (new Date()).getFullYear();
 
-        //Loop and add the Year values to DropDownList.
-        for (var i = 2011; i <= currentYear; i++) {
-            var option = document.createElement("OPTION");
-            option.innerHTML = i;
-            option.value = i;
-            ddlYears.appendChild(option);
+            //Loop and add the Year values to DropDownList.
+            for (var i = 2011; i <= currentYear; i++) {
+                var option = document.createElement("OPTION");
+                option.innerHTML = i;
+                option.value = i;
+                ddlYears.appendChild(option);
+            }
+        };
+    </script>
+    <script>
+        function laporan_check(rad) {
+            if (rad.value == "kapasiti") {
+                document.getElementById("bulan").disabled = true;
+            } else {
+
+                document.getElementById("bulan").disabled = false;
+            }
         }
-    };
-</script>
-{{-- <script>
+    </script>
+    {{-- <script>
     let dateDropdown = document.getElementById('date-dropdown');
 
     let currentYear = new Date().getFullYear();

@@ -7,6 +7,7 @@ use App\Models\Bulan;
 use App\Models\Daerah;
 use App\Models\EBioInit;
 use App\Models\H91Init;
+use App\Models\HBioC;
 use App\Models\HBioInit;
 use App\Models\HebahanProses;
 use App\Models\Kapasiti;
@@ -70,7 +71,7 @@ class LaporanController extends Controller
         // $result = HBioInit::leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
         // ->where('ebio_thn','LIKE','%'.$request->tahun.'%')->orWhere('e_negeri','LIKE','%',$request->e_negeri.'%')->get();
 
-        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
 
@@ -83,11 +84,11 @@ class LaporanController extends Controller
 
         $result = HBioInit::with('pelesen')->where('ebio_nl', 'e_nl')->get();
         // $result2 = Pelesen::with('h_bio_inits')->where('e_nl', 'ebio_nl')->get();
-        if($request->filled('e_np')){
+        if ($request->filled('e_np')) {
             $result = HBioInit::where('ebio_nl', '=', $request->e_np);
         }
-// dd($request->all());
-// dd($result);
+        // dd($request->all());
+        // dd($result);
         // $result = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, p.e_negeri, p.e_daerah, nama_negeri
         //                 FROM pelesen p, h_bio_inits e, negeri n
         //                 WHERE
@@ -158,7 +159,7 @@ class LaporanController extends Controller
         ];
 
 
-        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('proddesc')->get();
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
 
@@ -535,12 +536,11 @@ class LaporanController extends Controller
         } else {
             $tahun_sql = "";
         }
-
-           if($request->bulan){
+        if ($request->bulan) {
             $bulan_sql = "bulan = '$request->bulan'";
-           }else{
+        } else {
             $bulan_sql = "";
-           }
+        }
         if ($laporan == 'kapasiti') {
 
 
@@ -687,7 +687,150 @@ class LaporanController extends Controller
 
             return view('admin.laporan_dq.laporan-kapasiti', $array);
         } elseif ($laporan == 'beroperasi') {
-            return view('admin.laporan_dq.laporan-operasi');
+
+
+            if ($request->tahun) {
+                $tahun_sql = "ebio_thn = $request->tahun";
+            } else {
+                $tahun_sql = "";
+            }
+            if ($request->bulan) {
+                $bulan_sql = "AND ebio_bln = $request->bulan";
+            } else {
+                $bulan_sql = "";
+            }
+
+            $tahun2 = $request->tahun;
+
+            // $nobatch = HBioInit::where('ebio_thn', $request->tahun)->where('ebio_bln', $request->bulan)->get('ebio_nobatch');
+
+
+            // $operasi =  DB::select("SELECT p.e_np, p.kap_proses, p.e_negeri, h.ebio_c3, h.ebio_c6, h.ebio_nobatch
+            // FROM kapasiti k, pelesen p, h_bio_c_s h
+            // WHERE h.ebio_nobatch = $batch
+            // AND k.e_nl = p.e_nl
+            // AND h.ebio_c3 = 'AW'");
+
+            $nbatch =  DB::select("SELECT ebio_nobatch
+            FROM h_bio_inits
+            WHERE $tahun_sql.$bulan_sql");
+
+            $batch = $nbatch[0]->ebio_nobatch;
+
+            // dd($batch);
+
+            $operasi =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_c3, h.ebio_c6, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
+            FROM h_bio_c_s h
+            LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
+            LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
+            WHERE h.ebio_c3 = 'AW';");
+
+            // dd($operasi);
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
+                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Tahunan Kapasiti"],
+
+            ];
+
+            $kembali = route('admin.dashboard');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
+
+            $array = [
+                'laporan' => $laporan,
+                'tahun_sql' => $tahun_sql,
+                'tahun2' => $tahun2,
+
+                'operasi' => $operasi,
+
+
+                'breadcrumbs' => $breadcrumbs,
+                'kembali' => $kembali,
+
+                'returnArr' => $returnArr,
+                'layout' => $layout,
+
+            ];
+            return view('admin.laporan_dq.laporan-operasi', $array);
+        } elseif ($laporan == 'pengeluaran') {
+
+
+            if ($request->tahun) {
+                $tahun_sql = "ebio_thn = $request->tahun";
+            } else {
+                $tahun_sql = "";
+            }
+            if ($request->bulan) {
+                $bulan_sql = "AND ebio_bln = $request->bulan";
+            } else {
+                $bulan_sql = "";
+            }
+
+            $tahun2 = $request->tahun;
+
+            // $nobatch = HBioInit::where('ebio_thn', $request->tahun)->where('ebio_bln', $request->bulan)->get('ebio_nobatch');
+
+
+            // $operasi =  DB::select("SELECT p.e_np, p.kap_proses, p.e_negeri, h.ebio_c3, h.ebio_c6, h.ebio_nobatch
+            // FROM kapasiti k, pelesen p, h_bio_c_s h
+            // WHERE h.ebio_nobatch = $batch
+            // AND k.e_nl = p.e_nl
+            // AND h.ebio_c3 = 'AW'");
+
+            $nbatch =  DB::select("SELECT ebio_nobatch
+            FROM h_bio_inits
+            WHERE $tahun_sql.$bulan_sql");
+
+            // $batch = $nbatch[0]->ebio_nobatch;
+
+            // dd($batch);
+
+            $pengeluaran =   DB::select("SELECT p.e_np, p.e_nl, p.kap_proses, p.e_negeri, h.ebio_c3, h.ebio_c6,  k.jan, k.feb, k.mac, k.apr, k.mei, k.jun, k.jul, k.ogs, k.sept, k.okt, k.nov, k.dec, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
+            FROM h_bio_c_s h
+            LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
+            LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
+            LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
+            WHERE h.ebio_c3 = 'AW';");
+
+            // dd($pengeluaran);
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
+                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Tahunan Kapasiti"],
+
+            ];
+
+            $kembali = route('admin.dashboard');
+
+            // $returnArr = [
+            //     'breadcrumbs' => $breadcrumbs,
+            //     'kembali'     => $kembali,
+            // ];
+            $layout = 'layouts.admin';
+
+            $array = [
+                'laporan' => $laporan,
+                'tahun_sql' => $tahun_sql,
+                'tahun2' => $tahun2,
+
+                'pengeluaran' => $pengeluaran,
+
+
+                'breadcrumbs' => $breadcrumbs,
+                'kembali' => $kembali,
+
+                // 'returnArr' => $returnArr,
+                'layout' => $layout,
+
+            ];
+            return view('admin.laporan_dq.laporan-pengeluaran', $array);
         } else {
             return redirect()->back()
                 ->with('error', 'Penyata Tidak Wujud!');
