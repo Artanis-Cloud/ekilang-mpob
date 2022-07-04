@@ -9,7 +9,7 @@
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
         <!-- ============================================================== -->
-        {{-- <div class="page-breadcrumb">
+        <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
                     <h4 class="page-title">Hebahan 10hb
@@ -18,7 +18,7 @@
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
+                            <ol class="breadcrumb">e
                                 @foreach ($returnArr['breadcrumbs'] as $breadcrumb)
                                     @if (!$loop->last)
                                         <li class="breadcrumb-item">
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
         <div class="container-fluid">
             <!-- row -->
@@ -52,7 +52,7 @@
                                 A K &nbsp; S A W I T &nbsp; M A L A Y S I A (MPOB)
                             </h3>
                             <h4 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Penyata Bulanan</h4>
-                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Pengeluaran Produk Biodiesel</h6>
+                            <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Kilang Beroperasi</h6>
                             <h6 style="color: rgb(39, 80, 71); margin-bottom:1%">{{ $tahun2 }}</h6>
                         </div>
                         {{-- <hr> --}}
@@ -81,6 +81,8 @@
                                                 rowspan="2">Bil.</th>
                                             <th scope="col" style="vertical-align: middle; text-align:center"
                                                 rowspan="2">Nama Pemegang Lesen</th>
+                                            <th scope="col" style="vertical-align: middle; text-align:center"
+                                                rowspan="2">Kapasiti Biodiesel</th>
                                             <th scope="col" style="vertical-align: middle; text-align:center"
                                                 rowspan="2">Lokasi</th>
                                             <th scope="col" style="vertical-align: middle; text-align:center"
@@ -131,7 +133,7 @@
                                             $total_kapasiti_11 = 0;
                                             $total_kapasiti_12 = 0;
                                         @endphp
-                                        @if ($pengeluaran)
+                                        @if ($operasi)
                                             {{-- @if (is_array($cpo_sem) || is_object($cpo_sem)) --}}
                                             {{-- @for ($i = $request->start_month; $i < $request->end_month; $i++)
                                                 @foreach ($operasi as $data)
@@ -140,10 +142,12 @@
                                                 @endif
                                                 @endforeach
                                             @endfor --}}
-                                            @foreach ($pengeluaran as $data)
+                                            @foreach ($operasi as $data)
                                                 <tr class="text-right">
                                                     <td scope="row" class="text-left">{{ $loop->iteration }}</td>
                                                     <td scope="row" class="text-left">{{ $data->e_np }}</td>
+                                                    <td class="text-right">{{ number_format($data->kap_proses ?? 0, 2) }}
+                                                    </td>
                                                     @if ($data->e_negeri == '01')
                                                         <td class="text-left">JOHOR</td>
                                                     @elseif ($data->e_negeri == '02')
@@ -174,143 +178,131 @@
                                                         <td class="text-left">SARAWAK</td>
                                                     @endif
                                                     {{-- @for ($i = $request->start_month; $i < $request->end_month; $i++)
-                                                        @foreach ($operasi as $data)
-                                                            @if ($data->ebio_bln == $i && $data->ebio_c6 != 0)
-                                                                <td style="text-align: center">/</td>
-                                                            @endif
-                                                        @endforeach
-                                                    @endfor --}}
+                                                @foreach ($operasi as $data)
+                                                @if ($data->ebio_bln == $i && $data->ebio_c6 != 0)
+                                                    <td style="text-align: center">/</td>
+                                                @endif
+                                                @endforeach
+                                            @endfor --}}
                                                     @if ($data->ebio_bln == '01' && $data->ebio_c6 != 0)
                                                         @php
                                                             $bulan_1++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_1 += $data->jan;
+                                                            $total_kapasiti_1 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->jan ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '02' && $data->ebio_c6 != 0)
-                                                        @php
+                                                    @php
                                                             $bulan_2++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_2 += $data->feb;
+                                                            $total_kapasiti_2 += $data->kap_proses;
                                                         @endphp
-                                                        <td
-                                                            style="text-align: right"{{ number_format($data->feb ?? 0, 2) }}</td>
-                                                        @else
-                                                        <td>0.00</td>
+                                                        <td style="text-align: center">/</td>
+                                                    @else
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '03' && $data->ebio_c6 != 0)
-                                                        @php
+                                                    @php
                                                             $bulan_3++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_3 += $data->mac;
+                                                            $total_kapasiti_3 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->mac ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '04' && $data->ebio_c6 != 0)
-                                                        @php
+                                                    @php
                                                             $bulan_4++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_4 += $data->apr;
+                                                            $total_kapasiti_4 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->apr ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '05' && $data->ebio_c6 != 0)
-                                                        @php
+                                                    @php
                                                             $bulan_5++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_5 += $data->mei;
+                                                            $total_kapasiti_5 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->mei ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '06' && $data->ebio_c6 != 0)
-                                                        @php
+                                                    @php
                                                             $bulan_6++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_6 += $data->jun;
+                                                            $total_kapasiti_6 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->jun ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '07' && $data->ebio_c6 != 0)
                                                         @php
                                                             $bulan_7++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_7 += $data->jul;
+                                                            $total_kapasiti_7 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->jul ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '08' && $data->ebio_c6 != 0)
-                                                        @php
+                                                    @php
                                                             $bulan_8++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_8 += $data->ogs;
+                                                            $total_kapasiti_8 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->ogs ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '09' && $data->ebio_c6 != 0)
-                                                        @php
+                                                    @php
                                                             $bulan_9++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_9 += $data->sept;
+                                                            $total_kapasiti_9 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->sept ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '10' && $data->ebio_c6 != 0)
-                                                        @php
+                                                    @php
                                                             $bulan_10++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_10 += $data->okt;
+                                                            $total_kapasiti_10 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->okt ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '11' && $data->ebio_c6 != 0)
-                                                        @php
+                                                    @php
                                                             $bulan_11++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_11 += $data->nov;
+                                                            $total_kapasiti_11 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->nov ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
                                                     @if ($data->ebio_bln == '12' && $data->ebio_c6 != 0)
-                                                        @php
+                                                    @php
                                                             $bulan_12++;
                                                             $total_bulan++;
-                                                            $total_kapasiti_12 += $data->dec;
+                                                            $total_kapasiti_12 += $data->kap_proses;
                                                         @endphp
-                                                        <td style="text-align: right">
-                                                            {{ number_format($data->dec ?? 0, 2) }}</td>
+                                                        <td style="text-align: center">/</td>
                                                     @else
-                                                        <td>0.00</td>
+                                                        <td></td>
                                                     @endif
 
                                                 </tr>
@@ -331,22 +323,41 @@
                                             @endforeach
                                         @endif
 
-
-                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
-                                            <th colspan="2"><b>JUMLAH</b></th>
+                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-center">
+                                            <th colspan="2"></th>
+                                            <td style="text-align: right">{{ number_format($total_kapasiti ?? 0, 2) }}</td>
                                             <td></td>
-                                            <td>{{ number_format($total_kapasiti_1 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_2 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_3 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_4 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_5 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_6 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_7 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_8 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_9 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_10 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_11 ?? 0, 2) }}</td>
-                                            <td>{{ number_format($total_kapasiti_12 ?? 0, 2) }}</td>
+                                            <td>{{ $bulan_1 }}</td>
+                                            <td>{{ $bulan_2 }}</td>
+                                            <td>{{ $bulan_3 }}</td>
+                                            <td>{{ $bulan_4 }}</td>
+                                            <td>{{ $bulan_5 }}</td>
+                                            <td>{{ $bulan_6 }}</td>
+                                            <td>{{ $bulan_7 }}</td>
+                                            <td>{{ $bulan_8 }}</td>
+                                            <td>{{ $bulan_9 }}</td>
+                                            <td>{{ $bulan_10 }}</td>
+                                            <td>{{ $bulan_11 }}</td>
+                                            <td>{{ $bulan_12 }}</td>
+                                            {{-- <td></td> --}}
+                                            {{-- <td></td> --}}
+                                        </tr>
+                                        <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
+                                            <th colspan="2">Kapasiti Biodiesel</th>
+                                            <td></td>
+                                            <td></td>
+                                            <td>{{ number_format($total_kapasiti_1 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_2 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_3 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_4 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_5 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_6 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_7 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_8 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_9 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_10 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_11 ?? 0,2) }}</td>
+                                            <td>{{ number_format($total_kapasiti_12 ?? 0,2) }}</td>
                                             {{-- <td></td> --}}
                                             {{-- <td></td> --}}
                                         </tr>
