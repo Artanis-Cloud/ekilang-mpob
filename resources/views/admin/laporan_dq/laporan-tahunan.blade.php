@@ -63,14 +63,19 @@
                                             <div class="form-group">
                                                 <label>Jenis Laporan</label>
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" name="laporan" onclick="laporan_check(this)">
+                                                    <select class="form-control" name="laporan"
+                                                        onclick="laporan_check(this)">
                                                         <option selected hidden disabled>Sila Pilih Jenis Laporan</option>
-                                                        <option value="kapasiti"  onclick="laporan_check(this)">Laporan Tahunan Kapasiti
+                                                        <option value="kapasiti" onclick="laporan_check(this)">Laporan
+                                                            Tahunan Kapasiti
                                                         </option>
-                                                        <option value="beroperasi" onclick="laporan_check(this)">Kilang Biodiesel
+                                                        <option value="beroperasi" onclick="laporan_check(this)">Kilang
+                                                            Biodiesel
                                                             Beroperasi</option>
-                                                        <option value="pengeluaran" onclick="laporan_check(this)">Pengeluaran Produk Biodiesel</option>
-                                                        <option value="eksport" onclick="laporan_check(this)">Eksport Produk Biodiesel</option>
+                                                        <option value="pengeluaran" onclick="laporan_check(this)">
+                                                            Pengeluaran Produk Biodiesel</option>
+                                                        <option value="eksport" onclick="laporan_check(this)">Eksport Produk
+                                                            Biodiesel</option>
                                                     </select>
                                                 </fieldset>
                                             </div>
@@ -84,7 +89,7 @@
 
                                             </div>
                                         </div>
-                                        <div class="col-md-3 mr-auto">
+                                        {{-- <div class="col-md-3 mr-auto">
                                             <div class="form-group">
                                                 <label>Bulan</label>
                                                 <select class="form-control" name="bulan" id="bulan">
@@ -103,7 +108,115 @@
                                                     <option value="12">DISEMBER</option>
                                                 </select>
                                             </div>
+                                        </div> --}}
+                                        <div class="col-md-3 mr-auto">
+                                            <label>Bulan</label>
+                                            <select class="form-control" name="bulan" id="bulan2"
+                                                onchange="showTable2()">
+                                                <option selected hidden disabled value="">Sila Pilih</option>
+                                                <option value="equal">Equal</option>
+                                                <option value="between">Between</option>
+                                            </select>
+
                                         </div>
+                                        <div id="equal_container2" style="display:none">
+                                            <div class="row">
+                                                <div class="col-md-12 " style="margin-right:-3%">
+                                                    <div class="form-group">
+                                                        <label>&nbsp;</label>
+                                                        <select class="form-control" name="start">
+                                                            <option selected hidden disabled value="">Sila Pilih Bulan
+                                                            </option>
+                                                            <option value="01">JANUARI</option>
+                                                            <option value="02">FEBRUARI</option>
+                                                            <option value="03">MAC</option>
+                                                            <option value="04">APRIL</option>
+                                                            <option value="05">MEI</option>
+                                                            <option value="06">JUN</option>
+                                                            <option value="07">JULAI</option>
+                                                            <option value="08">OGOS</option>
+                                                            <option value="09">SEPTEMBER</option>
+                                                            <option value="10">OKTOBER</option>
+                                                            <option value="11">NOVEMBER</option>
+                                                            <option value="12">DISEMBER</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="between_container2" style="display:none">
+                                            <div class="row">
+                                                <div class="col-md-12 ">
+                                                    <div class="form-group">
+                                                        <label>Dari</label>
+                                                        <select class="form-control" name="start_month">
+                                                            <option selected hidden disabled value="">Sila Pilih Bulan
+                                                            </option>
+                                                            <option value="01">JANUARI</option>
+                                                            <option value="02">FEBRUARI</option>
+                                                            <option value="03">MAC</option>
+                                                            <option value="04">APRIL</option>
+                                                            <option value="05">MEI</option>
+                                                            <option value="06">JUN</option>
+                                                            <option value="07">JULAI</option>
+                                                            <option value="08">OGOS</option>
+                                                            <option value="09">SEPTEMBER</option>
+                                                            <option value="10">OKTOBER</option>
+                                                            <option value="11">NOVEMBER</option>
+                                                            <option value="12">DISEMBER</option>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <div class="row">
+                                                <div class="col-md-12 ">
+                                                    <div class="form-group">
+                                                        <label>Ke</label>
+                                                        <select class="form-control" name="end_month">
+                                                            <option selected hidden disabled value="">Sila Pilih
+                                                                Bulan</option>
+                                                            <option value="01">JANUARI</option>
+                                                            <option value="02">FEBRUARI</option>
+                                                            <option value="03">MAC</option>
+                                                            <option value="04">APRIL</option>
+                                                            <option value="05">MEI</option>
+                                                            <option value="06">JUN</option>
+                                                            <option value="07">JULAI</option>
+                                                            <option value="08">OGOS</option>
+                                                            <option value="09">SEPTEMBER</option>
+                                                            <option value="10">OKTOBER</option>
+                                                            <option value="11">NOVEMBER</option>
+                                                            <option value="12">DISEMBER</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div id="lain_container2" style="display:none">
+                                        </div>
+                                        {{-- <div class="col-md-3 mr-auto">
+                                            <div class="form-group">
+                                                <label>Bulan</label>
+                                                <select class="form-control" name="bulan" id="bulan">
+                                                    <option selected hidden disabled>Sila Pilih Bulan</option>
+                                                    <option value="01">JANUARI</option>
+                                                    <option value="02">FEBRUARI</option>
+                                                    <option value="03">MAC</option>
+                                                    <option value="04">APRIL</option>
+                                                    <option value="05">MEI</option>
+                                                    <option value="06">JUN</option>
+                                                    <option value="07">JULAI</option>
+                                                    <option value="08">OGOS</option>
+                                                    <option value="09">SEPTEMBER</option>
+                                                    <option value="10">OKTOBER</option>
+                                                    <option value="11">NOVEMBER</option>
+                                                    <option value="12">DISEMBER</option>
+                                                </select>
+                                            </div>
+                                        </div> --}}
                                     </div>
                                     <div class=" col-md-12 mb-4 mt-4">
                                         <button type="submit" class="btn btn-primary" style="margin-left:47%"
@@ -167,4 +280,29 @@
       currentYear -= 1;
     }
   </script> --}}
+    <script type="text/javascript">
+        function showTable2() {
+            var bulan = $('#bulan2').val();
+            // console.log(oer);
+
+            if (bulan == "equal") {
+                document.getElementById('equal_container2').style.display = "block";
+                document.getElementById('lain_container2').style.display = "block";
+            } else {
+                document.getElementById('equal_container2').style.display = "none";
+                document.getElementById('lain_container2').style.display = "block";
+
+            }
+
+            if (bulan == "between") {
+                document.getElementById('between_container2').style.display = "block";
+                document.getElementById('lain_container2').style.display = "block";
+
+            } else {
+                document.getElementById('between_container2').style.display = "none";
+                document.getElementById('lain_container2').style.display = "block";
+
+            }
+        }
+    </script>
 @endsection

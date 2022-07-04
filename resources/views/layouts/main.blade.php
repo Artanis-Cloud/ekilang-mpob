@@ -1240,13 +1240,13 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="sidebar-item">
+                                    {{-- <li class="sidebar-item">
                                         <a class="sidebar-link has-arrow " style=" margin-right:5%"
                                             aria-expanded="false">
                                             <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Oleokimia </span>
                                             {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                        </a>
+                                        {{-- </a>
                                         <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                             <li class="sidebar-item">
                                                 <a href="{{ route('admin.activities.all') }}" class="sidebar-link">
@@ -1276,7 +1276,7 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </li>
+                                    </li>  --}}
                                 </ul>
                             </li>
                             @endif

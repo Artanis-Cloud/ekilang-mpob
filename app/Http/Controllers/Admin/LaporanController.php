@@ -694,13 +694,20 @@ class LaporanController extends Controller
             } else {
                 $tahun_sql = "";
             }
-            if ($request->bulan) {
-                $bulan_sql = "AND ebio_bln = $request->bulan";
+            if ($request->bulan == 'equal') {
+                $bulan_sql = "AND ebio_bln = $request->start";
+            } elseif ($request->bulan == 'between') {
+                $bulan_sql = "AND ebio_bln BETWEEN $request->start_month AND $request->end_month";
             } else {
                 $bulan_sql = "";
             }
 
             $tahun2 = $request->tahun;
+
+            $start_month = $request->start_month;
+            $end_month = $request->end_month;
+
+
 
             // $nobatch = HBioInit::where('ebio_thn', $request->tahun)->where('ebio_bln', $request->bulan)->get('ebio_nobatch');
 
@@ -715,7 +722,7 @@ class LaporanController extends Controller
             FROM h_bio_inits
             WHERE $tahun_sql.$bulan_sql");
 
-            $batch = $nbatch[0]->ebio_nobatch;
+            // $batch = $nbatch[0]->ebio_nobatch;
 
             // dd($batch);
 
@@ -746,6 +753,8 @@ class LaporanController extends Controller
                 'laporan' => $laporan,
                 'tahun_sql' => $tahun_sql,
                 'tahun2' => $tahun2,
+                'start_month' => $start_month,
+                'end_month' => $end_month,
 
                 'operasi' => $operasi,
 
@@ -878,6 +887,887 @@ class LaporanController extends Controller
         $layout = 'layouts.admin';
 
         return view('admin.laporan_dq.tambah-stok-akhir', compact('returnArr', 'layout', 'bulan'));
+    }
+
+    public function admin_tambah_stok_akhir_proses(Request $request)
+    {
+
+        // dd($request->all());
+        $tahun = $request->tahun;
+        $bulan = $request->bulan;
+
+        //semenanjung malaysia
+        //cpo
+        $querycpo1 = DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_sm_1
+             FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+              kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` = 'CPO'");
+
+        $querycpo2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_sm_2
+            FROM `penyata` ,  kilang, `profile_bulanan`,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('cpo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` = 'CPO'");
+
+        $querycpo3 =   DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_sm_3
+            FROM `penyata` ,  kilang, `profile_bulanan`,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('stok_akhir') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` = 'CPO'");
+
+
+        //ppo
+
+        $queryppo = DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_sm
+            FROM `penyata` ,  kilang, `profile_bulanan`,produk,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('ppo_hasil') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `produk`.`kumpulan_produk` =  '1' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` <> 'CPO' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+        $queryppo1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_sm_1
+            FROM `penyata` ,  kilang, `profile_bulanan`,produk,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `produk`.`kumpulan_produk` =  '1' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` <> 'CPO' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+        $queryppo2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_sm_2
+                    FROM `penyata` ,  kilang, `profile_bulanan`,produk,negeri
+                    WHERE
+                    `penyata`.`tahun` =  '$tahun' AND
+                    `penyata`.`bulan` =  '$bulan' AND
+                    `profile_bulanan`.`tahun` =  '$tahun' AND
+                    `profile_bulanan`.`bulan` =  '$bulan' AND
+                    `penyata`.`menu` = 'ppo' AND
+                    `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+                    kilang.e_apnegeri = negeri.id_negeri AND
+                    `penyata`.`penyata` in  ('ppo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+                    `kilang`.`jenis` <>  'dummy' AND
+                    `produk`.`kumpulan_produk` =  '1' AND
+                    `penyata`.`lesen` = `kilang`.`e_nl` AND
+                    `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+                    `penyata`.`kod_produk` <> 'CPO' AND
+                    `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+        //FORMULA BARU PPO SELEPAS FIELD STOK AKHIR DILAPOR DIWUJUDKAN MULAI PL BULAN 4 2013
+        $queryppo3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_sm_3
+            FROM `penyata` ,  kilang, `profile_bulanan`,produk,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('stok_akhir') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `produk`.`kumpulan_produk` =  '1' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` <> 'CPO' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        //cpko
+
+        $querycpko1 = DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_sm_1
+             FROM `penyata` ,  kilang, `profile_bulanan`,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` = 'CPKO'");
+
+
+        $querycpko2 = DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_sm_2
+            FROM `penyata` ,  kilang, `profile_bulanan`,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('cpo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` = 'CPKO'");
+
+
+        //FORMULA BARU CPKO SELEPAS FIELD STOK AKHIR DILAPOR DIWUJUDKAN MULAI PL BULAN 4 2013
+        $querycpko3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_sm_3
+            FROM `penyata` ,  kilang, `profile_bulanan`,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('stok_akhir') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` = 'CPKO'");
+
+        $queryppko1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_sm_1
+            FROM `penyata` ,  kilang, `profile_bulanan`,produk,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `produk`.`kumpulan_produk` =  '2' AND
+            `penyata`.`kod_produk` <> 'CPKO' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        $queryppko2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_sm_2
+            FROM `penyata` ,  kilang, `profile_bulanan`, produk,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('ppo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `produk`.`kumpulan_produk` =  '2' AND
+            `penyata`.`kod_produk` <> 'CPKO' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        //FORMULA BARU PPKO SELEPAS FIELD STOK AKHIR DILAPOR DIWUJUDKAN MULAI PL BULAN 4 2013
+        $queryppko3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_sm_3
+             FROM `penyata` ,  kilang, `profile_bulanan`, produk,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'ppo' AND
+             `negeri`.`nama_negeri` not in ('SABAH','SARAWAK') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_akhir') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `produk`.`kumpulan_produk` =  '2' AND
+             `penyata`.`kod_produk` <> 'CPKO' AND
+             `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+        //sabah
+        //cpo
+
+        $sbhcpo1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_sbh_1
+             FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri` in ('SABAH') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` = 'CPO'");
+
+
+        $sbhcpo2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_sbh_2
+            FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `negeri`.`nama_negeri` in ('SABAH') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('cpo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` = 'CPO'");
+
+
+
+        //FORMULA BARU CPO SELEPAS FIELD STOK AKHIR DILAPOR DIWUJUDKAN MULAI PL BULAN 4 2013
+        $sbhcpo3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_sbh_3
+             FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri` in ('SABAH') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_akhir') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` = 'CPO'");
+
+
+        //ppo
+
+        $sbhppo =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_sbh
+             FROM `penyata` ,  kilang, `profile_bulanan`,produk ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri` in ('SABAH') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('ppo_hasil') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `produk`.`kumpulan_produk` =  '1' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` <> 'CPO' AND
+             `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        $sbhppo1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_sbh_1
+             FROM `penyata` ,  kilang, `profile_bulanan`,produk ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'ppo' AND
+             `negeri`.`nama_negeri` in ('SABAH') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `produk`.`kumpulan_produk` =  '1' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` <> 'CPO' AND
+             `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+        $sbhppo2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_sbh_2
+            FROM `penyata` ,  kilang, `profile_bulanan`,produk ,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `negeri`.`nama_negeri` in ('SABAH') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('ppo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `produk`.`kumpulan_produk` =  '1' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` <> 'CPO' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        //FORMULA BARU PPO SELEPAS FIELD STOK AKHIR DILAPOR DIWUJUDKAN MULAI PL BULAN 4 2013
+        $sbhppo3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_sbh_3
+             FROM `penyata` ,  kilang, `profile_bulanan`,produk ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'ppo' AND
+             `negeri`.`nama_negeri` in ('SABAH') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_akhir') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `produk`.`kumpulan_produk` =  '1' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` <> 'CPO' AND
+             `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+
+        //cpko
+
+        $sbhcpko1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_sbh_1
+            FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `negeri`.`nama_negeri` in ('SABAH') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` = 'CPKO'");
+
+        $sbhcpko2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_sbh_2
+            FROM `penyata` ,  kilang, `profile_bulanan`,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `negeri`.`nama_negeri`  in ('SABAH') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('cpo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` = 'CPKO'");
+
+
+        //FORMULA BARU CPKO SELEPAS FIELD STOK AKHIR DILAPOR DIWUJUDKAN MULAI PL BULAN 4 2013
+        $sbhcpko3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_sbh_3
+             FROM `penyata` ,  kilang, `profile_bulanan`,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri`  in ('SABAH') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_akhir') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` = 'CPKO'");
+
+
+        //ppko
+
+
+        $sbhppko1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_sbh_1
+             FROM `penyata` ,  kilang, `profile_bulanan`,produk ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'ppo' AND
+             `negeri`.`nama_negeri` in ('SABAH') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+              `produk`.`kumpulan_produk` =  '2' AND
+              `penyata`.`kod_produk` <> 'CPKO' AND
+              `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        $sbhppko2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_sbh_2
+            FROM `penyata` ,  kilang, `profile_bulanan`, produk ,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `negeri`.`nama_negeri`  in ('SABAH') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('ppo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `produk`.`kumpulan_produk` =  '2' AND
+            `penyata`.`kod_produk` <> 'CPKO' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        //FORMULA BARU PPKO SELEPAS FIELD STOK AKHIR DILAPOR DIWUJUDKAN MULAI PL BULAN 4 2013
+        $sbhppko3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_sbh_3
+             FROM `penyata` ,  kilang, `profile_bulanan`, produk ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'ppo' AND
+             `negeri`.`nama_negeri`  in ('SABAH') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_akhir') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `produk`.`kumpulan_produk` =  '2' AND
+             `penyata`.`kod_produk` <> 'CPKO' AND
+             `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+
+
+        //sarawak
+        //cpo
+
+        $srwkcpo1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_srwk_1
+             FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri` in ('SARAWAK') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` = 'CPO'");
+
+        $srwkcpo2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_srwk_2
+             FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri` in ('SARAWAK') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('cpo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` = 'CPO'");
+
+        $srwkcpo3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_srwk_3
+            FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `negeri`.`nama_negeri` in ('SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('stok_akhir') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` = 'CPO'");
+
+
+        //ppo
+
+        $srwkppo =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_srwk
+             FROM `penyata` ,  kilang, `profile_bulanan`,produk ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri` in ('SARAWAK') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('ppo_hasil') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `produk`.`kumpulan_produk` =  '1' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` <> 'CPO' AND
+             `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+        $srwkppo1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_srwk_1
+            FROM `penyata` ,  kilang, `profile_bulanan`,produk,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `negeri`.`nama_negeri` in ('SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `produk`.`kumpulan_produk` =  '1' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` <> 'CPO' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+        $srwkppo2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_srwk_2
+             FROM `penyata` ,  kilang, `profile_bulanan`,produk,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'ppo' AND
+             `negeri`.`nama_negeri` in ('SARAWAK') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('ppo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `produk`.`kumpulan_produk` =  '1' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` <> 'CPO' AND
+             `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        //FORMULA BARU PPO SELEPAS FIELD STOK AKHIR DILAPOR DIWUJUDKAN MULAI PL BULAN 4 2013
+        $srwkppo3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_srwk_3
+             FROM `penyata` ,  kilang, `profile_bulanan`,produk,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'ppo' AND
+             `negeri`.`nama_negeri` in ('SARAWAK') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_akhir') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `produk`.`kumpulan_produk` =  '1' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` <> 'CPO' AND
+             `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        //cpko
+
+        $srwkcpko1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_srwk_1
+             FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri` in ('SARAWAK') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` = 'CPKO'");
+
+        $srwkcpko2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_srwk_2
+            FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `negeri`.`nama_negeri` in ('SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('cpo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `penyata`.`kod_produk` = 'CPKO'");
+
+        //FORMULA BARU CPKO SELEPAS FIELD STOK AKHIR DILAPOR DIWUJUDKAN MULAI PL BULAN 4 2013
+        $srwkcpko3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_srwk_3
+             FROM `penyata` ,  kilang, `profile_bulanan` ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'cpo_cpko' AND
+             `negeri`.`nama_negeri` in ('SARAWAK') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_akhir') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `penyata`.`kod_produk` = 'CPKO'");
+
+
+        //ppko
+
+        $srwkppko1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_srwk_1
+            FROM `penyata` ,  kilang, `profile_bulanan`,produk ,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `negeri`.`nama_negeri` in ('SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('stok_awal','bekalan_belian','bekalan_penerimaan','bekalan_import') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `produk`.`kumpulan_produk` =  '2' AND
+            `penyata`.`kod_produk` <> 'CPKO' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+        $srwkppko2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_srwk_2
+            FROM `penyata` ,  kilang, `profile_bulanan`, produk ,negeri
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `profile_bulanan`.`tahun` =  '$tahun' AND
+            `profile_bulanan`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `negeri`.`nama_negeri` in ('SARAWAK') AND
+            kilang.e_apnegeri = negeri.id_negeri AND
+            `penyata`.`penyata` in  ('ppo_proses','jualan_jualan','jualan_edaran','jualan_eksport') AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+            `produk`.`kumpulan_produk` =  '2' AND
+            `penyata`.`kod_produk` <> 'CPKO' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+        //FORMULA BARU PPKO SELEPAS FIELD STOK AKHIR DILAPOR DIWUJUDKAN MULAI PL BULAN 4 2013
+        $srwkppko3 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_srwk_3
+             FROM `penyata` ,  kilang, `profile_bulanan`, produk ,negeri
+             WHERE
+             `penyata`.`tahun` =  '$tahun' AND
+             `penyata`.`bulan` =  '$bulan' AND
+             `profile_bulanan`.`tahun` =  '$tahun' AND
+             `profile_bulanan`.`bulan` =  '$bulan' AND
+             `penyata`.`menu` = 'ppo' AND
+             `negeri`.`nama_negeri` in ('SARAWAK') AND
+             kilang.e_apnegeri = negeri.id_negeri AND
+             `penyata`.`penyata` in  ('stok_akhir') AND
+             `kilang`.`jenis` <>  'dummy' AND
+             `penyata`.`lesen` = `kilang`.`e_nl` AND
+             `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
+             `produk`.`kumpulan_produk` =  '2' AND
+             `penyata`.`kod_produk` <> 'CPKO' AND
+             `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+
+
+
+        if (($tahun == 2013 and $bulan >= 4) or ($tahun > 2013)) {
+            //formula baru
+            $cpo_sm = $querycpo3;
+            $ppo_sm = $queryppo3;
+            $cpko_sm = $querycpko3;
+            $ppko_sm = $queryppko3;
+            $cpo_sbh = $sbhcpo3;
+            $ppo_sbh = $sbhppo3;
+            $cpko_sbh = $sbhcpko3;
+            $ppko_sbh = $sbhppko3;
+            $cpo_srwk = $srwkcpo3;
+            $ppo_srwk = $srwkppo3;
+            $cpko_srwk = $srwkcpko3;
+            $ppko_srwk = $srwkppko3;
+        } elseif ($tahun > 2013 and $bulan < 4) {
+            //formula baru
+            $cpo_sm = $querycpo3;
+            $ppo_sm = $queryppo3;
+            $cpko_sm = $querycpko3;
+            $ppko_sm = $queryppko3;
+            $cpo_sbh = $sbhcpo3;
+            $ppo_sbh = $sbhppo3;
+            $cpko_sbh = $sbhcpko3;
+            $ppko_sbh = $sbhppko3;
+            $cpo_srwk = $srwkcpo3;
+            $ppo_srwk = $srwkppo3;
+            $cpko_srwk = $srwkcpko3;
+            $ppko_srwk = $srwkppko3;
+        } else {
+            $cpo_sm = $querycpo1 - $querycpo2;
+            $ppo_sm = $queryppo + $queryppo1 - $queryppo2;
+            $cpko_sm = $querycpko1 - $querycpko2;
+            $ppko_sm = $queryppko1 - $queryppko2;
+            $cpo_sbh = $sbhcpo1 - $sbhcpo2;
+            $ppo_sbh = $sbhppo + $sbhppo1 - $sbhppo2;
+            $cpko_sbh = $sbhcpko1 - $sbhcpko2;
+            $ppko_sbh = $sbhppko1 - $sbhppko2;
+            $cpo_srwk = $srwkcpo1 - $srwkcpo2;
+            $ppo_srwk = $srwkppo + $srwkppo1 - $srwkppo2;
+            $cpko_srwk = $srwkcpko1 - $srwkcpko2;
+            $ppko_srwk = $srwkppko1 - $srwkppko2;
+        }
+
+
+
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+
+        $array = [
+            'tahun' => $tahun,
+            'bulan' => $bulan,
+
+            'querycpo1' => $querycpo1,
+            'querycpo2' => $querycpo2,
+            'querycpo3' => $querycpo3,
+
+            'queryppo' => $queryppo,
+            'queryppo1' => $queryppo1,
+            'queryppo2' => $queryppo2,
+            'queryppo3' => $queryppo3,
+
+            'querycpko1' => $querycpko1,
+            'querycpko2' => $querycpko2,
+            'querycpko3' => $querycpko3,
+
+            'queryppko1' => $queryppko1,
+            'queryppko2' => $queryppko2,
+            'queryppko3' => $queryppko3,
+
+            'cpo_sm' => $cpo_sm,
+            'ppo_sm' => $ppo_sm,
+            'cpko_sm' => $cpko_sm,
+            'ppko_sm' => $ppko_sm,
+
+            'sbhcpo1' => $sbhcpo1,
+            'sbhcpo2' => $sbhcpo2,
+            'sbhcpo3' => $sbhcpo3,
+
+            'sbhppo' => $sbhppo,
+            'sbhppo1' => $sbhppo1,
+            'sbhppo2' => $sbhppo2,
+            'sbhppo3' => $sbhppo3,
+
+            'sbhcpko1' => $sbhcpko1,
+            'sbhcpko2' => $sbhcpko2,
+            'sbhcpko3' => $sbhcpko3,
+
+            'sbhppko1' => $sbhppko1,
+            'sbhppko2' => $sbhppko2,
+            'sbhppko3' => $sbhppko3,
+
+            'sbhppo' => $sbhppo,
+            'sbhppo1' => $sbhppo1,
+            'sbhppo2' => $sbhppo2,
+            'sbhppo3' => $sbhppo3,
+
+            'cpo_sbh' => $cpo_sbh,
+            'ppo_sbh' => $ppo_sbh,
+            'cpko_sbh' => $cpko_sbh,
+            'ppko_sbh' => $ppko_sbh,
+
+            'srwkcpo1' => $srwkcpo1,
+            'srwkcpo2' => $srwkcpo2,
+            'srwkcpo3' => $srwkcpo3,
+
+            'srwkppo' => $srwkppo,
+            'srwkppo1' => $srwkppo1,
+            'srwkppo2' => $srwkppo2,
+            'srwkppo3' => $srwkppo3,
+
+            'srwkcpko1' => $srwkcpko1,
+            'srwkcpko2' => $srwkcpko2,
+            'srwkcpko3' => $srwkcpko3,
+
+            'srwkppko1' => $srwkppko1,
+            'srwkppko2' => $srwkppko2,
+            'srwkppko3' => $srwkppko3,
+
+            'cpo_srwk' => $cpo_srwk,
+            'ppo_srwk' => $ppo_srwk,
+            'cpko_srwk' => $cpko_srwk,
+            'ppko_srwk' => $ppko_srwk,
+
+            'breadcrumbs' => $breadcrumbs,
+            'kembali' => $kembali,
+
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+        return view('admin.laporan_dq.tambah-stok-akhir', $array);
     }
 
     // public function admin_validasi_stok_akhir(Request $request)
