@@ -85,7 +85,7 @@ class LaporanController extends Controller
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
         $kumpproduk = DB::connection('mysql2')->select("SELECT * FROM kump_produk");
         $produk = DB::connection('mysql2')->select("SELECT * FROM produk");
-        $pembeli= SyarikatPembeli::orderBy('id')->get();
+        $pembeli = SyarikatPembeli::orderBy('id')->get();
         // $result =HBioInit::leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->get();
 
         // $this->validation_terdahulu($request->all())->validate();
@@ -93,8 +93,7 @@ class LaporanController extends Controller
         if ($request->tahun) {
 
             // $tahun_sql = EBioInit::where('ebio_thn',"=", "tahun = $request->tahun")->get();
-        $tahun_sql = "e.ebio_thn = $request->tahun";
-
+            $tahun_sql = "e.ebio_thn = $request->tahun";
         } else {
             $tahun_sql = "";
         }
@@ -936,7 +935,7 @@ class LaporanController extends Controller
              `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
              `penyata`.`kod_produk` = 'CPO'");
 
-             dd($querycpo1[0]->cpo_sm_1);
+        //  dd($querycpo1[0]->cpo_sm_1);
 
         $querycpo2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_sm_2
             FROM `penyata` ,  kilang, `profile_bulanan`,negeri
@@ -1646,52 +1645,53 @@ class LaporanController extends Controller
              `penyata`.`kod_produk` <> 'CPKO' AND
              `penyata`.`kod_produk` =`produk`.`nama_produk`");
 
-
+        // dd($querycpo2);
 
         if (($tahun == 2013 and $bulan >= 4) or ($tahun > 2013)) {
             //formula baru
-            $cpo_sm = $querycpo3;
-            $ppo_sm = $queryppo3;
-            $cpko_sm = $querycpko3;
-            $ppko_sm = $queryppko3;
-            $cpo_sbh = $sbhcpo3;
-            $ppo_sbh = $sbhppo3;
-            $cpko_sbh = $sbhcpko3;
-            $ppko_sbh = $sbhppko3;
-            $cpo_srwk = $srwkcpo3;
-            $ppo_srwk = $srwkppo3;
-            $cpko_srwk = $srwkcpko3;
-            $ppko_srwk = $srwkppko3;
+            $cpo_sm = $querycpo3[0]->cpo_sm_3;
+            $ppo_sm = $queryppo3[0]->ppo_sm_3;
+            $cpko_sm = $querycpko3[0]->cpko_sm_3;
+            $ppko_sm = $queryppko3[0]->ppko_sm_3;
+            $cpo_sbh = $sbhcpo3[0]->cpo_sbh_3;
+            $ppo_sbh = $sbhppo3[0]->ppo_sbh_3;
+            $cpko_sbh = $sbhcpko3[0]->cpko_sbh_3;
+            $ppko_sbh = $sbhppko3[0]->ppko_sbh_3;
+            $cpo_srwk = $srwkcpo3[0]->cpo_srwk_3;
+            $ppo_srwk = $srwkppo3[0]->ppo_srwk_3;
+            $cpko_srwk = $srwkcpko3[0]->cpko_srwk_3;
+            $ppko_srwk = $srwkppko3[0]->ppko_srwk_3;
         } elseif ($tahun > 2013 and $bulan < 4) {
             //formula baru
-            $cpo_sm = $querycpo3;
-            $ppo_sm = $queryppo3;
-            $cpko_sm = $querycpko3;
-            $ppko_sm = $queryppko3;
-            $cpo_sbh = $sbhcpo3;
-            $ppo_sbh = $sbhppo3;
-            $cpko_sbh = $sbhcpko3;
-            $ppko_sbh = $sbhppko3;
-            $cpo_srwk = $srwkcpo3;
-            $ppo_srwk = $srwkppo3;
-            $cpko_srwk = $srwkcpko3;
-            $ppko_srwk = $srwkppko3;
+            $cpo_sm = $querycpo3[0]->cpo_sm_3;
+            $ppo_sm = $queryppo3[0]->ppo_sm_3;
+            $cpko_sm = $querycpko3[0]->cpko_sm_3;
+            $ppko_sm = $queryppko3[0]->ppko_sm_3;
+            $cpo_sbh = $sbhcpo3[0]->cpo_sbh_3;
+            $ppo_sbh = $sbhppo3[0]->ppo_sbh_3;
+            $cpko_sbh = $sbhcpko3[0]->cpko_sbh_3;
+            $ppko_sbh = $sbhppko3[0]->ppko_sbh_3;
+            $cpo_srwk = $srwkcpo3[0]->cpo_srwk_3;
+            $ppo_srwk = $srwkppo3[0]->ppo_srwk_3;
+            $cpko_srwk = $srwkcpko3[0]->cpko_srwk_3;
+            $ppko_srwk = $srwkppko3[0]->ppko_srwk_3;
         } else {
-            $cpo_sm = $querycpo1 - $querycpo2;
-            $ppo_sm = $queryppo + $queryppo1 - $queryppo2;
-            $cpko_sm = $querycpko1 - $querycpko2;
-            $ppko_sm = $queryppko1 - $queryppko2;
-            $cpo_sbh = $sbhcpo1 - $sbhcpo2;
-            $ppo_sbh = $sbhppo + $sbhppo1 - $sbhppo2;
-            $cpko_sbh = $sbhcpko1 - $sbhcpko2;
-            $ppko_sbh = $sbhppko1 - $sbhppko2;
-            $cpo_srwk = $srwkcpo1 - $srwkcpo2;
-            $ppo_srwk = $srwkppo + $srwkppo1 - $srwkppo2;
-            $cpko_srwk = $srwkcpko1 - $srwkcpko2;
-            $ppko_srwk = $srwkppko1 - $srwkppko2;
+            $cpo_sm = $querycpo1[0]->cpo_sm_1 - $querycpo2[0]->cpo_sm_2;
+            $ppo_sm = $queryppo[0]->ppo_sm + $queryppo1[0]->ppo_sm_1 - $queryppo2[0]->ppo_sm_2;
+            $cpko_sm = $querycpko1[0]->cpko_sm_1 - $querycpko2[0]->cpko_sm_2;
+            $ppko_sm = $queryppko1[0]->ppko_sm_1 - $queryppko2[0]->ppko_sm_2;
+            $cpo_sbh = $sbhcpo1[0]->cpo_sbh_1 - $sbhcpo2[0]->cpo_sbh_2;
+            $ppo_sbh = $sbhppo[0]->ppo_sbh + $sbhppo1[0]->ppo_sbh_1 - $sbhppo2[0]->ppo_sbh_2;
+            $cpko_sbh = $sbhcpko1[0]->cpko_sbh_1 - $sbhcpko2[0]->cpko_sbh_2;
+            $ppko_sbh = $sbhppko1[0]->ppko_sbh_1 - $sbhppko2[0]->ppko_sbh_2;
+            $cpo_srwk = $srwkcpo1[0]->cpo_srwk_1 - $srwkcpo2[0]->cpo_srwk_2;
+            $ppo_srwk = $srwkppo[0]->ppo_srwk + $srwkppo1[0]->ppo_srwk_1 - $srwkppo2[0]->ppo_srwk_2;
+            $cpko_srwk = $srwkcpko1[0]->cpko_srwk_1 - $srwkcpko2[0]->cpko_srwk_2;
+            $ppko_srwk = $srwkppko1[0]->ppko_srwk_1 - $srwkppko2[0]->ppko_srwk_2;
         }
 
-        dd($cpo_sm);
+
+        // dd($srwkppo3);
 
 
 
