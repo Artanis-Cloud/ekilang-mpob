@@ -287,7 +287,7 @@
                                                 </div>
                                                 <div class="float-right ">
                                                     <button type="submit" class="btn btn-primary ml-1">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                        <i class="bx bx-check d-block d-sm-none" onclick="$('#stock').modal({'backdrop': 'static'});"></i>
                                                         <span class="d-none d-sm-block">Query</span>
                                                     </button>
                                                 </div>
@@ -304,7 +304,7 @@
                                                     <label>CPO: </label>
                                                     <div class="form-group">
                                                         <input type="text" name='cpo' class="form-control"
-                                                            readonly>
+                                                          value="{{ $cpo_sm }}"  readonly>
                                                     </div>
 
                                                 </div>
