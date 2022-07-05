@@ -936,6 +936,8 @@ class LaporanController extends Controller
              `penyata`.`lesen` = `profile_bulanan`.`no_lesen` AND
              `penyata`.`kod_produk` = 'CPO'");
 
+             dd($querycpo1[0]->cpo_sm_1);
+
         $querycpo2 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_sm_2
             FROM `penyata` ,  kilang, `profile_bulanan`,negeri
             WHERE
@@ -1646,8 +1648,6 @@ class LaporanController extends Controller
 
 
 
-
-
         if (($tahun == 2013 and $bulan >= 4) or ($tahun > 2013)) {
             //formula baru
             $cpo_sm = $querycpo3;
@@ -1691,6 +1691,7 @@ class LaporanController extends Controller
             $ppko_srwk = $srwkppko1 - $srwkppko2;
         }
 
+        dd($cpo_sm);
 
 
 
@@ -1706,7 +1707,6 @@ class LaporanController extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.admin';
-
         $array = [
             'tahun' => $tahun,
             'bulan' => $bulan,
