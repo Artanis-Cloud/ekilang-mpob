@@ -304,7 +304,7 @@
                                                     <label>CPO: </label>
                                                     <div class="form-group">
                                                         <input type="text" name='cpo' class="form-control"
-                                                            value="{{ $cpo_sm }}" readonly>
+                                                            readonly>
                                                     </div>
 
                                                 </div>
