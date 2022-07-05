@@ -22,6 +22,7 @@ use App\Models\ProdukGroup;
 use App\Models\ProdukSubgroup;
 use App\Models\Region;
 use App\Models\RegPelesen;
+use App\Models\SyarikatPembeli;
 use App\Models\User;
 use Illuminate\Http\Request;
 use DB;
@@ -53,6 +54,14 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.ringkasan.maklumat-penyata-bulanan', compact('returnArr', 'layout'));
     }
 
+    // protected function validation_terdahulu(array $data)
+    // {
+    //     return Validator::make($data, [
+    //         'tahun' => ['required', 'string'],
+    //         'negeri' => ['required', 'string'],
+    //     ]);
+    // }
+
     public function admin_ringkasan_penyata(Request $request)
     {
 
@@ -71,30 +80,41 @@ class LaporanController extends Controller
         // $result = HBioInit::leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
         // ->where('ebio_thn','LIKE','%'.$request->tahun.'%')->orWhere('e_negeri','LIKE','%',$request->e_negeri.'%')->get();
 
-        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
+        // $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-
+        $kumpproduk = DB::connection('mysql2')->select("SELECT * FROM kump_produk");
+        $produk = DB::connection('mysql2')->select("SELECT * FROM produk");
+        $pembeli= SyarikatPembeli::orderBy('id')->get();
         // $result =HBioInit::leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')->get();
-        $tahun = $request->tahun;
-        $negeri2 = $request->e_negeri;
-        // $tahun = $request->tahun;
-        // $tahun = $request->tahun;
-        // $tahun = $request->tahun;
 
-        $result = HBioInit::with('pelesen')->where('ebio_nl', 'e_nl')->get();
-        // $result2 = Pelesen::with('h_bio_inits')->where('e_nl', 'ebio_nl')->get();
-        if ($request->filled('e_np')) {
-            $result = HBioInit::where('ebio_nl', '=', $request->e_np);
+        // $this->validation_terdahulu($request->all())->validate();
+
+        if ($request->tahun) {
+
+            // $tahun_sql = EBioInit::where('ebio_thn',"=", "tahun = $request->tahun")->get();
+        $tahun_sql = "e.ebio_thn = $request->tahun";
+
+        } else {
+            $tahun_sql = "";
         }
+
+
+        // $result = HBioInit::with('pelesen')->where('ebio_nl', 'e_nl')->get();
+        // $result2 = Pelesen::with('h_bio_inits')->where('e_nl', 'ebio_nl')->get();
+        // if ($request->filled('e_np')) {
+        //     $result = HBioInit::where('ebio_nl', '=', $request->e_np);
+        // }
         // dd($request->all());
         // dd($result);
-        // $result = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, p.e_negeri, p.e_daerah, nama_negeri
-        //                 FROM pelesen p, h_bio_inits e, negeri n
-        //                 WHERE
-        //                 p.e_nl = e.ebio_nl");
+        $result = DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, e.ebio_nobatch, p.e_negeri, p.e_daerah, n.nama_negeri
+                        FROM pelesen p, h_bio_inits e, negeri n
+                        WHERE
+                        n.kod_negeri = p.e_negeri
+                        and p.e_nl = e.ebio_nl
+                        and '$tahun_sql'");
 
-        // if($request->tahun)
+        // dd($request->all());
         // {
         //     $result = HBioInit::where('ebio_thn','LIKE','%'.$request->tahun.'%')->get();
         // }
@@ -117,6 +137,8 @@ class LaporanController extends Controller
         $array = [
             'produk' => $produk,
             'users2' => $users2,
+            'pembeli' => $pembeli,
+            'kumpproduk' => $kumpproduk,
 
             'negeri' => $negeri,
             'result' => $result,

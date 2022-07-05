@@ -9,6 +9,7 @@ use App\Models\Ekmessage;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\Pengumuman;
+use App\Models\Produk;
 use App\Models\RegPelesen;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -97,6 +98,24 @@ class AjaxController extends Controller
         dd($data);
 
         return json_encode($data);
+        exit;
+    }
+
+
+    public function fetch_produk($kumpulan)
+    {
+
+        // $list_daerah = Negeri::where('negeri', $kod_negeri)->get();
+
+        // $list_daerah = Daerah::where('kod_negeri', $kump_produk)->distinct()->orderBy('nama_daerah')->get();
+
+        // $kumpulan_produk =  DB::connection('mysql2')->select("SELECT nama_produk FROM produk WHERE  'kumpulan = $kumpulan")
+        // $produk = DB::connection('mysql2')->select("SELECT *  FROM produk WHERE  kumpulan = '$kumpulan'");
+
+        $produk = Produk::where('prodcat', $kumpulan)->get();
+        // dd($kumpulan);
+
+        return json_decode($produk);
         exit;
     }
 }
