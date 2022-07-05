@@ -53,4 +53,9 @@ class HBioInit extends Model
         return $this->hasOne(Pelesen::class, 'e_nl', 'ebio_nl');
     }
 
+    // public function negeri()
+    // {
+
+    //     return $this->hasOne(Negeri::class, 'e_nl', 'ebio_nl');
+    // }
 }

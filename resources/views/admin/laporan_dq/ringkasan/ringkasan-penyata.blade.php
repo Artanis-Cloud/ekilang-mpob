@@ -112,16 +112,16 @@
                                     <a href="{{ $returnArr['kembali'] }}" class="btn" style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                                 </div>
                             </div>
-                            <form action="{{ route('admin.ringkasan.penyata') }}" method="get">
-                                @csrf
-                                <div class=" text-center">
-                                    <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Urusniaga Maklumat Penyata Bulanan</h3>
-                                    {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5> --}}
-                                </div>
-                                <hr>
 
-                                <div class="card-body">
+                            <div class=" text-center">
+                                <h3 style="color: rgb(39, 80, 71); margin-top:-2%; margin-bottom:1%">Ringkasan Urusniaga Maklumat Penyata Bulanan</h3>
+                                {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5> --}}
+                            </div>
+                            <hr>
 
+                            <div class="card-body">
+                                <form action="{{ route('admin.ringkasan.penyata') }}" method="get">
+                                    @csrf
                                     <div class="container center">
 
                                         <div class="row">
@@ -183,17 +183,19 @@
                                                         placeholder="Daerah"
                                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                         oninput="setCustomValidity('')">
-                                                        <option selected hidden disabled value="">Sila Pilih Negeri Terlebih Dahulu
+                                                        <option selected hidden disabled value="">
+                                                            Sila Pilih Negeri Terlebih Dahulu
                                                         </option>
-                                                </select>
+                                                    </select>
                                                 </div>
 
                                             </div>
 
                                             <div class="col-md-5 mr-auto ">
-                                                <div class="form-group">
+                                                <div class="form-group" >
                                                     <label>No. Pelesen</label>
-                                                    <select class="form-control" name="e_np">
+                                                    <select class="form-control select2" name="e_nl">
+
                                                         <option selected hidden disabled value="">Sila Pilih</option>
                                                         @foreach ($users2 as $data)
                                                             <option value="{{ $data->e_nl }}">
@@ -202,84 +204,69 @@
                                                         @endforeach
                                                     </select>
                                                 </div>
-                                                {{-- <div class="form-group">
-                                                    <label>Data</label>
-                                                    <fieldset class="form-group">
-                                                        <select class="form-control" name="laporan">
-                                                            <option selected hidden disabled>Sila Pilih Jenis Data</option>
-                                                            <option value="ebio_b5">Stok Awal Di Premis</option>
-                                                            <option value="ebio_b6">Belian / Terimaan</option>
-                                                            <option value="ebio_b7">Pengeluaran</option>
-                                                            <option value="ebio_b8">Digunakan Untuk Proses Selanjutnya</option>
-                                                            <option value="ebio_b9">Jualan / Edaran Tempatan</option>
-                                                            <option value="ebio_b10">Eksport</option>
-                                                            <option value="ebio_b11">Stok Akhir Dilapor</option>
-                                                        </select>
-                                                    </fieldset>
-                                                </div> --}}
-
 
                                             </div>
 
                                         </div>
-
 
                                     </div>
                                     <div class="text-right col-md-6 mb-4 mt-4">
                                         <button type="submit" class="btn btn-primary" style="margin-left:90%">Carian</button>
                                     </div>
-                                    {{-- <div class="text-right col-md-6 mb-4 mt-4"><a href="{{ route('admin.laporan.ringkasan') }}">
-                                        <button type="button"  class="btn btn-primary" data-toggle="modal"
-                                           >Carian</button>
-                                           </a>
-                                    </div> --}}
-                                    <section class="section"><hr>
-                                        <div class="card"><br>
 
-                                            <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Urusniaga Maklumat Penyata Bulanan <br>Tahun: 2020</h6>
+                                </form>
+                                {{-- <div class="text-right col-md-6 mb-4 mt-4"><a href="{{ route('admin.laporan.ringkasan') }}">
+                                    <button type="button"  class="btn btn-primary" data-toggle="modal"
+                                        >Carian</button>
+                                        </a>
+                                </div> --}}
+                                <section class="section"><hr>
+                                    <div class="card"><br>
 
-                                            <div class="table-responsive " id="example1">
-                                                <table id="example" class="table table-bordered text-center" style="width: 100%;">
-                                                    <thead>
+                                        <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Urusniaga Maklumat Penyata Bulanan <br>Tahun: 2020</h6>
+
+                                        <div class="table-responsive " >
+                                            <table id="example1" class="table table-bordered text-center" style="width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col" style="vertical-align: middle">Bil.</th>
+                                                        <th scope="col" style="vertical-align: middle">No. Lesen</th>
+                                                        <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
+                                                        <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                        <th scope="col" style="vertical-align: middle">Daerah</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($result as $data)
                                                         <tr>
-                                                            <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                            <th scope="col" style="vertical-align: middle">No. Lesen</th>
-                                                            <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
-                                                            <th scope="col" style="vertical-align: middle">Negeri</th>
-                                                            <th scope="col" style="vertical-align: middle">Daerah</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        {{-- @foreach ($result as $data)
-                                                            <tr>
-                                                                <td>{{ $loop->iteration }}</td>
-                                                                <td>{{ $data->e_nl }}</td>
-                                                                <td>{{ $data->e_np }}</td>
-                                                                <td>{{ $data->nama_negeri }}</td>
-                                                                <th>{{ $data->e_daerah }}</th>
-
-
-                                                            </tr>
-                                                        @endforeach --}}
-                                                        <tr>
-                                                            <td>1</td>
-                                                            <td><a href="{{ route('admin.laporan.ringkasan') }}">500403125000</a></td>
-                                                            <td>CAROTECH BERHAD (CHEMOR PLANT)</td>
-                                                            <td>PERAK</td>
-                                                            <td>KUALA KANGSAR</td>
+                                                            <td>{{ $loop->iteration }}</td>
+                                                            <td>{{ $data->e_nl }}</td>
+                                                            <td>{{ $data->e_np }}</td>
+                                                            <td>{{ $data->nama_negeri }}</td>
+                                                            <th>{{ $data->e_daerah }}</th>
 
 
                                                         </tr>
+                                                    @endforeach
+                                                    {{-- <tr>
+                                                        <td>1</td>
+                                                        <td><a href="{{ route('admin.laporan.ringkasan') }}">500403125000</a></td>
+                                                        <td>CAROTECH BERHAD (CHEMOR PLANT)</td>
+                                                        <td>PERAK</td>
+                                                        <td>KUALA KANGSAR</td>
 
-                                                    </tbody>
-                                                </table>
-                                            </div>
 
+                                                    </tr> --}}
+
+                                                </tbody>
+                                            </table>
                                         </div>
 
-                                    </section>
-                                </div>
-                            </form>
+                                    </div>
+
+                                </section>
+                            </div>
+
                         </div>
 
                         <div id="bahagian1" class="tabcontent">
@@ -437,7 +424,7 @@
                                         <div class="col-md-5 mr-auto">
                                             <div class="form-group">
                                                 <label>No. Pelesen</label>
-                                                <select class="form-control" name="e_np">
+                                                <select class="form-control select2" name="e_np" style="width: 10%">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($users2 as $data)
                                                         <option value="{{ $data->e_nl }}">
@@ -447,14 +434,29 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Kod Produk</label>
-                                                <select class="form-control" id="ebio_c3" name="ebio_c3" style="width: 100%" >
+                                                <label>Kumpulan Produk</label>
+                                                <select class="form-control" id="kumpproduk" name="kumpproduk"  onchange="ajax_produk(this);" >
                                                     <option selected hidden disabled>Sila Pilih</option>
-                                                    @foreach ($produk as $data)
-                                                        <option value="{{ $data->prodid }}">
-                                                            {{ $data->proddesc }} - {{ $data->prodid }}
+                                                    @foreach ($kumpproduk as $data)
+                                                    {{-- @if ($data->role == '' || $data->role == 'Supervisor' || $data->role == 'Admin') --}}
+                                                        <option value="0{{ $data->kumpulan }}">
+                                                            {{ $data->kumpulan }} - {{ $data->nama_kumpulan }}
                                                         </option>
                                                     @endforeach
+
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Kod Produk</label>
+                                                <select class="form-control select2" id="kod_produk" name="kod_produk" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')" style="width: 10%">
+                                                    <option selected hidden disabled value="">Sila Pilih Kumpulan Terlebih Dahulu
+                                                    </option>
+                                                    {{-- @foreach ($produk as $data)
+                                                        <option value="{{ $data->nama_produk }}">
+                                                            {{ $data->nama_produk }} - {{ $data->kod_produk }}  - {{ $data->namapanjang_produk }}
+                                                        </option>
+                                                    @endforeach --}}
 
                                                 </select>
                                             </div>
@@ -942,8 +944,8 @@
                                                 <select class="form-control" id="ebio_c3" name="ebio_c3" style="width: 100%" >
                                                     <option selected hidden disabled>Sila Pilih</option>
                                                     @foreach ($produk as $data)
-                                                        <option value="{{ $data->prodid }}">
-                                                            {{ $data->proddesc }} - {{ $data->prodid }}
+                                                        <option value="{{ $data->kod_produk }}">
+                                                            {{ $data->nama_produk }} - {{ $data->kod_produk }}
                                                         </option>
                                                     @endforeach
 
@@ -1013,7 +1015,6 @@
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
-
                                                     </tr>
 
                                                 </tbody>
@@ -1112,19 +1113,15 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Data</label>
-                                                <fieldset class="form-group">
-                                                    <select class="form-control" name="laporan">
-                                                        <option selected hidden disabled>Sila Pilih Jenis Data</option>
-                                                        <option value="ebio_b5">Stok Awal Di Premis</option>
-                                                        <option value="ebio_b6">Belian / Terimaan</option>
-                                                        <option value="ebio_b7">Pengeluaran</option>
-                                                        <option value="ebio_b8">Digunakan Untuk Proses Selanjutnya</option>
-                                                        <option value="ebio_b9">Jualan / Edaran Tempatan</option>
-                                                        <option value="ebio_b10">Eksport</option>
-                                                        <option value="ebio_b11">Stok Akhir Dilapor</option>
-                                                    </select>
-                                                </fieldset>
+                                                <label>Pembeli</label>
+                                                <select class="form-control" name="pembeli">
+                                                    <option selected hidden disabled value="">Sila Pilih</option>
+                                                    @foreach ($pembeli as $data)
+                                                        <option value="{{ $data->id }}">
+                                                            {{ $data->pembeli }}
+                                                        </option>
+                                                    @endforeach
+                                                </select>
                                             </div>
 
 
@@ -1148,30 +1145,16 @@
                                                 <thead>
                                                     <tr>
                                                         <th scope="col" style="vertical-align: middle">Bil.</th>
-                                                        <th scope="col" style="vertical-align: middle">Pelesen</th>
-                                                        <th scope="col" style="vertical-align: middle">Jan</th>
-                                                        <th scope="col" style="vertical-align: middle">Feb</th>
-                                                        <th scope="col" style="vertical-align: middle">Mac</th>
-                                                        <th scope="col" style="vertical-align: middle">Jun</th>
-                                                        <th scope="col" style="vertical-align: middle">Jul</th>
-                                                        <th scope="col" style="vertical-align: middle">Ogos</th>
-                                                        <th scope="col" style="vertical-align: middle">Sep</th>
-                                                        <th scope="col" style="vertical-align: middle">Okt</th>
-                                                        <th scope="col" style="vertical-align: middle">Nov</th>
-                                                        <th scope="col" style="vertical-align: middle">Dis</th>
-                                                        <th scope="col" style="vertical-align: middle">Jumlah</th>
+                                                        <th scope="col" style="vertical-align: middle">No. Pelesen</th>
+                                                        <th scope="col" style="vertical-align: middle">Nama</th>
+                                                        <th scope="col" style="vertical-align: middle">Negeri</th>
+                                                        <th scope="col" style="vertical-align: middle">Pembeli</th>
+                                                        <th scope="col" style="vertical-align: middle">Kuantiti</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
 
                                                     <tr>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
-                                                        <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
                                                         <td>-</td>
@@ -1226,369 +1209,75 @@
 
 
 
-    <script>
-        function ajax_daerah(select) {
-            negeri = select.value;
-            console.log(negeri);
-            //clear jenis_data selection
-            $("#daerah_id").empty();
-            //initialize selection
-            $("#daerah_id").append('<option value="" selected disabled hidden>Sila Pilih Daerah</option>');
+<script>
+    function ajax_daerah(select) {
+        negeri = select.value;
+        console.log(negeri);
+        //clear jenis_data selection
+        $("#daerah_id").empty();
+        //initialize selection
+        $("#daerah_id").append('<option value="" selected disabled hidden>Sila Pilih Daerah</option>');
 
-            $.ajax({
-                type: "get",
-                url: "/ajax/fetch-daerah/" + negeri, //penting
+        $.ajax({
+            type: "get",
+            url: "/ajax/fetch-daerah/" + negeri, //penting
 
-                success: function(respond) {
-                    //fetch data (id) from DB Senarai Harga
-                    // console.log(respond);
-                    //loop for data
-                    var x = 0;
-                    respond.forEach(function() { //penting
+            success: function(respond) {
+                //fetch data (id) from DB Senarai Harga
+                // console.log(respond);
+                //loop for data
+                var x = 0;
+                respond.forEach(function() { //penting
 
-                        // console.log(respond[x]);
-                        $("#daerah_id").append('<option value="' + respond[x].kod_daerah + '">' +
-                            respond[x]
-                            .nama_daerah + '</option>');
-                        x++;
-                    });
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log("Status: " + textStatus);
-                    console.log("Error: " + errorThrown);
-                }
-            });
-        }
-    </script>
-    <script>
-        function ajax_kawasan(select) {
-            negeri = select.value;
-            console.log(negeri);
-            //clear jenis_data selection
-            $("#kawasan_id").empty();
-            //initialize selection
-            $("#kawasan_id").append('<option value="" selected disabled hidden>Sila Pilih Kawasan</option>');
-
-            $.ajax({
-                type: "get",
-                url: "/ajax/fetch-kawasan/" + negeri, //penting
-
-                success: function(respond) {
-                    //fetch data (id) from DB Senarai Harga
-                    // console.log(respond);
-                    //loop for data
-                    var x = 0;
-                    respond.forEach(function() { //penting
-
-                        // console.log(respond[x]);
-                        $("#kawasan_id").append('<option value="' + respond[x].kod_region + '">' +
-                            respond[x]
-                            .nama_region + '</option>');
-                        x++;
-                    });
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log("Status: " + textStatus);
-                    console.log("Error: " + errorThrown);
-                }
-            });
-        }
-    </script>
-
-
-
-
-    <script>
-        function ajax_daerah_district(select) {
-            negeri = select.value;
-            console.log(negeri);
-            //clear jenis_data selection
-            $("#daerah_district").empty();
-            //initialize selection
-            $("#daerah_district").append('<option value="" selected disabled hidden>Sila Pilih Daerah</option>');
-
-            $.ajax({
-                type: "get",
-                url: "/ajax/fetch-daerah/" + negeri, //penting
-
-                success: function(respond) {
-                    //fetch data (id) from DB Senarai Harga
-                    // console.log(respond);
-                    //loop for data
-                    var x = 0;
-                    respond.forEach(function() { //penting
-
-                        // console.log(respond[x]);
-                        $("#daerah_district").append('<option value="' + respond[x].kod_daerah + '">' +
-                            respond[x]
-                            .nama_daerah + '</option>');
-                        x++;
-                    });
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log("Status: " + textStatus);
-                    console.log("Error: " + errorThrown);
-                }
-            });
-        }
-    </script>
-        <script>
-            function ajax_kawasan_district(select) {
-                negeri = select.value;
-                console.log(negeri);
-                //clear jenis_data selection
-                $("#kawasan_district").empty();
-                //initialize selection
-                $("#kawasan_district").append('<option value="" selected disabled hidden>Sila Pilih Kawasan</option>');
-
-                $.ajax({
-                    type: "get",
-                    url: "/ajax/fetch-kawasan/" + negeri, //penting
-
-                    success: function(respond) {
-                        //fetch data (id) from DB Senarai Harga
-                        // console.log(respond);
-                        //loop for data
-                        var x = 0;
-                        respond.forEach(function() { //penting
-
-                            // console.log(respond[x]);
-                            $("#kawasan_district").append('<option value="' + respond[x].kod_region + '">' +
-                                respond[x]
-                                .nama_region + '</option>');
-                            x++;
-                        });
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        console.log("Status: " + textStatus);
-                        console.log("Error: " + errorThrown);
-                    }
+                    // console.log(respond[x]);
+                    $("#daerah_id").append('<option value="' + respond[x].kod_daerah + '">' +
+                        respond[x]
+                        .nama_daerah + '</option>');
+                    x++;
                 });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("Status: " + textStatus);
+                console.log("Error: " + errorThrown);
             }
-        </script>
+        });
+    }
+</script>
 
+<script>
+    function ajax_produk(select) {
+        kumpulan = select.value;
+        console.log(kumpulan);
+        //clear jenis_data selection
+        $("#kod_produk").empty();
+        //initialize selection
+        $("#kod_produk").append('<option value="" selected disabled hidden>Sila Pilih Kumpulan Produk</option>');
 
+        $.ajax({
+            type: "get",
+            url: "/ajax/fetch-produk/" + kumpulan, //penting
 
+            success: function(respond) {
+                //fetch data (id) from DB Senarai Harga
+                // console.log(respond);
+                //loop for data
+                var x = 0;
+                respond.forEach(function() { //penting
 
-
-
-    <script>
-        function ajax_daerah_region(select) {
-            negeri = select.value;
-            console.log(negeri);
-            //clear jenis_data selection
-            $("#daerah_region").empty();
-            //initialize selection
-            $("#daerah_region").append('<option value="" selected disabled hidden>Sila Pilih Daerah</option>');
-
-            $.ajax({
-                type: "get",
-                url: "/ajax/fetch-daerah/" + negeri, //penting
-
-                success: function(respond) {
-                    //fetch data (id) from DB Senarai Harga
-                    // console.log(respond);
-                    //loop for data
-                    var x = 0;
-                    respond.forEach(function() { //penting
-
-                        // console.log(respond[x]);
-                        $("#daerah_region").append('<option value="' + respond[x].kod_daerah + '">' +
-                            respond[x]
-                            .nama_daerah + '</option>');
-                        x++;
-                    });
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log("Status: " + textStatus);
-                    console.log("Error: " + errorThrown);
-                }
-            });
-        }
-    </script>
-        <script>
-            function ajax_kawasan_region(select) {
-                negeri = select.value;
-                console.log(negeri);
-                //clear jenis_data selection
-                $("#kawasan_region").empty();
-                //initialize selection
-                $("#kawasan_region").append('<option value="" selected disabled hidden>Sila Pilih Kawasan</option>');
-
-                $.ajax({
-                    type: "get",
-                    url: "/ajax/fetch-kawasan/" + negeri, //penting
-
-                    success: function(respond) {
-                        //fetch data (id) from DB Senarai Harga
-                        // console.log(respond);
-                        //loop for data
-                        var x = 0;
-                        respond.forEach(function() { //penting
-
-                            // console.log(respond[x]);
-                            $("#kawasan_region").append('<option value="' + respond[x].kod_region + '">' +
-                                respond[x]
-                                .nama_region + '</option>');
-                            x++;
-                        });
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        console.log("Status: " + textStatus);
-                        console.log("Error: " + errorThrown);
-                    }
+                    console.log(respond[x]);
+                    $("#kod_produk").append('<option value="' + respond[x].prodname + '">' +
+                        respond[x]
+                        .proddesc + '</option>');
+                    x++;
                 });
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log("Status: " + textStatus);
+                console.log("Error: " + errorThrown);
             }
-        </script>
-
-
-
-
-
-
-    <script>
-        function ajax_daerah_prod(select) {
-            negeri = select.value;
-            console.log(negeri);
-            //clear jenis_data selection
-            $("#daerah_prod").empty();
-            //initialize selection
-            $("#daerah_prod").append('<option value="" selected disabled hidden>Sila Pilih Daerah</option>');
-
-            $.ajax({
-                type: "get",
-                url: "/ajax/fetch-daerah/" + negeri, //penting
-
-                success: function(respond) {
-                    //fetch data (id) from DB Senarai Harga
-                    // console.log(respond);
-                    //loop for data
-                    var x = 0;
-                    respond.forEach(function() { //penting
-
-                        // console.log(respond[x]);
-                        $("#daerah_prod").append('<option value="' + respond[x].kod_daerah + '">' +
-                            respond[x]
-                            .nama_daerah + '</option>');
-                        x++;
-                    });
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log("Status: " + textStatus);
-                    console.log("Error: " + errorThrown);
-                }
-            });
-        }
-    </script>
-    <script>
-        function ajax_kawasan_prod(select) {
-            negeri = select.value;
-            console.log(negeri);
-            //clear jenis_data selection
-            $("#kawasan_prod").empty();
-            //initialize selection
-            $("#kawasan_prod").append('<option value="" selected disabled hidden>Sila Pilih Kawasan</option>');
-
-            $.ajax({
-                type: "get",
-                url: "/ajax/fetch-kawasan/" + negeri, //penting
-
-                success: function(respond) {
-                    //fetch data (id) from DB Senarai Harga
-                    // console.log(respond);
-                    //loop for data
-                    var x = 0;
-                    respond.forEach(function() { //penting
-
-                        // console.log(respond[x]);
-                        $("#kawasan_prod").append('<option value="' + respond[x].kod_region + '">' +
-                            respond[x]
-                            .nama_region + '</option>');
-                        x++;
-                    });
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log("Status: " + textStatus);
-                    console.log("Error: " + errorThrown);
-                }
-            });
-        }
-    </script>
-
-
-
-
-
-
-    <script>
-        function ajax_daerah_prodgroup(select) {
-            negeri = select.value;
-            console.log(negeri);
-            //clear jenis_data selection
-            $("#daerah_prodgroup").empty();
-            //initialize selection
-            $("#daerah_prodgroup").append('<option value="" selected disabled hidden>Sila Pilih Daerah</option>');
-
-            $.ajax({
-                type: "get",
-                url: "/ajax/fetch-daerah/" + negeri, //penting
-
-                success: function(respond) {
-                    //fetch data (id) from DB Senarai Harga
-                    // console.log(respond);
-                    //loop for data
-                    var x = 0;
-                    respond.forEach(function() { //penting
-
-                        // console.log(respond[x]);
-                        $("#daerah_prodgroup").append('<option value="' + respond[x].kod_daerah + '">' +
-                            respond[x]
-                            .nama_daerah + '</option>');
-                        x++;
-                    });
-                },
-                error: function(XMLHttpRequest, textStatus, errorThrown) {
-                    console.log("Status: " + textStatus);
-                    console.log("Error: " + errorThrown);
-                }
-            });
-        }
-    </script>
-        <script>
-            function ajax_kawasan_prodgroup(select) {
-                negeri = select.value;
-                console.log(negeri);
-                //clear jenis_data selection
-                $("#kawasan_prodgroup").empty();
-                //initialize selection
-                $("#kawasan_prodgroup").append('<option value="" selected disabled hidden>Sila Pilih Kawasan</option>');
-
-                $.ajax({
-                    type: "get",
-                    url: "/ajax/fetch-kawasan/" + negeri, //penting
-
-                    success: function(respond) {
-                        //fetch data (id) from DB Senarai Harga
-                        // console.log(respond);
-                        //loop for data
-                        var x = 0;
-                        respond.forEach(function() { //penting
-
-                            // console.log(respond[x]);
-                            $("#kawasan_prodgroup").append('<option value="' + respond[x].kod_region + '">' +
-                                respond[x]
-                                .nama_region + '</option>');
-                            x++;
-                        });
-                    },
-                    error: function(XMLHttpRequest, textStatus, errorThrown) {
-                        console.log("Status: " + textStatus);
-                        console.log("Error: " + errorThrown);
-                    }
-                });
-            }
-        </script>
-
+        });
+    }
+</script>
 
 
     <script type="text/javascript">
@@ -1651,4 +1340,14 @@
         }
 
     </script>
+    <link href="{{ asset('nice-admin/assets/css/cdn.css') }}  " rel="stylesheet">
+
+    {{-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> --}}
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+                $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
+
 @endsection

@@ -47,6 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/ajax/fetch-kawasan/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_kawasan'])->name('ajax-kawasan');
     Route::get('/ajax/fetch-pelesen/{id}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_pelesen'])->name('ajax-pelesen');
     Route::get('/ajax/fetch-email/{username}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_email'])->name('ajax-email');
+    Route::get('/ajax/fetch-produk/{kumpulan}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_produk'])->name('ajax-produk');
 
     Route::group(['middleware' => ['admin']], function () {
         //Admin
