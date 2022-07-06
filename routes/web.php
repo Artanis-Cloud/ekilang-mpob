@@ -254,7 +254,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('admin/stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_stok_akhir'])->name('admin.stok.akhir');
         Route::get('admin/tambah-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir'])->name('admin.tambah.stok.akhir');
-        Route::get('admin/tambah-stok-akhir-proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir_proses'])->name('admin.tambah.stok.akhir.proses');
+        Route::post('admin/tambah-stok-akhir-proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir_proses'])->name('admin.tambah.stok.akhir.proses');
         Route::get('admin/validasi-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir'])->name('admin.validasi.stok.akhir');
         Route::get('admin/validasi-stok-akhir/proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir_proses'])->name('admin.validasi.stok.akhir.proses');
         Route::get('admin/validasi-stok-akhir-ikut-produk', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir_ikut_produk'])->name('admin.validasi.stok.akhir.ikut.produk');
@@ -309,6 +309,7 @@ Route::middleware('auth')->group(function () {
 
         Route::get('buah/maklumat-asas-pelesen', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_maklumatasaspelesen'])->name('buah.maklumatasaspelesen');
         Route::post('buah/updatmaklumat-asas-pelesen/', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_maklumat_asas_pelesen'])->name('buah.update.maklumat.asas.pelesen');
+        Route::post('buah/updatmaklumat-asas-pelesen/', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_maklumat_asas_pelesencuba'])->name('buah.update.maklumat.asas.pelesen.cuba');
         Route::post('buah/updatmaklumat-asas-pelesen-2/{Id}', [App\Http\Controllers\Users\KilangBuah\KilangBuahController::class, 'buah_update_maklumat_asas_pelesen2'])->name('buah.update.maklumat.asas.pelesen2');
 
 
