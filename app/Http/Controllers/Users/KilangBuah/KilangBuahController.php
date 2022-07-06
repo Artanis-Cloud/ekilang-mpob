@@ -50,23 +50,23 @@ class KilangBuahController extends Controller
     }
 
 
-    // public function buah_update_maklumat_asas_pelesencuba(Request $request)
-    // {
-    //     //  dd($request->all());
-    //     $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
-    //     // dd( $pelesen);
+    public function buah_update_maklumat_asas_pelesencuba(Request $request)
+    {
+        //  dd($request->all());
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // dd( $pelesen);
 
-    //     $this->validation_daftar_pelesen($request->all())->validate();
+        $this->validation_daftar_pelesen($request->all())->validate();
 
-    //     if ($pelesen) {
-    //         $this->buah_update_maklumat_asas_pelesen($request);
-    //     // }else{
-    //     //     dd($request->all());
-    //         $this->store_pelesen($request->all());
-    //     }
+        if ($pelesen) {
+            $this->buah_update_maklumat_asas_pelesen($request);
+        }else{
+        //     dd($request->all());
+            $this->store_pelesen($request->all());
+        }
 
-    //     return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
-    // }
+        return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
+    }
 
     protected function validation_daftar_pelesen(array $data)
     {

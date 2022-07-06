@@ -1691,7 +1691,7 @@ class LaporanController extends Controller
         }
 
 
-        // dd($srwkppo3);
+        // dd($cpo_sm);
 
 
 
@@ -1781,15 +1781,9 @@ class LaporanController extends Controller
             'ppo_srwk' => $ppo_srwk,
             'cpko_srwk' => $cpko_srwk,
             'ppko_srwk' => $ppko_srwk,
-
-            'breadcrumbs' => $breadcrumbs,
-            'kembali' => $kembali,
-
-            'returnArr' => $returnArr,
-            'layout' => $layout,
-
         ];
-        return view('admin.laporan_dq.tambah-stok-akhir', $array);
+        // return view('admin.laporan_dq.tambah-stok-akhir', $array);
+        return response()->json(['success'=> $array]);
     }
 
     // public function admin_validasi_stok_akhir(Request $request)
