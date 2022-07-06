@@ -67,6 +67,25 @@ class KilangPenapisController extends Controller
         return view('users.KilangPenapis.penapis-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
     }
 
+
+
+    // public function penapis_update_maklumat_asas_pelesencuba(Request $request)
+    // {
+    //     //  dd($request->all());
+    //     // $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+    //     // dd( $pelesen);
+
+    //     $this->validation_daftar_pelesen($request->all())->validate();
+
+    //     // if ($pelesen) {
+    //     $this->penapis_update_maklumat_asas_pelesen($request);
+    //     // }else{
+    //     //     dd($request->all());
+    //         // $this->store_pelesen($request->all());
+    //     // }
+
+    //     return redirect()->back()->with('success', 'Maklumat Pelesen sudah ditambah');
+    // }
     protected function validation_daftar_pelesen(array $data)
     {
         return Validator::make($data, [
@@ -102,6 +121,9 @@ class KilangPenapisController extends Controller
 
     public function penapis_update_maklumat_asas_pelesen(Request $request, $id)
     {
+
+        $this->validation_daftar_pelesen($request->all())->validate();
+
         // dd($request->all());
         $penyata = Pelesen::findOrFail($id);
         $penyata->e_ap1 = $request->e_ap1;

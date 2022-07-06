@@ -45,7 +45,7 @@
                     </div>
                     <hr>
                     <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> * </b><i>'</i>
-                    <form action="{{ route('oleo.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
+                    <form action="{{ route('oleo.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post" onsubmit="return check()" novalidate>
                         @csrf
                         <div class="container center mt-5">
                             <div class="row justify-content-center" style="margin:20px 0px">
@@ -55,7 +55,7 @@
                                         Alamat Premis Berlesen</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_ap1" class="form-control" maxlength="60"
+                                    <input type="text" id="e_ap1" class="form-control" maxlength="60" required
                                         placeholder="Alamat Surat Menyurat 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}">
                                     @error('e_ap1')
                                         <div class="alert alert-danger">
@@ -88,7 +88,7 @@
                                     Alamat Surat Menyurat</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_as1" class="form-control" maxlength="60"
+                                    <input type="text" id="e_as1" class="form-control" maxlength="60" required
                                         placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}">
                                     @error('e_as1')
                                         <div class="alert alert-danger">
@@ -155,7 +155,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="60"
-                                        name="e_email" value="{{ $pelesen->e_email }}">
+                                        name="e_email" value="{{ $pelesen->e_email }}" required>
                                     @error('e_email')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -171,7 +171,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_npg" class="form-control" maxlength="60" placeholder="Nama Pegawai Melapor"
-                                        name="e_npg" value="{{ $pelesen->e_npg }}">
+                                        name="e_npg" value="{{ $pelesen->e_npg }}" required>
                                     @error('e_npg')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -203,7 +203,7 @@
                                     No. Telefon Pegawai Melapor</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control" maxlength="40"
+                                    <input type="text" id="e_notel_pg" class="form-control" maxlength="40"
                                         placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->e_notel_pg }}"
                                         required multiple>
@@ -435,7 +435,7 @@
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td><input type="text" class="form-control" name='kap_tangki_cpo'
+                                            <td><input type="text" class="form-control" name='kap_tangki_cpo' required
                                                     onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_cpo"
                                                     onchange="validation_jumlah2()" title="Sila isikan butiran ini."
                                                     value="{{ $pelesen->kap_tangki_cpo  }}">
@@ -445,7 +445,7 @@
                                                     </div>
                                                 @enderror
                                             </td>
-                                            <td>  <input type="text" class="form-control" name='kap_tangki_ppo'
+                                            <td>  <input type="text" class="form-control" name='kap_tangki_ppo' required
                                                 onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_ppo"
                                                     onchange="validation_jumlah2()" title="Sila isikan butiran ini."
                                                     value="{{ $pelesen->kap_tangki_ppo  }}">
@@ -455,7 +455,7 @@
                                                     </div>
                                                 @enderror
                                             </td>
-                                            <td>  <input type="text" class="form-control" name='kap_tangki_cpko'
+                                            <td>  <input type="text" class="form-control" name='kap_tangki_cpko' required
                                                     onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_cpko"
                                                     onchange="validation_jumlah2()" title="Sila isikan butiran ini."
                                                     value="{{ $pelesen->kap_tangki_cpko }}">
@@ -465,7 +465,7 @@
                                                     </div>
                                                 @enderror
                                             </td>
-                                            <td>  <input type="text" class="form-control" name='kap_tangki_ppko'
+                                            <td>  <input type="text" class="form-control" name='kap_tangki_ppko' required
                                                     onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_ppko"
                                                     onchange="validation_jumlah2()" title="Sila isikan butiran ini."
                                                     value="{{ $pelesen->kap_tangki_ppko  }}">
@@ -475,7 +475,7 @@
                                                     </div>
                                                 @enderror
                                             </td>
-                                            <td>  <input type="text" class="form-control" name='kap_tangki_oleo'
+                                            <td>  <input type="text" class="form-control" name='kap_tangki_oleo' required
                                                     onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_oleo"
                                                     onchange="validation_jumlah2()" title="Sila isikan butiran ini."
                                                     value="{{ $pelesen->kap_tangki_oleo }}">
@@ -485,7 +485,7 @@
                                                     </div>
                                                 @enderror
                                             </td>
-                                            <td><input type="text" class="form-control" name='kap_tangki_others'
+                                            <td><input type="text" class="form-control" name='kap_tangki_others' required
                                                 onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_others"
                                                 onchange="validation_jumlah2()" title="Sila isikan butiran ini."
                                                 value="{{ $pelesen->kap_tangki_others  }}">
@@ -622,4 +622,179 @@
             </body>
 
             </html>
+        @endsection
+        @section('scripts')
+        <script>
+            function check() {
+                // (B1) INIT
+                var error = "",
+                    field = "";
+
+                // alamat premis 1
+                field = document.getElementById("e_ap1");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // alamat surat-menyurat 1
+                field = document.getElementById("e_as1");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // no tel kilang
+                field = document.getElementById("e_notel");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // email kilang
+                field = document.getElementById("e_email");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // nama pegawai melapor
+                field = document.getElementById("e_npg");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // jawatan pegawai melapor
+                field = document.getElementById("e_jpg");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // no tel pegawai melapor
+                field = document.getElementById("e_notel_pg");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // email pegawai melapor
+                field = document.getElementById("e_email_pg");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // nama pegawai bertanggungjawab
+                field = document.getElementById("e_npgtg");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // emel pengurus
+                field = document.getElementById("e_email_pengurus");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // syarikat induk
+                field = document.getElementById("e_syktinduk");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+
+                // kumpulan
+                field = document.getElementById("e_group");
+                if (!field.checkValidity()) {
+                    error += "Name must be 2-4 characters\r\n";
+                }
+                  // kap_proses
+                  field = document.getElementById("kap_proses");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki cpo
+                    field = document.getElementById("bil_tangki_cpo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil_tangki_ppo
+                    field = document.getElementById("bil_tangki_ppo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil_tangki_cpko
+                    field = document.getElementById("bil_tangki_cpko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki ppko
+                    field = document.getElementById("bil_tangki_ppko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki others
+                    field = document.getElementById("bil_tangki_others");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki cpo
+                    field = document.getElementById("kap_tangki_cpo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_tangki_ppo
+                    field = document.getElementById("kap_tangki_ppo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_tangki_cpko
+                    field = document.getElementById("kap_tangki_cpko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki ppko
+                    field = document.getElementById("kap_tangki_ppko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki others
+                    field = document.getElementById("kap_tangki_others");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki oleo
+                    field = document.getElementById("bil_tangki_oleo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki oleo
+                    field = document.getElementById("kap_tangki_oleo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                // POMA
+                // field = document.getElementById("e_poma");
+                // if (!field.checkValidity()) {
+                //     error += "Name must be 2-4 characters\r\n";
+                // }
+
+                // (B4) RESULT
+                if (error == "") {
+                    return true;
+                } else {
+                    toastr.error(
+                        'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                        'Ralat!', {
+                            "progressBar": true
+                        })
+                    return false;
+                }
+
+                // if (error == "") {
+                //     return true;
+                // } else {
+                //     toastr.error(
+                //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                //         'Ralat!', {
+                //             "progressBar": true
+                //         })
+                //     return false;
+                // }
+            }
+        </script>
         @endsection

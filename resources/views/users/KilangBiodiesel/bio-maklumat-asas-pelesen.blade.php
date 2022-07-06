@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="page-wrapper">
-
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
@@ -43,22 +42,22 @@
                     </h5>
                 </div>
                 <hr>
-                <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> * </b><i>'</i>
-                <form action="{{ route('bio.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
+                <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> *
+                </b><i>'</i>
+                <form action="{{ route('bio.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post" onsubmit="return check()" novalidate>
                     @csrf
 
                     <div class="container center mt-5">
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required ">
+                                <label for="fname" class="control-label col-form-label required ">
                                     No. Lesen KPPK</label>
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_nlkppk" class="form-control" maxlength="60"
-                                    placeholder="No. Lesen KPPK" onkeypress="return isNumberKey(event)"
-                                    name="e_nlkppk" value="{{ $pelesen->e_nlkppk }}" required>
+                                    placeholder="No. Lesen KPPK" onkeypress="return isNumberKey(event)" name="e_nlkppk"
+                                    value="{{ $pelesen->e_nlkppk }}" required>
                                 @error('e_nlkppk')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -69,12 +68,11 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label required col-form-label">
+                                <label for="fname" class="control-label required col-form-label">
                                     Alamat Premis Berlesen</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_ap1" class="form-control"  maxlength="60"
+                                <input type="text" id="e_ap1" class="form-control" maxlength="60" required
                                     placeholder="Alamat Surat Menyurat 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}">
                                 @error('e_ap1')
                                     <div class="alert alert-danger">
@@ -82,7 +80,7 @@
                                     </div>
                                 @enderror
 
-                                <input type="text" id="e_ap2" class="form-control"  maxlength="60"
+                                <input type="text" id="e_ap2" class="form-control" maxlength="60"
                                     placeholder="Alamat Surat Menyurat 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}">
                                 @error('e_ap2')
                                     <div class="alert alert-danger">
@@ -90,7 +88,7 @@
                                     </div>
                                 @enderror
 
-                                <input type="text" id="e_ap3" class="form-control"  maxlength="60"
+                                <input type="text" id="e_ap3" class="form-control" maxlength="60"
                                     placeholder="Alamat Surat Menyurat 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}">
                                 @error('e_ap3')
                                     <div class="alert alert-danger">
@@ -102,12 +100,11 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     Alamat Surat Menyurat</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_as1" class="form-control"  maxlength="60"
+                                <input type="text" id="e_as1" class="form-control" maxlength="60" required
                                     placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}">
                                 @error('e_as1')
                                     <div class="alert alert-danger">
@@ -124,7 +121,8 @@
                                 @enderror
 
                                 <input type="text" id="e_as3" class="form-control" maxlength="60"
-                                    placeholder="Alamat Surat Menyurat 3" name="e_as3" value="{{ $pelesen->e_as3 }}">
+                                    placeholder="Alamat Surat Menyurat 3" name="e_as3"
+                                    value="{{ $pelesen->e_as3 }}">
                                 @error('e_as3')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -135,12 +133,11 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required ">
+                                <label for="fname" class="control-label col-form-label required ">
                                     No. Telefon (Pejabat / Kilang)</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_notel" class="form-control"  maxlength="60"
+                                <input type="text" id="e_notel" class="form-control" maxlength="60"
                                     placeholder="No. Telefon Pejabat / Kilang" onkeypress="return isNumberKey(event)"
                                     name="e_notel" value="{{ $pelesen->e_notel }}" required>
                                 @error('e_notel')
@@ -153,13 +150,12 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label  ">
+                                <label for="fname" class="control-label col-form-label  ">
                                     No. Faks</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"  maxlength="60"
-                                    name="e_nofax" value="{{ $pelesen->e_nofax }}" >
+                                <input type="text" id="e_nofax" class="form-control" placeholder="No. Faks"
+                                    maxlength="60" name="e_nofax" value="{{ $pelesen->e_nofax }}">
                                 @error('e_nofax')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -170,13 +166,12 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required ">
+                                <label for="fname" class="control-label col-form-label required ">
                                     Alamat Emel Kilang</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="60"
-                                    name="e_email" value="{{ $pelesen->e_email }}">
+                                <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
+                                    maxlength="60" name="e_email" value="{{ $pelesen->e_email }}" required>
                                 @error('e_email')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -187,13 +182,13 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required ">
+                                <label for="fname" class="control-label col-form-label required ">
                                     Nama Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_npg" class="form-control" placeholder="Nama Pegawai Melapor" maxlength="60"
-                                    name="e_npg" value="{{ $pelesen->e_npg }}">
+                                <input type="text" id="e_npg" class="form-control"
+                                    placeholder="Nama Pegawai Melapor" maxlength="60" name="e_npg"
+                                    value="{{ $pelesen->e_npg }}" required>
                                 @error('e_npg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -209,8 +204,8 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_jpg" class="form-control"
-                                    placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}" maxlength="60"
-                                    required>
+                                    placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}"
+                                    maxlength="60" required>
                                 @error('e_jpg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -221,15 +216,13 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     No. Telefon Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="no-tel-pegawai-melapor" class="form-control" maxlength="60"
+                                <input type="text" id="e_notel_pg" class="form-control" maxlength="60"
                                     placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
-                                    onkeypress="return isNumberKey(event)" value="{{ $pelesen->e_notel_pg }}"
-                                    required>
+                                    onkeypress="return isNumberKey(event)" value="{{ $pelesen->e_notel_pg }}" required>
                                 @error('e_notel_pg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -238,10 +231,9 @@
                             </div>
                         </div>
 
-                            <div class="row justify-content-center" style="margin:20px 0px">
+                        <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     Alamat Emel Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
@@ -259,8 +251,7 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     Nama Pegawai Bertanggungjawab</label>
                             </div>
                             <div class="col-md-7">
@@ -275,10 +266,9 @@
                             </div>
                         </div>
 
-                            <div class="row justify-content-center" style="margin:20px 0px">
+                        <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     Jawatan Pegawai
                                     Bertanggungjawab</label>
                             </div>
@@ -297,8 +287,7 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     Alamat Emel Pengurus</label>
                             </div>
                             <div class="col-md-7">
@@ -315,13 +304,12 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     Syarikat Induk</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_syktinduk" class="form-control" placeholder="Syarikat Induk" maxlength="60"
-                                    name="e_syktinduk" value="{{ $pelesen->e_syktinduk }}" required>
+                                <input type="text" id="e_syktinduk" class="form-control" placeholder="Syarikat Induk"
+                                    maxlength="60" name="e_syktinduk" value="{{ $pelesen->e_syktinduk }}" required>
 
                                 @error('e_syktinduk')
                                     <div class="alert alert-danger">
@@ -333,8 +321,7 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     Kumpulan </label>
                             </div>
                             <div class="col-md-7">
@@ -356,14 +343,14 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     Kapasiti Pemprosesan / Tahun</label>
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="kap_proses" class="form-control"
-                                    onkeypress="return isNumberKey(event)" placeholder="Kapasiti Pemprosesan / Tahun" oninput="validate_two_decimal(this)"
-                                    name="kap_proses" value="{{ $pelesen->kap_proses }}" required>
+                                    onkeypress="return isNumberKey(event)" placeholder="Kapasiti Pemprosesan / Tahun"
+                                    oninput="validate_two_decimal(this)" name="kap_proses"
+                                    value="{{ $pelesen->kap_proses }}" required>
                                 @error('kap_proses')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -376,11 +363,9 @@
 
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
-                                <span><br></span><label for="fname"
-                                    class="control-label col-form-label required">
+                                <span><br></span><label for="fname" class="control-label col-form-label required">
                                     Bilangan Tangki</label><br>
-                                    <label for="fname"
-                                    class="control-label col-form-label required">
+                                <label for="fname" class="control-label col-form-label required">
                                     Kapasiti tangki Simpanan (Tan)</label>
                             </div>
 
@@ -397,135 +382,151 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="text" class="form-control" name='bil_tangki_cpo' style="width:100%"
-                                            size="15" id="bil_tangki_cpo" required title="Sila isikan butiran ini."
-                                            onkeypress="return isNumberKey(event)"
-                                            value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()">
+                                            <input type="text" class="form-control" name='bil_tangki_cpo'
+                                                style="width:100%" size="15" id="bil_tangki_cpo" required
+                                                title="Sila isikan butiran ini." onkeypress="return isNumberKey(event)"
+                                                value="{{ $pelesen->bil_tangki_cpo }}" onchange="validation_jumlah()">
                                             @error('bil_tangki_cpo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
                                             @enderror
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name='bil_tangki_ppo' size="15"
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppo"
-                                            required title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->bil_tangki_ppo }}" onchange="validation_jumlah()">
+                                            <input type="text" class="form-control" name='bil_tangki_ppo'
+                                                size="15" onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="bil_tangki_ppo" required title="Sila isikan butiran ini."
+                                                value="{{ $pelesen->bil_tangki_ppo }}" onchange="validation_jumlah()">
                                             @error('bil_tangki_ppo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
                                             @enderror
                                         </td>
                                         <td>
-                                            <input type="text" class="form-control" name='bil_tangki_cpko' size="15"
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_cpko"
-                                            required title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->bil_tangki_cpko }}" onchange="validation_jumlah()">
+                                            <input type="text" class="form-control" name='bil_tangki_cpko'
+                                                size="15" onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="bil_tangki_cpko" required title="Sila isikan butiran ini."
+                                                value="{{ $pelesen->bil_tangki_cpko }}" onchange="validation_jumlah()">
                                             @error('bil_tangki_cpko')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
                                             @enderror
                                         </td>
-                                        <td><input type="text" class="form-control" name='bil_tangki_ppko' size="15"
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_ppko"
-                                            required title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->bil_tangki_ppko }}" onchange="validation_jumlah()">
-                                        @error('bil_tangki_ppko')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror</td>
-                                        <td><input type="text" class="form-control" name='bil_tangki_oleo' size="15"
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_oleo"
-                                            required title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->bil_tangki_oleo }}" onchange="validation_jumlah()">
-                                        @error('bil_tangki_oleo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror</td>
-                                        <td><input type="text" class="form-control" name='bil_tangki_others' size="15"
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="bil_tangki_others"
-                                            required title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->bil_tangki_others }}" onchange="validation_jumlah()">
-                                        @error('bil_tangki_others')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror</td>
+                                        <td><input type="text" class="form-control" name='bil_tangki_ppko'
+                                                size="15" onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="bil_tangki_ppko" required title="Sila isikan butiran ini."
+                                                value="{{ $pelesen->bil_tangki_ppko }}" onchange="validation_jumlah()">
+                                            @error('bil_tangki_ppko')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
+                                        </td>
+                                        <td><input type="text" class="form-control" name='bil_tangki_oleo'
+                                                size="15" onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="bil_tangki_oleo" required title="Sila isikan butiran ini."
+                                                value="{{ $pelesen->bil_tangki_oleo }}" onchange="validation_jumlah()">
+                                            @error('bil_tangki_oleo')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
+                                        </td>
+                                        <td><input type="text" class="form-control" name='bil_tangki_others'
+                                                size="15" onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="bil_tangki_others" required title="Sila isikan butiran ini."
+                                                value="{{ $pelesen->bil_tangki_others }}"
+                                                onchange="validation_jumlah()">
+                                            @error('bil_tangki_others')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
+                                        </td>
                                         <td style="font-size: 12px"> <b><span id="bil_tangki_jumlah">
-                                            {{ old('bil_tangki_jumlah') ?? number_format($jumlah, 2) }}
-                                        </span>
-                                    </b></td>
+                                                    {{ old('bil_tangki_jumlah') ?? number_format($jumlah, 2) }}
+                                                </span>
+                                            </b></td>
                                     </tr>
                                     <tr>
 
                                         <td><input type="text" class="form-control" name='kap_tangki_cpo'
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_cpo"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->kap_tangki_cpo  }}">
-                                        @error('kap_tangki_cpo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror</td>
+                                                onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="kap_tangki_cpo" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_cpo }}">
+                                            @error('kap_tangki_cpo')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
+                                        </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_ppo'
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_ppo"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->kap_tangki_ppo  }}">
-                                        @error('kap_tangki_ppo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror</td>
+                                                onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="kap_tangki_ppo" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_ppo }}">
+                                            @error('kap_tangki_ppo')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
+                                        </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_cpko'
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_cpko"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->kap_tangki_cpko  }}">
-                                        @error('kap_tangki_cpko')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror</td>
+                                                onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="kap_tangki_cpko" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_cpko }}">
+                                            @error('kap_tangki_cpko')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
+                                        </td>
                                         <td><input type="text" class="form-control" name='kap_tangki_ppko'
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_ppko"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->kap_tangki_ppko  }}">
-                                        @error('kap_tangki_ppko')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror</td>
+                                                onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="kap_tangki_ppko" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_ppko }}">
+                                            @error('kap_tangki_ppko')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
+                                        </td>
                                         <td> <input type="text" class="form-control" name='kap_tangki_oleo'
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_oleo"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->kap_tangki_oleo  }}">
-                                        @error('kap_tangki_oleo')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror</td>
+                                                onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="kap_tangki_oleo" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_oleo }}">
+                                            @error('kap_tangki_oleo')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
+                                        </td>
                                         <td><input type="text" class="form-control" name='kap_tangki_others'
-                                            onkeypress="return isNumberKey(event)" style="width:100%" id="kap_tangki_others"
-                                            onchange="validation_jumlah2()" title="Sila isikan butiran ini."
-                                            value="{{ $pelesen->kap_tangki_others  }}">
-                                        @error('kap_tangki_others')
-                                            <div class="alert alert-danger">
-                                                <strong>Sila isi butiran ini</strong>
-                                            </div>
-                                        @enderror</td>
+                                                onkeypress="return isNumberKey(event)" style="width:100%"
+                                                id="kap_tangki_others" onchange="validation_jumlah2()"
+                                                title="Sila isikan butiran ini." required
+                                                value="{{ $pelesen->kap_tangki_others }}">
+                                            @error('kap_tangki_others')
+                                                <div class="alert alert-danger">
+                                                    <strong>Sila isi butiran ini</strong>
+                                                </div>
+                                            @enderror
+                                        </td>
                                         <td style="font-size: 12px"> <b><span id="kap_tangki_jumlah">
-                                            {{ old('kap_tangki_jumlah') ?? number_format($jumlah2, 2) }}
-                                        </span>
-                                    </b></td>
+                                                    {{ old('kap_tangki_jumlah') ?? number_format($jumlah2, 2) }}
+                                                </span>
+                                            </b></td>
                                     </tr>
                                 </table>
                             </div>
                         </div><br><br>
-                        <div class="row justify-content-center" >
+                        <div class="row justify-content-center">
                             <i>Nota: Sekiranya kilang/pelesen tiada tangki simpanan
                                 khusus untuk sesuatu produk. Sila campurkan kesemua
                                 bilangan dan kapasiti tangki dan lapor dalam kategori Others
@@ -534,7 +535,7 @@
                     </div>
 
                     <div class="row justify-content-center form-group" style="margin-top: 2%">
-                        <div class="col-ms-2" >
+                        <div class="col-ms-2">
                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                 data-target="#next">Simpan</button>
                         </div>
@@ -550,8 +551,7 @@
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalCenterTitle">
                                         PENGESAHAN</h5>
-                                    <button type="button" class="close" data-dismiss="modal"
-                                        aria-label="Close">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <i data-feather="x"></i>
                                     </button>
                                 </div>
@@ -580,55 +580,228 @@
 
 
 
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+            {{-- <div id="preloader"></div> --}}
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                    class="bi bi-arrow-up-short"></i></a>
+        @endsection
+        @section('scripts')
 
 
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script>
+                function validation_jumlah() {
+                    var bil_tangki_cpo = $("#bil_tangki_cpo").val();
+                    var bil_tangki_ppo = $("#bil_tangki_ppo").val();
+                    var bil_tangki_cpko = $("#bil_tangki_cpko").val();
+                    var bil_tangki_ppko = $("#bil_tangki_ppko").val();
+                    var bil_tangki_oleo = $("#bil_tangki_oleo").val();
+                    var bil_tangki_others = $("#bil_tangki_others").val();
 
+                    var jumlah = $("#jumlah").val();
+                    var jumlah_input = 0;
 
-    <script>
-        function validation_jumlah() {
-            var bil_tangki_cpo = $("#bil_tangki_cpo").val();
-            var bil_tangki_ppo = $("#bil_tangki_ppo").val();
-            var bil_tangki_cpko = $("#bil_tangki_cpko").val();
-            var bil_tangki_ppko = $("#bil_tangki_ppko").val();
-            var bil_tangki_oleo = $("#bil_tangki_oleo").val();
-            var bil_tangki_others = $("#bil_tangki_others").val();
+                    jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
+                        parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
+                            bil_tangki_oleo)) + parseFloat(Number(bil_tangki_others));
 
-            var jumlah = $("#jumlah").val();
-            var jumlah_input = 0;
+                    document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+                }
+            </script>
+            <script>
+                function validation_jumlah2() {
+                    var kap_tangki_cpo = $("#kap_tangki_cpo").val();
+                    var kap_tangki_ppo = $("#kap_tangki_ppo").val();
+                    var kap_tangki_cpko = $("#kap_tangki_cpko").val();
+                    var kap_tangki_ppko = $("#kap_tangki_ppko").val();
+                    var kap_tangki_oleo = $("#kap_tangki_oleo").val();
+                    var kap_tangki_others = $("#kap_tangki_others").val();
 
-            jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
-                parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
-                    bil_tangki_oleo)) + parseFloat(Number(bil_tangki_others));
+                    var jumlah = $("#jumlah2").val();
+                    var jumlah_input = 0;
 
-            document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
-        }
-    </script>
-    <script>
-        function validation_jumlah2() {
-            var kap_tangki_cpo = $("#kap_tangki_cpo").val();
-            var kap_tangki_ppo = $("#kap_tangki_ppo").val();
-            var kap_tangki_cpko = $("#kap_tangki_cpko").val();
-            var kap_tangki_ppko = $("#kap_tangki_ppko").val();
-            var kap_tangki_oleo = $("#kap_tangki_oleo").val();
-            var kap_tangki_others = $("#kap_tangki_others").val();
+                    jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
+                        parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
+                            kap_tangki_oleo)) + parseFloat(Number(kap_tangki_others));
 
-            var jumlah = $("#jumlah2").val();
-            var jumlah_input = 0;
+                    document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+                }
+            </script>
+            <script>
+                function check() {
+                    // (B1) INIT
+                    var error = "",
+                        field = "";
 
-            jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
-                parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
-                    kap_tangki_oleo)) + parseFloat(Number(kap_tangki_others));
+                    // nlkppk
+                    field = document.getElementById("e_nlkppk");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
 
-            document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
-        }
-    </script>
+                    // alamat premis 1
+                    field = document.getElementById("e_ap1");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
 
+                    // alamat surat-menyurat 1
+                    field = document.getElementById("e_as1");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
 
+                    // no tel kilang
+                    field = document.getElementById("e_notel");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
 
-@endsection
+                    // email kilang
+                    field = document.getElementById("e_email");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
 
+                    // nama pegawai melapor
+                    field = document.getElementById("e_npg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // jawatan pegawai melapor
+                    field = document.getElementById("e_jpg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // no tel pegawai melapor
+                    field = document.getElementById("e_notel_pg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // email pegawai melapor
+                    field = document.getElementById("e_email_pg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // nama pegawai bertanggungjawab
+                    field = document.getElementById("e_npgtg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // emel pengurus
+                    field = document.getElementById("e_email_pengurus");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // syarikat induk
+                    field = document.getElementById("e_syktinduk");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // kumpulan
+                    field = document.getElementById("e_group");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_proses
+                    field = document.getElementById("kap_proses");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki cpo
+                    field = document.getElementById("bil_tangki_cpo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil_tangki_ppo
+                    field = document.getElementById("bil_tangki_ppo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil_tangki_cpko
+                    field = document.getElementById("bil_tangki_cpko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki ppko
+                    field = document.getElementById("bil_tangki_ppko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki others
+                    field = document.getElementById("bil_tangki_others");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki cpo
+                    field = document.getElementById("kap_tangki_cpo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_tangki_ppo
+                    field = document.getElementById("kap_tangki_ppo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_tangki_cpko
+                    field = document.getElementById("kap_tangki_cpko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki ppko
+                    field = document.getElementById("kap_tangki_ppko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki others
+                    field = document.getElementById("kap_tangki_others");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki oleo
+                    field = document.getElementById("bil_tangki_oleo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki oleo
+                    field = document.getElementById("kap_tangki_oleo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // POMA
+                    // field = document.getElementById("e_poma");
+                    // if (!field.checkValidity()) {
+                    //     error += "Name must be 2-4 characters\r\n";
+                    // }
+
+                    // (B4) RESULT
+                    if (error == "") {
+                        return true;
+                    } else {
+                        toastr.error(
+                            'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                            'Ralat!', {
+                                "progressBar": true
+                            })
+                        return false;
+                    }
+
+                    // if (error == "") {
+                    //     return true;
+                    // } else {
+                    //     toastr.error(
+                    //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    //         'Ralat!', {
+                    //             "progressBar": true
+                    //         })
+                    //     return false;
+                    // }
+                }
+            </script>
+        @endsection

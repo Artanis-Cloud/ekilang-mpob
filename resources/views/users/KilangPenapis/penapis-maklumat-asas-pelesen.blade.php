@@ -56,6 +56,9 @@
                     </div>
                     <hr>
                     <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> * </b><i>'</i>
+                    @if ($errors->any())
+                        {{ implode('', $errors->all('<div>:message</div>')) }}
+                    @endif
                     <form action="{{ route('penapis.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post" onsubmit="return check()" novalidate>
                         @csrf
                         <div class="container center mt-5">
@@ -68,9 +71,9 @@
                                 <div class="col-md-7">
                                     <input type="text" id="e_ap1" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
                                         placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}" oninput="setCustomValidity('')">
-                                    <input type="text" id="e_ap2" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                    <input type="text" id="e_ap2" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Alamat Premis Berlesen 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}" oninput="setCustomValidity('')">
-                                    <input type="text" id="e_ap3" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                    <input type="text" id="e_ap3" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Alamat Premis Berlesen 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}" oninput="setCustomValidity('')">
                                 </div>
                             </div>
@@ -96,11 +99,11 @@
                                     Alamat Surat Menyurat</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_as1" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                        placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}" required oninput="setCustomValidity('')">
-                                    <input type="text" id="e_as2" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                    <input type="text" id="e_as1" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                        placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}"  oninput="setCustomValidity('')">
+                                    <input type="text" id="e_as2" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Alamat Surat Menyurat 2" name="e_as2" value="{{ $pelesen->e_as2 }}" oninput="setCustomValidity('')">
-                                    <input type="text" id="e_as3" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                    <input type="text" id="e_as3" class="form-control" maxlength=60 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Alamat Surat Menyurat 3" name="e_as3" value="{{ $pelesen->e_as3 }}" oninput="setCustomValidity('')">
                                 </div>
                             </div>
@@ -173,7 +176,7 @@
                                     No. Telefon Pegawai Melapor</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="no-tel-pegawai-melapor" maxlength=40 class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    <input type="text" id="e_notel_pg" maxlength=40 class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg" oninput="setCustomValidity('')"
                                         value="{{ $pelesen->e_notel_pg }}" onkeypress="return isNumberKey(event)" required>
                                 </div>
@@ -186,7 +189,7 @@
                                     Alamat Emel Pegawai Melapor</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="no-tel-pegawai-melapor" maxlength=100 class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                    <input type="text" id="e_email_pg" maxlength=100 class="form-control" oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg" oninput="setCustomValidity('')"
                                         value="{{ $pelesen->e_email_pg }}" required multiple>
                                 </div>
@@ -239,7 +242,7 @@
                                     Syarikat Induk</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="syarikat_induk" class="form-control" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                    <input type="text" id="e_syktinduk" class="form-control" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                         placeholder="Syarikat Induk" name="e_syktinduk" oninput="setCustomValidity('')"
                                         value="{{ $pelesen->e_syktinduk }}" required>
                                 </div>
@@ -489,6 +492,8 @@
             </script>
         @endsection
         @section('scripts')
+
+
             <script>
                 function check() {
                     // (B1) INIT
@@ -569,6 +574,61 @@
 
                     // kumpulan
                     field = document.getElementById("e_group");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_proses
+                    field = document.getElementById("kap_proses");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki cpo
+                    field = document.getElementById("bil_tangki_cpo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil_tangki_ppo
+                    field = document.getElementById("bil_tangki_ppo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil_tangki_cpko
+                    field = document.getElementById("bil_tangki_cpko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki ppko
+                    field = document.getElementById("bil_tangki_ppko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki others
+                    field = document.getElementById("bil_tangki_others");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki cpo
+                    field = document.getElementById("kap_tangki_cpo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_tangki_ppo
+                    field = document.getElementById("kap_tangki_ppo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_tangki_cpko
+                    field = document.getElementById("kap_tangki_cpko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki ppko
+                    field = document.getElementById("kap_tangki_ppko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki others
+                    field = document.getElementById("kap_tangki_others");
                     if (!field.checkValidity()) {
                         error += "Name must be 2-4 characters\r\n";
                     }

@@ -56,9 +56,9 @@
                         </h5>
                     </div>
                     <hr>
-                    @if ($errors->any())
+                    {{-- @if ($errors->any())
                         {{ implode('', $errors->all('<div>:message</div>')) }}
-                    @endif
+                    @endif --}}
                     <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda '</i><b
                         style="color: red"> *</b><i>'</i>
                     <form action="{{ route('buah.update.maklumat.asas.pelesen.cuba') }}" method="post" id="myform"
@@ -602,7 +602,7 @@
 
             document.getElementById('myform').addEventListener('submit', validateForm);
         </script> --}}
-   
+
             <script>
                 function check() {
                     // (B1) INIT
