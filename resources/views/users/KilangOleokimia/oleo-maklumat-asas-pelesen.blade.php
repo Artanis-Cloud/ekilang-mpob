@@ -79,54 +79,8 @@
                                         </div>
                                     @enderror
                                 </div>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="card" style="margin-right:3%; margin-left:3%">
-                    <div class="card-body">
-                        <div class="">
-
-                            <div class=" text-center">
-                                <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
-                                <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan </i>
-                                </h5>
                             </div>
-                            <hr>
-                            <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> * </b><i>'</i>
-                            <form action="{{ route('oleo.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post">
-                                @csrf
-                                <div class="container center mt-5">
-                                    <div class="row justify-content-center" style="margin:20px 0px">
-                                        <div class="col-sm-3 form-group" style="margin: 0px">
-                                            <label for="fname"
-                                                class="control-label required col-form-label">
-                                                Alamat Premis Berlesen</label>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <input type="text" id="e_ap1" class="form-control" maxlength="60" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                                placeholder="Alamat Surat Menyurat 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}">
-                                            @error('e_ap1')
-                                                <div class="alert alert-danger">
-                                                    <strong>Sila isi butiran ini</strong>
-                                                </div>
-                                            @enderror
 
-                                            <input type="text" id="e_ap2" class="form-control" maxlength="60"
-                                                placeholder="Alamat Surat Menyurat 2" name="e_ap2" value="{{ $pelesen->e_ap2 }}">
-                                            @error('e_ap2')
-                                                <div class="alert alert-danger">
-                                                    <strong>Sila isi butiran ini</strong>
-                                                </div>
-                                            @enderror
-
-                                            <input type="text" id="e_ap3" class="form-control" maxlength="60"
-                                                placeholder="Alamat Surat Menyurat 3" name="e_ap3" value="{{ $pelesen->e_ap3 }}">
-                                            @error('e_ap3')
-                                                <div class="alert alert-danger">
-                                                    <strong>Sila isi butiran ini</strong>
-                                                </div>
-                                            @enderror
-                                        </div>
-                                    </div>
                                     <div class="row justify-content-center" style="margin:20px 0px">
                                         <div class="col-sm-3 form-group" style="margin: 0px"></div>
                                         <div class="col-md-7">
@@ -617,8 +571,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            
 
 
 
@@ -730,8 +683,6 @@
     </html>
 @endsection
 
-            </html>
-        @endsection
         @section('scripts')
         <script>
             function check() {
