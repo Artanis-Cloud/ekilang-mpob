@@ -68,7 +68,7 @@ class KilangOleokimiaController extends Controller
         // dd($pelesen);
 
 
-
+ 
 
         return view('users.KilangOleokimia.oleo-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
     }

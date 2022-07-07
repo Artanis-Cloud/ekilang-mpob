@@ -4,7 +4,7 @@
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="transition: 0s;">
 
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
@@ -68,9 +68,10 @@
                                         Alamat Premis Berlesen</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_ap1" class="form-control" maxlength="60"
-                                        autocomplete="off" placeholder="Alamat Premis Berlesen 1" name="e_ap1"
-                                        value="{{ $pelesen->e_ap1 }}" required>
+                                    <input type="text" id="e_ap1" class="form-control" maxlength="60" autocomplete="off"
+                                        placeholder="Alamat Premis Berlesen 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}" oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')"
+                                        required >
                                     @error('e_ap1')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -116,7 +117,7 @@
                                 <div class="col-md-7">
                                     <input type="text" id="e_as1" class="form-control" autocomplete="off"
                                         placeholder="Alamat Surat Menyurat 1" name="e_as1"
-                                        value="{{ $pelesen->e_as1 }}" required>
+                                        value="{{ $pelesen->e_as1 }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                     @error('e_as1')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -151,9 +152,8 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_notel" class="form-control" maxlength="40"
-                                        placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
-                                        value="{{ $pelesen->e_notel }}" onkeypress="return isNumberKey(event)"
-                                        required>
+                                        placeholder="No. Telefon Pejabat / Kilang" name="e_notel"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                        value="{{ $pelesen->e_notel }}" onkeypress="return isNumberKey(event)" required>
                                     @error('e_notel')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -185,8 +185,8 @@
                                         Alamat Emel Kilang</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
-                                        maxlength="60" name="e_email" value="{{ $pelesen->e_email }}" required>
+                                    <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="60"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                        name="e_email" value="{{ $pelesen->e_email }}" required>
                                     @error('e_email')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -202,7 +202,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_npg" class="form-control" maxlength="60"
-                                        placeholder="Nama Pegawai Melapor" name="e_npg"
+                                        placeholder="Nama Pegawai Melapor" name="e_npg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         value="{{ $pelesen->e_npg }}" required>
                                     @error('e_npg')
                                         <div class="alert alert-danger">
@@ -219,7 +219,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_jpg" class="form-control" maxlength="60"
-                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg"
+                                        placeholder="Jawatan Pegawai Melapor" name="e_jpg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         value="{{ $pelesen->e_jpg }}" required>
                                     @error('e_jpg')
                                         <div class="alert alert-danger">
@@ -235,10 +235,10 @@
                                         No. Telefon Pegawai Melapor</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_notel_pg" class="form-control"
-                                        maxlength="40" placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
-                                        onkeypress="return isNumberKey(event)" value="{{ $pelesen->e_notel_pg }}"
-                                        required>
+                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control" maxlength="40"
+                                        placeholder="No. Telefon Pegawai Melapor"
+                                        name="e_notel_pg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                        onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}" required>
                                     @error('e_notel_pg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -253,9 +253,9 @@
                                         Alamat Emel Pegawai Melapor</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_email_pg" class="form-control"
-                                        maxlength="100" placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
-                                        value="{{ $pelesen->e_email_pg }}" required>
+                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control" maxlength="100"
+                                            placeholder="Alamat Emel Pegawai Melapor"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                            name="e_email_pg" value="{{ $pelesen->e_email_pg }}" required >
                                     @error('e_email_pg')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -271,7 +271,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_npgtg" class="form-control" maxlength="60"
-                                        placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
+                                        placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         value="{{ $pelesen->e_npgtg }}" required>
                                     @error('e_npgtg')
                                         <div class="alert alert-danger">
@@ -289,7 +289,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
-                                        placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
+                                        placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         value="{{ $pelesen->e_jpgtg }}" required>
                                     @error('e_jpgtg')
                                         <div class="alert alert-danger">
@@ -306,8 +306,8 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="email" id="e_email_pengurus" class="form-control" maxlength="100"
-                                        placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                        value="{{ $pelesen->e_email_pengurus }}" required multiple>
+                                        placeholder="Alamat Emel Pengurus" name="e_email_pengurus" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                        value="{{ $pelesen->e_email_pengurus  }}" required multiple>
 
 
                                     @error('e_email_pengurus')
@@ -324,9 +324,9 @@
                                         Syarikat Induk</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_syktinduk" class="form-control" maxlength="60"
-                                        placeholder="Syarikat Induk" name="e_syktinduk"
-                                        value="{{ $pelesen->e_syktinduk }}" required>
+                                    <input type="text" id="syarikat_induk" class="form-control" maxlength="60"
+                                        placeholder="Syarikat Induk" name="e_syktinduk" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                        value="{{ $pelesen->e_syktinduk}}" required>
                                     @error('e_syktinduk')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -341,8 +341,9 @@
                                         Kumpulan </label>
                                 </div>
                                 <div class="col-md-7">
-                                    <fieldset class="form-group">
+                                    <fieldset class="form-group" >
                                         <select class="form-control" id="e_group" name="e_group" required>
+
                                             <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
                                                 Kerajaan</option>
                                             <option {{ $pelesen->e_group == 'IND' ? 'selected' : '' }} value="IND">
@@ -364,7 +365,7 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="kap_proses" class="form-control"
-                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required
+                                        placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->kap_proses }}">
 
                                     @error('kap_proses')
@@ -409,10 +410,10 @@
                                         Kapasiti Tangki Simpanan (Tan)</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="number" class="form-control" name='kap_tangki_cpko' style="width:20%"
-                                        id="kap_tangki_cpko" min="1" title="Sila isikan butiran ini."
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
-                                        value="{{ $pelesen->bil_tangki_cpko }}" required>
+                                    <input type="number" class="form-control" name='kap_tangki_cpko'
+                                        style="width:20%" id="kap_tangki_cpko"  min="1"
+                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
+                                        onkeypress="return isNumberKey(event)"  value="{{ $pelesen->kap_tangki_cpko}}" required>
                                     @error('kap_tangki_cpko')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>

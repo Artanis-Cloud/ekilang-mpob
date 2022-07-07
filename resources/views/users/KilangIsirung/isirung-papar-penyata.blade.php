@@ -78,7 +78,7 @@
                                             <p style="text-align: center; vertical-align:middle">
                                                 <img border="0" src="{{ asset('/mpob.png') }}" width="128" height="100">
                                             </p>
-                                            <title>PENYATA BULANAN KILANG ISIRONG - MPOB (EL) CF 4</title>
+                                            <title>PENYATA BULANAN KILANG ISIRUNG - MPOB (EL) CF 4</title>
                                             <p style="text-align: center; vertical-align:middle"><b>
                                                     <font size="4">LEMBAGA MINYAK SAWIT MALAYSIA (MPOB)<br>
 
@@ -289,7 +289,7 @@
                                                             <font size="2">A. Stok Awal Di Premis</font>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle ; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_aa1 ?? 0, 2) }}
                                                                 </font>
@@ -297,7 +297,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_aa2 ?? 0, 2) }}
                                                                 </font>
@@ -305,7 +305,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_aa3 ?? 0, 2) }}
                                                                 </font>
@@ -318,7 +318,7 @@
                                                             <font size="2">B. Stok Awal Di Pusat Simpanan/Gudang</font>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ab1 ?? 0, 2) }}
                                                                 </font>
@@ -326,7 +326,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ab2 ?? 0, 2) }}
                                                                 </font>
@@ -334,7 +334,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ab3 ?? 0, 2) }}
                                                                 </font>
@@ -347,7 +347,7 @@
                                                             <font size="2">C. Belian/Terimaan</font>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ac1 ?? 0, 2) }}
                                                                 </font>
@@ -355,7 +355,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ac2 ?? 0, 2) }}
                                                                 </font>
@@ -363,7 +363,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ac3 ?? 0, 2) }}
                                                                 </font>
@@ -376,7 +376,7 @@
                                                             <font size="2">D. Import</font>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ad1 ?? 0, 2) }}
                                                                 </font>
@@ -384,7 +384,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ad2 ?? 0, 2) }}
                                                                 </font>
@@ -392,7 +392,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ad3 ?? 0, 2) }}
                                                                 </font>
@@ -405,19 +405,19 @@
                                                             <font size="2">E. Diproses</font>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ae1 ?? 0, 2) }}
                                                                 </font>
 
                                                             </p>
                                                         </td>
-                                                        <td width="135" bgcolor="#C0C0C0" style="text-align: center; vertical-align:middle" style="
+                                                        <td width="135" bgcolor="#C0C0C0" style="text-align: center; vertical-align:middle; margin:0px" style="
                                                             background-color: #c0c0c0;">&nbsp;</td>
-                                                        <td width="135" bgcolor="#C0C0C0" style="text-align: center; vertical-align:middle" style="
+                                                        <td width="135" bgcolor="#C0C0C0" style="text-align: center; vertical-align:middle; margin:0px" style="
                                                             background-color: #c0c0c0;">&nbsp;</td>
                                                         {{-- <td width="115">
-                                                            <p  style="text-align: center; vertical-align:middle">
+                                                            <p  style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">0.00</font>
 
                                                             </p>
@@ -427,10 +427,10 @@
                                                         <td width="255">
                                                             <font size="2">F. Pengeluaran</font>
                                                         </td>
-                                                        <td width="115" bgcolor="#C0C0C0" style="text-align: center; vertical-align:middle" style="
+                                                        <td width="115" bgcolor="#C0C0C0" style="text-align: center; vertical-align:middle; margin:0px" style="
                                                             background-color: #c0c0c0;">&nbsp;</td>
                                                         <td width="135">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_af2 ?? 0, 2) }}
                                                                 </font>
@@ -438,7 +438,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_af3 ?? 0, 2) }}
                                                                 </font>
@@ -451,7 +451,7 @@
                                                             <font size="2">G. Jualan/Edaran Tempatan</font>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ag1 ?? 0, 2) }}
                                                                 </font>
@@ -459,7 +459,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ag2 ?? 0, 2) }}
                                                                 </font>
@@ -467,7 +467,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ag3 ?? 0, 2) }}
                                                                 </font>
@@ -480,7 +480,7 @@
                                                             <font size="2">H. Hantar Ke Pusat Simpanan/Gudang</font>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ah1 ?? 0, 2) }}
                                                                 </font>
@@ -488,7 +488,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ah2 ?? 0, 2) }}
                                                                 </font>
@@ -496,7 +496,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ah3 ?? 0, 2) }}
                                                                 </font>
@@ -509,7 +509,7 @@
                                                             <font size="2">I. Eksport</font>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ai1 ?? 0, 2) }}
                                                                 </font>
@@ -517,7 +517,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ai2 ?? 0, 2) }}
                                                                 </font>
@@ -525,7 +525,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ai3 ?? 0, 2) }}
                                                                 </font>
@@ -538,7 +538,7 @@
                                                             <font size="2">J. Stok Akhir Di Premis</font>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_aj1 ?? 0, 2) }}
                                                                 </font>
@@ -546,7 +546,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_aj2 ?? 0, 2) }}
                                                                 </font>
@@ -554,7 +554,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_aj3 ?? 0, 2) }}
                                                                 </font>
@@ -567,7 +567,7 @@
                                                             <font size="2">K. Stok Akhir Di Pusat Simpanan</font>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ak1 ?? 0, 2) }}
                                                                 </font>
@@ -575,7 +575,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="135">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ak2 ?? 0, 2) }}
                                                                 </font>
@@ -583,7 +583,7 @@
                                                             </p>
                                                         </td>
                                                         <td width="115">
-                                                            <p style="text-align: center; vertical-align:middle">
+                                                            <p style="text-align: center; vertical-align:middle; margin:0px">
                                                                 <font size="2">
                                                                     {{ number_format($penyatai->e102_ak3 ?? 0, 2) }}
                                                                 </font>
@@ -631,7 +631,7 @@
                                             </table>
                                             <br>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN ISIRONG
+                                                    <font color="#0000FF">BAHAGIAN 3 : BELIAN/TERIMAAN BEKALAN ISIRUNG
                                                         SAWIT (PK) (51)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -679,7 +679,7 @@
                                             </table>
 
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN 4 : JUALAN/EDARAN MINYAK ISIRONG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN 4 : JUALAN/EDARAN MINYAK ISIRUNG SAWIT
                                                         MENTAH (CPKO) (04)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -726,7 +726,7 @@
                                                 </tbody>
                                             </table>
                                             <p><b>
-                                                    <font color="#0000FF">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRONG SAWIT
+                                                    <font color="#0000FF">BAHAGIAN 5 : JUALAN/EDARAN DEDAK ISIRUNG SAWIT
                                                         (PKC) (33)</font>
                                                 </b></p>
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
@@ -896,7 +896,7 @@
 
 
 
-                                            <h1 style="page-break-before:always"></h1>
+                                            <span>Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat yang diperlukan dan tekan butang ‘Hantar’.</span>
 
                                             <div class="form-group" style="padding-top: 10px; ">
                                                     <a href="{{ route('isirung.bahagianv') }}" class="btn btn-primary"

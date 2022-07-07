@@ -555,15 +555,17 @@
                     </form>
                 </div>
             </div>
-        @endsection
+        </div>
 
-        @section('scripts')
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $(".floatNumberField").change(function() {
-                        $(this).val(parseFloat($(this).val()).toFixed(2));
-                    });
+    @endsection
+
+    @section('scripts')
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $(".floatNumberField").change(function() {
+                    $(this).val(parseFloat($(this).val()).toFixed(2));
                 });
+            });
             </script>
             <script>
                 var input = document.getElementById("kap_proses");

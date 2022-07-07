@@ -81,14 +81,14 @@
                             </h5>
                         </div>
                         <hr>
-                        <div class="container center mt-4" style="margin-left:4%;">
-                            <div class="row mt-3">
-                                <div class="col-md-3">
+                        <div class="container center mt-4">
+                            <div class="row">
+                                <div class="col-md-2 mt-3">
                                     <span class="">Belian/Terimaan:</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <select class="form-control" id="e102_b4" style=" width:50%" name="e102_b4" required>
-                                        <option selected hidden disabled>Sila Pilih</option>
+                                <div class="col-md-3 mt-3">
+                                    <select class="form-control" id="e102_b4" style=" width:70%" name="e102_b4" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                        <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($kodsl as $data)
                                             <option value="{{ $data->catid }}">
                                                 {{ $data->catname }}
@@ -96,47 +96,49 @@
                                         @endforeach
 
                                     </select>
-                                    @error('e102_b4')
+                                    {{-- @error('e102_b4')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
                                         </div>
-                                    @enderror
+                                    @enderror --}}
                                 </div>
 
-                                
-                                <div class="col-md-3">
+
+                                <div class="col-md-2 mt-3">
                                     <span class=""> Dari:</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <select class="form-control" id="e102_b5" style=" width:50%" name='e102_b5'>
-                                        <option selected hidden disabled>Sila Pilih</option>
+                                <div class="col-md-3 mt-3">
+                                    <select class="form-control" id="e102_b5" style=" width:70%" name='e102_b5' required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                        <option selected hidden disabled value="">Sila Pilih</option>
 
                                         <option value="1">KILANG BUAH</option>
                                         <option value="5">PENIAGA</option>
                                         <option value="7">LAIN-LAIN</option>
 
                                     </select>
-                                    @error('e102_b5')
+
+                                    {{-- @error('e102_b5')
                                         <div class="alert alert-danger">
                                             <strong>Sila buat pilihan di bahagian ini</strong>
                                         </div>
-                                    @enderror
+                                    @enderror --}}
                                 </div>
 
                             </div>
 
-                            <div class="row mt-3">
-                                <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-2 mt-3">
                                     <span class="">Kuantiti:</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e102_b6' style="width:50%" id="e102_b6" oninput="validate_two_decimal(this)"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini.">
+
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e102_b6' style="width:70%" id="e102_b6" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                        required onkeypress="return isNumberKey(event)" >
                                         @error('e102_b6')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
+                                            <div class="alert alert-danger">
+                                                <strong>Sila isi butiran ini</strong>
+                                            </div>
+                                        @enderror
                                 </div>
                             </div>
 

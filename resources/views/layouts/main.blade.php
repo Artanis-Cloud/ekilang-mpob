@@ -1489,7 +1489,7 @@
         <!-- footer -->
         <!-- ============================================================== -->
         <footer class="text-center footer" style="background-color: white;  ">
-            ©Copyright 2022 Malaysian Palm Oil Board (MPOB). All Rights Reserved.
+            © Copyright 2022 Malaysian Palm Oil Board (MPOB). All Rights Reserved.
         </footer>
         <!-- ============================================================== -->
         <!-- End footer -->

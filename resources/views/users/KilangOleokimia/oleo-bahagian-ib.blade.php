@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="transition: 0s">
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
@@ -78,8 +78,8 @@
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="produk" name="e104_b4" style="width: 70%">
-                                        <option selected hidden disabled>Sila Pilih</option>
+                                    <select class="form-control" id="produk" name="e104_b4" style="width: 70%" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                        <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
                                                 {{ $data->prodname }} - {{ $data->prodid }}
@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b5'
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b5" required title="Sila isikan butiran ini.">
                                     @error('e104_b5')
                                         <div class="alert alert-danger">
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b6'
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b6" required title="Sila isikan butiran ini.">
                                     @error('e104_b6')
                                         <div class="alert alert-danger">
@@ -134,7 +134,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b7'
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b7" required title="Sila isikan butiran ini.">
                                     @error('e104_b7')
                                         <div class="alert alert-danger">
@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b9'
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b9" required title="Sila isikan butiran ini.">
                                     @error('e104_b9')
                                         <div class="alert alert-danger">
@@ -164,7 +164,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b10'
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b10" required title="Sila isikan butiran ini.">
                                     @error('e104_b10')
                                         <div class="alert alert-danger">
@@ -178,7 +178,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b11'
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b11" required title="Sila isikan butiran ini.">
                                     @error('e104_b11')
                                         <div class="alert alert-danger">
@@ -193,7 +193,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b8'
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b8" required title="Sila isikan butiran ini." readonly>
                                 </div>--}}
 
@@ -202,7 +202,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b12'
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b12" required title="Sila isikan butiran ini.">
                                     @error('e104_b12')
                                         <div class="alert alert-danger">
@@ -215,7 +215,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b13'
-                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b13" required title="Sila isikan butiran ini.">
                                     @error('e104_b13')
                                         <div class="alert alert-danger">

@@ -20,31 +20,31 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title" style="font-size: 20px">Kemasukan Penyata Bulanan :
+                    <h4 class="page-title" style="font-size: 20px">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
-                            Januari
+                            JANUARI
                         @elseif($bulan == 2)
-                            Februari
+                            FEBRUARI
                         @elseif($bulan == 3)
-                            Mac
+                            MAC
                         @elseif($bulan == 4)
-                            April
+                            APRIL
                         @elseif($bulan == 5)
-                            Mei
+                            MEI
                         @elseif($bulan == 6)
-                            Jun
+                            JUN
                         @elseif($bulan == 7)
-                            Julai
+                            JULAI
                         @elseif($bulan == 8)
-                            Ogos
+                            OGOS
                         @elseif($bulan == 9)
-                            September
+                            SEPTEMBER
                         @elseif($bulan == 10)
-                            Oktober
+                            OKTOBER
                         @elseif($bulan == 11)
-                            November
+                            NOVEMBER
                         @elseif($bulan == 12)
-                            Disember
+                            DISEMBER
                         @endif {{ $tahun }}
                     </h4>
                 </div>
@@ -82,14 +82,14 @@
                     <div class="mb-4 text-center">
                         <h3 style="color: rgb(39, 80, 71); ">Bahagian 2</h3>
                         <h5 style="color: rgb(39, 80, 71); font-size:14px">Kadar Perahan CPKO, Kadar Perolehan PKC, Jam
-                            Pengilangan dan Penggunaan Kapasiti</h5>
+                            Pengilangan dan Penggunaan Kapasiti Pemprosesan</h5>
 
 
                     </div>
                     <hr>
 
-                    <div class="container center mt-4">
-
+                    <div class="container mt-4" style="">
+                        <span style="padding-left: 5%">Sila isi butiran di bawah dan tekan butang ‘Simpan & Seterusnya’.</span>
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-4 form-group" style="margin: 0px">
                                 <label for="fname" class="control-label col-form-label">

@@ -56,8 +56,8 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_nlkppk" class="form-control" maxlength="60"
-                                    placeholder="No. Lesen KPPK" onkeypress="return isNumberKey(event)" name="e_nlkppk"
-                                    value="{{ $pelesen->e_nlkppk }}" required>
+                                    placeholder="No. Lesen KPPK" onkeypress="return isNumberKey(event)"
+                                    name="e_nlkppk" value="{{ $pelesen->e_nlkppk }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 @error('e_nlkppk')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -72,8 +72,8 @@
                                     Alamat Premis Berlesen</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_ap1" class="form-control" maxlength="60" required
-                                    placeholder="Alamat Surat Menyurat 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}">
+                                <input type="text" id="e_ap1" class="form-control"  maxlength="60"
+                                    placeholder="Alamat Surat Menyurat 1" name="e_ap1" value="{{ $pelesen->e_ap1 }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 @error('e_ap1')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -97,15 +97,26 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row justify-content-center" style="margin:20px 0px">
+                            <div class="col-sm-3 form-group" style="margin: 0px"></div>
+                            <div class="col-md-7">
+                                <input onchange="alamat();"
+                                    type="checkbox" class="custom-control-input"
+                                    id="alamat_sama" name="alamat_sama" {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
+                                <label class="custom-control-label"
+                                    for="alamat_sama">Alamat sama seperti di
+                                    atas</label>
 
+                            </div>
+                        </div>
                         <div class="row justify-content-center" style="margin:20px 0px">
                             <div class="col-sm-3 form-group" style="margin: 0px">
                                 <label for="fname" class="control-label col-form-label required">
                                     Alamat Surat Menyurat</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_as1" class="form-control" maxlength="60" required
-                                    placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}">
+                                <input type="text" id="e_as1" class="form-control"  maxlength="60"
+                                    placeholder="Alamat Surat Menyurat 1" name="e_as1" value="{{ $pelesen->e_as1 }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 @error('e_as1')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -139,7 +150,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_notel" class="form-control" maxlength="60"
                                     placeholder="No. Telefon Pejabat / Kilang" onkeypress="return isNumberKey(event)"
-                                    name="e_notel" value="{{ $pelesen->e_notel }}" required>
+                                    name="e_notel" value="{{ $pelesen->e_notel }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 @error('e_notel')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -170,8 +181,8 @@
                                     Alamat Emel Kilang</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel"
-                                    maxlength="60" name="e_email" value="{{ $pelesen->e_email }}" required>
+                                <input type="email" id="e_email" class="form-control" placeholder="Alamat Emel" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    name="e_email" value="{{ $pelesen->e_email }}">
                                 @error('e_email')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -186,9 +197,8 @@
                                     Nama Pegawai Melapor</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_npg" class="form-control"
-                                    placeholder="Nama Pegawai Melapor" maxlength="60" name="e_npg"
-                                    value="{{ $pelesen->e_npg }}" required>
+                                <input type="text" id="e_npg" class="form-control" placeholder="Nama Pegawai Melapor" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    name="e_npg" value="{{ $pelesen->e_npg }}">
                                 @error('e_npg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -204,8 +214,8 @@
                             </div>
                             <div class="col-md-7">
                                 <input type="text" id="e_jpg" class="form-control"
-                                    placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}"
-                                    maxlength="60" required>
+                                    placeholder="Jawatan Pegawai Melapor" name="e_jpg" value="{{ $pelesen->e_jpg }}" maxlength="60"
+                                    required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 @error('e_jpg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -222,7 +232,8 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_notel_pg" class="form-control" maxlength="60"
                                     placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
-                                    onkeypress="return isNumberKey(event)" value="{{ $pelesen->e_notel_pg }}" required>
+                                    onkeypress="return isNumberKey(event)" value="{{ $pelesen->e_notel_pg }}"
+                                    required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 @error('e_notel_pg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -239,7 +250,7 @@
                             <div class="col-md-7">
                                 <input type="email" id="e_email_pg" class="form-control" maxlength="100"
                                     placeholder="Alamat Emel Pegawai Melapor" name="e_email_pg"
-                                    value="{{ $pelesen->e_email_pg }}" required multiple>
+                                    value="{{ $pelesen->e_email_pg }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" multiple>
                                 @error('e_email_pg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -257,7 +268,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_npgtg" class="form-control"
                                     placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
-                                    value="{{ $pelesen->e_npgtg }}" required>
+                                    value="{{ $pelesen->e_npgtg }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 @error('e_npgtg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -275,7 +286,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="e_jpgtg" class="form-control" maxlength="60"
                                     placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
-                                    value="{{ $pelesen->e_jpgtg }}" required>
+                                    value="{{ $pelesen->e_jpgtg }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 @error('e_jpgtg')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -293,7 +304,7 @@
                             <div class="col-md-7">
                                 <input type="email" id="e_email_pengurus" class="form-control" maxlength="100"
                                     placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
-                                    value="{{ $pelesen->e_email_pengurus }}" required multiple>
+                                    value="{{ $pelesen->e_email_pengurus }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" multiple>
                                 @error('e_email_pengurus')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -308,8 +319,8 @@
                                     Syarikat Induk</label>
                             </div>
                             <div class="col-md-7">
-                                <input type="text" id="e_syktinduk" class="form-control" placeholder="Syarikat Induk"
-                                    maxlength="60" name="e_syktinduk" value="{{ $pelesen->e_syktinduk }}" required>
+                                <input type="text" id="e_syktinduk" class="form-control" placeholder="Syarikat Induk" maxlength="60"
+                                    name="e_syktinduk" value="{{ $pelesen->e_syktinduk }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
 
                                 @error('e_syktinduk')
                                     <div class="alert alert-danger">
@@ -349,8 +360,7 @@
                             <div class="col-md-7">
                                 <input type="text" id="kap_proses" class="form-control"
                                     onkeypress="return isNumberKey(event)" placeholder="Kapasiti Pemprosesan / Tahun"
-                                    oninput="validate_two_decimal(this)" name="kap_proses"
-                                    value="{{ $pelesen->kap_proses }}" required>
+                                    name="kap_proses" value="{{ $pelesen->kap_proses }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 @error('kap_proses')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -805,3 +815,102 @@
                 }
             </script>
         @endsection
+    {{-- <div id="preloader"></div> --}}
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+            <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
+
+    <script>
+        function validation_jumlah() {
+            var bil_tangki_cpo = $("#bil_tangki_cpo").val();
+            var bil_tangki_ppo = $("#bil_tangki_ppo").val();
+            var bil_tangki_cpko = $("#bil_tangki_cpko").val();
+            var bil_tangki_ppko = $("#bil_tangki_ppko").val();
+            var bil_tangki_oleo = $("#bil_tangki_oleo").val();
+            var bil_tangki_others = $("#bil_tangki_others").val();
+
+            var jumlah = $("#jumlah").val();
+            var jumlah_input = 0;
+
+            jumlah_input = parseFloat(Number(bil_tangki_cpo)) + parseFloat(Number(bil_tangki_ppo)) +
+                parseFloat(Number(bil_tangki_cpko)) + parseFloat(Number(bil_tangki_ppko)) + parseFloat(Number(
+                    bil_tangki_oleo)) + parseFloat(Number(bil_tangki_others));
+
+            document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script>
+    <script>
+        function validation_jumlah2() {
+            var kap_tangki_cpo = $("#kap_tangki_cpo").val();
+            var kap_tangki_ppo = $("#kap_tangki_ppo").val();
+            var kap_tangki_cpko = $("#kap_tangki_cpko").val();
+            var kap_tangki_ppko = $("#kap_tangki_ppko").val();
+            var kap_tangki_oleo = $("#kap_tangki_oleo").val();
+            var kap_tangki_others = $("#kap_tangki_others").val();
+
+            var jumlah = $("#jumlah2").val();
+            var jumlah_input = 0;
+
+            jumlah_input = parseFloat(Number(kap_tangki_cpo)) + parseFloat(Number(kap_tangki_ppo)) +
+                parseFloat(Number(kap_tangki_cpko)) + parseFloat(Number(kap_tangki_ppko)) + parseFloat(Number(
+                    kap_tangki_oleo)) + parseFloat(Number(kap_tangki_others));
+
+            document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script>
+     <script>
+        function alamat() {
+            var x = $("#alamat_sama").is(":checked");
+
+            if (x == true) {
+                //Get
+                var bla = $('#e_ap1').val();
+                //Set
+                $('#e_as1').val(bla).attr("disabled", "disabled");
+                $('#e_as1').val("");
+                //get
+                var bla = $('#e_ap2').val();
+                //Set
+                $('#e_as2').val(bla).attr("disabled", "disabled");
+                $('#e_as2').val("");
+
+                var bla = $('#e_ap3').val();
+                //Set
+                $('#e_as3').val(bla).attr("disabled", "disabled");
+                $('#e_as3').val("");
+
+                // $("#alamat_surat_menyurat_daerah").remove();
+                // $("#test1").append(html);
+
+            } else {
+                // document.getElementById("#alamat_surat_menyurat_1").readOnly = false;
+
+                $('#e_as1').attr("disabled", false)
+                $('#e_as2').attr("disabled", false)
+                $('#e_as3').attr("disabled", false)
+
+            }
+                var e_ap1 = document.getElementById("e_ap1"),
+                e_as1 = document.getElementById("e_as1");
+                e_as1.value = e_ap1.value;
+
+                var e_ap2 = document.getElementById("e_ap2"),
+                e_as2 = document.getElementById("e_as2");
+                e_as2.value = e_ap2.value;
+
+                var e_ap3 = document.getElementById("e_ap3"),
+                e_as3 = document.getElementById("e_as3");
+                e_as3.value = e_ap3.value;
+
+
+        }
+    </script>
+
+
+
+@endsection
+

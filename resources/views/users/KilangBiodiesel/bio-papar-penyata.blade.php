@@ -763,7 +763,7 @@
                                 </p>
 
 
-                                <h1 style="page-break-before:always"></h1>
+                                <span>Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat yang diperlukan dan tekan butang ‘Hantar’.</span>
 
                                 <div class="form-group" style="padding-top: 10px; ">
                                         <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"

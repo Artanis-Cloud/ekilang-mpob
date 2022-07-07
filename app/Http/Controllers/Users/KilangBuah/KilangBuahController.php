@@ -110,7 +110,7 @@ class KilangBuahController extends Controller
             'e_id' => $count + 1,
             // 'e_nl' => $data['e_nl'],
             // 'e_np' => $data['e_np'],
-            'e_ap1' => $data['e_ap1'],
+            'e_ap1' => $data['e_ap1'], 
             'e_ap2' => $data['e_ap2'],
             'e_ap3' => $data['e_ap3'],
             'e_as1' => $data['e_as1'],
