@@ -208,10 +208,10 @@
 
                                                 </table>
                                             </div>
-                                            <div class="text-left col-md-8">
+                                            {{-- <div class="text-left col-md-8">
                                                 <button class="btn btn-primary"
                                                     onclick="exportTableToExcel('example')">Excel</button>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     {{-- </form> --}}
                                 </div>

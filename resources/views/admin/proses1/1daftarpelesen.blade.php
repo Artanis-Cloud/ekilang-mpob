@@ -50,7 +50,7 @@
                                     style=" color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
-                        <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post">
+                        <form action="{{ route('admin.1daftarpelesen.proses') }}" method="post" onsubmit="return check()" novalidate>
                             @csrf
                             <div class="card-body">
                                 <div class=" text-center">
@@ -120,7 +120,7 @@
                                         <label class="control-label col-form-label required">Status e-Kilang</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <select class="form-control" name="e_status" required
+                                        <select class="form-control" name="e_status" required id="e_status"
                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                             oninput="setCustomValidity('')">
                                             <option selected hidden disabled value="">Sila Pilih</option>
@@ -135,7 +135,7 @@
                                         <label class="control-label col-form-label required">Status e-Mingguan</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                            <select class="form-control" name="e_stock" required
+                                            <select class="form-control" name="e_stock" required id="e_stock"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
                                                 <option selected hidden disabled value="">Sila Pilih</option>
@@ -150,7 +150,7 @@
                                         <label class="control-label col-form-label required">Status Direktori</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <select class="form-control" name="directory" required
+                                        <select class="form-control" name="directory" required id="directory"
                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                             oninput="setCustomValidity('')">
                                             <option selected hidden disabled value="">Sila Pilih</option>
@@ -165,7 +165,7 @@
                                         <label class="control-label col-form-label required">Kod Negeri </label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px">
-                                        <select class="form-control" name="kodpgw" required
+                                        <select class="form-control" name="kodpgw" required id="kodpgw"
                                             oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                             oninput="setCustomValidity('')">
                                             <option selected hidden disabled value="">Sila Pilih</option>
@@ -191,8 +191,8 @@
                                         <label for="inputcom" class="control-label col-form-label required">Nombor Siri</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="nombor_siri" class="form-control" required
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="nosiri" class="form-control" required
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="4"
                                             oninput="setCustomValidity('')" placeholder="Nombor Siri" name="nosiri"
                                             value="{{ old('nombor_siri') }}">
                                     </div>
@@ -203,8 +203,8 @@
                                         <label for="inputcom" class="control-label col-form-label required">Nombor Lesen</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="nombor_lesen" class="form-control" required
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_nl" class="form-control" required
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')"  maxlength="12"
                                             oninput="setCustomValidity('')" placeholder="Nombor Lesen" name="e_nl"
                                             value="{{ old('nombor_lesen') }}">
                                         @error('e_nl')
@@ -221,8 +221,8 @@
                                             Premis</label>
                                     </div>
                                      <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="nama_premis" class="form-control" required
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_np" class="form-control" required
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')"  maxlength="60"
                                             oninput="setCustomValidity('')" placeholder="Nama Premis" name="e_np"
                                             value="{{ old('nama_premis') }}">
                                     </div>
@@ -236,24 +236,24 @@
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 10px;">
                                         <div class="form-group" style="margin-bottom: 10px">
-                                            <input type="text" id="alamat_premis_1" maxlength=60 class="form-control"
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            <input type="text" id="e_ap1" maxlength=60 class="form-control"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
                                                 oninput="setCustomValidity('')" placeholder="Alamat Premis 1" name="e_ap1"
                                                 required value="{{ old('alamat_premis_1') }}">
                                         </div>
                                         <div class="form-group" style="margin-bottom: 10px">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
-                                            <input type="text" id="alamat_premis_1" maxlength=60 class="form-control"
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            <input type="text" id="e_ap2" maxlength=60 class="form-control"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
                                                 oninput="setCustomValidity('')" placeholder="Alamat Premis 2" name="e_ap2"
-                                                required value="{{ old('alamat_premis_1') }}">
+                                                value="{{ old('alamat_premis_1') }}">
                                         </div>
                                         <div class="form-group">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Premis Berlesen</label> --}}
-                                            <input type="text" id="alamat_premis_1" class="form-control"
+                                            <input type="text" id="e_ap3" class="form-control" maxlength="60"
                                                 oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                 oninput="setCustomValidity('')" placeholder="Alamat Premis 3" name="e_ap3"
-                                                required value="{{ old('alamat_premis_1') }}">
+                                                value="{{ old('alamat_premis_1') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -265,25 +265,25 @@
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 10px;">
                                         <div class="form-group" style="margin-bottom: 10px;">
-                                            <input type="text" id="alamat_surat_1" class="form-control"
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            <input type="text" id="e_as1" class="form-control"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
                                                 oninput="setCustomValidity('')" placeholder="Alamat Surat Menyurat 1"
                                                 name="e_as1" required value="{{ old('alamat_surat_1') }}">
                                         </div>
                                         <div class="form-group" style="margin-bottom: 10px;">
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
-                                            <input type="text" id="alamat_surat_1" class="form-control"
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            <input type="text" id="e_as2" class="form-control"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
                                                 oninput="setCustomValidity('')" placeholder="Alamat Surat Menyurat 2"
-                                                name="e_as2" required value="{{ old('alamat_surat_1') }}">
+                                                name="e_as2" value="{{ old('alamat_surat_1') }}">
                                         </div>
 
                                         <div class="form-group" >
                                             {{-- <label for="inputcom" class="control-label col-form-label">Alamat Surat Menyurat</label> --}}
-                                            <input type="text" id="alamat_surat_1" class="form-control"
-                                                oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            <input type="text" id="e_as3" class="form-control"
+                                                oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
                                                 oninput="setCustomValidity('')" placeholder="Alamat Surat Menyurat 3"
-                                                name="e_as3" required value="{{ old('alamat_surat_1') }}">
+                                                name="e_as3" value="{{ old('alamat_surat_1') }}">
                                         </div>
                                     </div>
                                 </div>
@@ -294,8 +294,8 @@
                                             Kilang</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="no_tel_kilang" class="form-control"
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_notel" class="form-control"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
                                             oninput="setCustomValidity('')" placeholder="No. Telefon Kilang"
                                             name="e_notel" required value="{{ old('no_tel_kilang') }}">
                                     </div>
@@ -303,14 +303,14 @@
 
                                 <div class="row justify-content-center">
                                     <div class="col-sm-2 form-group" style="margin: 0px">
-                                        <label for="inputcom" class="control-label col-form-label required">No. Faks
+                                        <label for="inputcom" class="control-label col-form-label">No. Faks
                                             Kilang</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="no_faks_kilang" class="form-control"
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_nofax" class="form-control"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
                                             oninput="setCustomValidity('')" placeholder="No. Faks Kilang" name="e_nofax"
-                                            required value="{{ old('no_faks_kilang') }}">
+                                            value="{{ old('no_faks_kilang') }}">
                                     </div>
                                 </div>
 
@@ -320,8 +320,8 @@
                                             Kilang</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="emel_kilang" class="form-control"
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_email" class="form-control"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
                                             oninput="setCustomValidity('')" placeholder="Alamat Emel Kilang"
                                             name="e_email" required value="{{ old('emel_kilang') }}">
                                     </div>
@@ -333,8 +333,8 @@
                                             Melapor</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="nama_pegawai_lapor" class="form-control"
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_npg" class="form-control"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
                                             oninput="setCustomValidity('')" placeholder="Nama Pegawai Melapor"
                                             name="e_npg" required value="{{ old('nama_pegawai_lapor') }}">
                                     </div>
@@ -345,8 +345,8 @@
                                         <label for="inputcom" class="control-label col-form-label required">Jawatan Pegawai Melapor</label>
                                     </div>
                                     <div class="col-md-6" >
-                                        <input type="text" id="jawatan_pegawai_lapor" style="margin-bottom: 10px;" class="form-control"
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_jpg" style="margin-bottom: 10px;" class="form-control"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
                                             oninput="setCustomValidity('')" placeholder="Jawatan Pegawai Melapor"
                                             name="e_jpg" required value="{{ old('jawatan_pegawai_lapor') }}">
                                     </div>
@@ -357,9 +357,9 @@
                                         <label for="inputcom" class="control-label col-form-label required">No. Telefon Pegawai Melapor</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="email-id-column" class="form-control" required
+                                        <input type="text" id="e_notel_pg" class="form-control" required
                                             placeholder="No. Telefon Pegawai Melapor" name='e_notel_pg'
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')"  maxlength="40"
                                             oninput="setCustomValidity('')" value="{{ old('e_notel_pg') }}">
                                     </div>
                                 </div>
@@ -371,8 +371,8 @@
                                                 Bertanggungjawab</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="enama_pegawai_jawab" class="form-control"
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_npgtg" class="form-control"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="60"
                                             oninput="setCustomValidity('')" placeholder="Nama Pegawai Bertanggungjawab"
                                             name="e_npgtg" required value="{{ old('nama_pegawai_jawab') }}">
                                     </div>
@@ -385,9 +385,9 @@
                                             Bertanggungjawab</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="jawatan_pegawai_jawab" class="form-control"
+                                        <input type="text" id="e_jpgtg" class="form-control"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                            oninput="setCustomValidity('')"
+                                            oninput="setCustomValidity('')" maxlength="60"
                                             placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg" required
                                             value="{{ old('jawatan_pegawai_jawab') }}">
                                     </div>
@@ -399,8 +399,8 @@
                                             Pengurus</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="emel_pengurus" class="form-control"
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_email_pengurus" class="form-control"
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="40"
                                             oninput="setCustomValidity('')" placeholder="Alamat Emel Pengurus"
                                             name="e_email_pengurus" required value="{{ old('eemel_pengurus') }}">
                                     </div>
@@ -469,8 +469,8 @@
                                             Syarikat Induk</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="syarikat_induk" class="form-control" required
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_syktinduk" class="form-control" required
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')"  maxlength="60"
                                             oninput="setCustomValidity('')" placeholder="Syarikat Induk"
                                             name="e_syktinduk">
                                     </div>
@@ -482,8 +482,8 @@
                                             Tahun Mula Beroperasi</label>
                                     </div>
                                     <div class="col-md-6" style="margin-bottom: 20px;">
-                                        <input type="text" id="tahun_operasi" class="form-control" required
-                                            oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                        <input type="text" id="e_year" class="form-control" required
+                                            oninvalid="setCustomValidity('Sila isi butiran ini')" maxlength="4"
                                             oninput="setCustomValidity('')" placeholder="Tahun Mula Beroperasi"
                                             name="e_year">
                                     </div>
@@ -496,7 +496,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset class="form-group"  style="margin-bottom: 20px;">
-                                            <select class="form-control" name="e_group" required
+                                            <select class="form-control" name="e_group" required id="e_group"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
                                                 <option selected hidden disabled value="">Sila Pilih</option>
@@ -514,7 +514,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <fieldset class="form-group"  style="margin-bottom: 20px;">
-                                            <select class="form-control" name="e_poma" required
+                                            <select class="form-control" name="e_poma" required id="e_poma"
                                                 oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                 oninput="setCustomValidity('')">
                                                 <option selected hidden disabled value="">Sila Pilih</option>
@@ -534,7 +534,7 @@
                                         <input type="text" id="kap_proses" class="form-control"
                                             placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                            onkeypress="return isNumberKey(event)"
+                                            onkeypress="return isNumberKey(event)"  maxlength="10"
                                             oninput="validate_two_decimal(this);setCustomValidity('')" required>
 
                                     </div>
@@ -750,6 +750,193 @@
     <script src="{{ asset('theme/libs/toastr/build/toastr.min.js') }}"></script>
     <script src="{{ asset('theme/extra-libs/toastr/toastr-init.js') }}"></script>
 
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            // kategori
+            field = document.getElementById("e_kat");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // status e-kilang
+            field = document.getElementById("e_status");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // status e-mingguan
+            field = document.getElementById("e_stock");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // directory
+            field = document.getElementById("directory");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // alamat premis 1
+            field = document.getElementById("e_ap1");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // kod pegawai
+            field = document.getElementById("kodpgw");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // no siri
+            field = document.getElementById("nosiri");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // no lesen
+            field = document.getElementById("e_nl");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // nama premis
+            field = document.getElementById("e_np");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // alamat premis 1
+            field = document.getElementById("e_ap1");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // alamat surat-menyurat 1
+            field = document.getElementById("e_as1");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // no tel kilang
+            field = document.getElementById("e_notel");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // email kilang
+            field = document.getElementById("e_email");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // nama pegawai melapor
+            field = document.getElementById("e_npg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // jawatan pegawai melapor
+            field = document.getElementById("e_jpg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // no tel pegawai melapor
+            field = document.getElementById("e_notel_pg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // // email pegawai melapor
+            // field = document.getElementById("e_email_pg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            // }
+
+            // nama pegawai bertanggungjawab
+            field = document.getElementById("e_npgtg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // jawatan pegawai bertanggungjawab
+            field = document.getElementById("e_jpgtg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // emel pengurus
+            field = document.getElementById("e_email_pengurus");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // enegeri
+            field = document.getElementById("negeri_id");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // daerah
+            field = document.getElementById("daerah_id");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // kawasan
+            field = document.getElementById("kawasan_id");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // syarikat induk
+            field = document.getElementById("e_syktinduk");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // tahun mula beroperasi
+            field = document.getElementById("e_year");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // kumpulan
+            field = document.getElementById("e_group");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+           // POMA
+            field = document.getElementById("e_poma");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+           // kap proses
+            field = document.getElementById("kap_proses");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // (B4) RESULT
+            if (error == "") {
+                return true;
+            } else {
+                toastr.error(
+                    'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+            // if (error == "") {
+            //     return true;
+            // } else {
+            //     toastr.error(
+            //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+            //         'Ralat!', {
+            //             "progressBar": true
+            //         })
+            //     return false;
+            // }
+        }
+    </script>
     {{-- toaster display --}}
     {{-- <script>
         @if (Session::get('success'))
