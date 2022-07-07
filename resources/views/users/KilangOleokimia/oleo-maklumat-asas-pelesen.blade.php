@@ -569,18 +569,10 @@
                             </form>
 
                         </div>
-                    </div>
-                </div>
+                    </body>
 
-
-
-
-
-
-
-
-
-
+                    </html>
+                @endsection
 
     <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
     <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
@@ -678,10 +670,7 @@
             document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
         }
     </script>
-    </body>
 
-    </html>
-@endsection
 
         @section('scripts')
         <script>
