@@ -261,7 +261,9 @@ class LaporanController extends Controller
     public function admin_pl_lewat_process(Request $request)
     {
         $kategori = $request->kategori;
-        // dd($kategori);
+        $sdate = $request->sdate;
+        $edate = $request->edate;
+        // dd($edate);
         // $date_tepat = EBioInit::where(date())
 
         // $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
@@ -270,28 +272,33 @@ class LaporanController extends Controller
         // LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
         // WHERE DAY(e.ebio_sdate) BETWEEN 1 AND 10");
         // dd($list_penyata);
+        $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+        FROM e_bio_inits e
+        LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
+        LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
+        WHERE DAY(e.ebio_sdate) BETWEEN $sdate AND $edate");
 
-        if ($kategori == "tepat") {
-            $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
-                FROM e_bio_inits e
-                LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
-                LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
-                WHERE DAY(e.ebio_sdate) BETWEEN 1 AND 7");
-            // dd($list_penyata);
+        // if ($kategori == "tepat") {
+        //     $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+        //         FROM e_bio_inits e
+        //         LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
+        //         LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
+        //         WHERE DAY(e.ebio_sdate) BETWEEN 1 AND 7");
+        //     // dd($list_penyata);
 
-        } elseif ($kategori == "lewat") {
-            $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
-                FROM e_bio_inits e
-                LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
-                LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
-                WHERE DAY(e.ebio_sdate) BETWEEN 8 AND 10");
-        } else {
-            $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
-                FROM e_bio_inits e
-                LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
-                LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
-                WHERE DAY(e.ebio_sdate) BETWEEN 1 AND 10");
-        }
+        // } elseif ($kategori == "lewat") {
+        //     $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+        //         FROM e_bio_inits e
+        //         LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
+        //         LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
+        //         WHERE DAY(e.ebio_sdate) BETWEEN 8 AND 10");
+        // } else {
+        //     $list_penyata = DB::select("SELECT DAY(e.ebio_sdate) AS date, p.e_np, p.e_nl, e.ebio_nl, e.ebio_sdate, p.e_negeri, n.nama_negeri, n.kod_negeri
+        //         FROM e_bio_inits e
+        //         LEFT JOIN pelesen p ON p.e_nl = e.ebio_nl
+        //         LEFT JOIN negeri n ON p.e_negeri = n.kod_negeri
+        //         WHERE DAY(e.ebio_sdate) BETWEEN 1 AND 10");
+        // }
         // dd($list_penyata);
 
         $breadcrumbs    = [
@@ -1783,7 +1790,7 @@ class LaporanController extends Controller
             'ppko_srwk' => $ppko_srwk,
         ];
         // return view('admin.laporan_dq.tambah-stok-akhir', $array);
-        return response()->json(['success'=> $array]);
+        return response()->json(['success' => $array]);
     }
 
     // public function admin_validasi_stok_akhir(Request $request)
