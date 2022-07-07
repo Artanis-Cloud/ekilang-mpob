@@ -48,7 +48,7 @@
                 <div class="col-sm-12 col-lg-12">
                     <div class="card">
                         <div class=" text-center">
-                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Laporan Tahunan</h3>
+                            <h3 style="color: rgb(39, 80, 71); margin-top:3%; margin-bottom:1%">Laporan Biodiesel</h3>
                             {{-- <h5 style="color: rgb(39, 80, 71); margin-bottom:1%">PMB2 :: Butiran Urusniaga Pelesen</h5> --}}
                         </div>
                         <hr>
@@ -63,24 +63,24 @@
                                             <div class="form-group">
                                                 <label>Jenis Laporan</label>
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" name="laporan"
-                                                        onclick="laporan_check(this)">
+                                                    <select class="form-control" name="laporan" id="laporan"
+                                                    onclick="laporan_check()">
                                                         <option selected hidden disabled>Sila Pilih Jenis Laporan</option>
-                                                        <option value="kapasiti" onclick="laporan_check(this)">Laporan
+                                                        <option value="kapasiti" onclick="laporan_check()">Laporan
                                                             Tahunan Kapasiti
                                                         </option>
-                                                        <option value="beroperasi" onclick="laporan_check(this)">Kilang
+                                                        <option value="beroperasi" onclick="laporan_check()">Kilang
                                                             Biodiesel
                                                             Beroperasi</option>
-                                                        <option value="pengeluaran" onclick="laporan_check(this)">
+                                                        <option value="pengeluaran" onclick="laporan_check()">
                                                             Pengeluaran Produk Biodiesel</option>
-                                                        <option value="eksport" onclick="laporan_check(this)">Eksport Produk
+                                                        <option value="eksport" onclick="laporan_check()">Eksport Produk
                                                             Biodiesel</option>
                                                     </select>
                                                 </fieldset>
                                             </div>
                                         </div>
-                                        <div class="col-md-3 ">
+                                        <div class="col-md-4 mr-auto">
                                             <div class="form-group">
                                                 <label>Tahun</label>
                                                 <select class="form-control" name="tahun" id="date-dropdown">
@@ -109,7 +109,9 @@
                                                 </select>
                                             </div>
                                         </div> --}}
-                                        <div class="col-md-3 mr-auto">
+                                        {{-- <div  > --}}
+
+                                        <div class="col-md-4 mr-auto" id="bulan3">
                                             <label>Bulan</label>
                                             <select class="form-control" name="bulan" id="bulan2"
                                                 onchange="showTable2()">
@@ -119,6 +121,7 @@
                                             </select>
 
                                         </div>
+                                        {{-- </div> --}}
                                         <div id="equal_container2" style="display:none">
                                             <div class="row">
                                                 <div class="col-md-12 " style="margin-right:-3%">
@@ -146,8 +149,9 @@
                                             </div>
                                         </div>
                                         <div id="between_container2" style="display:none">
-                                            <div class="row">
-                                                <div class="col-md-12 ">
+                                            {{-- <div class="> --}}
+                                            <div class="row col-md-12 ml-auto" style="margin-right:60%">
+                                                <div class="col-md-6 ">
                                                     <div class="form-group">
                                                         <label>Dari</label>
                                                         <select class="form-control" name="start_month">
@@ -169,9 +173,9 @@
 
                                                     </div>
                                                 </div>
-                                                </div>
-                                                <div class="row">
-                                                <div class="col-md-12 ">
+                                                {{-- </div>
+                                                <div class="row"> --}}
+                                                <div class="col-md-6 ">
                                                     <div class="form-group">
                                                         <label>Ke</label>
                                                         <select class="form-control" name="end_month">
@@ -191,6 +195,7 @@
                                                             <option value="12">DISEMBER</option>
                                                         </select>
                                                     </div>
+                                                </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -257,16 +262,35 @@
             }
         };
     </script>
-    <script>
+    {{-- <script>
         function laporan_check(rad) {
             if (rad.value == "kapasiti") {
-                document.getElementById("bulan").disabled = true;
+                document.getElementById("bulan").display = "block";
             } else {
 
-                document.getElementById("bulan").disabled = false;
+                document.getElementById("bulan").display = "none";
+            }
+        }
+    </script> --}}
+    <script>
+        function laporan_check(this) {
+            if (this.value == "kapasiti") {
+                document.getElementById("bulan").style.display = "block";
+            } else {
+
+                document.getElementById("bulan").style.display = "none";
             }
         }
     </script>
+    <script>
+        $(document).ready(function(){
+            $('#myselection').on('change', function(){
+                // var demovalue = $(this).val();
+                $("#bulan").hide();
+                $("#show"+demovalue).show();
+            });
+        });
+        </script>
     {{-- <script>
     let dateDropdown = document.getElementById('date-dropdown');
 
@@ -280,6 +304,31 @@
       currentYear -= 1;
     }
   </script> --}}
+    <script type="text/javascript">
+        function laporan_check() {
+            var laporan = $('#laporan').val();
+            // console.log(oer);
+
+            if (laporan == "kapasiti") {
+                document.getElementById('bulan3').style.display = "none";
+                // document.getElementById('lain_container2').style.display = "none";
+            } else {
+                document.getElementById('bulan3').style.display = "block";
+                // document.getElementById('lain_container2').style.display = "block";
+
+            }
+
+            // if (bulan == "between") {
+            //     document.getElementById('between_container2').style.display = "block";
+            //     document.getElementById('lain_container2').style.display = "block";
+
+            // } else {
+            //     document.getElementById('between_container2').style.display = "none";
+            //     document.getElementById('lain_container2').style.display = "block";
+
+            // }
+        }
+    </script>
     <script type="text/javascript">
         function showTable2() {
             var bulan = $('#bulan2').val();
