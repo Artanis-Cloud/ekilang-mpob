@@ -40,6 +40,7 @@ class DashboardAdminController extends Controller
             and p.e_nl = r.e_nl
             and r.e_kat = 'PL91'
             and e.e91_sdate is not null
+            and e.e91_flg ='2'
             and DAY(e.e91_sdate) = '$i'
             group by e.e91_sdate
             order by e.e91_sdate");
@@ -62,6 +63,7 @@ class DashboardAdminController extends Controller
             and p.e_nl = r.e_nl
             and r.e_kat = 'PL101'
             and e.e101_sdate is not null
+            and e.e101_flg ='2'
             and DAY(e.e101_sdate) = '$i'
             group by e.e101_sdate
             order by e.e101_sdate");
@@ -85,6 +87,7 @@ class DashboardAdminController extends Controller
             and r.e_kat = 'PL102'
             -- and e.e102_flg = '2'
             and e.e102_sdate is not null
+            and e.e102_flg ='2'
             and DAY(e.e102_sdate) = '$i'
             group by e.e102_sdate
             order by e.e102_sdate");
@@ -107,6 +110,7 @@ class DashboardAdminController extends Controller
             and p.e_nl = r.e_nl
             and r.e_kat = 'PL104'
             and e.e104_sdate is not null
+            and e.e104_flg ='2'
             and DAY(e.e104_sdate) = '$i'
             group by e.e104_sdate
             order by e.e104_sdate");
@@ -129,6 +133,7 @@ class DashboardAdminController extends Controller
             and p.e_nl = r.e_nl
             and r.e_kat = 'PL111'
             and e.e07_sdate is not null
+            and e.e07_flg = '2'
             and DAY(e.e07_sdate) = '$i'
             group by e.e07_sdate
             order by e.e07_sdate");
@@ -151,6 +156,7 @@ class DashboardAdminController extends Controller
             and p.e_nl = r.e_nl
             and r.e_kat = 'PLBIO'
             and e.ebio_sdate is not null
+            and e.ebio_flg = '2'
             and DAY(e.ebio_sdate) = '$i'
             group by e.ebio_sdate
             order by e.ebio_sdate");

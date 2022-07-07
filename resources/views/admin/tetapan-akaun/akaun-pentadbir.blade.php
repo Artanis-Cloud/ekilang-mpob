@@ -128,7 +128,13 @@
 
                                     </div>
                                 </div>
+                                {{-- {{ $selected = explode(",", auth()->user()->sub_cat); }}
 
+                                <select  name="sub_cat[]" multiple="multiple">
+                                   @foreach($sub as $supplier)
+                                     <option value="{{ $supplier->id }}" {{ (in_array($supplier->id, $selected)) ? 'selected' : '' }}>{{ $supplier->name}}</option>
+                                   @endforeach
+                                </select> --}}
                                     <div class="row">
                                         <label for="fname"
                                             class="text-right col-sm-4 control-label col-form-label required align-items-center">Sub

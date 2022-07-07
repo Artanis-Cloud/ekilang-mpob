@@ -57,7 +57,7 @@
                         </h5>
                     </div>
                     <hr>
-                    <form action="{{ route('admin.update.maklumat.asas.pelesen', [$pelesen->e_id] ) }}" method="post">
+                    <form action="{{ route('admin.update.maklumat.asas.pelesen', [$pelesen->e_id] ) }}" method="post"  onsubmit="return check()" novalidate>
                         @csrf
                         <div class="container center mt-5 mb-2">
                             <div class="row">
@@ -89,7 +89,7 @@
                                     Status e-Kilang </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="e_status">
+                                        <select class="form-control" name="e_status" id="e_status" required>
 
                                             <option {{ ($reg_pelesen->e_status == '1') ? 'selected' : '' }} value="1">Aktif</option>
                                             <option {{ ($reg_pelesen->e_status == '2') ? 'selected' : '' }} value="2">Tidak Aktif</option>
@@ -104,7 +104,7 @@
                                     Status e-Mingguan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="e_stock">
+                                        <select class="form-control" name="e_stock" id="e_stock" required>
                                             <option {{ ($reg_pelesen->e_stock == '1') ? 'selected' : '' }} value="1">Aktif</option>
                                             <option {{ ($reg_pelesen->e_stock == '2') ? 'selected' : '' }} value="2">Tidak Aktif</option>
                                         </select>
@@ -118,7 +118,7 @@
                                     Status Direktori </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="directory">
+                                        <select class="form-control" name="directory" id="directory" required>
                                             <option {{ ($reg_pelesen->directory == 'Y') ? 'selected' : '' }} value="Y">Ya</option>
                                             <option {{ ($reg_pelesen->directory == 'N') ? 'selected' : '' }}value="N">Tidak</option>
                                         </select>
@@ -132,7 +132,7 @@
                                     Kod Negeri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" name="kodpgw" id="kodpgw">
+                                        <select class="form-control" name="kodpgw" id="kodpgw" required>
 
                                             <option {{ ($pelesen->kodpgw == 'JJ') ? 'selected' : '' }} value="JJ">JJ</option>
                                             <option {{ ($pelesen->kodpgw == 'KB') ? 'selected' : '' }} value="KB">KB</option>
@@ -170,8 +170,8 @@
                                     Nombor Siri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <input type="text" id="nombor_siri" class="form-control"
-                                        placeholder="Nombor Siri" name="nosiri"
+                                        <input type="text" id="nosiri" class="form-control" required
+                                        placeholder="Nombor Siri" name="nosiri" maxlength="4" minlength="4"
                                         value="{{ $pelesen->nosiri ?? '' }}">
                                     </fieldset>
 
@@ -183,7 +183,7 @@
                                     Nombor Lesen </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                            <input type="text" id="nombor_lesen" class="form-control"
+                                            <input type="text" id="e_nl" class="form-control" required minlength="12" maxlength="12"
                                                 placeholder="Nombor Lesen" name="e_nl" value="{{ $pelesen->e_nl ?? '-' }}">
 
                                     </fieldset>
@@ -196,7 +196,7 @@
                                     Nama Premis </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <input type="text" id="nama_premis" class="form-control"
+                                        <input type="text" id="e_np" class="form-control" required maxlength="60"
                                         placeholder="Nama Premis" name="e_np" value="{{ $pelesen->e_np ?? '-' }}">
                                     </fieldset>
 
@@ -207,7 +207,7 @@
                                     class="text-right col-sm-5 control-label required col-form-label align-items-center">
                                     Alamat Premis Berlesen</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_ap1" class="form-control"
+                                    <input type="text" id="e_ap1" class="form-control" maxlength="60"
                                         placeholder="Alamat Premis Berlesen 1" name="e_ap1"
                                         value="{{ $pelesen->e_ap1 }}" required>
                                     @error('e_ap1')
@@ -217,7 +217,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 41.6%; ">
-                                    <input type="text" id="e_ap2" class="form-control"
+                                    <input type="text" id="e_ap2" class="form-control" maxlength="60"
                                         placeholder="Alamat Premis Berlesen 2" name="e_ap2"
                                         value="{{ $pelesen->e_ap2 }}">
                                         @error('e_ap2')
@@ -227,7 +227,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 41.6%;">
-                                    <input type="text" id="e_ap3" class="form-control"
+                                    <input type="text" id="e_ap3" class="form-control" maxlength="60"
                                         placeholder="Alamat Premis Berlesen 3" name="e_ap3"
                                         value="{{ $pelesen->e_ap3 }}">
                                         @error('e_ap3')
@@ -243,7 +243,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Alamat Surat Menyurat</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_as1" class="form-control"
+                                    <input type="text" id="e_as1" class="form-control" required maxlength="60"
                                         placeholder="Alamat Surat Menyurat 1" name="e_as1"
                                         value="{{ $pelesen->e_as1 }}">
                                     @error('e_as1')
@@ -253,7 +253,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 41.6%">
-                                    <input type="text" id="e_as2" class="form-control"
+                                    <input type="text" id="e_as2" class="form-control" maxlength="60"
                                         placeholder="Alamat Surat Menyurat 2" name="e_as2"
                                         value="{{ $pelesen->e_as2 }}">
                                         @error('e_as2')
@@ -263,7 +263,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-6" style="margin-left: 41.6%">
-                                    <input type="text" id="e_as3" class="form-control"
+                                    <input type="text" id="e_as3" class="form-control" maxlength="60"
                                         placeholder="Alamat Surat Menyurat 3" name="e_as3"
                                         value="{{ $pelesen->e_as3 }}">
                                         @error('e_as3')
@@ -279,7 +279,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     No. Telefon (Pejabat / Kilang)</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_notel" class="form-control"
+                                    <input type="text" id="e_notel" class="form-control" maxlength="40"
                                         placeholder="No. Telefon Pejabat / Kilang" name="e_notel"
                                         value="{{ $pelesen->e_notel }}" required
                                         onkeypress="return isNumberKey(event)">
@@ -292,12 +292,12 @@
                             </div>
                             <div class="row mb-2">
                                 <label for="fname"
-                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
                                     No. Faks</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_nofax" class="form-control"
+                                    <input type="text" id="e_nofax" class="form-control" maxlength="40"
                                         placeholder="No. Faks" name="e_nofax"
-                                        value="{{ $pelesen->e_nofax }}" required>
+                                        value="{{ $pelesen->e_nofax }}" >
                                     @error('e_nofax')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -311,7 +311,7 @@
                                     Alamat Emel Kilang</label>
                                 <div class="col-md-6">
                                     <input type="email" id="e_email" class="form-control"
-                                        placeholder="Alamat Emel" name="e_email"
+                                        placeholder="Alamat Emel" name="e_email" required maxlength="40"
                                         value="{{ $pelesen->e_email }}">
                                     @error('e_email')
                                         <div class="alert alert-danger">
@@ -325,7 +325,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Nama Pegawai Melapor</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_npg" class="form-control"
+                                    <input type="text" id="e_npg" class="form-control" required maxlength="60"
                                         placeholder="Nama Pegawai Melapor" name="e_npg"
                                         value="{{ $pelesen->e_npg }}">
                                     @error('e_npg')
@@ -340,7 +340,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Jawatan Pegawai Melapor</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_jpg" class="form-control"
+                                    <input type="text" id="e_jpg" class="form-control" required maxlength="60"
                                         placeholder="Jawatan Pegawai Melapor" name="e_jpg"
                                         value="{{ $pelesen->e_jpg }}">
                                     @error('e_jpg')
@@ -355,9 +355,9 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     No. Telefon Pegawai Melapor</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="no-tel-pegawai-melapor" class="form-control"
+                                    <input type="text" id="e_notel_pg" class="form-control"
                                         placeholder="No. Telefon Pegawai Melapor"
-                                        name="e_notel_pg"
+                                        name="e_notel_pg" required maxlength="40"
                                         onkeypress="return isNumberKey(event)"  value="{{ $pelesen->e_notel_pg }}">
                                     @error('e_notel_pg')
                                         <div class="alert alert-danger">
@@ -371,8 +371,8 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Alamat Emel Pegawai Melapor</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="no-tel-pegawai-melapor" class="form-control"
-                                        placeholder="Alamat Emel Pegawai Melapor"
+                                    <input type="email" id="e_email_pg" class="form-control"
+                                        placeholder="Alamat Emel Pegawai Melapor" required maxlength="40"
                                         name="e_email_pg" value="{{ $pelesen->e_email_pg }}">
                                     @error('e_email_pg')
                                         <div class="alert alert-danger">
@@ -386,7 +386,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Nama Pegawai Bertanggungjawab</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_npgtg" class="form-control"
+                                    <input type="text" id="e_npgtg" class="form-control" required maxlength="60"
                                         placeholder="Nama Pegawai Bertanggungjawab" name="e_npgtg"
                                         value="{{ $pelesen->e_npgtg }}">
                                     @error('e_npgtg')
@@ -402,7 +402,7 @@
                                     Jawatan Pegawai
                                     Bertanggungjawab</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="e_jpgtg" class="form-control"
+                                    <input type="text" id="e_jpgtg" class="form-control" required maxlength="60"
                                         placeholder="Jawatan Pegawai Bertanggungjawab" name="e_jpgtg"
                                         value="{{ $pelesen->e_jpgtg }}">
                                     @error('e_jpgtg')
@@ -417,7 +417,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Alamat Emel Pengurus</label>
                                 <div class="col-md-6">
-                                    <input type="email" id="e_email_pengurus" class="form-control"
+                                    <input type="email" id="e_email_pengurus" class="form-control" required maxlength="40"
                                         placeholder="Alamat Emel Pengurus" name="e_email_pengurus"
                                         value="{{ $pelesen->e_email_pengurus }}">
 
@@ -435,7 +435,7 @@
                                     Negeri </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="negeri_id" name='e_negeri'
+                                        <select class="form-control" id="negeri_id" name='e_negeri' required
                                             onchange="ajax_daerah(this);ajax_kawasan(this)" value="{{ $negeri }}">
                                             <option selected hidden disabled>{{ $pelesen->negeri->nama_negeri ?? 'Sila Pilih Negeri' }}</option>
                                             @foreach ($negeri as $data)
@@ -454,7 +454,7 @@
                                     Daerah </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="daerah_id" name='e_daerah'
+                                        <select class="form-control" id="daerah_id" name='e_daerah' required
                                             placeholder="Daerah">
                                             <option selected hidden disabled> {{  $pelesen->daerah->nama_daerah ?? 'Sila Pilih Negeri Terlebih Dahulu'}}
                                             </option>
@@ -473,8 +473,8 @@
                                     Kawasan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="kawasan_id" name='e_kawasan'>
-                                            <option value="" selected hidden disabled>{{  $pelesen->e_daerah ?? 'Sila Pilih Daerah Terlebih Dahulu'}}</option>
+                                        <select class="form-control" id="kawasan_id" name='e_kawasan' required>
+                                            <option value="" selected hidden disabled>{{  $pelesen->negeri->nama_region ?? 'Sila Pilih Daerah Terlebih Dahulu'}}</option>
                                         </select>
                                     </fieldset>
 
@@ -485,7 +485,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Syarikat Induk</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="syarikat_induk" class="form-control"
+                                    <input type="text" id="e_syktinduk" class="form-control" required maxlength="60"
                                         placeholder="Syarikat Induk" name="e_syktinduk"
                                         value="{{ $pelesen->e_syktinduk}}">
                                     @error('e_syktinduk')
@@ -500,8 +500,8 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Tahun Mula Beroperasi</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="tahun_operasi" class="form-control"
-                                    placeholder="Tahun Mula Beroperasi" name="e_year"
+                                    <input type="text" id="e_year" class="form-control" required
+                                    placeholder="Tahun Mula Beroperasi" name="e_year" maxlength="4" minlength="4"
                                     value="{{ $pelesen->e_year ?? '-' }}">
                                 </div>
                             </div>
@@ -511,7 +511,7 @@
                                     Kumpulan </label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="e_group" name="e_group">
+                                        <select class="form-control" id="e_group" name="e_group" required>
                                             <option selected   value="">Sila Pilih Kumpulan</option>
 
                                             <option {{ $pelesen->e_group == 'GOV' ? 'selected' : '' }} value="GOV">
@@ -535,7 +535,7 @@
                                         POMA </label>
                                     <div class="col-md-6">
                                         <fieldset class="form-group">
-                                            <select class="form-control" id="e_poma" name="e_poma">
+                                            <select class="form-control" id="e_poma" name="e_poma" required>
                                                 <option {{ $pelesen->e_poma == 'Ya' ? 'selected' : '' }} value="Ya">
                                                     Ya</option>
                                                 <option {{ $pelesen->e_poma == 'Tidak' ? 'selected' : '' }} value="Tidak">
@@ -556,7 +556,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center">
                                     Kapasiti Pemprosesan / Tahun</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="kap_proses" class="form-control"
+                                    <input type="text" id="kap_proses" class="form-control" required maxlength="10"
                                         placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                         onkeypress="return isNumberKey(event)"
                                         value="{{ $pelesen->kap_proses  }}">
@@ -1442,6 +1442,193 @@
                     kap_tangki_others));
 
             document.getElementById('kap_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
+        }
+    </script>
+    <script>
+        function check() {
+            // (B1) INIT
+            var error = "",
+                field = "";
+
+            // kategori
+            field = document.getElementById("e_kat");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // status e-kilang
+            field = document.getElementById("e_status");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // status e-mingguan
+            field = document.getElementById("e_stock");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // directory
+            field = document.getElementById("directory");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // alamat premis 1
+            field = document.getElementById("e_ap1");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // kod pegawai
+            field = document.getElementById("kodpgw");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // no siri
+            field = document.getElementById("nosiri");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // no lesen
+            field = document.getElementById("e_nl");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // nama premis
+            field = document.getElementById("e_np");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // alamat premis 1
+            field = document.getElementById("e_ap1");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // alamat surat-menyurat 1
+            field = document.getElementById("e_as1");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // no tel kilang
+            field = document.getElementById("e_notel");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // email kilang
+            field = document.getElementById("e_email");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // nama pegawai melapor
+            field = document.getElementById("e_npg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // jawatan pegawai melapor
+            field = document.getElementById("e_jpg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // no tel pegawai melapor
+            field = document.getElementById("e_notel_pg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // // email pegawai melapor
+            // field = document.getElementById("e_email_pg");
+            // if (!field.checkValidity()) {
+            //     error += "Name must be 2-4 characters\r\n";
+            // }
+
+            // nama pegawai bertanggungjawab
+            field = document.getElementById("e_npgtg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // jawatan pegawai bertanggungjawab
+            field = document.getElementById("e_jpgtg");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // emel pengurus
+            field = document.getElementById("e_email_pengurus");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // enegeri
+            field = document.getElementById("negeri_id");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // daerah
+            field = document.getElementById("daerah_id");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // kawasan
+            field = document.getElementById("kawasan_id");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // syarikat induk
+            field = document.getElementById("e_syktinduk");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // tahun mula beroperasi
+            field = document.getElementById("e_year");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+            // kumpulan
+            field = document.getElementById("e_group");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+           // POMA
+            field = document.getElementById("e_poma");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+           // kap proses
+            field = document.getElementById("kap_proses");
+            if (!field.checkValidity()) {
+                error += "Name must be 2-4 characters\r\n";
+            }
+
+            // (B4) RESULT
+            if (error == "") {
+                return true;
+            } else {
+                toastr.error(
+                    'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    'Ralat!', {
+                        "progressBar": true
+                    })
+                return false;
+            }
+
+            // if (error == "") {
+            //     return true;
+            // } else {
+            //     toastr.error(
+            //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+            //         'Ralat!', {
+            //             "progressBar": true
+            //         })
+            //     return false;
+            // }
         }
     </script>
 

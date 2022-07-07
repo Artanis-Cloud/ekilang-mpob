@@ -63,7 +63,7 @@ class Proses1Controller extends Controller
 
     public function admin_1daftarpelesen_proses(Request $request)
     {
-        //  dd($request->all());
+
 
         $this->validation_daftar_pelesen($request->all())->validate();
 
@@ -89,13 +89,13 @@ class Proses1Controller extends Controller
             'e_nl' => ['required', 'string', 'unique:pelesen'],
             'e_np' => ['required', 'string'],
             'e_ap1' => ['required', 'string'],
-            'e_ap2' => ['required', 'string'],
-            'e_ap3' => ['required', 'string'],
+            // 'e_ap2' => ['required', 'string'],
+            // 'e_ap3' => ['required', 'string'],
             'e_as1' => ['required', 'string'],
-            'e_as2' => ['required', 'string'],
-            'e_as3' => ['required', 'string'],
+            // 'e_as2' => ['required', 'string'],
+            // 'e_as3' => ['required', 'string'],
             'e_notel' => ['required', 'string'],
-            'e_nofax' => ['required', 'string'],
+            // 'e_nofax' => ['required', 'string'],
             'e_email' => ['required', 'string'],
             'e_npg' => ['required', 'string'],
             'e_jpg' => ['required', 'string'],
@@ -188,23 +188,37 @@ class Proses1Controller extends Controller
 
         // $count = Kapasiti::max('id');
 
-        //
+        // dd($data['kap_proses']);
         return Kapasiti::create([
             // 'id' => $count+ 1,
             'e_nl' => $data['e_nl'],
             'tahun' => date("Y"),
-            '01' => $data['kap_proses'],
-            '02' => $data['kap_proses'],
-            '03' => $data['kap_proses'],
-            '04' => $data['kap_proses'],
-            '05' => $data['kap_proses'],
-            '06' => $data['kap_proses'],
-            '07' => $data['kap_proses'],
-            '08' => $data['kap_proses'],
-            '09' => $data['kap_proses'],
-            '10' => $data['kap_proses'],
-            '11' => $data['kap_proses'],
-            '12' => $data['kap_proses'],
+            'jan' => $data['kap_proses'],
+            'feb' => $data['kap_proses'],
+            'mac' => $data['kap_proses'],
+            'apr' => $data['kap_proses'],
+            'mei' => $data['kap_proses'],
+            'jun' => $data['kap_proses'],
+            'jul' => $data['kap_proses'],
+            'ogs' => $data['kap_proses'],
+            'sept' => $data['kap_proses'],
+            'okt' => $data['kap_proses'],
+            'nov' => $data['kap_proses'],
+            'dec' => $data['kap_proses'],
+            // 'e_nl' => $request->e_nl,
+            // 'tahun' => date("Y"),
+            // 'jan' => $request->kap_proses,
+            // 'feb' => $request->kap_proses,
+            // 'mac' => $request->kap_proses,
+            // 'apr' => $request->kap_proses,
+            // 'mei' => $request->kap_proses,
+            // 'jun' => $request->kap_proses,
+            // 'jul' => $request->kap_proses,
+            // 'ogs' => $request->kap_proses,
+            // 'sept' => $request->kap_proses,
+            // 'okt' => $request->kap_proses,
+            // 'nov' => $request->kap_proses,
+            // 'dec' => $request->kap_proses,
 
         ]);
     }
@@ -246,7 +260,7 @@ class Proses1Controller extends Controller
     {
 
         $reg_pelesen = RegPelesen::find($e_id);
-        $pelesen = Pelesen::with('daerah')->where('e_nl', $reg_pelesen->e_nl)->first();
+        $pelesen = Pelesen::with('daerah','negeri')->where('e_nl', $reg_pelesen->e_nl)->first();
         // dd($pelesen);
         $jumlah = ($pelesen->bil_tangki_cpo ?? 0) +
             ($pelesen->bil_tangki_ppo ?? 0) +
