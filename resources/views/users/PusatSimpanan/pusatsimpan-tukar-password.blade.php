@@ -168,8 +168,8 @@
 
                 password.onchange = validatePassword;
                 confirm_password.onkeyup = validatePassword;
-
-
+            </script>
+            <script>
 
                 function myFunction() {
                     var x = document.getElementById("myInput");
@@ -192,6 +192,21 @@
                     }
                 }
             </script>
+            <script>
+                var oldpassword = document.getElementById("myInput"), newpassword = document.getElementById("myInput2");
+
+                function validateOldPassword(){
+                if(oldpassword.value != newpassword.value) {
+                    confirm_password.setCustomValidity("Kata laluan tidak boleh sama dengan yang baharu");
+                } else {
+                    confirm_password.setCustomValidity('');
+                }
+                }
+
+                oldpassword.onkeyup = validateOldPassword;
+                newpassword.onchange = validateOldPassword;
+            </script>
+
         @endsection
 
 

@@ -1,14 +1,9 @@
 @extends('layouts.main')
 
 @section('content')
-    <!-- ============================================================== -->
-    <!-- Page wrapper  -->
-    <!-- ============================================================== -->
-    <div class="page-wrapper">
 
-        <!-- ============================================================== -->
-        <!-- Bread crumb and right sidebar toggle -->
-        <!-- ============================================================== -->
+    <div class="page-wrapper" style="transition: 0s;">
+
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
@@ -40,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <div class="card" style="margin-right:3%; margin-left:3%">
+        <div class="card" style="margin-right:3%; margin-left:3%;">
             {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}

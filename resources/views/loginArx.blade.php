@@ -14,11 +14,11 @@
                     <h2 style="color: rgb(40, 40, 40)">Lembaga Minyak Sawit</h2>
                     <form action="" method="POST">
                         <h3 style="color: #d2a442 ">Log Masuk</h3>
-                        <input type="text" name="nomborLesen" placeholder="Nombor Lesen" required>
+                        <input type="text" name="nomborLesen" placeholder="Nombor Lesen" oninvalid="this.setCustomValidity('Sila masukkan no. lesen')" required>
                         <br><br>
-                        <input type="password" name="password" placeholder="Kata Laluan" required>
+                        <input type="password" name="password" placeholder="Kata Laluan" oninvalid="this.setCustomValidity('Sila masukkan kata laluan')" required>
                         <br><br>
-                        <input  type="submit" class="login" name="submit" value="Log Masuk" style=" background-color: #04b485; color: white; width: 78%">
+                        <input  type="submit" class="login" name="submit" value="Log Masuk" style=" background-color: #04b485; color: white; width: 100%">
                         <br><br>
                     </form>
                 </div>
@@ -26,7 +26,7 @@
             </div>
             <div style="">
                 <div class="container01">
-                    <b style="color: white; font-size: 25px; background-color: #04B486; padding: 5px 55px">PENGUMUMAN</b>
+                    <b style="color: white; font-size: 25px; background-color: #04B486; padding: 5px 55px;">PENGUMUMAN</b>
                     <table style="text-align: left; font-size: 15px; ">
                         <tr><td colspan="2">Sebarang pertanyaan sila hubungi :</td></tr>
                         <tr>

@@ -152,51 +152,48 @@
 
                 </form>
             </div>
-            </div>
+        </div>
+    </div>
 
-            {{-- </div> --}}
-            {{-- </div> --}}
-            {{-- </div> --}}
-            {{-- </div><br><br><br><br><br><br><br><br><br><br><br><br> --}}
-        @endsection
-        @section('scripts')
-            <script>
-                var password = document.getElementById("myInput2"), confirm_password = document.getElementById("myInput3");
+@endsection
+@section('scripts')
+    <script>
+        var password = document.getElementById("myInput2"), confirm_password = document.getElementById("myInput3");
 
-                function validatePassword(){
-                if(password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Passwords Don't Match");
-                } else {
-                    confirm_password.setCustomValidity('');
-                }
-                }
+        function validatePassword(){
+        if(password.value != confirm_password.value) {
+            confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+        }
 
-                password.onchange = validatePassword;
-                confirm_password.onkeyup = validatePassword;
+        password.onchange = validatePassword;
+        confirm_password.onkeyup = validatePassword;
 
 
 
 
 
-                function myFunction() {
-                    var x = document.getElementById("myInput");
-                    if (x.type === "password") {
-                        x.type = "text";
-                    } else {
-                        x.type = "password";
-                    }
-                    var x = document.getElementById("myInput2");
-                    if (x.type === "password") {
-                        x.type = "text";
-                    } else {
-                        x.type = "password";
-                    }
-                    var x = document.getElementById("myInput3");
-                    if (x.type === "password") {
-                        x.type = "text";
-                    } else {
-                        x.type = "password";
-                    }
-                }
-            </script>
-        @endsection
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+            var x = document.getElementById("myInput2");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+            var x = document.getElementById("myInput3");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
+        }
+    </script>
+@endsection

@@ -4,7 +4,7 @@
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="transition: 0s;">
 
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
@@ -81,11 +81,11 @@
 
                         <div class="container center mt-4" style="margin-left:4%">
                             <div class="row">
-                                <div class="col-md-3">
+                                    <div class="col-md-3 mt-3">
                                     <span class="">Nama Produk Sawit dan Kod</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <select class="form-control" id="produk" name="e07bt_produk" style="width: 50%">
+                                    <div class="col-md-3 mt-3">
+                                    <select class="form-control" id="produk" name="e07bt_produk" style="width: 70%">
                                         <option selected hidden disabled>Sila Pilih</option>
                                         @foreach ($produks as $produk)
                                             @if ($produk->prodname != '')
@@ -105,12 +105,12 @@
                             </div>
 
 
-                            <div class="row mt-3">
-                                <div class="col-md-3">
+                            <div class="row">
+                                    <div class="col-md-3 mt-3">
                                     <span class="">Stok Awal</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_stokawal' style="width: 50%" onkeypress="return isNumberKey(event)"
+                                    <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e07bt_stokawal' style="width: 70%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_stokawal" required title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                     @error('e07bt_stokawal')
                                         <div class="alert alert-danger">
@@ -118,11 +118,11 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-3">
+                                    <div class="col-md-3 mt-3">
                                     <span>Eksport</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_eksport' style="width: 50%"
+                                    <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e07bt_eksport' style="width: 70%"
                                         id="e07bt_eksport" title="Sila isikan butiran ini." readonly oninput="validate_two_decimal(this)">
                                     @error('e07bt_eksport')
                                         <div class="alert alert-danger">
@@ -134,13 +134,13 @@
 
 
                             <div class="row mt-3">
-                                <div class="col-md-3">
+                                    <div class="col-md-3 mt-3">
                                     <span class=" align-items-center">
                                         Terimaan Dalam Negeri &nbsp;<i class="fa fa-exclamation-circle" style="color: red"
                                             title="Jumlah Penerimaan Dalam Negeri adalah termasuk jumlah Import."></i></span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_terima' style="width: 50%" onkeypress="return isNumberKey(event)"
+                                    <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e07bt_terima' style="width: 70%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_terima" required title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                     @error('e07bt_terima')
                                         <div class="alert alert-danger">
@@ -148,11 +148,11 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-3">
+                                    <div class="col-md-3 mt-3">
                                     <span class="">Pelarasan(+/-)</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 50%" onkeypress="return isNumberKey(event)"
+                                    <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 70%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_pelarasan" required title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                     @error('e07bt_pelarasan')
                                         <div class="alert alert-danger">
@@ -164,11 +164,11 @@
 
 
                             <div class="row mt-3">
-                                <div class="col-md-3">
+                                    <div class="col-md-3 mt-3">
                                     <span>Import</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_import' style="width: 50%"
+                                    <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e07bt_import' style="width: 70%"
                                         id="e07bt_import" title="Sila isikan butiran ini." readonly>
                                     @error('e07bt_import')
                                         <div class="alert alert-danger">
@@ -176,11 +176,11 @@
                                         </div>
                                     @enderror
                                 </div>
-                                <div class="col-md-3">
+                                    <div class="col-md-3 mt-3">
                                     <span class="">Stok Akhir</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_stokakhir' style="width: 50%" onkeypress="return isNumberKey(event)"
+                                    <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e07bt_stokakhir' style="width: 70%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_stokakhir" required title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                     @error('e07bt_stokakhir')
                                         <div class="alert alert-danger">
@@ -190,13 +190,13 @@
                                 </div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-3">
+                                    <div class="col-md-3 mt-3">
                                     <span class=" align-items-center">
                                         Edaran Tempatan  &nbsp;<i class="fa fa-exclamation-circle" style="color: red"
                                             title="Jumlah Edaran Tempatan adalah termasuk jumlah Eksport."></i></span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e07bt_edaran' style="width: 50%" onkeypress="return isNumberKey(event)"
+                                    <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e07bt_edaran' style="width: 70%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_edaran" required title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
                                     @error('e07bt_edaran')
                                         <div class="alert alert-danger">

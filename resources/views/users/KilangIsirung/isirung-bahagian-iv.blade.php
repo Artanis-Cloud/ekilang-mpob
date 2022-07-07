@@ -83,13 +83,13 @@
                         </div>
                         <hr>
                         <div class="container center mt-3" >
-                            <div class="row mt-3">
-                                <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-3 mt-3">
                                     <span class="">Jualan/Edaran:</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <select class="form-control" id="e102_b4" style=" width:50%" name="e102_b4" required>
-                                        <option selected hidden disabled>Sila Pilih</option>
+                                <div class="col-md-3 mt-3">
+                                    <select class="form-control" id="e102_b4" style=" width:70%" name="e102_b4" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                        <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($prodcat as $data)
                                             <option value="{{ $data->catid }}">
                                                 {{ $data->catname }}
@@ -105,13 +105,13 @@
                                 </div>
 
 
-                                <div class="col-md-3">
+                                <div class="col-md-3 mt-3">
                                     <span class="">Ke:</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <select class="form-control" id="e102_b5" style=" width:50%"
+                                <div class="col-md-3 mt-3">
+                                    <select class="form-control" id="e102_b5" style=" width:70%" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         required name="e102_b5">
-                                        <option selected hidden disabled>Sila Pilih</option>
+                                        <option selected hidden disabled value="">Sila Pilih</option>
 
                                         <option value="2">KILANG PENAPIS</option>
                                         <option value="3">KILANG ISIRUNG</option>
@@ -131,13 +131,13 @@
 
                             </div>
 
-                            <div class="row mt-3">
-                                <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-3 mt-3">
                                     <span class="">Kuantiti:</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e102_b6' style="width:50%" id="e102_b6"
-                                        oninput="validate_two_decimal(this)" required onkeypress="return isNumberKey(event)"
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e102_b6' style="width:70%" id="e102_b6"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" required onkeypress="return isNumberKey(event)"
                                         title="Sila isikan butiran ini.">
                                         @error('e102_b6')
                                         <div class="alert alert-danger">
@@ -565,7 +565,7 @@
 
 
         <div class="form-group" style="padding: 10px; ">
-                <a href="{{ route('isirung.bahagianii') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
+                <a href="{{ route('isirung.bahagianiii') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
 
                 <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
                     data-target="#next">Simpan &

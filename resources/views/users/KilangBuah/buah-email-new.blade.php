@@ -233,7 +233,7 @@
                 </div>
             </div>
             </form>
-        </div>
+        
     @endsection
     @section('scripts')
         <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>

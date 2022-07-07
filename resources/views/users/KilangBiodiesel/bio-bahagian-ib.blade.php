@@ -4,7 +4,7 @@
     <!-- ============================================================== -->
     <!-- Page wrapper  -->
     <!-- ============================================================== -->
-    <div class="page-wrapper">
+    <div class="page-wrapper" style="transition: 0s;">
 
         <!-- ============================================================== -->
         <!-- Bread crumb and right sidebar toggle -->
@@ -527,7 +527,7 @@
                         <button type="button" class="btn btn-primary " data-toggle="modal"
                             style="float: right" data-target="#next">Simpan &
                             Seterusnya</button>
-             
+
 
                 </div>
 
