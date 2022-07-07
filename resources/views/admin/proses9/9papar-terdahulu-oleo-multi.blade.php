@@ -653,7 +653,7 @@
                                             </b></p>
 
                                             <table border="1" width="100%" cellspacing="0" cellpadding="0"
-                                                class="table table-bordered" style="padding: 0.2rem 0.3rem">
+                                                class="table table-bordered">
                                                 <tbody>
                                                     <tr style="padding: 0.2rem 0.3rem">
                                                         <td width="13%" style="text-align: center; vertical-align:middle"><b>

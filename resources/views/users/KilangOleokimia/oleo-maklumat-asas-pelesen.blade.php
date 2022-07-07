@@ -215,7 +215,7 @@
                                             No. Telefon Pegawai Melapor</label>
                                         </div>
                                         <div class="col-md-7">
-                                            <input type="text" id="no-tel-pegawai-melapor" class="form-control" maxlength="40"
+                                            <input type="text" id="e_notel_pg" class="form-control" maxlength="40"
                                                 placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                 onkeypress="return isNumberKey(event)" value="{{ $pelesen->e_notel_pg }}"
                                                 required multiple>
@@ -571,7 +571,7 @@
                         </div>
                     </div>
                 </div>
-            
+
 
 
 
