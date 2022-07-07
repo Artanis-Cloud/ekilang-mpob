@@ -59,14 +59,14 @@
 
                             <div class="container center">
                                 <div class="row" style="margin-top:-2%">
-                                    <div class="col-md-5 ml-auto">
+                                    <div class="col-md-4 ml-auto">
 
                                         <div class="form-group">
                                             <label>Kategori</label>
                                             <input type="text" class="form-control" value="Kilang Biodiesel" readonly>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 mr-auto">
+                                    {{-- <div class="col-md-5 mr-auto">
                                         <div class="form-group">
                                             <label>Tarikh Terima PL</label>
                                             <fieldset class="form-group">
@@ -77,6 +77,20 @@
                                                     <option value="all">Keseluruhan</option>
                                                 </select>
                                             </fieldset>
+                                        </div>
+                                    </div> --}}
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Tarikh Mula</label>
+                                            <input type="date" class="form-control" name="sdate">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mr-auto">
+                                        <div class="form-group">
+                                            <label>Tarikh Tamat</label>
+                                            <input type="date" class="form-control" name="edate">
+
                                         </div>
                                     </div>
                                     {{-- <div class="col-md-5 mr-auto">
