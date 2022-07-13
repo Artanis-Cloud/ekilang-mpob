@@ -970,7 +970,7 @@
                             method="post">
                             @csrf
                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                <input type="text" id="e101_npg" class="form-control" size="50" required name='e101_npg'
+                                <input type="text" id="e101_npg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" name='e101_npg'
                                     value="{{ $penyataiii->e101_npg }}">
                                 @error('e101_npg')
                                 <div class="alert alert-danger">
@@ -979,7 +979,7 @@
                             @enderror
                             </p>
                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                <input type="text" id="e101_jpg" class="form-control" size="50" required name='e101_jpg'
+                                <input type="text" id="e101_jpg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" name='e101_jpg'
                                     value="{{ $penyataiii->e101_jpg }}">
                                 @error('e101_jpg')
                                 <div class="alert alert-danger">
@@ -989,7 +989,7 @@
                             </p>
                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                <input type="text" id="e101_notel" class="form-control" size="50" required
+                                <input type="text" id="e101_notel" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                     name="e101_notel" value="{{ $penyataiii->e101_notel }}">
                                 @error('e101_notel')
                                 <div class="alert alert-danger">

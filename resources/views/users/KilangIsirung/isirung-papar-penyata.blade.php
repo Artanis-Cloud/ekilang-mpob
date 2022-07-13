@@ -33,7 +33,7 @@
                                             {{ $breadcrumb['name'] }}
                                         </li>
                                     @endif
-                                @endforeach
+                                @endforeach 
                             </ol>
                         </nav>
                     </div>

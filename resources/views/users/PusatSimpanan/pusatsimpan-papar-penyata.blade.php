@@ -418,16 +418,16 @@
                                                 @csrf
 
                                             <p>Nama Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_npg" class="form-control" size="50" required
+                                                <input type="text" id="e_npg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     name='e07_npg' value="{{ $user->e07_npg }}">
                                             </p>
                                             <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
-                                                <input type="text" id="e_jpg" class="form-control" size="50" required
+                                                <input type="text" id="e_jpg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     name='e07_jpg' value="{{ $user->e07_jpg }}">
                                             </p>
                                             <p>No Telefon Kilang: &nbsp;&nbsp;
 
-                                                <input type="text" id="e_notel" class="form-control" size="50" required
+                                                <input type="text" id="e_notel" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     name="e07_notel" value="{{ $user->e07_notel }}">
                                             </p>
 
