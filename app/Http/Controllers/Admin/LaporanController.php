@@ -731,7 +731,7 @@ class LaporanController extends Controller
             }
 
             $tahun2 = $request->tahun;
-
+            $bulan = $request->bulan;
             $start_month = $request->start_month;
             $end_month = $request->end_month;
 
@@ -781,6 +781,7 @@ class LaporanController extends Controller
                 'laporan' => $laporan,
                 'tahun_sql' => $tahun_sql,
                 'tahun2' => $tahun2,
+                'bulan' => $bulan,
                 'start_month' => $start_month,
                 'end_month' => $end_month,
 
@@ -846,10 +847,10 @@ class LaporanController extends Controller
 
             $kembali = route('admin.dashboard');
 
-            // $returnArr = [
-            //     'breadcrumbs' => $breadcrumbs,
-            //     'kembali'     => $kembali,
-            // ];
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
             $layout = 'layouts.admin';
 
             $array = [
@@ -860,14 +861,96 @@ class LaporanController extends Controller
                 'pengeluaran' => $pengeluaran,
 
 
-                'breadcrumbs' => $breadcrumbs,
-                'kembali' => $kembali,
+                // 'breadcrumbs' => $breadcrumbs,
+                // 'kembali' => $kembali,
 
-                // 'returnArr' => $returnArr,
+                'returnArr' => $returnArr,
                 'layout' => $layout,
 
             ];
             return view('admin.laporan_dq.laporan-pengeluaran', $array);
+        } elseif ($laporan == 'eksport') {
+
+
+            if ($request->tahun) {
+                $tahun_sql = "e.ebio_thn = $request->tahun";
+            } else {
+                $tahun_sql = "";
+            }
+            if ($request->bulan == 'equal') {
+                $bulan_sql = "AND e.ebio_bln = $request->start";
+            } elseif ($request->bulan == 'between') {
+                $bulan_sql = "AND e.ebio_bln BETWEEN $request->start_month AND $request->end_month";
+            } else {
+                $bulan_sql = "";
+            }
+            $bulan = $request->bulan;
+            // dd($bulan);
+            $tahun2 = $request->tahun;
+            $start_month = $request->start_month;
+            $end_month = $request->end_month;
+
+            // $nobatch = HBioInit::where('ebio_thn', $request->tahun)->where('ebio_bln', $request->bulan)->get('ebio_nobatch');
+
+
+            // $operasi =  DB::select("SELECT p.e_np, p.kap_proses, p.e_negeri, h.ebio_c3, h.ebio_c6, h.ebio_nobatch
+            // FROM kapasiti k, pelesen p, h_bio_c_s h
+            // WHERE h.ebio_nobatch = $batch
+            // AND k.e_nl = p.e_nl
+            // AND h.ebio_c3 = 'AW'");
+
+            // $nbatch =  DB::select("SELECT ebio_nobatch
+            // FROM h_bio_inits
+            // WHERE $tahun_sql.$bulan_sql");
+
+            // $batch = $nbatch[0]->ebio_nobatch;
+
+            // dd($nbatch);
+
+            $eksport =   DB::select("SELECT p.e_np, p.e_nl, h.ebio_c3, h.ebio_c9, h.ebio_nobatch, p.e_nl, innit.ebio_bln, innit.ebio_thn
+            FROM h_bio_c_s h
+            LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
+            LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
+            LEFT JOIN h_bio_inits e ON h.ebio_nobatch = e.ebio_nobatch
+            WHERE $tahun_sql.$bulan_sql
+            AND h.ebio_c3 = 'AW';");
+
+            // dd($eksport);
+
+            $breadcrumbs    = [
+                ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+                ['link' => route('admin.laporan.tahunan'), 'name' => "Laporan Tahunan"],
+                ['link' => route('admin.pl.lewat'), 'name' => "Laporan Tahunan Kapasiti"],
+
+            ];
+
+            $kembali = route('admin.dashboard');
+
+            $returnArr = [
+                'breadcrumbs' => $breadcrumbs,
+                'kembali'     => $kembali,
+            ];
+            $layout = 'layouts.admin';
+
+            $array = [
+                'laporan' => $laporan,
+                'tahun_sql' => $tahun_sql,
+                'tahun2' => $tahun2,
+                'start_month' => $start_month,
+                'end_month' => $end_month,
+                'bulan' => $bulan,
+
+                'eksport' => $eksport,
+
+
+                // 'breadcrumbs' => $breadcrumbs,
+                // 'kembali' => $kembali,
+
+                'returnArr' => $returnArr,
+                'layout' => $layout,
+
+            ];
+            return view('admin.laporan_dq.laporan-eksport', $array);
         } else {
             return redirect()->back()
                 ->with('error', 'Penyata Tidak Wujud!');
