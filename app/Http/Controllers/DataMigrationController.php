@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Daerah;
+use App\Models\HebahanStokAkhir;
 use App\Models\Negeri;
 use App\Models\Pelesen;
 use App\Models\ProfileBulanan;
@@ -281,6 +282,35 @@ class DataMigrationController extends Controller
 
                 $user->save();
             }
+
+        }
+    }
+
+    public function transfer_hebahansa_to_ekilang()
+    {
+
+        $hebahans = DB::connection('mysql2')->select("SELECT * FROM  hebahan_stok_akhir");
+
+
+        foreach ($hebahans as $hebahan) {
+
+            $stok = HebahanStokAkhir::create([
+                'tahun' => $hebahan->tahun ?? '0',
+                'bulan' => $hebahan->bulan ?? '0',
+                'cpo_sm' => $hebahan->cpo_sm ?? '0',
+                'ppo_sm' => $hebahan->ppo_sm ?? '0',
+                'cpko_sm' =>  $hebahan->cpko_sm ?? '0',
+                'ppko_sm' =>  $hebahan->ppko_sm ?? '0',
+                'cpo_sbh' =>  $hebahan->cpo_sbh ?? '0',
+                'ppo_sbh' =>  $hebahan->ppo_sbh ?? '0',
+                'cpko_sbh' =>  $hebahan->cpko_sbh ?? '0',
+                'ppko_sbh' =>  $hebahan->ppko_sbh ?? '0',
+                'cpo_srwk' =>  $hebahan->cpo_srwk ?? '0',
+                'ppo_srwk' =>  $hebahan->ppo_srwk ?? '0',
+                'cpko_srwk' =>  $hebahan->cpko_srwk ?? '0',
+                'ppko_srwk' =>  $hebahan->ppko_srwk ?? '0',
+            ]);
+
 
         }
     }

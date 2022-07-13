@@ -64,8 +64,11 @@
                                                 <label>Jenis Laporan</label>
                                                 <fieldset class="form-group">
                                                     <select class="form-control" name="laporan" id="laporan"
-                                                    onclick="laporan_check()">
-                                                        <option selected hidden disabled>Sila Pilih Jenis Laporan</option>
+                                                        onclick="laporan_check()"
+                                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                        oninput="setCustomValidity('')" required>
+                                                        <option selected hidden disabled value="">Sila Pilih Jenis
+                                                            Laporan</option>
                                                         <option value="kapasiti" onclick="laporan_check()">Laporan
                                                             Tahunan Kapasiti
                                                         </option>
@@ -83,8 +86,10 @@
                                         <div class="col-md-4 mr-auto">
                                             <div class="form-group">
                                                 <label>Tahun</label>
-                                                <select class="form-control" name="tahun" id="date-dropdown">
-                                                    <option selected hidden disabled>Sila Pilih Tahun</option>
+                                                <select class="form-control" name="tahun" id="date-dropdown" required
+                                                    oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                    oninput="setCustomValidity('')">
+                                                    <option selected hidden disabled value="">Sila Pilih Tahun</option>
                                                 </select>
 
                                             </div>
@@ -125,31 +130,32 @@
                                         {{-- </div> --}}
                                         <div id="equal_container2" style="display:none" class="container-fluid">
                                             {{-- <div class="row"> --}}
-                                                <div class="col-md-4 " style="margin-left: 67%">
-                                                    <div class="form-group">
-                                                        {{-- <label>&nbsp;</label> --}}
-                                                        <select class="form-control" name="start">
-                                                            <option selected hidden disabled value="">Sila Pilih Bulan
-                                                            </option>
-                                                            <option value="01">JANUARI</option>
-                                                            <option value="02">FEBRUARI</option>
-                                                            <option value="03">MAC</option>
-                                                            <option value="04">APRIL</option>
-                                                            <option value="05">MEI</option>
-                                                            <option value="06">JUN</option>
-                                                            <option value="07">JULAI</option>
-                                                            <option value="08">OGOS</option>
-                                                            <option value="09">SEPTEMBER</option>
-                                                            <option value="10">OKTOBER</option>
-                                                            <option value="11">NOVEMBER</option>
-                                                            <option value="12">DISEMBER</option>
-                                                        </select>
+                                            <div class="col-md-4 " style="margin-left: 67%">
+                                                <div class="form-group">
+                                                    {{-- <label>&nbsp;</label> --}}
+                                                    <select class="form-control" name="start">
+                                                        <option selected hidden disabled value="">Sila Pilih Bulan
+                                                        </option>
+                                                        <option value="01">JANUARI</option>
+                                                        <option value="02">FEBRUARI</option>
+                                                        <option value="03">MAC</option>
+                                                        <option value="04">APRIL</option>
+                                                        <option value="05">MEI</option>
+                                                        <option value="06">JUN</option>
+                                                        <option value="07">JULAI</option>
+                                                        <option value="08">OGOS</option>
+                                                        <option value="09">SEPTEMBER</option>
+                                                        <option value="10">OKTOBER</option>
+                                                        <option value="11">NOVEMBER</option>
+                                                        <option value="12">DISEMBER</option>
+                                                    </select>
 
-                                                    </div>
                                                 </div>
+                                            </div>
                                             {{-- </div> --}}
                                         </div>
-                                        <div id="between_container2" style="display:none" class="container-fluid align-content-end">
+                                        <div id="between_container2" style="display:none"
+                                            class="container-fluid align-content-end">
                                             {{-- <div class="> --}}
                                             <div class="row col-md-12 " style="margin-left:67%">
                                                 <div class="col-md-2 ">
@@ -197,13 +203,13 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                </div>
                                             </div>
                                         </div>
+                                    </div>
 
-                                        <div id="lain_container2" style="display:none">
-                                        </div>
-                                        {{-- <div class="col-md-3 mr-auto">
+                                    <div id="lain_container2" style="display:none">
+                                    </div>
+                                    {{-- <div class="col-md-3 mr-auto">
                                             <div class="form-group">
                                                 <label>Bulan</label>
                                                 <select class="form-control" name="bulan" id="bulan">
@@ -223,21 +229,21 @@
                                                 </select>
                                             </div>
                                         </div> --}}
-                                    </div>
-                                    <div class=" col-md-12 mb-4 mt-4">
-                                        <button type="submit" class="btn btn-primary" style="margin-left:47%"
-                                            data-toggle="modal" data-target="#next">Cari</button>
-                                    </div>
                                 </div>
-                                <form>
-
-
+                                <div class=" col-md-12 mb-4 mt-4">
+                                    <button type="submit" class="btn btn-primary" style="margin-left:47%"
+                                        data-toggle="modal" data-target="#next">Cari</button>
+                                </div>
                             </div>
+                            <form>
+
+
                     </div>
                 </div>
             </div>
-
         </div>
+
+    </div>
 
 
 
@@ -284,14 +290,14 @@
         }
     </script>
     <script>
-        $(document).ready(function(){
-            $('#myselection').on('change', function(){
+        $(document).ready(function() {
+            $('#myselection').on('change', function() {
                 // var demovalue = $(this).val();
                 $("#bulan").hide();
-                $("#show"+demovalue).show();
+                $("#show" + demovalue).show();
             });
         });
-        </script>
+    </script>
     {{-- <script>
     let dateDropdown = document.getElementById('date-dropdown');
 

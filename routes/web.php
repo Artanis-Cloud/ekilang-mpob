@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/migrate/data/kilang', [App\Http\Controllers\DataMigrationController::class, 'transfer_kilang_to_pelesen'])->name('transfer_kilang_to_pelesen');
     Route::get('/migrate/data/profilebulanan', [App\Http\Controllers\DataMigrationController::class, 'transfer_profilebulanans_to_pelesen'])->name('transfer_profilebulanans_to_pelesen');
     Route::get('/migrate/data/reguser', [App\Http\Controllers\DataMigrationController::class, 'transfer_reguser_to_users'])->name('transfer_reguser_to_users');
+    Route::get('/migrate/data/hebahan-stok-akhir', [App\Http\Controllers\DataMigrationController::class, 'transfer_hebahansa_to_ekilang'])->name('transfer_hebahansa_to_ekilang');
 
     //AJAX
     Route::get('/ajax/fetch-daerah/{kod_negeri}', [App\Http\Controllers\Admin\AjaxController::class, 'fetch_daerah'])->name('ajax-daerah');
@@ -255,6 +256,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_stok_akhir'])->name('admin.stok.akhir');
         Route::get('admin/tambah-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir'])->name('admin.tambah.stok.akhir');
         Route::post('admin/tambah-stok-akhir-proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir_proses'])->name('admin.tambah.stok.akhir.proses');
+        Route::post('admin/tambah-stok-akhir-proses2', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir_proses2'])->name('admin.tambah.stok.akhir.proses2');
         Route::get('admin/validasi-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir'])->name('admin.validasi.stok.akhir');
         Route::get('admin/validasi-stok-akhir/proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir_proses'])->name('admin.validasi.stok.akhir.proses');
         Route::get('admin/validasi-stok-akhir-ikut-produk', [App\Http\Controllers\Admin\LaporanController::class, 'admin_validasi_stok_akhir_ikut_produk'])->name('admin.validasi.stok.akhir.ikut.produk');
