@@ -81,13 +81,13 @@
                                                     <thead style="text-align: center">
                                                         <tr>
                                                             <th>Nama Syarikat</th>
-                                                            <th>CAROTECH BERHAD (CHEMOR PLANT)</th>
+                                                            <td>{{ $data->e_np }}</td>
                                                             <th>No. Lesen</th>
-                                                            <th>500403125000</th>
+                                                            <td>{{ $data->e_nl }}</td>
                                                             <th>Negeri</th>
-                                                            <th>PERAK</th>
+                                                            <td>{{ $negeri->nama_negeri }}</td>
                                                             <th>Daerah</th>
-                                                            <th>KUALA KANGSAR</th>
+                                                            <td>{{ $data->e_daerah }}</td>
 
                                                         </tr>
                                                     </thead>
@@ -113,26 +113,73 @@
                                                             <th scope="col" style="vertical-align: middle">Okt</th>
                                                             <th scope="col" style="vertical-align: middle">Nov</th>
                                                             <th scope="col" style="vertical-align: middle">Dis</th>
-                                                            <th scope="col" style="vertical-align: middle">Jumlah</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
 
-                                                        <tr>
-                                                            <th>-</th>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <th>-</th>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <th>-</th>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <th>-</th>
-                                                        </tr>
+                                                        {{-- <tr>
+
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 1)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 2)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 3)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 4)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 5)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 6)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 7)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 8)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 9)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 10)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 11)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($datas->ebio_bln == 12)
+                                                                    {{$date}}
+                                                                @endif
+                                                            </td>
+                                                        </tr> --}}
 
 
 

@@ -407,7 +407,7 @@ class Proses1Controller extends Controller
             'jumlah4'
         ));
 
-        // return view('admin.menu-lain.editpengumuman', compact('returnArr', 'layout', 'pengumuman'));
+       
     }
 
     public function admin_update_maklumat_asas_pelesen(Request $request, $id)

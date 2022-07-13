@@ -37,6 +37,7 @@
         border-top: none;
     }
 
+
 </style>
 
 @section('content')
@@ -120,7 +121,7 @@
                             <hr>
 
                             <div class="card-body">
-                                <form action="{{ route('admin.ringkasan.penyata') }}" method="get">
+                                <form action="{{ route('admin.ringkasan.penyata.process') }}" method="get">
                                     @csrf
                                     <div class="container center">
 
@@ -128,39 +129,8 @@
                                             <div class="col-md-4 ml-auto">
                                                 <div class="form-group">
                                                     <label>Tahun</label>
-                                                    <select class="form-control" name="tahun">
+                                                    <select class="form-control" name="tahun" id="date-dropdown">
                                                         <option selected hidden disabled>Sila Pilih Tahun</option>
-                                                        <option value="2011" {{ old('tahun') == '2011' ? 'selected' : '' }}>2011
-                                                        </option>
-                                                        <option value="2012" {{ old('tahun') == '2012' ? 'selected' : '' }}>2012
-                                                        </option>
-                                                        <option value="2013" {{ old('tahun') == '2013' ? 'selected' : '' }}>2013
-                                                        </option>
-                                                        <option value="2014" {{ old('tahun') == '2014' ? 'selected' : '' }}>2014
-                                                        </option>
-                                                        <option value="2015" {{ old('tahun') == '2015' ? 'selected' : '' }}>2015
-                                                        </option>
-                                                        <option value="2016" {{ old('tahun') == '2016' ? 'selected' : '' }}>2016
-                                                        </option>
-                                                        <option value="2017" {{ old('tahun') == '2017' ? 'selected' : '' }}>2017
-                                                        </option>
-                                                        <option value="2018" {{ old('tahun') == '2018' ? 'selected' : '' }}>2018
-                                                        </option>
-                                                        <option value="2019" {{ old('tahun') == '2019' ? 'selected' : '' }}>2019
-                                                        </option>
-                                                        <option value="2020" {{ old('tahun') == '2020' ? 'selected' : '' }}>2020
-                                                        </option>
-                                                        <option value="2021" {{ old('tahun') == '2021' ? 'selected' : '' }}>2021
-                                                        </option>
-                                                        <option value="2022" {{ old('tahun') == '2022' ? 'selected' : '' }}>2022
-                                                        </option>
-                                                        <option value="2023" {{ old('tahun') == '2023' ? 'selected' : '' }}>2023
-                                                        </option>
-                                                        <option value="2024" {{ old('tahun') == '2024' ? 'selected' : '' }}>2024
-                                                        </option>
-                                                        {{-- @endif --}}
-
-
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
@@ -168,7 +138,7 @@
                                                     <select class="form-control" id="negeri_id" name="e_negeri"
                                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
                                                         oninput="setCustomValidity('')"
-                                                        onchange="ajax_daerah(this);ajax_kawasan(this)" >
+                                                        onchange="ajax_daerah(this)" >
                                                         <option selected hidden disabled value="">Sila Pilih</option>
                                                         @foreach ($negeri as $data)
                                                             <option value="{{ $data->kod_negeri }}">
@@ -223,7 +193,7 @@
                                 <section class="section"><hr>
                                     <div class="card"><br>
 
-                                        <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Urusniaga Maklumat Penyata Bulanan <br>Tahun: 2020</h6>
+                                        <h6 style="color: rgb(30, 28, 28); text-align:center">Senarai Ringkasan Urusniaga Maklumat Penyata Bulanan <br>Tahun: {{ $tahun }}</h6>
 
                                         <div class="table-responsive " >
                                             <table id="example1" class="table table-bordered text-center" style="width: 100%;">
@@ -233,17 +203,21 @@
                                                         <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                                         <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
                                                         <th scope="col" style="vertical-align: middle">Negeri</th>
-                                                        <th scope="col" style="vertical-align: middle">Daerah</th>
+                                                        <th scope="col" style="vertical-align: middle">Bulan</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach ($result as $data)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
-                                                            <td>{{ $data->e_nl }}</td>
+                                                            {{-- <td>{{ $data->ebio_thn }}</td> --}}
+                                                            <td> <a
+                                                                href="{{ route('admin.laporan.ringkasan', $data->e_nl) }}"><u>
+                                                                    {{ $data->e_nl }}</u></a></td>
+
                                                             <td>{{ $data->e_np }}</td>
                                                             <td>{{ $data->nama_negeri }}</td>
-                                                            <th>{{ $data->e_daerah }}</th>
+                                                            <th>{{ $data->ebio_bln }}</th>
 
 
                                                         </tr>
@@ -439,7 +413,7 @@
                                                     <option selected hidden disabled>Sila Pilih</option>
                                                     @foreach ($kumpproduk as $data)
                                                     {{-- @if ($data->role == '' || $data->role == 'Supervisor' || $data->role == 'Admin') --}}
-                                                        <option value="0{{ $data->kumpulan }}">
+                                                        <option value="{{ $data->kumpulan }}">
                                                             {{ $data->kumpulan }} - {{ $data->nama_kumpulan }}
                                                         </option>
                                                     @endforeach
@@ -693,7 +667,7 @@
                                         <div class="col-md-5 mr-auto">
                                             <div class="form-group">
                                                 <label>No. Pelesen</label>
-                                                <select class="form-control" name="e_np">
+                                                <select class="form-control select2" name="e_np" style="width: 10%">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($users2 as $data)
                                                         <option value="{{ $data->e_nl }}">
@@ -930,7 +904,7 @@
                                         <div class="col-md-5 mr-auto">
                                             <div class="form-group">
                                                 <label>No. Pelesen</label>
-                                                <select class="form-control" name="e_np">
+                                                <select class="form-control select2" name="e_np" style="width: 10%">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($users2 as $data)
                                                         <option value="{{ $data->e_nl }}">
@@ -1103,7 +1077,7 @@
                                         <div class="col-md-5 mr-auto ">
                                             <div class="form-group">
                                                 <label>No. Pelesen</label>
-                                                <select class="form-control" name="e_np">
+                                                <select class="form-control select2" name="e_np" style="width: 10%">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($users2 as $data)
                                                         <option value="{{ $data->e_nl }}">
@@ -1114,7 +1088,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Pembeli</label>
-                                                <select class="form-control" name="pembeli">
+                                                <select class="form-control select2" name="pembeli" style="width: 10%">
                                                     <option selected hidden disabled value="">Sila Pilih</option>
                                                     @foreach ($pembeli as $data)
                                                         <option value="{{ $data->id }}">
@@ -1349,5 +1323,21 @@
             $('.select2').select2();
         });
     </script>
+    <script type="text/javascript">
+        window.onload = function() {
+            //Reference the DropDownList.
+            var ddlYears = document.getElementById("date-dropdown");
 
+            //Determine the Current Year.
+            var currentYear = (new Date()).getFullYear();
+
+            //Loop and add the Year values to DropDownList.
+            for (var i = 2011; i <= currentYear; i++) {
+                var option = document.createElement("OPTION");
+                option.innerHTML = i;
+                option.value = i;
+                ddlYears.appendChild(option);
+            }
+        };
+    </script>
 @endsection
