@@ -804,13 +804,17 @@ class LaporanController extends Controller
             } else {
                 $tahun_sql = "";
             }
-            if ($request->bulan) {
-                $bulan_sql = "AND ebio_bln = $request->bulan";
+            if ($request->bulan == 'equal') {
+                $bulan_sql = "AND ebio_bln = $request->start";
+            } elseif ($request->bulan == 'between') {
+                $bulan_sql = "AND ebio_bln BETWEEN $request->start_month AND $request->end_month";
             } else {
                 $bulan_sql = "";
             }
-
+            $bulan = $request->bulan;
             $tahun2 = $request->tahun;
+            $start_month = $request->start_month;
+            $end_month = $request->end_month;
 
             // $nobatch = HBioInit::where('ebio_thn', $request->tahun)->where('ebio_bln', $request->bulan)->get('ebio_nobatch');
 
@@ -834,7 +838,8 @@ class LaporanController extends Controller
             LEFT JOIN h_bio_inits innit ON h.ebio_nobatch = innit.ebio_nobatch
             LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
             LEFT JOIN kapasiti k ON k.e_nl = innit.ebio_nl
-            WHERE h.ebio_c3 = 'AW';");
+            WHERE $tahun_sql.$bulan_sql
+            AND  h.ebio_c3 = 'AW';");
 
             // dd($pengeluaran);
 
@@ -857,8 +862,12 @@ class LaporanController extends Controller
                 'laporan' => $laporan,
                 'tahun_sql' => $tahun_sql,
                 'tahun2' => $tahun2,
+                'bulan' => $bulan,
 
                 'pengeluaran' => $pengeluaran,
+
+                'start_month' => $start_month,
+                'end_month' => $end_month,
 
 
                 // 'breadcrumbs' => $breadcrumbs,
