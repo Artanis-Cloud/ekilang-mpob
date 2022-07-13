@@ -55,32 +55,27 @@
                         <hr>
 
                         <div class="card-body">
-
+                            <form action="{{ route('admin.tambah.stok.akhir.proses2') }}" method="post">
+                                @csrf
                             <div class="container center">
-
+                                {{-- @if ($errors->any())
+                                        {{ implode('', $errors->all('<div>:message</div>')) }}
+                                        @endif --}}
                                 <div class="row ml-auto" style="margin-top:-1%">
                                     <label for="fname"
                                         class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
                                     </label>
                                     <div class="col-md-4">
-                                        <select class="form-control" name="bulan">
-                                            <option value="01">2011</option>
-                                            <option value="02">2012</option>
-                                            <option value="03">2013</option>
-                                            <option value="04">2014</option>
-                                            <option value="05">2015</option>
-                                            <option value="06">2016</option>
-                                            <option value="07">2017</option>
-                                            <option value="08">2018</option>
-                                            <option value="09">2019</option>
-                                            <option value="10">2020</option>
-                                            <option value="11">2021</option>
-                                            <option value="12">2022</option>
-                                            <option value="12">2023</option>
-                                            <option value="12">2024</option>
+                                        <select class="form-control" name="tahun" id="tahun1"  required
+                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                        oninput="setCustomValidity('')">
+                                        <option selected hidden disabled value="">Sila Pilih Tahun</option>
+
+                                            @for ($i = 2011; $i <= date('Y'); $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
 
 
-                                            <option selected hidden disabled>Sila Pilih Tahun</option>
                                         </select>
 
                                     </div>
@@ -90,7 +85,9 @@
                                         class="text-right col-sm-4 control-label col-form-label  align-items-center">Bulan
                                     </label>
                                     <div class="col-md-4">
-                                        <select class="form-control" name="bulan">
+                                        <select class="form-control" name="bulan" id="bulan1" >
+                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
+
                                             <option value="01">JANUARI</option>
                                             <option value="02">FEBRUARI</option>
                                             <option value="03">MAC</option>
@@ -105,7 +102,6 @@
                                             <option value="12">DISEMBER</option>
 
 
-                                            <option selected hidden disabled>Sila Pilih Bulan</option>
                                         </select>
 
                                     </div>
@@ -123,14 +119,14 @@
                                 <div class="row p-t-20">
                                     <div class="col-md-5 ml-auto">
                                         <label class="control-label">CPO</label>
-                                        <input type="text" id="cpo_sm_1" class="form-control form-control-danger"
+                                        <input type="text" id="cpo_sm_1" name="cpo_sm" class="form-control form-control-danger"
                                             placeholder="0.00">
                                     </div>
                                     <!--/span-->
                                     <div class="col-md-5 mr-auto">
                                         <div class="form-group has-danger">
                                             <label class="control-label">PPO</label>
-                                            <input type="text" id="ppo_sm_1" class="form-control form-control-danger"
+                                            <input type="text" id="ppo_sm_1" name="ppo_sm" class="form-control form-control-danger"
                                                 placeholder="0.00" value="">
                                         </div>
                                     </div>
@@ -141,14 +137,14 @@
                                     <div class="col-md-5 ml-auto">
                                         <div class="form-group">
                                             <label class="control-label">CPKO</label>
-                                            <input type="text" id="cpko_sm_1" class="form-control" placeholder="0.00">
+                                            <input type="text" id="cpko_sm_1" name="cpko_sm" class="form-control" placeholder="0.00">
                                         </div>
                                     </div>
                                     <!--/span-->
                                     <div class="col-md-5 mr-auto">
                                         <div class="form-group has-danger">
                                             <label class="control-label">PPKO</label>
-                                            <input type="text" id="ppko_sm_1" class="form-control form-control-danger"
+                                            <input type="text" id="ppko_sm_1" name="ppko_sm" class="form-control form-control-danger"
                                                 placeholder="0.00">
                                         </div>
                                     </div>
@@ -159,14 +155,14 @@
                                 <div class="row p-t-20">
                                     <div class="col-md-5 ml-auto">
                                         <label class="control-label">CPO</label>
-                                        <input type="text" id="cpo_sbh_1" class="form-control form-control-danger"
+                                        <input type="text" id="cpo_sbh_1" name="cpo_sbh" class="form-control form-control-danger"
                                             placeholder="0.00">
                                     </div>
                                     <!--/span-->
                                     <div class="col-md-5 mr-auto">
                                         <div class="form-group has-danger">
                                             <label class="control-label">PPO</label>
-                                            <input type="text" id="ppo_sbh_1" class="form-control form-control-danger"
+                                            <input type="text" id="ppo_sbh_1" name="ppo_sbh" class="form-control form-control-danger"
                                                 placeholder="0.00" value="">
                                         </div>
                                     </div>
@@ -177,7 +173,7 @@
                                     <div class="col-md-5 ml-auto">
                                         <div class="form-group">
                                             <label class="control-label">CPKO</label>
-                                            <input type="text" id="cpko_sbh_1" class="form-control"
+                                            <input type="text" id="cpko_sbh_1" name="cpko_sbh" class="form-control"
                                                 placeholder="0.00">
                                         </div>
                                     </div>
@@ -185,8 +181,8 @@
                                     <div class="col-md-5 mr-auto">
                                         <div class="form-group has-danger">
                                             <label class="control-label">PPKO</label>
-                                            <input type="text" id="ppko_sbh_1" class="form-control form-control-danger"
-                                                placeholder="0.00">
+                                            <input type="text" id="ppko_sbh_1" name="ppko_sbh"
+                                                class="form-control form-control-danger" placeholder="0.00">
                                         </div>
                                     </div>
                                     <!--/span-->
@@ -197,14 +193,15 @@
                                     <div class="col-md-5 ml-auto">
                                         <label class="control-label">CPO</label>
                                         <input type="text" id="cpo_srwk_1" class="form-control form-control-danger"
-                                            placeholder="0.00">
+                                            placeholder="0.00" name="cpo_srwk">
                                     </div>
                                     <!--/span-->
                                     <div class="col-md-5 mr-auto">
                                         <div class="form-group has-danger">
                                             <label class="control-label">PPO</label>
-                                            <input type="text" id="ppo_srwk_1" class="form-control form-control-danger"
-                                                placeholder="0.00" value="">
+                                            <input type="text" id="ppo_srwk_1"
+                                                class="form-control form-control-danger" placeholder="0.00"
+                                                value="" name="ppo_srwk">
                                         </div>
                                     </div>
                                     <!--/span-->
@@ -215,236 +212,22 @@
                                         <div class="form-group">
                                             <label class="control-label">CPKO</label>
                                             <input type="text" id="cpko_srwk_1" class="form-control"
-                                                placeholder="0.00">
+                                                placeholder="0.00" name="cpko_srwk">
                                         </div>
                                     </div>
                                     <!--/span-->
                                     <div class="col-md-5 mr-auto">
                                         <div class="form-group has-danger">
                                             <label class="control-label">PPKO</label>
-                                            <input type="text" id="ppko_srwk_1" class="form-control form-control-danger"
-                                                placeholder="0.00">
+                                            <input type="text" id="ppko_srwk_1" name="ppko_srwk"
+                                                class="form-control form-control-danger" placeholder="0.00">
                                         </div>
                                     </div>
                                     <!--/span-->
                                 </div>
 
                             </div>
-                            <!--scrolling content Modal -->
-                            <div class="modal fade" id="stock" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalScrollableTitle">
-                                                STOK AKHIR</h5>
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form method="post" id="SubmitForm">
-                                                @csrf
-                                                <div class="modal-body">
-                                                    <label class="required">Tahun</label>
-                                                    <div class="form-group">
-                                                        <fieldset class="form-group">
-                                                            <select class="form-control" id="tahun" name="tahun">
-                                                                <option selected hidden disabled value="">Sila Pilih
-                                                                    Tahun</option>
-                                                                @for ($i = 2003; $i <= date('Y'); $i++)
-                                                                    <option>{{ $i }}</option>
-                                                                @endfor
 
-                                                            </select>
-                                                        </fieldset>
-
-                                                    </div>
-                                                    <label class="required">Bulan </label>
-                                                    <div class="form-group">
-                                                        <fieldset class="form-group">
-                                                            <select class="form-control" id="bulan" name="bulan">
-                                                                <option selected hidden disabled value="">Sila Pilih
-                                                                    Bulan</option>
-                                                                <option value="01">Januari</option>
-                                                                <option value="02">Februari</option>
-                                                                <option value="03">Mac</option>
-                                                                <option value="04">April</option>
-                                                                <option value="05">Mei</option>
-                                                                <option value="06">Jun</option>
-                                                                <option value="07">Julai</option>
-                                                                <option value="08">Ogos</option>
-                                                                <option value="09">September</option>
-                                                                <option value="10">Oktober</option>
-                                                                <option value="11">November</option>
-                                                                <option value="12">Disember</option>
-                                                            </select>
-                                                        </fieldset>
-
-                                                    </div>
-                                                    <div class="float-right ">
-                                                        <button type="submit" class="btn btn-primary ml-1">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Query</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                                <div class="mb-4"></div>
-
-                                                <hr>
-                                                <div class="col-12 mt-2 mb-2" style="background-color:lightgrey">
-                                                    <b>SEMENANJUNG MALAYSIA</b>
-                                                </div>
-                                                <br>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>CPO: </label>
-                                                        <div class="form-group">
-                                                            <input type="text" name='cpo' class="form-control"
-                                                                id="cpo_sm" value="0" readonly>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <label>PPO: </label>
-                                                        <div class="form-group">
-                                                            <input type="text" name='ppo' class="form-control"
-                                                                id="ppo_sm" value="0" readonly>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label>CPKO: </label>
-                                                        <div class="form-group">
-                                                            <input type="text" name='cpko' class="form-control"
-                                                                id="cpko_sm" value="0" readonly>
-                                                        </div>
-
-                                                    </div>
-
-                                                    <div class="col-md-6">
-                                                        <label>PPKO: </label>
-                                                        <div class="form-group">
-                                                            <input type="text" name='ppko' class="form-control"
-                                                                id="ppko_sm" value="0" readonly>
-                                                        </div>
-
-                                                    </div>
-                                                    </div>
-                                                    <div class="col-12 mt-2 mb-2" style="background-color:lightgrey">
-                                                        <b>SABAH</b>
-                                                    </div>
-                                                    <br>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label>CPO: </label>
-                                                            <div class="form-group">
-                                                                <input type="text" name='cpo' class="form-control"
-                                                                    id="cpo_sbh" value="0" readonly>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="col-md-6">
-                                                            <label>PPO: </label>
-                                                            <div class="form-group">
-                                                                <input type="text" name='ppo' class="form-control"
-                                                                    id="ppo_sbh" value="0" readonly>
-                                                            </div>
-
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label>CPKO: </label>
-                                                            <div class="form-group">
-                                                                <input type="text" name='cpko' class="form-control"
-                                                                    id="cpko_sbh" value="0" readonly>
-                                                            </div>
-
-                                                        </div>
-
-                                                        <div class="col-md-6">
-                                                            <label>PPKO: </label>
-                                                            <div class="form-group">
-                                                                <input type="text" name='ppko' class="form-control"
-                                                                    id="ppko_sbh" value="0" readonly>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                  <div class="col-12 mt-2 mb-2" style="background-color:lightgrey">
-                                                            <b>SARAWAK</b>
-                                                        </div>
-                                                        <br>
-                                                          <div class="row">
-                                                            <div class="col-md-6">
-                                                                <label>CPO: </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='cpo'
-                                                                        class="form-control" id="cpo_srwk"
-                                                                        value="0" readonly>
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                <label>PPO: </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='ppo'
-                                                                        class="form-control" id="ppo_srwk"
-                                                                        value="0" readonly>
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-6">
-                                                                <label>CPKO: </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='cpko'
-                                                                        class="form-control" id="cpko_srwk"
-                                                                        value="0" readonly>
-                                                                </div>
-
-                                                            </div>
-
-                                                            <div class="col-md-6">
-                                                                <label>PPKO: </label>
-                                                                <div class="form-group">
-                                                                    <input type="text" name='ppko'
-                                                                        class="form-control" id="ppko_srwk"
-                                                                        value="0" readonly>
-                                                                </div>
-
-                                                            </div>
-
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                            {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
-                                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                            </button> --}}
-                                                            <button type="button" class="btn btn-primary ml-1" data-dismiss="modal" onclick="Copy()">
-                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                <span class="d-none d-sm-block">COPY</span>
-                                                            </button>
-                                                        </div>
-                                            </form>
-
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     {{-- </div> --}}
@@ -457,12 +240,227 @@
                         {{-- </div> --}}
                         {{-- <div class="text-right ml-auto"> --}}
 
-                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                            data-target="#next">Tambah</button>
+                        <button type="submit" class="btn btn-primary" >Tambah</button>
                         {{-- </div> --}}
                     </div>
 
+                </form>
+                <!--scrolling content Modal -->
+                <div class="modal fade" id="stock" tabindex="-1" role="dialog"
+                aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-scrollable" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalScrollableTitle">
+                                STOK AKHIR</h5>
+                            <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                                <i data-feather="x"></i>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form method="post" id="SubmitForm">
+                                @csrf
+                                <div class="modal-body">
+                                    <label class="required">Tahun</label>
+                                    <div class="form-group">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" id="tahun" name="tahun1" required
+                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                            oninput="setCustomValidity('')">
+                                                <option selected hidden disabled value="">Sila Pilih
+                                                    Tahun</option>
+                                                @for ($i = 2011; $i <= date('Y'); $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
 
+                                            </select>
+                                        </fieldset>
+
+                                    </div>
+                                    <label class="required">Bulan </label>
+                                    <div class="form-group">
+                                        <fieldset class="form-group">
+                                            <select class="form-control" id="bulan" name="bulan1" required
+                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                            oninput="setCustomValidity('')">
+                                                <option selected hidden disabled value="">Sila Pilih
+                                                    Bulan</option>
+                                                <option value="01">Januari</option>
+                                                <option value="02">Februari</option>
+                                                <option value="03">Mac</option>
+                                                <option value="04">April</option>
+                                                <option value="05">Mei</option>
+                                                <option value="06">Jun</option>
+                                                <option value="07">Julai</option>
+                                                <option value="08">Ogos</option>
+                                                <option value="09">September</option>
+                                                <option value="10">Oktober</option>
+                                                <option value="11">November</option>
+                                                <option value="12">Disember</option>
+                                            </select>
+                                        </fieldset>
+
+                                    </div>
+                                    <div class="float-right ">
+                                        <button type="submit" class="btn btn-primary ml-1">
+                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                            <span class="d-none d-sm-block">Query</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mb-4"></div>
+
+                                <hr>
+                                <div class="col-12 mt-2 mb-2" style="background-color:lightgrey">
+                                    <b>SEMENANJUNG MALAYSIA</b>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>CPO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='cpo' class="form-control"
+                                                id="cpo_sm" value="0" readonly>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>PPO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='ppo' class="form-control"
+                                                id="ppo_sm" value="0" readonly>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>CPKO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='cpko' class="form-control"
+                                                id="cpko_sm" value="0" readonly>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>PPKO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='ppko' class="form-control"
+                                                id="ppko_sm" value="0" readonly>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2 mb-2" style="background-color:lightgrey">
+                                    <b>SABAH</b>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>CPO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='cpo' class="form-control"
+                                                id="cpo_sbh" value="0" readonly>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>PPO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='ppo' class="form-control"
+                                                id="ppo_sbh" value="0" readonly>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>CPKO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='cpko' class="form-control"
+                                                id="cpko_sbh" value="0" readonly>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>PPKO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='ppko' class="form-control"
+                                                id="ppko_sbh" value="0" readonly>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-12 mt-2 mb-2" style="background-color:lightgrey">
+                                    <b>SARAWAK</b>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>CPO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='cpo' class="form-control"
+                                                id="cpo_srwk" value="0" readonly>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>PPO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='ppo' class="form-control"
+                                                id="ppo_srwk" value="0" readonly>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>CPKO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='cpko' class="form-control"
+                                                id="cpko_srwk" value="0" readonly>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>PPKO: </label>
+                                        <div class="form-group">
+                                            <input type="text" name='ppko' class="form-control"
+                                                id="ppko_srwk" value="0" readonly>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                            </button> --}}
+                                    <button type="button" class="btn btn-primary ml-1"
+                                        data-dismiss="modal" onclick="Copy()">
+                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                        <span class="d-none d-sm-block">COPY</span>
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
                 </div>
 
 
@@ -548,6 +546,8 @@
 
     <script>
         function Copy() {
+            $('#tahun1').val($('#tahun').val());
+            $('#bulan1').val($('#bulan').val());
             $('#cpo_sm_1').val($('#cpo_sm').val());
             $('#ppo_sm_1').val($('#ppo_sm').val());
             $('#cpko_sm_1').val($('#cpko_sm').val());

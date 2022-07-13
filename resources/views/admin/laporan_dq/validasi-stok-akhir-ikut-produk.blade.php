@@ -64,7 +64,11 @@
                                         class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
                                     </label>
                                     <div class="col-md-4">
-                                        <select class="form-control" name="tahun">
+                                        <select class="form-control" name="tahun"  required
+                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                        oninput="setCustomValidity('')">
+                                        <option selected hidden disabled value="">Sila Pilih Tahun</option>
+
                                             <option  value="2011">2011</option>
                                             <option  value="2012">2012</option>
                                             <option  value="2013">2013</option>
@@ -81,7 +85,6 @@
                                             <option  value="2024">2024</option>
 
 
-                                            <option selected hidden disabled>Sila Pilih Tahun</option>
                                         </select>
 
                                     </div>
@@ -91,7 +94,11 @@
                                         class="text-right col-sm-4 control-label col-form-label  align-items-center">Bulan
                                     </label>
                                     <div class="col-md-4">
-                                        <select class="form-control" name="bulan">
+                                        <select class="form-control" name="bulan"  required
+                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                        oninput="setCustomValidity('')">
+                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
+
                                             <option  value="01">JANUARI</option>
                                             <option  value="02">FEBRUARI</option>
                                             <option  value="03">MAC</option>
@@ -106,7 +113,6 @@
                                             <option  value="12">DISEMBER</option>
 
 
-                                            <option selected hidden disabled>Sila Pilih Bulan</option>
                                         </select>
 
                                     </div>
@@ -116,8 +122,10 @@
                                         class="text-right col-sm-4 control-label col-form-label  align-items-center">Produk
                                     </label>
                                     <div class="col-md-4">
-                                        <select class="form-control" name="produk">
-                                            <option selected hidden disabled >Sila Pilih Produk</option>
+                                        <select class="form-control" name="produk"  required
+                                        oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                        oninput="setCustomValidity('')">
+                                            <option selected hidden disabled value="">Sila Pilih Produk</option>
                                             <option value="RBDPO">RBDPO</option>
                                             <option value="RBDPL">RBDPL</option>
                                             <option value="RBDPS">RBDPS</option>

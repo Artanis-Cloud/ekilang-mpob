@@ -10,6 +10,7 @@ use App\Models\H91Init;
 use App\Models\HBioC;
 use App\Models\HBioInit;
 use App\Models\HebahanProses;
+use App\Models\HebahanStokAkhir;
 use App\Models\Kapasiti;
 use App\Models\KumpProduk;
 use App\Models\Negara;
@@ -969,8 +970,10 @@ class LaporanController extends Controller
     public function admin_stok_akhir()
     {
 
-        $stok_akhir = DB::connection('mysql2')->select("SELECT * FROM hebahan_stok_akhir
-        order by tahun, bulan");
+        // $stok_akhir = DB::connection('mysql2')->select("SELECT * FROM hebahan_stok_akhir
+        // order by tahun, bulan");
+        $stok_akhir = HebahanStokAkhir::orderBy('tahun')->orderBy('bulan')->get();
+        // dd($stok_akhir);
 
 
         $breadcrumbs    = [
@@ -1883,6 +1886,36 @@ class LaporanController extends Controller
         ];
         // return view('admin.laporan_dq.tambah-stok-akhir', $array);
         return response()->json(['success' => $array]);
+    }
+
+    protected function admin_tambah_stok_akhir_proses2(Request $request)
+    {
+
+        // $count = Pelesen::max('e_id');
+
+        //
+        $hebahan = HebahanStokAkhir::create([
+            // 'e_id' => $count+ 1,
+            'tahun' => $request->tahun,
+            'bulan' => $request->bulan,
+            'cpo_sm' => $request->cpo_sm,
+            'ppo_sm' => $request->ppo_sm,
+            'cpko_sm' => $request->cpko_sm,
+            'ppko_sm' => $request->ppko_sm,
+            'cpo_sbh' =>  $request->cpo_sbh,
+            'ppo_sbh' =>  $request->ppo_sbh,
+            'cpko_sbh' =>  $request->cpko_sbh,
+            'ppko_sbh' => $request->ppko_sbh,
+            'cpo_srwk' => $request->cpo_srwk,
+            'ppo_srwk' => $request->ppo_srwk,
+            'cpko_srwk' => $request->cpko_srwk,
+            'ppko_srwk' => $request->ppko_srwk,
+
+
+
+        ]);
+
+        return redirect()->back()->with('success', 'Maklumat stok akhir sudah ditambah');
     }
 
     // public function admin_validasi_stok_akhir(Request $request)
