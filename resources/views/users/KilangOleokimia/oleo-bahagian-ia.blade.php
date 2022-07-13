@@ -217,7 +217,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e104_b13' onkeypress="return isNumberKey(event)"
-                                                    style="width:70%" id="e104_b13" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" required 
+                                                    style="width:70%" id="e104_b13" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" required
                                                     title="Sila isikan butiran ini.">
                                                     @error('e104_b13')
                                                     <div class="alert alert-danger">
@@ -676,6 +676,15 @@
             return true;
         }
     </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+
+        });
+        </script>
 
     </body>
 

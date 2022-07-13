@@ -775,7 +775,7 @@
                                         <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                 <font size="2">Kod Negara</font>
                                             </b></td>
-                                        <td width="8%" style="text-align: center; vertical-align:middle"><b>
+                                           <td width="8%" style="text-align: center; vertical-align:middle"><b>
                                                 <font size="2">Destinasi Negara</font>
                                             </b></td>
                                     </tr>

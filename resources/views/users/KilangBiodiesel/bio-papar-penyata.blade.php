@@ -749,17 +749,17 @@
                                 @csrf
                                 <p>Nama Pegawai Melapor: &nbsp;&nbsp;
                                     <input type="text" id="ebio_npg" class="form-control" size="50" name="ebio_npg"
-                                    value="{{ $user->ebio_npg ?? ''}}" required>
+                                    value="{{ $user->ebio_npg ?? ''}}" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
 
                                 </p>
                                 <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
                                     <input type="text" id="ebio_jpg" class="form-control" size="50" name="ebio_jpg"
-                                    value="{{ $user->ebio_jpg ?? ''}}" required>
+                                    value="{{ $user->ebio_jpg ?? ''}}" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 </p>
                                 <p>No Telefon Kilang: &nbsp;&nbsp;
 
                                     <input type="text" id="ebio_notel" class="form-control" size="50" name="ebio_notel"
-                                    value="{{ $user->ebio_notel ?? ''}}" required>
+                                    value="{{ $user->ebio_notel ?? ''}}" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 </p>
 
 

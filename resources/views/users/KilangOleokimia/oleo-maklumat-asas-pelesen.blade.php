@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="page-wrapper" style="transition: 0s;">
-
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
@@ -37,7 +36,6 @@
         <div class="card" style="margin-right:3%; margin-left:3%">
             <div class="card-body">
                 <div class="">
-
                     <div class=" text-center">
                         <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Maklumat Asas Pelesen</h3>
                         <h5 style="color: rgb(39, 80, 71); "><i> Nota : Sila kemaskini jika ada perubahan </i>

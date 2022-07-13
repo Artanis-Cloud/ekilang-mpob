@@ -206,8 +206,8 @@
                                         Alamat Emel Kilang</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="email"" id="e_email" class="form-control" maxlength=40
-                                        placeholder="Alamat Emel" name="e_email" required
+                                    <input type="email" id="e_email" class="form-control" maxlength=40
+                                        placeholder="Alamat Emel" name="e_email" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
                                         value="{{ $pelesen->e_email }}">
                                     {{-- @error('e_email')
                                         <div class="alert alert-danger">
@@ -436,7 +436,7 @@
                                         placeholder="Kapasiti Pemprosesan / Tahun" name="kap_proses"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         onkeypress="return isNumberKey(event)"
-                                        oninput="validate_two_decimal(this);setCustomValidity('')""
+                                        oninput="validate_two_decimal(this);setCustomValidity('')"
                                         value=" {{ $pelesen->kap_proses }}" required>
 
                                     @error('kap_proses')
@@ -555,7 +555,7 @@
                     </form>
                 </div>
             </div>
-        </div>
+
 
     @endsection
 
