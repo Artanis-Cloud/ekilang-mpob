@@ -116,17 +116,18 @@
                                             <select class="form-control" name="bulan" id="bulan2"
                                                 onchange="showTable2()">
                                                 <option selected hidden disabled value="">Sila Pilih</option>
+                                                <option value=""></option>
                                                 <option value="equal">Equal</option>
                                                 <option value="between">Between</option>
                                             </select>
 
                                         </div>
                                         {{-- </div> --}}
-                                        <div id="equal_container2" style="display:none">
-                                            <div class="row">
-                                                <div class="col-md-12 " style="margin-right:-3%">
+                                        <div id="equal_container2" style="display:none" class="container-fluid">
+                                            {{-- <div class="row"> --}}
+                                                <div class="col-md-4 " style="margin-left: 67%">
                                                     <div class="form-group">
-                                                        <label>&nbsp;</label>
+                                                        {{-- <label>&nbsp;</label> --}}
                                                         <select class="form-control" name="start">
                                                             <option selected hidden disabled value="">Sila Pilih Bulan
                                                             </option>
@@ -146,12 +147,12 @@
 
                                                     </div>
                                                 </div>
-                                            </div>
+                                            {{-- </div> --}}
                                         </div>
-                                        <div id="between_container2" style="display:none">
+                                        <div id="between_container2" style="display:none" class="container-fluid align-content-end">
                                             {{-- <div class="> --}}
-                                            <div class="row col-md-12 ml-auto" style="margin-right:60%">
-                                                <div class="col-md-6 ">
+                                            <div class="row col-md-12 " style="margin-left:67%">
+                                                <div class="col-md-2 ">
                                                     <div class="form-group">
                                                         <label>Dari</label>
                                                         <select class="form-control" name="start_month">
@@ -175,7 +176,7 @@
                                                 </div>
                                                 {{-- </div>
                                                 <div class="row"> --}}
-                                                <div class="col-md-6 ">
+                                                <div class="col-md-2 ">
                                                     <div class="form-group">
                                                         <label>Ke</label>
                                                         <select class="form-control" name="end_month">
