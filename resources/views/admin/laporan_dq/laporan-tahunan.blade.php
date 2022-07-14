@@ -269,35 +269,7 @@
             }
         };
     </script>
-    {{-- <script>
-        function laporan_check(rad) {
-            if (rad.value == "kapasiti") {
-                document.getElementById("bulan").display = "block";
-            } else {
 
-                document.getElementById("bulan").display = "none";
-            }
-        }
-    </script> --}}
-    <script>
-        function laporan_check(this) {
-            if (this.value == "kapasiti") {
-                document.getElementById("bulan").style.display = "block";
-            } else {
-
-                document.getElementById("bulan").style.display = "none";
-            }
-        }
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('#myselection').on('change', function() {
-                // var demovalue = $(this).val();
-                $("#bulan").hide();
-                $("#show" + demovalue).show();
-            });
-        });
-    </script>
     {{-- <script>
     let dateDropdown = document.getElementById('date-dropdown');
 
@@ -318,6 +290,8 @@
 
             if (laporan == "kapasiti") {
                 document.getElementById('bulan3').style.display = "none";
+                document.getElementById('equal_container2').style.display = "none";
+                document.getElementById('between_container2').style.display = "none";
                 // document.getElementById('lain_container2').style.display = "none";
             } else {
                 document.getElementById('bulan3').style.display = "block";
@@ -325,15 +299,7 @@
 
             }
 
-            // if (bulan == "between") {
-            //     document.getElementById('between_container2').style.display = "block";
-            //     document.getElementById('lain_container2').style.display = "block";
 
-            // } else {
-            //     document.getElementById('between_container2').style.display = "none";
-            //     document.getElementById('lain_container2').style.display = "block";
-
-            // }
         }
     </script>
     <script type="text/javascript">
