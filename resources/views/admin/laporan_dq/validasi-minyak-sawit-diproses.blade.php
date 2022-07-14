@@ -158,7 +158,7 @@
                                                                     <th>{{ $data->lesen }}</th>
                                                                     <td>{{ $data->kilang }}</td>
                                                                     <td>{{ $data->negeri }}</td>
-                                                                    <td class=text-right>{{ $data->cpo_msia_1 }}</td>
+                                                                    <td class=text-right>{{ number_format($data->cpo_msia_1 ?? 0,2) }}</td>
                                                                 </tr>
                                                             @endforeach
                                                             {{-- @php
@@ -166,7 +166,7 @@
                                                             @endphp --}}
                                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
                                                                 <th colspan="3">Jumlah</th>
-                                                                <td>{{ $total_cpo }}</td>
+                                                                <td>{{ number_format($total_cpo ?? 0,2) }}</td>
                                                             </tr>
                                                         {{-- @endif
                                                     @endif --}}
@@ -197,7 +197,7 @@
                                                                     <th>{{ $data->lesen }}</th>
                                                                     <td>{{ $data->kilang }}</td>
                                                                     <td>{{ $data->negeri }}</td>
-                                                                    <td class=text-right>{{ $data->ppo_msia_1 }}</td>
+                                                                    <td class=text-right>{{ number_format($data->ppo_msia_1 ?? 0,2) }}</td>
                                                                 </tr>
                                                             @endforeach
                                                             {{-- @php
@@ -205,7 +205,7 @@
                                                             @endphp --}}
                                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
                                                                 <th colspan="3">Jumlah</th>
-                                                                <td>{{ $total_ppo }}</td>
+                                                                <td>{{ number_format($total_ppo ?? 0,2) }}</td>
                                                             </tr>
                                                         {{-- @endif
                                                     @endif --}}
@@ -235,7 +235,7 @@
                                                                         <th>{{ $data->lesen }}</th>
                                                                         <td>{{ $data->kilang }}</td>
                                                                         <td>{{ $data->negeri }}</td>
-                                                                        <td class=text-right>{{ $data->cpko_msia_1 }}</td>
+                                                                        <td class=text-right>{{ number_format($data->cpko_msia_1 ?? 0,2) }}</td>
                                                                     </tr>
                                                                 @endforeach
                                                                 {{-- @php
@@ -243,7 +243,7 @@
                                                                 @endphp --}}
                                                                 <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
                                                                     <th colspan="3">Jumlah</th>
-                                                                    <td>{{ $total_cpko }}</td>
+                                                                    <td>{{ number_format($total_cpko ?? 0,2) }}</td>
                                                                 </tr>
                                                             @endif
                                                         @endif
@@ -274,7 +274,7 @@
                                                                         <th>{{ $data->lesen }}</th>
                                                                         <td>{{ $data->kilang }}</td>
                                                                         <td>{{ $data->negeri }}</td>
-                                                                        <td class=text-right>{{ $data->ppko_msia_1 }}</td>
+                                                                        <td class=text-right>{{ number_format($data->ppko_msia_1 ?? 0,2) }}</td>
                                                                     </tr>
                                                                 @endforeach
                                                                 {{-- @php
@@ -282,7 +282,7 @@
                                                                 @endphp --}}
                                                                 <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
                                                                     <th colspan="3">Jumlah</th>
-                                                                    <td>{{ $total_ppko }}</td>
+                                                                    <td>{{ number_format($total_ppko ?? 0,2) }}</td>
                                                                 </tr>
                                                             {{-- @endif
                                                         @endif --}}

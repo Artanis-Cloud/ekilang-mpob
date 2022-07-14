@@ -64,11 +64,11 @@
                                             class="text-right col-sm-4 control-label col-form-label  align-items-center">Tahun
                                         </label>
                                         <div class="col-md-4">
-                                            <select class="form-control" name="tahun">
+                                            <select class="form-control" name="tahun" id="tahun1">
                                                 <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                @for ($i = 2003; $i <= date('Y'); $i++)
-                                                <option >{{ $i }}</option>
-                                            @endfor
+                                                @for ($i = 2011; $i <= date('Y'); $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
                                             </select>
 
                                         </div>
@@ -78,19 +78,19 @@
                                             class="text-right col-sm-4 control-label col-form-label  align-items-center">Bulan
                                         </label>
                                         <div class="col-md-4">
-                                            <select class="form-control" name="bulan">
-                                                <option  value="01">JANUARI</option>
-                                                <option  value="02">FEBRUARI</option>
-                                                <option  value="03">MAC</option>
-                                                <option  value="04">APRIL</option>
-                                                <option  value="05">MEI</option>
-                                                <option  value="06">JUN</option>
-                                                <option  value="07">JULAI</option>
-                                                <option  value="08">OGOS</option>
-                                                <option  value="09">SEPTEMBER</option>
-                                                <option  value="10">OKTOBER</option>
-                                                <option  value="11">NOVEMBER</option>
-                                                <option  value="12">DISEMBER</option>
+                                            <select class="form-control" name="bulan" id="bulan1">
+                                                <option value="01">JANUARI</option>
+                                                <option value="02">FEBRUARI</option>
+                                                <option value="03">MAC</option>
+                                                <option value="04">APRIL</option>
+                                                <option value="05">MEI</option>
+                                                <option value="06">JUN</option>
+                                                <option value="07">JULAI</option>
+                                                <option value="08">OGOS</option>
+                                                <option value="09">SEPTEMBER</option>
+                                                <option value="10">OKTOBER</option>
+                                                <option value="11">NOVEMBER</option>
+                                                <option value="12">DISEMBER</option>
 
 
                                                 <option selected hidden disabled>Sila Pilih Bulan</option>
@@ -100,8 +100,8 @@
                                     </div>
                                     <div class="col-12 mb-4 mt-4" style="margin-left:44%">
 
-                                            <button type="button" class="btn btn-primary" data-toggle="modal"
-                                                data-target="#next2">Get Proses</button>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#next2">Get Proses</button>
                                         {{-- </div> --}}
                                     </div>
                                     <hr>
@@ -110,15 +110,16 @@
                                     <div class="row p-t-20">
                                         <div class="col-md-5 ml-auto">
                                             <label class="control-label">CPO</label>
-                                            <input type="text" id="lastName" name="cpo_msia" class="form-control form-control-danger"
-                                                    placeholder="0.00">
+                                            <input type="text" id="cpo1" name="cpo_msia"
+                                                class="form-control form-control-danger" placeholder="0.00">
                                         </div>
                                         <!--/span-->
                                         <div class="col-md-5 mr-auto">
                                             <div class="form-group has-danger">
                                                 <label class="control-label">PPO</label>
-                                                <input type="text" id="lastName" name="ppo_msia" class="form-control form-control-danger"
-                                                    placeholder="0.00" value="">
+                                                <input type="text" id="ppo1" name="ppo_msia"
+                                                    class="form-control form-control-danger" placeholder="0.00"
+                                                    value="">
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -128,16 +129,16 @@
                                         <div class="col-md-5 ml-auto">
                                             <div class="form-group">
                                                 <label class="control-label">CPKO</label>
-                                                <input type="text" id="firstName" name="cpko_msia" class="form-control"
-                                                    placeholder="0.00" >
+                                                <input type="text" id="cpko1" name="cpko_msia" class="form-control"
+                                                    placeholder="0.00">
                                             </div>
                                         </div>
                                         <!--/span-->
                                         <div class="col-md-5 mr-auto">
                                             <div class="form-group has-danger">
                                                 <label class="control-label">PPKO</label>
-                                                <input type="text" id="lastName" name="ppko_msia" class="form-control form-control-danger"
-                                                    placeholder="0.00">
+                                                <input type="text" id="ppko1" name="ppko_msia"
+                                                    class="form-control form-control-danger" placeholder="0.00">
                                             </div>
                                         </div>
                                         <!--/span-->
@@ -150,19 +151,20 @@
                                 </div>
                                 <div class="col-12 mb-4 mt-4" style="margin-left:41%">
                                     {{-- <div class="text-left"> --}}
-                                        <a href="{{ route('admin.minyak.sawit.diproses') }}" type="button" class="btn btn-primary">Kembali</a>
+                                    <a href="{{ route('admin.minyak.sawit.diproses') }}" type="button"
+                                        class="btn btn-primary">Kembali</a>
                                     {{-- </div> --}}
                                     {{-- <div class="text-right ml-auto"> --}}
 
-                                        <button type="submit" class="btn btn-primary" >Tambah</button>
+                                    <button type="submit" class="btn btn-primary">Tambah</button>
                                     {{-- </div> --}}
                                 </div>
                             </form>
                             <div class="col-md-6 col-12">
 
                                 <!--scrolling content Modal -->
-                                <div class="modal fade" id="next2" tabindex="-1"
-                                    role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                <div class="modal fade" id="next2" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -174,9 +176,7 @@
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                {{-- <form
-                                                    action="{{ route('isirung.edit.bahagian.iii', [$data->e102_b1]) }}"
-                                                    method="post"> --}}
+                                                <form method="post" id="SubmitForm">
                                                     @csrf
                                                     <div class="modal-body">
                                                         <label class="required">Tahun</label>
@@ -184,9 +184,11 @@
                                                             <fieldset class="form-group">
                                                                 <select class="form-control" id="tahun"
                                                                     name="tahun">
-                                                                    <option selected hidden disabled value="">Sila Pilih Tahun</option>
-                                                                        @for ($i = 2003; $i <= date('Y'); $i++)
-                                                                        <option >{{ $i }}</option>
+                                                                    <option selected hidden disabled value="">Sila
+                                                                        Pilih Tahun</option>
+                                                                    @for ($i = 2011; $i <= date('Y'); $i++)
+                                                                        <option value="{{ $i }}">
+                                                                            {{ $i }}</option>
                                                                     @endfor
 
                                                                 </select>
@@ -198,41 +200,44 @@
                                                             <fieldset class="form-group">
                                                                 <select class="form-control" id="bulan"
                                                                     name="bulan">
-                                                                        <option selected hidden disabled value="">Sila Pilih Bulan</option>
-                                                                        <option value="01">Januari</option>
-                                                                        <option value="02">Februari</option>
-                                                                        <option value="03">Mac</option>
-                                                                        <option value="04">April</option>
-                                                                        <option value="05">Mei</option>
-                                                                        <option value="06">Jun</option>
-                                                                        <option value="07">Julai</option>
-                                                                        <option value="08">Ogos</option>
-                                                                        <option value="09">September</option>
-                                                                        <option value="10">Oktober</option>
-                                                                        <option value="11">November</option>
-                                                                        <option value="12">Disember</option>
+                                                                    <option selected hidden disabled value="">Sila
+                                                                        Pilih Bulan</option>
+                                                                    <option value="01">Januari</option>
+                                                                    <option value="02">Februari</option>
+                                                                    <option value="03">Mac</option>
+                                                                    <option value="04">April</option>
+                                                                    <option value="05">Mei</option>
+                                                                    <option value="06">Jun</option>
+                                                                    <option value="07">Julai</option>
+                                                                    <option value="08">Ogos</option>
+                                                                    <option value="09">September</option>
+                                                                    <option value="10">Oktober</option>
+                                                                    <option value="11">November</option>
+                                                                    <option value="12">Disember</option>
                                                                 </select>
                                                             </fieldset>
 
                                                         </div>
 
+                                                        <div class="float-right ">
+                                                            <button type="submit" class="btn btn-primary ml-1">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Query</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
 
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="submit" class="btn btn-primary ml-1">
-                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                            <span class="d-none d-sm-block">Papar</span>
-                                                        </button>
-                                                    </div>
+                                                    {{-- </div> --}}
+                                                    <div class="mb-4"></div>
+
+                                                    <hr>
                                                 </form>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label>CPO: </label>
                                                         <div class="form-group">
-                                                            <input type="text" name='cpo'
-                                                                class="form-control"
-                                                                value=""
-                                                            readonly>
+                                                            <input type="text" name='cpo' class="form-control"
+                                                                value="0" id="cpo" readonly>
                                                         </div>
 
                                                     </div>
@@ -240,10 +245,8 @@
                                                     <div class="col-md-6">
                                                         <label>PPO: </label>
                                                         <div class="form-group">
-                                                            <input type="text" name='ppo'
-                                                                class="form-control"
-                                                                value=""
-                                                            readonly>
+                                                            <input type="text" name='ppo' class="form-control"
+                                                                value="0" id="ppo" readonly>
                                                         </div>
 
                                                     </div>
@@ -253,10 +256,8 @@
                                                     <div class="col-md-6">
                                                         <label>CPKO: </label>
                                                         <div class="form-group">
-                                                            <input type="text" name='cpko'
-                                                                class="form-control"
-                                                                value=""
-                                                            readonly>
+                                                            <input type="text" name='cpko' class="form-control"
+                                                                value="0" id="cpko" readonly>
                                                         </div>
 
                                                     </div>
@@ -264,17 +265,27 @@
                                                     <div class="col-md-6">
                                                         <label>PPKO: </label>
                                                         <div class="form-group">
-                                                            <input type="text" name='ppko'
-                                                                class="form-control"
-                                                                value=""
-                                                            readonly>
+                                                            <input type="text" name='ppko' class="form-control"
+                                                                id="ppko" value="0" readonly>
                                                         </div>
 
                                                     </div>
-
                                                 </div>
-                                            </div>
 
+                                                <div class="modal-footer">
+                                                    {{-- <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                                                </button> --}}
+                                                    <button type="button" class="btn btn-primary ml-1"
+                                                        data-dismiss="modal" onclick="copy()">
+                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                        <span class="d-none d-sm-block">COPY</span>
+                                                    </button>
+                                                </div>
+                                                {{-- </form> --}}
+
+                                            </div>
 
                                         </div>
                                     </div>
@@ -328,5 +339,47 @@
 
             });
         });
+    </script>
+    <script>
+        $('#SubmitForm').on('submit', function(e) {
+            e.preventDefault();
+
+            let tahun = $('#tahun').val();
+            let bulan = $('#bulan').val();
+
+            $.ajax({
+                url: "{{ route('admin.tambah.proses.proses') }}",
+                type: "POST",
+                data: {
+                    "_token": "{{ csrf_token() }}",
+                    tahun: tahun,
+                    bulan: bulan,
+                },
+                success: function(response) {
+                    console.log(JSON.stringify(response));
+                    $('#cpo').val(response.success.cpo_msia ?? 0);
+                    $('#ppo').val(response.success.ppo_msia ?? 0);
+                    $('#cpko').val(response.success.cpko_msia ?? 0);
+                    $('#ppko').val(response.success.ppko_msia ?? 0);
+                },
+                error: function(response) {
+                    alert(JSON.stringify(response));
+                },
+            });
+        });
+    </script>
+
+    <script>
+        function copy() {
+            $('#tahun1').val($('#tahun').val());
+            $('#bulan1').val($('#bulan').val());
+            $('#cpo1').val($('#cpo').val());
+            $('#ppo1').val($('#ppo').val());
+            $('#cpko1').val($('#cpko').val());
+            $('#ppko1').val($('#ppko').val());
+            // $('#ppo_sm').val(response.success.ppo_sm);
+            // $('#cpko_sm').val(response.success.cpko_sm ?? 0);
+            // $('#ppko_sm').val(response.success.ppko_sm);
+        }
     </script>
 @endsection

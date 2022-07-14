@@ -88,10 +88,10 @@ class LaporanController extends Controller
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
         $kumpproduk = KumpProduk::get();
         $produk = Produk::get();
-        $pembeli= SyarikatPembeli::orderBy('id')->get();
+        $pembeli = SyarikatPembeli::orderBy('id')->get();
 
-        $result = DB::table('h_bio_inits')->leftJoin('pelesen','h_bio_inits.ebio_nl','=','pelesen.e_nl')
-        ->leftJoin('negeri','pelesen.e_negeri','=','negeri.kod_negeri')->get();
+        $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+            ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->get();
 
         $tahun = $request->tahun;
         // if ($request->tahun) {
@@ -106,44 +106,37 @@ class LaporanController extends Controller
         //         $negeri_sql = "";
         //     }
 
-        if($request->tahun)
-        {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen','h_bio_inits.ebio_nl','=','pelesen.e_nl')
-            ->leftJoin('negeri','pelesen.e_negeri','=','negeri.kod_negeri')->where('ebio_thn','LIKE','%'.$request->tahun.'%')->get();
+        if ($request->tahun) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')->get();
         }
-        if($request->e_negeri)
-        {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen','h_bio_inits.ebio_nl','=','pelesen.e_nl')
-            ->leftJoin('negeri','pelesen.e_negeri','=','negeri.kod_negeri')->where('e_negeri','LIKE','%'.$request->e_negeri.'%')->get();
+        if ($request->e_negeri) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->get();
         }
-        if($request->e_daerah)
-        {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen','h_bio_inits.ebio_nl','=','pelesen.e_nl')
-            ->leftJoin('negeri','pelesen.e_negeri','=','negeri.kod_negeri')->where('e_daerah','LIKE','%'.$request->e_daerah.'%')->get();
+        if ($request->e_daerah) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('e_daerah', 'LIKE', '%' . $request->e_daerah . '%')->get();
         }
-        if($request->e_nl)
-        {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen','h_bio_inits.ebio_nl','=','pelesen.e_nl')
-            ->leftJoin('negeri','pelesen.e_negeri','=','negeri.kod_negeri')->where('ebio_nl','LIKE','%'.$request->e_nl.'%')->get();
+        if ($request->e_nl) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->get();
         }
 
-        if($request->tahun && $request->e_negeri )
-        {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen','h_bio_inits.ebio_nl','=','pelesen.e_nl')
-            ->leftJoin('negeri','pelesen.e_negeri','=','negeri.kod_negeri')->where('ebio_thn','LIKE','%'.$request->tahun.'%')
-            ->where('e_negeri','LIKE','%'.$request->e_negeri.'%')->get();
+        if ($request->tahun && $request->e_negeri) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')
+                ->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->get();
         }
-        if($request->tahun && $request->e_nl )
-        {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen','h_bio_inits.ebio_nl','=','pelesen.e_nl')
-            ->leftJoin('negeri','pelesen.e_negeri','=','negeri.kod_negeri')->where('ebio_thn','LIKE','%'.$request->tahun.'%')
-            ->where('ebio_nl','LIKE','%'.$request->e_nl.'%')->get();
+        if ($request->tahun && $request->e_nl) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')
+                ->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->get();
         }
-        if($request->tahun && $request->e_negeri && $request->e_nl )
-        {
-            $result = DB::table('h_bio_inits')->leftJoin('pelesen','h_bio_inits.ebio_nl','=','pelesen.e_nl')
-            ->leftJoin('negeri','pelesen.e_negeri','=','negeri.kod_negeri')->where('ebio_thn','LIKE','%'.$request->tahun.'%')
-            ->where('e_negeri','LIKE','%'.$request->e_negeri.'%')->where('ebio_nl','LIKE','%'.$request->e_nl.'%')->get();
+        if ($request->tahun && $request->e_negeri && $request->e_nl) {
+            $result = DB::table('h_bio_inits')->leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
+                ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')
+                ->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->get();
         }
         // $result = DB::select("SELECT  p.e_nl, p.e_np, p.e_negeri, p.e_daerah, n.nama_negeri
         //         FROM h_bio_inits h, pelesen p, negeri n
@@ -152,7 +145,7 @@ class LaporanController extends Controller
         //         AND h.ebio_thn = '$tahun'
         //         AND $negeri_sql");
 
-//  dd($result);
+        //  dd($result);
         // dd($request->all());
 
 
@@ -196,15 +189,15 @@ class LaporanController extends Controller
 
 
         $data2 = HBioInit::find($ebio_nl);
-        $datas= HBioInit::where('ebio_nl', $ebio_nl)->first();
+        $datas = HBioInit::where('ebio_nl', $ebio_nl)->first();
         // $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
-        $data = Pelesen::where('e_nl',$ebio_nl)->first();
+        $data = Pelesen::where('e_nl', $ebio_nl)->first();
         $negeri = Negeri::where('kod_negeri', $data->e_negeri)->first();
         // $bio1 = HBioB::where('ebio_nobatch',$data2->ebio_nobatch)->first();
-        $date = HBioInit::where('ebio_sdate',$datas->ebio_sdate);
+        $date = HBioInit::where('ebio_sdate', $datas->ebio_sdate);
         // $myDateTime = DateTime::createFromFormat('Y-m-d', $date);
         // $formatteddate = $myDateTime->format('d-m-Y');
-// dd($datas);
+        // dd($datas);
         // $data =  DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, p.e_negeri, p.e_daerah,
         //                         n.nama_negeri, e.ebio_thn, e.ebio_nobatch
         //                     FROM pelesen p, h_bio_inits e, negeri n, h_bio_b_s b, h_bio_cc c, h_bio_c_s s, h_bio_d_s d,
@@ -234,7 +227,6 @@ class LaporanController extends Controller
         ];
 
         return view('admin.laporan_dq.ringkasan.laporan-ringkasan-penyata', $array);
-
     }
 
 
@@ -2752,7 +2744,7 @@ class LaporanController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Minyak Sawit Diproses"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -2812,7 +2804,8 @@ class LaporanController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+            ['link' => route('admin.minyak.sawit.diproses'), 'name' => "Minyak Sawit Diproses"],
+            ['link' => route('admin.minyak.sawit.diproses'), 'name' => "Tambah Maklumat"],
         ];
 
         $kembali = route('admin.dashboard');
@@ -2826,14 +2819,125 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.tambah-proses', compact('returnArr', 'layout', 'data'));
     }
 
-    public function admin_add_minyak_sawit_diproses(Request $request)
-    {
-        // dd($request->all());
-        $this->validation_tambah_minyak($request->all())->validate();
-        $this->store_tambah_minyak($request->all());
 
-        return redirect()->back()->with('success', 'Minyak Sawit diproses sudah ditambah');
+    public function admin_tambah_proses_proses(Request $request)
+    {
+        $tahun = $request->tahun;
+        $bulan = $request->bulan;
+
+        //malaysia
+        //--> cpo
+
+        $querycpo1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpo_msia_1
+            FROM `penyata` ,produk, kilang
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `penyata`.`penyata` in  ('cpo_proses') AND
+            `produk`.`kumpulan_produk` =  '1' AND
+            `penyata`.`kod_produk` = 'CPO' AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+        //--> ppo
+
+        $queryppo1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppo_msia_1
+            FROM `penyata` ,  kilang, produk
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `penyata`.`penyata` in  ('ppo_proses') AND
+            `produk`.`kumpulan_produk` =  '1' AND
+            `penyata`.`kod_produk` <> 'CPO' AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        //--> cpko
+
+        $querycpko1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as cpko_msia_1
+            FROM `penyata` ,  kilang, produk
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'cpo_cpko' AND
+            `penyata`.`penyata` in  ('cpo_proses') AND
+            `penyata`.`kod_produk` = 'CPKO' AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        //--> ppko
+
+        $queryppko1 =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`) as ppko_msia_1
+            FROM `penyata` ,kilang,produk
+            WHERE
+            `penyata`.`tahun` =  '$tahun' AND
+            `penyata`.`bulan` =  '$bulan' AND
+            `penyata`.`menu` = 'ppo' AND
+            `penyata`.`penyata` in  ('ppo_proses') AND
+            `penyata`.`kod_produk` <> 'CPKO' AND
+            `kilang`.`jenis` <>  'dummy' AND
+            `penyata`.`lesen` = `kilang`.`e_nl` AND
+            `produk`.`kumpulan_produk` =  '2' AND
+            `penyata`.`kod_produk` =`produk`.`nama_produk`");
+
+
+        $cpo_msia = $querycpo1[0]->cpo_msia_1;
+        $ppo_msia = $queryppo1[0]->ppo_msia_1;
+        $cpko_msia = $querycpko1[0]->cpko_msia_1;
+        $ppko_msia = $queryppko1[0]->ppko_msia_1;
+
+        $breadcrumbs    = [
+            ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('admin.minyak.sawit.diproses'), 'name' => "Hebahan 10hb"],
+            ['link' => route('admin.minyak.sawit.diproses'), 'name' => "Minyak Sawit Diproses"],
+        ];
+
+        $kembali = route('admin.dashboard');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+        $layout = 'layouts.admin';
+        $array = [
+            'tahun' => $tahun,
+            'bulan' => $bulan,
+
+            'querycpo1' => $querycpo1,
+            'queryppo1' => $queryppo1,
+            'querycpko1' => $querycpko1,
+            'queryppko1' => $queryppko1,
+
+            'cpo_msia' => $cpo_msia,
+            'ppo_msia' => $ppo_msia,
+            'cpko_msia' => $cpko_msia,
+            'ppko_msia' => $ppko_msia,
+
+            'returnArr' => $returnArr,
+            'layout' => $layout,
+
+        ];
+        // return view('admin.laporan_dq.tambah-stok-akhir', $array);
+        return response()->json(['success' => $array]);
     }
+
+
+    // public function admin_add_minyak_sawit_diproses(Request $request)
+    // {
+    //     dd($request->all());
+    //     $this->validation_tambah_minyak($request->all())->validate();
+    //     $this->store_tambah_minyak($request->all());
+
+    //     return redirect()->back()->with('success', 'Maklumat minyak Sawit diproses sudah ditambah');
+    // }
 
     protected function validation_tambah_minyak(array $data)
     {
@@ -2848,17 +2952,26 @@ class LaporanController extends Controller
         ]);
     }
 
-    protected function store_tambah_minyak(array $data)
+    protected function admin_add_minyak_sawit_diproses(Request $request)
     {
-        return HebahanProses::create([
-            // 'Id' => $data['Id'],
-            'tahun' => $data['tahun'],
-            'bulan' => $data['bulan'],
-            'cpo_msia' => $data['cpo_msia'],
-            'ppo_msia' => $data['ppo_msia'],
-            'cpko_msia' => $data['cpko_msia'],
-            'ppko_msia' => $data['ppko_msia'],
-        ]);
+
+
+        $proses = HebahanProses::where('tahun', $request->tahun)->where('bulan', $request->bulan)->first();
+        if ($proses) {
+            return redirect()->back()->with("error", "Tahun dan bulan telah tersedia");
+        } else {
+            $hebahan = HebahanProses::create([
+                // 'e_id' => $count+ 1,
+                'tahun' => $request->tahun,
+                'bulan' => $request->bulan,
+                'cpo_msia' => $request->cpo_msia,
+                'ppo_msia' => $request->ppo_msia,
+                'cpko_msia' => $request->cpko_msia,
+                'ppko_msia' => $request->ppko_msia
+            ]);
+
+            return redirect()->back()->with('success', 'Maklumat stok akhir sudah ditambah');
+        }
     }
 
     public function admin_validasi_minyak_sawit_diproses(Request $request)
@@ -2869,7 +2982,7 @@ class LaporanController extends Controller
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
-            ['link' => route('admin.9penyataterdahulu'), 'name' => "Laporan Tahunan"],
+            ['link' => route('admin.9penyataterdahulu'), 'name' => "Validasi Minyak Sawit Diproses"],
         ];
 
         $kembali = route('admin.dashboard');
