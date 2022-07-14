@@ -274,6 +274,8 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('admin/tambah-minyak-sawit-diproses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_proses'])->name('admin.tambah.proses');
+        Route::post('admin/tambah-proses-proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_proses_proses'])->name('admin.tambah.proses.proses');
+
 
 
         Route::get('admin/activities', [App\Http\Controllers\Admin\LaporanController::class, 'admin_activities_all'])->name('admin.activities.all');
