@@ -54,43 +54,42 @@
                         </div>
                         <hr>
 
-                            <div class="text-left col-md-7 mx-3">
+                        <div class="text-left col-md-7 mx-3">
 
 
-                                <a href="{{ route('admin.tambah.stok.akhir') }}" class="btn btn-primary"
-                                    style="float: left"> Tambah Stok Akhir</a>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 mr-auto ml-auto">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="table-responsive">
-                                                <table id="zero_config" class="table table-bordered">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Bil.</th>
-                                                            <th>Tahun</th>
-                                                            <th>Bulan</th>
-                                                            <th>CPO SM</th>
-                                                            <th>PPO SM</th>
-                                                            <th>CPKO SM</th>
-                                                            <th>PPKO SM</th>
-                                                            <th>CPO SBH</th>
-                                                            <th>PPO SBH</th>
-                                                            <th>CPKO SBH</th>
-                                                            <th>PPKO SBH</th>
-                                                            <th>CPO SRWK</th>
-                                                            <th>PPO SRWK</th>
-                                                            <th>CPKO SRWK</th>
-                                                            <th>PPKO SRWK</th>
-                                                            <th>Kemaskini</th>
-                                                            <th>Padam</th>
-                                                            <th>Port</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($stok_akhir as $data)
-
+                            <a href="{{ route('admin.tambah.stok.akhir') }}" class="btn btn-primary" style="float: left">
+                                Tambah Stok Akhir</a>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mr-auto ml-auto">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table id="zero_config" class="table table-bordered">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Bil.</th>
+                                                        <th>Tahun</th>
+                                                        <th>Bulan</th>
+                                                        <th>CPO SM</th>
+                                                        <th>PPO SM</th>
+                                                        <th>CPKO SM</th>
+                                                        <th>PPKO SM</th>
+                                                        <th>CPO SBH</th>
+                                                        <th>PPO SBH</th>
+                                                        <th>CPKO SBH</th>
+                                                        <th>PPKO SBH</th>
+                                                        <th>CPO SRWK</th>
+                                                        <th>PPO SRWK</th>
+                                                        <th>CPKO SRWK</th>
+                                                        <th>PPKO SRWK</th>
+                                                        <th>Kemaskini</th>
+                                                        <th>Padam</th>
+                                                        <th>Port</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($stok_akhir as $key => $data)
                                                         <tr>
                                                             <td>{{ $loop->iteration }}</td>
                                                             <td>{{ $data->tahun }}</td>
@@ -134,7 +133,7 @@
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
                                                                     <a href="#" type="button" data-toggle="modal"
-                                                                        data-target="#modal">
+                                                                        data-target="#edit{{ $key }}">
                                                                         <i class="fas fa-edit fa-lg" style="color: #ffc107">
                                                                         </i>
                                                                     </a>
@@ -143,8 +142,9 @@
                                                             <td>
                                                                 <div class="icon" style="text-align: center">
                                                                     <a href="#" type="button" data-toggle="modal"
-                                                                        data-target="#exampleModalCenter2">
-                                                                        <i class="fa fa-trash" style="color: #dc3545;font-size:18px"></i>
+                                                                        data-target="#next2{{ $data->id }}">
+                                                                        <i class="fa fa-trash"
+                                                                            style="color: #dc3545;font-size:18px"></i>
 
                                                                     </a>
 
@@ -152,34 +152,390 @@
                                                                 </div>
 
                                                             </td>
-                                                            <td> <div class="icon" style="text-align: center">
-                                                                <a href="#" type="button" data-toggle="modal"
-                                                                    data-target="#exampleModalCenter2">
-                                                                    <i class="fas fa-arrow-circle-up" style="color: #31bc6d;font-size:18px"></i>
+                                                            <td>
+                                                                <div class="icon" style="text-align: center">
+                                                                    <a href="#" type="button" data-toggle="modal"
+                                                                        data-target="#exampleModalCenter2">
+                                                                        <i class="fas fa-arrow-circle-up"
+                                                                            style="color: #31bc6d;font-size:18px"></i>
 
-                                                                </a>
+                                                                    </a>
 
 
-                                                            </div></td>
+                                                                </div>
+                                                            </td>
                                                         </tr>
-                                                        @endforeach
-                                                    </tbody>
+                                                        <div class="modal fade" id="next2{{ $data->id }}"
+                                                            tabindex="-1" role="dialog"
+                                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                                role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title"
+                                                                            id="exampleModalCenterTitle">
+                                                                            PENGESAHAN</h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <i data-feather="x"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <p>
+                                                                            Anda pasti mahu menghapus maklumat ini?
+                                                                        </p>
+                                                                    </div>
 
-                                                </table>
-                                            </div>
+
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-primary ml-1"
+                                                                            data-dismiss="modal">
+                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Tidak</span>
+                                                                        </button>
+                                                                        <a href="{{ route('admin.delete.stok.akhir', [$data->id]) }}"
+                                                                            type="button" class="btn btn-light-secondary"
+                                                                            style="color: #275047; background-color: #a1929238">
+
+                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Ya</span>
+                                                                        </a>
+                                                                    </div>
+
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    @endforeach
+                                                    <!--scrolling content Modal -->
+                                                    @foreach ($stok_akhir as $key => $data)
+                                                        <div class="modal fade" id="edit{{ $key }}" tabindex="-1"
+                                                            role="dialog" aria-labelledby="exampleModalScrollableTitle"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-scrollable"
+                                                                role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title"
+                                                                            id="exampleModalScrollableTitle">
+                                                                            Kemaskini Maklumat Produk</h5>
+                                                                        <button type="button" class="close"
+                                                                            data-dismiss="modal" aria-label="Close">
+                                                                            <i data-feather="x"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <form
+                                                                            action="{{ route('admin.edit.stok.akhir', [$data->id]) }}"
+                                                                            method="post">
+                                                                            @csrf
+                                                                            <div class="modal-body">
+                                                                                <label class="required">Tahun</label>
+                                                                                <div class="form-group">
+                                                                                    <input type="text" name='tahun'
+                                                                                        class="form-control"
+                                                                                        id="cpo_sm"
+                                                                                        value="{{ old('tahun') ?? $data->tahun }}"
+                                                                                        readonly>
+                                                                                    {{-- <fieldset class="form-group">
+                                                                            <select class="form-control" id="tahun" name="tahun1" required
+                                                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                                            oninput="setCustomValidity('')">
+                                                                                <option selected hidden disabled value="">Sila Pilih
+                                                                                    Tahun</option>
+                                                                                @for ($i = 2011; $i <= date('Y'); $i++)
+                                                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                                                @endfor
+
+                                                                            </select>
+                                                                        </fieldset> --}}
+
+                                                                                </div>
+                                                                                <label class="required">Bulan </label>
+                                                                                <div class="form-group">
+                                                                                    <select class="form-control"
+                                                                                        id="bulan" name="bulan">
+                                                                                        <option selected hidden disabled
+                                                                                            value="">Sila Pilih Bulan
+                                                                                        </option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '01' ? 'selected' : '' }}
+                                                                                            value="01">Januari</option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '02' ? 'selected' : '' }}
+                                                                                            value="02">Februari
+                                                                                        </option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '03' ? 'selected' : '' }}
+                                                                                            value="03">Mac</option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '04' ? 'selected' : '' }}
+                                                                                            value="04">April</option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '05' ? 'selected' : '' }}
+                                                                                            value="05">Mei</option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '06' ? 'selected' : '' }}
+                                                                                            value="06">Jun</option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '07' ? 'selected' : '' }}
+                                                                                            value="07">Julai</option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '08' ? 'selected' : '' }}
+                                                                                            value="08">Ogos</option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '09' ? 'selected' : '' }}
+                                                                                            value="09">September
+                                                                                        </option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '10' ? 'selected' : '' }}
+                                                                                            value="10">Oktober</option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '11' ? 'selected' : '' }}
+                                                                                            value="11">November
+                                                                                        </option>
+                                                                                        <option
+                                                                                            {{ $data->bulan == '12' ? 'selected' : '' }}
+                                                                                            value="12">Disember
+                                                                                        </option>
+                                                                                    </select>
+                                                                                    </fieldset>
+
+                                                                                    {{-- <fieldset class="form-group">
+                                                                            <select class="form-control" id="bulan" name="bulan1" required
+                                                                            oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                                            oninput="setCustomValidity('')">
+                                                                                <option selected hidden disabled value="">Sila Pilih
+                                                                                    Bulan</option>
+                                                                                <option value="01">Januari</option>
+                                                                                <option value="02">Februari</option>
+                                                                                <option value="03">Mac</option>
+                                                                                <option value="04">April</option>
+                                                                                <option value="05">Mei</option>
+                                                                                <option value="06">Jun</option>
+                                                                                <option value="07">Julai</option>
+                                                                                <option value="08">Ogos</option>
+                                                                                <option value="09">September</option>
+                                                                                <option value="10">Oktober</option>
+                                                                                <option value="11">November</option>
+                                                                                <option value="12">Disember</option>
+                                                                            </select>
+                                                                        </fieldset> --}}
+
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="mb-4"></div>
+
+                                                                            <hr>
+                                                                            <div class="col-12 mt-2 mb-2"
+                                                                                style="background-color:lightgrey">
+                                                                                <b>SEMENANJUNG MALAYSIA</b>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>CPO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='cpo_sm'
+                                                                                            class="form-control"
+                                                                                            id="cpo_sm"
+                                                                                            value="{{ old('cpo_sm') ?? $data->cpo_sm }}">
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                <div class="col-md-6">
+                                                                                    <label>PPO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='ppo_sm'
+                                                                                            class="form-control"
+                                                                                            id="ppo_sm"
+                                                                                            value="{{ old('ppo_sm') ?? $data->ppo_sm }}">
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>CPKO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='cpko_sm'
+                                                                                            class="form-control"
+                                                                                            id="cpko_sm"
+                                                                                            value="{{ old('cpko_sm') ?? $data->cpko_sm }}">
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                <div class="col-md-6">
+                                                                                    <label>PPKO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='ppko_sm'
+                                                                                            class="form-control"
+                                                                                            id="ppko_sm"
+                                                                                            value="{{ old('ppko_sm') ?? $data->ppko_sm }}">
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-12 mt-2 mb-2"
+                                                                                style="background-color:lightgrey">
+                                                                                <b>SABAH</b>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>CPO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='cpo_sbh'
+                                                                                            class="form-control"
+                                                                                            id="cpo_sbh"
+                                                                                            value="{{ old('cpo_sbh') ?? $data->cpo_sbh }}">
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                <div class="col-md-6">
+                                                                                    <label>PPO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='ppo_sbh'
+                                                                                            class="form-control"
+                                                                                            id="ppo_sbh"
+                                                                                            value="{{ old('ppo_sbh') ?? $data->ppo_sbh }}">
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>CPKO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='cpko_sbh'
+                                                                                            class="form-control"
+                                                                                            id="cpko_sbh"
+                                                                                            value="{{ old('cpko_sbh') ?? $data->cpko_sbh }}">
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                <div class="col-md-6">
+                                                                                    <label>PPKO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='ppko_sbh'
+                                                                                            class="form-control"
+                                                                                            id="ppko_sbh"
+                                                                                            value="{{ old('ppko_sbh') ?? $data->ppko_sbh }}">
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-12 mt-2 mb-2"
+                                                                                style="background-color:lightgrey">
+                                                                                <b>SARAWAK</b>
+                                                                            </div>
+                                                                            <br>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>CPO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='cpo_srwk'
+                                                                                            class="form-control"
+                                                                                            id="cpo_srwk"
+                                                                                            value="{{ old('cpo_srwk') ?? $data->cpo_srwk }}">
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                <div class="col-md-6">
+                                                                                    <label>PPO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='ppo_srwk'
+                                                                                            class="form-control"
+                                                                                            id="ppo_srwk"
+                                                                                            value="{{ old('ppo_srwk') ?? $data->ppo_srwk }}">
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                            </div>
+                                                                            <div class="row">
+                                                                                <div class="col-md-6">
+                                                                                    <label>CPKO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='cpko_srwk'
+                                                                                            class="form-control"
+                                                                                            id="cpko_srwk"
+                                                                                            value="{{ old('cpko_srwk') ?? $data->cpko_srwk }}">
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                                <div class="col-md-6">
+                                                                                    <label>PPKO: </label>
+                                                                                    <div class="form-group">
+                                                                                        <input type="text"
+                                                                                            name='ppko_srwk'
+                                                                                            class="form-control"
+                                                                                            id="ppko_srwk"
+                                                                                            value="{{ old('ppko_srwk') ?? $data->ppko_srwk }}">
+                                                                                    </div>
+
+                                                                                </div>
+
+                                                                            </div>
+
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-light-secondary"
+                                                                            data-dismiss="modal">
+                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Batal</span>
+                                                                        </button>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary ml-1">
+                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                            <span
+                                                                                class="d-none d-sm-block">Kemaskini</span>
+                                                                        </button>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </tbody>
+
+                                            </table>
+                                            @endforeach
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-
                         </div>
 
 
                     </div>
+
+
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 
@@ -189,7 +545,7 @@
     </div>
 @endsection
 
-@section('scripts')
+{{-- @section('scripts')
     <script>
         $(document).ready(function() {
             $('#example').DataTable({
@@ -218,4 +574,4 @@
             });
         });
     </script>
-@endsection
+@endsection --}}
