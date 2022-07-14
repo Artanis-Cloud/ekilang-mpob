@@ -117,14 +117,19 @@
                                                     </thead>
                                                     <tbody>
 
-                                                        {{-- <tr>
+                                                        <tr>
 
                                                             <td>
-                                                                @if ($datas->ebio_bln == 1)
-                                                                    {{$date}}
+                                                                @if ($datas->ebio_bln == 5)
+                                                                    {{ $datas->ebio_sdate }}
                                                                 @endif
                                                             </td>
                                                             <td>
+                                                                @if ($datas->ebio_bln == 1)
+                                                                    {{ $datas->ebio_sdate }}
+                                                                @endif
+                                                            </td>
+                                                            {{-- <td>
                                                                 @if ($datas->ebio_bln == 2)
                                                                     {{$date}}
                                                                 @endif
@@ -178,8 +183,8 @@
                                                                 @if ($datas->ebio_bln == 12)
                                                                     {{$date}}
                                                                 @endif
-                                                            </td>
-                                                        </tr> --}}
+                                                            </td> --}}
+                                                        </tr>
 
 
 
@@ -213,11 +218,22 @@
                                                     <tbody>
 
                                                         <tr>
-                                                            <th>-</th>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <th>-</th>
+                                                            @foreach ($b1 as $data)
+
+
+                                                            <th>{{ $data->ebio_b4}}</th>
+                                                            <td>{{ $data->prodname}}</td>
+                                                            <td>
+                                                                @if ($data->ebio_bln == 5)
+                                                                    {{ $data->ebio_b5 }}
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                @if ($data->ebio_bln == 1)
+                                                                    {{ $data->ebio_b5 }}
+                                                                @endif
+                                                            </td>
+                                                            @endforeach
                                                             <td>-</td>
                                                             <td>-</td>
                                                             <td>-</td>
