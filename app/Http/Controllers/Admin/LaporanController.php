@@ -80,10 +80,6 @@ class LaporanController extends Controller
             'kembali'     => $kembali,
         ];
 
-        // $result = HBioInit::leftJoin('pelesen', 'h_bio_inits.ebio_nl', '=', 'pelesen.e_nl')
-        // ->where('ebio_thn','LIKE','%'.$request->tahun.'%')->orWhere('e_negeri','LIKE','%',$request->e_negeri.'%')->get();
-
-        // $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('proddesc')->get();
         $users2 = RegPelesen::with('pelesen')->where('e_kat', 'PLBIO')->get();
         $negeri = Negeri::distinct()->orderBy('kod_negeri')->get();
         $kumpproduk = KumpProduk::get();
@@ -138,6 +134,7 @@ class LaporanController extends Controller
                 ->leftJoin('negeri', 'pelesen.e_negeri', '=', 'negeri.kod_negeri')->where('ebio_thn', 'LIKE', '%' . $request->tahun . '%')
                 ->where('e_negeri', 'LIKE', '%' . $request->e_negeri . '%')->where('ebio_nl', 'LIKE', '%' . $request->e_nl . '%')->get();
         }
+
         // $result = DB::select("SELECT  p.e_nl, p.e_np, p.e_negeri, p.e_daerah, n.nama_negeri
         //         FROM h_bio_inits h, pelesen p, negeri n
         //         WHERE  p.e_nl = h.ebio_nl
@@ -198,15 +195,10 @@ class LaporanController extends Controller
         // $myDateTime = DateTime::createFromFormat('Y-m-d', $date);
         // $formatteddate = $myDateTime->format('d-m-Y');
         // dd($datas);
-        // $data =  DB::select("SELECT e.ebio_nl, p.e_nl, p.e_np, p.e_negeri, p.e_daerah,
-        //                         n.nama_negeri, e.ebio_thn, e.ebio_nobatch
-        //                     FROM pelesen p, h_bio_inits e, negeri n, h_bio_b_s b, h_bio_cc c, h_bio_c_s s, h_bio_d_s d,
-        //                     WHERE
-        //                     b.ebio_nobatch = '$ebio_nobatch',
-        //                     and c.ebio_nobatch = '$ebio_nobatch',
-        //                     and s.ebio_nobatch = '$ebio_nobatch',
-        //                     and d.ebio_nobatch = '$ebio_nobatch',
-        //                     and e.ebio_nl = p.e_nl");
+        // $b1 = HBioB::with('h_bio_inits')->where('ebio_nobatch','ebio_nobatch')->get();
+        $b1 = DB::table('h_bio_b_s')->leftJoin('h_bio_inits','h_bio_b_s.ebio_nobatch','=','h_bio_inits.ebio_nobatch')
+                ->leftJoin('produk','h_bio_b_s.ebio_b4','=','produk.prodid')->get();
+        // dd($b1);
 
         $array = [
 
@@ -214,6 +206,7 @@ class LaporanController extends Controller
             'data' => $data,
             'date' => $date,
             'datas' => $datas,
+            'b1'=> $b1,
 
             // 'bio1' => $bio1,
             'data2' => $data2,

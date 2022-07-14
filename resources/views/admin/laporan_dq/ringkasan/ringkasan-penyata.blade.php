@@ -203,7 +203,7 @@
                                                         <th scope="col" style="vertical-align: middle">No. Lesen</th>
                                                         <th scope="col" style="vertical-align: middle">Nama Pelesen</th>
                                                         <th scope="col" style="vertical-align: middle">Negeri</th>
-                                                        <th scope="col" style="vertical-align: middle">Bulan</th>
+                                                        <th scope="col" style="vertical-align: middle">Daerah</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -217,7 +217,7 @@
 
                                                             <td>{{ $data->e_np }}</td>
                                                             <td>{{ $data->nama_negeri }}</td>
-                                                            <th>{{ $data->ebio_bln }}</th>
+                                                            <th>{{ $data->e_daerah }}</th>
 
 
                                                         </tr>
