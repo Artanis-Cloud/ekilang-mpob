@@ -89,7 +89,31 @@
                                                             <tr>
                                                                 <td>{{ $loop->iteration }}</td>
                                                                 <td>{{ $data->tahun }}</td>
-                                                                <td>{{ $data->bulan }}</td>
+                                                                @if ($data->bulan == 1)
+                                                                <td>Januari</td>
+                                                            @elseif ($data->bulan == 2)
+                                                                <td>Februari</td>
+                                                            @elseif ($data->bulan == 3)
+                                                                <td>Mac</td>
+                                                            @elseif ($data->bulan == 4)
+                                                                <td>April</td>
+                                                            @elseif ($data->bulan == 5)
+                                                                <td>Mei</td>
+                                                            @elseif ($data->bulan == 6)
+                                                                <td>Jun</td>
+                                                            @elseif ($data->bulan == 7)
+                                                                <td>Julai</td>
+                                                            @elseif ($data->bulan == 8)
+                                                                <td>Ogos</td>
+                                                            @elseif ($data->bulan == 9)
+                                                                <td>September</td>
+                                                            @elseif ($data->bulan == 10)
+                                                                <td>Oktober</td>
+                                                            @elseif ($data->bulan == 11)
+                                                                <td>November</td>
+                                                            @elseif ($data->bulan == 12)
+                                                                <td>Disember</td>
+                                                            @endif
                                                                 <td>{{ $data->cpo_msia }}</td>
                                                                 <td>{{ $data->ppo_msia }}</td>
                                                                 <td>{{ $data->cpko_msia }}</td>
@@ -151,7 +175,7 @@
                                                                                             <fieldset class="form-group">
                                                                                                 <select class="form-control" id="tahun"
                                                                                                     name="tahun">
-                                                                                                    <option hidden value="{{ $data->tahun }}">
+                                                                                                    <option selected value="{{ $data->tahun }}">
                                                                                                         @for ($i = 2003; $i <= date('Y'); $i++)
                                                                                                         <option >{{ $i }}</option>
                                                                                                     @endfor

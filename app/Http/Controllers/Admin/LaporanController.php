@@ -1041,6 +1041,45 @@ class LaporanController extends Controller
         return view('admin.laporan_dq.stok-akhir', compact('returnArr', 'layout', 'stok_akhir'));
     }
 
+
+    public function admin_edit_stok_akhir(Request $request, $id)
+    {
+
+        // $produk = Produk::where('prodname', $request->e101_b4)->first();/
+
+        // dd($request->all());
+        $hebahan = HebahanStokAkhir::findOrFail($id);
+        // $hebahan->tahun = $request->tahun;
+        // $hebahan->bulan = $request->bulan;
+        $hebahan->cpo_sm = $request->cpo_sm;
+        $hebahan->ppo_sm = $request->ppo_sm;
+        $hebahan->cpko_sm = $request->cpko_sm;
+        $hebahan->ppko_sm = $request->ppko_sm;
+        $hebahan->cpo_sbh = $request->cpo_sbh;
+        $hebahan->ppo_sbh = $request->ppo_sbh;
+        $hebahan->cpko_sbh = $request->cpko_sbh;
+        $hebahan->ppko_sbh = $request->ppko_sbh;
+        $hebahan->cpo_srwk = $request->cpo_srwk;
+        $hebahan->ppo_srwk = $request->ppo_srwk;
+        $hebahan->cpko_srwk = $request->cpko_srwk;
+        $hebahan->ppko_srwk = $request->ppko_srwk;
+        $hebahan->save();
+
+
+        return redirect()->route('admin.stok.akhir')
+            ->with('success', 'Maklumat telah disimpan');
+    }
+
+    public function admin_delete_stok_akhir($id)
+    {
+        $hebahan = HebahanStokAkhir::findOrFail($id);
+        // dd($penyata);
+
+        $hebahan->delete();
+        return redirect()->route('admin.stok.akhir')
+            ->with('success', 'Maklumat Dihapuskan');
+    }
+
     public function admin_tambah_stok_akhir()
     {
         $bulan = Bulan::get();

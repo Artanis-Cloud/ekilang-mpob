@@ -256,6 +256,8 @@ Route::middleware('auth')->group(function () {
 
 
         Route::get('admin/stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_stok_akhir'])->name('admin.stok.akhir');
+        Route::post('admin/edit-stok-akhir/{id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_edit_stok_akhir'])->name('admin.edit.stok.akhir');
+        Route::get('admin/delete-stok-akhir/{id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_delete_stok_akhir'])->name('admin.delete.stok.akhir');
         Route::get('admin/tambah-stok-akhir', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir'])->name('admin.tambah.stok.akhir');
         Route::post('admin/tambah-stok-akhir-proses', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir_proses'])->name('admin.tambah.stok.akhir.proses');
         Route::post('admin/tambah-stok-akhir-proses2', [App\Http\Controllers\Admin\LaporanController::class, 'admin_tambah_stok_akhir_proses2'])->name('admin.tambah.stok.akhir.proses2');
