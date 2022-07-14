@@ -52,8 +52,8 @@
                     <div class="pl-3">
                         <div class="row">
                             <div class="col-1 align-self-center">
-                                <a href="{{ $returnArr['kembali'] }}" class="btn"
-                                    style="color:rgb(64, 69, 68)"><i class="fa fa-angle-left">&ensp;</i>Kembali</a>
+                                <a href="{{ $returnArr['kembali'] }}" class="btn" style="color:rgb(64, 69, 68)"><i
+                                        class="fa fa-angle-left">&ensp;</i>Kembali</a>
                             </div>
                         </div>
 
@@ -62,23 +62,36 @@
                             <h3 style="color: rgb(39, 80, 71); margin-bottom:1%">Paparan Senarai Penyata Bulan Terdahulu
                             </h3>
                             {{-- <p>Maklumat Kilang</p> --}}
-                                <h5 style="color: rgb(39, 80, 71); font-size:14px;">Bulan: &nbsp;<b>
-                                   @if ($bulan1 == '01') JANUARI
-                                   @elseif ($bulan1 == '02') FEBRUARI
-                                   @elseif ($bulan1 == '03') MAC
-                                   @elseif ($bulan1 == '04') APRIL
-                                   @elseif ($bulan1 == '05') MEI
-                                   @elseif ($bulan1 == '06') JUN
-                                   @elseif ($bulan1 == '07') JULAI
-                                   @elseif ($bulan1 == '08') OGOS
-                                   @elseif ($bulan1 == '09') SEPTEMBER
-                                   @elseif ($bulan1 == '10') OKTOBER
-                                   @elseif ($bulan1 == '11') NOVEMBER
-                                   @elseif ($bulan1 == '12') DISEMBER
-                                   @endif &nbsp;</b> Tahun:
-                                    &nbsp;<b>{{ $tahun1 }}</b> </h5>
+                            <h5 style="color: rgb(39, 80, 71); font-size:14px;">Bulan: &nbsp;<b>
+                                    @if ($bulan1 == '01')
+                                        JANUARI
+                                    @elseif ($bulan1 == '02')
+                                        FEBRUARI
+                                    @elseif ($bulan1 == '03')
+                                        MAC
+                                    @elseif ($bulan1 == '04')
+                                        APRIL
+                                    @elseif ($bulan1 == '05')
+                                        MEI
+                                    @elseif ($bulan1 == '06')
+                                        JUN
+                                    @elseif ($bulan1 == '07')
+                                        JULAI
+                                    @elseif ($bulan1 == '08')
+                                        OGOS
+                                    @elseif ($bulan1 == '09')
+                                        SEPTEMBER
+                                    @elseif ($bulan1 == '10')
+                                        OKTOBER
+                                    @elseif ($bulan1 == '11')
+                                        NOVEMBER
+                                    @elseif ($bulan1 == '12')
+                                        DISEMBER
+                                    @endif &nbsp;
+                                </b> Tahun:
+                                &nbsp;<b>{{ $tahun1 }}</b> </h5>
 
-                                {{-- <p>Maklumat Kilang</p> --}}
+                            {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
 
@@ -129,7 +142,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary ">Papar</button>
+                                                <button type="submit" class="btn btn-primary">Papar</button>
 
 
 
@@ -254,7 +267,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"
+                                                                <input name="papar_ya[]" type="checkbox" id="toggle"
                                                                     value="{{ $data->e104_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -270,7 +283,8 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary ">Papar</button>
+                                                <button type="submit" class="btn btn-primary " id="submit"
+                                                    disabled>Papar</button>
 
 
 
@@ -409,24 +423,48 @@
             });
         });
     </script>
-
     <script>
-            $(function(){
+        $(function() {
 
-        var requiredCheckboxes = $(':checkbox[required]');
+            var requiredCheckboxes = $(':checkbox[required]');
 
-        requiredCheckboxes.change(function(){
+            requiredCheckboxes.change(function() {
 
-            if(requiredCheckboxes.is(':checked')) {
-                requiredCheckboxes.removeAttr('required');
-            }
-
-            else {
-                requiredCheckboxes.attr('required', 'required');
-            }
-        });
+                if (requiredCheckboxes.is(':checked')) {
+                    requiredCheckboxes.removeAttr('required');
+                } else {
+                    requiredCheckboxes.attr('required', 'required');
+                }
+            });
 
         });
     </script>
 
+    <script>
+        // function myFunction() {
+        //     document.getElementById("myCheck").disabled = true;
+        // }
+        $('#toggle').click(function() {
+            //check if checkbox is checked
+            // console.log('check');
+            if ($('#submit').is(':checked')) {
+                console.log('check');
+                $('#submit').removeAttr('disabled'); //enable input
+
+            } else {
+                // $('#submit').attr('disabled', true); //disable input
+                document.getElementById("submit").disabled = true;
+            }
+        });
+        // $(function() {
+        //     $("input[type='checkBox']").change(function() {
+        //         var len = $("input[type='checkBox']:checked").length;
+        //         if (len == 0)
+        //             $("input[type='submit']").prop("disabled", true);
+        //         else
+        //             $("input[type='submit']").removeAttr("disabled");
+        //     });
+        //     $("input[type='checkBox']").trigger('change');
+        // });
+    </script>
 @endsection
