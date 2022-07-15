@@ -72,8 +72,8 @@
                                                 Jenis Emel</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect" name="TypeOfEmail">
-                                                        <option selected hidden disabled>Sila Pilih Jenis Emel</option>
+                                                    <select class="form-control" id="basicSelect" name="TypeOfEmail" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                                        <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                                         <option value="pertanyaan">Pertanyaan
                                                         </option>
                                                         <option value="pindaan">Pindaan
@@ -97,7 +97,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                                 Daripada (Alamat Emel)</label>
                                             <div class="col-md-6">
-                                                <input type="email" class="form-control" name='FromEmail' id="FromEmail" required
+                                                <input type="email" class="form-control" name='FromEmail' id="FromEmail" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -112,7 +112,7 @@
                                                 Tajuk</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='Subject'
-                                                    id="Subject" required title="Sila isikan butiran ini.">
+                                                    id="Subject" required title="Sila isikan butiran ini." oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -126,13 +126,13 @@
                                                 Kandungan</label>
                                                 <div class="col-md-6">
 
-                                                    <div id="editor" oninput="add_message()">
+                                                    <div id="editor" oninput="add_message()" >
                                                         {{ old('Message') }}
                                                     </div>
 
                                                 </div>
 
-                                                <input type="hidden" id="quill_html" name="Message"
+                                                <input type="hidden" id="quill_html" name="Message" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     value="{{ old('Message') }}">
                                                 {{-- <div class="col-md-6" >
                                                     <div id="snow" oninput="add_message()">
@@ -154,6 +154,8 @@
                                                             <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
                                                                 dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg dan .png
                                                                 sahaja</i>
+                                                                <p id="output"></p>
+
                                                         </label>
 
                                                     </label>
@@ -163,7 +165,6 @@
                                         </div>
                                     </div>
                                 </div>
-
 
 
 
@@ -267,6 +268,34 @@
             }
         }
     </script>
+     <script type="text/javascript">
+        $('#file').on('change', function() {
+
+            const size =
+            (this.files[0].size / 1024 / 1024).toFixed(2);
+
+            if (size > 3) {
+                alert("Saiz fail hendaklah kurang dari 3 MB");
+                this.value = "";
+
+
+            } else {
+               return ("");
+            }
+        });
+    </script>
+    {{-- <script>
+        var uploadField = document.getElementById("file");
+
+        uploadField.onchange = function() {
+            if(this.files[0].size > 1097152){
+            alert("File is too big!");
+            this.value = "";
+            };
+        };
+    </script> --}}
+
+
 
 @endsection
 
