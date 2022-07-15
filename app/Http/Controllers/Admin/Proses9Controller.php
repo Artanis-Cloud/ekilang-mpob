@@ -344,7 +344,11 @@ class Proses9Controller extends Controller
 
     public function process_admin_9penyataterdahulu_buah_form(Request $request)
     {
-
+        // dd($request->all());
+        if (!$request->papar_ya) {
+            return redirect()->back()
+                ->with('error', 'Sila Pilih Pelesen');
+        }
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
@@ -376,12 +380,15 @@ class Proses9Controller extends Controller
 
         // dd($penyata);
         // $data = DB::table('pelesen')->get();
-        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor','myDateTime','formatteddate'));
+        return view('admin.proses9.9papar-terdahulu-buah-multi', compact('returnArr', 'layout', 'tahun', 'bulan', 'pelesens', 'penyata', 'sektor', 'myDateTime', 'formatteddate'));
     }
 
     public function process_admin_9penyataterdahulu_penapis_form(Request $request)
     {
-
+        if (!$request->papar_ya) {
+            return redirect()->back()
+                ->with('error', 'Sila Pilih Pelesen');
+        }
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -524,7 +531,10 @@ class Proses9Controller extends Controller
     public function process_admin_9penyataterdahulu_isirung_form(Request $request)
     {
 
-
+        if (!$request->papar_ya) {
+            return redirect()->back()
+                ->with('error', 'Sila Pilih Pelesen');
+        }
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('admin.9penyataterdahulu'), 'name' => "Papar Penyata Terdahulu"],
@@ -588,7 +598,10 @@ class Proses9Controller extends Controller
 
     public function process_admin_9penyataterdahulu_oleo_form(Request $request)
     {
-
+        if (!$request->papar_ya) {
+            return redirect()->back()
+                ->with('error', 'Sila Pilih Pelesen');
+        }
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
@@ -659,11 +672,11 @@ class Proses9Controller extends Controller
 
             $iv = H104D::with('h104init', 'produk', 'negara')->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->get();
 
-             if ($iv) {
-            $totaliv7 = DB::table("h104_d")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->sum('e104_d7');
-            $totaliv8 = DB::table("h104_d")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->sum('e104_d8');
+            if ($iv) {
+                $totaliv7 = DB::table("h104_d")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->sum('e104_d7');
+                $totaliv8 = DB::table("h104_d")->where('e104_nobatch', $penyata->e104_nobatch)->where('e104_d3', '1')->sum('e104_d8');
 
-            // dd($penyata->e014_nobatch = '062019CA0004');
+                // dd($penyata->e014_nobatch = '062019CA0004');
 
                 // $myDateTime2 = DateTime::createFromFormat('Y-m-d', $iv->e104_d6);
                 // $formatteddat2 = $myDateTime2->format('d-m-Y');
@@ -737,7 +750,10 @@ class Proses9Controller extends Controller
 
     public function process_admin_9penyataterdahulu_simpanan_form(Request $request)
     {
-
+        if (!$request->papar_ya) {
+            return redirect()->back()
+                ->with('error', 'Sila Pilih Pelesen');
+        }
 
         $breadcrumbs    = [
             ['link' => route('admin.dashboard'), 'name' => "Laman Utama"],
