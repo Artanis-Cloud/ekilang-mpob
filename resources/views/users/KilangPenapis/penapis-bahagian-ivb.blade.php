@@ -423,14 +423,6 @@
 
 
 
-
-
-
-
-
-
-
-
                 <div class="form-group" style="padding-top: 10px; ">
                         <a href="{{ route('penapis.bahagianiva') }}" class="btn btn-primary"
                             style="float: left">Sebelumnya</a>

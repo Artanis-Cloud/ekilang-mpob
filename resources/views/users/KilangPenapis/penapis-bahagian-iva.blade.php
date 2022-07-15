@@ -282,9 +282,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form
-                                                            action="{{ route('penapis.edit.bahagian.iva', [$data->e101_c1]) }}"
-                                                            method="post">
+                                                        <form action="{{ route('penapis.edit.bahagian.iva', [$data->e101_c1]) }}" method="post">
                                                             @csrf
                                                             <div class="modal-body">
                                                                 <label class="required">Nama Produk </label>

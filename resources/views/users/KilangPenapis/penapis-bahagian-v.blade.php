@@ -481,35 +481,33 @@
                                                                 <label class="required">CPO </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_d5'
-                                                                        class="form-control"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         oninput="validate_two_decimal(this)"
                                                                         value="{{ $data->e101_d5 }}">
                                                                 </div>
                                                                 <label class="required">PPO </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_d6'
-                                                                        class="form-control"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         oninput="validate_two_decimal(this)"
                                                                         value="{{ $data->e101_d6 }}">
                                                                 </div>
                                                                 <label class="required">CPKO </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_d7'
-                                                                        class="form-control"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         oninput="validate_two_decimal(this)"
                                                                         value="{{ $data->e101_d7 }}">
                                                                 </div>
                                                                 <label class="required">PPKO </label>
                                                                 <div class="form-group">
                                                                     <input type="text" name='e101_d8'
-                                                                        class="form-control"
+                                                                        class="form-control" onkeypress="return isNumberKey(event)"
                                                                         oninput="validate_two_decimal(this)"
                                                                         value="{{ $data->e101_d8 }}">
                                                                 </div>
                                                             </div>
-
                                                     </div>
-
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-light-secondary"
                                                             data-dismiss="modal">
