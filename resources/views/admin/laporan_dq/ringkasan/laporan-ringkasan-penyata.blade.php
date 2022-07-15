@@ -119,7 +119,7 @@
 
                                                         <tr>
 
-                                                            <td>
+                                                            {{-- <td>
                                                                 @if ($datas->ebio_bln == 5)
                                                                     {{ $datas->ebio_sdate }}
                                                                 @endif
@@ -128,7 +128,7 @@
                                                                 @if ($datas->ebio_bln == 1)
                                                                     {{ $datas->ebio_sdate }}
                                                                 @endif
-                                                            </td>
+                                                            </td> --}}
                                                             {{-- <td>
                                                                 @if ($datas->ebio_bln == 2)
                                                                     {{$date}}
@@ -217,35 +217,37 @@
                                                     </thead>
                                                     <tbody>
 
-                                                        <tr>
-                                                            @foreach ($b1 as $data)
+                                                            <tr>
+                                                                {{-- @for ($i=$data_bulanan_ebio_b4; $i <= 12; $i++) --}}
+                                                                <th>@if ($i == '7')
+                                                                {{ $hbiob->ebio_b4}}
+                                                                @endif</th>
+                                                                {{-- @endfor --}}
 
+                                                                {{-- <td>{{ $data}}</td>
+                                                                <td>
+                                                                    @if ($data->ebio_bln == 5)
+                                                                        {{ $data }}
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    @if ($data->ebio_bln == 1)
+                                                                        {{ $data->ebio_b5 }}
+                                                                    @endif
+                                                                </td>
+                                                                @endforeach --}}
 
-                                                            <th>{{ $data->ebio_b4}}</th>
-                                                            <td>{{ $data->prodname}}</td>
-                                                            <td>
-                                                                @if ($data->ebio_bln == 5)
-                                                                    {{ $data->ebio_b5 }}
-                                                                @endif
-                                                            </td>
-                                                            <td>
-                                                                @if ($data->ebio_bln == 1)
-                                                                    {{ $data->ebio_b5 }}
-                                                                @endif
-                                                            </td>
-                                                            @endforeach
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <th>-</th>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                            <th>-</th>
-                                                            <td>-</td>
-                                                            <td>-</td>
-                                                        </tr>
-
+                                                                <td>k</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <th>-</th>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                                <th>-</th>
+                                                                <td>-</td>
+                                                                <td>-</td>
+                                                            </tr>
 
                                                     <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
                                                         <th colspan="2">Jumlah</th>

@@ -224,7 +224,7 @@ Route::middleware('auth')->group(function () {
         Route::get('admin/ringkasan-penyata', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_penyata'])->name('admin.ringkasan.penyata');
         Route::get('admin/ringkasan-penyata/process', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_penyata'])->name('admin.ringkasan.penyata.process');
 
-        Route::get('admin/laporan-ringkasan/{Id}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_ringkasan'])->name('admin.laporan.ringkasan');
+        Route::get('admin/laporan-ringkasan/{Id}/{data}', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_ringkasan'])->name('admin.laporan.ringkasan');
         Route::get('admin/laporan-ringkasan-operasi', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_ringkasan_operasi'])->name('admin.laporan.operasi');
         Route::get('admin/laporan-ringkasan-jualan-bio', [App\Http\Controllers\Admin\LaporanController::class, 'admin_laporan_ringkasan_jualan_bio'])->name('admin.laporan.jualan.bio');
         // Route::post('admin/laporan-ringkasan', [App\Http\Controllers\Admin\LaporanController::class, 'admin_ringkasan_penyata_process'])->name('admin.ringkasan.process');

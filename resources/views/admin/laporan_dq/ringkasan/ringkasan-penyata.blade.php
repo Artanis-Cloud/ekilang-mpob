@@ -212,7 +212,7 @@
                                                             <td>{{ $loop->iteration }}</td>
                                                             {{-- <td>{{ $data->ebio_thn }}</td> --}}
                                                             <td> <a
-                                                                href="{{ route('admin.laporan.ringkasan', $data->e_nl) }}"><u>
+                                                                href="{{ route('admin.laporan.ringkasan', [$data->e_nl, $data->ebio_thn]) }}"><u>
                                                                     {{ $data->e_nl }}</u></a></td>
 
                                                             <td>{{ $data->e_np }}</td>
@@ -914,14 +914,29 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Kod Produk</label>
-                                                <select class="form-control" id="ebio_c3" name="ebio_c3" style="width: 100%" >
+                                                <label>Kumpulan Produk</label>
+                                                <select class="form-control" id="kumpproduk" name="kumpproduk"  onchange="ajax_produk_b2(this);" >
                                                     <option selected hidden disabled>Sila Pilih</option>
-                                                    @foreach ($produk as $data)
-                                                        <option value="{{ $data->kod_produk }}">
-                                                            {{ $data->nama_produk }} - {{ $data->kod_produk }}
+                                                    @foreach ($kumpproduk as $data)
+                                                    {{-- @if ($data->role == '' || $data->role == 'Supervisor' || $data->role == 'Admin') --}}
+                                                        <option value="{{ $data->kumpulan }}">
+                                                            {{ $data->kumpulan }} - {{ $data->nama_kumpulan }}
                                                         </option>
                                                     @endforeach
+
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Kod Produk</label>
+                                                <select class="form-control select2" id="kod_produk2" name="kod_produk" oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')"
+                                                oninput="setCustomValidity('')" style="width: 10%">
+                                                    <option selected hidden disabled value="">Sila Pilih Kumpulan Terlebih Dahulu
+                                                    </option>
+                                                    {{-- @foreach ($produk as $data)
+                                                        <option value="{{ $data->nama_produk }}">
+                                                            {{ $data->nama_produk }} - {{ $data->kod_produk }}  - {{ $data->namapanjang_produk }}
+                                                        </option>
+                                                    @endforeach --}}
 
                                                 </select>
                                             </div>
@@ -1218,40 +1233,75 @@
     }
 </script>
 
-<script>
-    function ajax_produk(select) {
-        kumpulan = select.value;
-        console.log(kumpulan);
-        //clear jenis_data selection
-        $("#kod_produk").empty();
-        //initialize selection
-        $("#kod_produk").append('<option value="" selected disabled hidden>Sila Pilih Kumpulan Produk</option>');
+    <script>
+        function ajax_produk(select) {
+            kumpulan = select.value;
+            console.log(kumpulan);
+            //clear jenis_data selection
+            $("#kod_produk").empty();
+            //initialize selection
+            $("#kod_produk").append('<option value="" selected disabled hidden>Sila Pilih Kumpulan Produk</option>');
 
-        $.ajax({
-            type: "get",
-            url: "/ajax/fetch-produk/" + kumpulan, //penting
+            $.ajax({
+                type: "get",
+                url: "/ajax/fetch-produk/" + kumpulan, //penting
 
-            success: function(respond) {
-                //fetch data (id) from DB Senarai Harga
-                // console.log(respond);
-                //loop for data
-                var x = 0;
-                respond.forEach(function() { //penting
+                success: function(respond) {
+                    //fetch data (id) from DB Senarai Harga
+                    // console.log(respond);
+                    //loop for data
+                    var x = 0;
+                    respond.forEach(function() { //penting
 
-                    console.log(respond[x]);
-                    $("#kod_produk").append('<option value="' + respond[x].prodname + '">' +
-                        respond[x]
-                        .proddesc + '</option>');
-                    x++;
-                });
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {
-                console.log("Status: " + textStatus);
-                console.log("Error: " + errorThrown);
-            }
-        });
-    }
-</script>
+                        console.log(respond[x]);
+                        $("#kod_produk").append('<option value="' + respond[x].prodname + '">' +
+                            respond[x]
+                            .proddesc + '</option>');
+                        x++;
+                    });
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log("Status: " + textStatus);
+                    console.log("Error: " + errorThrown);
+                }
+            });
+        }
+    </script>
+
+    <script>
+        function ajax_produk_b2(select) {
+            kumpulan = select.value;
+            console.log(kumpulan);
+            //clear jenis_data selection
+            $("#kod_produk2").empty();
+            //initialize selection
+            $("#kod_produk2").append('<option value="" selected disabled hidden>Sila Pilih Kumpulan Produk</option>');
+
+            $.ajax({
+                type: "get",
+                url: "/ajax/fetch-produk/" + kumpulan, //penting
+
+                success: function(respond) {
+                    //fetch data (id) from DB Senarai Harga
+                    // console.log(respond);
+                    //loop for data
+                    var x = 0;
+                    respond.forEach(function() { //penting
+
+                        console.log(respond[x]);
+                        $("#kod_produk2").append('<option value="' + respond[x].prodname + '">' +
+                            respond[x]
+                            .proddesc + '</option>');
+                        x++;
+                    });
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    console.log("Status: " + textStatus);
+                    console.log("Error: " + errorThrown);
+                }
+            });
+        }
+    </script>
 
 
     <script type="text/javascript">
