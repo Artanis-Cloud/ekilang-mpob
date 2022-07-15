@@ -110,7 +110,7 @@ class KilangBuahController extends Controller
             'e_id' => $count + 1,
             // 'e_nl' => $data['e_nl'],
             // 'e_np' => $data['e_np'],
-            'e_ap1' => $data['e_ap1'], 
+            'e_ap1' => $data['e_ap1'],
             'e_ap2' => $data['e_ap2'],
             'e_ap3' => $data['e_ap3'],
             'e_as1' => $data['e_as1'],
@@ -641,7 +641,9 @@ class KilangBuahController extends Controller
     public function buah_paparpenyata()
     {
         //semak jumlah bahagian v
-        $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+        // $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $penyata = E91Init::where('e91_nl', auth()->user()->username)->first();
+
         // dd($penyata);
 
         $jumlah_3 = ($penyata->e91_ai1 ?? 0) +
@@ -659,12 +661,15 @@ class KilangBuahController extends Controller
 
         if ($jumlah_3 != $penyata->e91_ab1) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (FFB)!');
-        } elseif ($jumlah_4 != $penyata->e91_ae2) {
+        }
+        if ($jumlah_4 != $penyata->e91_ae2) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPO)!');
-        } elseif ($jumlah_5 != $penyata->e91_ae3) {
+        }
+        if ($jumlah_5 != $penyata->e91_ae3) {
             return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
         }
         //end of semak jumlah bahagian v
+        // dd($penyata->e91_ai1);
 
         $breadcrumbs    = [
             ['link' => route('buah.dashboard'), 'name' => "Laman Utama"],
