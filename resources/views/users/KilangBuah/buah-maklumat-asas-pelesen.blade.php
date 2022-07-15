@@ -542,7 +542,7 @@
                                             <i class="bx bx-x d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                         </button>
-                                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal" id="checkBtn">
                                             <i class="bx bx-check d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block">Ya</span>
                                         </button>
@@ -600,7 +600,7 @@
 
             document.getElementById('myform').addEventListener('submit', validateForm);
         </script> --}}
-          
+
 
             <script>
                 function check() {
@@ -757,4 +757,24 @@
 
                 }
             </script>
+                    <script type = "text/javascript" >
+                        $(document).ready(function() {
+                            $('#checkBtn').click(function() {
+                                // checked = $("input[type=checkbox]:checked").length;
+                                tangki = $('#bil_tangki_cpo').val();
+
+                                if (!tangki ||  !( tangki > 0) ) {
+                                  console.log('lain');
+
+                                    toastr.error(
+                                    'Bilangan tangki hendaklah lebih dari 0',
+                                    'Ralat!', {
+                                        "progressBar": true
+                                    })
+                                    return false;
+                                }
+
+                            });
+                        });
+                </script>
         @endsection
