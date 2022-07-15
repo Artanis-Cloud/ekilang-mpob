@@ -124,7 +124,7 @@
                             </div>
                             {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
                             <input id="lesen" type="text" class="form-control @error('lesen') is-invalid @enderror"
-                                name="lesen" placeholder="Sila Masukkan No. Lesen">
+                                name="lesen" placeholder="Sila Masukkan Username">
 
                             @error('email')
                                 <div class="col-12 alert alert-danger">

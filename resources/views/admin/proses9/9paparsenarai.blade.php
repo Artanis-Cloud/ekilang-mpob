@@ -126,7 +126,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
                                                                     value="{{ $data->e91_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -142,10 +142,8 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary">Papar</button>
-
-
-
+                                                {{-- <button type="submit" class="btn btn-primary" id="submit" disabled="true">Papar</button> --}}
+                                                <button type="submit" class="btn btn-primary" id="submit">Papar</button>
                                             </div>
                                         </div>
                                     </form>
@@ -173,7 +171,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
                                                                     value="{{ $data->e101_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -189,8 +187,9 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary ">Papar</button>
+                                                {{-- <button type="submit" class="btn btn-primary " id="submit" disabled="true">Papar</button> --}}
 
+                                                <button type="submit" class="btn btn-primary" id="submit">Papar</button>
 
 
                                             </div>
@@ -220,7 +219,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"
+                                                                <input name="papar_ya[]" type="checkbox"  class="checkit"
                                                                     value="{{ $data->e102_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -236,7 +235,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary ">Papar</button>
+                                                <button type="submit" class="btn btn-primary " id="submit">Papar</button>
 
 
 
@@ -267,7 +266,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox" id="toggle"
+                                                                <input name="papar_ya[]" type="checkbox" id="toggle" class="checkit"
                                                                     value="{{ $data->e104_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -283,8 +282,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary " id="submit"
-                                                    disabled>Papar</button>
+                                                <button type="submit" class="btn btn-primary " id="submit">Papar</button>
 
 
 
@@ -315,7 +313,7 @@
                                                     @foreach ($users as $data)
                                                         <tr>
                                                             <td>
-                                                                <input name="papar_ya[]" type="checkbox"
+                                                                <input name="papar_ya[]" type="checkbox" id="papar" class="checkit"
                                                                     value="{{ $data->e07_nobatch }}">&nbspYa
                                                             </td>
                                                             <td>{{ $data->e_nl }}</td>
@@ -331,8 +329,7 @@
 
                                             </table>
                                             <div class="text-left col-md-8">
-                                                <button type="submit" class="btn btn-primary ">Papar</button>
-
+                                                <button type="submit" class="btn btn-primary " id="submit" >Papar</button>
 
 
                                             </div>
@@ -423,7 +420,7 @@
             });
         });
     </script>
-    <script>
+    {{-- <script>
         $(function() {
 
             var requiredCheckboxes = $(':checkbox[required]');
@@ -438,33 +435,30 @@
             });
 
         });
-    </script>
+    </script> --}}
 
-    <script>
-        // function myFunction() {
-        //     document.getElementById("myCheck").disabled = true;
-        // }
-        $('#toggle').click(function() {
-            //check if checkbox is checked
-            // console.log('check');
-            if ($('#submit').is(':checked')) {
-                console.log('check');
-                $('#submit').removeAttr('disabled'); //enable input
+    {{-- <script>
 
-            } else {
-                // $('#submit').attr('disabled', true); //disable input
-                document.getElementById("submit").disabled = true;
+
+        var check_opt = document.getElementsByClassName('checkit');
+        console.log(check_opt);
+        var btn = document.getElementById('submit');
+
+        function detect() {
+            btn.disabled = true;
+            for (var index = 0; index < check_opt.length; ++index) {
+                console.log(index);
+                if (check_opt[index].checked == true) {
+                    console.log(btn);
+                    btn.disabled = false;
+                }
             }
-        });
-        // $(function() {
-        //     $("input[type='checkBox']").change(function() {
-        //         var len = $("input[type='checkBox']:checked").length;
-        //         if (len == 0)
-        //             $("input[type='submit']").prop("disabled", true);
-        //         else
-        //             $("input[type='submit']").removeAttr("disabled");
-        //     });
-        //     $("input[type='checkBox']").trigger('change');
-        // });
-    </script>
+        }
+        window.onload = function() {
+            for (var i = 0; i < check_opt.length; i++) {
+                check_opt[i].addEventListener('click', detect)
+            }
+            // when unchecked or checked, run the function
+        }
+    </script> --}}
 @endsection

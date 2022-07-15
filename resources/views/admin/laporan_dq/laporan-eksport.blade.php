@@ -170,11 +170,10 @@
                                     <tbody>
                                         @if ($eksport)
                                             @if ($bulan == null)
-                                                @php
-                                                    $total_bulan = 0;
-
-                                                @endphp
                                                 @foreach ($eksport as $data)
+                                                    @php
+                                                        $total_bulan = 0;
+                                                    @endphp
                                                     <tr class="text-right">
                                                         <td scope="row" class="text-left">{{ $loop->iteration }}</td>
                                                         <td scope="row" class="text-left">{{ $data->e_np }}</td>
@@ -294,7 +293,7 @@
                                             @else
                                                 @foreach ($eksport as $key => $data)
                                                     <tr class="text-right">
-                                                        <td scope="row" class="text-left">{{ $key }}</td>
+                                                        <td scope="row" class="text-left">{{ $loop->iteration }}</td>
                                                         <td scope="row" class="text-left">{{ $data->e_np }}</td>
 
                                                         @for ($i = $start_month; $i <= $end_month; $i++)
@@ -306,8 +305,13 @@
                                                             @else
                                                                 <td>0.00</td>
                                                             @endif
+
+                                                            @php
+                                                                $jumlah = $total_bulan[$i];
+                                                            @endphp
                                                         @endfor
-                                                        <td><b>{{ number_format($total_bulan[$i] ?? 0, 2) }}</b></td>
+
+                                                        <td><b>{{ number_format($jumlah ?? 0, 2) }}</b></td>
 
                                                     </tr>
                                                 @endforeach

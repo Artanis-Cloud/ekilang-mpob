@@ -22,7 +22,8 @@
     <link href="{{ asset('nice-admin/assets/libs/chartist/dist/chartist.min.css') }}" rel="stylesheet">
     <link href="{{ asset('nice-admin/assets/extra-libs/c3/c3.min.css') }}  " rel="stylesheet">
     {{-- <link href="{{ asset('assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" /> --}}
-    <link href="{{ asset('nice-admin/assets/libs/bootstrap-duallistbox/dist/bootstrap-duallistbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('nice-admin/assets/libs/bootstrap-duallistbox/dist/bootstrap-duallistbox.min.css') }}"
+        rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="{{ asset('nice-admin/dist/css/style.css') }}" rel="stylesheet">
@@ -70,7 +71,11 @@
         cursor: default !important;
     }
 
-
+    .highlight {
+        background: #d3d3d3;
+        border-radius: 10px;
+        padding: 0px 20px;
+    }
 </style>
 
 <body>
@@ -283,10 +288,11 @@
                         <!-- Comment -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href="" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle waves-effect waves-dark" href=""
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="mdi mdi-bell-outline font-22"></i>
-                                <span class="badge badge-pill badge-info noti">{{ auth()->user()->unreadNotifications->count() }}</span>
+                                <span
+                                    class="badge badge-pill badge-info noti">{{ auth()->user()->unreadNotifications->count() }}</span>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right mailbox animated bounceInDown">
                                 <span class="with-arrow">
@@ -295,7 +301,8 @@
                                 <ul class="list-style-none">
                                     <li>
                                         <div class="drop-title bg-primary text-white">
-                                            <h4 class="m-b-0 m-t-5">Terdapat {{ auth()->user()->unreadNotifications->count() }}</h4>
+                                            <h4 class="m-b-0 m-t-5">Terdapat
+                                                {{ auth()->user()->unreadNotifications->count() }}</h4>
                                             <span class="font-light">Notifikasi</span>
                                         </div>
                                     </li>
@@ -303,15 +310,18 @@
                                         <div class="message-center notifications">
                                             <!-- Message -->
                                             @forelse (auth()->user()->unreadNotifications as $notification)
-                                            <a href="{{ route('notification.show', $notification->id) }}" class="message-item">
-                                                <span class="btn btn-danger btn-circle">
-                                                    <i class="fa fa-link"></i>
-                                                </span>
-                                                <div class="mail-contnet">
-                                                    <h5 class="message-title">{{ $notification->data['tajuk'] }}</h5>
-                                                    <span class="time">{{ date('d-m-Y H:i:s', strtotime($notification->created_at)) }}</span>
-                                                </div>
-                                            </a>
+                                                <a href="{{ route('notification.show', $notification->id) }}"
+                                                    class="message-item">
+                                                    <span class="btn btn-danger btn-circle">
+                                                        <i class="fa fa-link"></i>
+                                                    </span>
+                                                    <div class="mail-contnet">
+                                                        <h5 class="message-title">{{ $notification->data['tajuk'] }}
+                                                        </h5>
+                                                        <span
+                                                            class="time">{{ date('d-m-Y H:i:s', strtotime($notification->created_at)) }}</span>
+                                                    </div>
+                                                </a>
                                             @empty
                                             @endforelse
                                         </div>
@@ -363,9 +373,12 @@
                         <li class="nav-item dropdown">
 
                             <a class="nav-link dropdown-toggle waves-effect waves-dark pro-pic" href=""
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-                                <img src="{{ asset('user_icon.png') }}" alt="user" class="rounded-circle" width="30">
-                                <span class="m-l-5 font-medium d-none d-sm-inline-block" style="font-size:14px; line-height:20px; padding-top:15px">{{ auth()->user()->name }} <br> {{ auth()->user()->username }}</span>
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="{{ asset('user_icon.png') }}" alt="user" class="rounded-circle"
+                                    width="30">
+                                <span class="m-l-5 font-medium d-none d-sm-inline-block"
+                                    style="font-size:14px; line-height:20px; padding-top:15px">{{ auth()->user()->name }}
+                                    <br> {{ auth()->user()->username }}</span>
                                 {{-- <span class="m-l-5 font-medium d-none d-sm-inline-block" style="font-size: 15px"><i
                                     class="mdi mdi-chevron-down"></i></span> --}}
                             </a>
@@ -413,7 +426,7 @@
         @if (auth()->user()->category == 'PL91')
             <aside class="left-sidebar">
                 <!-- Sidebar scroll-->
-                <div class="scroll-sidebar">
+                <div class="scroll-sidebar"  data-height="100%" data-init="true" >
                     <!-- Sidebar navigation-->
                     <nav class="sidebar-nav">
                         <ul id="sidebarnav">
@@ -422,7 +435,7 @@
                                 <span class="hide-menu font-weight-bold"> </span>
                             </li>
                             <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:;"
                                     aria-expanded="false" style="margin-top:-9%">
                                     <i class="fas fa-edit" style="color:rgb(54, 51, 41)"></i>
                                     <span class="hide-menu font-weight-bold"> Maklumat Pelesen </span>
@@ -444,18 +457,18 @@
                                 </ul>
                             </li>
 
-                            <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                            <li class="sidebar-item has-sub">
+                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:;"
                                     aria-expanded="false">
                                     <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
+                                    <span class="hide-menu font-weight-bold"> <b class="caret"></b> Kemasukan Penyata <br>Bulanan</span>
                                     {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                 </a>
 
-                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                <ul aria-expanded="false" class="collapse first-level sub-menu" style="margin-left:5%">
                                     @if (!$layoutpenyata)
                                         <li class="sidebar-item">
-                                            <a href="{{ route('buah.bahagiani') }}" class="sidebar-link">
+                                            <a href="{{ route('buah.bahagiani') }}" class="sidebar-link load" >
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
                                                 <span class="hide-menu"> Bahagian 1 </span>
                                             </a>
@@ -492,7 +505,7 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('buah.paparpenyata') }}" class="sidebar-link " >
+                                            <a href="{{ route('buah.paparpenyata') }}" class="sidebar-link ">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
                                                 <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
                                                 </span>
@@ -525,6 +538,7 @@
                                     <span class="hide-menu"><b> Papar Penyata Bulanan <br>Terdahulu </b></span>
                                 </a>
                             </li>
+
                         </ul>
                     </nav>
                 </div>
@@ -951,8 +965,7 @@
                                             </a>
                                         </li>
                                         <li class="sidebar-item">
-                                            <a href="{{ route('pusatsimpan.paparpenyata') }}"
-                                                class="sidebar-link">
+                                            <a href="{{ route('pusatsimpan.paparpenyata') }}" class="sidebar-link">
                                                 <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
                                                 <span class="hide-menu"> Semak & Hantar Penyata <br> Bulanan
                                                 </span>
@@ -1167,86 +1180,103 @@
                                 </ul>
                             </li>
                             @foreach (json_decode(auth()->user()->sub_cat) as $cat)
-                            @if ($cat == 'PLBIO' || auth()->user()->role == 'Superadmin')
-                            <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                    aria-expanded="false">
-                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Dynamic Query<br>Biodiesel  </span>
-                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                </a>
-                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                @if ($cat == 'PLBIO' || auth()->user()->role == 'Superadmin')
                                     <li class="sidebar-item">
-                                        <a href="{{ route('admin.ringkasan.penyata') }}" class="sidebar-link">
-                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu">Ringkasan Penyata Bulanan <br>  </span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('admin.pl.lewat') }}" class="sidebar-link">
-                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Tarikh Penerimaan <br> Borang PL </span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('admin.kapasiti') }}" class="sidebar-link">
-                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Kapasiti Kilang Biodiesel </span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('admin.laporan.tahunan') }}" class="sidebar-link">
-                                            <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Laporan Tahunan </span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a class="sidebar-link has-arrow " style=" margin-right:5%"
-                                            aria-expanded="false">
+                                        <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                            href="javascript:void(0)" aria-expanded="false">
                                             <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Hebahan 10hb </span>
+                                            <span class="hide-menu font-weight-bold"> Dynamic Query<br>Biodiesel
+                                            </span>
                                             {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                         </a>
-                                        <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                        <ul aria-expanded="false" class="collapse first-level"
+                                            style="margin-left:5%">
                                             <li class="sidebar-item">
-                                                <a href="{{ route('admin.stok.akhir') }}" class="sidebar-link">
+                                                <a href="{{ route('admin.ringkasan.penyata') }}"
+                                                    class="sidebar-link">
                                                     <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Stok Akhir</span>
+                                                    <span class="hide-menu">Ringkasan Penyata Bulanan <br> </span>
                                                 </a>
                                             </li>
                                             <li class="sidebar-item">
-                                                <a href="{{ route('admin.validasi.stok.akhir.proses') }}" class="sidebar-link">
+                                                <a href="{{ route('admin.pl.lewat') }}" class="sidebar-link">
                                                     <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Validasi Stok Akhir</span>
+                                                    <span class="hide-menu"> Tarikh Penerimaan <br> Borang PL </span>
                                                 </a>
                                             </li>
                                             <li class="sidebar-item">
-                                                <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}" class="sidebar-link">
+                                                <a href="{{ route('admin.kapasiti') }}" class="sidebar-link">
                                                     <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Validasi Stok Akhir <br> Ikut Produk</span>
+                                                    <span class="hide-menu"> Kapasiti Kilang Biodiesel </span>
                                                 </a>
                                             </li>
                                             <li class="sidebar-item">
-                                                <a href="{{ route('admin.minyak.sawit.diproses') }}" class="sidebar-link">
+                                                <a href="{{ route('admin.laporan.tahunan') }}"
+                                                    class="sidebar-link">
                                                     <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Minyak Sawit <br> Diproses</span>
+                                                    <span class="hide-menu"> Laporan Biodiesel </span>
                                                 </a>
                                             </li>
                                             <li class="sidebar-item">
-                                                <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}" class="sidebar-link">
-                                                    <i class="fas fa-filter" style="color:rgb(54, 51, 41) "></i>
-                                                    <span class="hide-menu"> Validasi Minyak<br>Sawit Diproses</span>
+                                                <a class="sidebar-link has-arrow " style=" margin-right:5%"
+                                                    aria-expanded="false">
+                                                    <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                                    <span class="hide-menu"> Hebahan 10hb </span>
+                                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                                 </a>
+                                                <ul aria-expanded="false" class="collapse first-level"
+                                                    style="margin-left:5%">
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.stok.akhir') }}"
+                                                            class="sidebar-link">
+                                                            <i class="fas fa-filter"
+                                                                style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> Stok Akhir</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.stok.akhir.proses') }}"
+                                                            class="sidebar-link">
+                                                            <i class="fas fa-filter"
+                                                                style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> Validasi Stok Akhir</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.stok.akhir.ikut.produk') }}"
+                                                            class="sidebar-link">
+                                                            <i class="fas fa-filter"
+                                                                style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> Validasi Stok Akhir <br> Ikut
+                                                                Produk</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.minyak.sawit.diproses') }}"
+                                                            class="sidebar-link">
+                                                            <i class="fas fa-filter"
+                                                                style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> Minyak Sawit <br> Diproses</span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="sidebar-item">
+                                                        <a href="{{ route('admin.validasi.minyak.sawit.diproses') }}"
+                                                            class="sidebar-link">
+                                                            <i class="fas fa-filter"
+                                                                style="color:rgb(54, 51, 41) "></i>
+                                                            <span class="hide-menu"> Validasi Minyak<br>Sawit
+                                                                Diproses</span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </li>
-                                        </ul>
-                                    </li>
-                                    {{-- <li class="sidebar-item">
+                                            {{-- <li class="sidebar-item">
                                         <a class="sidebar-link has-arrow " style=" margin-right:5%"
                                             aria-expanded="false">
                                             <i class="far fa-folder-open" style="color:rgb(54, 51, 41) "></i>
                                             <span class="hide-menu"> Oleokimia </span>
                                             {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                        {{-- </a>
+                                            {{-- </a>
                                         <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                             <li class="sidebar-item">
                                                 <a href="{{ route('admin.activities.all') }}" class="sidebar-link">
@@ -1276,343 +1306,353 @@
                                                 </a>
                                             </li>
                                         </ul>
-                                    </li>  --}}
-                                </ul>
-                            </li>
-                            @endif
-                            @if(auth()->user()->role == 'Superadmin')
+                                    </li> --}}
+                                        </ul>
+                                    </li>
+                                @endif
+                                @if (auth()->user()->role == 'Superadmin')
                                 @break
                             @endif
-                            @endforeach
-                            @if (auth()->user()->role != 'Admin')
-                                <li class="sidebar-item">
-                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                        aria-expanded="false">
-                                        <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
-                                        <span class="hide-menu font-weight-bold"> Pindahan Data </span>
-                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                    </a>
-                                    <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                        <li class="sidebar-item">
-                                            <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
-                                                <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> e-Kilang ke PLEID </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
-                                                <i class="fas fa-barcode" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
-                                                <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Stat Admin/Homepage </span>
-                                            </a>
-                                        </li>
-                                        <li class="sidebar-item">
-                                            <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
-                                                <i class="fas fa-folder-open" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Dynamic Query </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            @else
-                            @endif
-
+                        @endforeach
+                        @if (auth()->user()->role != 'Admin')
                             <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                    aria-expanded="false">
-                                    <i class="fas fa-cogs" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Konfigurasi </span>
+                                <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                    href="javascript:void(0)" aria-expanded="false">
+                                    <i class="fas fa-arrows-alt-h" style="color:rgb(54, 51, 41) "></i>
+                                    <span class="hide-menu font-weight-bold"> Pindahan Data </span>
                                     {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
                                 </a>
                                 <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                     <li class="sidebar-item">
-                                        @if ( auth()->user()->role == 'Superadmin' || auth()->user()->role == 'Manager' || auth()->user()->role == 'Supervisor')
-                                            <a href="{{ route('admin.senarai.pentadbir') }}" class="sidebar-link">
-                                                <i class="fas fa-users" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Pengurusan Pentadbir </span>
-                                            </a>
-                                        @else
-                                        @endif
-
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('admin.pengumuman') }}" class="sidebar-link">
-                                            <i class="fas fa-bell" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Pengumuman </span>
+                                        <a href="{{ route('admin.4ekilangpleid') }}" class="sidebar-link">
+                                            <i class="fas fa-boxes" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> e-Kilang ke PLEID </span>
                                         </a>
                                     </li>
                                     <li class="sidebar-item">
-                                        <a href="{{ route('admin.3daftarpenyata') }}" class="sidebar-link">
-                                            <i class="fas fa-server" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Initialize Penyata Baharu </span>
+                                        <a href="{{ route('admin.7portingmaklumat') }}" class="sidebar-link">
+                                            <i class="fas fa-barcode" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Produk Sawit/Negara/ <br>Daerah </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.8portdata') }}" class="sidebar-link">
+                                            <i class=" fas fa-book" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Stat Admin/Homepage </span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.10portdatatodq') }}" class="sidebar-link">
+                                            <i class="fas fa-folder-open" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Dynamic Query </span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
+                        @else
+                        @endif
 
-                            <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                    aria-expanded="false">
-                                    <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Lain - Lain </span>
-                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                </a>
-                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('admin.direktori') }}" class="sidebar-link">
-                                            <i class="fas fa-database" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Direktori </span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        {{-- <a href="{{ route('admin.panduan') }}" class="sidebar-link"> --}}
-                                        <a href="{{ asset('manual/admin/panduan2.pdf') }}" target="_blank"
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                aria-expanded="false">
+                                <i class="fas fa-cogs" style="color:rgb(54, 51, 41) "></i>
+                                <span class="hide-menu font-weight-bold"> Konfigurasi </span>
+                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                <li class="sidebar-item">
+                                    @if (auth()->user()->role == 'Superadmin' ||
+                                        auth()->user()->role == 'Manager' ||
+                                        auth()->user()->role == 'Supervisor')
+                                        <a href="{{ route('admin.senarai.pentadbir') }}"
                                             class="sidebar-link">
-                                            <i class="fas fa-user-circle" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Panduan Pengguna </span>
+                                            <i class="fas fa-users" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Pengurusan Pentadbir </span>
                                         </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('admin.11emel') }}" class="sidebar-link">
-                                            <i class="fas fa-envelope-open" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Emel Pindaan </span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('admin.12validation') }}" class="sidebar-link">
-                                            <i class="fas fa-check-square" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Validasi </span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('admin.kod.produk') }}" class="sidebar-link">
-                                            <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Kod & Nama Produk </span>
-                                        </a>
-                                    </li>
-                                    <li class="sidebar-item">
-                                        <a href="{{ route('admin.kod.negara') }}" class="sidebar-link">
-                                            <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
-                                            <span class="hide-menu"> Kod & Nama Negara </span>
-                                        </a>
-                                    </li>
-                                    @if ( auth()->user()->role == 'Superadmin')
-                                        <li class="sidebar-item">
-                                            <a href="{{ route('admin.log.superadmin') }}" class="sidebar-link">
-                                                <i class=" fas fa-clock" style="color:rgb(54, 51, 41) "></i>
-                                                <span class="hide-menu"> Audit Trail </span>
-                                            </a>
-                                        </li>
+                                    @else
                                     @endif
 
-                                </ul>
-                            </li>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.pengumuman') }}" class="sidebar-link">
+                                        <i class="fas fa-bell" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Pengumuman </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.3daftarpenyata') }}" class="sidebar-link">
+                                        <i class="fas fa-server" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Initialize Penyata Baharu </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-                        </ul>
-                    </nav>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
+                                aria-expanded="false">
+                                <i class="fas fa-ellipsis-h" style="color:rgb(54, 51, 41) "></i>
+                                <span class="hide-menu font-weight-bold"> Lain - Lain </span>
+                                {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                            </a>
+                            <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.direktori') }}" class="sidebar-link">
+                                        <i class="fas fa-database" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Direktori </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    {{-- <a href="{{ route('admin.panduan') }}" class="sidebar-link"> --}}
+                                    <a href="{{ asset('manual/admin/panduan2.pdf') }}" target="_blank"
+                                        class="sidebar-link">
+                                        <i class="fas fa-user-circle" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Panduan Pengguna </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.11emel') }}" class="sidebar-link">
+                                        <i class="fas fa-envelope-open" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Emel Pindaan </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.12validation') }}" class="sidebar-link">
+                                        <i class="fas fa-check-square" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Validasi </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.kod.produk') }}" class="sidebar-link">
+                                        <i class="fas fa-flask" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Kod & Nama Produk </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="{{ route('admin.kod.negara') }}" class="sidebar-link">
+                                        <i class="fas fa-globe" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu"> Kod & Nama Negara </span>
+                                    </a>
+                                </li>
+                                @if (auth()->user()->role == 'Superadmin')
+                                    <li class="sidebar-item">
+                                        <a href="{{ route('admin.log.superadmin') }}" class="sidebar-link">
+                                            <i class=" fas fa-clock" style="color:rgb(54, 51, 41) "></i>
+                                            <span class="hide-menu"> Audit Trail </span>
+                                        </a>
+                                    </li>
+                                @endif
 
-                    <!-- End Sidebar navigation -->
-                </div>
+                            </ul>
+                        </li>
 
-                <!-- End Sidebar scroll-->
-            </aside>
-        @endif
-        <div id="tutup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">MAKLUMAN</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            Anda tidak dibenarkan akses bahagian ini
-                        </p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
-                            <i class="bx bx-check d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Tutup</span>
-                        </button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
+                    </ul>
+
+
+
+
+
+
+                </nav>
+
+                <!-- End Sidebar navigation -->
             </div>
-            <!-- /.modal-dialog -->
-        </div>
 
-
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div id="main-wrapper">
-
-            @yield('content')
-
-        </div>
-        <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
-        <!-- ============================================================== -->
-
-        <!-- Modal Confirmation -->
-        <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
-            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle"
-                                aria-hidden="true"></i>&nbspConfirmation!</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Do you want to continue?
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                        <button type="submit" class="btn btn-success">Proceed</button>
-                    </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+    @endif
+    <div id="tutup" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">MAKLUMAN</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        Anda tidak dibenarkan akses bahagian ini
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary ml-1" data-dismiss="modal">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Tutup</span>
+                    </button>
                 </div>
             </div>
+            <!-- /.modal-content -->
         </div>
-        <!-- ============================================================== -->
-        <!-- footer -->
-        <!-- ============================================================== -->
-        <footer class="text-center footer" style="background-color: white;  ">
-            © Copyright 2022 Malaysian Palm Oil Board (MPOB). All Rights Reserved.
-        </footer>
-        <!-- ============================================================== -->
-        <!-- End footer -->
-        <!-- ============================================================== -->
+        <!-- /.modal-dialog -->
+    </div>
 
-        @if (auth()->user()->category == 'PL91')
-            <button id="map-message-warning" hidden></button>
-            <a id="map-flag-redirect" href="{{ route('buah.maklumatasaspelesen') }}" hidden></a>
-        @elseif (auth()->user()->category == 'PL101')
-            <button id="map-message-warning" hidden></button>
-            <a id="map-flag-redirect" href="{{ route('penapis.maklumatasaspelesen') }}" hidden></a>
-        @elseif (auth()->user()->category == 'PL102')
-            <button id="map-message-warning" hidden></button>
-            <a id="map-flag-redirect" href="{{ route('isirung.maklumatasaspelesen') }}" hidden></a>
-        @elseif (auth()->user()->category == 'PL104')
-            <button id="map-message-warning" hidden></button>
-            <a id="map-flag-redirect" href="{{ route('oleo.maklumatasaspelesen') }}" hidden></a>
-        @elseif (auth()->user()->category == 'PL111')
-            <button id="map-message-warning" hidden></button>
-            <a id="map-flag-redirect" href="{{ route('pusatsimpan.maklumatasaspelesen') }}" hidden></a>
-        @elseif (auth()->user()->category == 'PLBIO')
-            <button id="map-message-warning" hidden></button>
-            <a id="map-flag-redirect" href="{{ route('bio.maklumatasaspelesen') }}" hidden></a>
-        @endif
+
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+
+        @yield('content')
 
     </div>
     <!-- ============================================================== -->
-    <!-- End Wrapper -->
+    <!-- End Page wrapper  -->
     <!-- ============================================================== -->
-    <div class="chat-windows"></div>
+
+    <!-- Modal Confirmation -->
+    <div class="modal fade" id="confirmation" tabindex="-1" role="dialog"
+        aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle"><i class="fa fa-exclamation-triangle"
+                            aria-hidden="true"></i>&nbspConfirmation!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Do you want to continue?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">Proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ============================================================== -->
-    <!-- All Jquery -->
+    <!-- footer -->
     <!-- ============================================================== -->
-    <script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="{{ asset('nice-admin/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
-    <script src="{{ asset('nice-admin/assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-    <!-- apps -->
-    <script src="{{ asset('nice-admin/dist/js/app.min.js') }}"></script>
-    <script src="{{ asset('nice-admin/dist/js/app.init.js') }}"></script>
-    <script src="{{ asset('nice-admin/dist/js/app-style-switcher.horizontal.js') }}"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="{{ asset('nice-admin/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
-    <script src="{{ asset('nice-admin/assets/extra-libs/sparkline/sparkline.js') }}"></script>
-    <!--Wave Effects -->
-    <script src="{{ asset('nice-admin/dist/js/waves.js') }}"></script>
-    <!--Menu sidebar -->
-    <script src="{{ asset('nice-admin/dist/js/sidebarmenu.js') }}"></script>
-    <!--Custom JavaScript -->
-    <script src="{{ asset('nice-admin/dist/js/custom.min.js') }}"></script>
-    <script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
-    <script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
-    <!--Timer Idle Javascript -->
-    <script src="{{ asset('nice-admin/assets/extra-libs/jquery-sessiontimeout/jquery.sessionTimeout.min.js') }}">
-    </script>
-    {{-- <script src="{{ asset('assets/extra-libs/jquery-sessiontimeout/session-timeout-init.js') }}"></script> --}}
-    <!--TouchSpin Javascript -->
-    <script src="{{ asset('nice-admin/assets/libs/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}">
-    </script>
+    <footer class="text-center footer" style="background-color: white;  ">
+        © Copyright 2022 Malaysian Palm Oil Board (MPOB). All Rights Reserved.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
 
-    {{-- datatable --}}
-    <script src="{{ asset('nice-admin/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
-    <script src="{{ asset('nice-admin/dist/js/pages/datatable/datatable-basic.init.js') }}"></script>
+    @if (auth()->user()->category == 'PL91')
+        <button id="map-message-warning" hidden></button>
+        <a id="map-flag-redirect" href="{{ route('buah.maklumatasaspelesen') }}" hidden></a>
+    @elseif (auth()->user()->category == 'PL101')
+        <button id="map-message-warning" hidden></button>
+        <a id="map-flag-redirect" href="{{ route('penapis.maklumatasaspelesen') }}" hidden></a>
+    @elseif (auth()->user()->category == 'PL102')
+        <button id="map-message-warning" hidden></button>
+        <a id="map-flag-redirect" href="{{ route('isirung.maklumatasaspelesen') }}" hidden></a>
+    @elseif (auth()->user()->category == 'PL104')
+        <button id="map-message-warning" hidden></button>
+        <a id="map-flag-redirect" href="{{ route('oleo.maklumatasaspelesen') }}" hidden></a>
+    @elseif (auth()->user()->category == 'PL111')
+        <button id="map-message-warning" hidden></button>
+        <a id="map-flag-redirect" href="{{ route('pusatsimpan.maklumatasaspelesen') }}" hidden></a>
+    @elseif (auth()->user()->category == 'PLBIO')
+        <button id="map-message-warning" hidden></button>
+        <a id="map-flag-redirect" href="{{ route('bio.maklumatasaspelesen') }}" hidden></a>
+    @endif
+
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+<div class="chat-windows"></div>
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="{{ asset('nice-admin/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="{{ asset('nice-admin/assets/libs/popper.js/dist/umd/popper.min.js') }}"></script>
+<script src="{{ asset('nice-admin/assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
+<!-- apps -->
+<script src="{{ asset('nice-admin/dist/js/app.min.js') }}"></script>
+<script src="{{ asset('nice-admin/dist/js/app.init.js') }}"></script>
+<script src="{{ asset('nice-admin/dist/js/app-style-switcher.horizontal.js') }}"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="{{ asset('nice-admin/assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js') }}"></script>
+<script src="{{ asset('nice-admin/assets/extra-libs/sparkline/sparkline.js') }}"></script>
+<!--Wave Effects -->
+<script src="{{ asset('nice-admin/dist/js/waves.js') }}"></script>
+<!--Menu sidebar -->
+<script src="{{ asset('nice-admin/dist/js/sidebarmenu.js') }}"></script>
+<!--Custom JavaScript -->
+<script src="{{ asset('nice-admin/dist/js/custom.min.js') }}"></script>
+<script src="{{ asset('nice-admin/assets/libs/toastr/build/toastr.min.js') }}"></script>
+<script src="{{ asset('nice-admin/assets/extra-libs/toastr/toastr-init.js') }}"></script>
+<!--Timer Idle Javascript -->
+<script src="{{ asset('nice-admin/assets/extra-libs/jquery-sessiontimeout/jquery.sessionTimeout.min.js') }}">
+</script>
+{{-- <script src="{{ asset('assets/extra-libs/jquery-sessiontimeout/session-timeout-init.js') }}"></script> --}}
+<!--TouchSpin Javascript -->
+<script src="{{ asset('nice-admin/assets/libs/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js') }}">
+</script>
+
+{{-- datatable --}}
+<script src="{{ asset('nice-admin/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
+<script src="{{ asset('nice-admin/dist/js/pages/datatable/datatable-basic.init.js') }}"></script>
 
 
-    {{-- plotly --}}
-    <script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
+{{-- plotly --}}
+<script src="https://cdn.plot.ly/plotly-2.11.1.min.js"></script>
 
-    {{-- sweetalert2 --}}
-    <script src="{{ asset('nice-admin/assets/libs/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
-    <script src="{{ asset('nice-admin/assets/libs/sweetalert2/sweet-alert.init.js') }}"></script>
+{{-- sweetalert2 --}}
+<script src="{{ asset('nice-admin/assets/libs/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
+<script src="{{ asset('nice-admin/assets/libs/sweetalert2/sweet-alert.init.js') }}"></script>
 
 
-    <script src="{{ asset('nice-admin/assets/libs/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js') }}"></script>
-    <script src="{{ asset('nice-admin/dist/js/pages/forms/dual-listbox/dual-listbox.js') }}"></script>
-    <script src="{{ asset('nice-admin/dist/js/pages/datatable/datatable-advanced.init.js') }}"></script>
-    <script src="{{ asset('nice-admin/dist/js/custom.min.js') }}"></script>
+<script src="{{ asset('nice-admin/assets/libs/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js') }}">
+</script>
+<script src="{{ asset('nice-admin/dist/js/pages/forms/dual-listbox/dual-listbox.js') }}"></script>
+<script src="{{ asset('nice-admin/dist/js/pages/datatable/datatable-advanced.init.js') }}"></script>
+<script src="{{ asset('nice-admin/dist/js/custom.min.js') }}"></script>
 
-    {{-- notification --}}
-    <script>
-        @if (Session::has('success'))
-            toastr.success('{{ session('success') }}', 'Berjaya!', {
-                "progressBar": true
-            });
-        @elseif(Session::has('error'))
-            toastr.error('{{ session('error') }}', 'Ralat!', {
-                "progressBar": true
-            });
-        @endif
-    </script>
-
-    {{-- session timeout --}}
-    <script>
-        var SessionTimeout = function() {
-            var session = (10 * 300000)
-            var sessionRedir = (10 * 300000) + 30000 //plus 30 seconds after warn
-
-            var i = function() {
-                $.sessionTimeout({
-                    title: "Amaran Sesi Tamat",
-                    message: "Sesi Anda akan Berakhir.",
-                    redirUrl: "{{ route('session.timeout') }}",
-                    logoutUrl: "{{ route('session.timeout') }}",
-                    logoutButton: "Log Keluar",
-                    keepAliveButton: "Teruskan Sesi",
-                    warnAfter: session, // milliseconds
-                    redirAfter: sessionRedir, //20s
-                    ignoreUserActivity: !0, //0 = false, !0 = true
-                    countdownMessage: "Sesi akan tamat dalam {timer} saat..",
-                    countdownBar: !0
-                })
-            };
-            return {
-                init: function() {
-                    i()
-                }
-            }
-        }();
-        jQuery(function() {
-            SessionTimeout.init()
+{{-- notification --}}
+<script>
+    @if (Session::has('success'))
+        toastr.success('{{ session('success') }}', 'Berjaya!', {
+            "progressBar": true
         });
-    </script>
-        {{-- <script>
+    @elseif(Session::has('error'))
+        toastr.error('{{ session('error') }}', 'Ralat!', {
+            "progressBar": true
+        });
+    @endif
+</script>
+
+{{-- session timeout --}}
+<script>
+    var SessionTimeout = function() {
+        var session = (10 * 300000)
+        var sessionRedir = (10 * 300000) + 30000 //plus 30 seconds after warn
+
+        var i = function() {
+            $.sessionTimeout({
+                title: "Amaran Sesi Tamat",
+                message: "Sesi Anda akan Berakhir.",
+                redirUrl: "{{ route('session.timeout') }}",
+                logoutUrl: "{{ route('session.timeout') }}",
+                logoutButton: "Log Keluar",
+                keepAliveButton: "Teruskan Sesi",
+                warnAfter: session, // milliseconds
+                redirAfter: sessionRedir, //20s
+                ignoreUserActivity: !0, //0 = false, !0 = true
+                countdownMessage: "Sesi akan tamat dalam {timer} saat..",
+                countdownBar: !0
+            })
+        };
+        return {
+            init: function() {
+                i()
+            }
+        }
+    }();
+    jQuery(function() {
+        SessionTimeout.init()
+    });
+</script>
+{{-- <script>
             $(document).ready(function() {
                 $('#example').DataTable({
                     "language": {
@@ -1669,160 +1709,176 @@
                 });
             });
             </script> --}}
-            <script>
+<script>
+    // Setup - add a text input to each footer cell
+    $('#example tfoot th').each(function() {
+        var title = $(this).text();
+        $(this).html('<input type="text" class="form-control" placeholder="' + title + '" />');
+    });
 
-                // Setup - add a text input to each footer cell
-                $('#example tfoot th').each(function() {
-                    var title = $(this).text();
-                    $(this).html('<input type="text" class="form-control" placeholder="' + title + '" />');
-                });
+    // DataTable
+    var otable = $('#example').DataTable();
 
-                // DataTable
-                var otable = $('#example').DataTable();
+    // Apply the search
+    otable.columns().every(function() {
 
-                // Apply the search
-                otable.columns().every(function() {
-
-                    var that = this;
-                    $('input', this.footer()).on('keyup change', function() {
-                        if (that.search() !== this.value) {
-                            that
-                                .search(this.value)
-                                .draw();
-                        }
-                    });
-                });
-            </script>
-
-
-    {{-- clock --}}
-    <script type="text/javascript">
-        function updateTime() {
-            var dateInfo = new Date();
-
-            /* time */
-            var hr,
-                _min = (dateInfo.getMinutes() < 10) ? "0" + dateInfo.getMinutes() : dateInfo.getMinutes(),
-                sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
-                ampm = (dateInfo.getHours() >= 12) ? "PM" : "AM";
-
-            if (dateInfo.getHours() == 0) {
-                hr = 12;
-            } else if (dateInfo.getHours() > 12) {
-                hr = dateInfo.getHours() - 12;
-            } else {
-                hr = dateInfo.getHours();
+        var that = this;
+        $('input', this.footer()).on('keyup change', function() {
+            if (that.search() !== this.value) {
+                that
+                    .search(this.value)
+                    .draw();
             }
+        });
+    });
+</script>
 
-            var currentTime = hr + ":" + _min + ":" + sec;
+{{-- <script>
+$('ul > li> a').on('click', function() {
+  $('ul > li> a').removeClass('highlight')
+  $(this).addClass('highlight');
+  $(this).closest('ul').closest('li').find('a:eq(0)').addClass('highlight');
 
-            // print time
-            document.getElementsByClassName("hms")[0].innerHTML = currentTime;
-            document.getElementsByClassName("ampm")[0].innerHTML = ampm;
+});
+</script> --}}
 
-            /* date */
-            var dow = [
-                    "Ahad",
-                    "Isnin",
-                    "Selasa",
-                    "Rabu",
-                    "Khamis",
-                    "Jumaat",
-                    "Sabtu"
-                ],
-                month = [
-                    "Januari",
-                    "Februari",
-                    "Mac",
-                    "April",
-                    "Mei",
-                    "Jun",
-                    "Julai",
-                    "Ogos",
-                    "September",
-                    "Oktober",
-                    "November",
-                    "Desember"
-                ],
-                day = dateInfo.getDate();
 
-            // store date
-            var currentDate = dow[dateInfo.getDay()] + ", " + day + " " + month[dateInfo.getMonth()] + " " + dateInfo
-                .getFullYear();
+{{-- clock --}}
+<script type="text/javascript">
+    function updateTime() {
+        var dateInfo = new Date();
 
-            document.getElementsByClassName("date")[0].innerHTML = currentDate;
-        };
+        /* time */
+        var hr,
+            _min = (dateInfo.getMinutes() < 10) ? "0" + dateInfo.getMinutes() : dateInfo.getMinutes(),
+            sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
+            ampm = (dateInfo.getHours() >= 12) ? "PM" : "AM";
 
-        // print time and date once, then update them every second
-        updateTime();
-        setInterval(function() {
-            updateTime()
-        }, 1000);
-    </script>
-
-    <script>
-        function isNumberKey(evt) {
-            var charCode = (evt.which) ? evt.which : evt.keyCode
-            if (charCode != 46 && charCode != 45 && charCode > 31 && (charCode < 48 || charCode > 57))
-     return false;
-
-            return true;
+        if (dateInfo.getHours() == 0) {
+            hr = 12;
+        } else if (dateInfo.getHours() > 12) {
+            hr = dateInfo.getHours() - 12;
+        } else {
+            hr = dateInfo.getHours();
         }
-    </script>
 
-    <script>
-        function validate_two_decimal(e) {
-            var t = e.value;
-            e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
-        }
-    </script>
-    {{-- <script>
+        var currentTime = hr + ":" + _min + ":" + sec;
+
+        // print time
+        document.getElementsByClassName("hms")[0].innerHTML = currentTime;
+        document.getElementsByClassName("ampm")[0].innerHTML = ampm;
+
+        /* date */
+        var dow = [
+                "Ahad",
+                "Isnin",
+                "Selasa",
+                "Rabu",
+                "Khamis",
+                "Jumaat",
+                "Sabtu"
+            ],
+            month = [
+                "Januari",
+                "Februari",
+                "Mac",
+                "April",
+                "Mei",
+                "Jun",
+                "Julai",
+                "Ogos",
+                "September",
+                "Oktober",
+                "November",
+                "Desember"
+            ],
+            day = dateInfo.getDate();
+
+        // store date
+        var currentDate = dow[dateInfo.getDay()] + ", " + day + " " + month[dateInfo.getMonth()] + " " + dateInfo
+            .getFullYear();
+
+        document.getElementsByClassName("date")[0].innerHTML = currentDate;
+    };
+
+    // print time and date once, then update them every second
+    updateTime();
+    setInterval(function() {
+        updateTime()
+    }, 1000);
+</script>
+
+<script>
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : evt.keyCode
+        if (charCode != 46 && charCode != 45 && charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+
+        return true;
+    }
+</script>
+
+<script>
+    function validate_two_decimal(e) {
+        var t = e.value;
+        e.value = (t.indexOf(".") >= 0) ? (t.substr(0, t.indexOf(".")) + t.substr(t.indexOf("."), 3)) : t;
+    }
+</script>
+{{-- <script>
+    $('ul > li> a').on('click', function() {
+        $('ul > li> a').removeClass('highlight')
+        $(this).addClass('highlight');
+        $(this).closest('ul').closest('li').find('a:eq(0)').addClass('highlight');
+
+    });
+</script> --}}
+{{-- <script>
             $('#sa-title').click(function(){
         swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat eleifend ex semper, lobortis purus sed.")
     });
 
         </script> --}}
-        @yield('scripts')
-        @if ($map_url)
-            @if ($not_admin)
-                @if (now() > $map_date_expired)
-                    <script >
-                        $('#map-message-warning').click(function() {
-                            swal({
-                                title: "Makluman!",
-                                text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen.",
-                                type: "warning",
-                                showCancelButton: false,
-                                showConfirmButton: false,
-                                confirmButtonColor: "#DD6B55",
-                                confirmButtonText: "Yes, delete it!",
-                                closeOnConfirm: false
-                            }, function() {
-                                swal("Deleted!", "Your imaginary file has been deleted.", "success");
-                            });
-                        });
-                    // $('#map-message').click(function(){
-                    //     swal({
-                    //         title: "Perhatian!",
-                    //         text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen. Sistem akan membawa anda ke halaman tersebut dalam masa 5 saat",
-                    //         timer: 5000,
-                    //         showConfirmButton: false
-                    //     });
-                    // });
+@yield('scripts')
+@if ($map_url)
+    @if ($not_admin)
+        @if (now() > $map_date_expired)
+            <script>
+                $('#map-message-warning').click(function() {
+                    swal({
+                        title: "Makluman!",
+                        text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen.",
+                        type: "warning",
+                        showCancelButton: false,
+                        showConfirmButton: false,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false
+                    }, function() {
+                        swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                    });
+                });
+                // $('#map-message').click(function(){
+                //     swal({
+                //         title: "Perhatian!",
+                //         text: "Anda dikehendaki untuk mengemaskini Maklumat Asas Pelesen. Sistem akan membawa anda ke halaman tersebut dalam masa 5 saat",
+                //         timer: 5000,
+                //         showConfirmButton: false
+                //     });
+                // });
 
-                    @if (auth()->user()->map_flg == false)
-                        window.onload = function() {
-                            document.getElementById('map-message-warning').click();
-                        }
-                    @endif
+                @if (auth()->user()->map_flg == false)
+                    window.onload = function() {
+                        document.getElementById('map-message-warning').click();
+                    }
+                @endif
 
-                    setTimeout(function() {
-                        document.getElementById('map-flag-redirect').click();
-                    }, 7100);
-    </script>
+                setTimeout(function() {
+                    document.getElementById('map-flag-redirect').click();
+                }, 7100);
+            </script>
+        @endif
     @endif
-    @endif
-    @endif
+@endif
 </body>
 
 </html>

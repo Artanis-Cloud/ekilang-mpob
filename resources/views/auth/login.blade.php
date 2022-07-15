@@ -144,7 +144,8 @@
                                 <span class="input-group-text" id="basic-addon1"><i
                                         class="fas fa-user"></i></i></span>
                             </div>
-                            <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror"
+                            <input id="e_nl" type="text" class="form-control @error('username') is-invalid @enderror" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                            oninput="setCustomValidity('')" required
                                 name="username" value="{{ old('username') }}" autocomplete="username" maxlength="12"
                                 placeholder="No. Lesen">
 
@@ -160,9 +161,11 @@
                                 <span class="input-group-text" id="basic-addon2"><i class="fas fa-key"></i></span>
                             </div>
                             {{-- <input type="text" class="form-control form-control-lg" placeholder="KATA LALUAN" aria-label="Password" name="password" aria-describedby="basic-addon1"> --}}
-                            <input id="password" type="password"
+                            <input id="password" type="password" oninvalid="setCustomValidity('Sila isi butiran ini')"
+                            oninput="setCustomValidity('')" required
                                 class="form-control @error('password') is-invalid @enderror" name="password"
                                 autocomplete="current-password" placeholder="Kata Laluan">
+                                {{-- <span id="error"></span> --}}
 
                             @error('password')
                                 <div class="col-12 alert alert-danger">
@@ -175,7 +178,7 @@
                         {{-- <div class="text-center form-group"> --}}
                         {{-- <div class="col-xs-12 p-b-20"> --}}
                         <button class="btn btn-block btn-lg mb-1 "
-                            style="color: black; background-color: rgba(89, 194, 154, 0.801)" type="submit">
+                            style="color: black; background-color: rgba(89, 194, 154, 0.801)" type="submit" onclick="errorMessage()">
                             Log Masuk</button>
 
                         <a class="btn btn-block btn-lg mb-1 " style="color: white; background-color: #163a9f"
@@ -228,6 +231,20 @@
                 "progressBar": true
             });
         @endif
+    </script>
+    <script>
+        function errorMessage() {
+            var error = document.getElementById("error")
+            if (isNaN(document.getElementById("password").value))
+            {
+
+                // Changing content and color of content
+                error.textContent = "Please enter a valid number"
+                error.style.color = "red"
+            } else {
+                error.textContent = ""
+            }
+        }
     </script>
 </body>
 

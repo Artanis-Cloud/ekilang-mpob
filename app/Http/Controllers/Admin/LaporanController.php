@@ -957,7 +957,8 @@ class LaporanController extends Controller
             LEFT JOIN pelesen p ON p.e_nl = innit.ebio_nl
             LEFT JOIN h_bio_inits e ON h.ebio_nobatch = e.ebio_nobatch
             WHERE $tahun_sql.$bulan_sql
-            AND h.ebio_c3 = 'AW';");
+            AND h.ebio_c3 = 'AW'
+            GROUP BY p.e_nl ;");
 
             // dd($eksport);
 
