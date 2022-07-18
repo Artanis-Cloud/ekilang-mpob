@@ -1844,7 +1844,14 @@ $('ul > li> a').on('click', function() {
 
 
 </script>
-
+<script type="text/javascript">
+    $(document).keypress(
+        function(event) {
+            if (event.which == '13') {
+                event.preventDefault();
+            }
+        });
+</script>
 <script>
     function validate_two_decimal(e) {
         var t = e.value;

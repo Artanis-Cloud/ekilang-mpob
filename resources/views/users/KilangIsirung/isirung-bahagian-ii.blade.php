@@ -100,7 +100,7 @@
                                 <input type="number" class="form-control" style="text-align:right" name='e102_al1'
                                     id="e102_al1" required onkeypress="return isNumberKey(event)" max="99" required
                                     title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
-                                    value="{{ number_format($penyata->e102_al1 ?? 0, 2) }}">
+                                    value="{{ number_format($cpko ?? 0, 2) }}">
                                 {{-- @error('e102_al1')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>
@@ -118,7 +118,7 @@
                                 <input type="number" class="form-control" style="text-align:right" name='e102_al2'
                                     id="e102_al2" required onkeypress="return isNumberKey(event)"
                                     title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
-                                    value="{{ number_format($penyata->e102_al2 ?? 0, 2) }}">
+                                    value="{{ number_format($pkc ?? 0, 2) }}">
                                 @error('e102_al2')
                                     <div class="alert alert-danger">
                                         <strong>Sila isi butiran ini</strong>

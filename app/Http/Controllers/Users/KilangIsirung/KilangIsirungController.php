@@ -260,6 +260,15 @@ class KilangIsirungController extends Controller
         $layout = 'layouts.kisirung';
         $penyata = E102Init::where('e102_nl', auth()->user()->username)->first();
 
+        if ($penyata->e102_ae1 != NULL || $penyata->e102_ae1 != 0) {
+            $cpko = ($penyata->e102_af2 / $penyata->e102_ae1) * 100;
+            $pkc = ($penyata->e102_af3 / $penyata->e102_ae1) * 100;
+        } else {
+            $cpko = 0;
+            $pkc = 0;
+        }
+        // dd($cpko);
+
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
@@ -463,7 +472,7 @@ class KilangIsirungController extends Controller
 
         if ($total3 != $request->jumlah) {
             return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Tidak Sama!');
+                ->with('error', 'Jumlah Belian/Terimaan Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
         } else {
             return redirect()->route('isirung.bahagianiv')
                 ->with('success', 'Maklumat telah disimpan');
@@ -496,6 +505,19 @@ class KilangIsirungController extends Controller
 
     public function isirung_bahagianiv()
     {
+
+        //semak jumlah bahagian iii
+
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+
+        $total = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
+        $total2 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3 = $total + $total2;
+
+        if ($total3 != $user->e102_ac1) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        }
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
