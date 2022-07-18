@@ -84,14 +84,14 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Nama Produk dan Kod </span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-8 mt-3">
                                     <select class="form-control" id="produk" name="e101_b4" style="width: 70%" required
                                         oninput="setCustomValidity('')"
                                         oninvalid="setCustomValidity('Sila buat pilihan di bahagian ini')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->prodid }}
+                                                {{ $data->prodname }} - {{ $data->proddesc }}
                                             </option>
                                         @endforeach
 
@@ -306,7 +306,7 @@
                                     <tr style="text-align: right">
 
                                         <td style="text-align: left">
-                                            {{ $data->produk->prodname }}
+                                            {{ $data->produk->proddesc }}
                                         </td>
                                         <td>
                                             {{ $data->produk->prodid }}
