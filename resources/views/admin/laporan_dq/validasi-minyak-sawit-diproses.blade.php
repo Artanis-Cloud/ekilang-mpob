@@ -153,6 +153,9 @@
                                                 <tbody>
                                                     {{-- @if ($querycpo1)
                                                         @if (is_array($querycpo1) || is_object($querycpo1)) --}}
+                                                            @php
+                                                                $total = 0;
+                                                            @endphp
                                                             @foreach ($querycpo1 as $data )
                                                                 <tr>
                                                                     <th>{{ $data->lesen }}</th>
@@ -160,13 +163,16 @@
                                                                     <td>{{ $data->negeri }}</td>
                                                                     <td class=text-right>{{ number_format($data->cpo_msia_1 ?? 0,2) }}</td>
                                                                 </tr>
+                                                                @php
+                                                                    $total += $data->cpo_msia_1;
+                                                                @endphp
                                                             @endforeach
                                                             {{-- @php
                                                             $total_besar += $total;
                                                             @endphp --}}
                                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
                                                                 <th colspan="3">Jumlah</th>
-                                                                <td>{{ number_format($total_cpo ?? 0,2) }}</td>
+                                                                <td>{{ number_format($total ?? 0,2) }}</td>
                                                             </tr>
                                                         {{-- @endif
                                                     @endif --}}
@@ -192,6 +198,9 @@
                                                 <tbody>
                                                     {{-- @if ($querycpo1)
                                                         @if (is_array($querycpo1) || is_object($querycpo1)) --}}
+                                                            @php
+                                                                $total = 0;
+                                                            @endphp
                                                             @foreach ($queryppo1 as $data )
                                                                 <tr>
                                                                     <th>{{ $data->lesen }}</th>
@@ -199,13 +208,16 @@
                                                                     <td>{{ $data->negeri }}</td>
                                                                     <td class=text-right>{{ number_format($data->ppo_msia_1 ?? 0,2) }}</td>
                                                                 </tr>
+                                                                @php
+                                                                    $total += $data->ppo_msia_1;
+                                                                @endphp
                                                             @endforeach
                                                             {{-- @php
                                                             $total_besar += $total;
                                                             @endphp --}}
                                                             <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
                                                                 <th colspan="3">Jumlah</th>
-                                                                <td>{{ number_format($total_ppo ?? 0,2) }}</td>
+                                                                <td>{{ number_format($total ?? 0,2) }}</td>
                                                             </tr>
                                                         {{-- @endif
                                                     @endif --}}
@@ -228,8 +240,11 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @if ($querycpko1)
-                                                            @if (is_array($querycpo1) || is_object($querycpko1))
+                                                        {{-- @if ($querycpko1)
+                                                            @if (is_array($querycpo1) || is_object($querycpko1)) --}}
+                                                                @php
+                                                                    $total = 0;
+                                                                @endphp
                                                                 @foreach ($querycpko1 as $data )
                                                                     <tr>
                                                                         <th>{{ $data->lesen }}</th>
@@ -237,16 +252,17 @@
                                                                         <td>{{ $data->negeri }}</td>
                                                                         <td class=text-right>{{ number_format($data->cpko_msia_1 ?? 0,2) }}</td>
                                                                     </tr>
+                                                                    @php
+                                                                    $total += $data->cpko_msia_1;
+                                                                    @endphp
                                                                 @endforeach
-                                                                {{-- @php
-                                                                $total_besar += $total;
-                                                                @endphp --}}
+
                                                                 <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
                                                                     <th colspan="3">Jumlah</th>
-                                                                    <td>{{ number_format($total_cpko ?? 0,2) }}</td>
+                                                                    <td>{{ number_format($total ?? 0,2) }}</td>
                                                                 </tr>
-                                                            @endif
-                                                        @endif
+                                                            {{-- @endif
+                                                        @endif --}}
                                                     </tbody>
                                                 </table>
                                             </div>
@@ -269,6 +285,9 @@
                                                     <tbody>
                                                         {{-- @if ($querycpo1)
                                                             @if (is_array($querycpo1) || is_object($querycpo1)) --}}
+                                                                @php
+                                                                    $total = 0;
+                                                                @endphp
                                                                 @foreach ($queryppko1 as $data )
                                                                     <tr>
                                                                         <th>{{ $data->lesen }}</th>
@@ -276,13 +295,14 @@
                                                                         <td>{{ $data->negeri }}</td>
                                                                         <td class=text-right>{{ number_format($data->ppko_msia_1 ?? 0,2) }}</td>
                                                                     </tr>
+                                                                @php
+                                                                    $total += $data->ppko_msia_1;
+                                                                @endphp
                                                                 @endforeach
-                                                                {{-- @php
-                                                                $total_besar += $total;
-                                                                @endphp --}}
+
                                                                 <tr style="background-color: #d3d3d34d" class="font-weight-bold text-right">
                                                                     <th colspan="3">Jumlah</th>
-                                                                    <td>{{ number_format($total_ppko ?? 0,2) }}</td>
+                                                                    <td>{{ number_format($total ?? 0,2) }}</td>
                                                                 </tr>
                                                             {{-- @endif
                                                         @endif --}}

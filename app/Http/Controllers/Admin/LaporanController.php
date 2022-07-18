@@ -171,7 +171,6 @@ class LaporanController extends Controller
             'kembali'     => $kembali,
         ];
         $layout = 'layouts.admin';
-
         //dapatkan no batch
         $no_batches = HBioInit::where('ebio_nl', $ebio_nl)->where('ebio_thn', $tahun)->get();
 
@@ -186,6 +185,7 @@ class LaporanController extends Controller
             $data_bulanan_ebio_b10[$i] = 0;
             $data_bulanan_ebio_b11[$i] = 0;
             $data_bulanan_ebio_b13[$i] = 0;
+
         }
 
         foreach ($no_batches as $no_batch) {
@@ -198,10 +198,11 @@ class LaporanController extends Controller
             $data_bulanan_ebio_b7[$no_batch->ebio_bln] = $hbiob->ebio_b7 ?? 0;
             $data_bulanan_ebio_b8[$no_batch->ebio_bln] = $hbiob->ebio_b8 ?? 0;
             $data_bulanan_ebio_b9[$no_batch->ebio_bln] = $hbiob->ebio_b9 ?? 0;
+
         }
 
-        dd($no_batches);
 
+    //    dd($data_bulanan_ebio_b5);
 
 
 
@@ -229,11 +230,13 @@ class LaporanController extends Controller
             'data' => $data,
             'date' => $date,
             'datas' => $datas,
-            'i'=> $i,
+            // 'i'=> $i,
+            'data_bulanan_ebio_b5'=> $data_bulanan_ebio_b5,
             'data_bulanan_ebio_b4'=> $data_bulanan_ebio_b4,
             'hbiob' => $hbiob,
-            'data2' => $data2,
+            'no_batches' => $no_batches,
             // 'formatteddate' => $formatteddate,
+            'data2' => $data2,
 
             'kembali' => $kembali,
 
@@ -3074,26 +3077,6 @@ class LaporanController extends Controller
         group by e_nl, e_np");
 
 
-        $total_cpo = DB::connection('mysql2')->table("penyata")->where('tahun', $tahun)->where('bulan', $bulan)->where('penyata', 'cpo_proses')->sum('kuantiti');
-        $total_ppo = DB::connection('mysql2')->table("penyata")->where('tahun', $tahun)->where('bulan', $bulan)->where('penyata', 'ppo_proses')->where('penyata', 'ppo_proses')->sum('kuantiti');
-        $total_cpko = DB::connection('mysql2')->table("penyata")->where('tahun', $tahun)->where('bulan', $bulan)->where('penyata', 'cpko_proses')->sum('kuantiti');
-        $total_ppko = DB::connection('mysql2')->table("penyata")->where('tahun', $tahun)->where('bulan', $bulan)->where('penyata', 'ppko_proses')->sum('kuantiti');
-
-        // $total_cpo =  DB::connection('mysql2')->select("SELECT sum(`penyata`.`kuantiti`)
-        // FROM 'penyata'
-        // WHERE
-        // `penyata`.`tahun` =  '$tahun' AND
-        // `penyata`.`bulan` =  '$bulan'");
-
-
-
-        // foreach ($querycpo1 as $data) {
-        //     $total_cpo = ($data->stok_awal) + ($data->bekalan_belian) + ($data->bekalan_penerimaan) + ($data->bekalan_import);
-
-        //     $total += $total_3a_3b + $total_3c_3d;
-        //     $total_all_sem += $total;
-        // }
-
         $array = [
             'tahun' => $tahun,
             'bulan' => $bulan,
@@ -3102,10 +3085,6 @@ class LaporanController extends Controller
             'queryppo1' => $queryppo1,
             'querycpko1' => $querycpko1,
             'queryppko1' => $queryppko1,
-            'total_cpo' => $total_cpo,
-            'total_ppo' => $total_ppo,
-            'total_cpko' => $total_cpko,
-            'total_ppko' => $total_ppko,
 
             'breadcrumbs' => $breadcrumbs,
             'kembali' => $kembali,

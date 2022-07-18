@@ -192,7 +192,7 @@
                                                                 $total_bulan += $data->ebio_c9;
                                                             @endphp
                                                             <td
-                                                                style="text-align: right"{{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
+                                                                style="text-align: right">{{ number_format($data->ebio_c9 ?? 0, 2) }}</td>
                                                             @else
                                                             <td>0.00</td>
                                                         @endif
