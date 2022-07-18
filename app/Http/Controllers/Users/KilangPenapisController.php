@@ -1974,7 +1974,12 @@ class KilangPenapisController extends Controller
     {
         // dd($request->all());
         $this->validation_send_email($request->all())->validate();
-        $this->store_send_email($request->all());
+
+        if ($request->file_upload) {
+            $this->store_send_email($request->all());
+        } else {
+            $this->store_send_email2($request->all());
+        }
 
 
         return redirect()->back()->with('success', 'Emel sudah dihantar');
@@ -1988,7 +1993,7 @@ class KilangPenapisController extends Controller
             'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
-            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
+            // 'file_upload' => ['mimes:jpeg,doc,docx,xls,png,jpg,xlsx']
 
 
         ]);
@@ -2012,7 +2017,25 @@ class KilangPenapisController extends Controller
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
-            'file_upload' => $file ?? null,
+            'file_upload' => $file,
+
+        ]);
+    }
+
+    protected function store_send_email2(array $data)
+    {
+
+        return Ekmessage::create([
+            // 'Id' => $data['Id'],
+            'Date' => date("Y-m-d H:i:s"),
+            'FromName' => auth()->user()->name,
+            'FromLicense' => auth()->user()->username,
+            'TypeOfEmail' => $data['TypeOfEmail'],
+            'FromEmail' => $data['FromEmail'],
+            'Category' => auth()->user()->category,
+            'Subject' => $data['Subject'],
+            'Message' => $data['Message'],
+            'file_upload' => null,
 
         ]);
     }

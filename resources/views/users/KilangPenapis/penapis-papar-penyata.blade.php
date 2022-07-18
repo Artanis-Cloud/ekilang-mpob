@@ -1056,4 +1056,11 @@
                 newwin.close();
             }
         </script>
+        <script>
+            $(document).ready(function() {
+                swal("Perhatian!",
+                    "Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat pegawai melapor dan no. telefon kilang dan tekan butang Hantar."
+                    );
+            });
+        </script>
     @endsection

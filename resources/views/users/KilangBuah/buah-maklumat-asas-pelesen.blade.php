@@ -464,7 +464,7 @@
                                         Bilangan Tangki</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="number" class="form-control" name='bil_tangki_cpo' style="width:20%"
+                                    <input type="text" class="form-control" name='bil_tangki_cpo' style="width:20%"
                                         oninput="setCustomValidity('')" id="bil_tangki_cpo" required
                                         title="Sila isikan butiran ini." min="1"
                                         oninvalid="setCustomValidity('Nilai bilangan tangki mestilah tidak kurang dari satu (1)')"
@@ -485,7 +485,7 @@
                                         Kapasiti Tangki Simpanan (Tan)</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="number" class="form-control" name='kap_tangki_cpo' style="width:20%"
+                                    <input type="text" class="form-control" name='kap_tangki_cpo' style="width:20%"
                                         oninput="setCustomValidity('')" id="kap_tangki_cpo" required min="1"
                                         title="Sila isikan butiran ini."
                                         oninvalid="setCustomValidity('Nilai kapasiti tangki simpanan mestilah tidak kurang dari satu (1)')"
@@ -542,7 +542,8 @@
                                             <i class="bx bx-x d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                         </button>
-                                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal" id="checkBtn">
+                                        <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal"
+                                            id="checkBtn">
                                             <i class="bx bx-check d-block d-sm-none"></i>
                                             <span class="d-none d-sm-block">Ya</span>
                                         </button>
@@ -757,24 +758,39 @@
 
                 }
             </script>
-                    <script type = "text/javascript" >
-                        $(document).ready(function() {
-                            $('#checkBtn').click(function() {
-                                // checked = $("input[type=checkbox]:checked").length;
-                                tangki = $('#bil_tangki_cpo').val();
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#checkBtn').click(function() {
+                        tangki = $('#bil_tangki_cpo').val();
 
-                                if (!tangki ||  !( tangki > 0) ) {
-                                  console.log('lain');
+                        if (!tangki || !(tangki > 0)) {
+                            console.log('lain');
 
-                                    toastr.error(
-                                    'Bilangan tangki hendaklah lebih dari 0',
-                                    'Ralat!', {
-                                        "progressBar": true
-                                    })
-                                    return false;
-                                }
+                            toastr.error(
+                                'Bilangan tangki hendaklah lebih dari 0',
+                                'Ralat!', {
+                                    "progressBar": true
+                                })
+                            return false;
+                        }
 
-                            });
-                        });
-                </script>
+                    });
+                });
+            </script>
+            <script>
+                let bilangan = document.querySelector("#bil_tangki_cpo");
+                let kapasiti = document.querySelector("#kap_tangki_cpo");
+                kapasiti.disabled = true;
+                bilangan.addEventListener("change", stateHandle);
+
+                function stateHandle() {
+                    if (document.querySelector("#bil_tangki_cpo").value === "" || document.querySelector("#bil_tangki_cpo").value === "0") {
+                        kapasiti.disabled = true;
+                    } else {
+                        kapasiti.disabled = false;
+                    }
+                }
+
+            </script>
+
         @endsection
