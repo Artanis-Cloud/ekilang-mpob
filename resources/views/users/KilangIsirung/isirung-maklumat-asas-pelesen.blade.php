@@ -393,8 +393,8 @@
                                 </div>
 
                                 <div class="col-md-7">
-                                    <input type="number" class="form-control" name='bil_tangki_cpko' style="width:20%"
-                                        id="bil_tangki_cpko" title="Sila isikan butiran ini." min="1"
+                                    <input type="text" class="form-control" name='bil_tangki_cpko' style="width:20%"
+                                        id="bil_tangki_cpko" title="Sila isikan butiran ini."
                                         onkeypress="return isNumberKey(event)" value="{{ $pelesen->bil_tangki_cpko }}"
                                         required>
                                     @error('bil_tangki_cpko')
@@ -410,8 +410,8 @@
                                         Kapasiti Tangki Simpanan (Tan)</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="number" class="form-control" name='kap_tangki_cpko'
-                                        style="width:20%" id="kap_tangki_cpko"  min="1"
+                                    <input type="text" class="form-control" name='kap_tangki_cpko'
+                                        style="width:20%" id="kap_tangki_cpko"
                                         title="Sila isikan butiran ini." oninput="validate_two_decimal(this)"
                                         onkeypress="return isNumberKey(event)"  value="{{ $pelesen->kap_tangki_cpko}}" required>
                                     @error('kap_tangki_cpko')
@@ -462,7 +462,7 @@
                                 <i class="bx bx-x d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                             </button>
-                            <button type="submit" class="btn btn-primary ml-1" data="modal">
+                            <button type="submit" class="btn btn-primary ml-1" data="modal" id="checkBtn">
                                 <i class="bx bx-check d-block d-sm-none"></i>
                                 <span class="d-none d-sm-block">Ya</span>
                             </button>
@@ -497,6 +497,40 @@
                         $(this).val(parseFloat($(this).val()).toFixed(2));
                     });
                 });
+            </script>
+            <script type="text/javascript">
+                $(document).ready(function() {
+                    $('#checkBtn').click(function() {
+                        tangki = $('#bil_tangki_cpko').val();
+
+                        if (!tangki || !(tangki > 0)) {
+                            console.log('lain');
+
+                            toastr.error(
+                                'Bilangan tangki hendaklah lebih dari 0',
+                                'Ralat!', {
+                                    "progressBar": true
+                                })
+                            return false;
+                        }
+
+                    });
+                });
+            </script>
+            <script>
+                let bilangan = document.querySelector("#bil_tangki_cpko");
+                let kapasiti = document.querySelector("#kap_tangki_cpko");
+                kapasiti.disabled = true;
+                bilangan.addEventListener("change", stateHandle);
+
+                function stateHandle() {
+                    if (document.querySelector("#bil_tangki_cpko").value === "" || document.querySelector("#bil_tangki_cpko").value === "0") {
+                        kapasiti.disabled = true;
+                    } else {
+                        kapasiti.disabled = false;
+                    }
+                }
+
             </script>
             <script>
                 function check() {

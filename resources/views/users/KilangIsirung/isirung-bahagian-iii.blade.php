@@ -592,11 +592,15 @@
                             <i class="bx bx-x d-block d-sm-none"></i>
                             <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                         </button>
-                        <a href="{{ route('isirung.bahagianiv') }}" type="button" class="btn btn-primary ml-1">
+                        <button type="submit" class="btn btn-primary ml-1" >
+                            <i class="bx bx-check d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Ya</span>
+                        </button>
+                        {{-- <a href="{{ route('isirung.bahagianiv') }}" type="submit" class="btn btn-primary ml-1">
 
                             <i class="bx bx-check d-block d-sm-none"></i>
                             <span class="d-none d-sm-block">Ya</span>
-                        </a>
+                        </a> --}}
                     </div>
                 </div>
             </div>
