@@ -16,6 +16,7 @@ use App\Models\KodSl;
 use App\Models\Negara;
 use App\Models\ProdCat2;
 use App\Models\Produk;
+use App\Models\RegPelesen;
 use App\Models\User;
 use DateTime;
 use DB;
@@ -629,7 +630,7 @@ class KilangIsirungController extends Controller
 
         if ($total3 != $request->jumlah) {
             return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Tidak Sama!');
+                ->with('error', 'Jumlah Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
         } else {
             return redirect()->route('isirung.bahagianv')
                 ->with('success', 'Maklumat telah disimpan');
@@ -674,6 +675,29 @@ class KilangIsirungController extends Controller
 
     public function isirung_bahagianv()
     {
+
+        //semak jumlah bahagian iii
+
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+
+        $total_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg3 = $total_bhg3 + $total2_bhg3;
+
+
+        $total_bhg4 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg4 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg4 = $total_bhg4 + $total2_bhg4;
+
+        if ($total3_bhg3 != $user->e102_ac1) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        }
+        if ($total3_bhg4 != $user->e102_ag2) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        }
+
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
@@ -783,7 +807,7 @@ class KilangIsirungController extends Controller
 
         if ($total3 != $request->jumlah) {
             return redirect()->back()->withInput()
-                ->with('error', 'Jumlah Tidak Sama!');
+                ->with('error', 'Jumlah Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
         } else {
             return redirect()->route('isirung.paparpenyata')
                 ->with('success', 'Maklumat telah disimpan');
@@ -964,6 +988,36 @@ class KilangIsirungController extends Controller
 
     public function isirung_paparpenyata()
     {
+
+
+        $user = E102Init::where('e102_nl', auth()->user()->username)->first('e102_reg');
+
+        $total_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg3 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '51')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg3 = $total_bhg3 + $total2_bhg3;
+
+
+        $total_bhg4 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg4 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '04')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg4 = $total_bhg4 + $total2_bhg4;
+
+        $total_bhg5 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->where('e102_b4', '1')->sum('e102_b6');
+        $total2_bhg5 = DB::table("e102b")->where('e102_b2', $user->e102_reg)->where('e102_b3', '33')->where('e102_b4', '2')->sum('e102_b6');
+
+        $total3_bhg5 = $total_bhg5 + $total2_bhg5;
+
+        if ($total3_bhg3 != $user->e102_ac1) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 3 Tidak Sama dengan Jumlah Bahagian 1 (PK)!');
+        }
+        if ($total3_bhg4 != $user->e102_ag2) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 4 Tidak Sama dengan Jumlah Bahagian 1 (CPKO)!');
+        }
+        if ($total3_bhg5 != $user->e102_ag3) {
+            return redirect()->back()->with('error', 'Jumlah Bahagian 5 Tidak Sama dengan Jumlah Bahagian 1 (PKC)!');
+        }
+
 
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
@@ -1146,7 +1200,11 @@ class KilangIsirungController extends Controller
     {
         // dd($request->all());
         $this->validation_send_email($request->all())->validate();
-        $this->store_send_email($request->all());
+        if ($request->file_upload) {
+            $this->store_send_email($request->all());
+        } else {
+            $this->store_send_email2($request->all());
+        }
 
 
         return redirect()->back()->with('success', 'Emel sudah dihantar');
@@ -1184,7 +1242,26 @@ class KilangIsirungController extends Controller
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
-            'file_upload' => $file ?? null,
+            'file_upload' => $file,
+
+        ]);
+    }
+
+    protected function store_send_email2(array $data)
+    {
+
+
+        return Ekmessage::create([
+            // 'Id' => $data['Id'],
+            'Date' => date("Y-m-d H:i:s"),
+            'FromName' => auth()->user()->name,
+            'FromLicense' => auth()->user()->username,
+            'TypeOfEmail' => $data['TypeOfEmail'],
+            'FromEmail' => $data['FromEmail'],
+            'Category' => auth()->user()->category,
+            'Subject' => $data['Subject'],
+            'Message' => $data['Message'],
+            'file_upload' => null,
 
         ]);
     }
@@ -1192,6 +1269,16 @@ class KilangIsirungController extends Controller
     public function isirung_penyatadahulu()
     {
 
+        $pelesen = RegPelesen::with('pelesen')->where('e_nl', auth()->user()->username)->first();
+
+        $year = $pelesen->pelesen->e_year;
+        // dd($year);
+        if($year){
+            $tahun = $year;
+        }else{
+            $tahun = 2003;
+        }
+        // dd($tahun);
         $breadcrumbs    = [
             ['link' => route('isirung.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('isirung.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
@@ -1207,7 +1294,7 @@ class KilangIsirungController extends Controller
 
 
 
-        return view('users.KilangIsirung.isirung-penyata-dahulu', compact('returnArr', 'layout'));
+        return view('users.KilangIsirung.isirung-penyata-dahulu', compact('returnArr', 'layout','pelesen','year','tahun'));
     }
 
     protected function validation_terdahulu(array $data)
