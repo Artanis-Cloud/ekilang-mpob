@@ -1664,6 +1664,12 @@ class KilangPenapisController extends Controller
         $penyata->e101_notel = $request->e101_notel;
         $penyata->save();
 
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen->e_npg = $request->e101_npg;
+        $pelesen->e_jpg = $request->e101_jpg;
+        $pelesen->e_notel_pg = $request->e101_notel;
+        $pelesen->save();
+
 
         return redirect()->route('penapis.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');

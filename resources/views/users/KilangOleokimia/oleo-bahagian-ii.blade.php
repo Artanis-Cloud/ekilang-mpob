@@ -97,6 +97,10 @@
                                                         </div>
                                                     @enderror
                                                     </div>
+                                                    <div class="col-sm-1 form-group" style="margin: 0px">
+                                                        <label for="fname"
+                                                        class="control-label col-form-label">	</label>
+                                                    </div>
                                                     <div>
 
                                                     </div>
@@ -118,13 +122,17 @@
                                                         </div>
                                                     @enderror
                                                     </div>
+                                                    <div class="col-sm-1 form-group" style="margin: 0px">
+                                                        <label for="fname"
+                                                        class="control-label col-form-label">%	</label>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group" style="margin-top:200px">
+                                            <div class="form-group col-10 ml-auto mr-auto" style="margin-top:50px">
                                                 <a href="{{ route('oleo.bahagianic') }}" class="btn btn-primary"
                                                     style="float: left">Sebelumnya</a>
-                                                <button type="button" class="btn btn-primary " data-toggle="modal"
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
                                                     style="float: right" data-target="#next">Simpan &
                                                     Seterusnya</button>
                                             </div>
@@ -170,7 +178,7 @@
 
 
 
-                            </div><br><br><br><br>
+                            </div><br><br>
                         </form>
 
 

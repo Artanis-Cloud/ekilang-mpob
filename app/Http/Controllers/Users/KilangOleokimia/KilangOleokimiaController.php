@@ -16,6 +16,7 @@ use App\Models\Negara;
 use App\Models\Pelesen;
 use Illuminate\Http\Request;
 use App\Models\Produk;
+use App\Models\RegPelesen;
 use App\Models\User;
 use DateTime;
 use DB;
@@ -68,7 +69,7 @@ class KilangOleokimiaController extends Controller
         // dd($pelesen);
 
 
- 
+
 
         return view('users.KilangOleokimia.oleo-maklumat-asas-pelesen', compact('returnArr', 'layout', 'pelesen', 'jumlah', 'jumlah2'));
     }
@@ -1184,6 +1185,12 @@ class KilangOleokimiaController extends Controller
         $penyata->e104_notel = $request->e104_notel;
         $penyata->save();
 
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen->e_npg = $request->e104_npg;
+        $pelesen->e_jpg = $request->e104_jpg;
+        $pelesen->e_notel_pg = $request->e104_notel;
+        $pelesen->save();
+
 
         return redirect()->route('oleo.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');
@@ -1382,7 +1389,16 @@ class KilangOleokimiaController extends Controller
 
     public function oleo_penyatadahulu()
     {
+        $pelesen = RegPelesen::with('pelesen')->where('e_nl', auth()->user()->username)->first();
 
+        $year = $pelesen->pelesen->e_year;
+        // dd($year);
+        if($year){
+            $tahun = $year;
+        }else{
+            $tahun = 2003;
+        }
+        // dd($pelesen);
         $breadcrumbs    = [
             ['link' => route('oleo.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('oleo.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
@@ -1398,7 +1414,7 @@ class KilangOleokimiaController extends Controller
 
 
 
-        return view('users.KilangOleokimia.oleo-penyata-dahulu', compact('returnArr', 'layout'));
+        return view('users.KilangOleokimia.oleo-penyata-dahulu', compact('returnArr', 'layout','pelesen','year','tahun'));
     }
 
     protected function validation_terdahulu(array $data)

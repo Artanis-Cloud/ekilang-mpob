@@ -1101,6 +1101,12 @@ class KilangIsirungController extends Controller
         $penyata->e102_notel = $request->e102_notel;
         $penyata->save();
 
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen->e_npg = $request->e102_npg;
+        $pelesen->e_jpg = $request->e102_jpg;
+        $pelesen->e_notel_pg = $request->e102_notel;
+        $pelesen->save();
+
 
         return redirect()->route('isirung.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');

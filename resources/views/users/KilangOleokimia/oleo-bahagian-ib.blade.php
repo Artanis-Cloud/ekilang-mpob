@@ -102,7 +102,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b5'
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b5" required title="Sila isikan butiran ini.">
                                     @error('e104_b5')
                                         <div class="alert alert-danger">
@@ -115,7 +115,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b6'
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc2()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b6" required title="Sila isikan butiran ini.">
                                     @error('e104_b6')
                                         <div class="alert alert-danger">
@@ -130,11 +130,13 @@
 
                             <div class="row" >
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Belian/Terimaan</span>
+                                    <span class="">Belian/Terimaan &nbsp;<i class="fa fa-exclamation-circle"
+                                        style="color: red; cursor: pointer;"
+                                        title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b7'
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc3()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b7" required title="Sila isikan butiran ini.">
                                     @error('e104_b7')
                                         <div class="alert alert-danger">
@@ -147,7 +149,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b9'
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc4()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b9" required title="Sila isikan butiran ini.">
                                     @error('e104_b9')
                                         <div class="alert alert-danger">
@@ -164,7 +166,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b10'
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc5()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b10" required title="Sila isikan butiran ini.">
                                     @error('e104_b10')
                                         <div class="alert alert-danger">
@@ -178,7 +180,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b11'
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc6()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b11" required title="Sila isikan butiran ini.">
                                     @error('e104_b11')
                                         <div class="alert alert-danger">
@@ -202,7 +204,7 @@
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_b12'
-                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc7()" onkeypress="return isNumberKey(event)"
                                         style="width:70%" id="e104_b12" required title="Sila isikan butiran ini.">
                                     @error('e104_b12')
                                         <div class="alert alert-danger">
@@ -535,7 +537,7 @@
 
 
     {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+    {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
 
@@ -548,8 +550,135 @@
     <script src="assets/js/main.js"></script>
 
     <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script> --}}
+@endsection
+@section('scripts')
+<script>
+    function invokeFunc() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_b6').focus();
+            }
 
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc2() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_b7').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc3() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_b9').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc4() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_b10').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc5() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_b11').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc6() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_b12').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
+<script>
+    function invokeFunc7() {
+        addEventListener('keydown', function(evt) {
+            var whichKey = checkKey(evt);
+            if (whichKey == 13) {
+                console.log('successful');
+                evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                document.getElementById('e104_b13').focus();
+            }
+
+        });
+    }
+
+    function checkKey(evt) {
+        console.log(evt.which);
+        return evt.which;
+    }
+</script>
     <script>
         $(document).ready(function() {
             var table = $('#example').DataTable({

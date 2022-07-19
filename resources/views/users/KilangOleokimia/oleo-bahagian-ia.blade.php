@@ -1,14 +1,13 @@
 @extends('layouts.main')
 
 @section('content')
-
     <div class="page-wrapper" style="transition: 0s">
 
 
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                    <h4 class="page-title">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
                         @elseif($bulan == 2)
@@ -33,7 +32,8 @@
                             NOVEMBER
                         @elseif($bulan == 12)
                             DISEMBER
-                        @endif  {{ $tahun }}</h4>
+                        @endif {{ $tahun }}
+                    </h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -61,533 +61,565 @@
                 </div>
             </div>
         </div>
-                <div class="card" style="margin-right:2%; margin-left:2%">
-                    <div class="card-body">
-                            <div class="">
-                                <form action="{{ route('oleo.add.bahagian.ia') }}" method="post">
-                                    @csrf
-                                    <div class="mb-4 text-center">
-                                        <h3 style="color: rgb(39, 80, 71); ">Bahagian 1(a)</h3>
-                                        <h5 style="color: rgb(39, 80, 71)">Produk Minyak Sawit
-                                        </h5>
-                                    </div>
-                                    <hr>
+        <div class="card" style="margin-right:2%; margin-left:2%">
+            <div class="card-body">
+                <div class="">
+                    <form action="{{ route('oleo.add.bahagian.ia') }}" method="post">
+                        @csrf
+                        <div class="mb-4 text-center">
+                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 1(a)</h3>
+                            <h5 style="color: rgb(39, 80, 71)">Produk Minyak Sawit
+                            </h5>
+                        </div>
+                        <hr>
 
-                                    <div class="container justify-content-center" style="margin: 2%">
+                        <div class="container justify-content-center" style="margin: 2%">
 
-                                        <div class="row" style="margin: 1%">
-                                            <div class="col-md-3">
-                                                <span class="">Nama Produk dan Kod</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <select class="form-control" id="e104_b4" name="e104_b4" required
-                                                    style="width:70%" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
-                                                    <option selected hidden disabled value="">Sila Pilih</option>
-                                                    @foreach ($produk as $data)
-                                                        <option value="{{ $data->prodid }}">
-                                                            {{ $data->prodname }} - {{ $data->prodid }}
-                                                        </option>
-                                                    @endforeach
+                            <div class="row" style="margin: 1%">
+                                <div class="col-md-3">
+                                    <span class="">Nama Produk dan Kod</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <select class="form-control" id="e104_b4" name="e104_b4" required style="width:70%"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')">
+                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                        @foreach ($produk as $data)
+                                            <option value="{{ $data->prodid }}">
+                                                {{ $data->prodname }} - {{ $data->prodid }}
+                                            </option>
+                                        @endforeach
 
-                                                </select>
-                                                @error('e104_b4')
-                                                <div class="alert alert-danger">
-                                                    <strong>Sila buat pilihan di bahagian ini</strong>
-                                                </div>
-                                            @enderror
-                                            </div>
-
+                                    </select>
+                                    @error('e104_b4')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila buat pilihan di bahagian ini</strong>
                                         </div>
+                                    @enderror
+                                </div>
 
-                                        <div class="row" style="margin: 1%">
-                                            <div class="col-md-3">
-                                                <span class="">Stok Awal di Premis</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text" class="form-control" name='e104_b5' onkeypress="return isNumberKey(event)"
-                                                    style="width:70%" id="e104_b5" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                                    title="Sila isikan butiran ini.">
-                                                @error('e104_b5')
-                                                <div class="alert alert-danger">
-                                                    <strong>Sila isi butiran ini</strong>
-                                                </div>
-                                            @enderror
-                                            </div>
-                                            <div class="col-md-3">
-                                                <span class="">Stok Awal di Pusat Simpanan</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text" class="form-control" name='e104_b6' onkeypress="return isNumberKey(event)"
-                                                    style="width:70%" id="e104_b6" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                                    title="Sila isikan butiran ini.">
-                                                    @error('e104_b6')
-                                                    <div class="alert alert-danger">
-                                                        <strong>Sila isi butiran ini</strong>
-                                                    </div>
-                                                @enderror
-                                            </div>
+                            </div>
+
+                            <div class="row" style="margin: 1%">
+                                <div class="col-md-3">
+                                    <span class="">Stok Awal di Premis</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='e104_b5'
+                                        onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b5" required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc()" onchange="b5()"
+                                        title="Sila isikan butiran ini.">
+                                    @error('e104_b5')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
+                                    @enderror
+                                </div>
 
-                                        <div class="row" style="margin: 1%">
-                                            <div class="col-md-3">
-                                                <span class="">Belian/Terimaan &nbsp;<i class="fa fa-exclamation-circle"
-                                                    style="color: red; cursor: pointer;"
-                                                    title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text" class="form-control" name='e104_b7' onkeypress="return isNumberKey(event)"
-                                                    style="width:70%" id="e104_b7" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                                    title="Sila isikan butiran ini.">
-                                                    @error('e104_b7')
-                                                    <div class="alert alert-danger">
-                                                        <strong>Sila isi butiran ini</strong>
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-md-3">
-                                                <span class="">Jumlah Yang Diproses</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text" class="form-control" name='e104_b9' onkeypress="return isNumberKey(event)"
-                                                    style="width:70%" id="e104_b9" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                                    title="Sila isikan butiran ini.">
-                                                    @error('e104_b9')
-                                                    <div class="alert alert-danger">
-                                                        <strong>Sila isi butiran ini</strong>
-                                                    </div>
-                                                @enderror
-                                            </div>
-
+                                <div class="col-md-3">
+                                    <span class="">Stok Awal di Pusat Simpanan</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='e104_b6'
+                                        onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b6" required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc2()" onchange="b6()"
+                                        title="Sila isikan butiran ini.">
+                                    @error('e104_b6')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
+                                    @enderror
+                                </div>
+                            </div>
 
-                                        <div class="row" style="margin: 1%">
-                                            <div class="col-md-3">
-                                                <span class="">Jualan/Edaran Tempatan</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text" class="form-control" name='e104_b10' onkeypress="return isNumberKey(event)"
-                                                    style="width:70%" id="e104_b10" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                                    title="Sila isikan butiran ini.">
-                                                    @error('e104_b10')
-                                                    <div class="alert alert-danger">
-                                                        <strong>Sila isi butiran ini</strong>
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                            <div class="col-md-3">
-                                                <span class="">Eksport</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text" class="form-control" name='e104_b11' onkeypress="return isNumberKey(event)"
-                                                    style="width:70%" id="e104_b11" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                                    title="Sila isikan butiran ini.">
-                                                    @error('e104_b11')
-                                                    <div class="alert alert-danger">
-                                                        <strong>Sila isi butiran ini</strong>
-                                                    </div>
-                                                @enderror
-                                            </div>
-
+                            <div class="row" style="margin: 1%">
+                                <div class="col-md-3">
+                                    <span class="">Belian/Terimaan &nbsp;<i class="fa fa-exclamation-circle"
+                                            style="color: red; cursor: pointer;"
+                                            title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='e104_b7'
+                                        onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b7" required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b7()"
+                                        oninput="this.setCustomValidity(''); invokeFunc3()" title="Sila isikan butiran ini.">
+                                    @error('e104_b7')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
                                         </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="">Jumlah Yang Diproses</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='e104_b9'
+                                        onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b9" required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b9()"
+                                        oninput="this.setCustomValidity(''); invokeFunc4()" title="Sila isikan butiran ini.">
+                                    @error('e104_b9')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
+                                </div>
 
-                                        <div class="row" style="margin: 1%">
-                                            <div class="col-md-3">
-                                                <span class="">Stok Akhir di Premis</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text" class="form-control" name='e104_b12' onkeypress="return isNumberKey(event)"
-                                                    style="width:70%" id="e104_b12" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                                    title="Sila isikan butiran ini.">
-                                                    @error('e104_b12')
-                                                    <div class="alert alert-danger">
-                                                        <strong>Sila isi butiran ini</strong>
-                                                    </div>
-                                                @enderror
-                                            </div>
-                                            {{-- -<div class="col-md-3">
+                            </div>
+
+                            <div class="row" style="margin: 1%">
+                                <div class="col-md-3">
+                                    <span class="">Jualan/Edaran Tempatan</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='e104_b10'
+                                        onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b10" required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b10()"
+                                        oninput="this.setCustomValidity(''); invokeFunc5()" title="Sila isikan butiran ini.">
+                                    @error('e104_b10')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="">Eksport</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='e104_b11'
+                                        onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b11" required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b11()"
+                                        oninput="this.setCustomValidity(''); invokeFunc6()" title="Sila isikan butiran ini.">
+                                    @error('e104_b11')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+
+                            </div>
+
+                            <div class="row" style="margin: 1%">
+                                <div class="col-md-3">
+                                    <span class="">Stok Akhir di Premis</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='e104_b12'
+                                        onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b12" required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b12()"
+                                        oninput="this.setCustomValidity(''); invokeFunc7()" title="Sila isikan butiran ini.">
+                                    @error('e104_b12')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                {{-- -<div class="col-md-3">
                                                 <span>Import</span>
                                             </div>
                                             <div class="col-md-3">
                                                 <input type="text" class="form-control" name='e104_b8'
                                                     style="width:70%" id="e104_b8" readonly>
-                                            </div>---}}
+                                            </div>- --}}
 
-                                            <div class="col-md-3">
-                                                <span class="">Stok Akhir di Pusat Simpanan</span>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <input type="text" class="form-control" name='e104_b13' onkeypress="return isNumberKey(event)"
-                                                    style="width:70%" id="e104_b13" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" required
-                                                    title="Sila isikan butiran ini.">
-                                                    @error('e104_b13')
-                                                    <div class="alert alert-danger">
-                                                        <strong>Sila isi butiran ini</strong>
+                                <div class="col-md-3">
+                                    <span class="">Stok Akhir di Pusat Simpanan</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='e104_b13'
+                                        onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b13"
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" onchange="b13()"
+                                        oninput="this.setCustomValidity(''); invokeFunc8()" required title="Sila isikan butiran ini.">
+                                    @error('e104_b13')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row" style="margin: 1%">
+
+
+
+                            </div>
+
+
+
+
+                        </div>
+                        <br>
+
+                        <div class="row justify-content-center form-group">
+
+                            <button type="submit" class="btn btn-primary ">Tambah</button>
+
+                        </div>
+
+                    </form>
+
+                    <hr>
+                    <br>
+                    <br>
+
+                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
+
+                    <section class="section">
+                        <div class="card">
+
+                            {{-- <div class="card-body"> --}}
+                            <div class="table-responsive">
+                                <table class="table table-bordered mb-0" style="font-size: 13px">
+                                    <thead style="text-align: center">
+                                        <tr>
+                                            <th>Produk Minyak Sawit</th>
+                                            <th>Kod Produk</th>
+                                            <th>Stok Awal Di Premis</th>
+                                            <th>Stok Awal Di Pusat Simpanan</th>
+                                            <th>Belian / Terimaan</th>
+                                            {{-- <th>Import</th> --}}
+                                            <th>Import</th>
+                                            <th>Jumlah yang Diproses</th>
+                                            <th>Jualan / Edaran Tempatan</th>
+                                            <th>Eksport</th>
+                                            <th>Stok Akhir Di Premis</th>
+                                            <th>Stok Akhir Di Pusat Simpanan</th>
+                                            <th>Kemaskini</th>
+                                            <th>Hapus?</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($penyata as $data)
+                                            <tr style="text-align: right">
+
+                                                <td style="text-align: left">
+                                                    {{ $data->produk->prodname }}
+                                                    {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
+                                                                                <span>{{ $produk->prodname }}</span>
+                                                                            @endif --}}
+
+                                                </td>
+                                                <td>
+                                                    {{ $data->produk->prodid }}
+                                                    {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
+                                                                                <span>{{ $produk->prodname }}</span>
+                                                                            @endif --}}
+
+                                                </td>
+                                                <td>{{ number_format($data->e104_b5 ?? 0, 2) }}</td>
+                                                <td>{{ number_format($data->e104_b6 ?? 0, 2) }}</td>
+                                                <td>{{ number_format($data->e104_b7 ?? 0, 2) }}</td>
+                                                <td>{{ number_format($data->e101_b8 ?? 0, 2) }}</td>
+                                                <td>{{ number_format($data->e104_b9 ?? 0, 2) }}</td>
+                                                <td>{{ number_format($data->e104_b10 ?? 0, 2) }}</td>
+                                                <td>{{ number_format($data->e104_b11 ?? 0, 2) }}</td>
+                                                <td>{{ number_format($data->e104_b12 ?? 0, 2) }}</td>
+                                                <td>{{ number_format($data->e104_b13 ?? 0, 2) }}</td>
+                                                {{-- <td>{{ $data->e104_b14 }}</td> --}}
+                                                <td>
+                                                    <div class="icon" style="text-align: center">
+                                                        <a href="#" type="button" data-bs-toggle="modal"
+                                                            data-bs-target="#modal{{ $data->e104_b1 }}">
+                                                            <i class="fas fa-edit fa-lg" style="color: #ffc107">
+                                                            </i>
+                                                        </a>
                                                     </div>
-                                                @enderror
-                                            </div>
-                                        </div>
+                                                </td>
+                                                <td>
+                                                    <div class="icon" style="text-align: center">
+                                                        <a href="#" type="button" data-bs-toggle="modal"
+                                                            data-bs-target="#next2{{ $data->e104_b1 }}">
+                                                            <i class="fa fa-trash"
+                                                                style="color: #dc3545;font-size:18px"></i>
+                                                        </a>
+                                                    </div>
 
-                                        <div class="row" style="margin: 1%">
-
-
-
-                                        </div>
-
-
-
-
-                                    </div>
-                                    <br>
-
-                                    <div class="row justify-content-center form-group" >
-
-                                        <button type="submit" class="btn btn-primary ">Tambah</button>
-
-                                    </div>
-
-                                </form>
-
-                                <hr>
-                                <br>
-                                <br>
-
-                                <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Produk Minyak Sawit</h5>
-
-                                <section class="section">
-                                    <div class="card">
-
-                                        {{-- <div class="card-body"> --}}
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered mb-0" style="font-size: 13px">
-                                                <thead style="text-align: center">
-                                                    <tr>
-                                                        <th>Produk Minyak Sawit</th>
-                                                        <th>Kod Produk</th>
-                                                        <th>Stok Awal Di Premis</th>
-                                                        <th>Stok Awal Di Pusat Simpanan</th>
-                                                        <th>Belian / Terimaan</th>
-                                                        {{-- <th>Import</th> --}}
-                                                        <th>Import</th>
-                                                        <th>Jumlah yang Diproses</th>
-                                                        <th>Jualan / Edaran Tempatan</th>
-                                                        <th>Eksport</th>
-                                                        <th>Stok Akhir Di Premis</th>
-                                                        <th>Stok Akhir Di Pusat Simpanan</th>
-                                                        <th>Kemaskini</th>
-                                                        <th>Hapus?</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($penyata as $data)
-                                                        <tr style="text-align: right">
-
-                                                            <td style="text-align: left">
-                                                                {{ $data->produk->prodname }}
-                                                                {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
-                                                                                <span>{{ $produk->prodname }}</span>
-                                                                            @endif --}}
-
-                                                            </td>
-                                                            <td>
-                                                                {{ $data->produk->prodid }}
-                                                                {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
-                                                                                <span>{{ $produk->prodname }}</span>
-                                                                            @endif --}}
-
-                                                            </td>
-                                                            <td>{{ number_format($data->e104_b5 ??  0,2)}}</td>
-                                                            <td>{{ number_format($data->e104_b6 ??  0,2)}}</td>
-                                                            <td>{{ number_format($data->e104_b7 ??  0,2)}}</td>
-                                                            <td>{{ number_format($data->e101_b8 ??  0,2) }}</td>
-                                                            <td>{{ number_format($data->e104_b9 ??  0,2) }}</td>
-                                                            <td>{{ number_format($data->e104_b10 ??  0,2) }}</td>
-                                                            <td>{{ number_format($data->e104_b11 ??  0,2) }}</td>
-                                                            <td>{{ number_format($data->e104_b12 ??  0,2) }}</td>
-                                                            <td>{{ number_format($data->e104_b13 ??  0,2) }}</td>
-                                                            {{-- <td>{{ $data->e104_b14 }}</td> --}}
-                                                            <td>
-                                                                <div class="icon" style="text-align: center">
-                                                                    <a href="#" type="button" data-bs-toggle="modal"
-                                                                        data-bs-target="#modal{{ $data->e104_b1 }}">
-                                                                        <i class="fas fa-edit fa-lg"
-                                                                            style="color: #ffc107">
-                                                                        </i>
-                                                                    </a>
-                                                                </div>
-                                                            </td>
-                                                            <td>
-                                                                <div class="icon" style="text-align: center">
-                                                                    <a href="#" type="button"
-                                                                        data-bs-toggle="modal"  data-bs-target="#next2{{ $data->e104_b1 }}">
-                                                                        <i class="fa fa-trash"
-                                                                            style="color: #dc3545;font-size:18px"></i>
-                                                                    </a>
-                                                                </div>
-
-                                                            </td>
-                                                            {{-- <td>{{ $data->e101_b15 }}</td> --}}
+                                                </td>
+                                                {{-- <td>{{ $data->e101_b15 }}</td> --}}
 
 
-                                                        </tr>
+                                            </tr>
 
-                                                        <div class="col-md-6 col-12">
+                                            <div class="col-md-6 col-12">
 
-                                                            <!--scrolling content Modal -->
-                                                            <div class="modal fade"
-                                                                id="modal{{ $data->e104_b1 }}" tabindex="-1"
-                                                                role="dialog"
-                                                                aria-labelledby="exampleModalScrollableTitle"
-                                                                aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-scrollable"
-                                                                    role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title"
-                                                                                id="exampleModalScrollableTitle">
-                                                                                Kemaskini Maklumat Produk</h5>
-                                                                            <button type="button" class="close"
-                                                                                data-bs-dismiss="modal"
-                                                                                aria-label="Close">
-                                                                                <i data-feather="x"></i>
-                                                                            </button>
+                                                <!--scrolling content Modal -->
+                                                <div class="modal fade" id="modal{{ $data->e104_b1 }}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="exampleModalScrollableTitle"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalScrollableTitle">
+                                                                    Kemaskini Maklumat Produk</h5>
+                                                                <button type="button" class="close"
+                                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                                    <i data-feather="x"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form
+                                                                    action="{{ route('oleo.edit.bahagian.ia', [$data->e104_b1]) }}"
+                                                                    method="post">
+                                                                    @csrf
+                                                                    <div class="modal-body">
+                                                                        <label class="required">Nama Produk </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" name='e104_b4'
+                                                                                class="form-control"
+                                                                                value="{{ $data->produk->prodname }}"
+                                                                                readonly>
                                                                         </div>
-                                                                        <div class="modal-body">
-                                                                            <form action="{{ route('oleo.edit.bahagian.ia', [$data->e104_b1]) }}"
-                                                                                method="post">
-                                                                                @csrf
-                                                                                <div class="modal-body">
-                                                                                    <label class="required">Nama Produk </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text"
-                                                                                            name='e104_b4'
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->produk->prodname }}"
-                                                                                            readonly>
-                                                                                    </div>
-                                                                                    <label class="required">Stok Awal Di Premis </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" oninput="validate_two_decimal(this)"
-                                                                                            name='e104_b5' onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->e104_b5 }}">
-                                                                                    </div>
-                                                                                    <label class="required">Stok Awal Di Pusat Simpanan
-                                                                                    </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" oninput="validate_two_decimal(this)"
-                                                                                            name='e104_b6' onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->e104_b6 }}">
-                                                                                    </div>
-                                                                                    <label class="required">Belian / Terimaan </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" oninput="validate_two_decimal(this)"
-                                                                                            name='e104_b7' onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->e104_b7 }}">
-                                                                                    </div>
-                                                                                    {{-- <label>Import </label>
+                                                                        <label class="required">Stok Awal Di Premis
+                                                                        </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text"
+                                                                                oninput="validate_two_decimal(this)"
+                                                                                name='e104_b5'
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                class="form-control"
+                                                                                value="{{ $data->e104_b5 }}">
+                                                                        </div>
+                                                                        <label class="required">Stok Awal Di Pusat Simpanan
+                                                                        </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text"
+                                                                                oninput="validate_two_decimal(this)"
+                                                                                name='e104_b6'
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                class="form-control"
+                                                                                value="{{ $data->e104_b6 }}">
+                                                                        </div>
+                                                                        <label class="required">Belian / Terimaan </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text"
+                                                                                oninput="validate_two_decimal(this)"
+                                                                                name='e104_b7'
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                class="form-control"
+                                                                                value="{{ $data->e104_b7 }}">
+                                                                        </div>
+                                                                        {{-- <label>Import </label>
                                                                                             <div class="form-group">
                                                                                                 <input type="password" placeholder="Password"
                                                                                                     class="form-control">
                                                                                             </div> --}}
-                                                                                    <label>Import </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" oninput="validate_two_decimal(this)"
-                                                                                            name='e104_b8' onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control" readonly
-                                                                                            value="{{ $data->e104_b8 }}">
-                                                                                    </div>
-                                                                                    <label class="required">Jumlah yang Diproses</label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" oninput="validate_two_decimal(this)"
-                                                                                            name='e104_b9' onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->e104_b9 }}">
-                                                                                    </div>
-                                                                                    <label class="required">Jualan / Edaran Tempatan
-                                                                                    </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" oninput="validate_two_decimal(this)"
-                                                                                            name='e104_b10' onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->e104_b10 }}">
-                                                                                    </div>
-                                                                                    <label class="required">Eksport </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" oninput="validate_two_decimal(this)"
-                                                                                            name='e104_b11' onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->e104_b11 }}">
-                                                                                    </div>
-                                                                                    <label class="required">Stok Akhir Di Premis </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" oninput="validate_two_decimal(this)"
-                                                                                            name='e104_b12' onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->e104_b12 }}">
-                                                                                    </div>
-                                                                                    <label class="required">Stok Akhir Di Pusat Simpanan
-                                                                                    </label>
-                                                                                    <div class="form-group">
-                                                                                        <input type="text" oninput="validate_two_decimal(this)"
-                                                                                            name='e104_b13' onkeypress="return isNumberKey(event)"
-                                                                                            class="form-control"
-                                                                                            value="{{ $data->e104_b13 }}">
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <div class="modal-footer">
-                                                                                    <button type="button"
-                                                                                        class="btn btn-light-secondary"
-                                                                                        data-bs-dismiss="modal">
-                                                                                        <i
-                                                                                            class="bx bx-x d-block d-sm-none"></i>
-                                                                                        <span
-                                                                                            class="d-none d-sm-block">Batal</span>
-                                                                                    </button>
-                                                                                    <button type="submit"
-                                                                                        class="btn btn-primary ml-1">
-                                                                                        <i
-                                                                                            class="bx bx-check d-block d-sm-none"></i>
-                                                                                        <span
-                                                                                            class="d-none d-sm-block">Kemaskini</span>
-                                                                                    </button>
-                                                                                </div>
-                                                                            </form>
+                                                                        <label>Import </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text"
+                                                                                oninput="validate_two_decimal(this)"
+                                                                                name='e104_b8'
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                class="form-control" readonly
+                                                                                value="{{ $data->e104_b8 }}">
+                                                                        </div>
+                                                                        <label class="required">Jumlah yang
+                                                                            Diproses</label>
+                                                                        <div class="form-group">
+                                                                            <input type="text"
+                                                                                oninput="validate_two_decimal(this)"
+                                                                                name='e104_b9'
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                class="form-control"
+                                                                                value="{{ $data->e104_b9 }}">
+                                                                        </div>
+                                                                        <label class="required">Jualan / Edaran Tempatan
+                                                                        </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text"
+                                                                                oninput="validate_two_decimal(this)"
+                                                                                name='e104_b10'
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                class="form-control"
+                                                                                value="{{ $data->e104_b10 }}">
+                                                                        </div>
+                                                                        <label class="required">Eksport </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text"
+                                                                                oninput="validate_two_decimal(this)"
+                                                                                name='e104_b11'
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                class="form-control"
+                                                                                value="{{ $data->e104_b11 }}">
+                                                                        </div>
+                                                                        <label class="required">Stok Akhir Di Premis
+                                                                        </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text"
+                                                                                oninput="validate_two_decimal(this)"
+                                                                                name='e104_b12'
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                class="form-control"
+                                                                                value="{{ $data->e104_b12 }}">
+                                                                        </div>
+                                                                        <label class="required">Stok Akhir Di Pusat
+                                                                            Simpanan
+                                                                        </label>
+                                                                        <div class="form-group">
+                                                                            <input type="text"
+                                                                                oninput="validate_two_decimal(this)"
+                                                                                name='e104_b13'
+                                                                                onkeypress="return isNumberKey(event)"
+                                                                                class="form-control"
+                                                                                value="{{ $data->e104_b13 }}">
                                                                         </div>
                                                                     </div>
-                                                                </div>
-                                                            </div>
 
-                                                        </div>
-
-                                                        <div class="modal fade" id="next2{{ $data->e104_b1 }}" tabindex="-1" role="dialog"
-                                                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                                role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                            PENGESAHAN</h5>
-                                                                        <button type="button" class="close" data-bs-dismiss="modal"
-                                                                            aria-label="Close">
-                                                                            <i data-feather="x"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <p>
-                                                                            Anda pasti mahu menghapus maklumat ini?
-                                                                        </p>
-                                                                    </div>
                                                                     <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-primary ml-1"
+                                                                        <button type="button"
+                                                                            class="btn btn-light-secondary"
                                                                             data-bs-dismiss="modal">
-                                                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                                                            <span class="d-none d-sm-block">Tidak</span>
+                                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                                            <span class="d-none d-sm-block">Batal</span>
                                                                         </button>
-                                                                        <a href="{{ route('oleo.delete.bahagiania',[$data->e104_b1]) }}"
-                                                                            type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
-                                                                            <i class="bx bx-x d-block d-sm-none" ></i>
-                                                                            <span class="d-none d-sm-block" >Ya</span>
-                                                                        </a>
+                                                                        <button type="submit"
+                                                                            class="btn btn-primary ml-1">
+                                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                                            <span
+                                                                                class="d-none d-sm-block">Kemaskini</span>
+                                                                        </button>
                                                                     </div>
-                                                                </div>
+                                                                </form>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                </div>
 
-                                                    @endforeach
-                                                    <tr>
+                                            </div>
 
-                                                        <td colspan="2"><b>JUMLAH</b></td>
-                                                        {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                        <td style="text-align: right"><b>{{ number_format($total ??  0,2) }}</b></td>
-                                                        <td style="text-align: right"><b>{{ number_format($total2 ??  0,2) }}</b></td>
-                                                        <td style="text-align: right"><b>{{ number_format($total3 ??  0,2) }}</b></td>
-                                                        <td style="text-align: right"><b>{{ number_format($total4 ??  0,2) }}</b></td>
-                                                        <td style="text-align: right"><b>{{ number_format($total5 ??  0,2) }}</b></td>
-                                                        <td style="text-align: right"><b>{{ number_format($total6 ??  0,2) }}</b></td>
-                                                        <td style="text-align: right"><b>{{ number_format($total7 ??  0,2) }}</b></td>
-                                                        <td style="text-align: right"><b>{{ number_format($total8 ??  0,2) }}</b></td>
-                                                        <td style="text-align: right"><b>{{ number_format($total9 ??  0,2) }}</b></td>
+                                            <div class="modal fade" id="next2{{ $data->e104_b1 }}" tabindex="-1"
+                                                role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                    role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                PENGESAHAN</h5>
+                                                            <button type="button" class="close" data-bs-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <i data-feather="x"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p>
+                                                                Anda pasti mahu menghapus maklumat ini?
+                                                            </p>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-primary ml-1"
+                                                                data-bs-dismiss="modal">
+                                                                <i class="bx bx-check d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Tidak</span>
+                                                            </button>
+                                                            <a href="{{ route('oleo.delete.bahagiania', [$data->e104_b1]) }}"
+                                                                type="button" class="btn btn-light-secondary"
+                                                                style="color: #275047; background-color: #a1929238">
+                                                                <i class="bx bx-x d-block d-sm-none"></i>
+                                                                <span class="d-none d-sm-block">Ya</span>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                        <tr>
 
-                                                        <td colspan="2"></td>
-                                                        {{-- <td></td> --}}
+                                            <td colspan="2"><b>JUMLAH</b></td>
+                                            {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                            <td style="text-align: right"><b>{{ number_format($total ?? 0, 2) }}</b>
+                                            </td>
+                                            <td style="text-align: right"><b>{{ number_format($total2 ?? 0, 2) }}</b>
+                                            </td>
+                                            <td style="text-align: right"><b>{{ number_format($total3 ?? 0, 2) }}</b>
+                                            </td>
+                                            <td style="text-align: right"><b>{{ number_format($total4 ?? 0, 2) }}</b>
+                                            </td>
+                                            <td style="text-align: right"><b>{{ number_format($total5 ?? 0, 2) }}</b>
+                                            </td>
+                                            <td style="text-align: right"><b>{{ number_format($total6 ?? 0, 2) }}</b>
+                                            </td>
+                                            <td style="text-align: right"><b>{{ number_format($total7 ?? 0, 2) }}</b>
+                                            </td>
+                                            <td style="text-align: right"><b>{{ number_format($total8 ?? 0, 2) }}</b>
+                                            </td>
+                                            <td style="text-align: right"><b>{{ number_format($total9 ?? 0, 2) }}</b>
+                                            </td>
 
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        {{-- </div> --}}
-                                    </div>
+                                            <td colspan="2"></td>
+                                            {{-- <td></td> --}}
 
-                                </section>
-
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                            {{-- </div> --}}
+                        </div>
+
+                    </section>
+
+                </div>
 
 
 
 
 
-                            <div class="form-group" style="padding-top: 10px; ">
-                                {{-- <div class="text-left col-md-5">
+                <div class="form-group" style="padding-top: 10px; ">
+                    {{-- <div class="text-left col-md-5">
                                     <a href="{{ route('oleo.dashboard') }}" class="btn btn-primary"
                                         style="float: left">Sebelumnya</a>
                                 </div>
                                 <div class="text-right col-md-7 mb-4 "> --}}
-                                    <button type="button" class="btn btn-primary " data-bs-toggle="modal"
-                                        style="float: right" data-bs-target="#next">Simpan &
-                                        Seterusnya</button>
-                                {{-- </div> ---}}
+                    <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
+                        data-bs-target="#next">Simpan &
+                        Seterusnya</button>
+                    {{-- </div> - --}}
 
+                </div>
+
+                <!-- Vertically Centered modal Modal -->
+                <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                        role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                    PENGESAHAN</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
                             </div>
-
-                            <!-- Vertically Centered modal Modal -->
-                            <div class="modal fade" id="next" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                    role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                PENGESAHAN</h5>
-                                            <button type="button" class="close" data-bs-dismiss="modal"
-                                                aria-label="Close">
-                                                <i data-feather="x"></i>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>
-                                                Anda pasti mahu menyimpan maklumat ini?
-                                            </p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-light-secondary"
-                                                data-bs-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                            </button>
-                                            <a href="{{ route('oleo.bahagianib') }}" type="button"
-                                                class="btn btn-primary ml-1">
-
-                                            <i class="bx bx-check d-block d-sm-none"></i>
-                                            <span class="d-none d-sm-block">Ya</span>
-                                        </a>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="modal-body">
+                                <p>
+                                    Anda pasti mahu menyimpan maklumat ini?
+                                </p>
                             </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                </button>
+                                <a href="{{ route('oleo.bahagianib') }}" type="button" class="btn btn-primary ml-1">
 
-                        {{-- </div> --}}
-                        <br>
-                        </form>
-
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Ya</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
+                </div>
+
+                {{-- </div> --}}
+                <br>
+                </form>
+
+            </div>
 
 
 
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            {{-- <div id="preloader"></div> --}}
+            {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
 
@@ -600,93 +632,302 @@
     <script src="assets/js/main.js"></script>
 
     <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script> --}}
+        @endsection
+        @section('scripts')
+            <script>
+                function invokeFunc() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e104_b6').focus();
+                        }
 
-    <script>
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
+                    });
+                }
 
-        $(window).on('changed', (e) => {
-            // if($('#example').DataTable().clear().destroy()){
-            // $('#example').DataTable();
-            // }
-        });
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc2() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e104_b7').focus();
+                        }
 
-        // document.getElementById("form_type").onchange = function() {
-        //     myFunction()
-        // };
+                    });
+                }
 
-        // function myFunction() {
-        //     console.log('asasa');
-        //     table.clear().draw();
-        // }
-    </script>
-    <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc3() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e104_b9').focus();
+                        }
 
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+                    });
+                }
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc4() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e104_b10').focus();
+                        }
 
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
+                    });
+                }
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc5() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e104_b11').focus();
+                        }
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+                    });
+                }
 
-    <script>
-        function onlyNumberKey(evt) {
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc6() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e104_b12').focus();
+                        }
 
-            // Only ASCII charactar in that range allowed
-            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-                return false;
-            return true;
-        }
-    </script>
-    <script>
-        document.addEventListener('keypress', function (e) {
-            if (e.keyCode === 13 || e.which === 13) {
-                e.preventDefault();
-                return false;
-            }
+                    });
+                }
 
-        });
-    </script>
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc7() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e104_b13').focus();
+                        }
 
-    </body>
+                    });
+                }
 
-    </html>
-@endsection
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+
+            <script>
+                function b5() {
+
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e104_b5").value | 0.00);
+                    // console.log(x);
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e104_b5").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function b6() {
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e104_b6").value | 0.00);
+                    // console.log(x);
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e104_b6").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function b7() {
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e104_b7").value | 0.00);
+                    // console.log(x);
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e104_b7").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function b9() {
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e104_b9").value | 0.00);
+                    // console.log(x);
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e104_b9").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function b10() {
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e104_b10").value | 0.00);
+                    // console.log(x);
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e104_b10").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function b11() {
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e104_b11").value | 0.00);
+                    // console.log(x);
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e104_b11").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function b12() {
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e104_b12").value | 0.00);
+                    // console.log(x);
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e104_b12").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                function b13() {
+                    // let decimal = ".00"
+                    var x = parseFloat(document.getElementById("e104_b13").value | 0.00);
+                    // console.log(x);
+                    var y = parseFloat(x).toFixed(2);
+                    document.querySelector("#e104_b13").value = y;
+                    console.log(y);
+                }
+            </script>
+            <script>
+                $(document).ready(function() {
+                    var table = $('#example').DataTable({
+                        "language": {
+                            "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
+                            "zeroRecords": "Maaf, tiada rekod.",
+                            "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
+                            "infoEmpty": "Tidak ada rekod yang tersedia",
+                            "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                            "search": "Carian",
+                            "previous": "Sebelum",
+                            "paginate": {
+                                "first": "Pertama",
+                                "last": "Terakhir",
+                                "next": "Seterusnya",
+                                "previous": "Sebelumnya"
+                            },
+                        },
+                    });
+                });
+
+                $(window).on('changed', (e) => {
+                    // if($('#example').DataTable().clear().destroy()){
+                    // $('#example').DataTable();
+                    // }
+                });
+
+                // document.getElementById("form_type").onchange = function() {
+                //     myFunction()
+                // };
+
+                // function myFunction() {
+                //     console.log('asasa');
+                //     table.clear().draw();
+                // }
+            </script>
+            <script>
+                // Get the modal
+                var modal = document.getElementById("myModal");
+
+                // Get the button that opens the modal
+                var btn = document.getElementById("myBtn");
+
+                // Get the <span> element that closes the modal
+                var span = document.getElementsByClassName("close")[0];
+
+                // When the user clicks on the button, open the modal
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+
+                // When the user clicks anywhere outside of the modal, close it
+                window.onclick = function(event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                }
+            </script>
+
+            <script>
+                function onlyNumberKey(evt) {
+
+                    // Only ASCII charactar in that range allowed
+                    var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                    if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                        return false;
+                    return true;
+                }
+            </script>
+            <script>
+                document.addEventListener('keypress', function(e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
+            </script>
+
+            </body>
+
+            </html>
+        @endsection
