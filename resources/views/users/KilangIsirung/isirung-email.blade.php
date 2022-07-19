@@ -12,7 +12,7 @@
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Kemasukan Penyata Bulanan</h4>
+                    <h4 class="page-title">Penghantaran Emel</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -72,7 +72,7 @@
                                                 Jenis Emel</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect" name="TypeOfEmail" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                                    <select class="form-control" id="basicSelect" name="TypeOfEmail" required oninvalid="this.setCustomValidity('Sila Buat Pilihan dibahagian ini')" oninput="this.setCustomValidity('')">
                                                         <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                                         <option value="pertanyaan">Pertanyaan
                                                         </option>
@@ -92,20 +92,6 @@
                                         </div>
 
 
-                                        <div class="row" style="margin-bottom:1%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Daripada (Alamat Emel)</label>
-                                            <div class="col-md-6">
-                                                <input type="email" class="form-control" name='FromEmail' id="FromEmail" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                                    title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
                                         <div class="row" style="margin-bottom:1%">
                                             <label for="fname"
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center">
@@ -132,15 +118,29 @@
 
                                                 </div>
 
-                                                <input type="hidden" id="quill_html" name="Message" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
-                                                    value="{{ old('Message') }}">
-                                                {{-- <div class="col-md-6" >
-                                                    <div id="snow" oninput="add_message()">
+                                            </div>
+                                            <div class="row" >
+                                                <label for="fname"
+                                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                                </label>
+                                                <div class="col-md-6">
 
-                                                    </div>
+                                                    <input type="hidden" id="quill_html" name="Message" required
+                                                        value="{{ old('Message') }}">
+                                                    @error('Message')
+                                                        <div class="alert alert-danger">
+                                                            <strong>Sila isi bahagian kandungan</strong>
+                                                        </div>
+                                                    @enderror
+                                                    {{-- <div id="cname" class="emsg"></div> --}}
+                                                    {{-- <div class="col-md-6" >
+                                                                    <div id="snow" oninput="add_message()">
+
+                                                                    </div>
+                                                                </div>
+                                                                <input type="hidden" id="quill_html" name="Message"> --}}
                                                 </div>
-                                                <input type="hidden" id="quill_html" name="Message"> --}}
-                                        </div>
+                                            </div>
                                         <br>
                                         <div class="row" style="margin-bottom: 1%">
                                             <label for="fname"
@@ -232,21 +232,11 @@
         }
     </script>
     <script>
-        var uploadField = document.getElementById("file");
-
+        var uploadField = document.getElementById('file');
         uploadField.onchange = function() {
-            if (this.files[0].size > 3145728) {
-                toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
-                    "progressBar": true
-                });
 
-                this.value = "";
-            };
-        };
 
-        uploadField.onchange = function() {
-            var fileInput = document.getElementById('file');
-            var filePath = fileInput.value;
+            var filePath = uploadField.value;
             var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
             if (!allowedExtensions.exec(filePath)) {
                 toastr.error(
@@ -254,10 +244,20 @@
                     'Ralat!', {
                         "progressBar": true
                     });
-                fileInput.value = '';
+                this.value = '';
                 return false;
             }
-        }
+
+            if (this.files[0].size > 3145728) {
+                toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
+                    "progressBar": true
+                });
+
+                this.value = "";
+            };
+
+
+        };
     </script>
 
 @endsection
