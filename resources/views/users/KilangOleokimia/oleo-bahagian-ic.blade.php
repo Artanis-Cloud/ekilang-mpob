@@ -6,7 +6,7 @@
         <div class="page-breadcrumb mb-3">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                    <h4 class="page-title">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
                         @elseif($bulan == 2)
@@ -31,7 +31,8 @@
                             NOVEMBER
                         @elseif($bulan == 12)
                             DISEMBER
-                        @endif  {{ $tahun }}</h4>
+                        @endif {{ $tahun }}
+                    </h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -72,14 +73,16 @@
                         </div>
                         <hr>
 
-                        <div class="container center mt-4" >
+                        <div class="container center mt-4">
 
                             <div class="row">
                                 <div class="col-md-3 mt-3">
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="produk" name="e104_b4" style="width:70%" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                    <select class="form-control" id="produk" name="e104_b4" style="width:70%" required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
@@ -101,7 +104,9 @@
                                     <span class="">Stok Awal di Premis</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b5' oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    <input type="text" class="form-control" name='e104_b5'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b5" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b5')
@@ -114,7 +119,9 @@
                                     <span class="">Stok Awal di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b6' oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    <input type="text" class="form-control" name='e104_b6'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc2()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b6" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b6')
@@ -127,10 +134,14 @@
 
                             <div class="row ">
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Belian/Terimaan</span>
+                                    <span class="">Belian/Terimaan &nbsp;<i class="fa fa-exclamation-circle"
+                                            style="color: red; cursor: pointer;"
+                                            title="Jumlah Belian/Terimaan adalah termasuk jumlah Import."></i></span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b7' oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    <input type="text" class="form-control" name='e104_b7'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc3()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b7" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b7')
@@ -143,7 +154,9 @@
                                     <span class="">Jumlah Yang Diproses</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b9' oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    <input type="text" class="form-control" name='e104_b9'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc4()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b9" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b9')
@@ -159,7 +172,9 @@
                                     <span class="">Jualan/Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b10' oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    <input type="text" class="form-control" name='e104_b10'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc5()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b10" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b10')
@@ -172,7 +187,9 @@
                                     <span class="">Eksport</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b11' oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    <input type="text" class="form-control" name='e104_b11'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc6()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b11" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b11')
@@ -187,18 +204,20 @@
 
                             <div class="row">
                                 <!--<div class="col-md-3 mt-3">
-                                    <span>Import</span>
-                                </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b8' placeholder=""
-                                        onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b8" required
-                                        title="Sila isikan butiran ini." readonly>
-                                </div>-->
+                                        <span>Import</span>
+                                    </div>
+                                    <div class="col-md-3 mt-3">
+                                        <input type="text" class="form-control" name='e104_b8' placeholder=""
+                                            onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b8" required
+                                            title="Sila isikan butiran ini." readonly>
+                                    </div>-->
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Akhir di Premis</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b12' oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                    <input type="text" class="form-control" name='e104_b12'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity(''); invokeFunc7()"
                                         onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b12" required
                                         title="Sila isikan butiran ini.">
                                     @error('e104_b12')
@@ -211,9 +230,10 @@
                                     <span class="">Stok Akhir di Pusat Simpanan</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e104_b13' required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                        onkeypress="return isNumberKey(event)" style="width:70%" id="e104_b13"
-                                        title="Sila isikan butiran ini.">
+                                    <input type="text" class="form-control" name='e104_b13' required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')" onkeypress="return isNumberKey(event)"
+                                        style="width:70%" id="e104_b13" title="Sila isikan butiran ini.">
                                     @error('e104_b13')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -230,7 +250,7 @@
                         </div>
                         <br>
 
-                        <div class="row justify-content-center form-group" >
+                        <div class="row justify-content-center form-group">
                             <button type="submit" class="btn btn-primary ">Tambah</button>
                         </div>
                     </div>
@@ -306,7 +326,8 @@
 
                                         <!--scrolling content Modal -->
                                         <div class="modal fade" id="modal{{ $data->e104_b1 }}" tabindex="-1"
-                                            role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                            role="dialog" aria-labelledby="exampleModalScrollableTitle"
+                                            aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
@@ -325,12 +346,14 @@
                                                             <div class="modal-body">
                                                                 <label class="required">Nama Produk </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b4' class="form-control"
+                                                                    <input type="text" name='e104_b4'
+                                                                        class="form-control"
                                                                         value="{{ $data->produk->prodname }}" readonly>
                                                                 </div>
                                                                 <label class="required">Stok Awal Di Premis </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b5' oninput="validate_two_decimal(this)"
+                                                                    <input type="text" name='e104_b5'
+                                                                        oninput="validate_two_decimal(this)"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         value="{{ $data->e104_b5 }}">
@@ -338,14 +361,16 @@
                                                                 <label class="required">Stok Awal Di Pusat Simpanan
                                                                 </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b6' oninput="validate_two_decimal(this)"
+                                                                    <input type="text" name='e104_b6'
+                                                                        oninput="validate_two_decimal(this)"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         value="{{ $data->e104_b6 }}">
                                                                 </div>
                                                                 <label class="required">Belian / Terimaan </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b7' oninput="validate_two_decimal(this)"
+                                                                    <input type="text" name='e104_b7'
+                                                                        oninput="validate_two_decimal(this)"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         value="{{ $data->e104_b7 }}">
@@ -358,28 +383,32 @@
 
                                                                 <label class="required">Jumlah yang Diproses</label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b9' oninput="validate_two_decimal(this)"
+                                                                    <input type="text" name='e104_b9'
+                                                                        oninput="validate_two_decimal(this)"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         value="{{ $data->e104_b9 }}">
                                                                 </div>
                                                                 <label>Jualan / Edaran Tempatan </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b10' oninput="validate_two_decimal(this)"
+                                                                    <input type="text" name='e104_b10'
+                                                                        oninput="validate_two_decimal(this)"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         value="{{ $data->e104_b10 }}">
                                                                 </div>
                                                                 <label class="required">Eksport </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b11' oninput="validate_two_decimal(this)"
+                                                                    <input type="text" name='e104_b11'
+                                                                        oninput="validate_two_decimal(this)"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         value="{{ $data->e104_b11 }}">
                                                                 </div>
                                                                 <label class="required">Stok Akhir Di Premis </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b12' oninput="validate_two_decimal(this)"
+                                                                    <input type="text" name='e104_b12'
+                                                                        oninput="validate_two_decimal(this)"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         value="{{ $data->e104_b12 }}">
@@ -387,7 +416,8 @@
                                                                 <label class="required">Stok Akhir Di Pusat Simpanan
                                                                 </label>
                                                                 <div class="form-group">
-                                                                    <input type="text" name='e104_b13' oninput="validate_two_decimal(this)"
+                                                                    <input type="text" name='e104_b13'
+                                                                        oninput="validate_two_decimal(this)"
                                                                         onkeypress="return isNumberKey(event)"
                                                                         class="form-control"
                                                                         value="{{ $data->e104_b13 }}">
@@ -413,39 +443,40 @@
 
                                         </div>
 
-                                    <div class="modal fade" id="next2{{ $data->e104_b1 }}" tabindex="-1"
-                                        role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                            role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                        PENGESAHAN</h5>
-                                                    <button type="button" class="close" data-bs-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <i data-feather="x"></i>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <p>
-                                                        Anda pasti mahu menghapus maklumat ini?
-                                                    </p>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Tidak</span>
-                                                    </button>
-                                                    <a href="{{ route('oleo.delete.bahagianic',[$data->e104_b1]) }}"
-                                                        type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
-                                                        <i class="bx bx-x d-block d-sm-none" ></i>
-                                                        <span class="d-none d-sm-block" >Ya</span>
-                                                    </a>
+                                        <div class="modal fade" id="next2{{ $data->e104_b1 }}" tabindex="-1"
+                                            role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                            <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                            PENGESAHAN</h5>
+                                                        <button type="button" class="close" data-bs-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <i data-feather="x"></i>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                            Anda pasti mahu menghapus maklumat ini?
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-primary ml-1"
+                                                            data-bs-dismiss="modal">
+                                                            <i class="bx bx-check d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Tidak</span>
+                                                        </button>
+                                                        <a href="{{ route('oleo.delete.bahagianic', [$data->e104_b1]) }}"
+                                                            type="button" class="btn btn-light-secondary"
+                                                            style="color: #275047; background-color: #a1929238">
+                                                            <i class="bx bx-x d-block d-sm-none"></i>
+                                                            <span class="d-none d-sm-block">Ya</span>
+                                                        </a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
                                 @endforeach
                                 <tr>
 
@@ -477,8 +508,8 @@
         <div class="form-group" style="margin: 20px">
             <a href="{{ route('oleo.bahagianib') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
             <button type="button" class="btn btn-primary " data-bs-toggle="modal" style="float: right"
-                    data-bs-target="#next">Simpan &
-                    Seterusnya</button>
+                data-bs-target="#next">Simpan &
+                Seterusnya</button>
         </div>
 
         <!-- Vertically Centered modal Modal -->
@@ -515,8 +546,8 @@
 
 
 
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        {{-- <div id="preloader"></div> --}}
+        {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
 
@@ -529,92 +560,219 @@
     <script src="assets/js/main.js"></script>
 
     <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script> --}}
+    @endsection
+    @section('scripts')
+        <script>
+            function invokeFunc() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_b6').focus();
+                    }
 
-    <script>
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc2() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_b7').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc3() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_b9').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc4() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_b10').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc5() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_b11').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc6() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_b12').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc7() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e104_b13').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            $(document).ready(function() {
+                var table = $('#example').DataTable({
+                    "language": {
+                        "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
+                        "zeroRecords": "Maaf, tiada rekod.",
+                        "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
+                        "infoEmpty": "Tidak ada rekod yang tersedia",
+                        "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
+                        "search": "Carian",
+                        "previous": "Sebelum",
+                        "paginate": {
+                            "first": "Pertama",
+                            "last": "Terakhir",
+                            "next": "Seterusnya",
+                            "previous": "Sebelumnya"
+                        },
                     },
-                },
+                });
             });
-        });
 
-        $(window).on('changed', (e) => {
-            // if($('#example').DataTable().clear().destroy()){
-            // $('#example').DataTable();
+            $(window).on('changed', (e) => {
+                // if($('#example').DataTable().clear().destroy()){
+                // $('#example').DataTable();
+                // }
+            });
+
+            // document.getElementById("form_type").onchange = function() {
+            //     myFunction()
+            // };
+
+            // function myFunction() {
+            //     console.log('asasa');
+            //     table.clear().draw();
             // }
-        });
+        </script>
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
 
-        // document.getElementById("form_type").onchange = function() {
-        //     myFunction()
-        // };
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
 
-        // function myFunction() {
-        //     console.log('asasa');
-        //     table.clear().draw();
-        // }
-    </script>
-    <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
 
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+            // When the user clicks on the button, open the modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
-
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
-
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
-
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
                 modal.style.display = "none";
             }
-        }
-    </script>
-    <script>
-        document.addEventListener('keypress', function (e) {
-            if (e.keyCode === 13 || e.which === 13) {
-                e.preventDefault();
-                return false;
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
             }
+        </script>
+        <script>
+            document.addEventListener('keypress', function(e) {
+                if (e.keyCode === 13 || e.which === 13) {
+                    e.preventDefault();
+                    return false;
+                }
 
-        });
-    </script>
-    <script>
-        function onlyNumberKey(evt) {
+            });
+        </script>
+        <script>
+            function onlyNumberKey(evt) {
 
-            // Only ASCII charactar in that range allowed
-            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-                return false;
-            return true;
-        }
-    </script>
+                // Only ASCII charactar in that range allowed
+                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                    return false;
+                return true;
+            }
+        </script>
 
-    </body>
+        </body>
 
-    </html>
-@endsection
+        </html>
+    @endsection

@@ -851,7 +851,7 @@
 
             </div>
 
-            <span>Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat yang diperlukan dan tekan butang ‘Hantar’.</span>
+            {{-- <span>Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat yang diperlukan dan tekan butang ‘Hantar’.</span> --}}
 
                 <div class="form-group" style="padding: 20px; ">
                         <a href="{{ route('oleo.bahagianiii') }}" class="btn btn-primary"
@@ -916,7 +916,13 @@
                 });
             </script>
 
-
+<script>
+    $(document).ready(function() {
+        swal("Perhatian!",
+            "Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat pegawai melapor dan no. telefon kilang dan tekan butang Hantar."
+            );
+    });
+</script>
             <script>
                 function myPrint(myfrm) {
                     var printdata = document.getElementById(myfrm);
@@ -934,7 +940,7 @@
                     }
 
                 });
-            </script>   
+            </script>
 
             </body>
 

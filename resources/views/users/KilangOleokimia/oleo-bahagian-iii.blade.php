@@ -68,6 +68,11 @@
                             <h5 style="color: rgb(39, 80, 71)">Ringkasan Produk Oleokimia</h5>
                         </div>
                         <hr>
+                        <p><i>*  Produk oleokimia termasuk yang berasaskan minyak sawit, minyak isirong
+                            sawit, minyak soya, minyak kelapa, minyak jagung, petrokimia dan lain-lain.
+                        </i></p>
+                            <p><i>**  Termasuk di pusat simpanan &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </i></p>
                         <div class="container center mt-4">
 
                             <div class="row">
@@ -148,7 +153,7 @@
                                     @enderror
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <span class="">Stok Akhir</span>
+                                    <span class="">Stok Akhir &nbsp; **<span>
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e104_c8' style="width:70%" id="e104_c8" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"

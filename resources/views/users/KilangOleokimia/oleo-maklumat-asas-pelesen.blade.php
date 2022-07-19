@@ -556,7 +556,7 @@
                                                     <i class="bx bx-x d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                                 </button>
-                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                                <button type="submit" class="btn btn-primary ml-1" data-bs="modal" id="checkBtn">
                                                     <i class="bx bx-check d-block d-sm-none"></i>
                                                     <span class="d-none d-sm-block">Ya</span>
                                                 </button>
@@ -671,6 +671,111 @@
 
 
         @section('scripts')
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#checkBtn').click(function() {
+                    cpo = $('#bil_tangki_cpo').val();
+                    ppo = $('#bil_tangki_ppo').val();
+                    cpko = $('#bil_tangki_cpko').val();
+                    ppko = $('#bil_tangki_ppko').val();
+                    oleo = $('#bil_tangki_oleo').val();
+                    others = $('#bil_tangki_others').val();
+
+                    if (cpo == 0 && ppo == 0 && cpko == 0 && ppko == 0 && oleo == 0 && others == 0) {
+                        console.log('lain');
+
+                        toastr.error(
+                            'Sila isi bilangan salah satu tangki produk',
+                            'Ralat!', {
+                                "progressBar": true
+                            })
+                        return false;
+                    }
+
+
+                });
+            });
+        </script>
+        <script>
+            let bil_cpo = document.querySelector("#bil_tangki_cpo");
+            let kap_cpo = document.querySelector("#kap_tangki_cpo");
+            let bil_ppo = document.querySelector("#bil_tangki_ppo");
+            let kap_ppo = document.querySelector("#kap_tangki_ppo");
+            let bil_cpko = document.querySelector("#bil_tangki_cpko");
+            let kap_cpko = document.querySelector("#kap_tangki_cpko");
+            let bil_ppko = document.querySelector("#bil_tangki_ppko");
+            let kap_ppko = document.querySelector("#kap_tangki_ppko");
+            let bil_oleo = document.querySelector("#bil_tangki_oleo");
+            let kap_oleo = document.querySelector("#kap_tangki_oleo");
+            let bil_others = document.querySelector("#bil_tangki_others");
+            let kap_others = document.querySelector("#kap_tangki_others");
+            kap_cpo.disabled = true;
+            kap_ppo.disabled = true;
+            kap_cpko.disabled = true;
+            kap_ppko.disabled = true;
+            kap_oleo.disabled = true;
+            kap_others.disabled = true;
+            bil_cpo.addEventListener("change", stateHandle);
+            bil_ppo.addEventListener("change", stateHandle);
+            bil_cpko.addEventListener("change", stateHandle);
+            bil_ppko.addEventListener("change", stateHandle);
+            bil_oleo.addEventListener("change", stateHandle);
+            bil_others.addEventListener("change", stateHandle);
+
+            // val_cpo = $('#kap_tangki_cpo').val();
+
+            function stateHandle() {
+                if (document.querySelector("#bil_tangki_cpo").value === "" || document.querySelector("#bil_tangki_cpo")
+                    .value === "0") {
+                    kap_cpo.disabled = true;
+                    document.querySelector("#kap_tangki_cpo").value = "0";
+
+                } else {
+                    kap_cpo.disabled = false;
+                }
+                if (document.querySelector("#bil_tangki_ppo").value === "" || document.querySelector("#bil_tangki_ppo")
+                    .value === "0") {
+                    kap_ppo.disabled = true;
+                    document.querySelector("#kap_tangki_ppo").value = "0";
+
+                } else {
+                    kap_ppo.disabled = false;
+                }
+                if (document.querySelector("#bil_tangki_cpko").value === "" || document.querySelector("#bil_tangki_cpko")
+                    .value === "0") {
+                    kap_cpko.disabled = true;
+                    document.querySelector("#kap_tangki_cpko").value = "0";
+
+                } else {
+                    kap_cpko.disabled = false;
+                }
+                if (document.querySelector("#bil_tangki_ppko").value === "" || document.querySelector("#bil_tangki_ppko")
+                    .value === "0") {
+                    kap_ppko.disabled = true;
+                    document.querySelector("#kap_tangki_ppko").value = "0";
+
+                } else {
+                    kap_ppko.disabled = false;
+                }
+                if (document.querySelector("#bil_tangki_oleo").value === "" || document.querySelector("#bil_tangki_oleo")
+                    .value === "0") {
+                    kap_oleo.disabled = true;
+                    document.querySelector("#kap_tangki_oleo").value = "0";
+
+                } else {
+                    kap_oleo.disabled = false;
+                }
+                if (document.querySelector("#bil_tangki_others").value === "" || document.querySelector("#bil_tangki_others")
+                    .value === "0") {
+                    kap_others.disabled = true;
+                    document.querySelector("#kap_tangki_others").value = "0";
+
+                } else {
+                    kap_others.disabled = false;
+                }
+            }
+        </script>
         <script>
             function check() {
                 // (B1) INIT
