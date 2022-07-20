@@ -12,7 +12,7 @@
         <div class="page-breadcrumb">
             <div class="row mb-2">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title" >Kemasukan Penyata Bulanan
+                    <h4 class="page-title">Kemasukan Penyata Bulanan
                         @if ($bulan == 1)
                             JANUARI
                         @elseif($bulan == 2)
@@ -37,7 +37,8 @@
                             NOVEMBER
                         @elseif($bulan == 12)
                             DISEMBER
-                        @endif  {{ $tahun }}</h4>
+                        @endif {{ $tahun }}
+                    </h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -65,365 +66,376 @@
                 </div>
             </div>
         </div>
-                    <div class="card" style="margin-right:2%; margin-left:2%">
-                        {{-- <div class="card-header border-bottom">
+        <div class="card" style="margin-right:2%; margin-left:2%">
+            {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
 
 
-                        <div class="card-body">
-                                <div class="">
-                                    <form action="{{ route('bio.add.bahagian.ic') }}" method="post">
-                                        @csrf
-                                        <div class="mb-4 text-center">
-                                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 1 (c)</h3>
-                                            <h5 style="color: rgb(39, 80, 71)">Lain - Lain Minyak
-                                            </h5>
-                                            {{-- <p>Maklumat Kilang</p> --}}
+            <div class="card-body">
+                <div class="">
+                    <form action="{{ route('bio.add.bahagian.ic') }}" method="post">
+                        @csrf
+                        <div class="mb-4 text-center">
+                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                            <h3 style="color: rgb(39, 80, 71); ">Bahagian 1 (c)</h3>
+                            <h5 style="color: rgb(39, 80, 71)">Lain - Lain Minyak
+                            </h5>
+                            {{-- <p>Maklumat Kilang</p> --}}
+                        </div>
+                        <hr>
+
+                        <div class="container center mt-4">
+
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <span class="">Nama Produk dan Kod</span>
+                                </div>
+                                <div class="col-md-5">
+
+                                    {{-- <select class=" select2"> --}}
+                                    <select class="form-control select2" id="ebio_b4" name="ebio_b4" required
+                                        oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
+                                        oninput="this.setCustomValidity('')">
+                                        <option selected hidden disabled value="">Sila Pilih</option>
+                                        @foreach ($produk as $data)
+                                            <option value="{{ $data->prodid }}">
+                                                {{ $data->prodname }} - {{ $data->proddesc }}
+                                            </option>
+                                        @endforeach
+
+                                    </select>
+                                    {{-- </select> --}}
+
+                                </div>
+
+                                {{-- <div class="col-md-2"></div> --}}
+                                <div class="col-md-2">
+                                    <span class="">Digunakan Untuk Proses Selanjutnya</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_b8'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b8"
+                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        required>
+
+                                    @error('ebio_b8')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
                                         </div>
-                                        <hr>
-
-                                        <div class="container center mt-4">
-
-                                            <div class="row">
-                                                <div class="col-md-3 mt-3">
-                                                    <span class="">Nama Produk dan Kod</span>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <select class="form-control" id="ebio_b4" name="ebio_b4"
-                                                        style="width:70%" required oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                        oninput="this.setCustomValidity('')">
-                                                        <option selected hidden disabled value="">Sila Pilih</option>
-                                                        @foreach ($produk as $data)
-                                                            <option value="{{ $data->prodid }}">
-                                                                {{ $data->prodname }} - {{ $data->prodid }}
-                                                            </option>
-                                                        @endforeach
-
-                                                    </select>
-
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <span class="">Stok Awal di Premis</span>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <input type="text" class="form-control" name='ebio_b5'
-                                                        style="width:70%" id="ebio_b5" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                        onkeypress="return isNumberKey(event)" required
-                                                        title="Sila isikan butiran ini.">
-
-                                                        @error('ebio_b5')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-3 mt-3">
-                                                    <span class="">Belian/Terimaan</span>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <input type="text" class="form-control" name='ebio_b6'
-                                                        style="width:70%" id="ebio_b6" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                        onkeypress="return isNumberKey(event)" required
-                                                        title="Sila isikan butiran ini.">
-
-                                                        @error('ebio_b6')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <span class="">Pengeluaran</span>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <input type="text" class="form-control" name='ebio_b7'
-                                                        style="width:70%" id="ebio_b7" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                        onkeypress="return isNumberKey(event)" required
-                                                        title="Sila isikan butiran ini.">
-
-                                                        @error('ebio_b7')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
-                                                </div>
-                                            </div>
+                                    @enderror
+                                </div>
 
 
-                                            <div class="row">
-                                                <div class="col-md-3 mt-3">
-                                                    <span class="">Digunakan Untuk Proses Selanjutnya</span>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <input type="text" class="form-control" name='ebio_b8'
-                                                        style="width:70%" id="ebio_b8" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                        onkeypress="return isNumberKey(event)" required>
+                            </div>
 
-                                                        @error('ebio_b8')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <span class="">Jualan/Edaran Tempatan</span>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <input type="text" class="form-control" name='ebio_b9'
-                                                        style="width:70%" id="ebio_b9" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                        onkeypress="return isNumberKey(event)" required
-                                                        title="Sila isikan butiran ini.">
+                            <div class="row mt-4">
+                                <div class="col-md-2">
+                                    <span class="">Stok Awal di Premis</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_b5'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b5"
+                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)" required
+                                        title="Sila isikan butiran ini.">
 
-                                                        @error('ebio_b9')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
-                                                </div>
-
-
-                                            </div>
-
-                                            <div class="row">
-                                                <div class="col-md-3 mt-3">
-                                                    <span class="">Eksport </span>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <input type="text" class="form-control" name='ebio_b10'
-                                                        style="width:70%" id="ebio_b10" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                        onkeypress="return isNumberKey(event)" required
-                                                        title="Sila isikan butiran ini.">
-
-                                                        @error('ebio_b10')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <span class="">Stok Akhir Dilapor</span>
-                                                </div>
-                                                <div class="col-md-3 mt-3">
-                                                    <input type="text" class="form-control" name='ebio_b11'
-                                                        style="width:70%" id="ebio_b11" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                        oninput="validate_two_decimal(this);setCustomValidity('')"
-                                                        onkeypress="return isNumberKey(event)" required
-                                                        title="Sila isikan butiran ini.">
-
-                                                        @error('ebio_b11')
-                                                            <div class="alert alert-danger">
-                                                                <strong>{{ $message }}</strong>
-                                                            </div>
-                                                        @enderror
-                                                </div>
-                                            </div>
-
+                                    @error('ebio_b5')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
                                         </div>
-                                        <br>
+                                    @enderror
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-2">
+                                    <span class="">Jualan/Edaran Tempatan</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_b9'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b9"
+                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)" required
+                                        title="Sila isikan butiran ini.">
 
-
-                                        <div class="row form-group justify-content-center"  style="margin: 3%">
-                                            <button type="submit" class="btn btn-primary ">Tambah</button>
+                                    @error('ebio_b9')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
                                         </div>
+                                    @enderror
+                                </div>
 
-                                    </form>
-                                    <section class="section">
+                            </div>
 
-                                    <hr>
-                                    <br>
+                            <div class="row mt-4">
+                                <div class="col-md-2">
+                                    <span class="">Belian/Terimaan</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_b6'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b6"
+                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)" required
+                                        title="Sila isikan butiran ini.">
+
+                                    @error('ebio_b6')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-2">
+                                    <span class="">Eksport </span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_b10'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b10"
+                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        required title="Sila isikan butiran ini.">
+
+                                    @error('ebio_b10')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row mt-4">
+                                <div class="col-md-2">
+                                    <span class="">Pengeluaran</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_b7'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b7"
+                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        required title="Sila isikan butiran ini.">
+
+                                    @error('ebio_b7')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                                <div class="col-md-2"></div>
+                                <div class="col-md-2">
+                                    <span class="">Stok Akhir Dilapor</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" class="form-control" name='ebio_b11'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')" style="width:50%" id="ebio_b11"
+                                        oninput="validate_two_decimal(this)" onkeypress="return isNumberKey(event)"
+                                        required title="Sila isikan butiran ini.">
+
+                                    @error('ebio_b11')
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                        </div>
+                        <br>
 
 
-                                    <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Lain - Lain Minyak</h5>
-                                    <br>
-                                    <section class="section">
-                                        <div class="card">
+                        <div class="row form-group justify-content-center" style="margin: 3%">
+                            <button type="submit" class="btn btn-primary ">Tambah</button>
+                        </div>
 
-                                            {{-- <div class="card-body"> --}}
-                                            <div class="table-responsive">
-                                                <table class="table table-bordered mb-0" style="font-size: 13px">
-                                                    <thead style="text-align: center">
-                                                        <tr>
-                                                            <th>Nama Produk</th>
-                                                            <th>Kod Produk</th>
-                                                            <th>Stok Awal Di Premis</th>
-                                                            <th>Belian/Terimaan</th>
-                                                            <th>Pengeluaran</th>
-                                                            <th>Digunakan Untuk Proses Selanjutnya</th>
-                                                            <th>Jualan/Edaran Tempatan</th>
-                                                            <th>Eksport</th>
-                                                            <th>Stok Akhir Dilapor</th>
-                                                            <th>Kemaskini</th>
-                                                            <th>Hapus?</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        @foreach ($penyata as $data)
-                                                            <tr style="text-align: right">
+                    </form>
+                    <section class="section">
 
-                                                                <td style="text-align: left">
-                                                                    {{ $data->produk->prodname }}
-                                                                    {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
+                        <hr>
+
+                        <br>
+
+
+                        <h5 style="color: rgb(39, 80, 71); text-align:center">Senarai Lain - Lain Minyak</h5>
+                        <br>
+                        <section class="section">
+                            <div class="card">
+
+                                {{-- <div class="card-body"> --}}
+                                <div class="table-responsive">
+                                    <table class="table table-bordered mb-0" style="font-size: 13px">
+                                        <thead style="text-align: center">
+                                            <tr>
+                                                <th>Nama Produk</th>
+                                                <th>Kod Produk</th>
+                                                <th>Stok Awal Di Premis</th>
+                                                <th>Belian/Terimaan</th>
+                                                <th>Pengeluaran</th>
+                                                <th>Digunakan Untuk Proses Selanjutnya</th>
+                                                <th>Jualan/Edaran Tempatan</th>
+                                                <th>Eksport</th>
+                                                <th>Stok Akhir Dilapor</th>
+                                                <th>Kemaskini</th>
+                                                <th>Hapus?</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($penyata as $data)
+                                                <tr style="text-align: right">
+
+                                                    <td style="text-align: left">
+                                                        {{ $data->produk->proddesc }}
+                                                        {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
                                                                                     <span>{{ $produk->prodname }}</span>
                                                                                 @endif --}}
 
-                                                                </td>
-                                                                <td>
-                                                                    {{ $data->produk->prodid }}
-                                                                    {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
+                                                    </td>
+                                                    <td style="text-align: center">
+                                                        {{ $data->produk->prodid }}
+                                                        {{-- @if ($penyata->e101b->e101_b4 == $produk->prodid)
                                                                                     <span>{{ $produk->prodname }}</span>
                                                                                 @endif --}}
 
-                                                                </td>
-                                                                <td>{{ number_format($data->ebio_b5 ??  0,2) }}</td>
-                                                                <td>{{ number_format($data->ebio_b6 ??  0,2) }}</td>
-                                                                <td>{{ number_format($data->ebio_b7 ??  0,2) }}</td>
-                                                                <td>{{ number_format($data->ebio_b8 ??  0,2) }}</td>
-                                                                <td>{{ number_format($data->ebio_b9 ??  0,2) }}</td>
-                                                                <td>{{ number_format($data->ebio_b10 ??  0,2) }}</td>
-                                                                <td>{{ number_format($data->ebio_b11 ??  0,2) }}</td>
-                                                                {{-- <td>{{ number_format($data->ebio_b12 ??  0,2) }}</td> --}}
-                                                                {{-- <td>{{ $data->e104_b13 }}</td> --}}
-                                                                {{-- <td>{{ $data->e104_b14 }}</td> --}}
-                                                                <td>
-                                                                    <div class="icon" style="text-align: center">
-                                                                        <a href="#" type="button" data-toggle="modal"
-                                                                            data-target="#modal{{ $data->ebio_b1 }}">
-                                                                            <i class="fas fa-edit fa-lg"
-                                                                                style="color: #ffc107">
-                                                                            </i>
-                                                                        </a>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <div class="icon" style="text-align: center">
-                                                                        <a href="#" type="button"
-                                                                            data-toggle="modal"  data-target="#next2{{ $data->ebio_b1 }}">
-                                                                            <i class="fa fa-trash"
-                                                                                style="color: #dc3545;font-size:18px"></i>
-                                                                        </a>
-                                                                    </div>
+                                                    </td>
+                                                    <td>{{ number_format($data->ebio_b5 ?? 0, 2) }}</td>
+                                                    <td>{{ number_format($data->ebio_b6 ?? 0, 2) }}</td>
+                                                    <td>{{ number_format($data->ebio_b7 ?? 0, 2) }}</td>
+                                                    <td>{{ number_format($data->ebio_b8 ?? 0, 2) }}</td>
+                                                    <td>{{ number_format($data->ebio_b9 ?? 0, 2) }}</td>
+                                                    <td>{{ number_format($data->ebio_b10 ?? 0, 2) }}</td>
+                                                    <td>{{ number_format($data->ebio_b11 ?? 0, 2) }}</td>
+                                                    {{-- <td>{{ number_format($data->ebio_b12 ??  0,2) }}</td> --}}
+                                                    {{-- <td>{{ $data->e104_b13 }}</td> --}}
+                                                    {{-- <td>{{ $data->e104_b14 }}</td> --}}
+                                                    <td>
+                                                        <div class="icon" style="text-align: center">
+                                                            <a href="#" type="button" data-toggle="modal"
+                                                                data-target="#modal{{ $data->ebio_b1 }}">
+                                                                <i class="fas fa-edit fa-lg" style="color: #ffc107">
+                                                                </i>
+                                                            </a>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div class="icon" style="text-align: center">
+                                                            <a href="#" type="button" data-toggle="modal"
+                                                                data-target="#next2{{ $data->ebio_b1 }}">
+                                                                <i class="fa fa-trash"
+                                                                    style="color: #dc3545;font-size:18px"></i>
+                                                            </a>
+                                                        </div>
 
-                                                                </td>
-                                                                {{-- <td>{{ $data->e101_b15 }}</td> --}}
+                                                    </td>
+                                                    {{-- <td>{{ $data->e101_b15 }}</td> --}}
 
 
-                                                            </tr>
+                                                </tr>
 
-                                                            <div class="col-md-6 col-12">
+                                                <div class="col-md-6 col-12">
 
-                                                                <!--scrolling content Modal -->
-                                                                <div class="modal fade"
-                                                                    id="modal{{ $data->ebio_b1 }}" tabindex="-1"
-                                                                    role="dialog"
-                                                                    aria-labelledby="exampleModalScrollableTitle"
-                                                                    aria-hidden="true">
-                                                                    <div class="modal-dialog modal-dialog-scrollable"
-                                                                        role="document">
-                                                                        <div class="modal-content">
-                                                                            <div class="modal-header">
-                                                                                <h5 class="modal-title"
-                                                                                    id="exampleModalScrollableTitle">
-                                                                                    Kemaskini Maklumat Produk</h5>
-                                                                                <button type="button" class="close"
-                                                                                    data-dismiss="modal"
-                                                                                    aria-label="Close">
-                                                                                    <i data-feather="x"></i>
-                                                                                </button>
+                                                    <!--scrolling content Modal -->
+                                                    <div class="modal fade" id="modal{{ $data->ebio_b1 }}"
+                                                        tabindex="-1" role="dialog"
+                                                        aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title"
+                                                                        id="exampleModalScrollableTitle">
+                                                                        Kemaskini Maklumat Produk</h5>
+                                                                    <button type="button" class="close"
+                                                                        data-dismiss="modal" aria-label="Close">
+                                                                        <i data-feather="x"></i>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form
+                                                                        action="{{ route('bio.edit.bahagian.ic', [$data->ebio_b1]) }}"
+                                                                        method="post">
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <label>Nama Produk </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='ebio_b4'
+                                                                                    class="form-control"
+                                                                                    value="{{ $data->produk->proddesc }}"
+                                                                                    readonly>
                                                                             </div>
-                                                                            <div class="modal-body">
-                                                                                <form
-                                                                                    action="{{ route('bio.edit.bahagian.ic', [$data->ebio_b1]) }}"
-                                                                                    method="post">
-                                                                                    @csrf
-                                                                                    <div class="modal-body">
-                                                                                        <label>Nama Produk </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ebio_b4'
-                                                                                                class="form-control"
-                                                                                                value="{{ $data->produk->prodname }}"
-                                                                                                readonly>
-                                                                                        </div>
-                                                                                        <label>Stok Awal Di Premis </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ebio_b5'
-                                                                                                class="form-control" oninput="validate_two_decimal(this)"
-                                                                                                onkeypress="return isNumberKey(event)" required
-                                                                                                value="{{ $data->ebio_b5 }}">
-                                                                                        </div>
-                                                                                        <label>Belian/Terimaan
-                                                                                        </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ebio_b6'
-                                                                                                class="form-control" oninput="validate_two_decimal(this)"
-                                                                                                onkeypress="return isNumberKey(event)" required
-                                                                                                value="{{ $data->ebio_b6 }}">
-                                                                                        </div>
-                                                                                        <label>Pengeluaran </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ebio_b7'
-                                                                                                class="form-control" oninput="validate_two_decimal(this)"
-                                                                                                onkeypress="return isNumberKey(event)" required
-                                                                                                value="{{ $data->ebio_b7 }}">
-                                                                                        </div>
-                                                                                        {{-- <label>Import </label>
+                                                                            <label>Stok Awal Di Premis </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='ebio_b5'
+                                                                                    class="form-control"
+                                                                                    oninput="validate_two_decimal(this)"
+                                                                                    onkeypress="return isNumberKey(event)"
+                                                                                    required
+                                                                                    value="{{ $data->ebio_b5 }}">
+                                                                            </div>
+                                                                            <label>Belian/Terimaan
+                                                                            </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='ebio_b6'
+                                                                                    class="form-control"
+                                                                                    oninput="validate_two_decimal(this)"
+                                                                                    onkeypress="return isNumberKey(event)"
+                                                                                    required
+                                                                                    value="{{ $data->ebio_b6 }}">
+                                                                            </div>
+                                                                            <label>Pengeluaran </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='ebio_b7'
+                                                                                    class="form-control"
+                                                                                    oninput="validate_two_decimal(this)"
+                                                                                    onkeypress="return isNumberKey(event)"
+                                                                                    required
+                                                                                    value="{{ $data->ebio_b7 }}">
+                                                                            </div>
+                                                                            {{-- <label>Import </label>
                                                                                                 <div class="form-group">
                                                                                                     <input type="password" placeholder="Password"
                                                                                                         class="form-control">
                                                                                                 </div> --}}
-                                                                                        <label>Digunakan Untuk Proses
-                                                                                            Selanjutnya </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ebio_b8'
-                                                                                                class="form-control" oninput="validate_two_decimal(this)"
-                                                                                                onkeypress="return isNumberKey(event)" required
-                                                                                                value="{{ $data->ebio_b8 }}">
-                                                                                        </div>
-                                                                                        <label>Jualan/Edaran
-                                                                                            Tempatan</label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ebio_b9'
-                                                                                                class="form-control" oninput="validate_two_decimal(this)"
-                                                                                                onkeypress="return isNumberKey(event)" required
-                                                                                                value="{{ $data->ebio_b9 }}">
-                                                                                        </div>
-                                                                                        <label>Eksport
-                                                                                        </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ebio_b10'
-                                                                                                class="form-control" oninput="validate_two_decimal(this)"
-                                                                                                onkeypress="return isNumberKey(event)" required
-                                                                                                value="{{ $data->ebio_b10 }}">
-                                                                                        </div>
-                                                                                        <label>Stok Akhir Dilapor </label>
-                                                                                        <div class="form-group">
-                                                                                            <input type="text"
-                                                                                                name='ebio_b11'
-                                                                                                class="form-control" oninput="validate_two_decimal(this)"
-                                                                                                onkeypress="return isNumberKey(event)" required
-                                                                                                value="{{ $data->ebio_b11 }}">
-                                                                                        </div>
+                                                                            <label>Digunakan Untuk Proses
+                                                                                Selanjutnya </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='ebio_b8'
+                                                                                    class="form-control"
+                                                                                    oninput="validate_two_decimal(this)"
+                                                                                    onkeypress="return isNumberKey(event)"
+                                                                                    required
+                                                                                    value="{{ $data->ebio_b8 }}">
+                                                                            </div>
+                                                                            <label>Jualan/Edaran
+                                                                                Tempatan</label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='ebio_b9'
+                                                                                    class="form-control"
+                                                                                    oninput="validate_two_decimal(this)"
+                                                                                    onkeypress="return isNumberKey(event)"
+                                                                                    required
+                                                                                    value="{{ $data->ebio_b9 }}">
+                                                                            </div>
+                                                                            <label>Eksport
+                                                                            </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='ebio_b10'
+                                                                                    class="form-control"
+                                                                                    oninput="validate_two_decimal(this)"
+                                                                                    onkeypress="return isNumberKey(event)"
+                                                                                    required
+                                                                                    value="{{ $data->ebio_b10 }}">
+                                                                            </div>
+                                                                            <label>Stok Akhir Dilapor </label>
+                                                                            <div class="form-group">
+                                                                                <input type="text" name='ebio_b11'
+                                                                                    class="form-control"
+                                                                                    oninput="validate_two_decimal(this)"
+                                                                                    onkeypress="return isNumberKey(event)"
+                                                                                    required
+                                                                                    value="{{ $data->ebio_b11 }}">
+                                                                            </div>
 
 
-                                                                                    </div>
-                                                                                    {{-- <div class="modal-footer">
+                                                                        </div>
+                                                                        {{-- <div class="modal-footer">
                                                                                                 <button type="button" class="btn btn-light-secondary"
                                                                                                     data-dismiss="modal">
                                                                                                     <i class="bx bx-x d-block d-sm-none"></i>
@@ -437,257 +449,228 @@
                                                                                             </div> --}}
 
 
-                                                                            </div>
-
-
-                                                                            <div class="modal-footer">
-                                                                                <button type="button"
-                                                                                    class="btn btn-light-secondary"
-                                                                                    data-dismiss="modal">
-                                                                                    <i
-                                                                                        class="bx bx-x d-block d-sm-none"></i>
-                                                                                    <span
-                                                                                        class="d-none d-sm-block">Batal</span>
-                                                                                </button>
-                                                                                <button type="submit"
-                                                                                    class="btn btn-primary ml-1">
-                                                                                    <i
-                                                                                        class="bx bx-check d-block d-sm-none"></i>
-                                                                                    <span
-                                                                                        class="d-none d-sm-block">Kemaskini</span>
-                                                                                </button>
-                                                                            </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
                                                                 </div>
 
-                                                            </div>
-                                                            <div class="modal fade" id="next2{{ $data->ebio_b1 }}" tabindex="-1" role="dialog"
-                                                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                                                    role="document">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                                                PENGESAHAN</h5>
-                                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                                aria-label="Close">
-                                                                                <i data-feather="x"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <p>
-                                                                                Anda pasti mahu menghapus produk ini?
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-primary ml-1"
-                                                                                data-dismiss="modal">
-                                                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                                                <span class="d-none d-sm-block">Tidak</span>
-                                                                            </button>
-                                                                            <a href="{{ route('bio.delete.bahagian.ic',[$data->ebio_b1]) }}"
-                                                                                type="button" class="btn btn-light-secondary" style="color: #275047; background-color: #a1929238">
-                                                                                <i class="bx bx-x d-block d-sm-none" ></i>
-                                                                                <span class="d-none d-sm-block" >Ya</span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        @endforeach
-                                                        <tr>
 
-                                                            <td colspan="2"><b>JUMLAH</b></td>
-                                                            {{-- <td>{{ $data->e102_b5 }}</td> --}}
-                                                            <td style="text-align: right"><b>{{ number_format($totalicb5 ??  0,2) }}</b></td>
-                                                            <td style="text-align: right"><b>{{ number_format($totalicb6 ??  0,2) }}</b></td>
-                                                            <td style="text-align: right"><b>{{ number_format($totalicb7 ??  0,2) }}</b></td>
-                                                            <td style="text-align: right"><b>{{ number_format($totalicb8 ??  0,2) }}</b></td>
-                                                            <td style="text-align: right"><b>{{ number_format($totalicb9 ??  0,2) }}</b></td>
-                                                            <td style="text-align: right"><b>{{ number_format($totalicb10 ??  0,2) }}</b></td>
-                                                            <td style="text-align: right"><b>{{ number_format($totalicb11 ??  0,2) }}</b></td>
-                                                            {{-- <td style="text-align: right"><b>{{ number_format($totaliab5 ??  0,2) }}</b></td>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-light-secondary"
+                                                                        data-dismiss="modal">
+                                                                        <i class="bx bx-x d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Batal</span>
+                                                                    </button>
+                                                                    <button type="submit" class="btn btn-primary ml-1">
+                                                                        <i class="bx bx-check d-block d-sm-none"></i>
+                                                                        <span class="d-none d-sm-block">Kemaskini</span>
+                                                                    </button>
+                                                                </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="modal fade" id="next2{{ $data->ebio_b1 }}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="exampleModalCenterTitle"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                                                        role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                                                    PENGESAHAN</h5>
+                                                                <button type="button" class="close"
+                                                                    data-dismiss="modal" aria-label="Close">
+                                                                    <i data-feather="x"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>
+                                                                    Anda pasti mahu menghapus produk ini?
+                                                                </p>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-primary ml-1"
+                                                                    data-dismiss="modal">
+                                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Tidak</span>
+                                                                </button>
+                                                                <a href="{{ route('bio.delete.bahagian.ic', [$data->ebio_b1]) }}"
+                                                                    type="button" class="btn btn-light-secondary"
+                                                                    style="color: #275047; background-color: #a1929238">
+                                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                                    <span class="d-none d-sm-block">Ya</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                            <tr>
+
+                                                <td colspan="2"><b>JUMLAH</b></td>
+                                                {{-- <td>{{ $data->e102_b5 }}</td> --}}
+                                                <td style="text-align: right">
+                                                    <b>{{ number_format($totalicb5 ?? 0, 2) }}</b></td>
+                                                <td style="text-align: right">
+                                                    <b>{{ number_format($totalicb6 ?? 0, 2) }}</b></td>
+                                                <td style="text-align: right">
+                                                    <b>{{ number_format($totalicb7 ?? 0, 2) }}</b></td>
+                                                <td style="text-align: right">
+                                                    <b>{{ number_format($totalicb8 ?? 0, 2) }}</b></td>
+                                                <td style="text-align: right">
+                                                    <b>{{ number_format($totalicb9 ?? 0, 2) }}</b></td>
+                                                <td style="text-align: right">
+                                                    <b>{{ number_format($totalicb10 ?? 0, 2) }}</b></td>
+                                                <td style="text-align: right">
+                                                    <b>{{ number_format($totalicb11 ?? 0, 2) }}</b></td>
+                                                {{-- <td style="text-align: right"><b>{{ number_format($totaliab5 ??  0,2) }}</b></td>
                                                             <td style="text-align: right"><b>{{ number_format($totaliab5 ??  0,2) }}</b></td> --}}
 
-                                                            <td colspan="2"></td>
-                                                            {{-- <td></td> --}}
+                                                <td colspan="2"></td>
+                                                {{-- <td></td> --}}
 
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </div>
-                                            {{-- </div> --}}
-                                        </div>
-
-                                    </section>
-
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-
-                                <div class="form-group" style="padding-top: 10px; ">
-                                        <a href="{{ route('bio.bahagianib') }}" class="btn btn-primary"
-                                            style="float: left">Sebelumnya</a>
-                                        <button type="button" class="btn btn-primary " data-toggle="modal"
-                                            style="float: right" data-target="#next">Simpan &
-                                            Seterusnya</button>
-                                </div>
-
-                                <!-- Vertically Centered modal Modal -->
-                                <div class="modal fade" id="next" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                        role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                    PENGESAHAN</h5>
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>
-                                                    Anda pasti mahu menyimpan maklumat ini?
-                                                </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary"
-                                                    data-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
-                                                </button>
-                                                <a href="{{ route('bio.bahagianii') }}" type="button"
-                                                    class="btn btn-primary ml-1">
-
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Ya</span>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                {{-- </div> --}}
                             </div>
-                            <br>
-                            </form>
+
+                        </section>
+
+                </div>
+
+                <div class="form-group" style="padding-top: 10px; ">
+                    <a href="{{ route('bio.bahagianib') }}" class="btn btn-primary" style="float: left">Sebelumnya</a>
+                    <button type="button" class="btn btn-primary " data-toggle="modal" style="float: right"
+                        data-target="#next">Simpan &
+                        Seterusnya</button>
+                </div>
+
+                <!-- Vertically Centered modal Modal -->
+                <div class="modal fade" id="next" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                        role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                    PENGESAHAN</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Anda pasti mahu menyimpan maklumat ini?
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary" data-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
+                                </button>
+                                <a href="{{ route('bio.bahagianii') }}" type="button" class="btn btn-primary ml-1">
+
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Ya</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            </form>
+
+        </div>
+        </section><!-- End Hero -->
 
 
-    </section><!-- End Hero -->
 
 
 
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+@endsection
+@section('scripts')
+        {{-- <div id="preloader"></div> --}}
+        {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+                class="bi bi-arrow-up-short"></i></a>
 
 
-    <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
-    <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
-    <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
-    <script src="{{ asset('theme/js/app.js') }}"></script>
+        <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
+        <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
+        <script src="{{ asset('theme/libs/jquery-steps/build/jquery.steps.min.js') }}"></script>
+        <script src="{{ asset('theme/libs/jquery-validation/dist/jquery.validate.min.js') }}"></script>
+        <script src="{{ asset('theme/js/app.js') }}"></script>
 
-    <script src="assets/js/main.js"></script>
+        <script src="assets/js/main.js"></script>
+    <link href="{{ asset('nice-admin/assets/css/cdn.css') }}  " rel="stylesheet">
 
-    <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
 
-    <script>
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "language": {
-                    "lengthMenu": "Memaparkan _MENU_ rekod per halaman",
-                    "zeroRecords": "Maaf, tiada rekod.",
-                    "info": "Memaparkan halaman _PAGE_ dari _PAGES_",
-                    "infoEmpty": "Tidak ada rekod yang tersedia",
-                    "infoFiltered": "(Ditapis dari _MAX_ jumlah rekod)",
-                    "search": "Carian",
-                    "previous": "Sebelum",
-                    "paginate": {
-                        "first": "Pertama",
-                        "last": "Terakhir",
-                        "next": "Seterusnya",
-                        "previous": "Sebelumnya"
-                    },
-                },
-            });
-        });
+        <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script> --}}
 
-        $(window).on('changed', (e) => {
-            // if($('#example').DataTable().clear().destroy()){
-            // $('#example').DataTable();
-            // }
-        });
 
-        // document.getElementById("form_type").onchange = function() {
-        //     myFunction()
-        // };
+<script>
+    /* When the user clicks on the button,
+    toggle between hiding and showing the dropdown content */
+    function myFunction() {
+      document.getElementById("ebio_b4").classList.toggle("show");
+    }
 
-        // function myFunction() {
-        //     console.log('asasa');
-        //     table.clear().draw();
-        // }
+    function filterFunction() {
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      div = document.getElementById("myDropdown");
+      a = div.getElementsByTagName("a");
+      for (i = 0; i < a.length; i++) {
+        txtValue = a[i].textContent || a[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          a[i].style.display = "";
+        } else {
+          a[i].style.display = "none";
+        }
+      }
+    }
     </script>
-    <script>
-        // Get the modal
-        var modal = document.getElementById("myModal");
 
-        // Get the button that opens the modal
-        var btn = document.getElementById("myBtn");
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
 
-        // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
 
-        // When the user clicks on the button, open the modal
-        btn.onclick = function() {
-            modal.style.display = "block";
-        }
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
 
-        // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
-            modal.style.display = "none";
-        }
+            // When the user clicks on the button, open the modal
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
 
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-            if (event.target == modal) {
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
                 modal.style.display = "none";
             }
-        }
-    </script>
 
-    <script>
-        function onlyNumberKey(evt) {
-
-            // Only ASCII charactar in that range allowed
-            var ASCIICode = (evt.which) ? evt.which : evt.keyCode
-            if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
-                return false;
-            return true;
-        }
-    </script>
-     <script>
-        document.addEventListener('keypress', function (e) {
-            if (e.keyCode === 13 || e.which === 13) {
-                e.preventDefault();
-                return false;
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
             }
+        </script>
 
-        });
-    </script>
+        <script>
+            function onlyNumberKey(evt) {
+
+                // Only ASCII charactar in that range allowed
+                var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+                if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+                    return false;
+                return true;
+            }
+        </script>
+
     @endsection
-                    </div>
-    </div>
-    </body>
-
-    </html>
-
