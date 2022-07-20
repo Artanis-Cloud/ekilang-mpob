@@ -70,7 +70,9 @@
                                 Laluan Baru <i>(8 Aksara)</i></label>
                             </div>
                             <div class="col-md-4">
-                                <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8" oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8"
+                                    oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
+                                    oninput="this.setCustomValidity('')"
                                     placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                 @error('new_password')
                                     <div class="alert alert-danger">
@@ -86,7 +88,7 @@
                                 Kata Laluan Baru <i>(8 Aksara)</i></label>
                             </div>
                             <div class="col-md-4">
-                                <input type="password" class="form-control" name='password_confirmation' id="myInput3"  minlength="8" 
+                                <input type="password" class="form-control" name='password_confirmation' id="myInput3"  minlength="8"
                                     placeholder="Sahkan Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                 @error('password_confirmation')
                                     <div class="alert alert-danger">
@@ -190,6 +192,15 @@
                         x.type = "password";
                     }
                 }
+            </script>
+            <script>
+                document.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
             </script>
         @endsection
         </div>

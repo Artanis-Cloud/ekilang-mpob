@@ -643,24 +643,9 @@
         </div>
 
         </form>
-    </div>
-    <br>
 
-    <br>
-
-    </section><!-- End Hero -->
-
-
-
-    </main><!-- End #main -->
-
-    <!-- ======= Footer ======= -->
-
-
-
-
-
-    {{-- <div id="preloader"></div> --}}
+    </section>
+    
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
@@ -691,6 +676,15 @@
 
             document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
         }
+    </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+
+        });
     </script>
 
 

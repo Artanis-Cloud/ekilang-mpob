@@ -72,8 +72,8 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_ap1" class="form-control" maxlength=60
-                                        oninput="setCustomValidity('')"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')"
                                         placeholder="Alamat Premis Berlesen 1" name="e_ap1"
                                         value="{{ $pelesen->e_ap1 }}" required>
                                     @error('e_ap1')
@@ -83,8 +83,7 @@
                                     @enderror
 
                                     <input type="text" id="e_ap2" class="form-control" maxlength=60
-                                        {{-- oninput="setCustomValidity('')"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" required --}} placeholder="Alamat Premis Berlesen 2" name="e_ap2"
+                                        placeholder="Alamat Premis Berlesen 2" name="e_ap2"
                                         value="{{ $pelesen->e_ap2 }}">
                                     @error('e_ap2')
                                         <div class="alert alert-danger">
@@ -93,8 +92,7 @@
                                     @enderror
 
                                     <input type="text" id="e_ap3" class="form-control" maxlength=60
-                                        {{-- oninput="setCustomValidity('')"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" --}} required placeholder="Alamat Premis Berlesen 3" name="e_ap3"
+                                        placeholder="Alamat Premis Berlesen 3" name="e_ap3"
                                         value="{{ $pelesen->e_ap3 }}">
                                     @error('e_ap3')
                                         <div class="alert alert-danger">
@@ -104,16 +102,15 @@
                                 </div>
                             </div>
 
-                            <div class="row justify-content-center" style="margin:0px">
-                                <div class="col-sm-3 " style="margin: 0px">
-                                    <label for="fname" class="control-label col-form-label"></i></label>
-                                </div>
-                                <div class="custom-control custom-checkbox col-md-7">
+                            <div class="row justify-content-center" style="margin:20px 0px">
+                                <div class="col-sm-3 form-group" style="margin: 0px"></div>
+                                <div class="col-md-7">
                                     <input onchange="alamat();" type="checkbox" class="custom-control-input"
                                         id="alamat_sama" name="alamat_sama"
                                         {{ old('alamat_sama') == 'on' ? 'checked' : '' }}>
                                     <label class="custom-control-label" for="alamat_sama">Alamat sama seperti di
                                         atas</label>
+
                                 </div>
                             </div>
 
@@ -125,29 +122,18 @@
                                         Alamat Surat Menyurat</label>
                                 </div>
                                 <div class="col-md-7">
-                                    <input type="text" id="e_as1" class="form-control" maxlength=60 required
-                                        {{-- oninput="setCustomValidity('')"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" --}} placeholder="Alamat Surat Menyurat 1" name="e_as1"
+                                    <input type="text" id="e_as1" class="form-control" maxlength=60
+                                        required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" placeholder="Alamat Surat Menyurat 1" name="e_as1"
                                         value="{{ $pelesen->e_as1 }}">
-                                    @error('e_as1')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
+
 
                                     <input type="text" id="e_as2" class="form-control" maxlength=60
-                                        {{-- oninput="setCustomValidity('')"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" --}} placeholder="Alamat Surat Menyurat 2" name="e_as2"
+                                        placeholder="Alamat Surat Menyurat 2" name="e_as2"
                                         value="{{ $pelesen->e_as2 ?? '' }}">
-                                    @error('e_as2')
-                                        <div class="alert alert-danger">
-                                            <strong>{{ $message }}</strong>
-                                        </div>
-                                    @enderror
+
 
                                     <input type="text" id="e_as3" class="form-control" maxlength=60
-                                        {{-- oninput="setCustomValidity('')"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" --}} placeholder="Alamat Surat Menyurat 3" name="e_as3"
+                                        placeholder="Alamat Surat Menyurat 3" name="e_as3"
                                         value="{{ $pelesen->e_as3 ?? '' }}">
                                     @error('e_as3')
                                         <div class="alert alert-danger">
@@ -511,11 +497,8 @@
 
 
                         <div class="row form-group justify-content-center" style="margin-top: 2%">
-                            <div class="">
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#next">Simpan</button>
-                            </div>
-
                         </div>
 
                         <!-- Vertically Centered modal Modal -->
@@ -758,24 +741,35 @@
 
                 }
             </script>
-            <script type="text/javascript">
-                $(document).ready(function() {
-                    $('#checkBtn').click(function() {
-                        tangki = $('#bil_tangki_cpo').val();
+                    <script type = "text/javascript" >
+                        $(document).ready(function() {
+                            $('#checkBtn').click(function() {
+                                // checked = $("input[type=checkbox]:checked").length;
+                                tangki = $('#bil_tangki_cpo').val();
 
-                        if (!tangki || !(tangki > 0)) {
-                            console.log('lain');
+                                if (!tangki ||  !( tangki > 0) ) {
+                                  console.log('lain');
 
-                            toastr.error(
-                                'Bilangan tangki hendaklah lebih dari 0',
-                                'Ralat!', {
-                                    "progressBar": true
-                                })
+                                    toastr.error(
+                                    'Bilangan tangki hendaklah lebih dari 0',
+                                    'Ralat!', {
+                                        "progressBar": true
+                                    })
+                                    return false;
+                                }
+
+                            });
+                        });
+                </script>
+                <script>
+                    document.addEventListener('keypress', function (e) {
+                        if (e.keyCode === 13 || e.which === 13) {
+                            e.preventDefault();
                             return false;
                         }
 
                     });
-                });
+        
             </script>
             <script>
                 let bilangan = document.querySelector("#bil_tangki_cpo");
@@ -793,4 +787,7 @@
 
             </script>
 
+                 </body>
+
+                 </html>
         @endsection

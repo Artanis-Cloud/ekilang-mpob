@@ -674,6 +674,15 @@
             document.getElementById('jumlah').innerHTML = jumlah_input.toFixed(2);
         }
     </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+
+        });
+    </script>
     </body>
 
     </html>

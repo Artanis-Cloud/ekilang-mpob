@@ -88,8 +88,10 @@
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="produk" name="e101_c4" style="width: 70%">
-                                        <option selected hidden disabled>Sila Pilih</option>
+                                    <select class="form-control" id="produk" name="e101_c4" style="width: 70%" required
+                                    oninput="this.setCustomValidity('')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                        <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
                                                 {{ $data->prodname }} - {{ $data->prodid }}
@@ -113,8 +115,41 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e101_c5' style="width: 70%" id="e101_c5"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="validate_two_decimal(this)">
+                                         oninput="this.setCustomValidity('')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_c5')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Belian/Terimaan</span>
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e101_c6' style="width: 70%" id="e101_c6"
+                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                         oninput="this.setCustomValidity('')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                    @error('e101_c6')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi butiran ini</strong>
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 mt-3">
+                                    <span class="">Pengeluaran</span>
+                                </div>
+                                <div class="col-md-3 mt-3">
+                                    <input type="text" class="form-control" name='e101_c7' style="width: 70%" id="e101_c7"
+                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
+                                        oninput="this.setCustomValidity('')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
+                                    @error('e101_c7')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
                                         </div>
@@ -126,7 +161,8 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e101_c8' style="width: 70%" id="e101_c8"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="validate_two_decimal(this)">
+                                         oninput="this.setCustomValidity('')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_c8')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -136,47 +172,16 @@
                             </div>
 
 
-
                             <div class="row">
-                                <div class="col-md-3 mt-3">
-                                    <span class="">Belian/Terimaan</span>
-                                </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e101_c6' style="width: 70%" id="e101_c6"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="validate_two_decimal(this)">
-                                    @error('e101_c6')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
                                 <div class="col-md-3 mt-3">
                                     <span class="">Eksport</span>
                                 </div>
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e101_c9' style="width: 70%" id="e101_c9"
                                         required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="validate_two_decimal(this)">
+                                         oninput="this.setCustomValidity('')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_c9')
-                                        <div class="alert alert-danger">
-                                            <strong>Sila isi butiran ini</strong>
-                                        </div>
-                                    @enderror
-                                </div>
-
-                            </div>
-
-
-                            <div class="row">
-                                <div class="col-md-3 mt-3">
-                                    <span class="">Pengeluaran</span>
-                                </div>
-                                <div class="col-md-3 mt-3">
-                                    <input type="text" class="form-control" name='e101_c7' style="width: 70%" id="e101_c7"
-                                        required onkeypress="return isNumberKey(event)" title="Sila isikan butiran ini."
-                                        oninput="validate_two_decimal(this)">
-                                    @error('e101_c7')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
                                         </div>
@@ -188,7 +193,8 @@
                                 <div class="col-md-3 mt-3">
                                     <input type="text" class="form-control" name='e101_c10' style="width: 70%"
                                         id="e101_c10" required onkeypress="return isNumberKey(event)"
-                                        title="Sila isikan butiran ini." oninput="validate_two_decimal(this)">
+                                        title="Sila isikan butiran ini."  oninput="this.setCustomValidity('')"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')">
                                     @error('e101_c10')
                                         <div class="alert alert-danger">
                                             <strong>Sila isi butiran ini</strong>
@@ -197,13 +203,10 @@
                                 </div>
 
                             </div>
-
-
-
-                        </div>
-                        <div class="row justify-content-center form-group" style="margin-top: 5%; ">
-                                <button type="submit" class="btn btn-primary">Tambah</button>
-                        </div>
+                    </div>
+                    <div class="row justify-content-center form-group" style="margin-top: 5%; ">
+                            <button type="submit" class="btn btn-primary">Tambah</button>
+                    </div>
             </form>
 
             <hr>
@@ -492,6 +495,15 @@
                 });
                 $('#total').html(total);
             });
+        });
+    </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+
         });
     </script>
 

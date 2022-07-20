@@ -969,7 +969,8 @@
                         <form action="{{ route('penapis.update.papar.penyata', [$penyataiii->e101_reg]) }}"
                             method="post">
                             @csrf
-                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                            <p>
+                                <div class="required">Nama Pegawai Melapor:</div>
                                 <input type="text" id="e101_npg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" name='e101_npg'
                                     value="{{ $penyataiii->e101_npg }}">
                                 @error('e101_npg')
@@ -978,7 +979,8 @@
                                 </div>
                             @enderror
                             </p>
-                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                            <p>
+                                <div class="required">Jawatan Pegawai Melapor:</div>
                                 <input type="text" id="e101_jpg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" name='e101_jpg'
                                     value="{{ $penyataiii->e101_jpg }}">
                                 @error('e101_jpg')
@@ -987,7 +989,8 @@
                                 </div>
                             @enderror
                             </p>
-                            <p>No Telefon Kilang: &nbsp;&nbsp;
+                            <p>
+                                <div class="required">No Telefon Kilang:</div>
 
                                 <input type="text" id="e101_notel" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                     name="e101_notel" value="{{ $penyataiii->e101_notel }}">
@@ -1057,10 +1060,12 @@
             }
         </script>
         <script>
-            $(document).ready(function() {
-                swal("Perhatian!",
-                    "Sila semak semua butiran di bawah dan pastikan maklumat yang diberikan adalah tepat, benar dan lengkap selaras dengan rekod harian. Lengkapkan maklumat pegawai melapor dan no. telefon kilang dan tekan butang Hantar."
-                    );
+            document.addEventListener('keypress', function (e) {
+                if (e.keyCode === 13 || e.which === 13) {
+                    e.preventDefault();
+                    return false;
+                }
+
             });
         </script>
     @endsection

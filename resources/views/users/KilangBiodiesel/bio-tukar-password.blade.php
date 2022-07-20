@@ -55,6 +55,7 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="password" class="form-control" name='old_password' id="myInput"
+                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                     placeholder="Kata Laluan Terdahulu" required title="Sila isikan butiran ini.">
                                 @error('old_password')
                                     <div class="alert alert-danger">
@@ -71,12 +72,13 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8"
+                                oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')" oninput="this.setCustomValidity('')"
                                     placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                 @error('new_password')
-                                                        <div class="alert alert-danger">
-                                                            <strong>{{ $message }}</strong>
-                                                        </div>
-                                                    @enderror
+                                <div class="alert alert-danger">
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="row justify-content-center" style="margin:20px 0px">
@@ -87,12 +89,13 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="password" class="form-control" name='password_confirmation' id="myInput3"  minlength="8"
+                                    oninput="this.setCustomValidity('')"
                                     placeholder="Sahkan Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                 @error('password_confirmation')
-                                                        <div class="alert alert-danger">
-                                                            <strong>{{ $message }}</strong>
-                                                        </div>
-                                                    @enderror
+                                    <div class="alert alert-danger">
+                                        <strong>{{ $message }}</strong>
+                                    </div>
+                                @enderror
                             </div>
                         </div>
                         <div class="row justify-content-center" style="margin:0px">
@@ -162,7 +165,7 @@
 
                 function validatePassword(){
                 if(password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Passwords Don't Match");
+                    confirm_password.setCustomValidity("Kata laluan tidak sama");
                 } else {
                     confirm_password.setCustomValidity('');
                 }
@@ -192,5 +195,14 @@
                         x.type = "password";
                     }
                 }
+            </script>
+            <script>
+                document.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
             </script>
         @endsection

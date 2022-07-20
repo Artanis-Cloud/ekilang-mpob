@@ -1224,7 +1224,7 @@ class KilangIsirungController extends Controller
             // 'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
-            'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
+            // 'file_upload' => ['mimes:jpeg,doc,docx,pdf,xls,png,jpg,xlsx']
 
 
         ]);

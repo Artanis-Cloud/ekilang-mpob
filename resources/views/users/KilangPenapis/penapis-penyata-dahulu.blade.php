@@ -110,9 +110,9 @@
                                 </div>
                             </div>
 
-                            </div>
                         </div>
-                        <div class="row justify-content-center form-group" style="margin-top: 2%; margin-bottom: 11%">
+                        </div>
+                        <div class="row justify-content-center form-group" >
                                 <button type="submit" class="btn btn-primary"  data-toggle="modal"
                                     data-target="#next">Papar Penyata</button>
                         </div>

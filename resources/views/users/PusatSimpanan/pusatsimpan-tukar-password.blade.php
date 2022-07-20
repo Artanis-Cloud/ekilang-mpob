@@ -54,7 +54,8 @@
                                     Laluan Terdahulu <i>(8 Aksara)</i></label>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="password" class="form-control" name='old_password' id="myInput"
+                                    <input type="password" class="form-control" name='old_password' id="myInput"oninput="this.setCustomValidity('')"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')"
                                         placeholder="Kata Laluan Terdahulu" required title="Sila isikan butiran ini.">
                                     @error('old_password')
                                         <div class="alert alert-danger">
@@ -71,6 +72,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8"
+                                        oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
+                                        oninput="this.setCustomValidity('')"
                                         placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                     @error('new_password')
                                         <div class="alert alert-danger">
@@ -160,7 +163,7 @@
 
                 function validatePassword(){
                 if(password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Passwords Don't Match");
+                    confirm_password.setCustomValidity("Kata laluan tidak sama");
                 } else {
                     confirm_password.setCustomValidity('');
                 }
@@ -205,6 +208,15 @@
 
                 oldpassword.onkeyup = validateOldPassword;
                 newpassword.onchange = validateOldPassword;
+            </script>
+            <script>
+                document.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
             </script>
 
         @endsection

@@ -160,41 +160,82 @@ class PusatSimpananController extends Controller
     {
 
             # code...// dd($request->all());
-            $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
-            $penyata->e_ap1 = $request->e_ap1;
-            $penyata->e_ap2 = $request->e_ap2;
-            $penyata->e_ap3 = $request->e_ap3;
-            $penyata->e_as1 = $request->e_as1;
-            $penyata->e_as2 = $request->e_as2;
-            $penyata->e_as3 = $request->e_as3;
-            $penyata->e_notel = $request->e_notel;
-            $penyata->e_nofax = $request->e_nofax;
-            $penyata->e_email = $request->e_email;
-            $penyata->e_npg = $request->e_npg;
-            $penyata->e_jpg = $request->e_jpg;
-            $penyata->e_notel_pg = $request->e_notel_pg;
-            $penyata->e_email_pg = $request->e_email_pg;
-            $penyata->e_npgtg = $request->e_npgtg;
-            $penyata->e_jpgtg = $request->e_jpgtg;
-            $penyata->e_syktinduk = $request->e_syktinduk;
-            $penyata->e_group = $request->e_group;
-            $penyata->e_email_pengurus = $request->e_email_pengurus;
-            $penyata->kap_proses = $request->kap_proses;
-            $penyata->kap_tangki = $request->kap_tangki;
-            $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
-            $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
-            $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
-            $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
-            $penyata->bil_tangki_oleo = $request->bil_tangki_oleo;
-            $penyata->bil_tangki_others = $request->bil_tangki_others;
-            $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
-            $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
-            $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
-            $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
-            $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
-            $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
-            $penyata->kap_tangki_others = $request->kap_tangki_others;
-            $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
+            if(isset($request['alamat_sama'])){
+
+                $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+                $penyata->e_ap1 = $request->e_ap1;
+                $penyata->e_ap2 = $request->e_ap2;
+                $penyata->e_ap3 = $request->e_ap3;
+                $penyata->e_as1 = $request->e_ap1;
+                $penyata->e_as2 = $request->e_ap2;
+                $penyata->e_as3 = $request->e_ap3;
+                $penyata->e_notel = $request->e_notel;
+                $penyata->e_nofax = $request->e_nofax;
+                $penyata->e_email = $request->e_email;
+                $penyata->e_npg = $request->e_npg;
+                $penyata->e_jpg = $request->e_jpg;
+                $penyata->e_notel_pg = $request->e_notel_pg;
+                $penyata->e_email_pg = $request->e_email_pg;
+                $penyata->e_npgtg = $request->e_npgtg;
+                $penyata->e_jpgtg = $request->e_jpgtg;
+                $penyata->e_syktinduk = $request->e_syktinduk;
+                $penyata->e_group = $request->e_group;
+                $penyata->e_email_pengurus = $request->e_email_pengurus;
+                $penyata->kap_proses = $request->kap_proses;
+                $penyata->kap_tangki = $request->kap_tangki;
+                $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
+                $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
+                $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
+                $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
+                $penyata->bil_tangki_oleo = $request->bil_tangki_oleo;
+                $penyata->bil_tangki_others = $request->bil_tangki_others;
+                $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
+                $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
+                $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
+                $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
+                $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
+                $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
+                $penyata->kap_tangki_others = $request->kap_tangki_others;
+                $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
+            }
+            else{
+
+                $penyata = Pelesen::where('e_nl', auth()->user()->username)->first();
+                $penyata->e_ap1 = $request->e_ap1;
+                $penyata->e_ap2 = $request->e_ap2;
+                $penyata->e_ap3 = $request->e_ap3;
+                $penyata->e_as1 = $request->e_as1;
+                $penyata->e_as2 = $request->e_as2;
+                $penyata->e_as3 = $request->e_as3;
+                $penyata->e_notel = $request->e_notel;
+                $penyata->e_nofax = $request->e_nofax;
+                $penyata->e_email = $request->e_email;
+                $penyata->e_npg = $request->e_npg;
+                $penyata->e_jpg = $request->e_jpg;
+                $penyata->e_notel_pg = $request->e_notel_pg;
+                $penyata->e_email_pg = $request->e_email_pg;
+                $penyata->e_npgtg = $request->e_npgtg;
+                $penyata->e_jpgtg = $request->e_jpgtg;
+                $penyata->e_syktinduk = $request->e_syktinduk;
+                $penyata->e_group = $request->e_group;
+                $penyata->e_email_pengurus = $request->e_email_pengurus;
+                $penyata->kap_proses = $request->kap_proses;
+                $penyata->kap_tangki = $request->kap_tangki;
+                $penyata->bil_tangki_cpo = $request->bil_tangki_cpo;
+                $penyata->bil_tangki_ppo = $request->bil_tangki_ppo;
+                $penyata->bil_tangki_cpko = $request->bil_tangki_cpko;
+                $penyata->bil_tangki_ppko = $request->bil_tangki_ppko;
+                $penyata->bil_tangki_oleo = $request->bil_tangki_oleo;
+                $penyata->bil_tangki_others = $request->bil_tangki_others;
+                $penyata->bil_tangki_jumlah = $request->bil_tangki_jumlah;
+                $penyata->kap_tangki_cpo = $request->kap_tangki_cpo;
+                $penyata->kap_tangki_ppo = $request->kap_tangki_ppo;
+                $penyata->kap_tangki_cpko = $request->kap_tangki_cpko;
+                $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
+                $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
+                $penyata->kap_tangki_others = $request->kap_tangki_others;
+                $penyata->kap_tangki_jumlah = $request->kap_tangki_jumlah;
+            }
 
             $penyata->save();
 

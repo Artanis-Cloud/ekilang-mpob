@@ -94,10 +94,10 @@
                                         </select>
                                     </fieldset>
                                     {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
+                                        <div class="alert alert-danger">
+                                            <strong>{{ $message }}</strong>
+                                        </div>
+                                    @enderror --}}
                                 </div>
                             </div>
 
@@ -145,45 +145,45 @@
                                     <div id="editor" aria-required="true" oninput="add_message()">
                                         {{ old('Message') }}
                                     </div>
-                                    {{-- @error('Message')
+                                    @error('Message')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
                                         </div>
-                                    @enderror --}}
+                                    @enderror
 
 
                                 </div>
                                 {{-- <div id="phone_error" class="error hidden">Please enter a valid phone number</div> --}}
+
+
+                                <input type="hidden" id="quill_html" name="Message" id="editor"
+                                    oninvalid="setCustomValidity('Sila isi butiran ini')" title="Sila isikan butiran ini."
+                                    oninput="setCustomValidity('')" required value="{{ old('Message') }}">
+
+
                             </div>
-
-                            <input type="hidden" id="quill_html" name="Message" id="editor"
-                                oninvalid="setCustomValidity('Sila isi butiran ini')" title="Sila isikan butiran ini."
-                                oninput="setCustomValidity('')" required value="{{ old('Message') }}">
-
-
-                        </div>
-                        <br>
-                        <div class="row" style=" margin-top:-1%">
-                            <label for="fname"
-                                class="text-right col-sm-5 control-label col-form-label align-items-center">
-                            </label>
-                            <div class="col-md-6">
-                                <div class="form-file">
-                                    <input type="file" class="form-file-input" id="file" name="file_upload">
-                                    <label class="form-file-label" for="file">
+                            <br>
+                            <div class="row" style=" margin-top:-1%">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                </label>
+                                <div class="col-md-6">
+                                    <div class="form-file">
+                                        <input type="file" class="form-file-input" id="file" name="file_upload">
                                         <label class="form-file-label" for="file">
-                                            <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
-                                                dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg dan .png
-                                                sahaja</i>
+                                            <label class="form-file-label" for="file">
+                                                <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
+                                                    dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg dan .png
+                                                    sahaja</i>
+                                            </label>
+
                                         </label>
+                                    </div>
 
-                                    </label>
                                 </div>
-
                             </div>
                         </div>
-                </div>
-            </div>
+                    </div>
 
 
 
@@ -233,6 +233,7 @@
                 </div>
             </div>
             </form>
+            </div>
 
     @endsection
     @section('scripts')
@@ -294,7 +295,7 @@
                     console.log(error);
                 }
 
-                // function validateForm(event) {
+                // function validateForm(event) { 
                 //     var phone = document.getElementById('myform_phone').value;
                 //     if (!validatePhoneNumber(phone)) {
                 //         document.getElementById('phone_error').classList.remove('hidden');
