@@ -1996,7 +1996,7 @@ class KilangPenapisController extends Controller
         return Validator::make($data, [
             // 'Id' => ['required', 'string'],
             'TypeOfEmail' => ['required', 'string'],
-            'FromEmail' => ['required', 'string'],
+            // 'FromEmail' => ['required', 'string'],
             'Subject' => ['required', 'string'],
             'Message' => ['required', 'string'],
             // 'file_upload' => ['mimes:jpeg,doc,docx,xls,png,jpg,xlsx']
@@ -2019,7 +2019,7 @@ class KilangPenapisController extends Controller
             'FromName' => auth()->user()->name,
             'FromLicense' => auth()->user()->username,
             'TypeOfEmail' => $data['TypeOfEmail'],
-            'FromEmail' => $data['FromEmail'],
+            'FromEmail' => auth()->user()->email,
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],
@@ -2037,7 +2037,7 @@ class KilangPenapisController extends Controller
             'FromName' => auth()->user()->name,
             'FromLicense' => auth()->user()->username,
             'TypeOfEmail' => $data['TypeOfEmail'],
-            'FromEmail' => $data['FromEmail'],
+            'FromEmail' => auth()->user()->email,
             'Category' => auth()->user()->category,
             'Subject' => $data['Subject'],
             'Message' => $data['Message'],

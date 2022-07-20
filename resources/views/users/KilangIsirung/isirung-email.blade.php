@@ -40,224 +40,219 @@
                 </div>
             </div>
         </div>
-                    <div class="card" style="margin-right:2%; margin-left:2%">
-                        {{-- <div class="card-header border-bottom">
+        <div class="card" style="margin-right:2%; margin-left:2%">
+            {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
 
-                        <div class="card-body">
-                            {{-- <div class="row"> --}}
-                                {{-- <div class="col-md-4 col-12"> --}}
-                                <div class="pl-3">
-                                    <form
-                                    action="{{ route('isirung.send.email.proses') }}" enctype="multipart/form-data"
-                                    method="post">
-                                    @csrf
-                                    <div class="text-center">
-                                        {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
-                                        <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Emel Pertanyaan / Pindaan /
-                                            Cadangan </h3>
-                                        {{-- <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
+            <div class="card-body">
+                {{-- <div class="row"> --}}
+                {{-- <div class="col-md-4 col-12"> --}}
+                <div class="pl-3">
+                    <form action="{{ route('isirung.send.email.proses') }}" enctype="multipart/form-data" method="post">
+                        @csrf
+                        <div class="text-center">
+                            {{-- <img src="{{ asset('/mpob.png') }}" height="80" class='mb-4'> --}}
+                            <h3 style="color: rgb(39, 80, 71); margin-bottom:3%">Emel Pertanyaan / Pindaan /
+                                Cadangan </h3>
+                            {{-- <h5 style="color: rgb(39, 80, 71)">Eksport Produk Sawit
                                         </h5> --}}
-                                        {{-- <p>Maklumat Kilang</p> --}}
+                            {{-- <p>Maklumat Kilang</p> --}}
+                        </div>
+                        <hr>
+
+
+
+                        <div class="container center mt-2">
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Jenis Emel</label>
+                                <div class="col-md-6">
+                                    <fieldset class="form-group">
+                                        <select class="form-control" id="basicSelect" name="TypeOfEmail" required
+                                            oninvalid="this.setCustomValidity('Sila buat pilihan dibahagian ini')"
+                                            oninput="this.setCustomValidity('')">
+                                            <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
+                                            <option value="pertanyaan">Pertanyaan
+                                            </option>
+                                            <option value="pindaan">Pindaan
+                                            </option>
+                                            <option value="cadangan">Cadangan
+                                            </option>
+
+                                        </select>
+                                    </fieldset>
+                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                </div>
+                            </div>
+
+
+                            <div class="row" style="margin-bottom:1%">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Tajuk</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" name='Subject'
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')" id="Subject" required
+                                        title="Sila isikan butiran ini.">
+                                    {{-- @error('alamat_kilang_1')
+                                                    <div class="alert alert-danger">
+                                                        <strong>{{ $message }}</strong>
+                                                    </div>
+                                                @enderror --}}
+                                </div>
+                            </div>
+                            <div class="row" style="margin-bottom: 3%">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label required align-items-center">
+                                    Kandungan</label>
+                                <div class="col-md-6">
+
+                                    <div id="editor" oninput="add_message()" required>
+                                        {{ old('Message') }}
                                     </div>
-                                    <hr>
 
+                                </div>
 
+                            </div>
+                            <div class="row">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                </label>
+                                <div class="col-md-6">
 
-                                    <div class="container center mt-2">
-                                        <div class="row">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Jenis Emel</label>
-                                            <div class="col-md-6">
-                                                <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect" name="TypeOfEmail" required oninvalid="this.setCustomValidity('Sila Buat Pilihan dibahagian ini')" oninput="this.setCustomValidity('')">
-                                                        <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
-                                                        <option value="pertanyaan">Pertanyaan
-                                                        </option>
-                                                        <option value="pindaan">Pindaan
-                                                        </option>
-                                                        <option value="cadangan"  >Cadangan
-                                                        </option>
-
-                                                    </select>
-                                                </fieldset>
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
+                                    <input type="hidden" id="quill_html" name="Message" required
+                                        value="{{ old('Message') }}">
+                                    @error('Message')
+                                        <div class="alert alert-danger">
+                                            <strong>Sila isi bahagian kandungan</strong>
                                         </div>
-
-
-                                        <div class="row" style="margin-bottom:1%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center">
-                                                Tajuk</label>
-                                            <div class="col-md-6">
-                                                <input type="text" class="form-control" name='Subject' oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
-                                                    id="Subject" required title="Sila isikan butiran ini.">
-                                                {{-- @error('alamat_kilang_1')
-                                                    <div class="alert alert-danger">
-                                                        <strong>{{ $message }}</strong>
-                                                    </div>
-                                                @enderror --}}
-                                            </div>
-                                        </div>
-                                        <div class="row" style="margin-bottom: 3%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label required align-items-center" >
-                                                Kandungan</label>
-                                                <div class="col-md-6">
-
-                                                    <div id="editor" oninput="add_message()" required >
-                                                        {{ old('Message') }}
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-                                            <div class="row" >
-                                                <label for="fname"
-                                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
-                                                </label>
-                                                <div class="col-md-6">
-
-                                                    <input type="hidden" id="quill_html" name="Message" required
-                                                        value="{{ old('Message') }}">
-                                                    @error('Message')
-                                                        <div class="alert alert-danger">
-                                                            <strong>Sila isi bahagian kandungan</strong>
-                                                        </div>
-                                                    @enderror
-                                                    {{-- <div id="cname" class="emsg"></div> --}}
-                                                    {{-- <div class="col-md-6" >
+                                    @enderror
+                                    {{-- <div id="cname" class="emsg"></div> --}}
+                                    {{-- <div class="col-md-6" >
                                                                     <div id="snow" oninput="add_message()">
 
                                                                     </div>
                                                                 </div>
                                                                 <input type="hidden" id="quill_html" name="Message"> --}}
-                                                </div>
-                                            </div>
-                                        <br>
-                                        <div class="row" style="margin-bottom: 1%">
-                                            <label for="fname"
-                                                class="text-right col-sm-5 control-label col-form-label align-items-center">
-                                                </label>
-                                            <div class="col-md-6">
-                                                <div class="form-file">
-                                                    <input type="file" class="form-file-input" id="file" name="file_upload" accept=".doc,.docx,.pdf,.jpeg">
-                                                    <label class="form-file-label" for="file">
-                                                        <label class="form-file-label" for="file">
-                                                            <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
-                                                                dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg dan .png
-                                                                sahaja</i>
-                                                        </label>
-
-                                                    </label>
-                                                </div>
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            {{-- </div> --}}
-                            <div class="row form-group">
-                                <div class="text-right col-md-6 mb-4 ">
-                                    <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
-                                    data-target="#emel">Hantar</button>
                                 </div>
                             </div>
+                            <br>
+                            <div class="row" style="margin-bottom: 1%">
+                                <label for="fname"
+                                    class="text-right col-sm-5 control-label col-form-label align-items-center">
+                                </label>
+                                <div class="col-md-6">
+                                    <div class="form-file">
+                                        <input type="file" class="form-file-input" id="file" name="file_upload"
+                                            accept=".doc,.docx,.pdf,.jpeg">
+                                        <label class="form-file-label" for="file">
+                                            <label class="form-file-label" for="file">
+                                                <i>Nota: Sila pastikan saiz fail yang dimuatnaik tidak melebihi 3MB dan
+                                                    dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg dan .png
+                                                    sahaja</i>
+                                            </label>
 
-
-                                <!-- Vertically Centered modal Modal -->
-                                <div class="modal fade" id="emel" tabindex="-1"
-                                    role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                    aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
-                                        role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalCenterTitle">
-                                                    PENGESAHAN</h5>
-                                                <button type="button" class="close"
-                                                    data-bs-dismiss="modal" aria-label="Close">
-                                                    <i data-feather="x"></i>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p>
-                                                    Anda pasti mahu menghantar emel ini?
-                                                </p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-light-secondary"
-                                                    data-bs-dismiss="modal">
-                                                    <i class="bx bx-x d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block"
-                                                        style="color:#275047">Kembali</span>
-                                                </button>
-                                                <button type="submit" class="btn btn-primary ml-1"
-                                                    >
-                                                    <i class="bx bx-check d-block d-sm-none"></i>
-                                                    <span class="d-none d-sm-block">Hantar</span>
-                                                </button>
-                                            </div>
-                                        </div>
+                                        </label>
                                     </div>
+
                                 </div>
-                                </form>
                             </div>
-
-    </section><!-- End Hero -->
-
-
-@endsection
-@section('scripts')
-    <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
-
-    <script>
-        var quill = new Quill('#editor', {
-            theme: 'snow'
-        });
-
-        function add_message() {
-            // var content = document.querySelector("#snow").innerHTML;
-            // alert(quill.getContents());
-            quill.on('text-change', function(delta, oldDelta, source) {
-                document.getElementById("quill_html").value = quill.root.innerHTML;
-            });
-        }
-    </script>
-    <script>
-        var uploadField = document.getElementById('file');
-        uploadField.onchange = function() {
+                        </div>
+                </div>
+                {{-- </div> --}}
+                <div class="row form-group">
+                    <div class="text-right col-md-6 mb-4 ">
+                        <button type="button" class="btn btn-primary" style="margin-left:90%" data-toggle="modal"
+                            data-target="#emel">Hantar</button>
+                    </div>
+                </div>
 
 
-            var filePath = uploadField.value;
-            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
-            if (!allowedExtensions.exec(filePath)) {
-                toastr.error(
-                    'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
-                    'Ralat!', {
-                        "progressBar": true
-                    });
-                this.value = '';
-                return false;
-            }
+                <!-- Vertically Centered modal Modal -->
+                <div class="modal fade" id="emel" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable"
+                        role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalCenterTitle">
+                                    PENGESAHAN</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <i data-feather="x"></i>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>
+                                    Anda pasti mahu menghantar emel ini?
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
+                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block" style="color:#275047">Kembali</span>
+                                </button>
+                                <button type="submit" class="btn btn-primary ml-1">
+                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                    <span class="d-none d-sm-block">Hantar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </form>
+            </div>
 
-            if (this.files[0].size > 3145728) {
-                toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
-                    "progressBar": true
+            </section><!-- End Hero -->
+        @endsection
+        @section('scripts')
+            <script src="{{ asset('nice-admin/assets/libs/quill/dist/quill.min.js') }}"></script>
+
+            <script>
+                var quill = new Quill('#editor', {
+                    theme: 'snow'
                 });
 
-                this.value = "";
-            };
+                function add_message() {
+                    // var content = document.querySelector("#snow").innerHTML;
+                    // alert(quill.getContents());
+                    quill.on('text-change', function(delta, oldDelta, source) {
+                        document.getElementById("quill_html").value = quill.root.innerHTML;
+                    });
+                }
+            </script>
+            <script>
+                var uploadField = document.getElementById('file');
+                uploadField.onchange = function() {
 
 
-        };
-    </script>
+                    var filePath = uploadField.value;
+                    var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
+                    if (!allowedExtensions.exec(filePath)) {
+                        toastr.error(
+                            'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
+                            'Ralat!', {
+                                "progressBar": true
+                            });
+                        this.value = '';
+                        return false;
+                    }
 
-@endsection
+                    if (this.files[0].size > 3145728) {
+                        toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
+                            "progressBar": true
+                        });
+
+                        this.value = "";
+                    };
+
+
+                };
+            </script>
+        @endsection
