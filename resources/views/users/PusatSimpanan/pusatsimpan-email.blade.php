@@ -74,8 +74,9 @@
                                     Jenis Emel</label>
                                 <div class="col-md-6">
                                     <fieldset class="form-group">
-                                        <select class="form-control" id="basicSelect" name="TypeOfEmail">
-                                            <option selected hidden disabled>Sila Pilih Jenis Emel</option>
+                                        <select class="form-control" id="basicSelect" name="TypeOfEmail" required
+                                        oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                            <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                             <option value="pertanyaan">Pertanyaan
                                             </option>
                                             <option value="pindaan">Pindaan
@@ -99,7 +100,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                     Daripada (Alamat Emel)</label>
                                 <div class="col-md-6">
-                                    <input type="email" class="form-control" name='FromEmail' id="FromEmail" required
+                                    <input type="email" class="form-control" name='FromEmail' id="FromEmail" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         title="Sila isikan butiran ini.">
                                     {{-- @error('alamat_kilang_1')
                                         <div class="alert alert-danger">
@@ -113,7 +114,7 @@
                                     class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                     Tajuk</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name='Subject'
+                                    <input type="text" class="form-control" name='Subject' oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         id="Subject" required title="Sila isikan butiran ini.">
                                     {{-- @error('alamat_kilang_1')
                                         <div class="alert alert-danger">
@@ -215,7 +216,7 @@
                     </form>
                 </div>
 
-         
+
 
 
 

@@ -72,8 +72,8 @@
                                                 Jenis Emel</label>
                                             <div class="col-md-6">
                                                 <fieldset class="form-group">
-                                                    <select class="form-control" id="basicSelect" name="TypeOfEmail">
-                                                        <option selected hidden disabled>Sila Pilih Jenis Emel</option>
+                                                    <select class="form-control" id="basicSelect" name="TypeOfEmail" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                                        <option selected hidden disabled value="">Sila Pilih Jenis Emel</option>
                                                         <option value="pertanyaan">Pertanyaan
                                                         </option>
                                                         <option value="pindaan">Pindaan
@@ -97,7 +97,7 @@
                                                 class="text-right col-sm-5 control-label col-form-label required align-items-center mb-2">
                                                 Daripada (Alamat Emel)</label>
                                             <div class="col-md-6">
-                                                <input type="email" class="form-control" name='FromEmail' id="FromEmail" required
+                                                <input type="email" class="form-control" name='FromEmail' id="FromEmail" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     title="Sila isikan butiran ini.">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
@@ -112,7 +112,7 @@
                                                 Tajuk</label>
                                             <div class="col-md-6">
                                                 <input type="text" class="form-control" name='Subject'
-                                                    id="Subject" required title="Sila isikan butiran ini.">
+                                                    id="Subject" required title="Sila isikan butiran ini." oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                                 {{-- @error('alamat_kilang_1')
                                                     <div class="alert alert-danger">
                                                         <strong>{{ $message }}</strong>
@@ -132,7 +132,7 @@
 
                                                 </div>
 
-                                                <input type="hidden" id="quill_html" name="Message"
+                                                <input type="hidden" id="quill_html" requiredoninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" name="Message"
                                                     value="{{ old('Message') }}">
                                                 {{-- <div class="col-md-6" >
                                                     <div id="snow" oninput="add_message()">
@@ -267,6 +267,15 @@
             return false;
         }
     }
-</script>
+    </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+
+        });
+    </script>
 
 @endsection

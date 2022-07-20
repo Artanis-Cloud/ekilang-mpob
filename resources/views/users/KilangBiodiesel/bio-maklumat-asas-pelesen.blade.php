@@ -42,7 +42,7 @@
                     </h5>
                 </div>
                 <hr>
-                <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> *
+                <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> *
                 </b><i>'</i>
                 <form action="{{ route('bio.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post" onsubmit="return check()" novalidate>
                     @csrf
@@ -814,7 +814,7 @@
                 }
             </script>
 
-  
+
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -838,8 +838,7 @@
 
             document.getElementById('bil_tangki_jumlah').innerHTML = jumlah_input.toFixed(2);
         }
-    </script>
-    <script>
+
         function validation_jumlah2() {
             var kap_tangki_cpo = $("#kap_tangki_cpo").val();
             var kap_tangki_ppo = $("#kap_tangki_ppo").val();
@@ -902,7 +901,95 @@
                 e_as3 = document.getElementById("e_as3");
                 e_as3.value = e_ap3.value;
 
+ 
+        }
+    </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
 
+        });
+    </script>
+    <script>
+        let bil_cpo = document.querySelector("#bil_tangki_cpo");
+        let kap_cpo = document.querySelector("#kap_tangki_cpo");
+        let bil_ppo = document.querySelector("#bil_tangki_ppo");
+        let kap_ppo = document.querySelector("#kap_tangki_ppo");
+        let bil_cpko = document.querySelector("#bil_tangki_cpko");
+        let kap_cpko = document.querySelector("#kap_tangki_cpko");
+        let bil_ppko = document.querySelector("#bil_tangki_ppko");
+        let kap_ppko = document.querySelector("#kap_tangki_ppko");
+        let bil_oleo = document.querySelector("#bil_tangki_oleo");
+        let kap_oleo = document.querySelector("#kap_tangki_oleo");
+        let bil_others = document.querySelector("#bil_tangki_others");
+        let kap_others = document.querySelector("#kap_tangki_others");
+        kap_cpo.disabled = true;
+        kap_ppo.disabled = true;
+        kap_cpko.disabled = true;
+        kap_ppko.disabled = true;
+        kap_oleo.disabled = true;
+        kap_others.disabled = true;
+        bil_cpo.addEventListener("change", stateHandle);
+        bil_ppo.addEventListener("change", stateHandle);
+        bil_cpko.addEventListener("change", stateHandle);
+        bil_ppko.addEventListener("change", stateHandle);
+        bil_oleo.addEventListener("change", stateHandle);
+        bil_others.addEventListener("change", stateHandle);
+
+        // val_cpo = $('#kap_tangki_cpo').val();
+
+        function stateHandle() {
+            if (document.querySelector("#bil_tangki_cpo").value === "" || document.querySelector("#bil_tangki_cpo")
+                .value === "0") {
+                kap_cpo.disabled = true;
+                document.querySelector("#kap_tangki_cpo").value = "0";
+
+            } else {
+                kap_cpo.disabled = false;
+            }
+            if (document.querySelector("#bil_tangki_ppo").value === "" || document.querySelector("#bil_tangki_ppo")
+                .value === "0") {
+                kap_ppo.disabled = true;
+                document.querySelector("#kap_tangki_ppo").value = "0";
+
+            } else {
+                kap_ppo.disabled = false;
+            }
+            if (document.querySelector("#bil_tangki_cpko").value === "" || document.querySelector("#bil_tangki_cpko")
+                .value === "0") {
+                kap_cpko.disabled = true;
+                document.querySelector("#kap_tangki_cpko").value = "0";
+
+            } else {
+                kap_cpko.disabled = false;
+            }
+            if (document.querySelector("#bil_tangki_ppko").value === "" || document.querySelector("#bil_tangki_ppko")
+                .value === "0") {
+                kap_ppko.disabled = true;
+                document.querySelector("#kap_tangki_ppko").value = "0";
+
+            } else {
+                kap_ppko.disabled = false;
+            }
+            if (document.querySelector("#bil_tangki_oleo").value === "" || document.querySelector("#bil_tangki_oleo")
+                .value === "0") {
+                kap_oleo.disabled = true;
+                document.querySelector("#kap_tangki_oleo").value = "0";
+
+            } else {
+                kap_oleo.disabled = false;
+            }
+            if (document.querySelector("#bil_tangki_others").value === "" || document.querySelector("#bil_tangki_others")
+                .value === "0") {
+                kap_others.disabled = true;
+                document.querySelector("#kap_tangki_others").value = "0";
+
+            } else {
+                kap_others.disabled = false;
+            }
         }
     </script>
 

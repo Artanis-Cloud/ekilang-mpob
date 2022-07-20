@@ -89,7 +89,7 @@
                                                     </div>
                                                     <div class="col-md-2">
                                                         <input type="number" class="form-control" name='e104_a5' max="31" oninvalid="this.setCustomValidity('Sila pastikan tidah melebihi 31 hari')"
-                                                            onkeypress="return isNumberKey(event)" id="e104_a5" required
+                                                            onkeypress="return isNumberKey(event)" id="e104_a5" required oninput="this.setCustomValidity('')"
                                                             title="Sila isikan butiran ini." value="{{ old('e104_a5') ?? $penyata->e104_a5 }}">
                                                         @error('e104_a5')
                                                         <div class="alert alert-danger">
@@ -114,7 +114,8 @@
                                                     </div>
                                                     <div class="col-md-2">
                                                         <input type="text" class="form-control" name='e104_a6'
-                                                            onkeypress="return isNumberKey(event)" id="e104_a6" oninput="validate_two_decimal(this)"
+                                                            onkeypress="return isNumberKey(event)" id="e104_a6"
+                                                            oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                             required title="Sila isikan butiran ini." value="{{ $penyata->e104_a6 }}">
                                                         @error('e104_a6')
                                                         <div class="alert alert-danger">

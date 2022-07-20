@@ -747,16 +747,19 @@
 
                             <form action="{{ route('bio.update.papar.penyata', [$user->ebio_reg]) }}" method="post">
                                 @csrf
-                                <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                <p>
+                                    <div class="required">Nama Pegawai Melapor:</div>
                                     <input type="text" id="ebio_npg" class="form-control" size="50" name="ebio_npg"
                                     value="{{ $user->ebio_npg ?? ''}}" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
 
                                 </p>
-                                <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                <p>
+                                    <div class="required">Jawatan Pegawai Melapor:</div>
                                     <input type="text" id="ebio_jpg" class="form-control" size="50" name="ebio_jpg"
                                     value="{{ $user->ebio_jpg ?? ''}}" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                 </p>
-                                <p>No Telefon Kilang: &nbsp;&nbsp;
+                                <p>
+                                    <div class="required">No Telefon Kilang:</div>
 
                                     <input type="text" id="ebio_notel" class="form-control" size="50" name="ebio_notel"
                                     value="{{ $user->ebio_notel ?? ''}}" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
@@ -842,6 +845,15 @@
             newwin.print();
             newwin.close();
         }
+    </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+
+        });
     </script>
 
     </body>

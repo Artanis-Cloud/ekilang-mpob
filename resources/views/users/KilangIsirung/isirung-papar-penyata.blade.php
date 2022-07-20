@@ -879,17 +879,23 @@
                                             <form action="{{ route('isirung.update.papar.penyata', [$penyatai->e102_reg]) }}"
                                                 method="post">
                                                 @csrf
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                            <p>
+                                                <div class="required">Nama Pegawai Melapor:</div>
                                                 <input type="text" id="e_npg" class="form-control" size="50"
+                                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     name='e102_npg' value="{{ $penyatai->e102_npg }}" required>
                                             </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                            <p>
+                                                <div class="required">Jawatan Pegawai Melapor:</div>
                                                 <input type="text" id="e_jpg" class="form-control" size="50"
+                                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     name='e102_jpg' value="{{ $penyatai->e102_jpg }}" required>
                                             </p>
-                                            <p>No Telefon Kilang: &nbsp;&nbsp;
+                                            <p>
+                                                <div class="required">No Telefon Kilang:</div>
 
                                                 <input type="text" id="e_notel" class="form-control" size="50"
+                                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     name="e102_notel" value="{{ $penyatai->e102_notel }}" required>
                                             </p>
 
@@ -980,6 +986,15 @@
             newwin.print();
             newwin.close();
         }
+    </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+
+        });
     </script>
 
     </body>

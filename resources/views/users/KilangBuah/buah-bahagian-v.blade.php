@@ -195,7 +195,7 @@
 
 
 
-                                    <div class="form-group" style="padding: 10px ; margin-bottom: 17%">
+                                    <div class="form-group" style="padding: 10px ; margin-bottom: 11%">
                                         <a href="{{ route('buah.bahagianiv') }}" class="btn btn-primary"
                                             style="float: left">Sebelumnya</a>
 
@@ -283,6 +283,15 @@
                             console.log(jumlah_input.toFixed(2));
                             document.getElementById('total').innerHTML = jumlah_input.toFixed(2);
                         }
+                    </script>
+                    <script>
+                        document.addEventListener('keypress', function (e) {
+                            if (e.keyCode === 13 || e.which === 13) {
+                                e.preventDefault();
+                                return false;
+                            }
+
+                        });
                     </script>
 
                     </body>

@@ -417,15 +417,18 @@
                                                 method="post">
                                                 @csrf
 
-                                            <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                            <p>
+                                                <div class="required">Nama Pegawai Melapor:</div>
                                                 <input type="text" id="e_npg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     name='e07_npg' value="{{ $user->e07_npg }}">
                                             </p>
-                                            <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                            <p>
+                                                <div class="required">Jawatan Pegawai Melapor:</div>
                                                 <input type="text" id="e_jpg" class="form-control" size="50" maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     name='e07_jpg' value="{{ $user->e07_jpg }}">
                                             </p>
-                                            <p>No Telefon Kilang: &nbsp;&nbsp;
+                                            <p>
+                                                <div class="required">No Telefon Kilang:</div>
 
                                                 <input type="text" id="e_notel" class="form-control" size="50" maxlength="50" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                                     name="e07_notel" value="{{ $user->e07_notel }}">
@@ -512,6 +515,15 @@
             newwin.print();
             newwin.close();
         }
+    </script>
+    <script>
+        document.addEventListener('keypress', function (e) {
+            if (e.keyCode === 13 || e.which === 13) {
+                e.preventDefault();
+                return false;
+            }
+
+        });
     </script>
 
     </body>

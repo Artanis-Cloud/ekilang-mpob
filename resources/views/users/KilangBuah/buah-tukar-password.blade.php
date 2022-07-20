@@ -55,6 +55,7 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="password" class="form-control" name='old_password' id="myInput"  length="8"
+                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                     placeholder="Kata Laluan Terdahulu" required title="Sila isikan butiran ini.">
                                 @error('old_password')
                                     <div class="alert alert-danger">
@@ -71,8 +72,9 @@
                                 Laluan Baru <i>(8 Aksara)</i></label>
                             </div>
                             <div class="col-md-4">
-                                <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8" oninput="setCustomValidity('')"
-                                oninvalid="setCustomValidity('Kata laluan kurang dari 8 aksara')"
+                                <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8"
+                                oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
+                                oninput="this.setCustomValidity('')"
                                     placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                 @error('new_password')
                                                         <div class="alert alert-danger">
@@ -195,5 +197,14 @@
                         x.type = "password";
                     }
                 }
+            </script>
+            <script>
+                document.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
             </script>
         @endsection

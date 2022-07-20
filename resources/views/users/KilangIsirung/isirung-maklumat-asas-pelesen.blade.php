@@ -57,7 +57,7 @@
                         {{-- <p>Maklumat Kilang</p> --}}
                     </div>
                     <hr>
-                    <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> *
+                    <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> *
                     </b><i>'</i>
                     <form action="{{ route('isirung.update.maklumat.asas.pelesen', [$pelesen->e_id]) }}" method="post" onsubmit="return check()" novalidate>
                         @csrf
@@ -116,8 +116,9 @@
                                 </div>
                                 <div class="col-md-7">
                                     <input type="text" id="e_as1" class="form-control" autocomplete="off"
-                                        placeholder="Alamat Surat Menyurat 1" name="e_as1"
-                                        value="{{ $pelesen->e_as1 }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
+                                        placeholder="Alamat Surat Menyurat 1" name="e_as1" maxlength="60"
+                                        value="{{ $pelesen->e_as1 }}" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                        oninput="this.setCustomValidity('')">
                                     @error('e_as1')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -592,6 +593,12 @@
                         error += "Name must be 2-4 characters\r\n";
                     }
 
+                    // jawatan pegawai bertanggungjawab
+                    field = document.getElementById("e_jpgtg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
                     // emel pengurus
                     field = document.getElementById("e_email_pengurus");
                     if (!field.checkValidity()) {
@@ -732,6 +739,15 @@
 
 
                 }
+            </script>
+            <script>
+                document.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
             </script>
             </body>
 

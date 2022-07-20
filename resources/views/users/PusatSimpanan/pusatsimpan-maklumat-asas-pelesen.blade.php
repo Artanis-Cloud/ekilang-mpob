@@ -53,11 +53,12 @@
                             {{-- <p>Maklumat Kilang</p> --}}
                         </div>
                         <hr>
-                        <i>Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> *
+                        <i>Arahan: Sila pastikan anda mengisi semua maklumat di kawasan yang bertanda ' </i><b style="color: red"> *
                         </b><i>'</i>
 
                         {{-- @if ($pelesen) --}}
-                        <form action="{{ route('pusatsimpan.update.maklumat.asas.pelesen') }}" method="post">
+                        <form action="{{ route('pusatsimpan.update.maklumat.asas.pelesen') }}" method="post" id="myform"
+                        onsubmit="return check()" novalidate>
                             {{-- @else
                             <form action="{{ route('pusatsimpan.update.maklumat.asas.pelesen') }}"
                                     method="post">
@@ -233,7 +234,7 @@
                                         No. Telefon Pegawai Melapor</label>
                                     </div>
                                     <div class="col-md-7">
-                                        <input type="text" id="no-tel-pegawai-melapor" class="form-control" maxlength="40"
+                                        <input type="text" id="e_notel_pg" class="form-control" maxlength="40"
                                             placeholder="No. Telefon Pegawai Melapor" name="e_notel_pg"
                                             onkeypress="return isNumberKey(event)"
                                             value="{{ $pelesen->e_notel_pg ?? '' }}" required>
@@ -609,8 +610,6 @@
         </body>
 
         </html>
-    @endsection
-
 
             <script src="{{ asset('theme/js/feather-icons/feather.min.js') }}"></script>
             <script src="{{ asset('theme/dist/js/custom.js') }}"></script>
@@ -620,9 +619,7 @@
 
             <script src="assets/js/main.js"></script>
 
-            <script>
-                < script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" >
-            </script>
+            <script src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
             <script type="text/javascript">
                 $(document).ready(function() {
                     $(".floatNumberField").change(function() {
@@ -671,6 +668,192 @@
                 }
             </script>
             <script>
+                function check() {
+                    // (B1) INIT
+                    var error = "",
+                        field = "";
+
+                    // alamat premis 1
+                    field = document.getElementById("e_ap1");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // alamat surat-menyurat 1
+                    field = document.getElementById("e_as1");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // no tel kilang
+                    field = document.getElementById("e_notel");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // email kilang
+                    field = document.getElementById("e_email");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // nama pegawai melapor
+                    field = document.getElementById("e_npg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // jawatan pegawai melapor
+                    field = document.getElementById("e_jpg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // no tel pegawai melapor
+                    field = document.getElementById("e_notel_pg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // email pegawai melapor
+                    field = document.getElementById("e_email_pg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // nama pegawai bertanggungjawab
+                    field = document.getElementById("e_npgtg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    //Jawatan pegawai bertanggungjawab
+                    field = document.getElementById("e_jpgtg");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // emel pengurus
+                    field = document.getElementById("e_email_pengurus");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // syarikat induk
+                    field = document.getElementById("e_syktinduk");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // kumpulan
+                    field = document.getElementById("e_group");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_proses
+                    field = document.getElementById("kap_proses");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki cpo
+                    field = document.getElementById("bil_tangki_cpo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil_tangki_ppo
+                    field = document.getElementById("bil_tangki_ppo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil_tangki_cpko
+                    field = document.getElementById("bil_tangki_cpko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // bil tangki ppko
+                    field = document.getElementById("bil_tangki_ppko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                     // bil tangki oleo
+                     field = document.getElementById("bil_tangki_oleo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // bil tangki others
+                    field = document.getElementById("bil_tangki_others");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki cpo
+                    field = document.getElementById("kap_tangki_cpo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_tangki_ppo
+                    field = document.getElementById("kap_tangki_ppo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap_tangki_cpko
+                    field = document.getElementById("kap_tangki_cpko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+                    // kap tangki ppko
+                    field = document.getElementById("kap_tangki_ppko");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // kap tangki oleo
+                    field = document.getElementById("kap_tangki_oleo");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+                    // kap tangki others
+                    field = document.getElementById("kap_tangki_others");
+                    if (!field.checkValidity()) {
+                        error += "Name must be 2-4 characters\r\n";
+                    }
+
+
+                    // POMA
+                    // field = document.getElementById("e_poma");
+                    // if (!field.checkValidity()) {
+                    //     error += "Name must be 2-4 characters\r\n";
+                    // }
+
+                    // (B4) RESULT
+                    if (error == "") {
+                        return true;
+                    } else {
+                        toastr.error(
+                            'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                            'Ralat!', {
+                                "progressBar": true
+                            })
+                        return false;
+                    }
+
+                    // if (error == "") {
+                    //     return true;
+                    // } else {
+                    //     toastr.error(
+                    //         'Terdapat maklumat tidak lengkap. Lengkapkan semua butiran bertanda (*) sebelum tekan butang Simpan',
+                    //         'Ralat!', {
+                    //             "progressBar": true
+                    //         })
+                    //     return false;
+                    // }
+                }
+            </script>
+
+
+            <script>
                 function alamat() {
                     var x = $("#alamat_sama").is(":checked");
 
@@ -717,4 +900,95 @@
 
                 }
             </script>
+            <script>
+                document.addEventListener('keypress', function (e) {
+                    if (e.keyCode === 13 || e.which === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+
+                });
+            </script>
+            <script>
+                let bil_cpo = document.querySelector("#bil_tangki_cpo");
+                let kap_cpo = document.querySelector("#kap_tangki_cpo");
+                let bil_ppo = document.querySelector("#bil_tangki_ppo");
+                let kap_ppo = document.querySelector("#kap_tangki_ppo");
+                let bil_cpko = document.querySelector("#bil_tangki_cpko");
+                let kap_cpko = document.querySelector("#kap_tangki_cpko");
+                let bil_ppko = document.querySelector("#bil_tangki_ppko");
+                let kap_ppko = document.querySelector("#kap_tangki_ppko");
+                let bil_oleo = document.querySelector("#bil_tangki_oleo");
+                let kap_oleo = document.querySelector("#kap_tangki_oleo");
+                let bil_others = document.querySelector("#bil_tangki_others");
+                let kap_others = document.querySelector("#kap_tangki_others");
+                kap_cpo.disabled = true;
+                kap_ppo.disabled = true;
+                kap_cpko.disabled = true;
+                kap_ppko.disabled = true;
+                kap_oleo.disabled = true;
+                kap_others.disabled = true;
+                bil_cpo.addEventListener("change", stateHandle);
+                bil_ppo.addEventListener("change", stateHandle);
+                bil_cpko.addEventListener("change", stateHandle);
+                bil_ppko.addEventListener("change", stateHandle);
+                bil_oleo.addEventListener("change", stateHandle);
+                bil_others.addEventListener("change", stateHandle);
+
+                // val_cpo = $('#kap_tangki_cpo').val();
+
+                function stateHandle() {
+                    if (document.querySelector("#bil_tangki_cpo").value === "" || document.querySelector("#bil_tangki_cpo")
+                        .value === "0") {
+                        kap_cpo.disabled = true;
+                        document.querySelector("#kap_tangki_cpo").value = "0";
+
+                    } else {
+                        kap_cpo.disabled = false;
+                    }
+                    if (document.querySelector("#bil_tangki_ppo").value === "" || document.querySelector("#bil_tangki_ppo")
+                        .value === "0") {
+                        kap_ppo.disabled = true;
+                        document.querySelector("#kap_tangki_ppo").value = "0";
+
+                    } else {
+                        kap_ppo.disabled = false;
+                    }
+                    if (document.querySelector("#bil_tangki_cpko").value === "" || document.querySelector("#bil_tangki_cpko")
+                        .value === "0") {
+                        kap_cpko.disabled = true;
+                        document.querySelector("#kap_tangki_cpko").value = "0";
+
+                    } else {
+                        kap_cpko.disabled = false;
+                    }
+                    if (document.querySelector("#bil_tangki_ppko").value === "" || document.querySelector("#bil_tangki_ppko")
+                        .value === "0") {
+                        kap_ppko.disabled = true;
+                        document.querySelector("#kap_tangki_ppko").value = "0";
+
+                    } else {
+                        kap_ppko.disabled = false;
+                    }
+                    if (document.querySelector("#bil_tangki_oleo").value === "" || document.querySelector("#bil_tangki_oleo")
+                        .value === "0") {
+                        kap_oleo.disabled = true;
+                        document.querySelector("#kap_tangki_oleo").value = "0";
+
+                    } else {
+                        kap_oleo.disabled = false;
+                    }
+                    if (document.querySelector("#bil_tangki_others").value === "" || document.querySelector("#bil_tangki_others")
+                        .value === "0") {
+                        kap_others.disabled = true;
+                        document.querySelector("#kap_tangki_others").value = "0";
+
+                    } else {
+                        kap_others.disabled = false;
+                    }
+                }
+            </script>
+
+    @endsection
+
 

@@ -193,8 +193,6 @@
 
                 <div class="row form-group" style="margin-top: 3%; ">
 
-
-
                     <div class="text-right col-md-6 mb-4 ">
                         <button type="button" class="btn btn-primary" style="margin-left:90%"
                             data-toggle="modal"data-target="#emel">Hantar</button>

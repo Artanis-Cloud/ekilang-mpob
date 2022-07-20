@@ -55,6 +55,7 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="password" class="form-control" name='old_password' id="myInput"
+                                    oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                     placeholder="Kata Laluan Terdahulu" required title="Sila isikan butiran ini.">
                                 @error('old_password')
                                     <div class="alert alert-danger">
@@ -71,6 +72,8 @@
                             </div>
                             <div class="col-md-4">
                                 <input type="password" class="form-control" name='new_password' id="myInput2"  minlength="8"
+                                oninvalid="this.setCustomValidity('Sila masukkan lebih dari 8 aksara')"
+                                oninput="this.setCustomValidity('')"
                                     placeholder="Kata Laluan Baru" required title="Sila isikan butiran ini.">
                                 @error('new_password')
                                     <div class="alert alert-danger">
@@ -162,7 +165,7 @@
 
         function validatePassword(){
         if(password.value != confirm_password.value) {
-            confirm_password.setCustomValidity("Passwords Don't Match");
+            confirm_password.setCustomValidity("Kata laluan tidak sama");
         } else {
             confirm_password.setCustomValidity('');
         }

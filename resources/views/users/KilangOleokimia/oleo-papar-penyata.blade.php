@@ -832,15 +832,18 @@
 
                             <form action="{{ route('oleo.update.papar.penyata', [$pelesen2->e104_reg]) }}" method="post">
                                 @csrf
-                                <p>Nama Pegawai Melapor: &nbsp;&nbsp;
+                                <p>
+                                    <div class="required">Nama Pegawai Melapor:</div>
                                     <input type="text" id="e_npg" class="form-control" size="50" name='e104_npg'  maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         value="{{ $pelesen2->e104_npg }}">
                                 </p>
-                                <p>Jawatan Pegawai Melapor: &nbsp;&nbsp;
+                                <p>
+                                    <div class="required">Jawatan Pegawai Melapor:</div>
                                     <input type="text" id="e_jpg" class="form-control" size="50" name='e104_jpg'  maxlength="60" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         value="{{ $pelesen2->e104_jpg }}">
                                 </p>
-                                <p>No Telefon Kilang: &nbsp;&nbsp;
+                                <p>
+                                    <div class="required">No Telefon Kilang:</div>
 
                                     <input type="text" id="e_notel" class="form-control" size="50" name="e104_notel"  maxlength="50" required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
                                         value="{{ $pelesen2->e104_notel }}">
