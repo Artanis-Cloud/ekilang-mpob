@@ -295,7 +295,7 @@
                     console.log(error);
                 }
 
-                // function validateForm(event) { 
+                // function validateForm(event) {
                 //     var phone = document.getElementById('myform_phone').value;
                 //     if (!validatePhoneNumber(phone)) {
                 //         document.getElementById('phone_error').classList.remove('hidden');
@@ -314,5 +314,15 @@
                     // return false;
                 }
             }
+        </script>
+        <script>
+            document.addEventListener('keypress', function (e) {
+                if (e.keyCode === 13 || e.which === 13) {
+                    e.preventDefault();
+                    return false;
+                }
+
+            });
+
         </script>
     @endsection

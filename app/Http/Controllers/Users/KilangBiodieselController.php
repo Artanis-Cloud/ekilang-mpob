@@ -1393,8 +1393,13 @@ class KilangBiodieselController extends Controller
     {
         // dd($request->all());
         $this->validation_send_email($request->all())->validate();
-        $this->store_send_email($request->all());
+       // $this->store_send_email($request->all());
 
+       if ($request->file_upload) {
+            $this->store_send_email($request->all());
+        } else {
+            $this->store_send_email2($request->all());
+        }
 
         return redirect()->back()->with('success', 'Emel sudah dihantar');
     }
@@ -1420,6 +1425,23 @@ class KilangBiodieselController extends Controller
         if ($data['file_upload']) {
             $file = $data['file_upload']->store('email/attachement', 'public');
         }
+
+        return Ekmessage::create([
+            // 'Id' => $data['Id'],
+            'Date' => date("Y-m-d H:i:s"),
+            'FromName' => auth()->user()->name,
+            'FromLicense' => auth()->user()->username,
+            'TypeOfEmail' => $data['TypeOfEmail'],
+            'FromEmail' => $data['FromEmail'],
+            'Category' => auth()->user()->category,
+            'Subject' => $data['Subject'],
+            'Message' => $data['Message'],
+            'file_upload' => $file ?? null,
+
+        ]);
+    }
+    protected function store_send_email2(array $data)
+    {
 
         return Ekmessage::create([
             // 'Id' => $data['Id'],
