@@ -44,9 +44,9 @@
             {{-- <div class="card-header border-bottom">
                             <h3 class='p-1 pl-3 card-heading'>Pengumuman</h3>
                         </div> --}}
-            @if ($errors->any())
+            {{-- @if ($errors->any())
                 {{ implode('', $errors->all('<div>:message</div>')) }}
-            @endif
+            @endif --}}
             <div class="card-body">
                 {{-- <div class="row"> --}}
                 {{-- <div class="col-md-4 col-12"> --}}

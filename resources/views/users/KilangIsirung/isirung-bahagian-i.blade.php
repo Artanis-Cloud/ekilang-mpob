@@ -247,8 +247,8 @@
                                                 <td style="text-align:center;">
                                                     <input type="text" size="10" name='e102_af2'
                                                         style="text-align: center" required
-                                                        oninput="validate_two_decimal(this)" id='e102_af2'
-                                                        onkeyup="FormatCurrency(this)"
+                                                        oninput="validate_two_decimal(this)"
+                                                        onkeyup="FormatCurrency(this)" id='e102_af2'
                                                         onkeypress="return isNumberKey(event)"
                                                         value="{{ number_format($penyata->e102_af2 ?? 0, 2) }}">
                                                 </td>

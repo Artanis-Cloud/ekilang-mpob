@@ -87,23 +87,22 @@
                         <div class="container center mt-4" style="margin-left:4%">
 
                             <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <span class="">Nama Produk dan Kod</span>
                                 </div>
-                                <div class="col-md-3">
-                                    <select class="form-control" id="ebio_b4" name="ebio_b4"
-                                        style="width: 50%">
+                                <div class="col-md-5">
+                                    <select class="form-control" id="ebio_b4" name="ebio_b4">
                                         <option selected hidden disabled>Sila Pilih</option>
                                         @foreach ($produk as $data)
                                             <option value="{{ $data->prodid }}">
-                                                {{ $data->prodname }} - {{ $data->prodid }}
+                                                {{ $data->prodname }} - {{ $data->proddesc }}
                                             </option>
                                         @endforeach
 
                                     </select>
 
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <span class="">Digunakan Untuk Proses Selanjutnya</span>
                                 </div>
                                 <div class="col-md-3">
@@ -123,7 +122,7 @@
                             </div>
 
                             <div class="row mt-4">
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <span class="">Stok Awal di Premis</span>
                                 </div>
                                 <div class="col-md-3">
@@ -139,7 +138,9 @@
                                     @enderror
 
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-2"></div>
+
+                                <div class="col-md-2">
                                     <span class="">Jualan / Edaran Tempatan</span>
                                 </div>
                                 <div class="col-md-3">
@@ -158,7 +159,7 @@
                             </div>
 
                             <div class="row mt-4">
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <span class="">Belian / Terimaan</span>
                                 </div>
                                 <div class="col-md-3">
@@ -173,8 +174,9 @@
                                         </div>
                                     @enderror
                                 </div>
+                                <div class="col-md-2"></div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <span class="">Eksport </span>
                                 </div>
                                 <div class="col-md-3">
@@ -192,7 +194,7 @@
                             </div>
 
                             <div class="row mt-4">
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <span class="">Pengeluaran</span>
                                 </div>
                                 <div class="col-md-3">
@@ -207,8 +209,9 @@
                                         </div>
                                     @enderror
                                 </div>
+                                <div class="col-md-2"></div>
 
-                                <div class="col-md-3">
+                                <div class="col-md-2">
                                     <span class="">Stok Akhir Dilapor</span>
                                 </div>
                                 <div class="col-md-3">
@@ -272,8 +275,8 @@
                                             <tr style="text-align: right">
 
                                                 <td style="text-align: left">
-                                                    {{ $data->produk->prodname }}</td>
-                                                <td>
+                                                    {{ $data->produk->proddesc }}</td>
+                                                <td style="text-align: center">
                                                     {{ $data->produk->prodid }}</td>
                                                 <td>{{ number_format($data->ebio_b5 ??  0,2) }}</td>
                                                 <td>{{ number_format($data->ebio_b6 ?? 0 , 2) }}</td>
