@@ -240,7 +240,7 @@
             });
         }
     </script>
-   <script>
+   {{-- <script>
     var uploadField = document.getElementById("file");
 
     uploadField.onchange = function() {
@@ -267,6 +267,35 @@
             return false;
         }
     }
+    </script> --}}
+    <script>
+        var uploadField = document.getElementById('file');
+        uploadField.onchange = function() {
+
+
+            var filePath = uploadField.value;
+            var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.doc|\.docx|\.xls|\.xlsx|\.pdf)$/i;
+            if (!allowedExtensions.exec(filePath)) {
+                toastr.error(
+                    'Sila masukkan fail dalam bentuk .pdf, .doc, .docx, .xls, .xlsx, .jpg, .jpeg dan .png sahaja',
+                    'Ralat!', {
+                        "progressBar": true
+                    });
+                    this.value = '';
+                return false;
+            }
+
+            if (this.files[0].size > 3145728) {
+                toastr.error('Saiz fail melebihi 3MB!', 'Ralat!', {
+                    "progressBar": true
+                });
+
+                this.value = "";
+            };
+
+
+        };
+
     </script>
     <script>
         document.addEventListener('keypress', function (e) {
