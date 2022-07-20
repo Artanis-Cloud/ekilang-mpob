@@ -100,9 +100,10 @@
                                 Jumlah Hari Kilang Beroperasi Sebulan </label>
                             </div>
                             <div class="col-md-3">
-                                <input type="number" class="form-control" name='hari_operasi' oninvalid="this.setCustomValidity('Sila pastikan bilangan hari tidak melebihi 31 hari')"
-                                 oninput="this.setCustomValidity('')"
-                                    onkeypress="return isNumberKey(event)" id="hari_operasi" required max="31"
+                                <input type="text" class="form-control" name='hari_operasi' oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                oninput="this.setCustomValidity('')"
+                                    onkeypress="return isNumberKey(event)" id="hari_operasi"  oninput="validate_two_decimal(this)"
+                                    required
                                     title="Sila isikan butiran ini." value="{{ $penyata->hari_operasi ?? 0 }}">
                                 @error('hari_operasi')
                                     <div class="alert alert-danger">
@@ -120,9 +121,10 @@
                                 Kadar Penggunaan Kapasiti Sebulan </label>
                             </div>
                             <div class="col-md-3">
-                                <input type="text" class="form-control" name='kapasiti'
-                                    onkeypress="return isNumberKey(event)" id="kapasiti" 
-                                    required oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"
+                                <input type="text" class="form-control" name='kapasiti' oninvalid="this.setCustomValidity('Sila isi ruangan ini')"
+                                oninput="this.setCustomValidity('')"
+                                    onkeypress="return isNumberKey(event)" id="kapasiti" oninput="validate_two_decimal(this)"
+                                    required
                                     title="Sila isikan butiran ini." value="{{ $penyata->kapasiti ?? 0 }}">
                                 @error('kapasiti')
                                     <div class="alert alert-danger">
@@ -135,7 +137,7 @@
 
                     </div>
 
-                    <div class="form-group" style="margin-top:4%; margin-bottom: 250px">
+                    <div class="form-group col-10 ml-auto mr-auto" style="margin-top:4%; margin-bottom: 50px">
                             <a href="{{ route('bio.bahagianiii') }}" class="btn btn-primary"
                                 style="float: left">Sebelumnya</a>
 
@@ -180,14 +182,5 @@
                     </form>
                 </div>
             </div>
-            <script>
-                document.addEventListener('keypress', function (e) {
-                    if (e.keyCode === 13 || e.which === 13) {
-                        e.preventDefault();
-                        return false;
-                    }
-
-                });
-            </script>
 
 @endsection

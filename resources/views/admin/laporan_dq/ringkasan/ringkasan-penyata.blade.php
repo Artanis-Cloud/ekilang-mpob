@@ -220,7 +220,7 @@
 
                                                             <td>{{ $data->e_np }}</td>
                                                             <td>{{ $data->nama_negeri }}</td>
-                                                            <th>{{ $data->e_daerah }}</th>
+                                                            <th>{{ $data->e_daerah }}</th>  
 
 
                                                         </tr>

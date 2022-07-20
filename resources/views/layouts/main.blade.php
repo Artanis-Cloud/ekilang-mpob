@@ -457,17 +457,18 @@
                                 </ul>
                             </li>
                             @if (!$layoutpenyata)
-                            <li class="sidebar-item has-sub">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:;"
-                                    aria-expanded="false">
-                                    <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> <b class="caret"></b> Kemasukan Penyata
-                                        <br>Bulanan</span>
-                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                </a>
+                                <li class="sidebar-item has-sub">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:;"
+                                        aria-expanded="false">
+                                        <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu font-weight-bold"> <b class="caret"></b> Kemasukan
+                                            Penyata
+                                            <br>Bulanan</span>
+                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                    </a>
 
-                                <ul aria-expanded="false" class="collapse first-level sub-menu"
-                                    style="margin-left:5%">
+                                    <ul aria-expanded="false" class="collapse first-level sub-menu"
+                                        style="margin-left:5%">
 
                                         <li class="sidebar-item">
                                             <a href="{{ route('buah.bahagiani') }}" class="sidebar-link load">
@@ -513,8 +514,8 @@
                                                 </span>
                                             </a>
                                         </li>
-                                </ul>
-                            </li>
+                                    </ul>
+                                </li>
                             @else
                                 <li class="sidebar-item">
                                     <a href="{{ route('buah.hantar.penyata') }}" class="sidebar-link">
@@ -579,14 +580,14 @@
                                 </ul>
                             </li>
                             @if (!$layoutpenyata)
-                            <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                    aria-expanded="false">
-                                    <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
-                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                </a>
-                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                        href="javascript:void(0)" aria-expanded="false">
+                                        <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
+                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
 
                                         <li class="sidebar-item">
                                             <a href="{{ route('penapis.bahagiani') }}" class="sidebar-link">
@@ -646,8 +647,8 @@
                                                 </span>
                                             </a>
                                         </li>
-                                </ul>
-                            </li>
+                                    </ul>
+                                </li>
                             @else
                                 <li class="sidebar-item">
                                     <a href="{{ route('penapis.hantar.penyata') }}" class="sidebar-link">
@@ -826,15 +827,14 @@
                                 </ul>
                             </li>
                             @if (!$layoutpenyata)
-
-                            <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                    aria-expanded="false">
-                                    <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
-                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                </a>
-                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                        href="javascript:void(0)" aria-expanded="false">
+                                        <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
+                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
                                         <li class="sidebar-item">
                                             <a href="{{ route('oleo.bahagiania') }}" class="sidebar-link">
                                                 <i class="fas fa-file-alt" style="color:rgb(54, 51, 41) "></i>
@@ -886,17 +886,17 @@
                                                 </span>
                                             </a>
                                         </li>
-                                </ul>
-                            </li>
+                                    </ul>
+                                </li>
                             @else
-                            <li class="sidebar-item">
-                                <a href="{{ route('oleo.hantar.penyata') }}" class="sidebar-link">
-                                    <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                    <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
-                                    </span>
-                                </a>
-                            </li>
-                        @endif
+                                <li class="sidebar-item">
+                                    <a href="{{ route('oleo.hantar.penyata') }}" class="sidebar-link">
+                                        <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                        </span>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="sidebar-item">
                                 <a href="{{ route('oleo.penyatadahulu') }}" class="sidebar-link">
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
@@ -946,14 +946,14 @@
                                 </ul>
                             </li>
                             @if (!$layoutpenyata)
-                            <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                    aria-expanded="false">
-                                    <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
-                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                </a>
-                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                        href="javascript:void(0)" aria-expanded="false">
+                                        <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
+                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
 
                                         <li class="sidebar-item">
                                             <a href="{{ route('pusatsimpan.bahagiana') }}" class="sidebar-link">
@@ -974,17 +974,17 @@
                                                 </span>
                                             </a>
                                         </li>
-                                </ul>
-                            </li>
+                                    </ul>
+                                </li>
                             @else
-                            <li class="sidebar-item">
-                                <a href="{{ route('pusatsimpan.hantar.penyata') }}" class="sidebar-link">
-                                    <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                    <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
-                                    </span>
-                                </a>
-                            </li>
-                        @endif
+                                <li class="sidebar-item">
+                                    <a href="{{ route('pusatsimpan.hantar.penyata') }}" class="sidebar-link">
+                                        <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                        </span>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="sidebar-item">
                                 <a href="{{ route('pusatsimpan.penyatadahulu') }}" class="sidebar-link">
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
@@ -1033,14 +1033,14 @@
                                 </ul>
                             </li>
                             @if (!$layoutpenyata)
-                            <li class="sidebar-item">
-                                <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                    aria-expanded="false">
-                                    <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
-                                    <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
-                                    {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
-                                </a>
-                                <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
+                                <li class="sidebar-item">
+                                    <a class="sidebar-link has-arrow waves-effect waves-dark"
+                                        href="javascript:void(0)" aria-expanded="false">
+                                        <i class="fas fa-desktop" style="color:rgb(54, 51, 41) "></i>
+                                        <span class="hide-menu font-weight-bold"> Kemasukan Penyata <br>Bulanan</span>
+                                        {{-- <span class="badge badge-pill badge-info ml-auto m-r-15">3</span> --}}
+                                    </a>
+                                    <ul aria-expanded="false" class="collapse first-level" style="margin-left:5%">
 
                                         <li class="sidebar-item">
                                             <a href="{{ route('bio.bahagiania') }}" class="sidebar-link">
@@ -1093,17 +1093,17 @@
                                                 </span>
                                             </a>
                                         </li>
-                                </ul>
-                            </li>
+                                    </ul>
+                                </li>
                             @else
-                            <li class="sidebar-item">
-                                <a href="{{ route('bio.hantar.penyata') }}" class="sidebar-link">
-                                    <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
-                                    <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
-                                    </span>
-                                </a>
-                            </li>
-                        @endif
+                                <li class="sidebar-item">
+                                    <a href="{{ route('bio.hantar.penyata') }}" class="sidebar-link">
+                                        <i class="fas fa-paste" style="color:rgb(54, 51, 41)"></i>
+                                        <span class="hide-menu"><b>Penyata Bulanan Terkini</b>
+                                        </span>
+                                    </a>
+                                </li>
+                            @endif
                             <li class="sidebar-item">
                                 <a href="{{ route('bio.penyatadahulu') }}" class="sidebar-link">
                                     <i class="far fa-calendar-alt" style="color:rgb(54, 51, 41)"></i>
@@ -1603,6 +1603,9 @@
 <script src="{{ asset('nice-admin/assets/libs/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
 <script src="{{ asset('nice-admin/assets/libs/sweetalert2/sweet-alert.init.js') }}"></script>
 
+{{-- search select --}}
+<link href="{{ asset('nice-admin/assets/css/cdn.css') }}  " rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script src="{{ asset('nice-admin/assets/libs/bootstrap-duallistbox/dist/jquery.bootstrap-duallistbox.min.js') }}">
 </script>
@@ -1610,6 +1613,12 @@
 <script src="{{ asset('nice-admin/dist/js/pages/datatable/datatable-advanced.init.js') }}"></script>
 <script src="{{ asset('nice-admin/dist/js/custom.min.js') }}"></script>
 
+{{-- search select --}}
+<script>
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+</script>
 {{-- notification --}}
 <script>
     @if (Session::has('success'))

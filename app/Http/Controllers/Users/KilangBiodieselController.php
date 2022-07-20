@@ -15,12 +15,14 @@ use App\Models\Pelesen;
 use Illuminate\Http\Request;
 use App\Models\Produk;
 use App\Models\ProfileBulanan;
+use App\Models\SyarikatPembeli;
 use App\Models\User;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Monolog\Handler\IFTTTHandler;
 use Symfony\Component\Console\Input\Input;
 
 class KilangBiodieselController extends Controller
@@ -556,7 +558,7 @@ class KilangBiodieselController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $produk = Produk::whereIn('prodcat', ['03','06','08'])->orderBy('prodname')->get();
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08'])->orderBy('prodname')->get();
 
         if ($user) {
             $penyata = EBioB::with('ebioinit', 'produk')->where('ebio_reg', $user->ebio_reg)->where('ebio_b3', '3')->get();
@@ -808,11 +810,12 @@ class KilangBiodieselController extends Controller
         $bulan = date("m") - 1;
         $tahun = date("Y");
 
-        $produk = Produk::whereIn('prodcat', ['03','06','08','12'])->orderBy('prodname')->get();
+        $produk = Produk::whereIn('prodcat', ['03', '06', '08', '12'])->orderBy('prodname')->get();
         if ($user) {
             $penyata = EBioC::with('ebioinit', 'produk', 'ebiocc')->where('ebio_reg', $user->ebio_reg)->get();
             // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
             // dd($penyata);
+            $syarikat = SyarikatPembeli::get();
             $senarai_syarikat = EBioCC::with('ebioinit')->where('ebio_reg', $user->ebio_reg)->get();
 
             $totaliiic4 = DB::table("e_bio_c_s")->where('ebio_reg', $user->ebio_reg)->sum('ebio_c4');
@@ -839,6 +842,7 @@ class KilangBiodieselController extends Controller
                 'totaliiic10',
                 'bulan',
                 'tahun',
+                'syarikat'
             ));
         } else {
 
@@ -874,8 +878,14 @@ class KilangBiodieselController extends Controller
         } else {
             // dd($request->all());
             // $this->validation_bahagian_iii($request->all())->validate();
-            $this->store_bahagian_iii($request->all());
-            $this->store_bahagian_iii2($request->all());
+            if ($request->ebio_c3 == 'AW') {
+                $this->store_bahagian_iii($request->all());
+                $this->store_bahagian_iii2($request->all());
+            } else {
+                $this->store_bahagian_iii($request->all());
+
+            }
+
 
             return redirect()->route('bio.bahagianiii')->with('success', 'Maklumat sudah ditambah');
         }
@@ -938,6 +948,21 @@ class KilangBiodieselController extends Controller
         }
         return $bio;
     }
+    // protected function store_bahagian_iii3(array $data)
+    // {
+    //     $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+    //     // dd($ebio_reg);
+    //     foreach ($data['jumlah_row_hidden'] as $key => $value) {
+    //         $bio = EBioCC::create([
+    //             'ebio_reg' => $ebio_reg->ebio_reg,
+    //             'ebio_cc2' => $data['ebio_c3'],
+    //             'ebio_cc3' => $data['new_syarikat_hidden'][$key],
+    //             'ebio_cc4' => $data['jumlah_row_hidden'][$key],
+
+    //         ]);
+    //     }
+    //     return $bio;
+    // }
 
     public function bio_edit_bahagian_iii(Request $request, $id)
     {
@@ -981,7 +1006,6 @@ class KilangBiodieselController extends Controller
         // dd($syarikat);
         foreach ($syarikat as $key => $data) {
             $data->delete();
-
         }
         // dd($syarikat);
 
@@ -1197,14 +1221,10 @@ class KilangBiodieselController extends Controller
                 'bulan',
                 'tahun'
             ));
-            } else {
-                return redirect()->back()
-                    ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
-            }
-
-
-
-
+        } else {
+            return redirect()->back()
+                ->with('error', 'Data Tidak Wujud! Sila hubungi pegawai MPOB');
+        }
     }
 
     public function bio_update_papar_penyata(Request $request, $id)
