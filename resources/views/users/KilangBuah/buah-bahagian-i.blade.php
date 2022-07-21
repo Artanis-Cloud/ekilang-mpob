@@ -117,25 +117,25 @@
                                                         Stok Awal Di Premis</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa1' id='e91_aa1' style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"  onkeyup="FormatCurrency(this)"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"  onkeyup="FormatCurrency(this)"
                                                             onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{ number_format( $kilang->e91_aa1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa2' id='e91_aa2'required oninvalid="setCustomValidity('Sila isi butiran ini')" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                                             onkeypress="return isNumberKey(event)" onkeyup="FormatCurrency(this)"
                                                             value="{{number_format( $kilang->e91_aa2 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa3' id='e91_aa3'required oninvalid="setCustomValidity('Sila isi butiran ini')" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
                                                             onkeypress="return isNumberKey(event)" onkeyup="FormatCurrency(this)"
                                                             value="{{number_format( $kilang->e91_aa3 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_aa4' id='e91_aa4'required oninvalid="setCustomValidity('Sila isi butiran ini')" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
                                                             onkeypress="return isNumberKey(event)" onkeyup="FormatCurrency(this)"
                                                             value="{{number_format( $kilang->e91_aa4 ?? 0,2) }}">
                                                     </td>
@@ -146,23 +146,23 @@
                                                         Belian/Terimaan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" name='e91_ab1' id='e91_ab1'id="number" required oninvalid="setCustomValidity('Sila isi butiran ini')" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            style="text-align: center" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5()"
                                                             onkeypress="return isNumberKey(event)" onkeyup="FormatCurrency(this)"
                                                             value="{{number_format( $kilang->e91_ab1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ab2' id='e91_ab2'  onkeyup="FormatCurrency(this)"  onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc6()" name='e91_ab2' id='e91_ab2'  onkeyup="FormatCurrency(this)"  onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ab2 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ab3' id='e91_ab3'   onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc7()" name='e91_ab3' id='e91_ab3'   onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ab3 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ab4'  id='e91_ab4'  onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc8()" name='e91_ab4'  id='e91_ab4'  onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ab4 ?? 0,2) }}">
                                                     </td>
 
@@ -172,7 +172,7 @@
                                                         Diproses</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"  onkeyup="FormatCurrency(this)" name='e91_ac1' id='e91_ac1'   onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc9()"  onkeyup="FormatCurrency(this)" name='e91_ac1' id='e91_ac1'   onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ac1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center; background-color:#808080b8">
@@ -198,17 +198,17 @@
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ad1' id='e91_ad1' onkeyup="FormatCurrency(this)"  onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc10()" name='e91_ad1' id='e91_ad1' onkeyup="FormatCurrency(this)"  onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ad1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ad2' id='e91_ad2' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc11()" name='e91_ad2' id='e91_ad2' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ad2 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ad3' id='e91_ad3' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc12()" name='e91_ad3' id='e91_ad3' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ad3 ?? 0,2) }}">
                                                     </td>
 
@@ -218,22 +218,22 @@
                                                         Jualan/Edaran Tempatan</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ae1' id='e91_ae1' onkeyup="FormatCurrency(this)"  onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc13()" name='e91_ae1' id='e91_ae1' onkeyup="FormatCurrency(this)"  onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ae1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ae2' id='e91_ae2' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc14()" name='e91_ae2' id='e91_ae2' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ae2 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ae3' id='e91_ae3' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc15()" name='e91_ae3' id='e91_ae3' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ae3 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ae4' id='e91_ae4' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc16()" name='e91_ae4' id='e91_ae4' onkeyup="FormatCurrency(this)" onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ae4 ?? 0,2) }}">
                                                     </td>
 
@@ -260,17 +260,17 @@
                                                         Stok Akhir Di Premis</td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" onkeyup="FormatCurrency(this)" name='e91_ag1' id='e91_ag1'onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc17()" onkeyup="FormatCurrency(this)" name='e91_ag1' id='e91_ag1'onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             value="{{number_format( $kilang->e91_ag1 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
-                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ag2' id='e91_ag2'
+                                                        <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')" oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc18()" name='e91_ag2' id='e91_ag2'
                                                         onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')" onkeyup="FormatCurrency(this)"
                                                             value="{{number_format( $kilang->e91_ag2 ?? 0,2) }}">
                                                     </td>
                                                     <td style="text-align:center;">
                                                         <input type="text" size="10" style="text-align: center" oninvalid="setCustomValidity('Sila isi butiran ini')"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')" name='e91_ag3' id='e91_ag3' onkeyup="FormatCurrency(this)"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc19()" name='e91_ag3' id='e91_ag3' onkeyup="FormatCurrency(this)"
                                                             onkeypress="return isNumberKey(event)" required oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onchange="setTwoNumberDecimal()"
                                                             value="{{number_format( $kilang->e91_ag3 ?? 0,2) }}">
@@ -353,6 +353,349 @@
         <!-- ======= Footer ======= -->
 
         @section('scripts')
+        <script>
+            function invokeFunc() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_aa2').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc2() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_aa3').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc3() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_aa4').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc4() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ab1').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc5() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ab2').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc6() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ab3').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc7() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ab4').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc8() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ac1').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc9() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ad1').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc10() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ad2').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc11() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ad3').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc12() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ae1').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+
+        <script>
+            function invokeFunc13() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ae2').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc14() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ae3').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+        <script>
+            function invokeFunc15() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ae4').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+           <script>
+            function invokeFunc16() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ag1').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+           <script>
+            function invokeFunc17() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ag2').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+           <script>
+            function invokeFunc18() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ag3').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
+           <script>
+            function invokeFunc19() {
+                addEventListener('keydown', function(evt) {
+                    var whichKey = checkKey(evt);
+                    if (whichKey == 13) {
+                        console.log('successful');
+                        evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                        document.getElementById('e91_ag4').focus();
+                    }
+
+                });
+            }
+
+            function checkKey(evt) {
+                console.log(evt.which);
+                return evt.which;
+            }
+        </script>
             <script type="text/javascript">
                 $(document).ready(function() {
                     $(".floatNumberField").change(function() {
