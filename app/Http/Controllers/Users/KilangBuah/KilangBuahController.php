@@ -259,6 +259,12 @@ class KilangBuahController extends Controller
                 ->with('error', 'Sila masukkan kata laluan lama yang betul');
         }
 
+
+        if (!Hash::check($request->old_password, $request->new_password)) {
+            return redirect()->route('buah.tukarpassword')
+                ->with('error', 'Kata laluan baru sama dengan kata laluan lama');
+        }
+
         $password = Hash::make($request->new_password);
         $user->password = $password;
         $user->save();
