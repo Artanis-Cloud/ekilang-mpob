@@ -79,18 +79,18 @@
                         </div>
                         <hr>
 
-                        <div class="container center mt-4" style="margin-left:4%">
+                        <div class="container center mt-4 col-10 ml-auto mr-auto" >
                             <div class="row">
                                     <div class="col-md-3 mt-3">
                                         <span class="">Nama Produk Sawit dan Kod</span>
                                     </div>
-                                    <div class="col-md-3 mt-3">
-                                    <select class="form-control" id="produk" name="e07bt_produk" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" style="width: 70%">
+                                    <div class="col-md-7 mt-3">
+                                    <select class="form-control select2" id="produk" name="e07bt_produk" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')">
                                         <option selected hidden disabled value="">Sila Pilih</option>
                                         @foreach ($produks as $produk)
                                             @if ($produk->prodname != '')
                                                 <option value="{{ $produk->prodid }}">
-                                                    {{ $produk->prodname }} - {{ $produk->prodid }}
+                                                    {{ $produk->prodname }} - {{ $produk->proddesc }}
                                                 </option>
                                             @endif
                                         @endforeach
@@ -108,9 +108,9 @@
                                     <div class="col-md-3 mt-3">
                                         <span class="">Stok Awal</span>
                                     </div>
-                                    <div class="col-md-3 mt-3">
+                                    <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_stokawal' style="width: 70%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_stokawal" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
+                                        id="e07bt_stokawal" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('');invokeFunc()" title="Sila isikan butiran ini." >
                                     @error('e07bt_stokawal')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -122,9 +122,9 @@
                                         Terimaan Dalam Negeri &nbsp;<i class="fa fa-exclamation-circle" style="color: red"
                                             title="Jumlah Penerimaan Dalam Negeri adalah termasuk jumlah Import."></i></span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_terima' style="width: 70%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_terima" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
+                                        id="e07bt_terima" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc2()" title="Sila isikan butiran ini." >
                                     @error('e07bt_terima')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -137,7 +137,7 @@
                                     <div class="col-md-3 mt-3">
                                     <span>Import</span>
                                 </div>
-                                    <div class="col-md-3 mt-3">
+                                    <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_import' style="width: 70%"
                                         id="e07bt_import" title="Sila isikan butiran ini." readonly>
                                     @error('e07bt_import')
@@ -152,9 +152,9 @@
                                         Edaran Tempatan  &nbsp;<i class="fa fa-exclamation-circle" style="color: red"
                                         title="Jumlah Edaran Tempatan adalah termasuk jumlah Eksport."></i></span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_edaran' style="width: 70%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_edaran" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
+                                        id="e07bt_edaran" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc3()" title="Sila isikan butiran ini." >
                                     @error('e07bt_edaran')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -167,7 +167,7 @@
                                 <div class="col-md-3 mt-3">
                                     <span>Eksport</span>
                                 </div>
-                                    <div class="col-md-3 mt-3">
+                                    <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_eksport' style="width: 70%"
                                         id="e07bt_eksport" title="Sila isikan butiran ini." readonly >
                                     @error('e07bt_eksport')
@@ -180,9 +180,9 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Pelarasan(+/-)</span>
                                 </div>
-                                <div class="col-md-3 mt-3">
+                                <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_pelarasan' style="width: 70%" onkeypress="return isNumberKey(event)"
-                                        id="e07bt_pelarasan" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
+                                        id="e07bt_pelarasan" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity(''); invokeFunc4()"  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
                                     @error('e07bt_pelarasan')
                                         <div class="alert alert-danger">
                                             <strong>{{ $message }}</strong>
@@ -195,7 +195,7 @@
                                 <div class="col-md-3 mt-3">
                                     <span class="">Stok Akhir</span>
                                 </div>
-                                    <div class="col-md-3 mt-3">
+                                    <div class="col-md-2 mt-3">
                                     <input type="text" class="form-control" name='e07bt_stokakhir' style="width: 70%" onkeypress="return isNumberKey(event)"
                                         id="e07bt_stokakhir" required  oninvalid="this.setCustomValidity('Sila isi ruangan ini')" oninput="this.setCustomValidity('')" title="Sila isikan butiran ini." >
                                     @error('e07bt_stokakhir')
@@ -238,7 +238,7 @@
                                             @foreach ($penyata as $data)
                                                 <tr style="text-align: right">
                                                     <td style="text-align: left">
-                                                        {{ $data->produk->prodname }}</td>
+                                                        {{ $data->produk->proddesc }}</td>
                                                     <td>{{ number_format($data->e07bt_stokawal ?? 0, 2) }}
                                                     </td>
                                                     <td>{{ number_format($data->e07bt_terima ?? 0, 2) }}
@@ -300,7 +300,7 @@
                                                                             <div class="form-group">
                                                                                 <input type="text" name='e07bt_produk'
                                                                                     class="form-control"
-                                                                                    value="{{ $data->produk->prodname }}"
+                                                                                    value="{{ $data->produk->proddesc }}"
                                                                                     readonly>
                                                                             </div>
                                                                             <label class="required">Stok Awal </label>
@@ -499,7 +499,7 @@
 
 
     {{-- <div id="preloader"></div> --}}
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+    {{-- <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
             class="bi bi-arrow-up-short"></i></a>
 
 
@@ -512,8 +512,82 @@
     <script src="assets/js/main.js"></script>
 
     <script src="{{ asset('theme/libs/DataTables2/datatables.min.js') }}"></script>
-    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script>
+    <script src="{{ asset('theme/js/pages/datatable/datatable-basic.init.js') }}"></script> --}}
 
+    @endsection
+    @section('scripts')
+    <script>
+        function invokeFunc() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e07bt_terima').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
+    <script>
+        function invokeFunc2() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e07bt_edaran').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
+    <script>
+        function invokeFunc3() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e07bt_pelarasan').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
+    <script>
+        function invokeFunc4() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e07bt_stokakhir').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
     <script>
         $(document).ready(function() {
             var table = $('#example').DataTable({

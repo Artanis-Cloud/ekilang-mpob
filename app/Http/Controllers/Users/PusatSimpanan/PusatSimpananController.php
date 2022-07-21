@@ -11,6 +11,7 @@ use App\Models\H07Init;
 use Illuminate\Http\Request;
 use App\Models\Pelesen;
 use App\Models\Produk;
+use App\Models\RegPelesen;
 use App\Models\User;
 use DateTime;
 use Illuminate\Support\Facades\Validator;
@@ -280,6 +281,11 @@ class PusatSimpananController extends Controller
                 ->with('error', 'Sila masukkan kata laluan lama yang betul');
         }
 
+        if (!Hash::check($request->old_password, $request->new_password)) {
+            return redirect()->route('pusatsimpan.tukarpassword')
+                ->with('error', 'Kata laluan baru sama dengan kata laluan lama');
+        }
+
         $password = Hash::make($request->new_password);
         $user->password = $password;
         $user->save();
@@ -312,8 +318,8 @@ class PusatSimpananController extends Controller
         if ($user) {
             $penyata = E07Btranshipment::with('e07init', 'produk')->where('e07bt_idborang', $user->e07_reg)->get();
 
-            $produks = Produk::select('prodid', 'prodname')->where('prodcat', '!=', '07')->orderBy('prodname')->get();
-            // dd($penyata);
+            $produks = Produk::where('prodcat', '!=', '07')->orderBy('prodname')->get();
+            // dd($produks);
             $total = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_stokawal');
             $total2 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_terima');
             $total3 = DB::table("e07_btranshipment")->where('e07bt_idborang', $user->e07_reg)->sum('e07bt_edaran');
@@ -523,6 +529,12 @@ class PusatSimpananController extends Controller
         $penyata->e07_notel = $request->e07_notel;
         $penyata->save();
 
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen->e_npg = $request->e07_npg;
+        $pelesen->e_jpg = $request->e07_jpg;
+        $pelesen->e_notel_pg = $request->e07_notel;
+        $pelesen->save();
+
 
         return redirect()->route('pusatsimpan.hantar.penyata')
             ->with('success', 'Penyata Sudah Dihantar');
@@ -662,6 +674,16 @@ class PusatSimpananController extends Controller
     public function pusatsimpan_penyatadahulu()
     {
 
+        $pelesen = RegPelesen::with('pelesen')->where('e_nl', auth()->user()->username)->first();
+
+        $year = $pelesen->pelesen->e_year;
+        // dd($year);
+        if($year){
+            $tahun = $year;
+        }else{
+            $tahun = 2003;
+        }
+
         $breadcrumbs    = [
             ['link' => route('pusatsimpan.dashboard'), 'name' => "Laman Utama"],
             ['link' => route('pusatsimpan.penyatadahulu'), 'name' => "Penyata Bulanan Terdahulu  "],
@@ -677,7 +699,7 @@ class PusatSimpananController extends Controller
 
 
 
-        return view('users.PusatSimpanan.pusatsimpan-penyata-dahulu', compact('returnArr', 'layout'));
+        return view('users.PusatSimpanan.pusatsimpan-penyata-dahulu', compact('returnArr', 'layout','pelesen','tahun','year'));
     }
 
     protected function validation_terdahulu(array $data)

@@ -575,7 +575,7 @@
                                         <i class="bx bx-x d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block" style="color:#275047">Tidak</span>
                                     </button>
-                                    <button type="submit" class="btn btn-primary ml-1" data-bs="modal">
+                                    <button type="submit" class="btn btn-primary ml-1" data-bs="modal" id="checkBtn">
                                         <i class="bx bx-check d-block d-sm-none"></i>
                                         <span class="d-none d-sm-block">Ya</span>
                                     </button>
@@ -901,7 +901,7 @@
                 e_as3 = document.getElementById("e_as3");
                 e_as3.value = e_ap3.value;
 
- 
+
         }
     </script>
     <script>
@@ -992,6 +992,31 @@
             }
         }
     </script>
+                 <script type="text/javascript">
+                    $(document).ready(function() {
+                        $('#checkBtn').click(function() {
+                            cpo = $('#bil_tangki_cpo').val();
+                            ppo = $('#bil_tangki_ppo').val();
+                            cpko = $('#bil_tangki_cpko').val();
+                            ppko = $('#bil_tangki_ppko').val();
+                            oleo = $('#bil_tangki_oleo').val();
+                            others = $('#bil_tangki_others').val();
+
+                            if (cpo == 0 && ppo == 0 && cpko == 0 && ppko == 0 && oleo == 0 && others == 0) {
+                                console.log('lain');
+
+                                toastr.error(
+                                    'Sila isi bilangan salah satu tangki produk',
+                                    'Ralat!', {
+                                        "progressBar": true
+                                    })
+                                return false;
+                            }
+
+
+                        });
+                    });
+                </script>
 
 
 
