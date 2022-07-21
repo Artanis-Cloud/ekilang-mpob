@@ -83,7 +83,7 @@ class KilangBiodieselController extends Controller
     public function bio_update_maklumat_asas_pelesen(Request $request, $id)
     {
         // dd($request->all());
-        if(isset($request['alamat_sama'])){
+        if (isset($request['alamat_sama'])) {
             $penyata = Pelesen::findOrFail($id);
             $penyata->e_nlkppk = $request->e_nlkppk;
             $penyata->e_ap1 = $request->e_ap1;
@@ -119,8 +119,7 @@ class KilangBiodieselController extends Controller
             $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
             $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
             $penyata->kap_tangki_others = $request->kap_tangki_others;
-        }
-        else{
+        } else {
             $penyata = Pelesen::findOrFail($id);
             $penyata->e_nlkppk = $request->e_nlkppk;
             $penyata->e_ap1 = $request->e_ap1;
@@ -156,15 +155,14 @@ class KilangBiodieselController extends Controller
             $penyata->kap_tangki_ppko = $request->kap_tangki_ppko;
             $penyata->kap_tangki_oleo = $request->kap_tangki_oleo;
             $penyata->kap_tangki_others = $request->kap_tangki_others;
-
         }
 
-            $penyata->save();
+        $penyata->save();
 
-            $map = User::where('username', $penyata->e_nl)->first();
-            $map->map_flg = '1';
-            $map->map_sdate = now();
-            $map->save();
+        $map = User::where('username', $penyata->e_nl)->first();
+        $map->map_flg = '1';
+        $map->map_sdate = now();
+        $map->save();
 
         return redirect()->route('bio.maklumatasaspelesen')
             ->with('success', 'Maklumat telah dikemaskini');
@@ -863,6 +861,58 @@ class KilangBiodieselController extends Controller
 
     }
 
+    public function bio_maklumat_jualan()
+    {
+
+        $breadcrumbs    = [
+            ['link' => route('bio.dashboard'), 'name' => "Laman Utama"],
+            ['link' => route('bio.bahagianiii'), 'name' => "Bahagian 3"],
+            ['link' => route('bio.bahagianiii'), 'name' => "Maklumat Jualan/Edaran"],
+        ];
+
+        $kembali = route('bio.bahagianiii');
+
+        $returnArr = [
+            'breadcrumbs' => $breadcrumbs,
+            'kembali'     => $kembali,
+        ];
+
+        $user = EBioInit::where('ebio_nl', auth()->user()->username)->first('ebio_reg');
+
+        $bulan = date("m") - 1;
+        $tahun = date("Y");
+
+
+            $penyata = EBioC::with('ebioinit', 'produk', 'ebiocc')->where('ebio_reg', $user->ebio_reg)->get();
+            // $penyata_test = DB::select("select * from `e_bio_c_s` where `ebio_reg` = $user->ebio_reg");
+
+            $senarai_syarikat = EBioCC::with('ebioinit')->where('ebio_reg', $user->ebio_reg)->get();
+            // dd($senarai_syarikat[0]->ebio_cc1);
+
+
+            return view('users.KilangBiodiesel.bio-maklumat-jualan', compact(
+                'returnArr',
+                'senarai_syarikat',
+                'user',
+                'penyata',
+                'bulan',
+                'tahun',
+            ));
+
+        // $penyata = [];
+        // $totaliiic4 = 0;
+        // $totaliiic5 = 0;
+        // $totaliiic6 = 0;
+        // $totaliiic7 = 0;
+        // $totaliiic8 = 0;
+        // $totaliiic9 = 0;
+        // $totaliiic10 = 0;
+
+        // dd($user);
+
+
+    }
+
     public function bio_add_bahagian_iii(Request $request)
     {
         $ebio_reg = EBioInit::where('ebio_nl', auth()->user()->username)->first();
@@ -883,7 +933,6 @@ class KilangBiodieselController extends Controller
                 $this->store_bahagian_iii2($request->all());
             } else {
                 $this->store_bahagian_iii($request->all());
-
             }
 
 
@@ -985,6 +1034,18 @@ class KilangBiodieselController extends Controller
 
         return redirect()->route('bio.bahagianiii')
             ->with('success', 'Maklumat telah disimpan');
+    }
+
+
+    public function bio_update_bahagian_iii_sykt(Request $request, $id)
+    {
+        // dd($request->all());
+        $penyata = EBioCC::findOrFail($id);
+        $penyata->ebio_cc4 = $request->ebio_cc4;
+        $penyata->save();
+
+        return redirect()->back()
+            ->with('success', 'Maklumat telah dikemaskini');
     }
 
 
@@ -1239,6 +1300,12 @@ class KilangBiodieselController extends Controller
         $penyata->ebio_jpg = $request->ebio_jpg;
         $penyata->ebio_notel = $request->ebio_notel;
         $penyata->save();
+
+        $pelesen = Pelesen::where('e_nl', auth()->user()->username)->first();
+        $pelesen->e_npg = $request->ebio_npg;
+        $pelesen->e_jpg = $request->ebio_jpg;
+        $pelesen->e_notel_pg = $request->ebio_notel;
+        $pelesen->save();
 
 
         return redirect()->route('bio.hantar.penyata')
