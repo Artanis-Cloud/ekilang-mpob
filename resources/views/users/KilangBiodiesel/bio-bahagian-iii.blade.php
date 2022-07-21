@@ -298,10 +298,9 @@
                                                 <td>{{ number_format($data->ebio_c6 ?? 0, 2) }}</td>
                                                 <td>{{ number_format($data->ebio_c7 ?? 0, 2) }}</td>
                                                 @if ($data->produk->prodid == 'AW')
-                                                    <td>{{ number_format($data->ebio_c8 ?? 0, 2) }} &nbsp; <i
-                                                            class="far fa-file-alt" style="color: blue; cursor: pointer;"
-                                                            data-toggle="modal"
-                                                            data-target="#modal{{ $key }}"></i>
+                                                    <td> {{ number_format($data->ebio_c8 ?? 0, 2) }} &nbsp; <a href="{{ route('bio.maklumat.jualan', $data->e_id) }}">
+                                                               <i
+                                                                class="far fa-file-alt" style="color: blue; cursor: pointer;"></i></a>
                                                     </td>
                                                 @else
                                                     <td>{{ number_format($data->ebio_c8 ?? 0, 2) }}</td>
