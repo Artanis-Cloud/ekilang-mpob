@@ -86,7 +86,8 @@
         <div class="container-fluid">
             <div class="tab" style="margin-right:4%; margin-left:2%">
 
-                <a style="color:black; border-radius:unset; font-size:14.4px;"
+                <a  href="{{ route('admin.ringkasan.penyata') }}"
+                    style="color:black; border-radius:unset; font-size:14.4px;"
                     class="btn btn-work tablinks" >Ringkasan Penyata</a>
 
                 <a href="{{ route('admin.ringkasan.bahagian1') }}"
@@ -101,7 +102,7 @@
                     style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem;"
                     class="btn btn-work tablinks" >Bahagian 3</a>
 
-                <a href="{{ route('admin.ringkasan.jualan.bio') }}"
+                <a
                     style="color:black; border-radius:unset; font-size:14.4px; margin-left:-0.315rem; background-color: lightgray"
                     class="btn btn-work tablinks" >Maklumat Jualan Biodiesel</a>
 
