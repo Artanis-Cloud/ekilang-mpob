@@ -319,8 +319,8 @@
                                                 {{-- <td>{{ $data->e104_b14 }}</td> --}}
                                                 <td>
                                                     <div class="icon" style="text-align: center">
-                                                        <a href="#" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#modal{{ $data->e104_b1 }}">
+                                                        <a href="#" type="button" data-toggle="modal"
+                                                            data-target="#modal{{ $data->e104_b1 }}">
                                                             <i class="fas fa-edit fa-lg" style="color: #ffc107">
                                                             </i>
                                                         </a>
@@ -328,8 +328,8 @@
                                                 </td>
                                                 <td>
                                                     <div class="icon" style="text-align: center">
-                                                        <a href="#" type="button" data-bs-toggle="modal"
-                                                            data-bs-target="#next2{{ $data->e104_b1 }}">
+                                                        <a href="#" type="button" data-toggle="modal"
+                                                            data-target="#next2{{ $data->e104_b1 }}">
                                                             <i class="fa fa-trash"
                                                                 style="color: #dc3545;font-size:18px"></i>
                                                         </a>

@@ -98,7 +98,7 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e91_ah1'
-                                        oninput="validate_two_decimal(this);setCustomValidity('')"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
                                         style="  text-align:right" onkeypress="return isNumberKey(event)"
                                         oninvalid="setCustomValidity('Sila isi butiran ini')" id="jam_pengilangan" required
                                         title="Sila isikan butiran ini." value="{{ $penyata->e91_ah1 ?? 0 }}">
@@ -117,9 +117,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e91_ah2'
-                                        oninput="validate_two_decimal(this);setCustomValidity('')" style=" text-align:right"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()" style=" text-align:right"
                                         onkeypress="return isNumberKey(event)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="kadar_perahan_mksm"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah2"
                                         required title="Sila isikan butiran ini."
                                         value="{{ number_format($oer ?? 0, 2) }}">
                                     @error('e91_ah2')
@@ -136,9 +136,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e91_ah3'
-                                        oninput="validate_two_decimal(this);setCustomValidity('')" style=" text-align:right"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()" style=" text-align:right"
                                         onkeypress="return isNumberKey(event)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="kadar_perolehan_isirung"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah3"
                                         required title="Sila isikan butiran ini."
                                         value="{{ number_format($ker ?? 0, 2) }}">
                                     @error('e91_ah3')
@@ -155,9 +155,9 @@
                                 </div>
                                 <div class="col-md-3">
                                     <input type="text" class="form-control" name='e91_ah4'
-                                        oninput="validate_two_decimal(this);setCustomValidity('')"
+                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
                                         style="  text-align:right" onkeypress="return isNumberKey(event)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="harga_purata_buah_sawit"
+                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="e91_ah4"
                                         placeholder="RM" required title="Sila isikan butiran ini."
                                         value="{{ $penyata->e91_ah4 ?? 0 }}">
                                     <p><i>(1% Kadar Perahan)</i></p>
@@ -502,11 +502,6 @@
             </div>
         </div>
 
-
-
-
-
-
         {{-- <div id="preloader"></div> --}}
         <a href="#" class="back-to-top d-flex justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -519,6 +514,78 @@
 
 
     @section('scripts')
+    <script>
+        function invokeFunc() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e91_ah2').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
+    <script>
+        function invokeFunc2() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e91_ah3').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
+    <script>
+        function invokeFunc3() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('e91_ah4').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
+    <script>
+        function invokeFunc4() {
+            addEventListener('keydown', function(evt) {
+                var whichKey = checkKey(evt);
+                if (whichKey == 13) {
+                    console.log('successful');
+                    evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                    document.getElementById('kadar_oer').focus();
+                }
+
+            });
+        }
+
+        function checkKey(evt) {
+            console.log(evt.which);
+            return evt.which;
+        }
+    </script>
         <script type="text/javascript">
             function showTable() {
                 var oer = $('#kadar_oer').val();

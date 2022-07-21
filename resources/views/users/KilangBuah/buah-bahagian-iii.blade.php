@@ -102,7 +102,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id="e91_ai1"
                                                             name='e91_ai1' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event);"
                                                             onchange="validation_jumlah()" required
@@ -122,7 +122,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id="e91_ai2"
                                                             name='e91_ai2' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc2()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)"
                                                             onchange="validation_jumlah()" required
@@ -142,7 +142,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id='e91_ai3'
                                                             name='e91_ai3' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc3()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai3') ?? ($penyata->e91_ai3 ?? 0) }}"
@@ -161,7 +161,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" id='e91_ai4'
                                                             name='e91_ai4' size="15" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc4()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai4') ?? ($penyata->e91_ai4 ?? 0) }}"
@@ -180,7 +180,7 @@
                                                     <td style="text-align:center;">
                                                         <input type="text" class="calc" name='e91_ai5'
                                                             id='e91_ai5' size="15" id="text1" style="text-align: center"
-                                                            oninput="validate_two_decimal(this);setCustomValidity('')"
+                                                            oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc5()"
                                                             oninvalid="setCustomValidity('Sila isi butiran ini')"
                                                             onkeypress="return isNumberKey(event)" required
                                                             value="{{ old('e91_ai5') ?? ($penyata->e91_ai5 ?? 0) }}"
@@ -299,6 +299,97 @@
 
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
             <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+            <script>
+                function invokeFunc() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e91_ai2').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc2() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e91_ai3').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc3() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e91_ai4').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc4() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e91_ai5').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+            <script>
+                function invokeFunc5() {
+                    addEventListener('keydown', function(evt) {
+                        var whichKey = checkKey(evt);
+                        if (whichKey == 13) {
+                            console.log('successful');
+                            evt.preventDefault(); // if it's inside <form> tag, you don't want to submit it
+                            document.getElementById('e91_ai6').focus();
+                        }
+
+                    });
+                }
+
+                function checkKey(evt) {
+                    console.log(evt.which);
+                    return evt.which;
+                }
+            </script>
+
             <script>
                 function validation_jumlah() {
                     var e91_ai1 = $("#e91_ai1").val();
