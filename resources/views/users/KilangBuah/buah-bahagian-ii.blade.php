@@ -98,10 +98,9 @@
                                         Jumlah Jam Pengilangan</label>
                                 </div>
                                 <div class="col-md-3">
-                                    <input type="text" class="form-control" name='e91_ah1'
-                                        oninput="validate_two_decimal(this);setCustomValidity(''); invokeFunc()"
-                                        style="  text-align:right" onkeypress="return isNumberKey(event)"
-                                        oninvalid="setCustomValidity('Sila isi butiran ini')" id="jam_pengilangan" required
+                                    <input type="number" class="form-control" name='e91_ah1'  oninvalid="this.setCustomValidity('Sila pastikan jumlah hari tidak melebihi 31 hari')"
+                                        oninput="nodecimal(); validate_two_decimal(this);setCustomValidity(''); invokeFunc()" max="31"
+                                        style="  text-align:right" onkeypress="return isNumberKey(event)" id="e91_ah1" required
                                         title="Sila isikan butiran ini." value="{{ $penyata->e91_ah1 ?? 0 }}">
                                     @error('e91_ah1')
                                         <div class="alert alert-danger">
@@ -515,6 +514,18 @@
 
 
     @section('scripts')
+    <script>
+        function nodecimal() {
+            // let decimal = ".00"
+            var x = parseFloat(document.getElementById("e91_ah1").value);
+            if(isNaN(x)){
+                x = 0;
+            }
+            const removedDecimal = Math.round(x);
+            document.querySelector("#e91_ah1").value = removedDecimal;
+            console.log(removedDecimal);
+        }
+    </script>
         <script>
             function invokeFunc() {
                 addEventListener('keydown', function(evt) {
